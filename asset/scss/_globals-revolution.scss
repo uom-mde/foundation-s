@@ -1,5 +1,5 @@
 @import "util/util";
-@import url('https://fonts.googleapis.com/css?family=IM+Fell+DW+Pica:400,400i|IM+Fell+English+SC|Lusitana:400,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap');
 
 $brown: #520603;
 $red: #dd231b;
@@ -12,4 +12,4 @@ $foundation-palette: (
   alert: #cc4b37,
 );
 $body-font-color: $brown;
-$body-font-family: 'Lusitana', serif;
+$body-font-family: 'Open Sans', sans-serif;
