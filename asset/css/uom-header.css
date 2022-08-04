@@ -64,4 +64,5 @@ header .header-top {
 
 .site-heading p {
     color: #6B2C91;
+    margin-bottom: 0;
 }

@@ -1,14 +1,28 @@
+<div class="header-top">
+    <div class="university-logo"><a href="http://www.manchester.ac.uk/library"><img
+            src="https://assets.manchester.ac.uk/corporate/images/design/logo-university-of-manchester.png"
+            alt="The University of Manchester Library logo" /> </a>
+    </div>
+    <div class="site-heading">
+        <p>Manchester Digital Exhibitions</p>
+    </div>
+    <div id="lang">
+        <?php if ($this->getHelperPluginManager()->has('languageSwitcher')) echo $this->languageSwitcher([ 'locale_as_code' => true ]); ?>
+    </div>
+    <nav class="title-bar" data-responsive-toggle="responsive-menu" data-hide-for="large">
+            <button class="menu-toggle" type="button" data-toggle="offCanvas"
+                aria-label="<?php echo $this->translate('Menu'); ?>"><i class="fas fa-bars"></i></button>
+    </nav>
+</div>
 <div class="top-bar">
-    <nav class="top-bar-left">
-        <div class="title-bar" data-responsive-toggle="responsive-menu" data-hide-for="large">
-            <button class="menu-toggle" type="button" data-toggle="offCanvas" aria-label="<?php echo $this->translate('Menu'); ?>"><i class="fas fa-bars"></i></button>
-        </div>
+    <div class="top-bar-left">
         <?php if ($this->themeSetting('logo')): ?>
-        <a href="<?php echo $site->url(); ?>" class="site-title"><img src="<?php echo $this->themeSettingAssetUrl('logo'); ?>" title="Logo"></a>
+        <a href="<?php echo $site->url(); ?>" class="site-title"><img
+                src="<?php echo $this->themeSettingAssetUrl('logo'); ?>" title="Logo"></a>
         <?php else: ?>
         <a href="<?php echo $site->url(); ?>" class="site-title"><?php echo $this->pageTitle($site->title()); ?></a>
         <?php endif; ?>
-    </nav>
+        </div>
     <div class="top-bar-right" id="responsive-menu">
         <?php echo $site->publicNav()->menu()->setPartial('common/foundation-navigation.phtml')->renderPartialWithParams(['layout' => 'dropdown']); ?>
         <div class="search">

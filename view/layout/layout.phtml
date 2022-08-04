@@ -6,7 +6,7 @@ $this->headMeta()->setCharset('utf-8');
 $this->headMeta()->appendName('viewport', 'width=device-width, initial-scale=1');
 $this->headTitle($this->setting('installation_title', 'Omeka S'))->setSeparator(' · ');
 if (isset($stylesheet)) {
-    $this->headLink()->prependStylesheet($this->assetUrl("css/$stylesheet.css"));    
+    $this->headLink()->prependStylesheet($this->assetUrl("css/$stylesheet.css"));
 } else {
     $this->headLink()->prependStylesheet($this->assetUrl('css/default.css'));
 }
@@ -23,16 +23,16 @@ $userBar = $this->userBar();
 $navLayout = ($this->themeSetting('nav_layout')) ? $this->themeSetting('nav_layout') : 'dropdown';
 $this->htmlElement('body')->appendAttribute('class', $navLayout . '-menu');
 if ($userBar) {
-  $this->htmlElement('body')->appendAttribute('class', 'user-bar');
+    $this->htmlElement('body')->appendAttribute('class', 'user-bar');
 }
 
 $banner = $this->themeSettingAssetUrl('banner');
 $bannerWidth = ($this->themeSetting('banner_width')) ? $this->themeSetting('banner_width') : '';
 $bannerHeight = $this->themeSetting('banner_height');
 $bannerHeightMobile = $this->themeSetting('banner_height_mobile');
-$bannerPosition = ($this->themeSetting('banner_position')) ? str_replace('_','-', $this->themeSetting('banner_position')) : 'center';
+$bannerPosition = ($this->themeSetting('banner_position')) ? str_replace('_', '-', $this->themeSetting('banner_position')) : 'center';
 $logo = $this->themeSettingAssetUrl('logo');
-if ($logo):
+if ($logo) :
     $title = '<img src="' . $this->escapeHtml($logo) . '">';
 endif;
 ?>
@@ -46,10 +46,10 @@ endif;
         <?php echo $this->headScript(); ?>
         <style>
             .banner {
-                height: <?php echo ($bannerHeight !== '') ? $bannerHeight: 'auto'  ?>;
+                height: <?php echo ($bannerHeight !== '') ? $bannerHeight : 'auto' ?>;
                 align-items: <?php echo $bannerPosition; ?>;
             }
-        <?php if ($bannerHeightMobile !== ''): ?>
+        <?php if ($bannerHeightMobile !== '') : ?>
             @media screen and (max-width:640px) {
                 .banner {
                     height: <?php echo $bannerHeightMobile; ?>;
@@ -71,12 +71,12 @@ endif;
             <a id="skipnav" href="#content"><?php echo $this->translate('Skip to main content'); ?></a>
             <?php echo $userBar; ?>
             <header>
-                <?php if ($navLayout == 'vertical'): ?>
+                <?php if ($navLayout == 'vertical') : ?>
                 <?php echo $this->partial('common/header-vertical'); ?>
-                <?php else: ?>
+                <?php else : ?>
                 <?php echo $this->partial('common/header-dropdown'); ?>
                 <?php endif; ?>
-                <?php if ($banner): ?>
+                <?php if ($banner) : ?>
                 <div class="banner <?php echo $bannerWidth; ?>">
                     <img src="<?php echo $this->themeSettingAssetUrl('banner'); ?>" title="Banner">
                 </div>
