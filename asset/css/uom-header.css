@@ -1,0 +1,67 @@
+/*Language Selector*/
+
+#lang {
+    order: 2;
+    margin: 0 1 0 1em;
+}
+
+ul.language-switcher.locale-code {
+    padding-inline-start: 0;
+}
+
+ul.language-switcher.locale-code li span.active {
+    color: #343536;
+    text-decoration: underline;
+    font-weight: 600;
+}
+
+ul.language-switcher.locale-code li a {
+    color: #343536;
+    text-decoration: none;
+    font-weight: 400;
+}
+
+
+/*End Language Selector*/
+
+
+/*Set dimensions of UoM common header*/
+
+header .header-top {
+    max-width: 1140px;
+    display: flex;
+    margin: 0 auto;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+
+/*Set size of University logo*/
+
+.university-logo {
+    margin: 12px 24px;
+}
+
+.university-logo img {
+    width: 169px;
+    height: 70px;
+}
+
+
+/*Set 'Manchester Digital Exhibitions text*/
+
+.site-heading {
+    color: #6B2C91;
+    text-decoration: none;
+    padding: 0;
+    margin: 0 30px;
+    display: flex;
+    order: 1;
+    flex-grow: 3;
+    width: 25%;
+}
+
+.site-heading p {
+    color: #6B2C91;
+}

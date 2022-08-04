@@ -1,0 +1,32 @@
+<header role="banner">
+    <div class="header_top">
+        <a href="http://www.manchester.ac.uk/library"><img
+                src="https://assets.manchester.ac.uk/corporate/images/design/logo-university-of-manchester.png"
+                alt="The University of Manchester Library logo" class="university-logo" /></a>
+        <div class="site-heading">
+            <p>Manchester Digital Exhibitions</p>
+        </div>
+        <div class="full-screen-search">
+            <?php echo $this->partial('common/search-form'); ?>
+        </div>
+        <div id="lang">
+            <?php if ($this->getHelperPluginManager()->has('languageSwitcher')) echo $this->languageSwitcher([ 'locale_as_code' => true ]); ?>
+        </div>
+        <div id="oc-trigger">
+            <button id="menu-button" class="o-icon-menu" data-effect="oc-push"
+                aria-label="<?php echo $this->translate('Menu'); ?>"></button>
+            <nav id="menu" class="oc-menu oc-push" role="navigation">
+                <?php echo $site->publicNav()->menu()->renderMenu(); ?>
+            </nav>
+        </div>
+    </div>
+    <div id="navbar" class="navbar">
+        <h1>
+            <a href="<?php echo $site->url(); ?>">
+                <?php echo $escape($siteTitle); ?>
+            </a>
+        </h1>
+        <nav id="top-menu" role="navigation" aria-label="top menu">
+            <?php echo $site->publicNav()->menu()->renderMenu(); ?>
+        </nav>
+    </div>
