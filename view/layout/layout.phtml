@@ -4,7 +4,7 @@ $stylesheet = $this->themeSetting('stylesheet');
 $this->htmlElement('html')->setAttribute('lang', $this->lang());
 $this->headMeta()->setCharset('utf-8');
 $this->headMeta()->appendName('viewport', 'width=device-width, initial-scale=1');
-$this->headTitle($this->setting('installation_title', 'Omeka S'))->setSeparator(' · ');
+$this->headTitle($this->setting('installation_title', 'Omeka S'))->setSeparator(' 路 ');
 if (isset($stylesheet)) {
     $this->headLink()->prependStylesheet($this->assetUrl("css/$stylesheet.css"));
 } else {
@@ -86,7 +86,7 @@ endif;
                 <?php echo $this->content; ?>
             </div>
             <footer class="footerContainer">							
-                            <div class="row tripleVertPadding">
+                            <div class="footer_row tripleVertPadding">
                                 
                                 <div class="eightcol">
                                     <div class="footerLogos">
@@ -132,7 +132,7 @@ endif;
                             
                             <hr>
                                 
-                            <div class="row singleVertPadding">
+                            <div class="footer_row singleVertPadding">
                                 <div class="twelvecol">
                                     <ul class="inlineList">
                                         <li><a href="https://www.manchester.ac.uk/disclaimer/">Disclaimer</a> /</li>
