@@ -15,7 +15,7 @@ $this->headLink()->prependStylesheet($this->assetUrl('css/uom-header.css'));
 $this->headLink()->prependStylesheet($this->assetUrl('css/uom-footer.css'));
 $this->headScript()->prependFile($this->assetUrl('vendor/foundation/foundation.min.js'));
 $this->headScript()->prependFile($this->assetUrl('js/global.js', 'Omeka'));
-$this->headScript()->prependFile($this->assetUrl('js/full-width.js'));
+// $this->headScript()->prependFile($this->assetUrl('js/full-width.js'));
 $this->headScript()->prependFile($this->assetUrl('vendor/jquery/jquery.min.js', 'Omeka'));
 $this->trigger('view.layout');
 $title = $this->pageTitle($site->title());
@@ -153,5 +153,6 @@ endif;
         <script>
           $(document).foundation();
         </script>
+        <script src="/asset/js/full-width-container.js"></script>
     </body>
 </html>
