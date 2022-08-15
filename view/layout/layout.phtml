@@ -4,7 +4,7 @@ $stylesheet = $this->themeSetting('stylesheet');
 $this->htmlElement('html')->setAttribute('lang', $this->lang());
 $this->headMeta()->setCharset('utf-8');
 $this->headMeta()->appendName('viewport', 'width=device-width, initial-scale=1');
-$this->headTitle($this->setting('installation_title', 'Omeka S'))->setSeparator(' 路 ');
+$this->headTitle($this->setting('installation_title', 'Omeka S'))->setSeparator(' . ');
 if (isset($stylesheet)) {
     $this->headLink()->prependStylesheet($this->assetUrl("css/$stylesheet.css"));
 } else {
@@ -16,6 +16,7 @@ $this->headLink()->prependStylesheet($this->assetUrl('css/uom-footer.css'));
 $this->headScript()->prependFile($this->assetUrl('vendor/foundation/foundation.min.js'));
 $this->headScript()->prependFile($this->assetUrl('js/global.js', 'Omeka'));
 // $this->headScript()->prependFile($this->assetUrl('js/full-width.js'));
+$this->headScript()->prependFile($this->assetUrl('js/full-width-container.js'));
 $this->headScript()->prependFile($this->assetUrl('vendor/jquery/jquery.min.js', 'Omeka'));
 $this->trigger('view.layout');
 $title = $this->pageTitle($site->title());
