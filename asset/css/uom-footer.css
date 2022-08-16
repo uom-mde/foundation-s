@@ -34,7 +34,7 @@
         
         .twelvecol 													{ width: 100%; float: left; position: relative; }
         
-        .footerContainer 											{ background: #1d1d1d; clear: both; }
+        .footerContainer 											{ background: #1d1d1d; clear: both; padding: 0; margin: 0; max-width: unset;}
         .footerContent 												{ overflow: hidden;	margin: 0; }
         
         /* Footer */
