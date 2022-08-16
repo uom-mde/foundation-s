@@ -1,16 +1,8 @@
 @import "util/util";
-
 $global-font-size: 100%;
 $global-width: rem-calc(1140);
 $global-lineheight: 1.5;
-$foundation-palette: (
-  primary: #1779ba,
-  secondary: #767676,
-  success: #3adb76,
-  warning: #ffae00,
-  alert: #cc4b37,
-  uom-primary: #6b2c91,
-);
+$foundation-palette: ( primary: #1779ba, secondary: #767676, success: #3adb76, warning: #ffae00, alert: #cc4b37, uom-primary: #6b2c91, );
 $light-gray: #ececed;
 $medium-gray: #cacaca;
 $dark-gray: #393a3c;
@@ -18,11 +10,13 @@ $black: #0a0a0a;
 $white: #fefefe;
 $body-background: $white;
 $body-font-color: $black;
-$body-font-family: 'Open Sans', sans-serif;
+$body-font-family: 'Open Sans',
+sans-serif;
 $body-antialiased: true;
 $global-margin: 1rem;
 $global-padding: 1rem;
 $global-position: 1rem;
+$global-weight-light: 300;
 $global-weight-normal: normal;
 $global-weight-bold: bold;
 $global-radius: 0;
