@@ -33,7 +33,7 @@ $escapeAttr = $plugins->get('escapeHtmlAttr');
 <?php if (empty($attachment['asset'])) return; ?>
 
 <div class="full-width">
-<div class="hero-image large <?= $escapeAttr($attachment['class']) ?>" style="background-image:url(<?= $attachment['asset']->assetUrl() ?>);">
+<div class="hero-image hero-large <?= $escapeAttr($attachment['class']) ?>" style="background-image:url(<?= $attachment['asset']->assetUrl() ?>);">
     <?php if ($attachment['caption']): ?>
     <div class="grid-container grid-x">
         <div class="cell small-8 medium-6">
