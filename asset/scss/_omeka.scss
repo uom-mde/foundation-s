@@ -312,18 +312,10 @@ footer {
   }
 }
 
+//Revised by JMc to allow for UoM footer
 body.vertical-menu footer {
-  background-color: $white;
-  max-width: none;
   width: 100%;
-  margin: 0;
   padding: $global-padding;
-  min-height: 10vh;
-  
-  @include breakpoint(large up) {
-    width: calc(100% - #{xy-cell-size(2)});
-    margin-left: xy-cell-size(2);
-  }
 }
 
 // #. Resource Browse
