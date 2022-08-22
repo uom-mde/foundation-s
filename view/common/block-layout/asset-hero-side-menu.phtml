@@ -1,0 +1,49 @@
+<?php
+
+/**
+ * @var \Laminas\View\Renderer\PhpRenderer $this
+ * @var array $attachments Contains keys:
+ *   - asset (AssetRepresentation)
+ *   - page (PageRepresentation)
+ *   - caption (string): the html is purified according to settings
+ *   - alt_link_title (string)
+ *   Specific to the module version:
+ *   - class (string)
+ *   - title (string): deprecated alias of "alt_link_title"
+ *   - url (string): deprecated, will be removed. Use "page", "caption", alt title, or original asset alt value instead.
+ * @var array $assets Deprecated, alias of attachments.
+ * @var string $heading
+ * @var string $className
+ * @var string $alignment
+ */
+
+// Note: this hero uses the classes and js of Twitter Bootstrap.
+// The hero uses a random asset.
+
+$plugins = $this->getHelperPluginManager();
+$escape = $plugins->get('escapeHtml');
+$escapeAttr = $plugins->get('escapeHtmlAttr');
+?>
+
+<?php if (!empty($heading)) : ?>
+    <h2><?= $escape($heading) ?></h2>
+<?php endif; ?>
+
+<?php if (!count($attachments)) return; ?>
+<?php $attachment = $attachments[array_rand($attachments)]; ?>
+<?php if (empty($attachment['asset'])) return; ?>
+
+
+    <div class="hero-image image-large flex-container margin-bottom-1 <?= $escapeAttr($attachment['class']) ?>" style="background-image:url(<?= $attachment['asset']->assetUrl() ?>);">
+        <?php if ($attachment['caption']) : ?>
+            <div class="grid-container grid-x flex-grow align-middle">
+                <div class="cell small-10 medium-8">
+                    <h2 class="text-center"><?= $attachment['caption'] ?></h2>
+                    <?php $attachmentUrl = $attachment['page'] ? $attachment['page']->siteUrl() : $attachment['url']; ?>
+                    <?php if ($attachment['alt_link_title'] && $attachmentUrl) : ?>
+                        <a href="<?= $escapeAttr($attachmentUrl) ?>"><button class="btn knowmore"><?= $escape($attachment['alt_link_title']) ?></button></a>
+                    <?php endif; ?>
+                </div>
+            </div>
+        <?php endif; ?>
+    </div>
