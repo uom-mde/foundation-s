@@ -87,19 +87,19 @@ $lang = $filterLocale ? $this->lang() : null;
          $date = $item->value('dcterms:date');
          if ($date):
          ?>
-      <h3><small><?php echo $date; ?></small></h3>
+      <h3 class="text-center"><small><?php echo $date; ?></small></h3>
       <?php endif; ?>
       <?php
          $origin = $item->value('curation:location');
          if ($origin):
          ?>
-      <h3><small><?php echo $origin; ?></small></h3>
+      <h3 class="text-center"><small><?php echo $origin; ?></small></h3>
       <?php endif; ?>
       <?php
          $identifier = $item->value('dcterms:identifier');
          if ($identifier):
          ?>
-      <h3><small><?php echo $identifier; ?></small></h3>
+      <h3 class="text-center"><small><?php echo $identifier; ?></small></h3>
       <?php endif; ?>
       </div>
     <div class="text font-wide">
