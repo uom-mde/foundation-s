@@ -80,7 +80,7 @@ body:not(.browse) #content {
 
 body.vertical-menu {
   @include breakpoint(medium up) {
-    background-color: $primary-color;    
+    background-color: $uom-primary;    
   }
 }
 
@@ -232,7 +232,7 @@ header .top-bar {
 }
 
 body.vertical-menu header {
-  background-color: $primary-color;
+  background-color: $uom-primary;
   width: 100%;
 
   @include breakpoint(large up) {
@@ -290,7 +290,7 @@ body.vertical-menu .vertical.menu.nested .active > a {
     left: -1 * $global-padding;
     width: $global-padding;
     bottom: 0;
-    background-color: $primary-color;
+    background-color: $uom-secondary;
   }
 }
 
