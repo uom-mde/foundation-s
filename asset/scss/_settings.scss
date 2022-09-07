@@ -204,7 +204,7 @@ $button-font-family: inherit;
 $button-padding: 0.85em 1em;
 $button-margin: 0 0 $global-margin 0;
 $button-fill: solid;
-$button-background: $uom-secondary;
+$button-background: $secondary-color;
 $button-background-hover: scale-color($button-background, $lightness: -15%);
 $button-color: $white;
 $button-color-alt: $black;
@@ -569,7 +569,7 @@ $tab-margin: 0;
 $tab-background: $white;
 $tab-color: $primary-color;
 $tab-background-active: $light-gray;
-$tab-active-color: $uom-secondary;
+$tab-active-color: $secondary-color;
 $tab-item-font-size: rem-calc(12);
 $tab-item-background-hover: $white;
 $tab-item-padding: 1.25rem 1.5rem;
@@ -610,7 +610,7 @@ $tooltip-radius: $global-radius;
 // 55. Top Bar
 // -----------
 $topbar-padding: 0.5rem;
-$topbar-background: $uom-primary;
+$topbar-background: $primary-color;
 $topbar-submenu-background: $topbar-background;
 $topbar-title-spacing: 0.5rem 1rem 0.5rem 0;
 $topbar-input-width: 200px;
