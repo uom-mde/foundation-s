@@ -46,7 +46,9 @@ if ($galleryDisplay) {
 <div class="grid-x">
 <?php if ($galleryDisplay): ?>
 <?php if (count($iiifMedia) > 0): ?>
-        <?php echo $this->universalViewer($item); ?>
+    <div id="itemfiles" class="<?php echo $mediaDisplay; ?>">
+        <?php echo $this->mirador($item); ?>
+    </div>
     <?php elseif (count($lightMedia) > 0): ?>
     <div id="itemfiles" class="<?php echo $mediaDisplay; ?>">
         <?php foreach ($lightMedia as $media): ?>
