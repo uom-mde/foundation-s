@@ -1211,16 +1211,16 @@ body.vertical-menu footer {
 
 /*John McCrory edits*/
 .fixed-image-height img {
-  height: rem-calc(500px);
+  height: 100%;
   width: 100%;
-  object-fit: cover;
 
   @include breakpoint(medium) {
-    height: rem-calc(400px);
+    height: rem-calc(70vh);
   }
 
-  @include breakpoint(small) {
-    height: 100%;
+  @include breakpoint(large up) {
+    height: rem-calc(75vh);
     width: 100%;
+    object-fit: cover;
   }
 }
