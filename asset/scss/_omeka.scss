@@ -1208,3 +1208,19 @@ body.vertical-menu footer {
 .mapping-block {
   width: 100%;
 }
+
+/*John McCrory edits*/
+.fixed-image-height img {
+  height: rem-calc(500px);
+  width: 100%;
+  object-fit: cover;
+
+  @include breakpoint(medium) {
+    height: rem-calc(400px);
+  }
+
+  @include breakpoint(small) {
+    height: 100%;
+    width: 100%;
+  }
+}
