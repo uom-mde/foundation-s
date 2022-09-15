@@ -19,6 +19,25 @@
         <?php elseif ($showTitleOption == 'file_name'): ?>
         <h3><?php echo $media->displayTitle(); ?></h3>
         <?php endif; ?>
+        <?php
+         $date = $item->value('dcterms:date');
+         if ($date):
+         ?>
+      <h3><small><?php echo $date; ?></small></h3>
+      <?php endif; ?>
+      <?php
+         $origin = $item->value('curation:location');
+         if ($origin):
+         ?>
+      <h3><small><?php echo $origin; ?></small></h3>
+      <?php endif; ?>
+      <?php
+         $identifier = $item->value('dcterms:identifier');
+         if ($identifier):
+         ?>
+      <h3><small><?php echo $identifier; ?></small></h3>
+      <?php endif; ?>
+      </div>
     <?php endif; ?>
 
     <?php
