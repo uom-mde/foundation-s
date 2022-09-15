@@ -20,13 +20,18 @@ if ($galleryDisplay) {
     
     $lightMedia = [];
     $otherMedia = [];
+    $iiifMedia = [];
     $whitelist = ['image/bmp', 'image/gif', 'image/jpeg', 'image/png', 'image/svg+xml'];
     foreach ($itemMedia as $media) {
         $mediaType = $media->mediaType();
         $mediaRenderer = $media->renderer();
-        if (in_array($mediaType, $whitelist) || (strpos($mediaType, 'video') !== false) || (strpos($mediaRenderer, 'youtube') !== false)) {
+        if (strpos($mediaRenderer, 'iiif') !== false) {
+            $iiifMedia[] = $media;
+        }
+        elseif (in_array($mediaType, $whitelist) || (strpos($mediaType, 'video') !== false) || (strpos($mediaRenderer, 'youtube') !== false)) {
             $lightMedia[] = $media;
-        } else {
+        }
+         else {
             $otherMedia[] = $media;
         }
     }
@@ -40,7 +45,9 @@ if ($galleryDisplay) {
 
 <div class="grid-x">
 <?php if ($galleryDisplay): ?>
-    <?php if (count($lightMedia) > 0): ?>
+<?php if (count($iiifMedia) > 0): ?>
+        <?php echo $this->universalViewer($item); ?>
+    <?php elseif (count($lightMedia) > 0): ?>
     <div id="itemfiles" class="<?php echo $mediaDisplay; ?>">
         <?php foreach ($lightMedia as $media): ?>
             <?php 
@@ -163,6 +170,5 @@ if ($galleryDisplay) {
         <?php endif; ?>
         
         <?php $this->trigger('view.show.after'); ?>
-    </div>
-    
+    </div> 
 </div>
