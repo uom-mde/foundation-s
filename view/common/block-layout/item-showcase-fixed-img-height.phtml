@@ -5,14 +5,14 @@
     $item = $attachment->item();
     if ($item):
     ?>
+        <div class="fixed-image-height">
         <?php
         $media = $attachment->media() ?: $item->primaryMedia();
         if ($media):
-            <div class="fixed-image-height">
             echo $item->linkRaw($this->thumbnail($media, $this->thumbnailType));
-            </div>
         endif;
         ?>
+        </div>
         <?php $showTitleOption = $this->showTitleOption; ?>
         <?php if ($showTitleOption == 'item_title'): ?>
         <h3><?php echo $item->link($item->displayTitle()); ?></h3>
