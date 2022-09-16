@@ -777,14 +777,20 @@ body.vertical-menu footer {
 }
 
 #itemfiles.leftgallery {
-  width: 70%;
+  width: 100%;
   align-self: flex-start;
+    @include breakpoint(medium up) {
+      width: 70%;
+    }
 }
 
 #itemfiles.leftgallery ~ #resource-values {
-  padding-left: $global-padding;
+  width: 100%;
   margin: 0;
-  width: 30%;
+    @include breakpoint(medium up) {
+    padding-left: $global-padding;
+    width: 30%;
+  }
 }
 // #. Advanced search
 // ------------------
