@@ -54,12 +54,8 @@ header .header-top {
 .site-heading {
     color: #6B2C91;
     text-decoration: none;
-    padding: 0;
-    margin: 0 30px;
     display: flex;
-    order: 1;
     flex-grow: 3;
-    width: 25%;
 }
 
 .site-heading p {

@@ -145,13 +145,15 @@ body.vertical-menu #user-bar ~ #content {
 
 .site-title h1 {
   margin-bottom: 0;
+  margin-right: rem-calc(3em);
 }
 
 .site-title h1 {
   @include breakpoint(small down) {
+    font-size: $global-font-size;
     font-weight: bold;
     color: $white;
-    padding: $global-padding 1;
+    padding: .5 * $global-padding;
   }
 }
 
@@ -1242,5 +1244,19 @@ body.vertical-menu footer {
     height: rem-calc(800px);
     width: 100%;
     object-fit: cover;
+  }
+}
+
+/*Header*/ 
+
+.site-heading {
+  width: rem-calc(225px);
+  margin: 0 12px;
+}
+
+nav.title-bar {
+  order: 0;
+  @include breakpoint(526) {
+  order: 1;
   }
 }
