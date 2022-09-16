@@ -150,6 +150,8 @@ body.vertical-menu #user-bar ~ #content {
 .site-title h1 {
   @include breakpoint(small down) {
     font-weight: bold;
+    color: $white;
+    padding: $global-padding 1;
   }
 }
 
