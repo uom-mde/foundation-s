@@ -744,9 +744,13 @@ body.vertical-menu footer {
     margin-right: .25 * $global-margin;
 }
 
-#itemfiles.topgallery,
 #itemfiles.leftgallery {
   height: 60vh;
+  width: 100%;
+  margin-bottom: $global-margin;
+}
+
+#itemfiles.topgallery {
   width: 100%;
   margin-bottom: $global-margin;
 }
