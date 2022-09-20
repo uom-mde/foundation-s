@@ -1224,6 +1224,8 @@ body.vertical-menu footer {
 }
 
 /*John McCrory edits*/
+
+/*Item Showcase block styling*/
 .fixed-image-height img {
   height: 100%;
   width: 100%;
@@ -1248,7 +1250,6 @@ body.vertical-menu footer {
 }
 
 /*Header*/ 
-
 .site-heading {
   width: rem-calc(225px);
   margin: 0 12px;
@@ -1266,4 +1267,9 @@ nav.title-bar {
   @include breakpoint(526) {
     order: 0;
     }
+}
+
+/*Card Styling*/
+.card-divider a {
+  color: $white;
 }
