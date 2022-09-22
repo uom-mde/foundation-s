@@ -7,217 +7,211 @@
 //  #. Resource Browse
 //  #. Advanced Search
 //  #. Page
-
 // #. Global Styles
 // ------------------
-
-[type="submit"], 
+[type="submit"],
 [type="button"] {
-  @extend .button;
+    @extend .button;
 }
 
 .input-group .input-group,
 .input-group .button-group,
 .input-group select,
 .input-group [type="text"] {
-  margin-bottom: 0;
+    margin-bottom: 0;
 }
 
 .field {
-  margin-bottom: 2 * $global-margin;
+    margin-bottom: 2 * $global-margin;
 }
 
 select {
-  width: auto;  
-  background: #fff url("../../../../application/asset/img/select-arrow.svg") no-repeat;
-  background-position: right 6px center;
-  background-size: 8px;
-  border: 1px solid $light-gray;
-  margin: 0;
-  padding: (.25 * $global-padding) $global-padding (.25 * $global-padding) (.25 * $global-padding) !important;
-  border-radius: 3px;
-  vertical-align: top;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
+    width: auto;
+    background: #fff url("../../../../application/asset/img/select-arrow.svg") no-repeat;
+    background-position: right 6px center;
+    background-size: 8px;
+    border: 1px solid $light-gray;
+    margin: 0;
+    padding: (.25 * $global-padding) $global-padding (.25 * $global-padding) (.25 * $global-padding) !important;
+    border-radius: 3px;
+    vertical-align: top;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
 }
 
 [type="text"]:not(:only-child) {
-  width: auto;
+    width: auto;
 }
 
 #content {
-  padding: (2 * $global-padding) $global-padding;
-  @include xy-grid-container;
-  
-  @include breakpoint(small down) {
-    padding: 0;
-    margin: $global-margin;
-  }
+    padding: (2 * $global-padding) $global-padding;
+    @include xy-grid-container;
+    @include breakpoint(small down) {
+        padding: 0;
+        margin: $global-margin;
+    }
 }
 
 body:not(.browse) #content {
-  @include xy-grid-container;
-  padding: (2 * $global-padding) 0;  
-
-  @include breakpoint(small down) {
-    padding: 0;
-    margin: $global-margin;
-  }
+    @include xy-grid-container;
+    padding: (2 * $global-padding) 0;
+    @include breakpoint(small down) {
+        padding: 0;
+        margin: $global-margin;
+    }
 }
 
 .break {
-  width: 100%;
-  margin: (2 * $global-margin) 0;
-  clear: both;
+    width: 100%;
+    margin: (2 * $global-margin) 0;
+    clear: both;
 }
 
 .break.opaque {
-  border-top: 1px solid $light-gray;
+    border-top: 1px solid $light-gray;
 }
+
 
 /* Styles for vertical menu layout */
 
 body.vertical-menu {
-  @include breakpoint(medium up) {
-    background-color: $primary-color;    
-  }
+    @include breakpoint(medium up) {
+        background-color: $primary-color;
+    }
 }
 
 body.vertical-menu .off-canvas-content {
-  @include xy-grid();
+    @include xy-grid();
 }
 
 body.vertical-menu #content {
-  width: 100%;
-
-  @include breakpoint(medium up) {
-    background-color: $white;
-    @include xy-cell(auto, $gutters: 0);
-    max-width: none;
-    min-height: 90vh;    
-    margin: 0;
-  }
+    width: 100%;
+    @include breakpoint(medium up) {
+        background-color: $white;
+        @include xy-cell(auto,
+        $gutters: 0);
+        max-width: none;
+        min-height: 90vh;
+        margin: 0;
+    }
 }
 
 body.vertical-menu #user-bar {
-  width: 100%;
+    width: 100%;
 }
 
-body.vertical-menu #user-bar ~ #content {
-  @include breakpoint(medium up) {
-    min-height: calc(90vh - 38px);
-  }
+body.vertical-menu #user-bar~#content {
+    @include breakpoint(medium up) {
+        min-height: calc(90vh - 38px);
+    }
 }
 
 // #. Header
 // ------------------
-
 #skipnav {
-  position: fixed;
-  top: $global-margin;
-  left: 50%;
-  border: 1px solid $light-gray;
-  transform: translateX(-50%);
-  z-index: -5;
-  padding: (.25 * $global-padding);
-  background-color: #fff;
-  opacity: 0;
-  
-  &:focus {
-    z-index: 1000;
-    opacity: 1;
-  }
+    position: fixed;
+    top: $global-margin;
+    left: 50%;
+    border: 1px solid $light-gray;
+    transform: translateX(-50%);
+    z-index: -5;
+    padding: (.25 * $global-padding);
+    background-color: #fff;
+    opacity: 0;
+    &:focus {
+        z-index: 1000;
+        opacity: 1;
+    }
 }
 
 .top-bar form {
-  margin-bottom: 0;
+    margin-bottom: 0;
 }
 
 .site-title img {
-  max-height: 2rem;
-  width: auto;
+    max-height: 2rem;
+    width: auto;
 }
 
 .site-title h1 {
-  @extend h4;
+    @extend h4;
 }
 
 .site-title h1 {
-  margin-bottom: 0;
-  margin-right: rem-calc(3em);
+    margin-bottom: 0;
+    margin-right: rem-calc(3em);
 }
 
 .site-title h1 {
-  @include breakpoint(small down) {
-    font-size: $global-font-size;
-    font-weight: bold;
-    color: $white;
-    padding: .5 * $global-padding;
-  }
+    @include breakpoint(small down) {
+        font-size: $global-font-size;
+        font-weight: bold;
+        color: $white;
+        padding: .5 * $global-padding;
+    }
 }
 
 .site-title img {
-  margin: $global-margin 0;
+    margin: $global-margin 0;
 }
 
-.dropdown.menu > li.is-dropdown-submenu-parent.active > a:after {
-  border-color: #fff transparent transparent;
-  margin-right: .5 * $global-margin;
+.dropdown.menu>li.is-dropdown-submenu-parent.active>a:after {
+    border-color: #fff transparent transparent;
+    margin-right: .5 * $global-margin;
 }
 
-.dropdown.menu > li.is-dropdown-submenu-parent.active > a {
-  padding-right: 2 * $global-padding;
+.dropdown.menu>li.is-dropdown-submenu-parent.active>a {
+    padding-right: 2 * $global-padding;
 }
 
-.dropdown.menu > li.is-dropdown-submenu-parent.active:hover > a {
-  background-color: $dark-gray;
-  color: #fff;
+.dropdown.menu>li.is-dropdown-submenu-parent.active:hover>a {
+    background-color: $dark-gray;
+    color: #fff;
 }
 
 .top-bar-right .search {
-  margin-left: $global-margin;
+    margin-left: $global-margin;
 }
 
 #offCanvas .search {
-  margin: $global-margin;
+    margin: $global-margin;
 }
 
 header .top-bar-right,
 header .top-bar-left {
-  display: flex;
-  align-items: center;
+    display: flex;
+    align-items: center;
 }
 
 .menu a.dropdown-toggle {
-  display: flex;
-  justify-content: space-between;
+    display: flex;
+    justify-content: space-between;
 }
 
 .vertical-menu .dropdown-toggle {
-  width: 100%;
+    width: 100%;
 }
 
 .submenu-toggle:after {
-  border-color: #fff transparent transparent;
+    border-color: #fff transparent transparent;
 }
 
 header .top-bar {
-  @include breakpoint(small down) {
-    padding: 0;    
-  }
+    @include breakpoint(small down) {
+        padding: 0;
+    }
 }
 
 .title-bar {
-  display: inline-block;
-  background-color: transparent;
-  padding: 0;
-  
-  button {
-    margin: 0 $global-margin 0 0;
+    display: inline-block;
     background-color: transparent;
-    color: $dark-gray;
-  }
+    padding: 0;
+    button {
+        margin: 0 $global-margin 0 0;
+        background-color: transparent;
+        color: $dark-gray;
+    }
 }
 
 .banner {
@@ -225,9 +219,8 @@ header .top-bar {
     display: flex;
     align-items: center;
     overflow: hidden;
-
     &.contained {
-      @include xy-grid-container;
+        @include xy-grid-container;
     }
 }
 
@@ -236,205 +229,180 @@ header .top-bar {
 }
 
 body.vertical-menu header {
-  background-color: $primary-color;
-  width: 100%;
-
-  @include breakpoint(large up) {
-    padding: $global-padding;     
-    @include xy-cell(2, $gutters: 0);
-  }
-  
-  a {
-    color: $white;
-  }
-  
-  .title-bar {
-    display: flex;
-  }
-  
-  .title-bar button {
-    color: $white;
-  }
-  
-  .site-title h1 {
-    font-size: 1.3 * $global-font-size;
-    font-weight: bold;  
-  }
-  
-  .site-title img {
-    max-height: none;
-    max-width: 100%;
-  }
-  
-  .vertical.menu {
-    margin: $global-margin 0;
-  }
-  
-  .vertical.menu li {
-    margin: 0;
-  }
-  
-  .vertical.menu li a {
-    padding-left: 0;
-    padding-right: 0;
-  }
-
-  .dropdown .vertical.menu {
-    margin: 0 0 0 $global-margin;
-  }
+    background-color: $primary-color;
+    width: 100%;
+    @include breakpoint(large up) {
+        padding: $global-padding;
+        @include xy-cell(2,
+        $gutters: 0);
+    }
+    a {
+        color: $white;
+    }
+    .title-bar {
+        display: flex;
+    }
+    .title-bar button {
+        color: $white;
+    }
+    .site-title h1 {
+        font-size: 1.3 * $global-font-size;
+        font-weight: bold;
+    }
+    .site-title img {
+        max-height: none;
+        max-width: 100%;
+    }
+    .vertical.menu {
+        margin: $global-margin 0;
+    }
+    .vertical.menu li {
+        margin: 0;
+    }
+    .vertical.menu li a {
+        padding-left: 0;
+        padding-right: 0;
+    }
+    .dropdown .vertical.menu {
+        margin: 0 0 0 $global-margin;
+    }
 }
 
-body.vertical-menu .vertical.menu.nested .active > a {
-  position: relative;
-  
-  &:before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: -1 * $global-padding;
-    width: $global-padding;
-    bottom: 0;
-    background-color: $secondary-color;
-  }
+body.vertical-menu .vertical.menu.nested .active>a {
+    position: relative;
+    &:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -1 * $global-padding;
+        width: $global-padding;
+        bottom: 0;
+        background-color: $secondary-color;
+    }
 }
 
 body.vertical-menu header .desktop {
-  @include breakpoint(medium down) {
-    display: none;
-  }
+    @include breakpoint(medium down) {
+        display: none;
+    }
 }
-
 
 // #. Footer
 // ------------------
 footer {
-  @include xy-grid-container;
-  padding: (2 * $global-padding) 0;
-  
-  @include breakpoint(small down) {
-    margin: 0 $global-margin;
-  }
+    @include xy-grid-container;
+    padding: (2 * $global-padding) 0;
+    @include breakpoint(small down) {
+        margin: 0 $global-margin;
+    }
 }
 
 //Revised by JMc to allow for UoM footer
 body.vertical-menu footer {
-  width: 100%;
-  padding: $global-padding;
+    width: 100%;
+    padding: $global-padding;
 }
 
 // #. Resource Browse
 // ------------------
-
-.resource.browse #content > h2:first-child {
-  @include breakpoint(small down) {
-    display: inline-block;
-    margin-top: (.25 * $global-margin);
-  }
+.resource.browse #content>h2:first-child {
+    @include breakpoint(small down) {
+        display: inline-block;
+        margin-top: (.25 * $global-margin);
+    }
 }
 
 .browse-control-mobile {
-  display: none;
-  
-  @include breakpoint(small down) {
-    display: inline-block;
-    float: right;
-  }
+    display: none;
+    @include breakpoint(small down) {
+        display: inline-block;
+        float: right;
+    }
 }
 
 .browse-toggle {
     font-size: .875 * $global-font-size;
     padding: (.5 * $global-padding);
-
     &:after {
-      font-family: "Font Awesome 5 Free";
-      font-weight: 900;
-      margin-left: (.5 * $global-margin);
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+        margin-left: (.5 * $global-margin);
     }
-    
     &.closed:after {
-      content: "\f055";
+        content: "\f055";
     }
-
     &.open:after {
-      content: "\f056";
+        content: "\f056";
     }
 }
 
 .resources,
 .browse-controls {
-  clear: both;
+    clear: both;
 }
 
 .browse-controls {
-  @include xy-grid;
-  justify-content: space-between;
-  align-items: center;
-  margin: 0 (-.5 * $global-margin);
-  font-size: .875 * $global-font-size;
-  
-  input,
-  select,
-  button,
-  .button {
+    @include xy-grid;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 (-.5 * $global-margin);
     font-size: .875 * $global-font-size;
-    padding: (.5 * $global-padding);
-  }
-
-  .sorting select {
-    margin-right: .5 * $global-margin;
-  }
-
-  @include breakpoint(small down) {
-    margin: 0;
-    display: none;
-
-    &.open {
-      display: flex;
-      align-items: stretch;
+    input,
+    select,
+    button,
+    .button {
+        font-size: .875 * $global-font-size;
+        padding: (.5 * $global-padding);
     }
-    
-    &.closed {
-      display: none;
+    .sorting select {
+        margin-right: .5 * $global-margin;
     }
-    
-    .sorting,
-    .omeka-pagination,
-    .advanced-search {
-      margin-bottom: $global-margin;
+    @include breakpoint(small down) {
+        margin: 0;
+        display: none;
+        &.open {
+            display: flex;
+            align-items: stretch;
+        }
+        &.closed {
+            display: none;
+        }
+        .sorting,
+        .omeka-pagination,
+        .advanced-search {
+            margin-bottom: $global-margin;
+        }
+        .advanced-search {
+            order: 3;
+        }
     }
-    
-    .advanced-search {
-      order: 3;
-    }
-  }
 }
 
 .filter {
-  display: flex;
-  margin-bottom: $global-margin;
+    display: flex;
+    margin-bottom: $global-margin;
 }
 
 .filter-label {
-  @extend .label;
+    @extend .label;
 }
 
 .filter-value {
-  @extend .label;
+    @extend .label;
 }
 
 .filter-value {
-  background: $light-gray;
-  color: #000;
+    background: $light-gray;
+    color: #000;
 }
 
 .resource-list,
 .resource-grid {
-  list-style-type: none;
-  margin: (2 * $global-margin) 0;
-  
-  @include breakpoint(small down) {
-    margin: 0;
-  }
+    list-style-type: none;
+    margin: (2 * $global-margin) 0;
+    @include breakpoint(small down) {
+        margin: 0;
+    }
 }
 
 .resource-list {
@@ -442,128 +410,124 @@ body.vertical-menu footer {
 }
 
 .resource-list .resource {
-  margin: $global-margin 0;
-  border-bottom: 1px solid $light-gray;
-  padding-bottom: $global-padding;
+    margin: $global-margin 0;
+    border-bottom: 1px solid $light-gray;
+    padding-bottom: $global-padding;
 }
 
 .resource-list .resource-meta {
-  @include xy-cell(12);
+    @include xy-cell(12);
 }
 
 .resource-list .media-object-section:last-child:not(:nth-child(2)) {
- padding-left:0;
+    padding-left: 0;
 }
 
 .resource-list .resource-image {
-  order: 2;
-  text-align: center;
-  width: 25%;
-  
-  @include breakpoint(medium down) {
-    margin: 0;
-    width: 50%;
-  }
+    order: 2;
+    text-align: center;
+    width: 25%;
+    @include breakpoint(medium down) {
+        margin: 0;
+        width: 50%;
+    }
 }
 
 .resource-list .resource-image.media-object-section img {
-  max-width: 100%;
+    max-width: 100%;
 }
 
 .resource-list .resource-meta:not(:only-child) {
-  @include xy-cell(9);
-  order: 1;
-  
-  @include breakpoint(small down) {
-    width: 50%;
-  }
+    @include xy-cell(9);
+    order: 1;
+    @include breakpoint(small down) {
+        width: 50%;
+    }
 }
 
 .resource-grid {
-  display: flex;
-  flex-wrap: wrap;
-  margin: 0 (-1 * $global-margin);
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 (-1 * $global-margin);
 }
 
 .resource-grid .resource {
-  width: 25%;
-  padding: $global-padding;
-  
-  @include breakpoint(medium down) {
-    width: 50%;
-  }
+    width: 25%;
+    padding: $global-padding;
+    @include breakpoint(medium down) {
+        width: 50%;
+    }
 }
 
 .description.ellipsis {
-  display: -webkit-box;
-  -webkit-line-clamp: 4;
-  -webkit-box-orient: vertical;  
-  overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
 .description.fadeout {
-  position: relative;
-  max-height: 6.5rem;
-  overflow: hidden;
-  
-  &:after {
-    content: "";
-    position: absolute;
-    top: 4.5rem;
-    left: 50%;
-    right: 0;
-    height: 2.5 * $global-padding;
-    background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1) 60%);
-  }
+    position: relative;
+    max-height: 6.5rem;
+    overflow: hidden;
+    &:after {
+        content: "";
+        position: absolute;
+        top: 4.5rem;
+        left: 50%;
+        right: 0;
+        height: 2.5 * $global-padding;
+        background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1) 60%);
+    }
 }
 
-.omeka-pagination {  
-  @include breakpoint(medium) {
-    @include xy-cell(4);
-  }
+.omeka-pagination {
+    @include breakpoint(medium) {
+        @include xy-cell(4);
+    }
 }
 
-.omeka-pagination, 
+.omeka-pagination,
 .omeka-pagination form {
-  display: flex;
-  align-items: center;
+    display: flex;
+    align-items: center;
 }
 
 .omeka-pagination .button-group {
-  flex-wrap: nowrap;
-  flex-grow: 0;
+    flex-wrap: nowrap;
+    flex-grow: 0;
 }
 
 .omeka-pagination form,
 .omeka-pagination .button-group {
-  margin-right: $global-margin;
+    margin-right: $global-margin;
 }
 
 .omeka-pagination input {
-  margin: 0 $global-margin 0 0;
+    margin: 0 $global-margin 0 0;
 }
 
 .omeka-pagination .button,
 .omeka-pagination .button-group {
-  margin-bottom: 0;
+    margin-bottom: 0;
 }
 
 .sorting {
-  display: flex;
+    display: flex;
 }
 
 .sorting select {
-  width: 100%;
-  height: 100%;
-  margin-bottom: 0;
+    width: 100%;
+    height: 100%;
+    margin-bottom: 0;
 }
 
 .sorting button {
-  margin-bottom: 0;
+    margin-bottom: 0;
 }
 
 .layout-toggle button {
-  margin-bottom: 0;
+    margin-bottom: 0;
 }
 
 .o-icon-grid:before {
@@ -578,7 +542,6 @@ body.vertical-menu footer {
 
 // #. Resource Show
 // ------------------
-
 .expand:after,
 .collapse:after {
     font-family: "Font Awesome 5 Free";
@@ -597,7 +560,7 @@ body.vertical-menu footer {
     display: none;
 }
 
-.collapse + .collapsible {
+.collapse+.collapsible {
     display: block;
     border-left: 3px solid $light-gray;
     padding: (.25 * $global-padding) $global-padding;
@@ -606,135 +569,126 @@ body.vertical-menu footer {
 }
 
 .resource-title {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  word-break: break-word;  
-
-  h2 {
-    margin-right: $global-margin;
-  }
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    word-break: break-word;
+    h2 {
+        margin-right: $global-margin;
+    }
 }
 
 .resource.show .grid-x {
-  padding: (2 * $global-padding) 0;
+    padding: (2 * $global-padding) 0;
 }
 
 .resource.show #resource-values {
-  order: 1;
-  @include xy-cell(8);
-  margin-left: 0;
-  
-  @include breakpoint(medium down) {
-    width: 100%;
-    margin-right: 0;
-  }
+    order: 1;
+    @include xy-cell(8);
+    margin-left: 0;
+    @include breakpoint(medium down) {
+        width: 100%;
+        margin-right: 0;
+    }
 }
 
 .resource.show .media-embeds,
 .resource.show .media-list {
-  order: 2;
-  @include xy-cell(4);
-  margin-right: 0;
-  
-  @include breakpoint(medium down) {
-    width: 100%;
-    margin-left: 0;
-  }
+    order: 2;
+    @include xy-cell(4);
+    margin-right: 0;
+    @include breakpoint(medium down) {
+        width: 100%;
+        margin-left: 0;
+    }
 }
 
-.resource.show .media-render > a:only-child {
-  @include thumbnail;
-  margin-bottom: $global-margin;
+.resource.show .media-render>a:only-child {
+    @include thumbnail;
+    margin-bottom: $global-margin;
 }
 
-.resource.show .media-render > * {
-  max-width: 100%;
+.resource.show .media-render>* {
+    max-width: 100%;
 }
 
 .resource.show .values .resource-link img,
 #linked-resources img {
-  @include thumbnail;
-  height: ($paragraph-lineheight * 2rem);
-  width: auto;
-  min-width: 1px;
-  margin: 0 (.5 * $global-margin) 0 0;
+    @include thumbnail;
+    height: ($paragraph-lineheight * 2rem);
+    width: auto;
+    min-width: 1px;
+    margin: 0 (.5 * $global-margin) 0 0;
 }
 
 .resource.show .resource-link {
-  display: flex;
-  align-items: center;
+    display: flex;
+    align-items: center;
 }
 
 .resource.show #linked-resources .resource-link {
-  margin-bottom: 0;
+    margin-bottom: 0;
 }
 
 .linked-header .omeka-pagination,
 .linked-footer .omeka-pagination {
-  margin: (.5 * $global-margin) 0;
+    margin: (.5 * $global-margin) 0;
 }
 
 @include breakpoint(medium up) {
-  .linked-header {
-    display:  flex;
-    align-items: flex-end;
-    justify-content: space-between;
-  }
-  
-  .linked-header .omeka-pagination {
-    width: 50%;
-    justify-content: flex-end;
-    margin: 0;
-  }  
-
-  .linked-footer {
-	display:  flex;
-	align-items: flex-start;
-	justify-content: space-between;
-  }
-
-  .linked-footer .omeka-pagination {
-	width: 100%;
-    justify-content: flex-start;
-    margin: 0;
-  }
+    .linked-header {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+    }
+    .linked-header .omeka-pagination {
+        width: 50%;
+        justify-content: flex-end;
+        margin: 0;
+    }
+    .linked-footer {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+    }
+    .linked-footer .omeka-pagination {
+        width: 100%;
+        justify-content: flex-start;
+        margin: 0;
+    }
 }
 
 .media-list img {
-  @extend .thumbnail;
+    @extend .thumbnail;
 }
 
 .media-list img {
-  margin: 0 $global-margin 0 0;
-  height: 5 * $global-padding;
-  width: auto;
+    margin: 0 $global-margin 0 0;
+    height: 5 * $global-padding;
+    width: auto;
 }
 
 .inline .property {
-  display: flex;
-  
-  dt {
-    @include xy-cell(4);
-    text-align: right;
-  }
-  
-  .values {
-    @include xy-cell(8);
-  }
+    display: flex;
+    dt {
+        @include xy-cell(4);
+        text-align: right;
+    }
+    .values {
+        @include xy-cell(8);
+    }
 }
 
 .value .language {
-  @include label;
-  background-color: $light-gray;
-  margin-right: .5 * $global-margin;
+    @include label;
+    background-color: $light-gray;
+    margin-right: .5 * $global-margin;
 }
 
 .value {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-
     &:not(:last-child) {
         margin-bottom: .5 * $global-margin;
     }
@@ -749,527 +703,524 @@ body.vertical-menu footer {
 }
 
 #itemfiles.leftgallery {
-  height: 60vh;
-  width: 100%;
-  margin-bottom: $global-margin;
+    height: 60vh;
+    width: 100%;
+    margin-bottom: $global-margin;
 }
 
 #itemfiles.topgallery {
-  width: 100%;
-  margin-bottom: $global-margin;
+    width: 100%;
+    margin-bottom: $global-margin;
 }
 
 #itemfiles.topgallery .media.resource,
 #itemfiles.leftgallery .media.resource {
-  height: 0;
-  overflow: hidden;
+    height: 0;
+    overflow: hidden;
 }
 
 #itemfiles .img-responsive {
-  opacity: 0;
+    opacity: 0;
 }
 
 #itemfiles .lg-img-wrap,
 #itemfiles .lg-video-object,
 #itemfiles .lg-video-poster {
-  padding-bottom: 3 * $global-padding;
+    padding-bottom: 3 * $global-padding;
 }
 
 #itemfiles .lg-outer .lg-video-cont .lg-object {
-  width: auto !important;
+    width: auto !important;
 }
 
 .lg-outer[data-lg-slide-type="video"] .lg-download {
-  opacity: 1 !important;
-  pointer-events: all !important;
+    opacity: 1 !important;
+    pointer-events: all !important;
 }
 
 #itemfiles.leftgallery {
-  width: 100%;
-  align-self: flex-start;
+    width: 100%;
+    align-self: flex-start;
     @include breakpoint(medium up) {
-      width: 70%;
+        width: 70%;
     }
 }
 
-#itemfiles.leftgallery ~ #resource-values {
-  width: 100%;
-  margin: 0;
+#itemfiles.leftgallery~#resource-values {
+    width: 100%;
+    margin: 0;
     @include breakpoint(medium up) {
-    padding-left: $global-padding;
-    width: 30%;
-  }
+        padding-left: $global-padding;
+        width: 30%;
+    }
 }
+
 // #. Advanced search
 // ------------------
-
 #advanced-search .input-group {
-  @include breakpoint(small down) {
-    flex-wrap: wrap;
-  }
+    @include breakpoint(small down) {
+        flex-wrap: wrap;
+    }
 }
 
 #advanced-search select {
-  @include breakpoint(small down) {
-    width: 100%;
-    margin-bottom: 0;
-  }
+    @include breakpoint(small down) {
+        width: 100%;
+        margin-bottom: 0;
+    }
 }
 
 #advanced-search .input-group.value {
-  margin-bottom: $global-margin !important;
+    margin-bottom: $global-margin !important;
 }
 
 #advanced-search .multi-value .value:only-child .remove-value {
-  display: none;
+    display: none;
 }
 
 #advanced-search .value {
-  margin-bottom: $global-margin !important;
+    margin-bottom: $global-margin !important;
 }
 
 #advanced-search .query-text {
-  margin-right: .25 * $global-margin;
+    margin-right: .25 * $global-margin;
 }
 
 #advanced-search [class="field"] {
-  @extend .fieldset;
+    @extend .fieldset;
 }
 
 #advanced-search .help-text {
-  margin-bottom: $global-margin;
+    margin-bottom: $global-margin;
 }
 
 #advanced-search .remove-value {
-  padding-top: 0;
-  padding-bottom: 0;
-  
-  @include breakpoint(small down) {
+    padding-top: 0;
+    padding-bottom: 0;
+    @include breakpoint(small down) {
+        margin-bottom: 0;
+    }
+}
+
+#advanced-search .value>* {
     margin-bottom: 0;
-  }
 }
 
-#advanced-search .value > * {
-  margin-bottom: 0;
-}
-
-#advanced-search .value > *:not(:last-child) {
-  margin-right: 5px;
-  margin-left: 0;
+#advanced-search .value>*:not(:last-child) {
+    margin-right: 5px;
+    margin-left: 0;
 }
 
 .field-meta {
-  @extend legend;
+    @extend legend;
 }
 
 #property-queries select {
-  @include breakpoint(small down) {
-    margin-bottom: (.5 * $global-margin);
-  }
+    @include breakpoint(small down) {
+        margin-bottom: (.5 * $global-margin);
+    }
 }
 
 // #. Page
 // ------------------
-
 .breadcrumbs {
-  width: 100%;
+    width: 100%;
 }
 
 .page #content {
-  @include xy-grid;
+    @include xy-grid;
 }
 
 .blocks {
-  @include xy-cell(12);
+    @include xy-cell(12);
 }
 
-.blocks > h2:first-child {
-  margin-bottom: (2 * $global-margin);
+.blocks>h2:first-child {
+    margin-bottom: (2 * $global-margin);
 }
 
 .wide.sub-menu {
-  @include xy-cell(3);
-
-  @include breakpoint(small down) {
-    @include xy-cell(12);
-    margin-bottom: $global-margin;
-  }
+    @include xy-cell(3);
+    @include breakpoint(small down) {
+        @include xy-cell(12);
+        margin-bottom: $global-margin;
+    }
 }
 
 .wide.sub-menu a {
-  @include breakpoint(small down) {
-    padding-left: 0;
-    padding-right: 0;    
-  }
+    @include breakpoint(small down) {
+        padding-left: 0;
+        padding-right: 0;
+    }
 }
 
-.wide.sub-menu + .blocks { 
-  @include xy-cell(9);
-  
-  @include breakpoint(small down) {
-    @include xy-cell(12);
-  }
+.wide.sub-menu+.blocks {
+    @include xy-cell(9);
+    @include breakpoint(small down) {
+        @include xy-cell(12);
+    }
 }
 
 .left {
-  float: left;
-  margin: 0 $global-margin $global-margin 0;
-  max-width: 40%;
-  
-  @include breakpoint(small down) {
-    max-width: 25%;
-  }
+    float: left;
+    margin: 0 $global-margin $global-margin 0;
+    max-width: 40%;
+    @include breakpoint(small down) {
+        max-width: 25%;
+    }
 }
 
 .right {
-  float: right;
-  margin: 0 0 $global-margin $global-margin;
-  max-width: 40%;  
-
-  @include breakpoint(small down) {
-    max-width: 25%;
-  }
+    float: right;
+    margin: 0 0 $global-margin $global-margin;
+    max-width: 40%;
+    @include breakpoint(small down) {
+        max-width: 25%;
+    }
 }
 
 .file img {
-  max-width: 100%;
-  height: auto;
+    max-width: 100%;
+    height: auto;
 }
 
-.attachments .media-render > h3,
+.attachments .media-render>h3,
 .file h3,
 .item-showcase h3 {
-  font-size: rem-calc(map-deep-get($header-styles, small, h4, font-size));
-  margin: $global-margin 0;
+    font-size: rem-calc(map-deep-get($header-styles, small, h4, font-size));
+    margin: $global-margin 0;
 }
 
 .item-showcase {
-  text-align: center;
+    text-align: center;
 }
 
 .site-page-pagination {
-  @include xy-cell;
+    @include xy-cell;
 }
 
-.site-page-pagination > a {
-  @extend .button;
+.site-page-pagination>a {
+    @extend .button;
 }
 
-.site-page-pagination > a {
-  margin: 0;
+.site-page-pagination>a {
+    margin: 0;
 }
 
 .item-with-metadata .resource.show {
-  display: flex;
-  margin: (2 * $global-margin) 0;
-  
-  .media-list {
-    order: 1;
-    @include xy-cell(3);
-    text-align: right;
-    
-    .media {
-      width: 100%;
-      display: block;
+    display: flex;
+    margin: (2 * $global-margin) 0;
+    .media-list {
+        order: 1;
+        @include xy-cell(3);
+        text-align: right;
+        .media {
+            width: 100%;
+            display: block;
+        }
+        img {
+            height: auto;
+        }
     }
-    
-    img {
-      height: auto;
+    dl:not(:only-child) {
+        order: 2;
+        @include xy-cell(9);
     }
-  }
-  
-  dl:not(:only-child) {
-    order: 2;
-    @include xy-cell(9);
-  }
 }
 
 .toc-block {
-  background-color: $light-gray;
-  border-width: 1px 0;
-  padding: $global-padding;
-
-  @include breakpoint(small down) {
-    width: 100%;
-    margin: 0 0 $global-margin;
-    position: static;
-    float: none;
-  }
-
-  &:first-child {
-    position: sticky;
-    @include xy-cell(3);
-    float: left;
-    top: $global-margin;
-
-    & ~ * {
-      @include xy-cell(9);
-      float: right;
-     
-      @include breakpoint(small down) {
+    background-color: $light-gray;
+    border-width: 1px 0;
+    padding: $global-padding;
+    @include breakpoint(small down) {
         width: 100%;
-        margin-left: 0;
-        margin-right: 0;
-      } 
+        margin: 0 0 $global-margin;
+        position: static;
+        float: none;
     }
-  }
-
-  & > ul,
-  ul ul {
-    @extend .menu;
-    @extend .vertical;
-  }
-  
-  ul {
-    list-style: none;
-  }
-  
-  ul ul {
-    @extend .nested;
-  }
-  
+    &:first-child {
+        position: sticky;
+        @include xy-cell(3);
+        float: left;
+        top: $global-margin;
+        &~* {
+            @include xy-cell(9);
+            float: right;
+            @include breakpoint(small down) {
+                width: 100%;
+                margin-left: 0;
+                margin-right: 0;
+            }
+        }
+    }
+    &>ul,
+    ul ul {
+        @extend .menu;
+        @extend .vertical;
+    }
+    ul {
+        list-style: none;
+    }
+    ul ul {
+        @extend .nested;
+    }
 }
 
 .preview-block .preview-header {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  border-bottom: 1px solid $light-gray;
-  align-items: flex-end;
-  
-  a {
-    margin-bottom: (.5 * $global-margin);
-  }
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    border-bottom: 1px solid $light-gray;
+    align-items: flex-end;
+    a {
+        margin-bottom: (.5 * $global-margin);
+    }
 }
 
 .preview-block h4 {
-  @extend h5;
+    @extend h5;
 }
 
 // -- Search
-
 .results {
-  margin-bottom: 2 * $global-margin;
-  clear: both;
+    margin-bottom: 2 * $global-margin;
+    clear: both;
 }
 
 .results ul {
-  list-style: none;
-  padding-left: 0;  
-  
-  @include breakpoint(medium up) {
-    display: flex;
-    flex-wrap: wrap;    
-  }
+    list-style: none;
+    padding-left: 0;
+    @include breakpoint(medium up) {
+        display: flex;
+        flex-wrap: wrap;
+    }
 }
 
 .results .result-title {
-  font-weight: bold;
+    font-weight: bold;
 }
 
-.results > ul {
-  margin: 0;
+.results>ul {
+    margin: 0;
 }
 
 .results .result-site,
 .results ul ul {
-  display: block;
-  padding-left: .5 * $global-padding;
+    display: block;
+    padding-left: .5 * $global-padding;
 }
 
-.results > ul > li {
-  margin-bottom: $global-padding;
-  
-  @include breakpoint(medium up) {
-    width: 50%;	
-  }
+.results>ul>li {
+    margin-bottom: $global-padding;
+    @include breakpoint(medium up) {
+        width: 50%;
+    }
 }
 
-.pagination + .results {
-  margin: $global-margin 0 0;
-  clear: both;
+.pagination+.results {
+    margin: $global-margin 0 0;
+    clear: both;
 }
 
 .sitewide-search-form {
-  display: flex;
-  margin-bottom: $global-margin;
-
-  @include breakpoint(medium up) {
-    display: none;
-  }
-  
-  [type="text"],
-  [type="submit"] {
-    margin: 0;
-    padding: (.25 * $global-padding) (.5 * $global-padding);
-  }
+    display: flex;
+    margin-bottom: $global-margin;
+    @include breakpoint(medium up) {
+        display: none;
+    }
+    [type="text"],
+    [type="submit"] {
+        margin: 0;
+        padding: (.25 * $global-padding) (.5 * $global-padding);
+    }
 }
 
-.sitewide-search-form ~ .results + .pagination {
-  margin-top: 0;
+.sitewide-search-form~.results+.pagination {
+    margin-top: 0;
 }
 
-.sitewide-search-form ~ .advanced-search {
-  display: block;
-  
-  @include breakpoint(small down) {
-    margin: (-.5 * $global-margin) 0 $global-margin;
-  }
+.sitewide-search-form~.advanced-search {
+    display: block;
+    @include breakpoint(small down) {
+        margin: (-.5 * $global-margin) 0 $global-margin;
+    }
 }
 
-.sitewide-search-form ~ h2 {
-  margin-bottom: 2 * $global-margin;
-
-  @include breakpoint(medium up) {
-    width: 50%;
-    float: left;    
-  }
+.sitewide-search-form~h2 {
+    margin-bottom: 2 * $global-margin;
+    @include breakpoint(medium up) {
+        width: 50%;
+        float: left;
+    }
 }
 
-.results > h3 {
-  border-bottom: 1px solid $light-gray;  
+.results>h3 {
+    border-bottom: 1px solid $light-gray;
 }
 
-.sitewide-search-form ~ .omeka-pagination {
-  margin: (-1 * $global-margin) 0 $global-margin;  
-  
-  @include breakpoint(medium up) {
-    margin: (.5 * $global-margin) 0 $global-margin;
-    text-align: right;
-    width: 50%;
-    float: right;
-  }
+.sitewide-search-form~.omeka-pagination {
+    margin: (-1 * $global-margin) 0 $global-margin;
+    @include breakpoint(medium up) {
+        margin: (.5 * $global-margin) 0 $global-margin;
+        text-align: right;
+        width: 50%;
+        float: right;
+    }
 }
 
-.sitewide-search-form ~ p {
-  clear: both;
+.sitewide-search-form~p {
+    clear: both;
 }
 
 .index.search .results {
-  margin-bottom: 2 * $global-margin;
+    margin-bottom: 2 * $global-margin;
 }
 
 .index.search .results ul {
-  list-style: none;
-  padding-left: 0;
-  margin-left: 0;
-  margin-bottom: 0;
-  
-  @include breakpoint(medium up) {
-    columns: 2;
-  }
-  
-  li {
-    padding: $global-padding 0;
-    border-bottom: 1px solid $light-gray;
-  }
-  
-  & + a {
-    display: block;
-    margin-top: $global-margin;
-  }
+    list-style: none;
+    padding-left: 0;
+    margin-left: 0;
+    margin-bottom: 0;
+    @include breakpoint(medium up) {
+        columns: 2;
+    }
+    li {
+        padding: $global-padding 0;
+        border-bottom: 1px solid $light-gray;
+    }
+    &+a {
+        display: block;
+        margin-top: $global-margin;
+    }
 }
 
-
 // -- Modules
-
 [class^="numeric-"],
 [class*="numeric-"],
 [id^="numeric-"] .inputs,
 [id*="numeric-"] .inputs {
-  display: flex;
-  
-  @include breakpoint(small down) {
-    flex-wrap: wrap;
-  }
+    display: flex;
+    @include breakpoint(small down) {
+        flex-wrap: wrap;
+    }
 }
 
 [class^="numeric-"] [type="checkbox"],
 [class*="numeric-"] [type="checkbox"] {
-  margin-bottom: 0;
-  width: auto;
+    margin-bottom: 0;
+    width: auto;
 }
 
 [class^="numeric-"] label.numeric-toggle-time.button,
 [class*="numeric-"] label.numeric-toggle-time.button {
-  @extend .button;
+    @extend .button;
 }
 
 .inputs label.numeric-toggle-time.button {
-  border: 0;
-  display: inline-flex;
-  
-  @include breakpoint(small down) {
-    margin: (.25 * $global-margin) 0 0;
-  }
-}
-
-@include breakpoint(medium up) {
-  .inputs .numeric-time-inputs,
-  .inputs .numeric-datetime-inputs {
-    margin: 0 0 0 (.25 * $global-margin);
-  }  
-}
-
-@include breakpoint(small down) {
-  #advanced-search [type="number"],
-  #advanced-search select {
-    width: 100%;
-    margin: (.25 * $global-margin) 0;  
-  }
-}
-
-.mapping-block {
-  width: 100%;
-}
-
-/*John McCrory edits*/
-
-/*Item Showcase block styling*/
-.fixed-image-height img {
-  height: 100%;
-  width: 100%;
-
-  @include breakpoint(medium) {
-    height: rem-calc(400px);
-    width: 100%;
-    object-fit: cover;
-  }
-
-  @include breakpoint(large) {
-    height: rem-calc(700px);
-    width: 100%;
-    object-fit: cover;
-  }
-
-  @include breakpoint(xxlarge) {
-    height: rem-calc(800px);
-    width: 100%;
-    object-fit: cover;
-  }
-}
-
-/*Header*/ 
-.site-heading {
-  width: rem-calc(225px);
-  margin: 0 12px;
-}
-
-nav.title-bar {
-  order: 0;
-  @include breakpoint(526) {
-  order: 1;
-  }
-}
-
-.site-heading {
-  order: 1;
-  @include breakpoint(526) {
-    order: 0;
+    border: 0;
+    display: inline-flex;
+    @include breakpoint(small down) {
+        margin: (.25 * $global-margin) 0 0;
     }
 }
 
+@include breakpoint(medium up) {
+    .inputs .numeric-time-inputs,
+    .inputs .numeric-datetime-inputs {
+        margin: 0 0 0 (.25 * $global-margin);
+    }
+}
+
+@include breakpoint(small down) {
+    #advanced-search [type="number"],
+    #advanced-search select {
+        width: 100%;
+        margin: (.25 * $global-margin) 0;
+    }
+}
+
+.mapping-block {
+    width: 100%;
+}
+
+
+/*John McCrory edits*/
+
+
+/*Blocks*/
+
+
+/*Item Showcase block styling*/
+
+.fixed-image-height img {
+    height: 100%;
+    width: 100%;
+    @include breakpoint(medium) {
+        height: rem-calc(400px);
+        width: 100%;
+        object-fit: cover;
+    }
+    @include breakpoint(large) {
+        height: rem-calc(700px);
+        width: 100%;
+        object-fit: cover;
+    }
+    @include breakpoint(xxlarge) {
+        height: rem-calc(800px);
+        width: 100%;
+        object-fit: cover;
+    }
+}
+
+
+/*Header*/
+
+.site-heading {
+    width: rem-calc(225px);
+    margin: 0 12px;
+}
+
+nav.title-bar {
+    order: 0;
+    @include breakpoint(526) {
+        order: 1;
+    }
+}
+
+.site-heading {
+    order: 1;
+    @include breakpoint(526) {
+        order: 0;
+    }
+}
+
+
 /*Card Styling*/
+
 .card-divider a {
-  color: $white;
+    color: $white;
+}
+
+
+/*Item Listing with Introduction Block*/
+
+.item-listing h1 {
+    font-size: 1.6 * $global-font-size;
+    font-weight: bold;
+}
+
+.item-listing img {
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.item-listing .title-area {
+    @include breakpoint(large) {
+        flex-grow: 1;
+    }
+}
+
+.block-introduction p {
+    font-size: 1.25 * $global-font-size;
 }
