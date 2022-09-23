@@ -1201,8 +1201,39 @@ nav.title-bar {
     color: $white;
 }
 
+/*Coloured backgrounds*/
+.background-colour-primary {
+    background-color: $primary-color;
+    color: $white;
+    a {
+        color: $white;
+    }
+}
+
+.background-colour-dark-grey {
+    background-color: $dark-gray;
+    color: $white;
+    a {
+        color: $white;
+    }
+}
+
+.background-colour-uom-footer {
+    background-color: $uom-footer;
+    color: $white;
+    a {
+        color: $warning-color;
+    }
+    a.button {
+        color: $white;
+    }
+}
+
 
 /*Item Listing with Introduction Block*/
+.item-listing {
+    position: relative;
+}
 
 .item-listing h1 {
     font-size: 1.6 * $global-font-size;
@@ -1211,10 +1242,12 @@ nav.title-bar {
 
 .item-listing img {
     width: 100%;
+    height: 100%;
     object-fit: cover;
     object-position: center;
 }
 
+.item-listing .title-area,
 .item-listing .title-area {
     @include breakpoint(large) {
         flex-grow: 1;
@@ -1222,5 +1255,16 @@ nav.title-bar {
 }
 
 .block-introduction p {
-    font-size: 1.25 * $global-font-size;
+    font-size: 1.1 * $global-font-size;
+        @include breakpoint(large) {
+        font-size: 1.25 * $global-font-size;
+        }
+}
+
+.title-area .button {
+    background-color: $primary-color;
+    a {
+        color: $white;
+        text-decoration: none;
+    }
 }
