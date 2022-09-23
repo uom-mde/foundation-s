@@ -1233,6 +1233,8 @@ nav.title-bar {
 /*Item Listing with Introduction Block*/
 .item-listing {
     position: relative;
+    margin-top: (-2 * $global-padding);
+    overflow: hidden;
 }
 
 .item-listing h1 {
@@ -1245,6 +1247,7 @@ nav.title-bar {
     height: 100%;
     object-fit: cover;
     object-position: center;
+    aspect-ratio: 1;
 }
 
 .item-listing .title-area,
@@ -1263,6 +1266,12 @@ nav.title-bar {
 
 .title-area .button {
     background-color: $primary-color;
+    p {
+        font-size: 1.1 * $global-font-size;
+    }
+    @include breakpoint(large) {
+        font-size: 1.25 * $global-font-size;
+        }
     a {
         color: $white;
         text-decoration: none;
