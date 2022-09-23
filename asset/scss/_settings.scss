@@ -69,7 +69,7 @@ $print-hrefs: true;
 // --------------
 $breakpoints: ( small: 0, medium: 600px, large: 900px, xlarge: 1200px, xxlarge: 1440px, );
 $print-breakpoint: large;
-$breakpoint-classes: (small medium large);
+$breakpoint-classes: (small medium large xlarge xxlarge);
 // 3. The Grid
 // -----------
 $grid-row-width: $global-width;
