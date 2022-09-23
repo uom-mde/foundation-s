@@ -1232,7 +1232,6 @@ nav.title-bar {
 
 /*Item Listing with Introduction Block*/
 .item-listing {
-    position: relative;
     overflow: hidden;
     margin-top: (-1 * $global-padding);
     @include breakpoint(medium) {
@@ -1247,7 +1246,8 @@ nav.title-bar {
 
 .item-listing img {
     width: 100vw;
-    max-height: 60vh;
+    height: auto;
+    max-height: 70vh;
     object-fit: cover;
     object-position: center;
     aspect-ratio: 1;
@@ -1255,12 +1255,16 @@ nav.title-bar {
         height: 100%;
     }
     @include breakpoint(large) {
-        max-height: 100vh;
+        max-height: unset;
     }
-    @include breakpoint(xlarge) {
+    @include breakpoint(1250) {
         width: 100%;
-        max-height: 80vh;
+        height: 90vh;
     }
+}
+
+.item-listing-image {
+    position: relative;
 }
 
 .title-area {
