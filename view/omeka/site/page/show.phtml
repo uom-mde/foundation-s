@@ -17,10 +17,8 @@ if ($activePage):
 
 <?php if ($activePage): ?>
     <?php if ($this->displayNavigation && $activePage['page']->hasPages()): ?>
-    <nav class="sub-menu wide" data-sticky-container>
-        <div class="sticky" data-sticky data-anchor="blocks">
-            <?php echo $nav->menu()->setUlClass('vertical menu')->renderSubMenu(); ?>
-        </div>
+    <nav class="breadcrumbs">
+        <?php echo $nav->menu()->setUlClass('breadcrumbs')->renderSubMenu(); ?>
     </nav>
     <?php endif; ?>
 <?php endif; ?>

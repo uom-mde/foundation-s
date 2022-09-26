@@ -229,9 +229,7 @@ $buttongroup-radius-on-each: true;
 // -----------
 $callout-background: $white;
 $callout-background-fade: 85%;
-
-/*$callout-border: 1px solid rgba($black, 0.25);*/
-
+$callout-border: unset;
 $callout-margin: 0 0 1rem 0;
 $callout-padding: 1rem;
 $callout-font-color: $body-font-color;
@@ -448,7 +446,7 @@ $prototype-display: ( inline, inline-block, block, table, table-cell);
 // 34. Prototype Font-Styling
 // --------------------------
 $prototype-font-breakpoints: $global-prototype-breakpoints;
-$prototype-wide-letter-spacing: rem-calc(1);
+$prototype-wide-letter-spacing: rem-calc(0.5);
 $prototype-font-normal: $global-weight-normal;
 $prototype-font-bold: $global-weight-bold;
 // 35. Prototype List-Style-Type
