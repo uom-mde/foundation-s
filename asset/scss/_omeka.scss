@@ -58,7 +58,7 @@ body:not(.browse) #content {
     padding: (2 * $global-padding) 0;
     @include breakpoint(small down) {
         padding: 0;
-        margin: $global-margin;
+        /*margin: $global-margin;*/
     }
 }
 
@@ -1305,6 +1305,12 @@ nav.title-bar {
 }
 
 /*Resource with Text block*/
+.media-text {
+    @include breakpoint(medium) {
+        padding: $global-padding;
+        }
+}
+
 .media-text-heading {
     flex-basis: 100%;
     @include breakpoint(medium) {
