@@ -1303,3 +1303,14 @@ nav.title-bar {
         text-decoration: none;
     }
 }
+
+/*Resource with Text block*/
+.media-text-heading {
+    flex-basis: 100%;
+    @include breakpoint(medium) {
+        padding-left: 1 * $global-padding;
+        }
+    @include breakpoint(large) {
+        padding-left: 1.5 * $global-padding;
+        }
+}
