@@ -1320,3 +1320,11 @@ nav.title-bar {
         padding-left: 1.5 * $global-padding;
         }
 }
+
+/*Breadcrumb Navigation*/ 
+
+/*Cards*/ 
+.card.medium-6.large-4.radius.bordered.shadow .card-divider {
+    background: $uom-footer;
+    flex-grow: 1;
+}
