@@ -1229,7 +1229,27 @@ nav.title-bar {
     }
 }
 
+/*BlockPlus Blocks*/
+/*Resource with Text block*/
+.media-text {
+    @include breakpoint(medium) {
+        padding: $global-padding;
+        }
+}
 
+.media-text-heading {
+    flex-basis: 100%;
+    @include breakpoint(medium) {
+        padding-left: 1 * $global-padding;
+        }
+    @include breakpoint(large) {
+        padding-left: 1.5 * $global-padding;
+        }
+}
+
+/*Breadcrumb Navigation*/ 
+
+/*Agile Theme Tools*/ 
 /*Item Listing with Introduction Block*/
 .item-listing {
     overflow: hidden;
@@ -1304,27 +1324,51 @@ nav.title-bar {
     }
 }
 
-/*Resource with Text block*/
-.media-text {
-    @include breakpoint(medium) {
-        padding: $global-padding;
-        }
-}
-
-.media-text-heading {
-    flex-basis: 100%;
-    @include breakpoint(medium) {
-        padding-left: 1 * $global-padding;
-        }
-    @include breakpoint(large) {
-        padding-left: 1.5 * $global-padding;
-        }
-}
-
-/*Breadcrumb Navigation*/ 
-
 /*Cards*/ 
 .card.medium-6.large-4.radius.bordered.shadow .card-divider {
     background: $uom-footer;
     flex-grow: 1;
+}
+
+/*Compact Cards*/
+.compact-card-listing {
+    flex-wrap: wrap;
+    }
+
+.card-compact {
+    position: relative;
+    margin: 1 * $global-margin;
+}
+
+
+.compact-card-listing {
+    flex-wrap: wrap;
+    }
+
+.card-compact {
+    position: relative;
+    margin: 1 * $global-margin;
+}
+
+.card-compact h3 {
+    margin-bottom: 0;
+    a {
+        position: absolute;
+        bottom: 10%;
+        padding: 0.7 * $global-padding;
+        background: $white;
+        color: $black;
+        border-bottom: solid 5px $primary-color;
+    }
+    }
+
+.card-compact .representative-image img {
+    height: 250px;
+    width: 100%;
+    object-fit: cover;
+}
+
+/*Hide Representative Image*/ 
+main > div > .representative-image {
+    display: none;
 }
