@@ -1146,9 +1146,46 @@ body.vertical-menu footer {
 
 /*John McCrory edits*/
 
+/*Full Width CSS Rules*/
+.full-width {
+    width: calc(100vw - var(--scrollbar-width));
+    margin-left: calc(((100vw - var(--scrollbar-width)) * -0.5) + 50%)!important;
+    }
+
+    .full-width-css {    
+    left: 50%;
+    position: relative;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    max-width: 100vw;
+}
+
+.splash {    
+    left: 50%;
+    position: relative;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    max-width: 100vw;
+}
+
+.region-splash {    
+    left: 50%;
+    position: relative;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    max-width: 100vw;
+}
+
+#block .splash,
+#block .region-splash {    
+left: 50%;
+position: relative;
+margin-left: -50vw;
+margin-right: -50vw;
+max-width: 100vw;
+}
 
 /*Blocks*/
-
 
 /*Item Showcase block styling*/
 
@@ -1174,7 +1211,6 @@ body.vertical-menu footer {
 
 
 /*Header*/
-
 .site-heading {
     width: rem-calc(225px);
     margin: 0 12px;
@@ -1196,7 +1232,6 @@ nav.title-bar {
 
 
 /*Card Styling*/
-
 .card-divider a {
     color: $white;
 }
@@ -1367,6 +1402,63 @@ nav.title-bar {
     width: 100%;
     object-fit: cover;
 }
+
+/*Poster*/
+.poster .image-background figure img {  
+    width: 100vw;
+    height: 700px;
+    object-fit: cover;
+    opacity: 0.4;
+  }
+
+.image-background {
+    position: relative;
+}
+
+.poster-text {
+    position: absolute;
+    z-index: 999999;
+}
+
+.colour-scheme-1 {
+    background: $black;
+}
+
+.colour-scheme-2 {
+    background: $secondary-color;
+}
+
+.colour-scheme-3 {
+    background: $warning-color;
+}
+
+
+.colour-scheme-3 .image-background figure img,
+.colour-scheme-4 .image-background figure img {
+    opacity: 0.2;
+}
+
+.colour-scheme-4 {
+    background: $alert-color;
+}
+
+.colour-scheme-1 p,
+.colour-scheme-2 p,
+.colour-scheme-3 p,
+.colour-scheme-4 p {
+        color: $white;
+        font-weight: 800;
+        padding: $global-padding;
+        font-size: 1.2 * $global-font-size;
+        @include breakpoint(medium) {
+            font-size: 1.5 * $global-font-size;
+            padding: 0;
+        }
+        @include breakpoint(large) {
+            font-size: 2 * $global-font-size;
+            padding: 0;
+        }
+    }
 
 /*Hide Representative Image*/ 
 main > div > .representative-image {
