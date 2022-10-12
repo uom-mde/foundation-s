@@ -277,7 +277,7 @@ body.vertical-menu .vertical.menu.nested .active>a {
         left: -1 * $global-padding;
         width: $global-padding;
         bottom: 0;
-        background-color: $secondary-color;
+        background-color: $primary-color;
     }
 }
 
@@ -1429,7 +1429,7 @@ nav.title-bar {
 }
 
 .colour-scheme-3 {
-    background: $warning-color;
+    background: #0a4c1b;
 }
 
 
@@ -1461,6 +1461,75 @@ nav.title-bar {
     }
 
 /*Hide Representative Image*/ 
-main > div > .representative-image {
+#content > #blocks > .representative-image {
     display: none;
+}
+
+/*Home page with Introduction*/
+/*Slick Slider*/
+
+.slick-slide img {
+    height: 700px;
+    width: 100%;
+    object-fit: cover;
+}
+
+ul.slick-dots {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 0;
+}
+
+ul.slick-dots li {
+    margin: 0.5rem 0.5rem 0 0;
+}
+
+/*Slick Slider*/
+.slick-prev:before {
+    font-family: "Font Awesome 5 Free";
+    content: "\f053";
+    margin: 2rem;
+}
+
+.slick-next:before {
+    font-family: "Font Awesome 5 Free";
+    content: "\f054";
+    margin: -1rem;
+}
+
+.slick-next,
+.slick-prev {
+font-size: 4rem;
+height: 4rem;
+width: 4rem;
+z-index: 99999999999;
+color: #fff;
+}
+
+.slick-next {
+right: 0;
+}
+
+.slick-prev {
+left: 0;
+}
+
+.slick-arrow {
+position: absolute;
+top: 40%;
+}
+
+/*Breadcrumbs*/
+nav.breadcrumbs {
+    margin-top: -1rem;
+    padding: 1rem 2rem;
+    a {
+        color: $black;
+        text-decoration: underline;
+    }
+    @include breakpoint(medium) {
+        margin-top: -2rem;
+    }
 }
