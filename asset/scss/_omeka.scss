@@ -1521,6 +1521,12 @@ position: absolute;
 top: 40%;
 }
 
+/*Slideshow*/
+.slideshow-block {
+    background: $uom-footer;
+    height: 100vh;
+}
+
 /*Breadcrumbs*/
 nav.breadcrumbs {
     margin-top: -1rem;
