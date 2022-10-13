@@ -1291,7 +1291,8 @@ nav.title-bar {
 
 /*Agile Theme Tools*/ 
 /*Item Listing with Introduction Block*/
-.item-listing {
+.item-listing,
+.section-intro-splash {
     overflow: hidden;
     margin-top: (-1 * $global-padding);
     @include breakpoint(medium) {
@@ -1299,7 +1300,8 @@ nav.title-bar {
     }
 }
 
-.item-listing h2 {
+.item-listing h2,
+.introductory-text h2 {
     font-size: 2 * $global-font-size;
     @include breakpoint(large) {
         font-size: 3 * $global-font-size;
