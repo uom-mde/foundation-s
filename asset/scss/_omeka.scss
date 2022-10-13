@@ -170,6 +170,11 @@ body.vertical-menu #user-bar~#content {
     color: #fff;
 }
 
+/*Added by JMc*/
+.dropdown.menu>li.opens-left>.is-dropdown-submenu, .toc-block>ul.dropdown>li.opens-left>.is-dropdown-submenu, .toc-block ul ul.dropdown>li.opens-left>.is-dropdown-submenu {
+    z-index: 999999;
+}
+
 .top-bar-right .search {
     margin-left: $global-margin;
 }
@@ -1480,6 +1485,11 @@ ul.slick-dots {
     justify-content: center;
     align-items: center;
     margin-bottom: 0;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%)
 }
 
 ul.slick-dots li {
@@ -1487,6 +1497,13 @@ ul.slick-dots li {
 }
 
 /*Slick Slider*/
+.slick-slide figure figcaption.orbit-caption {
+    bottom: 0;
+    /*width: 40%;*/
+    /*left: 0;*/
+    height: fit-content;
+}
+
 .slick-prev:before {
     font-family: "Font Awesome 5 Free";
     content: "\f053";
@@ -1519,13 +1536,23 @@ left: 0;
 .slick-arrow {
 position: absolute;
 top: 40%;
+cursor: pointer;
 }
 
-/*Slideshow*/
-.slideshow-block {
-    background: $uom-footer;
-    height: 100vh;
+.slick-arrow:hover {
+    color: $warning-color;
 }
+
+ul.slick-dots li button {
+    border-radius: 66%;
+    background: $secondary-color;
+    color: transparent;
+    }
+    
+    ul.slick-dots li.slick-active button {
+    background: $warning-color;
+    }
+    
 
 /*Breadcrumbs*/
 nav.breadcrumbs {

@@ -1,5 +1,5 @@
 <div id="block-<?php echo $this->blockId; ?>" class="region <?php echo $this->regionClass; ?> <?php echo $hasAudioAttachment ? 'slideshow-with-audio' : 'slideshow-block'; ?>" data-target-region-id="<?php echo $this->targetID; ?>">
-    <div class="grid-y grid-padding-y slideshow flex-container flex-dir-column">
+    <div class="slideshow">
         <?php if ($useTitleSlide): ?>
             <div class="item resource introduction">
                 <figure>
@@ -55,7 +55,7 @@
             <div class="audio-player">
                 <?php echo $audioAttachment->media()->render(); ?>
                 <div class="audio-message">
-                    <a href=='#' class='audio-text-play-control' title='Play audio' data-playbtnmsg='Play audio slideshow' data-stopbtnmsg='Pause audio slideshow'>Play audio slideshow.</a>
+                    <a href='#' class='audio-text-play-control' title='Play audio' data-playbtnmsg='Play audio slideshow' data-stopbtnmsg='Pause audio slideshow'>Play audio slideshow.</a>
                 </div>
             </div>
             <?php if ($audioAttachment->caption()): ?>
