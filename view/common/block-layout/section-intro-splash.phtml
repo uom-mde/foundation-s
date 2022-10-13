@@ -4,7 +4,7 @@
             <?php
                 $item = $attachment->item();
             ?>
-            <div class="large-7 item resource item-listing-image item resource">
+            <div class="item resource item resource">
                 <?php if ($item):
                     $title = $this->plugin('escapeHtml')($item->displayTitle());
                     $media = $attachment->media() ?: $item->primaryMedia();
@@ -35,5 +35,4 @@
         </div>
     </div>
 </div>
-
 
