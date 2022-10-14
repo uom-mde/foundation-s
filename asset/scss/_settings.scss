@@ -623,3 +623,13 @@ $grid-padding-gutters: $grid-margin-gutters;
 $grid-container-padding: $grid-padding-gutters;
 $grid-container-max: $global-width;
 $xy-block-grid-max: 8;
+
+//57. Pull Quote
+// -------------
+$pull-quote-maxwidth: 50%;
+$pull-quote-color: $primary-color;
+$pull-quote-offset-large: -25%;
+$pull-quote-offset-medium: -15%;
+$pull-quote-fontsize-medium-up: 1.875rem;
+$pull-quote-fontsize-small: 1.125rem;
+$pull-quote-gradient: false;

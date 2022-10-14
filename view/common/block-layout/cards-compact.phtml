@@ -20,7 +20,7 @@ $itemCount = count($this->pages);
     <?php endif; ?>
     <?php if ($this->hasPages): ?>
         <?php foreach($this->pages as $page): ?>
-            <div class="cell card-compact medium-6 large-4 flex-container flex-dir-column">
+            <div class="cell card-compact medium-6 large-4 flex-container flex-dir-column radius bordered shadow">
                 <?php if ($page['hasEmbeddedBlocks'] && array_key_exists('representativeImage',$page['embeddedBlocks'])): ?>
                     <?php echo $page['embeddedBlocks']['representativeImage'][0]; ?>
                 <?php endif; ?>
