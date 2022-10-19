@@ -708,9 +708,12 @@ body.vertical-menu footer {
 }
 
 #itemfiles.leftgallery {
-    height: 60vh;
+    /*height: 60vh; Removed as overflowing container*/
     width: 100%;
     margin-bottom: $global-margin;
+    img {
+        height: 60vh;
+    }
 }
 
 #itemfiles.topgallery {
