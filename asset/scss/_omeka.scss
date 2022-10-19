@@ -1165,6 +1165,26 @@ body.vertical-menu footer {
     max-width: 100vw;
 }
 
+/*Full Width CSS Alternative*/
+.full-width-hero {
+    width: calc(100% + (2 * $global-padding)); // 100% width and the total padding values
+    margin-left: -1 * $global-padding; // Negative margins to negate the padding values
+    margin-right: -1 * $global-padding;
+}
+
+.full-width-hero img {
+  width: 100%; // Ensure your hero image takes up the full width.
+}
+
+// Use a breakpoint to style when the browser exceeds the `#wrap` container's maximum width.
+@media screen and (min-width: 1140px) { 
+  .full-width-hero {
+    margin-left: calc((-100vw / 2) + ($global-width / 2)); // The calculation for full width incorporating the parent container's maximum width.
+    margin-right: calc((-100vw / 2) + ($global-width / 2));
+    width: auto;
+  }
+}
+
 .splash {    
     left: 50%;
     position: relative;
