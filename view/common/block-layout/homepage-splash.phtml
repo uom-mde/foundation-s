@@ -4,7 +4,7 @@
             <?php
                 $item = $attachment->item();
             ?>
-            <div class="large-7 item resource item-listing-image">
+            <div class="item resource">
                 <?php if ($item):
                     $title = $this->plugin('escapeHtml')($item->displayTitle());
                     $media = $attachment->media() ?: $item->primaryMedia();
@@ -27,7 +27,7 @@
     <div class="large-5 grid-y grid-padding-y padding-2 item resource introduction background-colour-uom-footer flex-container align-spaced">
         <div class='introductory-text'>
             <?php if (!empty($titleSlideTitle)): ?>
-                <h1><?php echo $titleSlideTitle; ?></h1>
+                <h2 class="h1"><?php echo $titleSlideTitle; ?></h2>
             <?php endif; ?>
             <?php if (!empty($titleSlideIntro)): ?>
                 <?php echo $titleSlideIntro; ?>
