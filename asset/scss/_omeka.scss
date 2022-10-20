@@ -1324,6 +1324,7 @@ nav.title-bar {
 }
 
 .item-listing h2,
+.section-intro-splash h2,
 .introductory-text h2 {
     font-size: 2 * $global-font-size;
     @include breakpoint(large) {
@@ -1362,7 +1363,7 @@ nav.title-bar {
 }
 
 .item-listing .title-area,
-.item-listing .title-area {
+.section-intro-splash .title-area {
     @include breakpoint(large) {
         flex-grow: 1;
     }
