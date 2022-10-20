@@ -157,5 +157,9 @@ endif;
             echo $this->inlineScript()
             ->prependFile($this->assetUrl('js/full-width-container.js'));
         ?>
+        <?php
+            echo $this->inlineScript()
+            ->prependFile($this->assetUrl('js/img-orientation.js'));
+        ?>
     </body>
 </html>

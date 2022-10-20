@@ -1188,32 +1188,14 @@ body.vertical-menu footer {
   }
 }
 
-.splash {    
-    left: 50%;
-    position: relative;
-    margin-left: -50vw;
-    margin-right: -50vw;
-    max-width: 100vw;
-}
-
-.region-splash {    
-    left: 50%;
-    position: relative;
-    margin-left: -50vw;
-    margin-right: -50vw;
-    max-width: 100vw;
-}
-
-#block .splash,
-#block .region-splash {    
-left: 50%;
-position: relative;
-margin-left: -50vw;
-margin-right: -50vw;
-max-width: 100vw;
-}
-
 /*Blocks*/
+#splash,
+#region-splash {  
+    @include breakpoint(large) {
+        height: 90vh;
+        min-height: 700px;
+    }
+}
 
 /*Item Showcase block styling*/
 
@@ -1328,6 +1310,9 @@ nav.title-bar {
 .introductory-text h2 {
     font-size: 2 * $global-font-size;
     @include breakpoint(large) {
+        font-size: 2.5 * $global-font-size;
+    }
+    @include breakpoint(xlarge) {
         font-size: 3 * $global-font-size;
     }
 }
@@ -1362,16 +1347,16 @@ nav.title-bar {
     }
 }
 
-.item-listing .title-area,
-.section-intro-splash .title-area {
+.item-listing .title-area {
     @include breakpoint(large) {
         flex-grow: 1;
     }
 }
 
-.block-introduction p {
+.block-introduction p,
+.introductory-text p {
     font-size: 1.1 * $global-font-size;
-        @include breakpoint(large) {
+        @include breakpoint(xlarge) {
         font-size: 1.25 * $global-font-size;
         }
 }
@@ -1499,12 +1484,6 @@ nav.title-bar {
 /*Home page with Introduction*/
 /*Slick Slider*/
 
-.slick-slide img {
-    height: 700px;
-    width: 100%;
-    object-fit: cover;
-}
-
 ul.slick-dots {
     list-style: none;
     display: flex;
@@ -1575,10 +1554,29 @@ ul.slick-dots li button {
     color: transparent;
     }
     
-    ul.slick-dots li.slick-active button {
+ul.slick-dots li.slick-active button {
     background: $warning-color;
     }
-    
+
+.slick-slide img {
+    object-fit: cover;
+    max-width: unset;
+    aspect-ratio: 1;
+    overflow: hidden;
+    height: 80vh;
+    @include breakpoint(large) {
+    height: 800px;
+    }
+}
+
+.slick-slide img.portrait {
+    width: 100%;
+}
+
+.slick-slide img.landscape {
+    max-height: 100%;
+    width: 100%; 
+}
 
 /*Breadcrumbs*/
 nav.breadcrumbs {
