@@ -1,10 +1,10 @@
-<section>  
-    <div id="block-<?php echo $this->blockId; ?>" class="quotation mb-wrap mb-style-2">
+<section class="full-width-css background-colour-1">  
+    <div id="block-<?php echo $this->blockId; ?>" class="blockquote-wrapper">
         <blockquote>
-            <p><?php echo $this->html; ?></p>
+            <h3><?php echo $this->html; ?></h3>
             <?php if (!empty($this->attribution)): ?>
-            <cite class="mb-attribution">
-                <p class="mb-author"> <?php echo $this->attribution; ?></p>
+            <cite>
+                <p><?php echo $this->attribution; ?></p>
             </cite>
             <?php endif; ?>
         </blockquote>
