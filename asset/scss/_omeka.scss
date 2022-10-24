@@ -1512,13 +1512,19 @@ ul.slick-dots li {
 .slick-prev:before {
     font-family: "Font Awesome 5 Free";
     content: "\f053";
+    margin: 0;
+    @include breakpoint(large) {
     margin: 2rem;
+    }
 }
 
 .slick-next:before {
     font-family: "Font Awesome 5 Free";
     content: "\f054";
+    margin: 0;
+    @include breakpoint(large) {
     margin: -1rem;
+    }
 }
 
 .slick-next,
@@ -1576,6 +1582,13 @@ ul.slick-dots li.slick-active button {
 .slick-slide img.landscape {
     max-height: 100%;
     width: 100%; 
+}
+
+.slick-slider {
+    width: 100vw;
+    @include breakpoint(large) {
+        width: 100%;
+        }
 }
 
 /*Breadcrumbs*/
