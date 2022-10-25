@@ -1495,6 +1495,13 @@ ul.slick-dots {
     -webkit-transform: translateX(-50%);
     transform: translateX(-50%);
     position: relative;
+    margin-left: 0;
+}
+
+ul.slick-dots li button {
+    margin-top: 0.5 * $global-margin;
+    margin-bottom: 0.5 * $global-margin;
+    margin-right: 0.5 * $global-margin;
 }
 
 /*Remove button number text*/
