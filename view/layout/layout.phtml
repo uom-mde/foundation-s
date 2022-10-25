@@ -38,7 +38,7 @@ if ($logo) :
 endif;
 ?>
 <?php echo $this->doctype(); ?>
-<?php echo $this->htmlElement('html'); ?>
+<?php echo $this->htmlElement('html class="no-js"'); ?>
     <head>
         <?php echo $this->headMeta(); ?>
         <?php echo $this->headTitle(); ?>
@@ -155,11 +155,11 @@ endif;
         </script>
         <?php
             echo $this->inlineScript()
-            ->prependFile($this->assetUrl('js/full-width-container.js'));
+            ->prependFile($this->assetUrl('js/img-orientation.js'));
         ?>
         <?php
             echo $this->inlineScript()
-            ->prependFile($this->assetUrl('js/img-orientation.js'));
+            ->prependFile($this->assetUrl('js/full-width-container.js'));
         ?>
     </body>
 </html>

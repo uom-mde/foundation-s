@@ -1570,9 +1570,7 @@ ul.slick-dots li.slick-active button {
     aspect-ratio: 1;
     overflow: hidden;
     height: 80vh;
-    @include breakpoint(large) {
-    height: 800px;
-    }
+    min-height: 800px;
 }
 
 .slick-slide img.portrait {
