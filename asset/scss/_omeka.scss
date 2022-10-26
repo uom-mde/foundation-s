@@ -1323,6 +1323,19 @@ figcaption.orbit-caption.caption p {
     padding: $global-padding;
 }
 
+.captions-center .resource h3,
+.captions-center .resource .orbit-caption.caption {
+    text-align: center;
+}
+.captions-left .resource h3,
+.captions-left .resource .orbit-caption.caption.caption {
+    text-align: left;
+}
+.captions-right .resource h3,
+.captions-right .resource .orbit-caption.caption.caption {
+    text-align: right;
+}
+
 /*Breadcrumb Navigation*/ 
 
 /*Agile Theme Tools*/ 
