@@ -1,0 +1,49 @@
+<div id="block-<?php echo $this->blockId; ?>" class="full-width-css grid-x grid-padding-x margin-bottom-1 flex-container item-listing region <?php echo $this->regionClass; ?>" data-target-region-id="<?php echo $this->targetID; ?> ">
+    <?php if ($this->hasTitle || $this->hasIntroduction): ?>
+        <div class='large-5 grid-y grid-padding-y padding-2 title-area background-colour-uom-footer flex-container align-spaced'>
+            <?php if ($this->hasTitle): ?>
+                <h2 class="h1"><?php echo $this->title; ?></h2>
+            <?php endif; ?>
+            <?php if ($this->hasIntroduction): ?>
+                <div class='cell block-introduction'>
+                    <p class="h4"><?php echo $this->introduction; ?></p>
+                </div>
+            <?php endif; ?>
+            <?php if ($this->hasButton): ?>
+                <?php printf('<a class="button rounded" href="%s" alt="%s">%s</a>',$this->buttonPath,$this->buttonText,$this->buttonText); ?>
+            <?php endif; ?>
+        </div>
+    <?php endif; ?>
+
+    <?php foreach ($attachments as $attachment): ?>
+        <div class="large-7 item resource item-listing-image">
+            <?php
+            $item = $attachment->item();
+            if ($item):
+                ?>
+                <?php
+                $title = $this->plugin('escapeHtml')($item->displayTitle());
+                $media = $attachment->media() ?: $item->primaryMedia();
+                if ($media):
+                    $image = preg_match('/alt=""/', $this->thumbnail($media, $this->thumbnailType)) == 1 ? $item->linkRaw($this->thumbnail($media, $this->thumbnailType, ['alt' => $title])) : $item->linkRaw($this->thumbnail($media, $this->thumbnailType));
+                    echo $image;
+                endif;
+                ?>
+                </li>
+                <?php $showTitleOption = $this->showTitleOption; ?>
+                <?php if ($showTitleOption == 'item_title'): ?>
+                <h3><?php echo $item->link($item->displayTitle()); ?></h3>
+            <?php elseif ($showTitleOption == 'file_name'): ?>
+                <h3><?php echo $media->displayTitle(); ?></h3>
+            <?php endif; ?>
+            <?php endif; ?>
+
+            <?php
+            $caption = $attachment->caption();
+            if ($caption):
+                ?>
+                <figcaption class="orbit-caption caption"><?php echo $caption; ?></figcaption>
+            <?php endif; ?>
+        </div>
+    <?php endforeach; ?>
+</div>

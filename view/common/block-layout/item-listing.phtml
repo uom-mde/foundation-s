@@ -1,22 +1,22 @@
-<div id="block-<?php echo $this->blockId; ?>" class="full-width-css grid-x grid-padding-x margin-bottom-1 flex-container item-listing region <?php echo $this->regionClass; ?>" data-target-region-id="<?php echo $this->targetID; ?> ">
+<div id="block-<?php echo $this->blockId; ?>" class="full-width-css item-listing-with-introduction grid-y grid-margin-y region <?php echo $this->regionClass; ?>" data-target-region-id="<?php echo $this->targetID; ?> ">
     <?php if ($this->hasTitle || $this->hasIntroduction): ?>
-        <div class='large-5 grid-y grid-padding-y padding-2 title-area background-colour-uom-footer flex-container align-spaced'>
+        <div class='item-listing-title-area grid-container padding-bottom-2'>
             <?php if ($this->hasTitle): ?>
-                <h2 class="h1"><?php echo $this->title; ?></h2>
+                <h3 class="h2 padding-vertical-2"><?php echo $this->title; ?></h3>
             <?php endif; ?>
             <?php if ($this->hasIntroduction): ?>
-                <div class='cell block-introduction'>
-                    <p class="h4"><?php echo $this->introduction; ?></p>
+                <div class='block-introduction'>
+                    <?php echo $this->introduction; ?>
                 </div>
             <?php endif; ?>
             <?php if ($this->hasButton): ?>
-                <?php printf('<a class="button rounded" href="%s" alt="%s">%s</a>',$this->buttonPath,$this->buttonText,$this->buttonText); ?>
+                <?php printf('<a class="btn" href="%s" alt="%s">%s</a>',$this->buttonPath,$this->buttonText,$this->buttonText); ?>
             <?php endif; ?>
         </div>
     <?php endif; ?>
 
     <?php foreach ($attachments as $attachment): ?>
-        <div class="large-7 item resource item-listing-image">
+        <div class="grid-x grid-margin-x item-listing-item item resource flex-container flex-dir-column large-6 x-large-4">
             <?php
             $item = $attachment->item();
             if ($item):
@@ -29,7 +29,6 @@
                     echo $image;
                 endif;
                 ?>
-                </li>
                 <?php $showTitleOption = $this->showTitleOption; ?>
                 <?php if ($showTitleOption == 'item_title'): ?>
                 <h3><?php echo $item->link($item->displayTitle()); ?></h3>
@@ -42,7 +41,7 @@
             $caption = $attachment->caption();
             if ($caption):
                 ?>
-                <figcaption class="orbit-caption caption"><?php echo $caption; ?></figcaption>
+                <div class="caption"><?php echo $caption; ?></div>
             <?php endif; ?>
         </div>
     <?php endforeach; ?>

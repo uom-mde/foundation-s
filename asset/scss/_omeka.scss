@@ -1339,7 +1339,7 @@ figcaption.orbit-caption.caption p {
 /*Breadcrumb Navigation*/ 
 
 /*Agile Theme Tools*/ 
-/*Item Listing with Introduction Block*/
+/*Old Item Listing with Introduction Block*/
 .item-listing,
 .section-intro-splash {
     overflow: hidden;
@@ -1419,6 +1419,15 @@ figcaption.orbit-caption.caption p {
         color: $white;
         text-decoration: none;
     }
+}
+
+/*New Item Listing with Introduction*/ 
+.item-listing-with-introduction {
+    background: $warning-color;
+}
+
+.item-listing-title-area h3 {
+    text-align: center;
 }
 
 /*Cards*/ 
