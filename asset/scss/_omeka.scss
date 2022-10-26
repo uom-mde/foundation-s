@@ -1297,10 +1297,30 @@ nav.title-bar {
     float: unset;
     margin: unset;
     max-width: unset;
+    order: 0;
+}
+
+.image-cover .right {
+    float: unset;
+    margin: unset;
+    max-width: unset;
+    order: 1;
 }
 
 .image-cover-img {
     position: relative;
+}
+
+figcaption.orbit-caption.caption p {
+    margin-bottom: 0;
+    @include breakpoint(large) {
+        margin-bottom: $global-margin;
+    }
+}
+
+.image-cover .title-area p,
+.image-cover .title-area h3 {
+    padding: $global-padding;
 }
 
 /*Breadcrumb Navigation*/ 
@@ -1328,7 +1348,8 @@ nav.title-bar {
     }
 }
 
-.item-listing img {
+.item-listing,
+.image-cover-img img {
     width: 100vw;
     height: auto;
     max-height: 70vh;

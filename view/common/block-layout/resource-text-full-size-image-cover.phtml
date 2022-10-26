@@ -69,15 +69,17 @@ $lang = $filterLocale ? $this->lang() : null;
             ?>
             <div class="item resource">
                 <?= $render ?>
-                <?= $link ?>
+                <?php if ($attachment->caption()): ?>
                 <div class="caption">
                     <figcaption class="orbit-caption caption"><?php echo $caption; ?></figcaption>
                 </div>
+                <?php endif; ?>
             </div>
             <?php endforeach; ?>
         </div>
     </div>
-    <div class="title-area background-colour-uom-footer large-6 flex-container align-middle font-wide padding-1">
+    <div class="title-area background-colour-uom-footer large-6 flex-container grid-y grid-padding-y flex-dir-column align-middle align-center font-wide padding-1">
+    <h3 class="padding-bottom-1"><?= $link ?></h3>
         <?= $html ?>
     </div>
 </div>
