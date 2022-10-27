@@ -1424,10 +1424,26 @@ figcaption.orbit-caption.caption p {
 /*New Item Listing with Introduction*/ 
 .item-listing-with-introduction {
     background: $warning-color;
+    padding: 2 * $global-padding;
 }
 
 .item-listing-title-area h3 {
     text-align: center;
+}
+
+.item-listing-item img {
+    height: 35rem;
+    width: 100%;
+    object-fit: cover;
+    @include breakpoint(medium) {
+        height: 25rem;
+    }
+    @include breakpoint(large) {
+        height: 30rem;
+    }
+    @include breakpoint(xlarge) {
+        height: 35rem;
+    }
 }
 
 /*Cards*/ 
