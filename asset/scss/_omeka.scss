@@ -1558,18 +1558,37 @@ figcaption.orbit-caption.caption p {
 .colour-scheme-3 p,
 .colour-scheme-4 p {
         color: $white;
-        font-weight: 800;
-        padding: $global-padding;
-        font-size: 1.2 * $global-font-size;
-        @include breakpoint(medium) {
-            font-size: 1.5 * $global-font-size;
-            padding: 0;
-        }
-        @include breakpoint(large) {
-            font-size: 2 * $global-font-size;
-            padding: 0;
-        }
     }
+
+    /*Text for mid-size option text*/
+.text-treatment-1 {
+    color: $white;
+    font-weight: 800;
+    font-size: 1.2 * $global-font-size;
+    padding: $global-padding;
+    @include breakpoint(medium) {
+        font-size: 1.5 * $global-font-size;
+        padding: 0;
+    }
+    @include breakpoint(large) {
+        font-size: 2 * $global-font-size;
+        padding: 0;
+    }
+}
+
+    .text-treatment-2 {
+    font-weight: 400;
+    padding: $global-padding;
+    font-size: 1.1 * $global-font-size;
+    @include breakpoint(medium) {
+        font-size: 1.2 * $global-font-size;
+        padding: 0;
+    }
+    @include breakpoint(large) {
+        font-size: 1.5 * $global-font-size;
+        padding: 0;
+    }
+}
 
 /*Hide Representative Image*/ 
 #content > #blocks > .representative-image {
