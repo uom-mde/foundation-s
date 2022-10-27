@@ -1432,6 +1432,7 @@ figcaption.orbit-caption.caption p {
 }
 
 .item-listing-item {
+    overflow:hidden;
     @include breakpoint(medium) {
         &.item-count-2,
         .item-count-4,
@@ -1455,15 +1456,22 @@ figcaption.orbit-caption.caption p {
 
 .item-listing-item img {
     height: 35rem;
-    width: 100%;
+    width: 35rem;
     object-fit: cover;
+    transition: 1s all ease-in-out;
+    &:hover {
+            transform: scale(1.05);
+        }
     @include breakpoint(medium) {
-        height: 25rem;
+        height: 20rem;
     }
     @include breakpoint(large) {
-        height: 30rem;
+        height: 25rem;
     }
     @include breakpoint(xlarge) {
+        height: 30rem;
+    }
+    @include breakpoint(xxlarge) {
         height: 35rem;
     }
 }
