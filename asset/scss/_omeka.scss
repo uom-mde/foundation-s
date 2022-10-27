@@ -1407,7 +1407,8 @@ figcaption.orbit-caption.caption p {
         }
 }
 
-.title-area .button {
+.title-area .button,
+.item-listing-title-area button {
     background-color: $primary-color;
     p {
         font-size: 1.1 * $global-font-size;
@@ -1458,13 +1459,6 @@ figcaption.orbit-caption.caption p {
     height: 35rem;
     width: 35rem;
     object-fit: cover;
-    transition: 1s all ease-in-out;
-    &:hover {
-            transform: scale(1.05);
-        }
-    @include breakpoint(medium) {
-        height: 20rem;
-    }
     @include breakpoint(large) {
         height: 25rem;
     }
