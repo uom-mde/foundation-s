@@ -1,6 +1,6 @@
 <?php
-                $itemCount = count($this->attachments);
-                ?>
+    $itemCount = count($this->attachments);
+?>
 
 <div id="block-<?php echo $this->blockId; ?>" class="full-width-css item-listing-with-introduction grid-y grid-margin-y padding-2 region <?php echo $this->regionClass; ?>" data-target-region-id="<?php echo $this->targetID; ?> ">
     <?php if ($this->hasTitle || $this->hasIntroduction): ?>
@@ -19,9 +19,9 @@
         </div>
     <?php endif; ?>
 
-    <div class="grid-x grid-margin-x flex-container">
+    <div class="grid-x grid-margin-x flex-container align-spaced">
         <?php foreach ($attachments as $attachment): ?>
-            <div class="cell item-listing-item item resource flex-container flex-dir-column medium-6 xlarge-4 item-count-<?php echo $itemCount; ?>">
+            <div class="cell item-listing-item item resource flex-container flex-dir-column item-count-<?php echo $itemCount; ?>">
                 <?php
                 $item = $attachment->item();
                 if ($item):

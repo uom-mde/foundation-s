@@ -1431,6 +1431,28 @@ figcaption.orbit-caption.caption p {
     text-align: center;
 }
 
+.item-listing-item {
+    @include breakpoint(medium) {
+        &.item-count-2,
+        .item-count-4,
+        .item-count-6 {
+            width: 45%;
+        }
+    }
+    @include breakpoint(large) {
+        &.item-count-3,
+        .item-count-5 {
+            width: 45%;
+        } 
+    }
+    @include breakpoint(xlarge) {
+        &.item-count-3,
+        .item-count-5 {
+            width: 29%;
+        } 
+    }
+}
+
 .item-listing-item img {
     height: 35rem;
     width: 100%;
