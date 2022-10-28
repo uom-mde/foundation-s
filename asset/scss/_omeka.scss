@@ -1340,8 +1340,11 @@ figcaption.orbit-caption.caption p {
 
 /*Agile Theme Tools*/ 
 /*Old Item Listing with Introduction Block*/
+
+/*Remove margin from top of blocks*/
 .item-listing,
-.section-intro-splash {
+.section-intro-splash,
+.callout-image-grid {
     overflow: hidden;
     margin-top: (-1 * $global-padding);
     @include breakpoint(medium) {
@@ -1409,7 +1412,7 @@ figcaption.orbit-caption.caption p {
 
 .title-area .button,
 .item-listing-title-area button {
-    background-color: $primary-color;
+    background-color: $uom-footer;
     p {
         font-size: 1.1 * $global-font-size;
     }
@@ -1512,6 +1515,12 @@ figcaption.orbit-caption.caption p {
     height: 250px;
     width: 100%;
     object-fit: cover;
+    filter: drop-shadow(2px 4px 6px $black)
+}
+
+/*Feature 1*/
+#feature-1 {
+    background: $warning-color;
 }
 
 /*Poster*/
