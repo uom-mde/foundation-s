@@ -1340,18 +1340,6 @@ figcaption.orbit-caption.caption p {
 
 /*Agile Theme Tools*/ 
 /*Old Item Listing with Introduction Block*/
-
-/*Remove margin from top of blocks*/
-.item-listing,
-.section-intro-splash,
-.callout-image-grid {
-    overflow: hidden;
-    margin-top: (-1 * $global-padding);
-    @include breakpoint(medium) {
-        margin-top: (-2 * $global-padding);
-    }
-}
-
 .item-listing h2,
 .section-intro-splash h2,
 .introductory-text h2 {
@@ -1420,7 +1408,7 @@ figcaption.orbit-caption.caption p {
         font-size: 1.25 * $global-font-size;
         }
     a {
-        color: $white;
+        color: $black;
         text-decoration: none;
     }
 }
@@ -1706,8 +1694,8 @@ ul.slick-dots li.slick-active button {
     max-width: unset;
     aspect-ratio: 1;
     overflow: hidden;
-    height: 80vh;
-    min-height: 800px;
+    height: 70vh;
+    min-height: 700px;
 }
 
 .slick-slide img.portrait {
@@ -1721,6 +1709,7 @@ ul.slick-dots li.slick-active button {
 
 .slick-slider {
     width: 100vw;
+    overflow: hidden;
     @include breakpoint(large) {
         width: 100%;
         }
@@ -1879,4 +1868,13 @@ nav.breadcrumbs {
         margin-top: 2 * $global-margin;
         margin-bottom: 2 * $global-margin;
      }
+ }
+
+ /*Remove margin from top of blocks*/
+.region-splash {
+        overflow: hidden;
+        margin-top: (-1 * $global-padding);
+        @include breakpoint(medium) {
+            margin-top: (-2 * $global-padding);
+    }
  }
