@@ -38,7 +38,7 @@ if ($logo) :
 endif;
 ?>
 <?php echo $this->doctype(); ?>
-<?php echo $this->htmlElement('html class="no-js"'); ?>
+<?php echo $this->htmlElement('html'); ?>
     <head>
         <?php echo $this->headMeta(); ?>
         <?php echo $this->headTitle(); ?>
@@ -160,6 +160,6 @@ endif;
         <?php
             echo $this->inlineScript()
             ->prependFile($this->assetUrl('js/full-width-container.js'));
-        ?>
+        ?>       
     </body>
 </html>

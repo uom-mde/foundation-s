@@ -24,13 +24,13 @@
     </div>
    
 
-    <div class="large-5 grid-y grid-padding-y padding-2 item resource introduction background-colour-uom-footer flex-container align-spaced">
-        <div class='flex-container flex-dir-column introductory-text flex-child-grow align-spaced'>
+    <div class="large-5 grid-y grid-padding-y padding-2 introduction title-area background-colour-uom-footer">
+        <div class='flex-container flex-dir-column introductory-text'>
             <?php if (!empty($titleSlideTitle)): ?>
-                <h2 class="h1"><?php echo $titleSlideTitle; ?></h2>
+                <h2 class="h1 padding-bottom-1"><?php echo $titleSlideTitle; ?></h2>
             <?php endif; ?>
             <?php if (!empty($titleSlideIntro)): ?>
-                <?php echo $titleSlideIntro; ?>
+                <p class="padding-1-medium-up"><?php echo $titleSlideIntro; ?></p>
             <?php endif; ?>
         </div>
     </div>
