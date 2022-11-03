@@ -8,19 +8,18 @@
         </div>
     <?php endif; ?>
     <?php if ($this->hasPages): ?>
-    <div class="full-width-css cards grid-x grid-margin-x grid-margin-y margin-vertical-1">
+    <div class="cards grid-x grid-margin-x grid-margin-y margin-vertical-1">
         <?php foreach($this->pages as $page): ?>
             <div class='card cell medium-6 large-4 radius bordered shadow'>
                 <?php if ($page['hasEmbeddedBlocks'] && array_key_exists('representativeImage',$page['embeddedBlocks'])): ?>
                     <?php echo $page['embeddedBlocks']['representativeImage'][0]; ?>
                 <?php endif; ?>
-                <div class="card-divider">
+                <div class="card-divider align-center">
                 <h3><a href='<?php echo $page['o:url']; ?>'><?php echo $page['o:title']; ?></a></h3>
                 </div>
                 <?php if ($page['hasEmbeddedBlocks'] && array_key_exists('byline',$page['embeddedBlocks'])): ?>
                     <?php echo $page['embeddedBlocks']['byline'][0]; ?>
                 <?php endif; ?>
-
                 <?php if ($page['hasEmbeddedBlocks'] && array_key_exists('excerpt',$page['embeddedBlocks'])): ?>
                     <?php echo $page['embeddedBlocks']['excerpt'][0]; ?>
                 <?php endif; ?>

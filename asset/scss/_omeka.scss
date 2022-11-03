@@ -156,6 +156,27 @@ body.vertical-menu #user-bar~#content {
     margin: $global-margin 0;
 }
 
+/*Transition added by JMc*/
+ul.dropdown.menu li {
+    transition: background-color .25s ease-out,color .25s ease-out;
+}
+
+ul.dropdown.menu li:hover {
+    background-color: $secondary-color;
+}
+
+.dropdown.menu>li.is-dropdown-submenu-parent>a::after, 
+.toc-block>ul.dropdown>li.is-dropdown-submenu-parent>a::after, 
+.toc-block ul ul.dropdown>li.is-dropdown-submenu-parent>a::after {
+    border-color: $white transparent transparent;
+}
+
+.dropdown.menu>li.is-active>a, .toc-block>ul.dropdown>li.is-active>a, .toc-block ul ul.dropdown>li.is-active>a {
+    color: $white;
+}
+/*End JMc edits*/
+
+
 .dropdown.menu>li.is-dropdown-submenu-parent.active>a:after {
     border-color: #fff transparent transparent;
     margin-right: .5 * $global-margin;
@@ -166,12 +187,14 @@ body.vertical-menu #user-bar~#content {
 }
 
 .dropdown.menu>li.is-dropdown-submenu-parent.active:hover>a {
-    background-color: $dark-gray;
+    background-color: $primary-color;
     color: #fff;
 }
 
 /*Added by JMc*/
-.dropdown.menu>li.opens-left>.is-dropdown-submenu, .toc-block>ul.dropdown>li.opens-left>.is-dropdown-submenu, .toc-block ul ul.dropdown>li.opens-left>.is-dropdown-submenu {
+.dropdown.menu>li.opens-left>.is-dropdown-submenu, 
+.toc-block>ul.dropdown>li.opens-left>.is-dropdown-submenu, 
+.toc-block ul ul.dropdown>li.opens-left>.is-dropdown-submenu {
     z-index: 999999;
 }
 
@@ -1706,6 +1729,29 @@ ul.slick-dots li.slick-active button {
     width: 100%; 
 }
 
+/*Excerpt*/ 
+.excerpt {
+    background-color: $uom-footer;
+& p {
+    color: #fff;
+    padding: 0 $global-padding $global-padding $global-padding;
+    margin-bottom: 0;
+}
+}
+
+/*Byline*/ 
+.byline {
+    background-color: $uom-footer;
+& p {
+    color: #fff;
+    padding: $global-padding;
+    text-align: left;
+    margin-bottom: 0;
+}
+}
+
+
+/*End Agile Theme Tools*/
 /*Breadcrumbs*/
 nav.breadcrumbs {
     margin-top: -1rem;
