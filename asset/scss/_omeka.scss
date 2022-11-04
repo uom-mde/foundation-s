@@ -1364,7 +1364,7 @@ body.vertical-menu footer {
 /*Header*/
 .site-heading {
     width: rem-calc(225px);
-    margin: 0 12px;
+    margin: 0 rem-calc(12);
 }
 
 nav.title-bar {
