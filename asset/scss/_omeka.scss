@@ -315,6 +315,29 @@ body.vertical-menu header .desktop {
     }
 }
 
+/*Set size of University logo*/
+.university-logo {
+    margin: rem-calc(12) rem-calc(24);
+}
+
+.university-logo img {
+    width: rem-calc(169);
+    height: rem-calc(70);
+}
+
+/*Set 'Manchester Digital Exhibitions text*/
+.site-heading {
+    color: $primary-color;
+    text-decoration: none;
+    display: flex;
+    flex-grow: 3;
+}
+
+.site-heading p {
+    color: $primary-color;
+    margin-bottom: 0;
+}
+
 /*Language Selector*/
 #lang {
     order: 2;
