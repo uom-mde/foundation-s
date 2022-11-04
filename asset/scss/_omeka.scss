@@ -315,6 +315,29 @@ body.vertical-menu header .desktop {
     }
 }
 
+/*Language Selector*/
+#lang {
+    order: 2;
+    margin: 0 1 0 1em;
+}
+
+ul.language-switcher.locale-code {
+    padding-inline-start: 0;
+}
+
+ul.language-switcher.locale-code li span.active {
+    color: #343536;
+    text-decoration: underline;
+    font-weight: 600;
+}
+
+ul.language-switcher.locale-code li a {
+    color: #343536;
+    text-decoration: none;
+    font-weight: 400;
+}
+/*End Language Selector*/
+
 // #. Footer
 // ------------------
 footer {
