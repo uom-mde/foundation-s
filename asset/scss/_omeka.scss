@@ -331,6 +331,79 @@ body.vertical-menu footer {
     padding: $global-padding;
 }
 
+.footerContainer { background: $uom-footer; 
+    padding: 0; 
+    margin: 0; 
+    max-width: unset;
+}
+
+.footerContainer h3 {
+    color: $white;
+    @include breakpoint(medium down) {
+    font-size: rem-calc(16);
+    }
+}
+
+
+.footerLogos { 
+    float: left; 
+    width: rem-calc(280); 
+}
+
+.footerLogos img { 
+    display: inline; 
+    margin: 0 rem-calc(20) rem-calc(10) 0; 
+    width: auto!important; }
+
+.footerLogos p { color: $white;	
+    line-height: rem-calc(1.3em);	
+    font-size: rem-calc(1.1em); 
+}
+
+.inlineList {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    overflow: hidden;
+}
+        
+.inlineList li {
+    display: inline-block;
+    margin: 0;
+    padding: rem-calc(5);
+    font-size: rem-calc(14px);
+    line-height: rem-calc(2em);
+    color: #aaa;
+}
+        
+.lt-ie8 .inlineList li { 
+    zoom: 1; 
+    display: inline; 
+}
+        
+.inlineList li a {
+    display: inline-block;
+}
+        
+.lt-ie8 .inlineList li a { 
+    zoom: 1; 
+    display: inline; 
+}
+
+.footerContainer li a {
+    color: #aaa;}
+
+.footer-socialIcons li {
+    padding: 0; 
+}
+
+.footer-socialIcons li a img {
+    padding-right: rem-calc(10); 
+    width: auto; 
+    vertical-align: inherit; 
+}
+
+
 // #. Resource Browse
 // ------------------
 .resource.browse #content>h2:first-child {
@@ -1728,7 +1801,6 @@ ul.slick-dots li.slick-active button {
     max-height: 100%;
     width: 100%; 
 }
-
 
 /*Excerpt*/ 
 .excerpt {

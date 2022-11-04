@@ -13,7 +13,6 @@ if (isset($stylesheet)) {
 $this->headLink()->prependStylesheet($this->assetUrl('css/iconfonts.css', 'Omeka'));
 $this->headLink()->prependStylesheet('//fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400&display=swap');
 $this->headLink()->prependStylesheet($this->assetUrl('css/uom-header.css'));
-$this->headLink()->prependStylesheet($this->assetUrl('css/uom-footer.css'));
 $this->headScript()->prependFile($this->assetUrl('vendor/foundation/foundation.min.js'));
 $this->headScript()->prependFile($this->assetUrl('js/global.js', 'Omeka'));
 $this->headScript()->prependFile($this->assetUrl('vendor/jquery/jquery.min.js', 'Omeka'));
@@ -87,68 +86,63 @@ endif;
                 <?php echo $this->content; ?>
             </div>
             <footer class="footerContainer">							
-                            <div class="footer_row tripleVertPadding">
-                                
-                                <div class="eightcol">
-                                    <div class="footerLogos">
-                        
-                                        <img src="https://www.library.manchester.ac.uk/assets/images/design/national-research-libraries.png" height="63" alt="National Research Libraries">											
-                                        <p>The University of Manchester Library is one of five National Research Libraries</p>
-                        
-                                    </div>
-                                </div>
-                                
-                                <div class="fourcol last">
-                                    <h2>Connect with us</h2>
-                                    <ul class="inlineList footer-socialIcons">
-                                        
-                                        <li><a href="https://www.facebook.com/pages/The-University-of-Manchester-Library/25777209922">
-                                            <img class="lazy" src="https://www.library.manchester.ac.uk/assets/images/design/icon-facebook-large.png" width="40" height="40" data-original="/assets/images/design/icon-facebook-large.png" alt="Facebook page for The University of Manchester Library">
-                                            <noscript><img class="" src="https://www.library.manchester.ac.uk/assets/images/design/icon-facebook-large.png" width="40" height="40" alt="Facebook page for The University of Manchester Library"></noscript>
-                                            </a>
-                                        </li>
-                                        <li><a href="https://twitter.com/UoMLibrary">
-                                            <img class="lazy" src="https://www.library.manchester.ac.uk/assets/images/design/icon-twitter-large.png" width="40" height="40" data-original="/assets/images/design/icon-twitter-large.png" alt="Twitter page for The University of Manchester Library">
-                                            <noscript><img class="" src="https://www.library.manchester.ac.uk/assets/images/design/icon-twitter-large.png" width="40" height="40" alt="Twitter page for The University of Manchester Library"></noscript>
-                                            </a>
-                                        </li>
-                                        <li><a href="https://www.instagram.com/uomlibrary/">
-                                            <img class="lazy" src="https://www.library.manchester.ac.uk/assets/images/design/icon-instagram.png" width="40" height="40" data-original="/assets/images/design/icon-instagram.png"  alt="Instagram page for The University of Manchester Library">
-                                            <noscript><img class="" src="https://www.library.manchester.ac.uk/assets/images/design/icon-instagram.png" width="40" height="40" alt="Instagram page for The University of Manchester Library"></noscript>
-                                            </a>
-                                        </li>
-                                        <li><a href="https://www.youtube.com/user/UoMLibrary">
-                                            <img class="lazy" src="https://www.library.manchester.ac.uk/assets/images/design/icon-youtube-large.png" width="40" height="40" data-original="/assets/images/design/icon-youtube-large.png"  alt="YouTube page for The University of Manchester Library">
-                                            <noscript><img class="" src="https://www.library.manchester.ac.uk/assets/images/design/icon-youtube-large.png" width="40" height="40" alt="YouTube page for The University of Manchester Library"></noscript>
-                                            </a>
-                                        </li>
-                                        <li><a href="https://www.linkedin.com/showcase/the-university-of-manchester-library">
-                                            <img class="lazy" src="https://www.library.manchester.ac.uk/assets/images/design/icon-linkedin.png" width="40" height="40" data-original="/assets/images/design/icon-linkedin.png"  alt="LinkedIn page for The University of Manchester Library">
-                                            <noscript><img class="" src="https://www.library.manchester.ac.uk/assets/images/design/icon-linkedin.png" width="40" height="40" alt="LinkedIn page for The University of Manchester Library"></noscript>
-                                            </a>
-                                        </li>													
-                                    </ul>
-                                </div>
-                            </div>
+                <div class="grid-x grid-padding-x grid-container padding-vertical-3">
+                    
+                    <div class="medium-7 padding-left-1">
+                        <div class="footerLogos">
+            
+                            <img src="https://www.library.manchester.ac.uk/assets/images/design/national-research-libraries.png" height="63" alt="National Research Libraries">											
+                            <p>The University of Manchester Library is one of five National Research Libraries</p>
+            
+                        </div>
+                    </div>
+                    
+                    <div class="medium-5 padding-left-1 medium-padding-right-1">
+                        <h3>Connect with us</h3>
+                        <ul class="inlineList footer-socialIcons">
                             
-                            <hr>
-                                
-                            <div class="footer_row singleVertPadding">
-                                <div class="twelvecol">
-                                    <ul class="inlineList">
-                                        <li><a href="https://www.manchester.ac.uk/disclaimer/">Disclaimer</a> /</li>
-                                                    <li><a href="https://www.manchester.ac.uk/discover/privacy-information/data-protection/">Data Protection</a> /</li>
-                                                    <li><a href="https://www.manchester.ac.uk/copyright/">Copyright notice</a> /</li>
-                                                    <li><a href="https://www.library.manchester.ac.uk/accessibility/library-help/">Web accessibility</a> /</li>
-                                                    <li><a href="https://www.manchester.ac.uk/discover/privacy-information/freedom-information/">Freedom of information</a> /</li>
-                                                    <li><a href="https://www.manchester.ac.uk/discover/governance/charitable-status/">Charitable status</a> /</li>
-                                      
-                                        <li>Royal Charter Number: RC000797</li>
-                                    </ul>
-                                </div>
-                            </div>
-                           
-                        </footer>
+                            <li><a href="https://www.facebook.com/pages/The-University-of-Manchester-Library/25777209922">
+                                <img class="lazy" src="https://www.library.manchester.ac.uk/assets/images/design/icon-facebook-large.png" width="40" height="40" data-original="/assets/images/design/icon-facebook-large.png" alt="Facebook page for The University of Manchester Library">
+                                <noscript><img class="" src="https://www.library.manchester.ac.uk/assets/images/design/icon-facebook-large.png" width="40" height="40" alt="Facebook page for The University of Manchester Library"></noscript>
+                                </a>
+                            </li>
+                            <li><a href="https://twitter.com/UoMLibrary">
+                                <img class="lazy" src="https://www.library.manchester.ac.uk/assets/images/design/icon-twitter-large.png" width="40" height="40" data-original="/assets/images/design/icon-twitter-large.png" alt="Twitter page for The University of Manchester Library">
+                                <noscript><img class="" src="https://www.library.manchester.ac.uk/assets/images/design/icon-twitter-large.png" width="40" height="40" alt="Twitter page for The University of Manchester Library"></noscript>
+                                </a>
+                            </li>
+                            <li><a href="https://www.instagram.com/uomlibrary/">
+                                <img class="lazy" src="https://www.library.manchester.ac.uk/assets/images/design/icon-instagram.png" width="40" height="40" data-original="/assets/images/design/icon-instagram.png"  alt="Instagram page for The University of Manchester Library">
+                                <noscript><img class="" src="https://www.library.manchester.ac.uk/assets/images/design/icon-instagram.png" width="40" height="40" alt="Instagram page for The University of Manchester Library"></noscript>
+                                </a>
+                            </li>
+                            <li><a href="https://www.youtube.com/user/UoMLibrary">
+                                <img class="lazy" src="https://www.library.manchester.ac.uk/assets/images/design/icon-youtube-large.png" width="40" height="40" data-original="/assets/images/design/icon-youtube-large.png"  alt="YouTube page for The University of Manchester Library">
+                                <noscript><img class="" src="https://www.library.manchester.ac.uk/assets/images/design/icon-youtube-large.png" width="40" height="40" alt="YouTube page for The University of Manchester Library"></noscript>
+                                </a>
+                            </li>
+                            <li><a href="https://www.linkedin.com/showcase/the-university-of-manchester-library">
+                                <img class="lazy" src="https://www.library.manchester.ac.uk/assets/images/design/icon-linkedin.png" width="40" height="40" data-original="/assets/images/design/icon-linkedin.png"  alt="LinkedIn page for The University of Manchester Library">
+                                <noscript><img class="" src="https://www.library.manchester.ac.uk/assets/images/design/icon-linkedin.png" width="40" height="40" alt="LinkedIn page for The University of Manchester Library"></noscript>
+                                </a>
+                            </li>													
+                        </ul>
+                    </div>
+                </div>               
+                <hr>                    
+                <div class="grid-x grid-container padding-vertical-1">
+                    <ul class="inlineList">
+                        <li><a href="https://www.manchester.ac.uk/disclaimer/">Disclaimer</a> /</li>
+                                    <li><a href="https://www.manchester.ac.uk/discover/privacy-information/data-protection/">Data Protection</a> /</li>
+                                    <li><a href="https://www.manchester.ac.uk/copyright/">Copyright notice</a> /</li>
+                                    <li><a href="https://www.library.manchester.ac.uk/accessibility/library-help/">Web accessibility</a> /</li>
+                                    <li><a href="https://www.manchester.ac.uk/discover/privacy-information/freedom-information/">Freedom of information</a> /</li>
+                                    <li><a href="https://www.manchester.ac.uk/discover/governance/charitable-status/">Charitable status</a> /</li>
+                        
+                        <li>Royal Charter Number: RC000797</li>
+                    </ul>
+                </div>               
+            </footer>
         </div>
         <script>
           $(document).foundation();
