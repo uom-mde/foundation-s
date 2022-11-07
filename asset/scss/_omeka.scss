@@ -1869,6 +1869,22 @@ ul.slick-dots li.slick-active button {
 }
 }
 
+/*Site Promo*/ 
+.site-image {
+    position: relative;
+}
+
+.site-image figure {
+    height: 100%;
+    width: 100%;
+    & img {
+        min-height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+
+}
+
 
 /*End Agile Theme Tools*/
 /*Breadcrumbs*/
