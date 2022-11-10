@@ -1531,12 +1531,12 @@ figcaption.orbit-caption.caption p {
         &.item-count-3,
         .item-count-5 {
             width: 45%;
-        } 
+        }
     }
     @include breakpoint(xlarge) {
         &.item-count-3,
         .item-count-5 {
-            width: 29%;
+            width: 30%;
         } 
     }
 }
@@ -1552,7 +1552,16 @@ figcaption.orbit-caption.caption p {
         height: 30rem;
     }
     @include breakpoint(xxlarge) {
-        height: 35rem;
+        height: 40rem;
+    }
+}
+
+.item-listing-item {
+@include breakpoint(large) {
+    &.item-count-2 img,
+    .item-count-4 img {
+        width: 44vw; 
+    }
     }
 }
 
@@ -1754,6 +1763,12 @@ height: 4rem;
 width: 4rem;
 z-index: 99999999999;
 color: #fff;
+position: absolute;
+top: 40%;
+cursor: pointer;
+    &:hover {
+        color: $warning-color;
+    }
 }
 
 .slick-next {
@@ -1762,16 +1777,6 @@ right: 0;
 
 .slick-prev {
 left: 0;
-}
-
-.slick-arrow {
-position: absolute;
-top: 40%;
-cursor: pointer;
-}
-
-.slick-arrow:hover {
-    color: $warning-color;
 }
 
 ul.slick-dots li button {
@@ -1784,20 +1789,34 @@ ul.slick-dots li.slick-active button {
     background: $warning-color;
     }
 
-.slick-slide img {
+.slider-container {
+    height: 80vh;
+    overflow: hidden;
+}
+
+.my-slide:nth-child(n+1) {
+    display: none!important;
+}
+
+.slick-initialized,
+.my-slide:first-child {
+    display: block!important;
+}
+
+.my-slide img {
     object-fit: cover;
     max-width: unset;
     aspect-ratio: 1;
     overflow: hidden;
-    height: 70vh;
-    min-height: rem-calc(700px);
+    height: 80vh;
+    /*min-height: rem-calc(700px);*/
 }
 
-.slick-slide img.portrait {
+.my-slide img.portrait {
     width: 100%;
 }
 
-.slick-slide img.landscape {
+.my-slide img.landscape {
     max-height: 100%;
     width: 100%; 
 }
@@ -1981,7 +2000,8 @@ nav.breadcrumbs {
  }
 
  /*Remove margin from top of blocks*/
-.region-splash {
+.region-splash,
+.region #splash {
         overflow: hidden;
         margin-top: (-1 * $global-padding);
         @include breakpoint(medium) {
