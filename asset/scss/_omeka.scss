@@ -1836,7 +1836,7 @@ ul.slick-dots li.slick-active button {
     }
 
 .slider-container {
-    height: 80vh;
+    height: calc(80vh + 56.88px);
     overflow: hidden;
 }
 
@@ -1850,21 +1850,15 @@ ul.slick-dots li.slick-active button {
 }
 
 .my-slide img {
+    display: block;
     object-fit: cover;
     max-width: unset;
     aspect-ratio: 1;
     overflow: hidden;
     height: 80vh;
-    /*min-height: rem-calc(700px);*/
-}
-
-.my-slide img.portrait {
-    width: 100%;
-}
-
-.my-slide img.landscape {
     max-height: 100%;
     width: 100%; 
+    /*min-height: rem-calc(700px);*/
 }
 
 /*Excerpt*/ 
