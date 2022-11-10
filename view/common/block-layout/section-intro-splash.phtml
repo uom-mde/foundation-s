@@ -14,7 +14,7 @@
             <?php
                 $item = $attachment->item();
             ?>
-            <div class="item resource">
+            <div class="item resource my-slide">
                 <?php if ($item):
                     $title = $this->plugin('escapeHtml')($item->displayTitle());
                     $media = $attachment->media() ?: $item->primaryMedia();
@@ -22,7 +22,7 @@
                         $image = preg_match('/alt=""/', $this->thumbnail($media, $this->thumbnailType)) == 1 ? $item->linkRaw($this->thumbnail($media, $this->thumbnailType, ['alt' => $title])) : $item->linkRaw($this->thumbnail($media, $this->thumbnailType));
                 ?>
                       <figure>
-                          <div class="my-slide">
+                          <div class="slick-slide">
                           <?php echo $image; ?>
                           <?php if ($attachment->caption()): ?>
                             <figcaption class="orbit-caption caption"><?php echo $attachment->caption(); ?></figcaption>
