@@ -1456,6 +1456,7 @@ figcaption.orbit-caption.caption p {
     margin-bottom: 0;
     @include breakpoint(large) {
         margin-bottom: $global-margin;
+        text-align: right;
     }
 }
 
@@ -1745,6 +1746,10 @@ figcaption.orbit-caption.caption p {
 /*Home page with Introduction*/
 /*Slick Slider*/
 
+.slick-slider {
+    width: 100%;
+}
+
 ul.slick-dots {
     list-style: none;
     display: flex;
@@ -1774,6 +1779,10 @@ ul.slick-dots li.slick-active button {
 
 ul.slick li button:hover {
     color: transparent!important;
+}
+
+ul.slick-dots {
+    display: none!important;
 }
 
 /*Slick Slider*/
@@ -1812,22 +1821,33 @@ ul.slick-dots li {
 .slick-prev:before {
     font-family: "Font Awesome 5 Free";
     content: "\f053";
-    margin: 2rem;
+    margin: $global-margin;
+    @include breakpoint(medium) {
+        margin: 1 * $global-margin;
+    }
+    @include breakpoint(large) {
+        margin: 2 * $global-margin;
+    }
 }
 
 .slick-next:before {
     font-family: "Font Awesome 5 Free";
     content: "\f054";
-    margin: -1rem;
+    margin: -1 * $global-margin;
 }
 
 .slick-next,
 .slick-prev {
-font-size: 4rem;
-height: 4rem;
-width: 4rem;
-z-index: 99999999999;
-color: #fff;
+    font-size: 2rem;
+    height: 2rem;
+    width: 2rem;
+    z-index: 99999999999;
+    color: #fff;
+        @include breakpoint(large) { 
+        font-size: 3rem;
+        height: 3rem;
+        width: 3rem;
+    }
 }
 
 .slick-next {
