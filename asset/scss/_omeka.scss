@@ -1841,24 +1841,28 @@ ul.slick-dots li.slick-active button {
 }
 
 .my-slide:nth-child(n+1) {
-    display: none!important;
+    display: none;
 }
 
-.slick-initialized,
+.my-slide figure {
+    height: 100%;
+    width: 100%;
+}
+
+.slick-initialized, .my-slide:nth-child(n+1) {
+    display: block;
+}
+
+/*.slick-initialized,
 .my-slide:first-child {
     display: block!important;
-}
+}*/ 
 
-.my-slide img {
-    display: block;
-    object-fit: cover;
-    max-width: unset;
-    aspect-ratio: 1;
-    overflow: hidden;
+.slick-slide figure img {
     height: 80vh;
-    max-height: 100%;
-    width: 100%; 
-    /*min-height: rem-calc(700px);*/
+    max-width: unset;
+    width: 100%;
+    object-fit: cover;
 }
 
 /*Excerpt*/ 
