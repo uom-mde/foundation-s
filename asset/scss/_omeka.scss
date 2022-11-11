@@ -1777,6 +1777,31 @@ ul.slick li button:hover {
 }
 
 /*Slick Slider*/
+
+.slick-slide img {
+    height: 700px;
+    width: 100%;
+    object-fit: cover;
+}
+
+ul.slick-dots {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 0;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%)
+}
+
+ul.slick-dots li {
+    margin: 0.5rem 0.5rem 0 0;
+}
+
+/*Slick Slider*/
 .slick-slide figure figcaption.orbit-caption {
     bottom: 0;
     /*width: 40%;*/
@@ -1787,19 +1812,13 @@ ul.slick li button:hover {
 .slick-prev:before {
     font-family: "Font Awesome 5 Free";
     content: "\f053";
-    margin: 1rem;
-    @include breakpoint(medium) {
     margin: 2rem;
-    }
 }
 
 .slick-next:before {
     font-family: "Font Awesome 5 Free";
     content: "\f054";
-    margin: 0;
-    @include breakpoint(medium) {
     margin: -1rem;
-    }
 }
 
 .slick-next,
@@ -1809,12 +1828,6 @@ height: 4rem;
 width: 4rem;
 z-index: 99999999999;
 color: #fff;
-position: absolute;
-top: 40%;
-cursor: pointer;
-    &:hover {
-        color: $warning-color;
-    }
 }
 
 .slick-next {
@@ -1825,44 +1838,24 @@ right: 0;
 left: 0;
 }
 
+.slick-arrow {
+position: absolute;
+top: 40%;
+cursor: pointer;
+}
+
+.slick-arrow:hover {
+    color: $warning-color;
+}
+
 ul.slick-dots li button {
     border-radius: 66%;
     background: $secondary-color;
     color: transparent;
     }
-    
-ul.slick-dots li.slick-active button {
+
+    ul.slick-dots li.slick-active button {
     background: $warning-color;
-    }
-
-.slider-container {
-    height: calc(80vh + 56.88px);
-    overflow: hidden;
-}
-
-.my-slide:nth-child(n+1) {
-    display: none;
-}
-
-.my-slide figure {
-    height: 100%;
-    width: 100%;
-}
-
-.slick-initialized, .my-slide:nth-child(n+1) {
-    display: block;
-}
-
-/*.slick-initialized,
-.my-slide:first-child {
-    display: block!important;
-}*/ 
-
-.slick-slide figure img {
-    height: 80vh;
-    max-width: unset;
-    width: 100%;
-    object-fit: cover;
 }
 
 /*Excerpt*/ 

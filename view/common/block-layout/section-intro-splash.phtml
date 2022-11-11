@@ -1,4 +1,4 @@
-<div id="block-<?php echo $this->blockId; ?>" class="full-width-css grid-x grid-padding-x margin-bottom-1 flex-container flex-child-grow slider-container section-intro-splash region <?php echo $this->regionClass; ?>  <?php echo $titleSlideTextAlignment ?>" data-target-region-id="<?php echo $this->targetID; ?> ">
+<div id="block-<?php echo $this->blockId; ?>" class="full-width-css grid-x grid-padding-x margin-bottom-1 flex-container slider-container section-intro-splash region <?php echo $this->regionClass; ?>  <?php echo $titleSlideTextAlignment ?>" data-target-region-id="<?php echo $this->targetID; ?> ">
     <div class="large-5 grid-y grid-padding-y padding-2 title-area background-colour-uom-footer">
         <div class='flex-container flex-dir-column introductory-text'>
             <?php if (!empty($titleSlideTitle)): ?>
@@ -14,7 +14,7 @@
             <?php
                 $item = $attachment->item();
             ?>
-            <div class="item resource my-slide">
+            <div class="item resource">
                 <?php if ($item):
                     $title = $this->plugin('escapeHtml')($item->displayTitle());
                     $media = $attachment->media() ?: $item->primaryMedia();
@@ -22,7 +22,7 @@
                         $image = preg_match('/alt=""/', $this->thumbnail($media, $this->thumbnailType)) == 1 ? $item->linkRaw($this->thumbnail($media, $this->thumbnailType, ['alt' => $title])) : $item->linkRaw($this->thumbnail($media, $this->thumbnailType));
                 ?>
                       <figure>
-                          <div class="slick-slide">
+                          <div class="my-slide">
                           <?php echo $image; ?>
                           <?php if ($attachment->caption()): ?>
                             <figcaption class="orbit-caption caption"><?php echo $attachment->caption(); ?></figcaption>
@@ -35,4 +35,3 @@
         <?php endforeach; ?>
     </div>
 </div>
-

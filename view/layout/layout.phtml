@@ -146,5 +146,13 @@ endif;
         <script>
           $(document).foundation(); 
         </script>
+                <?php
+            echo $this->inlineScript()
+            ->prependFile($this->assetUrl('js/img-orientation.js'));
+        ?>
+        <?php
+            echo $this->inlineScript()
+            ->prependFile($this->assetUrl('js/full-width-container.js'));
+        ?>
     </body>
 </html>
