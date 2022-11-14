@@ -1396,6 +1396,18 @@ nav.title-bar {
     }
 }
 
+.background-colour-secondary {
+    background-color: $secondary-color;
+    color: $white;
+    a {
+        color: $white;
+    }
+}
+
+.background-colour-light-gray {
+    background-color: $light-gray;
+}
+
 .background-colour-dark-gray {
     background-color: $dark-gray;
     color: $white;
@@ -1605,8 +1617,10 @@ figcaption.orbit-caption.caption p {
 
 .item-listing-item {
 @include breakpoint(large) {
-    &.item-count-2 img,
-    .item-count-4 img {
+    &.item-count-2 img {
+        width: 44vw;
+    }
+    &.item-count-4 img {
         width: 44vw; 
     }
     }
@@ -1616,6 +1630,18 @@ figcaption.orbit-caption.caption p {
 .card.medium-6.large-4.radius.bordered.shadow .card-divider {
     background: $uom-footer;
     flex-grow: 1;
+}
+
+.card img {
+    width: 100%;
+    height: rem-calc(350px);
+    object-fit: cover;
+    @include breakpoint(large) {
+        height: rem-calc(400px)
+    }
+    @include breakpoint(xlarge) {
+        height: rem-calc(500px)
+    }
 }
 
 /*Compact Cards*/
@@ -1646,7 +1672,7 @@ figcaption.orbit-caption.caption p {
         padding: 0.7 * $global-padding;
         background: $white;
         color: $black;
-        border-bottom: solid 5px $primary-color;
+        /*border-bottom: solid 5px $primary-color;*/
     }
     }
 
@@ -1659,15 +1685,21 @@ figcaption.orbit-caption.caption p {
 
 /*Feature 1*/
 #feature-1 {
-    background: $warning-color;
+    background: $light-gray;
 }
 
 /*Poster*/
 .poster .image-background figure img {  
     width: 100vw;
-    height: rem-calc(700px);
     object-fit: cover;
     opacity: 0.4;
+    height: 100vh;
+    @include breakpoint(large) {
+        height: rem-calc(700px);
+    }
+    @include breakpoint(xlarge) {
+        height: 100vh;
+    }
   }
 
 .image-background {
@@ -1738,8 +1770,10 @@ figcaption.orbit-caption.caption p {
     }
 }
 
-/*Hide Representative Image*/ 
-#content > #blocks > .representative-image {
+/*Hide Representative Image, Excerpt and Byline*/ 
+#content > #blocks > .representative-image,
+#content > #blocks > .excerpt,
+#content > #blocks > .byline {
     display: none;
 }
 
@@ -1920,7 +1954,7 @@ ul.slick-dots li button {
 /*Breadcrumbs*/
 nav.breadcrumbs {
     margin-top: -1rem;
-    padding: 1rem 2rem;
+    padding: 1rem 2rem 0 2rem;
     a {
         color: $black;
         text-decoration: underline;
@@ -1996,7 +2030,7 @@ nav.breadcrumbs {
  /* Blockquote header */
  blockquote h3 {
      position: relative; /* for pseudos */
-     color: $alert-color;
+     color: $primary-color;
      font-size: 2 * $global-font-size;
      font-weight: normal;
      line-height: 1;
@@ -2015,7 +2049,7 @@ nav.breadcrumbs {
  blockquote h3:after {
      content:"";
      position: absolute;
-     border: 2px solid $alert-color;
+     border: 2px solid $primary-color;
      border-radius: 0 50px 0 0;
      width: 60px;
      height: 60px;
@@ -2030,7 +2064,7 @@ nav.breadcrumbs {
      content:"";
      position: absolute;
      width: 80px;
-     border: 6px solid $warning-color;
+     border: 6px solid $light-gray;
      bottom: -3px;
      left: 50px;
      z-index: 2;
@@ -2074,7 +2108,9 @@ nav.breadcrumbs {
 
  /*Remove margin from top of blocks*/
 .region-splash,
-.region #splash {
+.region #splash,
+[data-target-region-id="#splash"],
+[data-target-region-id="#splash "] {
         overflow: hidden;
         margin-top: (-1 * $global-padding);
         @include breakpoint(medium) {
