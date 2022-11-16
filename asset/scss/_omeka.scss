@@ -1490,6 +1490,30 @@ figcaption.orbit-caption.caption p {
     text-align: right;
 }
 
+/*External Content*/ 
+
+.external-content .left.media.file,
+.external-content .right.media.file
+.external-content .center.media.file {
+max-width: unset;
+}
+
+.sketchfab-embed-wrapper iframe {
+    @include breakpoint(xlarge) {
+        width: $grid-container!important;
+        height: calc(($grid-container / 16) * 9)!important;
+    }
+    @include breakpoint(large down) {
+        width: 90vw!important;
+        height: 67.5vh!important;
+        max-height: 80vh!important;
+    }
+    @include breakpoint(small down) {
+        width: 90vw!important;
+        height: 50.625vh!important;
+    }
+}
+
 /*Breadcrumb Navigation*/ 
 
 /*Agile Theme Tools*/ 
