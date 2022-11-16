@@ -1495,13 +1495,13 @@ figcaption.orbit-caption.caption p {
 .external-content .left.media.file,
 .external-content .right.media.file
 .external-content .center.media.file {
-max-width: unset;
+    max-width: unset;
 }
 
 .sketchfab-embed-wrapper iframe {
     @include breakpoint(xlarge) {
-        width: $grid-container!important;
-        height: calc(($grid-container / 16) * 9)!important;
+        width: calc($grid-container * 0.9)!important;
+        height: calc((($grid-container * 0.9) / 16) * 9)!important;
     }
     @include breakpoint(large down) {
         width: 90vw!important;
@@ -1512,6 +1512,9 @@ max-width: unset;
         width: 90vw!important;
         height: 50.625vh!important;
     }
+}
+.link-text-white a {
+    color: $white;
 }
 
 /*Breadcrumb Navigation*/ 

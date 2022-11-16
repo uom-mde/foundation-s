@@ -58,7 +58,7 @@ endif;
         </style>
     </head>
 
-    <?php echo $this->htmlElement('body'); ?>
+    <?php echo $this->htmlElement('body class="no-js"'); ?>
     
         <div id="offCanvas" class="off-canvas position-left" data-off-canvas>
             <?php echo $site->publicNav()->menu()->setPartial('common/foundation-navigation.phtml')->renderPartialWithParams(['layout' => 'vertical']); ?>
