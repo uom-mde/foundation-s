@@ -1047,6 +1047,7 @@ body.vertical-menu footer {
 
 .site-page-pagination {
     @include xy-cell;
+    margin-top: 1rem;
 }
 
 .site-page-pagination>a {
@@ -1331,12 +1332,8 @@ body.vertical-menu footer {
 }
 
 /*Blocks*/
-#splash,
-#region-splash {  
-    @include breakpoint(large) {
-        min-height: rem-calc(700px);
-    }
-}
+
+/*Original Block Styling*/
 
 /*Item Showcase block styling*/
 
@@ -1358,6 +1355,15 @@ body.vertical-menu footer {
         width: 100%;
         object-fit: cover;
     }
+}
+
+/*Media Embed*/
+/*Centre media embed items when option chosen*/
+.center.file, .center.assets {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    text-align: center;
 }
 
 
@@ -1516,6 +1522,38 @@ figcaption.orbit-caption.caption p {
 .link-text-white a {
     color: $white;
 }
+
+/*Media Text  Block Styling*/
+.media-text .right {
+    order: 1;
+}
+    
+    /*Full width 'left' and 'right' images for Resource with Text on mobiles*/
+    @media screen and (max-width: 899px) {
+    .media-text .left,
+    .media-text .right {
+    float: unset;
+    margin: 0;
+    max-width: 100%;
+    }
+    
+    /*Revise order for 'right' items*/
+    .media-text .right {
+    order: 0;
+    }
+}
+
+/*Timeline Block*/ 
+
+.tl-timeline h1, 
+.tl-timeline h2, 
+.tl-timeline h3, 
+.tl-timeline h4, 
+.tl-timeline h5, 
+.tl-timeline h6 {
+    font-family: $body-font-family!important;
+}
+
 
 /*Breadcrumb Navigation*/ 
 
@@ -1693,15 +1731,17 @@ figcaption.orbit-caption.caption p {
 
 .card-compact h3 {
     margin-bottom: 0;
+    font-size: 1.1em;
+    font-weight: 600;
     a {
         position: absolute;
-        bottom: 10%;
+        bottom: 0%;
         padding: 0.7 * $global-padding;
-        background: $white;
-        color: $black;
-        /*border-bottom: solid 5px $primary-color;*/
+        background: rgba(0,0,0,0.5);
+        color: $white;
+        width: 100%;
     }
-    }
+}
 
 .card-compact .representative-image img {
     height: 250px;
@@ -1939,6 +1979,14 @@ ul.slick-dots li button {
     background: $warning-color;
 }
 
+/*Slideshow*/ 
+
+span.fullscreen-label:before {
+    font-family: "Font Awesome 5 Free";
+    content: "\f065";
+    padding: 0 1rem 1rem 0;
+}
+
 /*Excerpt*/ 
 .excerpt {
     background-color: $uom-footer;
@@ -2134,6 +2182,13 @@ nav.breadcrumbs {
  }
 
  /*Remove margin from top of blocks*/
+#splash,
+#region-splash {  
+     @include breakpoint(large) {
+         min-height: rem-calc(700px);
+     }
+ }
+
 .region-splash,
 .region #splash,
 [data-target-region-id="#splash"],
@@ -2144,3 +2199,8 @@ nav.breadcrumbs {
             margin-top: (-2 * $global-padding);
     }
  }
+
+ /*Remove Scroll Bar*/
+html, body {
+    overflow-x: hidden;
+}
