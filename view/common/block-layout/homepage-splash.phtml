@@ -4,7 +4,7 @@
             <?php
                 $item = $attachment->item();
             ?>
-            <div class="item resource">
+            <div class="item resource slick-sliderr">
                 <?php if ($item):
                     $title = $this->plugin('escapeHtml')($item->displayTitle());
                     $media = $attachment->media() ?: $item->primaryMedia();

@@ -2344,3 +2344,40 @@ html, body {
 .font-bold {
     font-weight: 600;
 }
+
+/*Slick Slider*/ 
+
+/* Slider flashes but only top slide displays 
+.slick-sliderr
+{
+    display: none;
+    height: 100%;
+    min-height: 80vh;
+}
+
+.slick-initialized .slick-sliderr
+{
+    display: block;
+}
+.slick-loading .slick-sliderr
+{
+    visibility: hidden;
+}
+*/
+.slick-sliderr:first-child
+{
+    display: block;
+    height: 100%;
+}
+
+.slick-sliderr:not(first-child)
+{
+    display: none;
+    height: 100%;
+    min-height: 80vh;
+}
+
+.slick-initialized .slick-sliderr:not(first-child) 
+{
+    display: block;
+}
