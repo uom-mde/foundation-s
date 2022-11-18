@@ -1,6 +1,6 @@
 # Foundation S
 
-University of Manchester branded Omeka S theme based on ZURB Foundation Sites. It currently comes with a default stylesheet for prototyping as well as 3 other style options. 
+University of Manchester branded Omeka S theme based on ZURB Foundation Sites. Allows use of Agile Humanities' Agile Theme Tools (fork from Dartmouth College) with the Omeka S Foundation theme. It currently comes with a default stylesheet for prototyping as well as 3 other style options. 
 
 ## Installation
 
