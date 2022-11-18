@@ -2346,23 +2346,23 @@ html, body {
 }
 
 /*Slick Slider*/ 
-.slick-sliderr:first-child
+.slick-slide-preload:first-child
 {
     display: block;
 }
 
-.slick-sliderr img:first-child {
+.slick-slide-preload img:first-child {
     height: 700px;
     width: 100%;
     object-fit: cover;
 }
 
-.slick-sliderr:not(first-child)
+.slick-slide-preload:not(first-child)
 {
     display: none;
 }
 
-.slick-initialized .slick-sliderr:not(first-child) 
+.slick-initialized .slick-slide-preload:not(first-child) 
 {
     display: block;
 }
