@@ -2344,3 +2344,25 @@ html, body {
 .font-bold {
     font-weight: 600;
 }
+
+/*Slick Slider*/ 
+.slick-slide-preload:first-child
+{
+    display: block;
+}
+
+.slick-slide-preload img:first-child {
+    height: 700px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.slick-slide-preload:not(first-child)
+{
+    display: none;
+}
+
+.slick-initialized .slick-slide-preload:not(first-child) 
+{
+    display: block;
+}
