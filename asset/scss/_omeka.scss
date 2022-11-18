@@ -2367,7 +2367,15 @@ html, body {
 .slick-sliderr:first-child
 {
     display: block;
-    height: 100%;
+    height: 700px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.slick-sliderr img:first-child {
+    height: 700px;
+    width: 100%;
+    object-fit: cover;
 }
 
 .slick-sliderr:not(first-child)
