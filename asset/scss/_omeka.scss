@@ -1515,6 +1515,19 @@ nav.title-bar {
     @include breakpoint(medium) {
         padding: $global-padding;
         }
+    &.left {
+        order: 0;
+    }
+    &.right {
+        order: 1;
+    }
+}
+
+.media-text .left,
+.media-text .right {
+    max-width: unset;
+    float: unset;
+    margin: unset;
 }
 
 .media-text-heading {
@@ -2313,4 +2326,10 @@ nav.breadcrumbs {
  /*Remove Scroll Bar*/
 html, body {
     overflow-x: hidden;
+}
+
+/*General Classes*/ 
+/*Bold fonts*/
+.font-bold {
+    font-weight: 600;
 }
