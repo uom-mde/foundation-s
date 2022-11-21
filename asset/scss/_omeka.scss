@@ -1341,10 +1341,10 @@ body.vertical-menu footer {
 /*Foundation Settings*/ 
 //-----------------------
 
-/*Light Gallery*/
+/*Light Gallery
 #itemfiles.topgallery {
     padding-bottom: 56.25%;
-}
+}*/
 
 /*Remove download option from LightGallery*/
 .lg-outer[data-lg-slide-type=iframe] .lg-download, 
@@ -1587,7 +1587,8 @@ figcaption.orbit-caption.caption p {
     max-width: unset;
 }
 
-.sketchfab-embed-wrapper iframe {
+.sketchfab-embed-wrapper iframe,
+.media-render iframe {
     @include breakpoint(xlarge) {
         width: calc($grid-container * 0.9)!important;
         height: calc((($grid-container * 0.9) / 16) * 9)!important;
