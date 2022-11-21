@@ -19,6 +19,7 @@ if ($galleryDisplay) {
     $this->headScript()->appendFile($this->assetUrl('vendor/lightgallery/plugins/zoom/lg-zoom.min.js'));
     
     $lightMedia = [];
+    $directEmbedMedia = ['audio/mpeg', 'oEmbed'];
     $otherMedia = [];
     $iiifMedia = [];
     $whitelist = ['image/bmp', 'image/gif', 'image/jpeg', 'image/png', 'image/svg+xml'];
@@ -27,6 +28,9 @@ if ($galleryDisplay) {
         $mediaRenderer = $media->renderer();
         if (strpos($mediaRenderer, 'iiif') !== false) {
             $iiifMedia[] = $media;
+        }
+        elseif (in_array($mediaType, $directEmbedMedia) || (strpos($mediaType, 'audio') !== false) || (strpos($mediaRenderer, 'oEmbed') !== false)) {
+            $directEmbedMedia[] = $media;
         }
         elseif (in_array($mediaType, $whitelist) || (strpos($mediaType, 'video') !== false) || (strpos($mediaRenderer, 'youtube') !== false)) {
             $lightMedia[] = $media;
@@ -45,12 +49,16 @@ if ($galleryDisplay) {
 
 <div class="grid-x">
 <?php if ($galleryDisplay): ?>
-<?php if (count($iiifMedia) > 0): ?>
-    <div id="itemfiles" class="<?php echo $mediaDisplay; ?>">
-        <?php echo $this->mirador($item); ?>
-    </div>
+    <?php if (count($iiifMedia) > 0): ?>
+        <div id="itemfiles" class="<?php echo $mediaDisplay; ?>">
+            <?php echo $this->mirador($item); ?>
+        </div>
+    <?php elseif (count($directEmbedMedia) > 0): ?>
+        <div id="itemfiles" class="<?php echo $mediaDisplay; ?>">
+            <?php echo $media->render(); ?>
+        </div>
     <?php elseif (count($lightMedia) > 0): ?>
-    <div id="itemfiles" class="<?php echo $mediaDisplay; ?>">
+        <div id="itemfiles" class="<?php echo $mediaDisplay; ?>">
         <?php foreach ($lightMedia as $media): ?>
             <?php 
                 $mediaType = $media->mediaType();
