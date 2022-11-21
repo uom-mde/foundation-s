@@ -238,12 +238,6 @@ header .top-bar-left {
     border-color: #fff transparent transparent;
 }
 
-header .top-bar {
-    @include breakpoint(small down) {
-        padding: 0;
-    }
-}
-
 .title-bar {
     display: inline-block;
     background-color: transparent;
@@ -2108,6 +2102,29 @@ ul.slick-dots li button {
     background: $warning-color;
 }
 
+/*Slick Slider - prevent slides stacking on first load*/ 
+.slick-slide-preload:first-child
+{
+    display: block;
+}
+
+.slick-slide-preload img:first-child {
+    height: 700px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.slick-slide-preload:not(first-child)
+{
+    display: none;
+}
+
+.slick-initialized .slick-slide-preload:not(first-child) 
+{
+    display: block;
+}
+
+
 /*Slideshow*/ 
 
 span.fullscreen-label:before {
@@ -2343,26 +2360,4 @@ html, body {
 /*Bold fonts*/
 .font-bold {
     font-weight: 600;
-}
-
-/*Slick Slider*/ 
-.slick-slide-preload:first-child
-{
-    display: block;
-}
-
-.slick-slide-preload img:first-child {
-    height: 700px;
-    width: 100%;
-    object-fit: cover;
-}
-
-.slick-slide-preload:not(first-child)
-{
-    display: none;
-}
-
-.slick-initialized .slick-slide-preload:not(first-child) 
-{
-    display: block;
 }
