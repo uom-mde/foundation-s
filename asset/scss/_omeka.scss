@@ -1606,6 +1606,12 @@ figcaption.orbit-caption.caption p {
     color: $white;
 }
 
+.video-wrap {
+    width: 100%;
+    max-width: rem-calc(800);
+    margin: 0 auto;
+}
+
 /*Media Text  Block Styling*/
 .media-text .right {
     order: 1;
