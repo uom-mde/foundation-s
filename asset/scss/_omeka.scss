@@ -1587,8 +1587,7 @@ figcaption.orbit-caption.caption p {
     max-width: unset;
 }
 
-.sketchfab-embed-wrapper iframe,
-.media-render iframe {
+.sketchfab-embed-wrapper iframe {
     @include breakpoint(xlarge) {
         width: calc($grid-container * 0.9)!important;
         height: calc((($grid-container * 0.9) / 16) * 9)!important;
@@ -1757,7 +1756,7 @@ figcaption.orbit-caption.caption p {
 
 /*New Item Listing with Introduction*/ 
 .item-listing-with-introduction {
-    background: $alert-color;
+    background: $warning-color;
     padding: 2 * $global-padding;
 }
 
@@ -1812,6 +1811,11 @@ figcaption.orbit-caption.caption p {
         width: 44vw; 
     }
     }
+}
+
+.block-introduction hollow.button a.btn:hover {
+    color: $alert-color;
+    background: $black;
 }
 
 /*Cards*/ 
@@ -2343,6 +2347,7 @@ nav.breadcrumbs {
 
 .region-splash,
 .region #splash,
+.margin-top-offset,
 [data-target-region-id="#splash"],
 [data-target-region-id="#splash "] {
         overflow: hidden;
