@@ -46,6 +46,10 @@ if ($galleryDisplay) {
         <div id="itemfiles" class="<?php echo $mediaDisplay; ?>">
             <?php echo $this->mirador($item); ?>
         </div>
+    <?php elseif (count($imageMedia) > 0): ?>
+        <div id="itemfiles" class="<?php echo $mediaDisplay; ?>">
+            <?php echo $this->mirador($item); ?>
+        </div>
     <?php elseif (count($embedMedia) > 0): ?>
         <div id="itemfiles" class="<?php echo $mediaDisplay; ?>">
             <div class="video-wrap">
