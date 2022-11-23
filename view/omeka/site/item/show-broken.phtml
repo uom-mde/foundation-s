@@ -9,28 +9,20 @@ $mediaDisplay = $this->themeSetting('media_display');
 $galleryDisplay = (isset($mediaDisplay)) ? strpos($mediaDisplay, 'gallery') : false;
 $tracksPresent = $this->DetectTracks($itemMedia);
 
-if ($galleryDisplay) {
-    
-    $imageMedia = [];
-    $embedMedia = ['audio/mpeg', 'oEmbed'];
-    $otherMedia = [];
-    $iiifMedia = [];
-    $whitelist = ['image/bmp', 'image/gif', 'image/jpeg', 'image/png', 'image/svg+xml'];
-    foreach ($itemMedia as $media) {
-        $mediaType = $media->mediaType();
-        $mediaRenderer = $media->renderer();
-        if (strpos($mediaRenderer, 'iiif') !== false) {
-            $iiifMedia[] = $media;
-        }
-        elseif ((strpos($mediaType, 'audio/mpeg') !== false) || (strpos($mediaRenderer, 'oEmbed') !== false) || (strpos($mediaRenderer, 'youtube') !== false)) {
-            $embedMedia[] = $media;
-        }
-        elseif ((strpos($mediaType, 'image') !== false) || (strpos($mediaType, 'youtube') !== false)) {
-            $imageMedia[] = $media;
-        }
-         else {
-            $otherMedia[] = $media;
-        }
+foreach ($itemMedia as $media) {
+    $mediaType = $media->mediaType();
+    $mediaRenderer = $media->renderer();
+    if (strpos($mediaRenderer, 'iiif') !== false) {
+        $iiifMedia[] = $media;
+    }
+    elseif (in_array($mediaType, $imageMedia) || (strpos($mediaType, 'image') !== false)) {
+        $imageMedia[] = $media;
+    }
+    elseif (in_array($mediaType, $embedMedia) || (strpos($mediaRenderer, 'oembed') !== false) || (strpos($mediaRenderer, 'youtube') !== false)) {
+        $embedMedia[] = $media;
+    }
+     else {
+        $otherMedia[] = $media;
     }
 }
 ?>
@@ -41,19 +33,24 @@ if ($galleryDisplay) {
 </div>
 
 <div class="grid-x">
-<?php if ($galleryDisplay): ?>
+<?php if ($galleryDisplay)
+    $iiifMedia = [];
+    $imageMedia = [];
+    $embedMedia = [];
+    $otherMedia = [];
+    ?>
     <?php if (count($iiifMedia) > 0): ?>
         <div id="itemfiles" class="<?php echo $mediaDisplay; ?>">
             <?php echo $this->mirador($item); ?>
         </div>
     <?php elseif (count($embedMedia) > 0): ?>
-        <div id="itemfiles" class="<?php echo $mediaDisplay; ?>">
-            <div class="video-wrap">
-                <div class="responsive-embed">
-                    <?php echo $media->render(); ?>
-                </div>
+    <div id="itemfiles" class="<?php echo $mediaDisplay; ?>">
+        <div class="video-wrap">
+            <div class="responsive-embed">
+                <?php echo $media->render(); ?>
             </div>
         </div>
+    </div>
     <?php elseif (count($imageMedia) > 0): ?>
         <div id="itemfiles" class="<?php echo $mediaDisplay; ?>">
         <?php foreach ($imageMedia as $media): ?>
@@ -69,13 +66,13 @@ if ($galleryDisplay) {
                     <?php echo $media->render(); ?>
                 </div>
             <?php elseif (strpos($mediaRenderer, 'youtube') !== false): ?>
-                <div id="itemfiles" class="<?php echo $mediaDisplay; ?>">
-                    <div class="video-wrap">
-                        <div class="responsive-embed">
-                            <?php echo $media->render(); ?>
-                        </div>
-                    </div>
-                </div>
+                <a
+                    class="media resource"
+                    data-src="<?php echo $source; ?>"
+                    data-poster="<?php echo $media->thumbnailDisplayUrl('square'); ?>"
+                    data-sub-html="<?php echo $subHtml; ?>"
+                >
+                </a>
             <?php else: ?>
                 <?php
                     $trackHtml = '';
@@ -104,9 +101,9 @@ if ($galleryDisplay) {
                 </a>
             <?php endif; ?>
         <?php endforeach; ?>
-    </div>
+    </div>  
     <?php endif; ?>
-<?php else: ?>
+
     <?php if (count($itemMedia) > 0): ?>
     <div class="<?php echo ($embedMedia) ? 'media-embeds' : 'media-list' ?>">
     <?php foreach ($itemMedia as $media): ?>
@@ -116,7 +113,7 @@ if ($galleryDisplay) {
 <?php endif; ?>
 
 
-<?php endif; ?>
+
 
 <div id="resource-values" class="<?php echo ($showLayout == 'inline') ? 'inline' : 'stack'; ?>">
     <?php $this->trigger('view.show.before'); ?>

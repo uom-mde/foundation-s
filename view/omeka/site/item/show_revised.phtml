@@ -10,9 +10,16 @@ $galleryDisplay = (isset($mediaDisplay)) ? strpos($mediaDisplay, 'gallery') : fa
 $tracksPresent = $this->DetectTracks($itemMedia);
 
 if ($galleryDisplay) {
+    $this->headLink()->appendStylesheet($this->assetUrl('vendor/lightgallery/css/lightgallery-bundle.min.css'));
+    $this->headScript()->appendFile($this->assetUrl('vendor/lightgallery/lightgallery.min.js'));
+    $this->headScript()->appendFile($this->assetUrl('js/show.js'));
+    $this->headScript()->appendFile($this->assetUrl('vendor/lightgallery/plugins/thumbnail/lg-thumbnail.min.js'));
+    $this->headScript()->appendFile($this->assetUrl('vendor/lightgallery/plugins/video/lg-video.min.js'));
+    $this->headScript()->appendFile($this->assetUrl('vendor/lightgallery/plugins/pager/lg-pager.min.js'));
+    $this->headScript()->appendFile($this->assetUrl('vendor/lightgallery/plugins/zoom/lg-zoom.min.js'));
     
-    $imageMedia = [];
-    $embedMedia = ['audio/mpeg', 'oEmbed'];
+    $lightMedia = [];
+    $directEmbedMedia = ['audio/mpeg', 'oEmbed'];
     $otherMedia = [];
     $iiifMedia = [];
     $whitelist = ['image/bmp', 'image/gif', 'image/jpeg', 'image/png', 'image/svg+xml'];
@@ -22,11 +29,11 @@ if ($galleryDisplay) {
         if (strpos($mediaRenderer, 'iiif') !== false) {
             $iiifMedia[] = $media;
         }
-        elseif ((strpos($mediaType, 'audio/mpeg') !== false) || (strpos($mediaRenderer, 'oEmbed') !== false) || (strpos($mediaRenderer, 'youtube') !== false)) {
-            $embedMedia[] = $media;
+        elseif (in_array($mediaType, $directEmbedMedia) || (strpos($mediaType, 'audio') !== false) || (strpos($mediaRenderer, 'oEmbed') !== false)) {
+            $directEmbedMedia[] = $media;
         }
-        elseif ((strpos($mediaType, 'image') !== false) || (strpos($mediaType, 'youtube') !== false)) {
-            $imageMedia[] = $media;
+        elseif (in_array($mediaType, $whitelist) || (strpos($mediaType, 'video') !== false) || (strpos($mediaRenderer, 'youtube') !== false)) {
+            $lightMedia[] = $media;
         }
          else {
             $otherMedia[] = $media;
@@ -46,17 +53,17 @@ if ($galleryDisplay) {
         <div id="itemfiles" class="<?php echo $mediaDisplay; ?>">
             <?php echo $this->mirador($item); ?>
         </div>
-    <?php elseif (count($embedMedia) > 0): ?>
-        <div id="itemfiles" class="<?php echo $mediaDisplay; ?>">
-            <div class="video-wrap">
-                <div class="responsive-embed">
-                    <?php echo $media->render(); ?>
-                </div>
+    <?php elseif (count($directEmbedMedia) > 0): ?>
+    <div id="itemfiles" class="<?php echo $mediaDisplay; ?>">
+        <div class="video-wrap">
+            <div class="responsive-embed">
+                <?php echo $media->render(); ?>
             </div>
         </div>
-    <?php elseif (count($imageMedia) > 0): ?>
+    </div>
+    <?php elseif (count($lightMedia) > 0): ?>
         <div id="itemfiles" class="<?php echo $mediaDisplay; ?>">
-        <?php foreach ($imageMedia as $media): ?>
+        <?php foreach ($lightMedia as $media): ?>
             <?php 
                 $mediaType = $media->mediaType();
                 $mediaRenderer = $media->renderer();
@@ -69,13 +76,13 @@ if ($galleryDisplay) {
                     <?php echo $media->render(); ?>
                 </div>
             <?php elseif (strpos($mediaRenderer, 'youtube') !== false): ?>
-                <div id="itemfiles" class="<?php echo $mediaDisplay; ?>">
-                    <div class="video-wrap">
-                        <div class="responsive-embed">
-                            <?php echo $media->render(); ?>
-                        </div>
-                    </div>
-                </div>
+                <a
+                    class="media resource"
+                    data-src="<?php echo $source; ?>"
+                    data-poster="<?php echo $media->thumbnailDisplayUrl('square'); ?>"
+                    data-sub-html="<?php echo $subHtml; ?>"
+                >
+                </a>
             <?php else: ?>
                 <?php
                     $trackHtml = '';
@@ -105,6 +112,7 @@ if ($galleryDisplay) {
             <?php endif; ?>
         <?php endforeach; ?>
     </div>
+    
     <?php endif; ?>
 <?php else: ?>
     <?php if (count($itemMedia) > 0): ?>

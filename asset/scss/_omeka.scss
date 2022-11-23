@@ -137,6 +137,10 @@ body.vertical-menu #user-bar~#content {
     margin-bottom: 0;
 }
 
+.site-title {
+    margin-right: $global-margin;
+}
+
 .site-title img {
     max-height: 2rem;
     width: auto;
