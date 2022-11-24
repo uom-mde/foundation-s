@@ -1950,7 +1950,6 @@ figcaption.orbit-caption.caption p {
     color: $white;
     font-weight: 800;
     font-size: 1.2 * $global-font-size;
-    padding: $global-padding;
     @include breakpoint(medium) {
         font-size: 1.5 * $global-font-size;
         padding: 0;
@@ -2376,4 +2375,8 @@ html, body {
 /*Bold fonts*/
 .font-bold {
     font-weight: 600;
+}
+
+.no-margin {
+    margin: unset;
 }

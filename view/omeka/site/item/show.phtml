@@ -48,11 +48,9 @@ if ($galleryDisplay) {
         </div>
     <?php elseif (count($embedMedia) > 0): ?>
         <div id="itemfiles" class="<?php echo $mediaDisplay; ?>">
-            <div class="video-wrap">
-                <div class="responsive-embed">
+
                     <?php echo $media->render(); ?>
-                </div>
-            </div>
+
         </div>
     <?php elseif (count($imageMedia) > 0): ?>
         <div id="itemfiles" class="<?php echo $mediaDisplay; ?>">
@@ -70,7 +68,7 @@ if ($galleryDisplay) {
                 </div>
             <?php elseif (strpos($mediaRenderer, 'youtube') !== false): ?>
                 <div id="itemfiles" class="<?php echo $mediaDisplay; ?>">
-                    <div class="video-wrap">
+                    <div class="video-wrap no-margin">
                         <div class="responsive-embed">
                             <?php echo $media->render(); ?>
                         </div>
