@@ -22,7 +22,7 @@ if ($galleryDisplay) {
         if (strpos($mediaRenderer, 'iiif') !== false) {
             $iiifMedia[] = $media;
         }
-        elseif ((strpos($mediaType, 'audio/mpeg') !== false) || (strpos($mediaRenderer, 'oEmbed') !== false) || (strpos($mediaRenderer, 'youtube') !== false)) {
+        elseif ((strpos($mediaType, 'audio/mpeg') !== false) || (strpos($mediaRenderer, 'oEmbed') !== false)) {
             $embedMedia[] = $media;
         }
         elseif (strpos($mediaType, 'image') !== false) {
@@ -46,11 +46,17 @@ if ($galleryDisplay) {
         <div id="itemfiles" class="<?php echo $mediaDisplay; ?>">
             <?php echo $this->mirador($item); ?>
         </div>
+    <?php elseif (strpos($mediaRenderer, 'youtube') !== false): ?>
+        <div id="itemfiles" class="<?php echo $mediaDisplay; ?>">
+            <div class="video-wrap no-margin">
+                <div class="responsive-embed">
+                    <?php echo $media->render(); ?>
+                </div>
+            </div>
+        </div>
     <?php elseif (count($embedMedia) > 0): ?>
         <div id="itemfiles" class="<?php echo $mediaDisplay; ?>">
-
-                    <?php echo $media->render(); ?>
-
+            <?php echo $media->render(); ?>
         </div>
     <?php elseif (count($imageMedia) > 0): ?>
         <div id="itemfiles" class="<?php echo $mediaDisplay; ?>">
