@@ -62,7 +62,7 @@ body:not(.browse) #content {
     padding: (2 * $global-padding) 0;
     @include breakpoint(small down) {
         padding: 0;
-        /*margin: $global-margin;*/
+        margin: $global-margin;
     }
 }
 
@@ -1613,7 +1613,6 @@ figcaption.orbit-caption.caption p {
 .video-wrap {
     width: 100%;
     max-width: rem-calc(800);
-    margin: 0 auto;
 }
 
 /*Media Text  Block Styling*/
