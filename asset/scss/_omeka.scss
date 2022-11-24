@@ -1765,7 +1765,7 @@ figcaption.orbit-caption.caption p {
 
 /*New Item Listing with Introduction*/ 
 .item-listing-with-introduction {
-    background: $warning-color;
+    background: $medium-gray;
     padding: 2 * $global-padding;
 }
 
@@ -1775,6 +1775,7 @@ figcaption.orbit-caption.caption p {
 
 .item-listing-item {
     overflow:hidden;
+    border: solid $global-margin $white;
     @include breakpoint(medium) {
         &.item-count-2,
         .item-count-4,
@@ -1820,6 +1821,10 @@ figcaption.orbit-caption.caption p {
         width: 44vw; 
     }
     }
+}
+
+.item-listing-item .caption {
+    background: lighten($medium-gray, 30%);
 }
 
 .block-introduction hollow.button a.btn:hover {
