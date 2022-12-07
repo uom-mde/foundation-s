@@ -1944,6 +1944,12 @@ figcaption.orbit-caption.caption p {
 
 .colour-scheme-4 {
     background: $black;
+    & h2 {
+        color: $white;
+    }
+    & h3 {
+        color: $white;
+    }
 }
 
 .colour-scheme-1 p,
