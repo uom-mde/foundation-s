@@ -1765,7 +1765,7 @@ figcaption.orbit-caption.caption p {
 
 /*New Item Listing with Introduction*/ 
 .item-listing-with-introduction {
-    background: $warning-color;
+    background: $light-gray;
     padding: 2 * $global-padding;
 }
 
@@ -1774,6 +1774,8 @@ figcaption.orbit-caption.caption p {
 }
 
 .item-listing-item {
+    border: solid $white rem-calc(0.5em);
+    border-radius: rem-calc(6);
     overflow:hidden;
     /*border: solid (0.5 * $global-margin) $white;*/
     @include breakpoint(medium) {
@@ -1784,6 +1786,7 @@ figcaption.orbit-caption.caption p {
         }
     }
     @include breakpoint(large) {
+        border: solid $white rem-calc(1em);
         &.item-count-3,
         .item-count-5 {
             width: 45%;
@@ -1792,8 +1795,11 @@ figcaption.orbit-caption.caption p {
     @include breakpoint(xlarge) {
         &.item-count-3,
         .item-count-5 {
-            width: 30%;
+            width: 32%;
         } 
+    }
+    & .caption {
+        border-radius: rem-calc(0 0 6 6);
     }
 }
 
@@ -1801,14 +1807,18 @@ figcaption.orbit-caption.caption p {
     height: 35rem;
     width: 35rem;
     object-fit: cover;
+    border-radius: rem-calc(6 6 0 0);
+    @include breakpoint(medium) {
+        height: 20rem;
+    }
     @include breakpoint(large) {
-        height: 25rem;
+        height: 22rem;
     }
     @include breakpoint(xlarge) {
         height: 30rem;
     }
     @include breakpoint(xxlarge) {
-        height: 40rem;
+        height: 37rem;
     }
 }
 
