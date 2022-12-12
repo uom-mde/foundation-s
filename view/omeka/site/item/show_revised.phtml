@@ -10,9 +10,16 @@ $galleryDisplay = (isset($mediaDisplay)) ? strpos($mediaDisplay, 'gallery') : fa
 $tracksPresent = $this->DetectTracks($itemMedia);
 
 if ($galleryDisplay) {
+    $this->headLink()->appendStylesheet($this->assetUrl('vendor/lightgallery/css/lightgallery-bundle.min.css'));
+    $this->headScript()->appendFile($this->assetUrl('vendor/lightgallery/lightgallery.min.js'));
+    $this->headScript()->appendFile($this->assetUrl('js/show.js'));
+    $this->headScript()->appendFile($this->assetUrl('vendor/lightgallery/plugins/thumbnail/lg-thumbnail.min.js'));
+    $this->headScript()->appendFile($this->assetUrl('vendor/lightgallery/plugins/video/lg-video.min.js'));
+    $this->headScript()->appendFile($this->assetUrl('vendor/lightgallery/plugins/pager/lg-pager.min.js'));
+    $this->headScript()->appendFile($this->assetUrl('vendor/lightgallery/plugins/zoom/lg-zoom.min.js'));
     
-    $imageMedia = [];
-    $embedMedia = ['audio/mpeg', 'oEmbed'];
+    $lightMedia = [];
+    $directEmbedMedia = ['audio/mpeg', 'oEmbed'];
     $otherMedia = [];
     $iiifMedia = [];
     $whitelist = ['image/bmp', 'image/gif', 'image/jpeg', 'image/png', 'image/svg+xml'];
@@ -22,11 +29,11 @@ if ($galleryDisplay) {
         if (strpos($mediaRenderer, 'iiif') !== false) {
             $iiifMedia[] = $media;
         }
-        elseif ((strpos($mediaType, 'audio/mpeg') !== false) || (strpos($mediaRenderer, 'oEmbed') !== false)) {
-            $embedMedia[] = $media;
+        elseif (in_array($mediaType, $directEmbedMedia) || (strpos($mediaType, 'audio') !== false) || (strpos($mediaRenderer, 'oEmbed') !== false)) {
+            $directEmbedMedia[] = $media;
         }
-        elseif (strpos($mediaType, 'image') !== false) {
-            $imageMedia[] = $media;
+        elseif (in_array($mediaType, $whitelist) || (strpos($mediaType, 'video') !== false) || (strpos($mediaRenderer, 'youtube') !== false)) {
+            $lightMedia[] = $media;
         }
          else {
             $otherMedia[] = $media;
@@ -42,23 +49,68 @@ if ($galleryDisplay) {
 
 <div class="grid-x">
 <?php if ($galleryDisplay): ?>
-    <?php if ((count($iiifMedia) > 0) || (count($imageMedia) > 0)): ?>
+    <?php if (count($iiifMedia) > 0): ?>
         <div id="itemfiles" class="<?php echo $mediaDisplay; ?>">
             <?php echo $this->mirador($item); ?>
         </div>
-    <?php elseif (strpos($mediaRenderer, 'youtube') !== false): ?>
-        <div id="itemfiles" class="<?php echo $mediaDisplay; ?>">
-            <div class="video-wrap no-margin">
-                <div class="responsive-embed">
-                    <?php echo $media->render(); ?>
-                </div>
+    <?php elseif (count($directEmbedMedia) > 0): ?>
+    <div id="itemfiles" class="<?php echo $mediaDisplay; ?>">
+        <div class="video-wrap no-margin">
+            <div class="responsive-embed">
+                <?php echo $media->render(); ?>
             </div>
         </div>
-    <?php elseif (count($embedMedia) > 0): ?>
+    </div>
+    <?php elseif (count($lightMedia) > 0): ?>
         <div id="itemfiles" class="<?php echo $mediaDisplay; ?>">
-            <?php echo $media->render(); ?>
-        </div>
-
+        <?php foreach ($lightMedia as $media): ?>
+            <?php 
+                $mediaType = $media->mediaType();
+                $mediaRenderer = $media->renderer();
+                $source = ($media->originalUrl()) ? $media->originalUrl() : $media->source();
+                $subHtml = "<div class='lg-caption'>" . $media->displayTitle() . "</div>"; 
+            ?>
+            
+            <?php if (strpos($mediaType, 'image') !== false): ?>
+                <div data-src="<?php echo $source; ?>" data-thumb="<?php echo $escape($media->thumbnailUrl('square')); ?>" class="media resource" data-sub-html="<?php echo $subHtml; ?>">
+                    <?php echo $media->render(); ?>
+                </div>
+            <?php elseif (strpos($mediaRenderer, 'youtube') !== false): ?>
+                <a
+                    class="media resource"
+                    data-src="<?php echo $source; ?>"
+                    data-poster="<?php echo $media->thumbnailDisplayUrl('square'); ?>"
+                    data-sub-html="<?php echo $subHtml; ?>"
+                >
+                </a>
+            <?php else: ?>
+                <?php
+                    $trackHtml = '';
+                    if ($tracksPresent) {
+                        $originalFilename = pathinfo($media->source(), PATHINFO_FILENAME);
+                        $trackHtml .=  '"tracks": [';
+                        foreach ($otherMedia as $key => $media) {
+                            $trackHtml .= $this->OutputTrack($media, $originalFilename);
+                            unset($otherMedia[$key]);
+                        }
+                        $trackHtml = rtrim($trackHtml, ',');
+                        $trackHtml .= '],'; 
+                    }
+                ?>    
+                <a
+                    class="media resource"
+                    data-video='{"source": [{"src":"<?php echo $source; ?>", "type":"<?php echo $mediaType; ?>"}], <?php echo $trackHtml; ?> "attributes": {"preload": false, "controls": true}}'
+                    data-download-url="<?php echo $source; ?>" 
+                    data-poster="<?php echo $media->thumbnailDisplayUrl('square'); ?>"
+                    data-sub-html="<?php echo $subHtml; ?>"
+                >  
+                    <img
+                        class="img-responsive"
+                        src="<?php echo $media->thumbnailDisplayUrl('square'); ?>"
+                    />
+                </a>
+            <?php endif; ?>
+        <?php endforeach; ?>
     </div>
     
     <?php endif; ?>

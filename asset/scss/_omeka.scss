@@ -62,7 +62,7 @@ body:not(.browse) #content {
     padding: (2 * $global-padding) 0;
     @include breakpoint(small down) {
         padding: 0;
-        /*margin: $global-margin;*/
+        margin: $global-margin;
     }
 }
 
@@ -135,6 +135,10 @@ body.vertical-menu #user-bar~#content {
 
 .top-bar form {
     margin-bottom: 0;
+}
+
+.site-title {
+    margin-right: $global-margin;
 }
 
 .site-title img {
@@ -1609,7 +1613,6 @@ figcaption.orbit-caption.caption p {
 .video-wrap {
     width: 100%;
     max-width: rem-calc(800);
-    margin: 0 auto;
 }
 
 /*Media Text  Block Styling*/
@@ -1762,7 +1765,7 @@ figcaption.orbit-caption.caption p {
 
 /*New Item Listing with Introduction*/ 
 .item-listing-with-introduction {
-    background: $warning-color;
+    background: $light-gray;
     padding: 2 * $global-padding;
 }
 
@@ -1771,7 +1774,10 @@ figcaption.orbit-caption.caption p {
 }
 
 .item-listing-item {
+    border: solid $white rem-calc(0.5em);
+    border-radius: rem-calc(6);
     overflow:hidden;
+    /*border: solid (0.5 * $global-margin) $white;*/
     @include breakpoint(medium) {
         &.item-count-2,
         .item-count-4,
@@ -1780,6 +1786,7 @@ figcaption.orbit-caption.caption p {
         }
     }
     @include breakpoint(large) {
+        border: solid $white rem-calc(1em);
         &.item-count-3,
         .item-count-5 {
             width: 45%;
@@ -1788,8 +1795,11 @@ figcaption.orbit-caption.caption p {
     @include breakpoint(xlarge) {
         &.item-count-3,
         .item-count-5 {
-            width: 30%;
+            width: 32%;
         } 
+    }
+    & .caption {
+        border-radius: rem-calc(0 0 6 6);
     }
 }
 
@@ -1797,14 +1807,18 @@ figcaption.orbit-caption.caption p {
     height: 35rem;
     width: 35rem;
     object-fit: cover;
+    border-radius: rem-calc(6 6 0 0);
+    @include breakpoint(medium) {
+        height: 20rem;
+    }
     @include breakpoint(large) {
-        height: 25rem;
+        height: 22rem;
     }
     @include breakpoint(xlarge) {
         height: 30rem;
     }
     @include breakpoint(xxlarge) {
-        height: 40rem;
+        height: 37rem;
     }
 }
 
@@ -1817,6 +1831,10 @@ figcaption.orbit-caption.caption p {
         width: 44vw; 
     }
     }
+}
+
+.item-listing-item .caption {
+    background: lighten($white, 30%); 
 }
 
 .block-introduction hollow.button a.btn:hover {
@@ -1912,15 +1930,20 @@ figcaption.orbit-caption.caption p {
 }
 
 .colour-scheme-1 {
-    background: $black;
+    /*background: $black;*/
+    /*background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 35%, rgba(0,0,0,0.8) 50%, rgba(80,46,103,0) 100%);*/ 
+    background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 50%, rgba(0,0,0,0.3) 100%); 
+    color: $white;
 }
 
 .colour-scheme-2 {
     background: $secondary-color;
+    color: $white;
 }
 
 .colour-scheme-3 {
     background: #502e05;
+    color: $white;
 }
 
 
@@ -1930,7 +1953,13 @@ figcaption.orbit-caption.caption p {
 }
 
 .colour-scheme-4 {
-    background: $alert-color;
+    background: $black;
+    & h2 {
+        color: $white;
+    }
+    & h3 {
+        color: $white;
+    }
 }
 
 .colour-scheme-1 p,
@@ -1946,12 +1975,15 @@ figcaption.orbit-caption.caption p {
     color: $white;
     font-weight: 800;
     font-size: 1.2 * $global-font-size;
-    padding: $global-padding;
     @include breakpoint(medium) {
         font-size: 1.5 * $global-font-size;
         padding: 0;
     }
     @include breakpoint(large) {
+        font-size: 1.75 * $global-font-size;
+        padding: 0;
+    }
+    @include breakpoint(xlarge) {
         font-size: 2 * $global-font-size;
         padding: 0;
     }
@@ -1967,6 +1999,20 @@ figcaption.orbit-caption.caption p {
     }
     @include breakpoint(large) {
         font-size: 1.5 * $global-font-size;
+        padding: 0;
+    }
+}
+
+.text-treatment-3 {
+    color: $white;
+    font-weight: 400;
+    font-size: 1.5 * $global-font-size;
+    padding: $global-padding;
+    @include breakpoint(medium) {
+        font-size: 2 * $global-font-size;
+    }
+    @include breakpoint(xlarge) {
+        font-size: 2.5 * $global-font-size;
         padding: 0;
     }
 }
@@ -2372,4 +2418,8 @@ html, body {
 /*Bold fonts*/
 .font-bold {
     font-weight: 600;
+}
+
+.no-margin {
+    margin: unset;
 }

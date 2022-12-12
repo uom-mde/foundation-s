@@ -8,25 +8,26 @@ $showLayout = $this->themeSetting('show_layout');
 $mediaDisplay = $this->themeSetting('media_display');
 $galleryDisplay = (isset($mediaDisplay)) ? strpos($mediaDisplay, 'gallery') : false;
 $tracksPresent = $this->DetectTracks($itemMedia);
-
 if ($galleryDisplay) {
-    
-    $imageMedia = [];
-    $embedMedia = ['audio/mpeg', 'oEmbed'];
-    $otherMedia = [];
+ 
     $iiifMedia = [];
-    $whitelist = ['image/bmp', 'image/gif', 'image/jpeg', 'image/png', 'image/svg+xml'];
+    $imageMedia = ['image/bmp', 'image/gif', 'image/jpeg', 'image/png', 'image/svg+xml'];
+    $embedMedia = ['oembed', 'youtube'];
+    $otherMedia = [];
     foreach ($itemMedia as $media) {
         $mediaType = $media->mediaType();
         $mediaRenderer = $media->renderer();
         if (strpos($mediaRenderer, 'iiif') !== false) {
             $iiifMedia[] = $media;
         }
-        elseif ((strpos($mediaType, 'audio/mpeg') !== false) || (strpos($mediaRenderer, 'oEmbed') !== false)) {
-            $embedMedia[] = $media;
-        }
         elseif (strpos($mediaType, 'image') !== false) {
             $imageMedia[] = $media;
+        }
+        elseif (strpos($mediaRenderer, 'oembed') !== false) {
+            $embedMedia[] = $media;
+        }
+        elseif (strpos($mediaRenderer, 'youtube') !== false) {
+            $embedMedia[] = $media;
         }
          else {
             $otherMedia[] = $media;
@@ -34,33 +35,64 @@ if ($galleryDisplay) {
     }
 }
 ?>
-
 <div class="resource-title">
 <?php echo $this->pageTitle($item->displayTitle(), 2); ?>
 <h3 class="label"><?php echo $translate('Item'); ?></h3>
 </div>
-
 <div class="grid-x">
 <?php if ($galleryDisplay): ?>
-    <?php if ((count($iiifMedia) > 0) || (count($imageMedia) > 0)): ?>
-        <div id="itemfiles" class="<?php echo $mediaDisplay; ?>">
-            <?php echo $this->mirador($item); ?>
-        </div>
-    <?php elseif (strpos($mediaRenderer, 'youtube') !== false): ?>
-        <div id="itemfiles" class="<?php echo $mediaDisplay; ?>">
-            <div class="video-wrap no-margin">
-                <div class="responsive-embed">
+    <?php if (count($lightMedia) > 0): ?>
+    <div id="itemfiles" class="<?php echo $mediaDisplay; ?>">
+        <?php foreach ($lightMedia as $media): ?>
+            <?php 
+                $mediaType = $media->mediaType();
+                $mediaRenderer = $media->renderer();
+                $source = ($media->originalUrl()) ? $media->originalUrl() : $media->source();
+                $subHtml = "<div class='lg-caption'>" . $media->displayTitle() . "</div>"; 
+            ?>
+
+            <?php if (strpos($mediaType, 'image') !== false): ?>
+                <div data-src="<?php echo $source; ?>" data-thumb="<?php echo $escape($media->thumbnailUrl('square')); ?>"  data-download-url="<?php echo $source; ?>" class="media resource" data-sub-html="<?php echo $subHtml; ?>">
+                <div data-src="<?php echo $source; ?>" data-thumb="<?php echo $escape($media->thumbnailUrl('square')); ?>" class="media resource" data-sub-html="<?php echo $subHtml; ?>">
                     <?php echo $media->render(); ?>
                 </div>
-            </div>
-        </div>
-    <?php elseif (count($embedMedia) > 0): ?>
-        <div id="itemfiles" class="<?php echo $mediaDisplay; ?>">
-            <?php echo $media->render(); ?>
-        </div>
-
+            <?php elseif (strpos($mediaRenderer, 'youtube') !== false): ?>
+                <a
+                    class="media resource"
+                    data-src="<?php echo $source; ?>"
+                    data-poster="<?php echo $media->thumbnailDisplayUrl('square'); ?>"
+                    data-sub-html="<?php echo $subHtml; ?>"
+                >
+                </a>
+            <?php else: ?>
+                <?php
+                    $trackHtml = '';
+                    if ($tracksPresent) {
+                        $originalFilename = pathinfo($media->source(), PATHINFO_FILENAME);
+                        $trackHtml .=  '"tracks": [';
+                        foreach ($otherMedia as $key => $media) {
+                            $trackHtml .= $this->OutputTrack($media, $originalFilename);
+                            unset($otherMedia[$key]);
+                        }
+                        $trackHtml = rtrim($trackHtml, ',');
+                        $trackHtml .= '],'; 
+                    }
+                ?>    
+                <a
+                    class="media resource"
+                    data-video='{"source": [{"src":"<?php echo $source; ?>", "type":"<?php echo $mediaType; ?>"}], <?php echo $trackHtml; ?> "attributes": {"preload": false, "controls": true}}'
+                    data-download-url="<?php echo $source; ?>" 
+                    data-poster="<?php echo $media->thumbnailDisplayUrl('square'); ?>"
+                    data-sub-html="<?php echo $subHtml; ?>"
+                >  
+                    <img
+                        class="img-responsive"
+                        src="<?php echo $media->thumbnailDisplayUrl('square'); ?>"
+                    />
+                </a>
+            <?php endif; ?>
+        <?php endforeach; ?>
     </div>
-    
     <?php endif; ?>
 <?php else: ?>
     <?php if (count($itemMedia) > 0): ?>
@@ -70,10 +102,7 @@ if ($galleryDisplay) {
     <?php endforeach; ?>
     </div>
 <?php endif; ?>
-
-
 <?php endif; ?>
-
 <div id="resource-values" class="<?php echo ($showLayout == 'inline') ? 'inline' : 'stack'; ?>">
     <?php $this->trigger('view.show.before'); ?>
     <?php echo $item->displayValues(); ?>
@@ -133,5 +162,5 @@ if ($galleryDisplay) {
         <?php endif; ?>
         
         <?php $this->trigger('view.show.after'); ?>
-    </div> 
+    </div>
 </div>
