@@ -1,18 +1,21 @@
 <div id="homepage-splash" class="full-width-css grid-x grid-padding-x margin-bottom-1 small-order-0 medium-order-1 flex-container block-<?php echo $this->blockId; ?> region <?php echo $this->regionClass; ?>" data-target-region-id="<?php echo $this->targetID; ?>">
     <div class="large-7 item-listing-image items">
-        <?php foreach ($attachments as $attachment): ?>
+        <?php print_r($attachmentScaleValues); ?>
+        <?php foreach ($attachments as $key => $attachment): ?>
             <?php
                 $item = $attachment->item();
             ?>
-            <div class="item resource slick-slide-preload">
+            <div class="item resource <?php foreach ($attachmentOptions as $attachmentOption => $defaultVal) {echo ' slide-' . $attachmentOption . '-' . ${'attachment' . ucfirst($attachmentOption)}[$key];}?>">
                 <?php if ($item):
                     $title = $this->plugin('escapeHtml')($item->displayTitle());
                     $media = $attachment->media() ?: $item->primaryMedia();
                     if ($media):
-                        $image = preg_match('/alt=""/', $this->thumbnail($media, $this->thumbnailType)) == 1 ? $item->linkRaw($this->thumbnail($media, $this->thumbnailType, ['alt' => $title])) : $item->linkRaw($this->thumbnail($media, $this->thumbnailType));
+                        $image = preg_match('/alt=""/', $this->thumbnail($media, $attachmentSize[$key], ['style' => $attachmentScaleValues[$key]])) == 1 ? $this->thumbnail($media, $attachmentSize[$key], ['alt' => $title, 'style' => $attachmentScaleValues[$key]]) : $this->thumbnail($media, $attachmentSize[$key], ['style' => $attachmentScaleValues[$key]]);
                 ?>
                         <figure>
-                            <?php echo $image; ?>
+                            <div class="slideshow-image-wrapper">
+                                <?php echo $image; ?>
+                            </div>
                             <?php if ($attachment->caption()): ?>
                               <figcaption class="orbit-caption caption"><?php echo $attachment->caption(); ?></figcaption>
                             <?php endif; ?>
@@ -24,7 +27,7 @@
     </div>
    
 
-    <div class="large-5 grid-y grid-padding-y padding-1 medium-padding-2 small-order-1 medium-order-0 introduction title-area background-colour-uom-footer">
+    <div class="large-5 grid-y grid-padding-y padding-1 medium-padding-2 small-order-1 medium-order-0 title-area background-colour-uom-footer item resource introduction">
         <div class='flex-container flex-dir-column introductory-text'>
             <?php if (!empty($titleSlideTitle)): ?>
                 <h2 class="h1 padding-bottom-1"><?php echo $titleSlideTitle; ?></h2>
