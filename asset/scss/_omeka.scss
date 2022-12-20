@@ -2242,7 +2242,28 @@ span.fullscreen-label:before {
 /*Callout*/ 
 .callout {
     border: none;
+    padding: unset;
     }
+
+.callout-text {
+    width: 30%;
+    margin-right: 2 * $global-margin;
+    margin-left: 1.5 * $global-margin;
+    margin-top: $global-margin!important;
+    float: right;
+    color: $alert-color;
+    @include breakpoint(large) {
+        font-size: 1.1 * $global-font-size;
+    }
+    @include breakpoint(xlarge) {
+        width: rem-calc(350px);
+        margin-right: -6%;
+        margin-left: 1.8 * $global-margin;
+    }
+    @include breakpoint(xxlarge) {
+        margin-right: -10%;
+    }
+}
 
 /*End Agile Theme Tools*/
 /*Breadcrumbs*/
