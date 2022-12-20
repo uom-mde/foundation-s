@@ -5,7 +5,7 @@
             <?php
                 $item = $attachment->item();
             ?>
-            <div class="item resource <?php foreach ($attachmentOptions as $attachmentOption => $defaultVal) {echo ' slide-' . $attachmentOption . '-' . ${'attachment' . ucfirst($attachmentOption)}[$key];}?>">
+            <div class="item resource slick-slide-preload <?php foreach ($attachmentOptions as $attachmentOption => $defaultVal) {echo ' slide-' . $attachmentOption . '-' . ${'attachment' . ucfirst($attachmentOption)}[$key];}?>">
                 <?php if ($item):
                     $title = $this->plugin('escapeHtml')($item->displayTitle());
                     $media = $attachment->media() ?: $item->primaryMedia();
