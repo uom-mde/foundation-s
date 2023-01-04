@@ -8,7 +8,7 @@
         </div>
     <?php endif; ?>
     <?php if ($this->hasPages): ?>
-    <div class="cards grid-x grid-margin-x grid-margin-y margin-1">
+    <div class="cards grid-x grid-margin-x grid-margin-y margin-1 align-center">
         <?php foreach($this->pages as $page): ?>
             <div class='card cell medium-6 large-4 radius bordered shadow'>
                 <?php if ($page['hasEmbeddedBlocks'] && array_key_exists('representativeImage',$page['embeddedBlocks'])): ?>
