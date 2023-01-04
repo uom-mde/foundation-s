@@ -1951,7 +1951,8 @@ figcaption.orbit-caption.caption p {
 }
 
 .colour-scheme-4 {
-    background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 50%, rgba(0,0,0,0.3) 100%);
+    /*background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 50%, rgba(0,0,0,0.3) 100%);*/ 
+    background-color: $uom-footer;
     & h2 {
         color: $white;
     }

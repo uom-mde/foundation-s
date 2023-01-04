@@ -6,21 +6,16 @@
  * @var string $heading
  */
 
+$escape = $this->plugin('escapeHtml');
 ?>
-<?php if (empty($divclass)): ?>
 
-<?php if (!empty($heading)): ?>
-<h2><?= $this->escapeHtml($heading) ?></h2>
-<?php endif; ?>
-<?= $html ?>
-
-<?php else: ?>
-
-<div class="<?= $this->escapeHtmlAttr($divclass) ?>">
-    <?php if (!empty($heading)): ?>
-    <h2><?= $this->escapeHtml($heading) ?></h2>
-    <?php endif; ?>
-    <?= $html ?>
+<div class="full-width-css colour-scheme-2 <?= $this->escapeHtmlAttr($divclass) ?>">
+    <div class="grid-x grid-container">
+        <div class="page-header">
+            <?php if (!empty($heading)): ?>
+            <h2><?= $escape($heading) ?></h2>
+            <?php endif; ?>
+            <?= $html ?>
+        </div>
+    </div>
 </div>
-
-<?php endif; ?>
