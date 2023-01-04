@@ -1863,10 +1863,10 @@ figcaption.orbit-caption.caption p {
     height: rem-calc(350px);
     object-fit: cover;
     @include breakpoint(large) {
-        height: rem-calc(400px)
+        height: rem-calc(350px)
     }
-    @include breakpoint(xlarge) {
-        height: rem-calc(500px)
+    @include breakpoint(xxlarge) {
+        height: rem-calc(450px)
     }
 }
 
