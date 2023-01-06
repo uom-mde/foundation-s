@@ -1035,7 +1035,7 @@ body.vertical-menu footer {
     margin: 0 $global-margin $global-margin 0;
     max-width: 40%;
     @include breakpoint(small down) {
-        max-width: 25%;
+        max-width: 40%;
     }
 }
 
@@ -1044,7 +1044,7 @@ body.vertical-menu footer {
     margin: 0 0 $global-margin $global-margin;
     max-width: 40%;
     @include breakpoint(small down) {
-        max-width: 25%;
+        max-width: 40%;
     }
 }
 
