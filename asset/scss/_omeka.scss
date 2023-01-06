@@ -1381,17 +1381,17 @@ nav.breadcrumbs {
     height: 100%;
     width: 100%;
     @include breakpoint(medium) {
-        height: rem-calc(400px);
+        height: rem-calc(300px);
         width: 100%;
         object-fit: cover;
     }
     @include breakpoint(large) {
-        height: rem-calc(700px);
+        height: rem-calc(400px);
         width: 100%;
         object-fit: cover;
     }
     @include breakpoint(xxlarge) {
-        height: rem-calc(800px);
+        height: rem-calc(450px);
         width: 100%;
         object-fit: cover;
     }
