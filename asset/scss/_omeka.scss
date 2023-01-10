@@ -1035,7 +1035,7 @@ body.vertical-menu footer {
     margin: 0 $global-margin $global-margin 0;
     max-width: 40%;
     @include breakpoint(small down) {
-        max-width: 40%;
+        max-width: 25%;
     }
 }
 
@@ -1044,7 +1044,7 @@ body.vertical-menu footer {
     margin: 0 0 $global-margin $global-margin;
     max-width: 40%;
     @include breakpoint(small down) {
-        max-width: 40%;
+        max-width: 25%;
     }
 }
 
@@ -1830,6 +1830,23 @@ figcaption.orbit-caption.caption p {
 .item-listing-item.item-count-1 img {
     width: 100%;
     height: 100%;
+}
+
+.item-listing-item.item-count-2 img {
+    @include breakpoint(xlarge) {
+        height: 30rem;
+    }
+    @include breakpoint(xxlarge) {
+        height: 35rem;
+    }
+}
+.item-listing-item.item-count-3 img {
+    @include breakpoint(xlarge) {
+        height: 25rem;
+    }
+    @include breakpoint(xxlarge) {
+        height: 30rem;
+    }
 }
 
 .item-listing-item {
