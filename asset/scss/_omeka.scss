@@ -2488,6 +2488,11 @@ html, body {
     font-weight: 600;
 }
 
+/*Large fonts*/ 
+.font-large {
+    font-size: $global-font-size * 1.2;
+}
+
 .no-margin {
     margin: unset;
 }
