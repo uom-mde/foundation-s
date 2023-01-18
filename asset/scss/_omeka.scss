@@ -229,6 +229,12 @@ header .top-bar-left {
     align-items: center;
 }
 
+header .top-bar-right {
+    @include breakpoint(medium down) {
+        display: none;
+    }
+}
+
 .menu a.dropdown-toggle {
     display: flex;
     justify-content: space-between;
@@ -239,7 +245,9 @@ header .top-bar-left {
 }
 
 .submenu-toggle:after {
+    @include breakpoint(large) {
     border-color: #fff transparent transparent;
+    }
 }
 
 .title-bar {
@@ -1373,17 +1381,17 @@ nav.breadcrumbs {
     height: 100%;
     width: 100%;
     @include breakpoint(medium) {
-        height: rem-calc(400px);
+        height: rem-calc(300px);
         width: 100%;
         object-fit: cover;
     }
     @include breakpoint(large) {
-        height: rem-calc(700px);
+        height: rem-calc(400px);
         width: 100%;
         object-fit: cover;
     }
     @include breakpoint(xxlarge) {
-        height: rem-calc(800px);
+        height: rem-calc(450px);
         width: 100%;
         object-fit: cover;
     }
@@ -1407,14 +1415,14 @@ nav.breadcrumbs {
 
 nav.title-bar {
     order: 0;
-    @include breakpoint(526) {
+    @include breakpoint(545) {
         order: 1;
     }
 }
 
 .site-heading {
     order: 1;
-    @include breakpoint(526) {
+    @include breakpoint(545) {
         order: 0;
     }
 }
@@ -1683,11 +1691,8 @@ figcaption.orbit-caption.caption p {
 .section-intro-splash h2,
 .introductory-text h2 {
     font-size: 2 * $global-font-size;
-    @include breakpoint(large) {
-        font-size: 2.5 * $global-font-size;
-    }
     @include breakpoint(xlarge) {
-        font-size: 3 * $global-font-size;
+        font-size: 2.5 * $global-font-size;
     }
 }
 
@@ -1704,9 +1709,6 @@ figcaption.orbit-caption.caption p {
     }
     @include breakpoint(large) {
         max-height: unset;
-    }
-    @include breakpoint(1250) {
-        width: 100%;
     }
 }
 
@@ -1744,7 +1746,10 @@ figcaption.orbit-caption.caption p {
 .introductory-text p {
     font-size: 1.1 * $global-font-size;
         @include breakpoint(xlarge) {
-        font-size: 1.25 * $global-font-size;
+        font-size: 1.15 * $global-font-size;
+        }
+        @include breakpoint(xxlarge) {
+            font-size: 1.25 * $global-font-size;
         }
 }
 
@@ -1822,6 +1827,28 @@ figcaption.orbit-caption.caption p {
     }
 }
 
+.item-listing-item.item-count-1 img {
+    width: 100%;
+    height: 100%;
+}
+
+.item-listing-item.item-count-2 img {
+    @include breakpoint(xlarge) {
+        height: 30rem;
+    }
+    @include breakpoint(xxlarge) {
+        height: 35rem;
+    }
+}
+.item-listing-item.item-count-3 img {
+    @include breakpoint(xlarge) {
+        height: 25rem;
+    }
+    @include breakpoint(xxlarge) {
+        height: 30rem;
+    }
+}
+
 .item-listing-item {
 @include breakpoint(large) {
     &.item-count-2 img {
@@ -1853,10 +1880,10 @@ figcaption.orbit-caption.caption p {
     height: rem-calc(350px);
     object-fit: cover;
     @include breakpoint(large) {
-        height: rem-calc(400px)
+        height: rem-calc(350px)
     }
-    @include breakpoint(xlarge) {
-        height: rem-calc(500px)
+    @include breakpoint(xxlarge) {
+        height: rem-calc(450px)
     }
 }
 
@@ -1930,9 +1957,7 @@ figcaption.orbit-caption.caption p {
 }
 
 .colour-scheme-1 {
-    /*background: $black;*/
-    /*background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 35%, rgba(0,0,0,0.8) 50%, rgba(80,46,103,0) 100%);*/ 
-    background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 50%, rgba(0,0,0,0.3) 100%); 
+    background: $black;
     color: $white;
 }
 
@@ -1953,7 +1978,8 @@ figcaption.orbit-caption.caption p {
 }
 
 .colour-scheme-4 {
-    background: $black;
+    /*background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 50%, rgba(0,0,0,0.3) 100%);*/ 
+    background-color: $uom-footer;
     & h2 {
         color: $white;
     }
@@ -1976,15 +2002,15 @@ figcaption.orbit-caption.caption p {
     font-weight: 800;
     font-size: 1.2 * $global-font-size;
     @include breakpoint(medium) {
-        font-size: 1.5 * $global-font-size;
+        font-size: 1.4 * $global-font-size;
         padding: 0;
     }
     @include breakpoint(large) {
-        font-size: 1.75 * $global-font-size;
+        font-size: 1.5 * $global-font-size;
         padding: 0;
     }
-    @include breakpoint(xlarge) {
-        font-size: 2 * $global-font-size;
+    @include breakpoint(xxlarge) {
+        font-size: 1.9 * $global-font-size;
         padding: 0;
     }
 }
@@ -2029,6 +2055,11 @@ figcaption.orbit-caption.caption p {
 
 .slick-slider {
     width: 100%;
+    margin-bottom: 0!important;/*Added by JMc*/
+}
+
+.slick-slider.slick-dotted {
+    margin-bottom: 0!important;/*Added by JMc*/
 }
 
 ul.slick-dots {
@@ -2069,7 +2100,7 @@ ul.slick-dots {
 /*Slick Slider*/
 
 .slick-slide img {
-    height: 700px;
+    height: rem-calc(700px);
     width: 100%;
     object-fit: cover;
 }
@@ -2119,24 +2150,24 @@ ul.slick-dots li {
 
 .slick-next,
 .slick-prev {
-    font-size: 2rem;
-    height: 2rem;
-    width: 2rem;
+    font-size: 2rem!important;
+    height: 2rem!important;
+    width: 2rem!important;
     z-index: 99999999999;
-    color: #fff;
+    color: #fff!important;
         @include breakpoint(large) { 
-        font-size: 3rem;
-        height: 3rem;
-        width: 3rem;
+        font-size: 3rem!important;
+        height: 3rem!important;
+        width: 3rem!important;
     }
 }
 
 .slick-next {
-right: 0;
+right: 0!important;
 }
 
 .slick-prev {
-left: 0;
+left: 0!important;
 }
 
 .slick-arrow {
@@ -2147,6 +2178,13 @@ cursor: pointer;
 
 .slick-arrow:hover {
     color: $warning-color;
+}
+
+.slick-autoplay-toggle-button {
+    top: 0 !important;
+    color: $white!important;
+    bottom: unset!important;
+
 }
 
 ul.slick-dots li button {
@@ -2166,9 +2204,18 @@ ul.slick-dots li button {
 }
 
 .slick-slide-preload img:first-child {
-    height: 700px;
+    height: rem-calc(400px);
     width: 100%;
     object-fit: cover;
+    @include breakpoint(medium) {
+        height: rem-calc(500px);
+        }
+    @include breakpoint(large) {
+        height: rem-calc(600px);
+        }
+    @include breakpoint(xxlarge) {
+        height: rem-calc(700px);
+        }
 }
 
 .slick-slide-preload:not(first-child)
@@ -2230,7 +2277,28 @@ span.fullscreen-label:before {
 /*Callout*/ 
 .callout {
     border: none;
+    padding: unset;
     }
+
+.callout-text {
+    width: 30%;
+    margin-right: 2 * $global-margin;
+    margin-left: 1.5 * $global-margin;
+    margin-top: $global-margin!important;
+    float: right;
+    color: $alert-color;
+    @include breakpoint(large) {
+        font-size: 1.1 * $global-font-size;
+    }
+    @include breakpoint(xlarge) {
+        width: rem-calc(350px);
+        margin-right: -6%;
+        margin-left: 1.8 * $global-margin;
+    }
+    @include breakpoint(xxlarge) {
+        margin-right: -10%;
+    }
+}
 
 /*End Agile Theme Tools*/
 /*Breadcrumbs*/
@@ -2418,6 +2486,11 @@ html, body {
 /*Bold fonts*/
 .font-bold {
     font-weight: 600;
+}
+
+/*Large fonts*/ 
+.font-large {
+    font-size: $global-font-size * 1.2;
 }
 
 .no-margin {

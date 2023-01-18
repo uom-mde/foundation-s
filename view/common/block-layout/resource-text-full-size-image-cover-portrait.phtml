@@ -28,8 +28,8 @@ $lang = $filterLocale ? $this->lang() : null;
     </div>
     <?php endif; ?>
 
-    <div class="<?= $alignmentClass . ' ' . $thumbnailType . ' captions-' . $captionPosition ?> media file image-cover-img large-6">
-        <div class="attachments">
+    <div class="<?= $alignmentClass . ' ' . $thumbnailType . ' captions-' . $captionPosition ?> media file image-cover-img large-6 flex-container">
+        <div class="attachments flex-container">
             <?php
             foreach ($attachments as $attachment):
                 $render = null;
@@ -78,7 +78,7 @@ $lang = $filterLocale ? $this->lang() : null;
             <?php endforeach; ?>
         </div>
     </div>
-    <div class="title-area background-colour-uom-footer large-6 flex-container grid-y grid-padding-y flex-dir-column align-middle align-center font-wide padding-1">
+    <div class="title-area background-colour-uom-footer large-6 flex-container grid-y grid-padding-y flex-dir-column align-middle align-center font-wide medium-padding-1 xlarge-padding-2">
     <h3><?= $link ?></h3>
         <?= $html ?>
     </div>

@@ -20,24 +20,6 @@
             <?php elseif ($showTitleOption == 'file_name'): ?>
             <h3><?php echo $media->displayTitle(); ?></h3>
             <?php endif; ?>
-            <?php
-            $date = $item->value('dcterms:date');
-            if ($date):
-            ?>
-        <h3><?php echo $date; ?></h3>
-        <?php endif; ?>
-        <?php
-            $origin = $item->value('curation:location');
-            if ($origin):
-            ?>
-        <h3><?php echo $origin; ?></h3>
-        <?php endif; ?>
-        <?php
-            $identifier = $item->value('dcterms:identifier');
-            if ($identifier):
-            ?>
-        <h3><?php echo $identifier; ?></h3>
-        <?php endif; ?>
         </div>
         <?php endif; ?>
 
