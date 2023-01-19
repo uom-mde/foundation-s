@@ -1567,6 +1567,9 @@ nav.title-bar {
 
 figcaption.orbit-caption.caption p {
     margin-bottom: 0;
+    /*Added for Annona*/ 
+    font-style: initial;
+    font-weight: initial;
     @include breakpoint(large) {
         margin-bottom: $global-margin;
         text-align: right;
@@ -2496,27 +2499,32 @@ button#autorunButton,
 button#infoButton,
 button#tagsButton,
 button#homeButton,
-button#keyboardButton,
-button#overlayButton {
+button#keyboardButton {
 display: none!important;
 }
 
-.annotation {
-overflow: unset!important;
-}
-
-.authorship {
-display: none;
-}
+/*button#overlayButton*/ 
+/*Toggles annotations*/ 
 
 button#info_button.annocontrols_button,
 button#prev_button.annocontrols_button,
 button#next_button.annocontrols_button,
 button#close_button.annocontrols_button,
-button#hide_button.annocontrols_button,
 button#settings_button.annocontrols_button,
 button#settingsButton.toolbarButton {    
 display: none!important;
+}
+
+#nextButton span.toolbartext {
+    display: none;
+}
+
+/*.annotation {
+overflow: unset!important;
+}*/ 
+
+.authorship {
+display: none;
 }
 
 .rect:hover {
@@ -2534,10 +2542,36 @@ polygon>.svgactive:hover {
     fill-opacity: .4!important;
 }
 
+.annotation {
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
 .annotation>div {
-    @include breakpoint(medium) {
     padding: 1em;
+    /*font-size: $global-font-size;*/
+    @include breakpoint(600 down) {
+    font-size: unset!important; 
     }
+    @include breakpoint(601 up) {
+        font-size: 1rem; 
+        }
+}
+
+#storyboard_viewer .excerpt {
+    background-color: $white;
+}
+
+#storyboard_viewer.annonaview.storyboard_viewer {
+    @include breakpoint(medium) {
+    height: 100vh;
+    }
+}
+
+.openseadragon-container {
+    @include breakpoint(medium) {
+        height: 90vh!important;
+        } 
 }
 
 #storyboard_viewer button:hover {
