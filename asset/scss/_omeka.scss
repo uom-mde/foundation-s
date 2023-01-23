@@ -1529,6 +1529,16 @@ nav.title-bar {
     }
 }
 
+.media-text h2 {
+    margin-bottom: 1.5 * $global-margin;
+    @include breakpoint(medium) {
+        margin-bottom: 2 * $global-margin;
+    }
+    @include breakpoint(large) {
+        margin-bottom: 2.5 * $global-margin;
+    }
+}
+
 .media-text .left,
 .media-text .right {
     max-width: unset;
@@ -2357,6 +2367,17 @@ nav.breadcrumbs {
     max-width: calc(#{$pull-quote-maxwidth} + 5%);
     margin-right: $pull-quote-offset-large;
   }
+}
+
+/*Responsive Embed*/ 
+.responsive-embed.aspect16_9, 
+.flex-video.aspect16_9 {
+padding-bottom: 56.25%;
+}
+
+.responsive-embed.aspect4_3, 
+.flex-video.aspect4_3 {
+padding-bottom: 75%;
 }
 
 /*Blockquote*/
