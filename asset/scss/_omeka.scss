@@ -625,6 +625,11 @@ body.vertical-menu footer {
     }
 }
 
+span.resource-name {
+    margin-top: $global-margin;
+    display: block;
+}
+
 .description.ellipsis {
     display: -webkit-box;
     -webkit-line-clamp: 4;
