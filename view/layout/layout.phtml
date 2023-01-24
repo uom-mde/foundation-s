@@ -15,6 +15,7 @@ $this->headLink()->prependStylesheet('//fonts.googleapis.com/css2?family=Open+Sa
 $this->headLink()->prependStylesheet($this->assetUrl('css/annona.css'));
 $this->headScript()->prependFile($this->assetUrl('vendor/foundation/foundation.min.js'));
 $this->headScript()->prependFile($this->assetUrl('js/global.js', 'Omeka'));
+$this->headScript()->prependFile($this->assetUrl('js/langselect.js'));
 $this->headScript()->prependFile($this->assetUrl('vendor/jquery/jquery.min.js', 'Omeka'));
 $this->trigger('view.layout');
 $title = $this->pageTitle($site->title());
@@ -148,6 +149,7 @@ endif;
           $(document).foundation(); 
         </script>
         <script type="text/javascript" src="<?php echo $this->assetUrl('js/annona.js'); ?>"></script>
+        <script type="text/javascript" src="<?php echo $this->assetUrl('js/langselect.js'); ?>"></script>
         <?php
             echo $this->inlineScript()
             ->prependFile($this->assetUrl('js/img-orientation.js'));
