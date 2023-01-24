@@ -12,6 +12,9 @@
 //  #. -- Original Omeka S Blocks
 //  #. -- BlockPlus Blocks
 //  #. -- Agile Theme Tools Blocks 
+//  #. -- Annona
+//  #. -- Language bar
+//  #. -- General styling classes 
 // ------------------
 [type="submit"],
 [type="button"] {
@@ -2317,8 +2320,8 @@ span.fullscreen-label:before {
         margin-right: -10%;
     }
 }
-
 /*End Agile Theme Tools*/
+
 /*Breadcrumbs*/
 nav.breadcrumbs {
     margin-top: -1rem;
@@ -2623,6 +2626,85 @@ polygon>.svgactive:hover {
     @include breakpoint(600 down) {
        top: calc(1.6rem + 7px)!important;
     }
+}
+
+/* Language bar*/ 
+#language-bar button {
+    padding: 1em;
+}
+.language-label:before {
+    content: "";
+    margin: 0 12px;
+    background: url("https://www.digitalexhibitions.manchester.ac.uk/files/asset/globe-svgrepo-com-white.svg") no-repeat;
+    width: 26px;
+    height: 26px;
+    background-size: 26px;
+}
+.language-label {
+    color: #fff;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 6px 24px 6px 6px;
+}
+.language-hide {
+    display: none;
+}
+#switcher-toggle {
+    background: url("/asset/files/Arrow-down-white.svg");
+    background-position: center;
+    background-size: 1.5em;
+    background-repeat: no-repeat;
+    margin-left: 0;
+}
+.language-switcher.closed:checked+.language-switcher {
+    max-height: 100px;
+}
+div.language-switcher {
+    position: relative
+}
+.language-switcher.closed>ul {
+    display: none
+}
+.language-switcher>ul {
+    position: absolute;
+    list-style: none;
+    right: 0;
+    line-height: 36px;
+    margin: 6px 0 0;
+    padding: 12px 18px;
+    background: #fff;
+    border-radius: 6px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, .1);
+    z-index: 99
+}
+.language-switcher li a {
+    color: #000;
+    opacity: .65;
+    transition: opacity .3s ease-in-out;
+    white-space: nowrap
+}
+.language-switcher li a:hover,
+.language-switcher a.checked {
+    opacity: 1
+}
+#lang {
+    order: 2;
+    margin: 0 1em 0 1em;
+}
+ul.language-switcher.locale-code {
+    padding-inline-start: 0;
+    text-transform: uppercase;
+}
+ul.language-switcher.locale-code li a {
+    color: #343536;
+    text-decoration: underline;
+    font-weight: 600;
+}
+ul.language-switcher.locale-code li span.active {
+    color: #343536;
+    text-decoration: none;
+    font-weight: 400;
 }
 
 /*General Classes*/ 
