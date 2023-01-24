@@ -625,6 +625,11 @@ body.vertical-menu footer {
     }
 }
 
+span.resource-name {
+    margin-top: $global-margin;
+    display: block;
+}
+
 .description.ellipsis {
     display: -webkit-box;
     -webkit-line-clamp: 4;
@@ -1529,6 +1534,16 @@ nav.title-bar {
     }
 }
 
+.media-text h2 {
+    margin-bottom: 1.5 * $global-margin;
+    @include breakpoint(medium) {
+        margin-bottom: 2 * $global-margin;
+    }
+    @include breakpoint(large) {
+        margin-bottom: 2.5 * $global-margin;
+    }
+}
+
 .media-text .left,
 .media-text .right {
     max-width: unset;
@@ -1567,6 +1582,9 @@ nav.title-bar {
 
 figcaption.orbit-caption.caption p {
     margin-bottom: 0;
+    /*Added for Annona*/ 
+    font-style: initial;
+    font-weight: initial;
     @include breakpoint(large) {
         margin-bottom: $global-margin;
         text-align: right;
@@ -2356,6 +2374,17 @@ nav.breadcrumbs {
   }
 }
 
+/*Responsive Embed*/ 
+.responsive-embed.aspect16_9, 
+.flex-video.aspect16_9 {
+padding-bottom: 56.25%;
+}
+
+.responsive-embed.aspect4_3, 
+.flex-video.aspect4_3 {
+padding-bottom: 75%;
+}
+
 /*Blockquote*/
 /* center the blockquote in the page */
 .blockquote-wrapper {
@@ -2480,6 +2509,120 @@ nav.breadcrumbs {
  /*Remove Scroll Bar*/
 html, body {
     overflow-x: hidden;
+}
+
+/*Annona*/ 
+
+#storyboard_viewer.annonaview.storyboard_viewer {
+    background: $black;
+    }
+
+.annonaview .content .attribution, .annonaview .content .authorship, .annonaview .content .tags {
+    font-style: unset;
+    }
+
+button#autorunButton,
+button#infoButton,
+button#tagsButton,
+button#homeButton,
+button#keyboardButton {
+display: none!important;
+}
+
+/*button#overlayButton*/ 
+/*Toggles annotations*/ 
+
+button#info_button.annocontrols_button,
+button#prev_button.annocontrols_button,
+button#next_button.annocontrols_button,
+button#close_button.annocontrols_button,
+button#settings_button.annocontrols_button,
+button#settingsButton.toolbarButton {    
+display: none!important;
+}
+
+#nextButton span.toolbartext {
+    display: none;
+}
+
+/*.annotation {
+overflow: unset!important;
+}*/ 
+
+.authorship {
+display: none;
+}
+
+.rect:hover {
+    background: gray;
+    opacity: .4;
+}
+
+.overlay>svg>:hover {
+    fill: gray;
+    fill-opacity: .4!important;
+}
+
+polygon>.svgactive:hover {
+    fill: gray;
+    fill-opacity: .4!important;
+}
+
+.annotation {
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.annotation>div {
+    padding: 1em;
+    /*font-size: $global-font-size;*/
+    @include breakpoint(600 down) {
+    font-size: unset!important; 
+    }
+    @include breakpoint(601 up) {
+        font-size: 1rem; 
+        }
+}
+
+#storyboard_viewer .excerpt {
+    background-color: $white;
+}
+
+#storyboard_viewer.annonaview.storyboard_viewer {
+    @include breakpoint(medium) {
+    height: 100vh;
+    }
+}
+
+.openseadragon-container {
+    @include breakpoint(medium) {
+        height: 90vh!important;
+        } 
+}
+
+#storyboard_viewer button:hover {
+    cursor: pointer;
+}
+
+.active.rect {
+    @include breakpoint(medium) {
+    outline: 4px dotted #ff0!important;
+    }
+}
+.rect {
+    @include breakpoint(medium) {
+    border: 4px solid #add8e6;
+    }
+}
+
+.overlay>svg>* {
+    stroke-width: 4px;
+}
+
+.defaultview .annotation:not(.right):not(.left):not(.bottom):not(.top):not(.no_toolbar_annotation) {
+    @include breakpoint(600 down) {
+       top: calc(1.6rem + 7px)!important;
+    }
 }
 
 /*General Classes*/ 

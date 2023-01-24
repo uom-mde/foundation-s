@@ -12,6 +12,7 @@ if (isset($stylesheet)) {
 }
 $this->headLink()->prependStylesheet($this->assetUrl('css/iconfonts.css', 'Omeka'));
 $this->headLink()->prependStylesheet('//fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400&display=swap');
+$this->headLink()->prependStylesheet($this->assetUrl('css/annona.css'));
 $this->headScript()->prependFile($this->assetUrl('vendor/foundation/foundation.min.js'));
 $this->headScript()->prependFile($this->assetUrl('js/global.js', 'Omeka'));
 $this->headScript()->prependFile($this->assetUrl('vendor/jquery/jquery.min.js', 'Omeka'));
@@ -146,13 +147,10 @@ endif;
         <script>
           $(document).foundation(); 
         </script>
+        <script type="text/javascript" src="<?php echo $this->assetUrl('js/annona.js'); ?>"></script>
         <?php
             echo $this->inlineScript()
             ->prependFile($this->assetUrl('js/img-orientation.js'));
-        ?>
-        <?php
-            echo $this->inlineScript()
-            ->prependFile($this->assetUrl('js/full-width-container.js'));
         ?>
     </body>
 </html>
