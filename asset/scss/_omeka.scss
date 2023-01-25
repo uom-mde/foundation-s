@@ -2629,12 +2629,22 @@ polygon>.svgactive:hover {
 }
 
 /* Language bar*/ 
+#language-bar {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    background: #393a3c;
+    border-radius: 20px;
+}
 #language-bar button {
     padding: 1em;
 }
 .language-label:before {
     content: "";
-    margin: 0 12px;
+    margin: 0 $global-margin;
     background: url("https://www.digitalexhibitions.manchester.ac.uk/files/asset/globe-svgrepo-com-white.svg") no-repeat;
     width: 26px;
     height: 26px;
@@ -2645,7 +2655,16 @@ polygon>.svgactive:hover {
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding: 6px 24px 6px 6px;
+    padding: $global-padding;
+}
+.language-label-text {
+    display: none;
+    @include breakpoint(large) {
+        display: block;
+    }
+}
+a.language-show {
+    color: $white;
 }
 .language-hide {
     display: none;
@@ -2653,7 +2672,7 @@ polygon>.svgactive:hover {
 #switcher-toggle {
     background: url("https://www.digitalexhibitions.manchester.ac.uk/files/asset/Arrow-down-white.svg");
     background-position: center;
-    background-size: 1.5em;
+    background-size: 1.5rem;
     background-repeat: no-repeat;
     margin-left: 0;
 }
@@ -2662,6 +2681,11 @@ polygon>.svgactive:hover {
 }
 div.language-switcher {
     position: relative
+}
+.language-switcher.closed {
+    @include breakpoint(large) {
+        display: none
+    }
 }
 .language-switcher.closed>ul {
     display: none
