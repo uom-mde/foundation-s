@@ -2644,18 +2644,24 @@ polygon>.svgactive:hover {
 }
 .language-label:before {
     content: "";
-    margin: 0 $global-margin;
+    margin: 0 0 0 $global-margin;
     background: url("https://www.digitalexhibitions.manchester.ac.uk/files/asset/globe-svgrepo-com-white.svg") no-repeat;
     width: 26px;
     height: 26px;
     background-size: 26px;
+    @include breakpoint(large) {
+        margin: 0 $global-margin;
+    }
 }
 .language-label {
     color: #fff;
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding: $global-padding;
+    padding: 0.1 * $global-padding;
+    @include breakpoint(large) {
+        padding: 0.5 * $global-padding 1.5 * $global-padding 0.5 * $global-padding 0.5 * $global-padding;
+    }
 }
 .language-label-text {
     display: none;
