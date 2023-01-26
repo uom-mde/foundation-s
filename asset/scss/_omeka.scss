@@ -12,6 +12,9 @@
 //  #. -- Original Omeka S Blocks
 //  #. -- BlockPlus Blocks
 //  #. -- Agile Theme Tools Blocks 
+//  #. -- Annona
+//  #. -- Language bar
+//  #. -- General styling classes 
 // ------------------
 [type="submit"],
 [type="button"] {
@@ -334,14 +337,29 @@ body.vertical-menu header .desktop {
     }
 }
 
+.title-bar button {
+    margin: 0;
+    @include breakpoint(large) {
+        margin: 0 $global-margin 0 0;
+    }
+}
+
 /*Set size of University logo*/
 .university-logo {
-    margin: rem-calc(12) rem-calc(24);
+    margin: rem-calc(12);
+    display: flex;
+    flex-grow: 3;
+    @include breakpoint(339) {
+        margin: rem-calc(12) rem-calc(24);
+    }
+    @include breakpoint(588) {
+        flex-grow: unset;
+    }
 }
 
 .university-logo img {
-    width: rem-calc(169);
-    height: rem-calc(70);
+        width: rem-calc(169);
+        height: rem-calc(70);
 }
 
 /*Set 'Manchester Digital Exhibitions text*/
@@ -350,17 +368,33 @@ body.vertical-menu header .desktop {
     text-decoration: none;
     display: flex;
     flex-grow: 3;
+    width: rem-calc(225);
+    margin: 0 rem-calc(12) rem-calc(12) rem-calc(12);
+    order: 2;
+    @include breakpoint(339) {
+        margin: 0 rem-calc(12) rem-calc(12) rem-calc(24);
+    }
+    @include breakpoint(588) {
+        order: 0;
+        margin: 0;
+    }
 }
 
 .site-heading p {
     color: $primary-color;
     margin-bottom: 0;
+    @include breakpoint(700) {
+        font-size: rem-calc(22);
+        margin: 0 $global-margin;
+        font-weight: 400;
+    }
 }
 
 /*Language Selector*/
 #lang {
-    order: 2;
-    margin: 0 1 0 1em;
+    display: flex;
+    order: 0;
+    margin: 0;
 }
 
 ul.language-switcher.locale-code {
@@ -1411,28 +1445,6 @@ nav.breadcrumbs {
     text-align: center;
 }
 
-
-/*Header*/
-.site-heading {
-    width: rem-calc(225px);
-    margin: 0 rem-calc(12);
-}
-
-nav.title-bar {
-    order: 0;
-    @include breakpoint(545) {
-        order: 1;
-    }
-}
-
-.site-heading {
-    order: 1;
-    @include breakpoint(545) {
-        order: 0;
-    }
-}
-
-
 /*Card Styling*/
 .card-divider a {
     color: $white;
@@ -2317,8 +2329,8 @@ span.fullscreen-label:before {
         margin-right: -10%;
     }
 }
-
 /*End Agile Theme Tools*/
+
 /*Breadcrumbs*/
 nav.breadcrumbs {
     margin-top: -1rem;
@@ -2606,23 +2618,133 @@ polygon>.svgactive:hover {
 
 .active.rect {
     @include breakpoint(medium) {
-    outline: 4px dotted #ff0!important;
+    outline: rem-calc(4px) dotted #ff0!important;
     }
 }
 .rect {
     @include breakpoint(medium) {
-    border: 4px solid #add8e6;
+    border: rem-calc(4px) solid #add8e6;
     }
 }
 
 .overlay>svg>* {
-    stroke-width: 4px;
+    stroke-width: rem-calc(4px);
 }
 
 .defaultview .annotation:not(.right):not(.left):not(.bottom):not(.top):not(.no_toolbar_annotation) {
     @include breakpoint(600 down) {
        top: calc(1.6rem + 7px)!important;
     }
+}
+
+/* Language bar*/ 
+#language-bar {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    background: #393a3c;
+    border-radius: rem-calc(20px);
+}
+#language-bar button {
+    padding: 1em;
+}
+.language-label:before {
+    content: "";
+    margin: 0 0 0 0.5 * $global-margin;
+    background: url("https://www.digitalexhibitions.manchester.ac.uk/files/asset/globe-svgrepo-com-white.svg") no-repeat;
+    width: rem-calc(18px);
+    height: rem-calc(18px);
+    background-size: rem-calc(18px);
+    @include breakpoint(large) {
+        margin: 0 $global-margin;
+        width: rem-calc(26px);
+        height: rem-calc(26px);
+        background-size: rem-calc(26px);
+    }
+}
+.language-label {
+    color: #fff;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    @include breakpoint(large) {
+        padding: 0.5 * $global-padding 1.5 * $global-padding 0.5 * $global-padding 0.5 * $global-padding;
+    }
+}
+.language-label-text {
+    display: none;
+    @include breakpoint(large) {
+        display: block;
+    }
+}
+a.language-show {
+    color: $white;
+}
+.language-hide {
+    display: none;
+}
+#switcher-toggle {
+    background: url("https://www.digitalexhibitions.manchester.ac.uk/files/asset/Arrow-down-white.svg");
+    background-position: center;
+    background-size: 1rem;
+    background-repeat: no-repeat;
+    margin-left: 0;
+    @include breakpoint(large) {
+        background-size: 1.5rem;   
+    }
+}
+.language-switcher.closed:checked+.language-switcher {
+    max-height: 100px;
+}
+div.language-switcher {
+    position: relative
+}
+.language-switcher.closed {
+    @include breakpoint(large) {
+        display: none
+    }
+}
+.language-switcher.closed>ul {
+    display: none
+}
+.language-switcher>ul {
+    position: absolute;
+    list-style: none;
+    right: 0;
+    line-height: rem-calc(36px);
+    margin: 6px 0 0;
+    padding: 12px 18px;
+    background: #fff;
+    border-radius: rem-calc(6px);
+    box-shadow: 0 0 20px rgba(0, 0, 0, .1);
+    z-index: 99
+}
+.language-switcher li a {
+    color: #000;
+    opacity: .65;
+    transition: opacity .3s ease-in-out;
+    white-space: nowrap
+}
+.language-switcher li a:hover,
+.language-switcher a.checked {
+    opacity: 1
+}
+ul.language-switcher.locale-code {
+    padding-inline-start: 0;
+    text-transform: uppercase;
+}
+ul.language-switcher.locale-code li a {
+    color: #343536;
+    text-decoration: underline;
+    font-weight: 600;
+}
+ul.language-switcher.locale-code li span.active {
+    color: #343536;
+    text-decoration: none;
+    font-weight: 400;
 }
 
 /*General Classes*/ 

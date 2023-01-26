@@ -1,0 +1,50 @@
+<?php
+/**
+ * @var \Laminas\View\Renderer\PhpRenderer $this
+ * @var \Omeka\Api\Representation\SiteRepresentation $site
+ * @var array $locales
+ * @var array $locale_labels
+ * @var bool $locale_as_code
+ */
+
+?>
+
+<?php if ($locales): ?>
+    <?php $currentLocale = $this->siteSetting('locale') ?: 'en_US'; ?>
+    <div id="language-bar">
+        <div class="language-label">
+        <div class="language-label-text">
+        <?php foreach ($locales as $locale): ?>
+            <?php
+                $label = ucwords(explode(" (", $locale['locale_label'])[0]);
+                $rfc5646 = str_replace("_", "-", $locale['locale']);
+                ?>
+                    <?php if ($currentLocale == $locale['locale']): ?>
+                        <div class="language-hide"><?= $label ?></div>
+                    <?php else: ?>
+                        <a class="language-show" href="<?= $locale['url'] ?>" lang="<?= $rfc5646 ?>" hreflang="<?= $rfc5646 ?>"><?= $label ?></a>
+                    <?php endif; ?>         
+            <?php endforeach; ?>
+        </div>
+        </div>
+            <div class="language-switcher closed">
+        <button id="switcher-toggle" aria-label="Toggle language switcher" aria-expanded="false">
+        </button>
+        <ul role="radiogroup">
+            <?php foreach ($locales as $locale): ?>
+            <?php
+                $label = ucwords(explode(" (", $locale['locale_label'])[0]);
+                $rfc5646 = str_replace("_", "-", $locale['locale']);
+                ?>
+                <li>
+                    <?php if ($currentLocale == $locale['locale']): ?>
+                        <a class="radio checked" role="radio" aria-checked="true"><?= $label ?></a>
+                    <?php else: ?>
+                        <a class="radio" role="radio" href="<?= $locale['url'] ?>" lang="<?= $rfc5646 ?>" hreflang="<?= $rfc5646 ?>"><?= $label ?></a>
+                    <?php endif; ?>
+                </li>
+            <?php endforeach; ?>
+        </ul>
+    </div>
+    </div>
+<?php endif; ?>
