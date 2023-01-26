@@ -142,14 +142,15 @@ endif;
                         
                         <li>Royal Charter Number: RC000797</li>
                     </ul>
-                </div>               
+                </div>               <div id="lang">
+	<?php if ($this->getHelperPluginManager()->has('languageSwitcher')) echo $this->languageSwitcher([ 'locale_as_code' => true ]); ?>
+</div>
             </footer>
         </div>
         <script>
           $(document).foundation(); 
         </script>
         <script type="text/javascript" src="<?php echo $this->assetUrl('js/annona.js'); ?>"></script>
-        <script type="text/javascript" src="<?php echo $this->assetUrl('js/langselect.js'); ?>"></script>
         <?php
             echo $this->inlineScript()
             ->prependFile($this->assetUrl('js/img-orientation.js'));
