@@ -339,7 +339,7 @@ body.vertical-menu header .desktop {
 
 .title-bar button {
     margin: 0;
-    @include breakpoint(medium) {
+    @include breakpoint(large) {
         margin: 0 $global-margin 0 0;
     }
 }
@@ -352,7 +352,7 @@ body.vertical-menu header .desktop {
     @include breakpoint(339) {
         margin: rem-calc(12) rem-calc(24);
     }
-    @include breakpoint(630) {
+    @include breakpoint(588) {
         flex-grow: unset;
     }
 }
@@ -368,6 +368,13 @@ body.vertical-menu header .desktop {
     text-decoration: none;
     display: flex;
     flex-grow: 3;
+    width: rem-calc(225);
+    margin: 0 rem-calc(12) rem-calc(12) rem-calc(12);
+    order: 2;
+    @include breakpoint(588) {
+        order: 0;
+        margin: 0;
+    }
 }
 
 .site-heading p {
@@ -380,12 +387,6 @@ body.vertical-menu header .desktop {
     display: flex;
     order: 0;
     margin: 0;
-    @include breakpoint(355) {
-        margin: 0 $global-margin 0 0;
-    }
-    @include breakpoint(medium) {
-        margin: 0.5 * $global-margin;
-    }
 }
 
 ul.language-switcher.locale-code {
@@ -1435,21 +1436,6 @@ nav.breadcrumbs {
     flex-wrap: wrap;
     text-align: center;
 }
-
-
-/*Header*/
-.site-heading {
-    width: rem-calc(225);
-    margin: 0 rem-calc(12);
-}
-
-.site-heading {
-    order: 2;
-    @include breakpoint(630) {
-        order: 0;
-    }
-}
-
 
 /*Card Styling*/
 .card-divider a {
