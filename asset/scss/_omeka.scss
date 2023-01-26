@@ -371,6 +371,9 @@ body.vertical-menu header .desktop {
     width: rem-calc(225);
     margin: 0 rem-calc(12) rem-calc(12) rem-calc(12);
     order: 2;
+    @include breakpoint(339) {
+        margin: 0 rem-calc(12) rem-calc(12) rem-calc(24);
+    }
     @include breakpoint(588) {
         order: 0;
         margin: 0;
@@ -380,6 +383,11 @@ body.vertical-menu header .desktop {
 .site-heading p {
     color: $primary-color;
     margin-bottom: 0;
+    @include breakpoint(700) {
+        font-size: rem-calc(22);
+        margin: 0 $global-margin;
+        font-weight: 400;
+    }
 }
 
 /*Language Selector*/
