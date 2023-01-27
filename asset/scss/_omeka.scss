@@ -1812,6 +1812,7 @@ figcaption.orbit-caption.caption p {
     border: solid $white rem-calc(0.5em);
     border-radius: rem-calc(6);
     overflow:hidden;
+    background: $white;
     /*border: solid (0.5 * $global-margin) $white;*/
     @include breakpoint(medium) {
         &.item-count-2,
