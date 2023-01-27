@@ -652,10 +652,16 @@ body.vertical-menu footer {
 }
 
 .resource-grid .resource {
-    width: 25%;
+    width: 100%;
     padding: $global-padding;
-    @include breakpoint(medium down) {
+    @include breakpoint(medium) {
         width: 50%;
+    }
+    @include breakpoint(large) {
+        width: 33%;
+    }
+    @include breakpoint(xlarge) {
+        width: 25%;
     }
 }
 
@@ -833,6 +839,21 @@ span.resource-name {
 
 .resource.show #linked-resources .resource-link {
     margin-bottom: 0;
+}
+
+a.resource-link img {
+    width: 100%;
+    object-fit: cover;
+    height: 350px;
+    @include breakpoint(medium) {
+        height: 300px;
+    }
+    @include breakpoint(large) {
+        height: 250px;
+    }
+    @include breakpoint(xlarge) {
+        height: 300px;
+    }
 }
 
 .linked-header .omeka-pagination,
