@@ -1537,6 +1537,10 @@ nav.breadcrumbs {
     }
             
     /*Hero image sizes*/
+    .image-full {
+        height: 100vh;
+        }
+
     .image-large {
         height: 80vh;
         }
@@ -1548,6 +1552,23 @@ nav.breadcrumbs {
         .image-small {
         height: rem-calc(300px);
         }
+
+/*Asset with Hero and two columns*/ 
+.hero-two-col {
+    position: relative;
+}
+
+.asset-caption {
+    position: absolute;
+    right: 0;
+    top: 10%;
+}
+
+.asset-heading {
+    position: absolute;
+    left: 0;
+    top: 10%;
+}
 
 /*Flex-grow*/
 .flex-grow {
