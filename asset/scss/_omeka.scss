@@ -1624,6 +1624,17 @@ figcaption.orbit-caption.caption p {
     }
 }
 
+.image-cover .title-area {
+    @include breakpoint(large) {
+        height: 100vh;
+        overflow-y: scroll;
+        justify-content: flex-start;
+    }
+    @include breakpoint(xlarge) {
+        justify-content: center;
+    }
+}
+
 .image-cover .title-area p,
 .image-cover .title-area h3 {
     padding: $global-padding;
@@ -1770,8 +1781,8 @@ figcaption.orbit-caption.caption p {
 }
 
 .image-cover-img img {
-    @include breakpoint(1250) {
-        height: 100vh;
+    @include breakpoint(large) {
+        min-height: 100vh;
     }
     }
 
@@ -2314,6 +2325,7 @@ span.fullscreen-wrapper {
     & h3 a {
     color: $white;
     font-weight: 600;
+    text-decoration: underline;
 }
 }
 
