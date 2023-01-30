@@ -1,5 +1,5 @@
-<div id="block-<?php echo $this->blockId; ?>" class="grid-x grid-padding-x margin-bottom-1 region <?php echo $this->regionClass; ?> <?php echo $hasAudioAttachment ? 'slideshow-with-audio' : 'slideshow-block'; ?>" data-target-region-id="<?php echo $this->targetID; ?>">
-    <div class="slideshow">
+<div id="block-<?php echo $this->blockId; ?>" class="full-width-css grid-x grid-padding-x margin-bottom-1 region <?php echo $this->regionClass; ?> <?php echo $hasAudioAttachment ? 'slideshow-with-audio' : 'slideshow-block'; ?>" data-target-region-id="<?php echo $this->targetID; ?>">
+    <div class="slideshow grid-container">
         <?php if ($useTitleSlide): ?>
             <div class="item resource introduction <?php foreach ($attachmentOptions as $attachmentOption => $defaultVal) {echo ' slide-' . $attachmentOption . '-' . ${'attachment' . ucfirst($attachmentOption)}[0];}?>">
                 <figure>

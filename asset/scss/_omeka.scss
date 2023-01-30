@@ -2303,6 +2303,10 @@ span.fullscreen-wrapper {
     background: $black;
 }
 
+.slideshow-block {
+    background: $black;
+}
+
 .slide-contents {
     & p {
     color: $white;
@@ -2312,6 +2316,7 @@ span.fullscreen-wrapper {
     font-weight: 600;
 }
 }
+
 [aria-label="slide 1"] img {
         filter: grayscale(1);
     }
