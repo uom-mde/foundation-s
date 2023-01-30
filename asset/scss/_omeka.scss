@@ -2281,12 +2281,41 @@ ul.slick-dots li button {
 
 
 /*Slideshow*/ 
+span.fullscreen-label {
+    color: $white;
+    cursor: pointer;
+}
 
 span.fullscreen-label:before {
     font-family: "Font Awesome 5 Free";
     content: "\f065";
     padding: 0 1rem 1rem 0;
 }
+
+span.fullscreen-wrapper {
+    position: absolute;
+    top: 1rem;
+    right: 2rem;
+}
+
+.slideshow {
+    position: relative;
+    background: $black;
+}
+
+.slide-contents {
+    & p {
+    color: $white;
+    }
+    & h3 a {
+    color: $white;
+    font-weight: 600;
+}
+}
+[aria-label="slide 1"] img {
+        filter: grayscale(1);
+    }
+    
 
 /*Excerpt*/ 
 .excerpt {
