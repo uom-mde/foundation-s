@@ -1558,16 +1558,22 @@ nav.breadcrumbs {
     position: relative;
 }
 
+.asset-heading {
+    position: absolute;
+    left: 10%;
+    top: 10%;
+    @include breakpoint(large) {
+    top: 40%;
+    }
+}
+
 .asset-caption {
     position: absolute;
     right: 0;
-    top: 10%;
-}
-
-.asset-heading {
-    position: absolute;
-    left: 0;
-    top: 10%;
+    top: 30%;
+    @include breakpoint(large) {
+    top: 25%;
+    }
 }
 
 /*Flex-grow*/
@@ -2351,8 +2357,8 @@ span.fullscreen-wrapper {
 }
 
 .slideshow [aria-label="slide 1"] img {
-        filter: grayscale(1);
-    }
+    filter: grayscale(1);
+}
     
 
 /*Excerpt*/ 

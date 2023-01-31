@@ -43,7 +43,7 @@ $escapeAttr = $plugins->get('escapeHtmlAttr');
 
     <?php if ($attachment['caption']) : ?>
         <div class="asset-caption large-6 xlarge-7 flex-container align-middle align-center region-splash margin-bottom-0"> 
-            <p class="text-treatment-1 large-padding-2"><?= $attachment['caption'] ?></p>
+            <p class="text-treatment-1 padding-1 large-padding-2"><?= $attachment['caption'] ?></p>
             <?php $attachmentUrl = $attachment['page'] ? $attachment['page']->siteUrl() : $attachment['url']; ?>
             <?php if ($attachment['alt_link_title'] && $attachmentUrl) : ?>
                 <a href="<?= $escapeAttr($attachmentUrl) ?>"><button class="btn knowmore"><?= $escape($attachment['alt_link_title']) ?></button></a>
