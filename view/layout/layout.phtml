@@ -20,19 +20,18 @@ $this->headScript()->prependFile($this->assetUrl('vendor/jquery/jquery.min.js', 
 $this->trigger('view.layout');
 $title = $this->pageTitle($site->title());
 $userBar = $this->userBar();
-
 $navLayout = ($this->themeSetting('nav_layout')) ? $this->themeSetting('nav_layout') : 'dropdown';
 $this->htmlElement('body')->appendAttribute('class', $navLayout . '-menu');
 if ($userBar) {
     $this->htmlElement('body')->appendAttribute('class', 'user-bar');
 }
-
 $banner = $this->themeSettingAssetUrl('banner');
 $bannerWidth = ($this->themeSetting('banner_width')) ? $this->themeSetting('banner_width') : '';
 $bannerHeight = $this->themeSetting('banner_height');
 $bannerHeightMobile = $this->themeSetting('banner_height_mobile');
 $bannerPosition = ($this->themeSetting('banner_position')) ? str_replace('_', '-', $this->themeSetting('banner_position')) : 'center';
 $logo = $this->themeSettingAssetUrl('logo');
+$pageType = $this->pageMetadata('type');
 if ($logo) :
     $title = '<img src="' . $this->escapeHtml($logo) . '">';
 endif;
@@ -59,9 +58,7 @@ endif;
         <?php endif; ?>
         </style>
     </head>
-
-    <?php echo $this->htmlElement('body class="no-js"'); ?>
-    
+    <?php echo $this->htmlElement('body class="no-js"'); ?>   
         <div id="offCanvas" class="off-canvas position-left" data-off-canvas>
             <?php echo $site->publicNav()->menu()->setPartial('common/foundation-navigation.phtml')->renderPartialWithParams(['layout' => 'vertical']); ?>
             <div class="search">
@@ -72,6 +69,11 @@ endif;
             <a id="skipnav" href="#content"><?php echo $this->translate('Skip to main content'); ?></a>
             <?php echo $userBar; ?>
             <header>
+                <?php if ($pageType == 'home'): ?>
+                    <div class="full-width-css home">
+                        <?php echo 'this is the home page'; ?>
+                    </div>
+                <?php endif; ?>
                 <?php if ($navLayout == 'vertical') : ?>
                 <?php echo $this->partial('common/header-vertical'); ?>
                 <?php else : ?>
@@ -87,8 +89,7 @@ endif;
                 <?php echo $this->content; ?>
             </div>
             <footer class="footerContainer">							
-                <div class="grid-x grid-padding-x grid-container padding-vertical-3">
-                    
+                <div class="grid-x grid-padding-x grid-container padding-vertical-3">              
                     <div class="medium-7 padding-left-1">
                         <div class="footerLogos">
             
@@ -96,12 +97,10 @@ endif;
                             <p>The University of Manchester Library is one of five National Research Libraries</p>
             
                         </div>
-                    </div>
-                    
+                    </div>                    
                     <div class="medium-5 padding-left-1 medium-padding-right-1">
                         <h3>Connect with us</h3>
-                        <ul class="inlineList footer-socialIcons">
-                            
+                        <ul class="inlineList footer-socialIcons">                           
                             <li><a href="https://www.facebook.com/pages/The-University-of-Manchester-Library/25777209922">
                                 <img class="lazy" src="https://www.library.manchester.ac.uk/assets/images/design/icon-facebook-large.png" width="40" height="40" data-original="/assets/images/design/icon-facebook-large.png" alt="Facebook page for The University of Manchester Library">
                                 <noscript><img class="" src="https://www.library.manchester.ac.uk/assets/images/design/icon-facebook-large.png" width="40" height="40" alt="Facebook page for The University of Manchester Library"></noscript>
@@ -142,9 +141,10 @@ endif;
                         
                         <li>Royal Charter Number: RC000797</li>
                     </ul>
-                </div>               <div id="lang">
-	<?php if ($this->getHelperPluginManager()->has('languageSwitcher')) echo $this->languageSwitcher([ 'locale_as_code' => true ]); ?>
-</div>
+                </div>               
+                <div id="lang">
+                    <?php if ($this->getHelperPluginManager()->has('languageSwitcher')) echo $this->languageSwitcher([ 'locale_as_code' => true ]); ?>
+                </div>
             </footer>
         </div>
         <script>
