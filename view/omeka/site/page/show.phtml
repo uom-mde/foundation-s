@@ -25,13 +25,14 @@ if ($activePage):
 <?php endif; ?>
 
 <?php if ($pageType == 'home'): ?>
-<div class="full-width-css">
-    <?php echo 'this is the home page'; ?>
-    <?php $this->trigger('view.show.before'); ?>
-    <div id="blocks" class="blocks">
-        <?php echo $this->content; ?>
+    <div class="full-width-css home">
+        <?php echo 'this is the home page'; ?>
+        <?php $this->trigger('view.show.before'); ?>
+        <div id="blocks" class="blocks">
+            <?php echo $this->content; ?>
+        </div>
     </div>
-</div>
+
 <?php elseif(empty($pageType)): ?>
     <?php $this->trigger('view.show.before'); ?>
         <div id="blocks" class="blocks">
