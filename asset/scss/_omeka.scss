@@ -1797,6 +1797,7 @@ figcaption.orbit-caption.caption p {
         height: 100%;
     }
     @include breakpoint(large) {
+        height: 100vh;
         max-height: unset;
     }
 }
