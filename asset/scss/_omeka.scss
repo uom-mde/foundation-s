@@ -1774,6 +1774,13 @@ figcaption.orbit-caption.caption p {
 }
 }
 
+/*Item Showcase Full Image*/ 
+.image-full img.portrait {
+    @include breakpoint (small only) {
+    max-height: 30rem;
+    }
+}
+
 /*Agile Theme Tools Blocks*/ 
 /*Old Item Listing with Introduction Block*/
 .item-listing h2,
@@ -1896,6 +1903,9 @@ figcaption.orbit-caption.caption p {
     }
     & .caption {
         border-radius: rem-calc(0 0 6 6);
+    }
+    & .caption p {
+        margin-bottom: 0;
     }
 }
 
