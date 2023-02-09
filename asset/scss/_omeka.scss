@@ -1514,6 +1514,13 @@ nav.breadcrumbs {
     }
 }
 
+/*Foundation S Prototype*/ 
+.lead {
+    @include breakpoint (large-down) {
+        font-size: 110%;
+    }
+}
+
 /*BlockPlus Blocks*/
 //--------------------------------
 
@@ -2724,8 +2731,9 @@ polygon>.svgactive:hover {
 }
 
 .active.rect {
+    outline: rem-calc(3px) solid #ff0!important;
     @include breakpoint(medium) {
-    outline: rem-calc(4px) dotted #ff0!important;
+    outline: rem-calc(5px) solid #ff0!important;
     }
 }
 .rect {
