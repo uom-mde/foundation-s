@@ -2726,7 +2726,8 @@ polygon>.svgactive:hover {
         } 
 }
 
-#storyboard_viewer button:hover {
+#storyboard_viewer button:hover,
+#multistoryboard button:hover {
     cursor: pointer;
 }
 
