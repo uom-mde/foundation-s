@@ -14,6 +14,7 @@
 //  #. -- Agile Theme Tools Blocks 
 //  #. -- Annona
 //  #. -- Language bar
+//  #. -- Mirador Viewer
 //  #. -- General styling classes 
 // ------------------
 [type="submit"],
@@ -2861,6 +2862,13 @@ ul.language-switcher.locale-code li span.active {
     color: #343536;
     text-decoration: none;
     font-weight: 400;
+}
+
+/*Mirador Viewer*/ 
+.MuiIconButton-root {
+    @include breakpoint (351 down) {
+        padding: rem-calc(6)!important;
+    }
 }
 
 /*General Classes*/ 
