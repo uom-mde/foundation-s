@@ -1517,7 +1517,7 @@ nav.breadcrumbs {
 
 /*Foundation S Prototype*/ 
 .lead {
-    @include breakpoint (large-down) {
+    @include breakpoint (large down) {
         font-size: 110%;
     }
 }
@@ -1593,6 +1593,16 @@ nav.breadcrumbs {
     }
 
 /*Resource with Text block*/
+.resource-text {
+    margin: 0 auto;
+}
+
+.resource-text {
+    max-width: rem-calc(600);
+    margin: 0 auto;
+}
+
+
 .media-text {
     @include breakpoint(medium) {
         padding: $global-padding;
@@ -2725,6 +2735,12 @@ polygon>.svgactive:hover {
     @include breakpoint(medium) {
         height: 90vh!important;
         } 
+}
+
+.seadragonbox {
+    @include breakpoint(small only) {
+        height: 400px;
+    }
 }
 
 #storyboard_viewer button:hover,
