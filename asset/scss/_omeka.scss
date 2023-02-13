@@ -2739,7 +2739,7 @@ polygon>.svgactive:hover {
 
 .seadragonbox {
     @include breakpoint(small only) {
-        height: 400px;
+        height: rem-calc(330);
     }
 }
 

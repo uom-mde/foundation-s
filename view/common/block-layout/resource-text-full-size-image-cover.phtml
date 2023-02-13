@@ -21,13 +21,12 @@ $filterLocale = (bool) $this->siteSetting('filter_locale_values');
 $lang = $filterLocale ? $this->lang() : null;
 ?>
 
-<div class="block full-width-css grid-x grid-padding-x margin-bottom-1 flex-container image-cover">
+<div class="block full-width-css grid-x grid-padding-x padding-vertical-1 large-padding-vertical-2 margin-bottom-1 flex-container image-cover">
     <?php if (!empty($heading)): ?>
     <div class="grid-container cell margin-bottom-1">
     <h3><?= $escape($heading) ?></h3>
     </div>
     <?php endif; ?>
-
     <div class="<?= $alignmentClass . ' ' . $thumbnailType . ' captions-' . $captionPosition ?> media file image-cover-img large-6 xlarge-7 flex-container">
         <div class="attachments">
             <?php
@@ -78,8 +77,35 @@ $lang = $filterLocale ? $this->lang() : null;
             <?php endforeach; ?>
         </div>
     </div>
-    <div class="title-area large-6 xlarge-5 flex-container grid-y grid-padding-y flex-dir-column align-middle font-wide padding-1">
-    <h3><?= $link ?></h3>
+    <div class="resource-text large-5 flex-container flex-dir-column align-center padding-1">
+    <div class="metadata margin-bottom-1 separator-center">
+        <?php $showTitleOption = $this->showTitleOption; ?>
+        <?php if ($showTitleOption == 'item_title'): ?>
+        <h3><?php echo $item->link($item->displayTitle()); ?></h3>
+        <?php elseif ($showTitleOption == 'file_name'): ?>
+        <h3><?php echo $item->link($media->displayTitle()); ?></h3>
+        <?php endif; ?>
+    <?php
+         $date = $item->value('dcterms:date');
+         if ($date):
+         ?>
+      <h3><small><?php echo $date; ?></small></h3>
+      <?php endif; ?>
+      <?php
+         $origin = $item->value('curation:location');
+         if ($origin):
+         ?>
+      <h3><small><?php echo $origin; ?></small></h3>
+      <?php endif; ?>
+      </div>
+    <div class="text font-wide">
         <?= $html ?>
+        <?php
+         $identifier = $item->value('dcterms:identifier');
+         if ($identifier):
+         ?>
+      <h3 class="h4"><small><?php echo 'Reference ' . $identifier; ?></small></h3>
+      <?php endif; ?>
     </div>
+</div>
 </div>
