@@ -21,13 +21,14 @@ $filterLocale = (bool) $this->siteSetting('filter_locale_values');
 $lang = $filterLocale ? $this->lang() : null;
 ?>
 
-<div class="block media-text grid-x grid-padding-x full-width medium-padding-1 xlarge-padding-2 align-spaced">
+<div class="block media-text grid-x grid-padding-x medium-padding-1 align-spaced">
     <?php if (!empty($heading)): ?>
-    <h2><?= $escape($heading) ?></h2>
+    <div class="media-text-heading">
+        <h2><?= $escape($heading) ?></h2>
+    </div>
     <?php endif; ?>
-
-    <div class="<?= $alignmentClass . ' ' . $thumbnailType . ' captions-' . $captionPosition ?> media file large-6 flex-container align-middle align-center">
-        <div class="attachments grid-y flex-container align-center">
+    <div class="<?= $alignmentClass . ' ' . $thumbnailType . ' captions-' . $captionPosition ?> media file media-text-image large-7 flex-container align-spaced medium-padding-right-1 large-padding-right-0 large-padding-top-1">
+        <div class="attachments">
             <?php
             foreach ($attachments as $attachment):
                 $render = null;
@@ -35,7 +36,7 @@ $lang = $filterLocale ? $this->lang() : null;
                 $link = null;
                 $item = $attachment->item();
                 if ($item):
-              $media = $attachment->media() ? : $item->primaryMedia();
+               $media = $attachment->media() ? : $item->primaryMedia();
                $mediaRenderer = $media->renderer();
                if ($media && $mediaRenderer !== 'iiif') :
                    echo $media->render([
@@ -65,45 +66,44 @@ $lang = $filterLocale ? $this->lang() : null;
 
                 $caption = $attachment->caption();
             ?>
-            <div class="item resource flex-container align-center">
-                <?= $render ?>
-                <?= $link ?>
+            <div class="item resource">
+                <?= $render ?>                
                 <div class="caption">
-                    <?= $caption ?>
+                <?= $caption ?>                   
                 </div>
             </div>
             <?php endforeach; ?>
         </div>
     </div>
-    <div class="resource-text large-6 flex-container flex-dir-column align-center font-wide padding-1">
+    <div class="resource-text large-5 flex-container flex-dir-column align-center padding-1">
     <div class="metadata margin-bottom-1 separator-center">
         <?php $showTitleOption = $this->showTitleOption; ?>
         <?php if ($showTitleOption == 'item_title'): ?>
-        <h3><?php echo $item->displayTitle(); ?></h3>
+        <h3><?php echo $item->link($item->displayTitle()); ?></h3>
         <?php elseif ($showTitleOption == 'file_name'): ?>
-        <h3><?php echo $media->displayTitle(); ?></h3>
+        <h3><?php echo $item->link($media->displayTitle()); ?></h3>
         <?php endif; ?>
     <?php
          $date = $item->value('dcterms:date');
          if ($date):
          ?>
-      <h3 class="text-center"><small><?php echo $date; ?></small></h3>
+      <h3><small><?php echo $date; ?></small></h3>
       <?php endif; ?>
       <?php
          $origin = $item->value('curation:location');
          if ($origin):
          ?>
-      <h3 class="text-center"><small><?php echo $origin; ?></small></h3>
+      <h3><small><?php echo $origin; ?></small></h3>
       <?php endif; ?>
-      <?php
+      </div>
+    <div class="text font-wide">
+        <?= $html ?>
+        <?php
          $identifier = $item->value('dcterms:identifier');
          if ($identifier):
          ?>
-      <h3 class="text-center"><small><?php echo $identifier; ?></small></h3>
+      <h3 class="h4"><small><?php echo 'Reference ' . $identifier; ?></small></h3>
       <?php endif; ?>
-      </div>
-    <div class="text font-wide separator-center">
-        <?= $html ?>
     </div>
-    </div>
+</div>
 </div>
