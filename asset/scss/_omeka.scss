@@ -1065,6 +1065,17 @@ a.resource-link img {
     @include xy-cell(12);
 }
 
+.blocks a {
+    text-decoration: underline;
+}
+
+.blocks h1 a,
+.blocks h2 a,
+.blocks h3 a,
+.blocks h4 a {
+    text-decoration: none;
+}
+
 .blocks>h2:first-child {
     margin-bottom: (2 * $global-margin);
 }
@@ -2688,6 +2699,10 @@ overflow: unset!important;
 
 .authorship {
 display: none;
+}
+
+.commenting {
+    color: #0a0a0a;
 }
 
 .rect:hover {
