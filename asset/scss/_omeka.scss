@@ -1739,11 +1739,6 @@ figcaption.orbit-caption.caption p {
     color: $white;
 }
 
-.video-wrap {
-    width: 100%;
-    max-width: rem-calc(800);
-}
-
 /*Media Text  Block Styling*/
 .media-text .right {
     order: 1;
@@ -2913,6 +2908,12 @@ ul.language-switcher.locale-code li span.active {
 /*Bold fonts*/
 .font-bold {
     font-weight: 600;
+}
+
+.video-wrap {
+    width: 100%;
+    max-width: rem-calc(800)!important;
+    margin: 0 auto!important;
 }
 
 /*Large fonts*/ 
