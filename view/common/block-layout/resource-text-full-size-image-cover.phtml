@@ -23,12 +23,12 @@ $lang = $filterLocale ? $this->lang() : null;
 
 <div class="block full-width-css grid-x grid-padding-x padding-vertical-1 large-padding-vertical-2 margin-bottom-1 flex-container image-cover">
     <?php if (!empty($heading)): ?>
-    <div class="grid-container cell margin-bottom-1">
-    <h3><?= $escape($heading) ?></h3>
+    <div class="media-text-heading margin-bottom-1">
+        <h3><?= $escape($heading) ?></h3>
     </div>
     <?php endif; ?>
     <div class="<?= $alignmentClass . ' ' . $thumbnailType . ' captions-' . $captionPosition ?> media file image-cover-img large-6 xlarge-7 flex-container">
-        <div class="attachments">
+    <div class="attachments">
             <?php
             foreach ($attachments as $attachment):
                 $render = null;
@@ -36,16 +36,19 @@ $lang = $filterLocale ? $this->lang() : null;
                 $link = null;
                 $item = $attachment->item();
                 if ($item):
-              $media = $attachment->media() ? : $item->primaryMedia();
-               $mediaRenderer = $media->renderer();
-               if ($media && $mediaRenderer !== 'iiif') :
+                    $media = $attachment->media() ? : $item->primaryMedia();
+                    $mediaRenderer = $media->renderer();
+                    $mediaType = $media->mediaType();
+                    if ($media && $mediaRenderer === 'iiif') :
+                   echo $item->linkRaw($this->thumbnail($media, $this->thumbnailType));
+                   elseif ($media && $mediaType === 'image/jpeg') :
+                   echo $item->linkRaw($this->thumbnail($media, $this->thumbnailType));
+                   elseif ($media) :
                    echo $media->render([
                    'thumbnailType' => $thumbnailType,
                    'link' => $link,
-               ]);
-               elseif ($media) :
-                   echo $item->linkRaw($this->thumbnail($media, $this->thumbnailType));
-               endif;
+                    ]);
+                endif;
 
                     if ($showTitleOption == 'item_title'):
                         $title = $item->displayTitle(null, $lang);

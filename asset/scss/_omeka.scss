@@ -2727,19 +2727,26 @@ polygon>.svgactive:hover {
 
 #storyboard_viewer.annonaview.storyboard_viewer {
     @include breakpoint(medium) {
-    height: 100vh;
+        height: 95vh;
+        }
+
+    @include breakpoint(xlarge) {
+    height: 90vh;
     }
 }
 
-.openseadragon-container {
+.seadragonbox .openseadragon-container {
     @include breakpoint(medium) {
-        height: 90vh!important;
+        height: 85vh!important;
+        } 
+    @include breakpoint(xlarge) {
+        height: 80vh!important;
         } 
 }
 
 .seadragonbox {
     @include breakpoint(small only) {
-        height: rem-calc(330);
+        height: rem-calc(300);
     }
 }
 
