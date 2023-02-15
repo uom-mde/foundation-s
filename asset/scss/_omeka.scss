@@ -2766,14 +2766,14 @@ polygon>.svgactive:hover {
 }
 
 .active.rect {
-    outline: rem-calc(3px) solid #ff0!important;
+    outline: 0.2rem solid #ff0!important;
     @include breakpoint(medium) {
-    outline: rem-calc(5px) solid #ff0!important;
+    outline: 0.3rem solid #ff0!important;
     }
 }
 .rect {
     @include breakpoint(medium) {
-    border: rem-calc(4px) solid #add8e6;
+    border: 0.2rem solid #add8e6;
     }
 }
 
