@@ -2772,9 +2772,7 @@ polygon>.svgactive:hover {
     }
 }
 .rect {
-    @include breakpoint(medium) {
-    border: 0.2rem solid #add8e6;
-    }
+    border: 0.1rem solid #add8e6;
 }
 
 .overlay>svg>* {
