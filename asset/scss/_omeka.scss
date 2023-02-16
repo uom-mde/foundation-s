@@ -2769,13 +2769,16 @@ polygon>.svgactive:hover {
 }
 
 .active.rect {
-    outline: 0.2rem solid #ff0!important;
+    outline: rem-calc(3px) solid #ff0!important;
     @include breakpoint(medium) {
-    outline: 0.3rem solid #ff0!important;
+    outline: rem-calc(4px) solid #ff0!important;
     }
 }
 .rect {
-    border: 0.1rem solid #add8e6;
+    border: rem-calc(1px) solid #add8e6;
+        @include breakpoint(medium) {
+        border: rem-calc(2px) solid #add8e6;
+    }
 }
 
 .overlay>svg>* {
