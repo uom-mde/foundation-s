@@ -1428,6 +1428,10 @@ a.resource-link img {
 /*Foundation Settings*/ 
 //-----------------------
 
+.accordian-title {
+    font-size: $global-font-size;
+}
+
 /*Light Gallery
 #itemfiles.topgallery {
     padding-bottom: 56.25%;
@@ -2927,4 +2931,16 @@ ul.language-switcher.locale-code li span.active {
 
 .no-margin {
     margin: unset;
+}
+
+/*Toggle Reveal*/
+.clickToReveal {
+    cursor: pointer;
+    padding: 0.5rem;
+    & li {
+        list-style: none;
+    }
+    & summary {
+        padding-bottom: 0.5 * $global-padding;
+    }
 }
