@@ -62,7 +62,7 @@ if ($galleryDisplay) {
     </div>
     
     <?php endif; ?>
-<?php else: ?>
+    <?php else: ?>
     <?php if (count($itemMedia) > 0): ?>
     <div class="<?php echo ($embedMedia) ? 'media-embeds' : 'media-list' ?>">
     <?php foreach ($itemMedia as $media): ?>
@@ -94,18 +94,8 @@ if ($galleryDisplay) {
     <?php if ($galleryDisplay || $mediaDisplay == 'single'): ?>
         <?php $mediaList = ($galleryDisplay) ? $otherMedia : $itemMedia; ?>
     <?php endif; ?>
-    <?php if (isset($mediaList) && count($mediaList) > 0): ?>
-        <dl>
-            <div class="property">
-                <dt><?php echo $translate('Media'); ?></dt>
-                <div class="values">
-                <?php foreach ($mediaList as $media): ?>
-                    <dd class="value"><?php echo $media->linkPretty(); ?></dd>
-                <?php endforeach; ?>
-                </div>
-            </div>
-        </dl>
-    <?php endif; ?>
+    
+    
     
     <?php if (($this->siteSetting('show_attached_pages', true)) && ($sitePages = $item->sitePages($site->id()))): ?>
         <dl>
