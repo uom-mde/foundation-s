@@ -21,7 +21,7 @@ $filterLocale = (bool) $this->siteSetting('filter_locale_values');
 $lang = $filterLocale ? $this->lang() : null;
 ?>
 
-<div class="block full-width-css grid-x grid-padding-x margin-bottom-1 flex-container image-cover background-colour-uom-footer">
+<div class="block full-width-css grid-x grid-padding-x margin-bottom-1 flex-container image-cover background-colour-uom-footer region-splash">
     <?php if (!empty($heading)): ?>
     <div class="grid-container cell margin-bottom-1">
     <h3><?= $escape($heading) ?></h3>
@@ -80,7 +80,7 @@ $lang = $filterLocale ? $this->lang() : null;
             <?php endforeach; ?>
         </div>
     </div>
-    <div class="resource-text large-6 flex-container grid-y grid-padding-y flex-dir-column align-middle align-center font-wide medium-padding-1 xlarge-padding-2">
+    <div class="resource-text large-6 flex-container grid-y grid-padding-y flex-dir-column align-middle align-center font-wide padding-1 xlarge-padding-2">
     <div class="metadata margin-bottom-1 separator-center">
         <?php $showTitleOption = $this->showTitleOption; ?>
         <?php if ($showTitleOption == 'item_title'): ?>
@@ -88,6 +88,12 @@ $lang = $filterLocale ? $this->lang() : null;
         <?php elseif ($showTitleOption == 'file_name'): ?>
         <h3><?php echo $item->link($media->displayTitle()); ?></h3>
         <?php endif; ?>
+    <?php
+         $altTitle = $item->value('dcterms:alternative');
+         if ($altTitle):
+         ?>
+      <h3 class="subtitle"><small><?php echo $altTitle; ?></small></h3>
+      <?php endif; ?>
     <?php
          $date = $item->value('dcterms:date');
          if ($date):
