@@ -2763,7 +2763,7 @@ polygon>.svgactive:hover {
 
 .seadragonbox {
     @include breakpoint(small only) {
-        height: rem-calc(300);
+        height: 90vh!important;
     }
 }
 
@@ -2931,6 +2931,16 @@ ul.language-switcher.locale-code li span.active {
 
 .no-margin {
     margin: unset;
+}
+
+/*Maximum image height for Item Showcase Block*/ 
+figure.max-height img {
+    max-height: 85vh;
+}
+
+.item-listing-item.max-height.item-count-1 img {
+    height: unset;
+    max-height: 85vh;
 }
 
 /*Toggle Reveal*/

@@ -2,10 +2,10 @@
     $itemCount = count($this->attachments);
 ?>
 
-<div id="block-<?php echo $this->blockId; ?>" class="full-width-css grid-y grid-margin-y small-padding-0 medium-padding-1 large-padding-2 region <?php echo $this->regionClass; ?>" data-target-region-id="<?php echo $this->targetID; ?> ">
+<div id="block-<?php echo $this->blockId; ?>" class="full-width-css grid-y grid-margin-y small-padding-0 medium-padding-1 large-padding-2 region <?php echo $this->regionClass; ?>" data-target-region-id="<?php echo $this->targetID; ?>">
     <div class="grid-x grid-margin-x flex-container align-spaced">
         <?php foreach ($attachments as $attachment): ?>
-            <div class="item-listing-item item resource flex-container flex-dir-column align-middle item-count-<?php echo $itemCount; ?> small-margin-bottom-1 medium-margin-bottom-2">
+            <div class="item-listing-item max-height item resource flex-container flex-dir-column align-middle item-count-<?php echo $itemCount; ?> small-margin-bottom-1 medium-margin-bottom-2">
                 <?php
                 $item = $attachment->item();
                 if ($item):
@@ -18,13 +18,21 @@
                         echo $image;
                     endif;
                     ?>
-                    <?php $showTitleOption = $this->showTitleOption; ?>
-                    <?php if ($showTitleOption == 'item_title'): ?>
-                    <h3 class="margin-top-1 separator-center"><?php echo $item->link($item->displayTitle()); ?></h3>
-                <?php elseif ($showTitleOption == 'file_name'): ?>
-                    <h3 class="margin-top-1 separator-center"><?php echo $media->displayTitle(); ?></h3>
-                <?php endif; ?>
-                <?php endif; ?>
+                    <div class="separator-center">
+                        <?php $showTitleOption = $this->showTitleOption; ?>
+                        <?php if ($showTitleOption == 'item_title'): ?>
+                            <h3 class="margin-top-1"><?php echo $item->link($item->displayTitle()); ?></h3>
+                        <?php elseif ($showTitleOption == 'file_name'): ?>
+                            <h3 class="margin-top-1"><?php echo $media->displayTitle(); ?></h3>
+                        <?php endif; ?>
+                    <?php endif; ?>
+                        <?php
+                        $date = $item->value('dcterms:date');
+                            if ($date):
+                            ?>
+                            <h3><small><?php echo $date; ?></small></h3>
+                            <?php endif; ?>
+                    </div>
                 <?php
                 $caption = $attachment->caption();
                 if ($caption):
