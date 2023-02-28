@@ -2912,6 +2912,27 @@ ul.language-switcher.locale-code li span.active {
     }
 }
 
+/*Cookie Bar*/ 
+.cb-enable,
+.cb-policy {
+    margin-top: 0.5 * $global-margin;
+}
+
+#cookie-bar a.cb-enable {
+    background: $primary-color;
+    &:hover {
+        background: darken($primary-color, 10%);
+    }
+}
+
+#cookie-bar a.cb-policy {
+    background: $warning-color;
+    color: $black;
+    &:hover {
+        background: darken($warning-color, 10%);
+    }
+}
+
 /*General Classes*/ 
 /*Bold fonts*/
 .font-bold {
