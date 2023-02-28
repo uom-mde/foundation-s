@@ -18,13 +18,33 @@
                         echo $image;
                     endif;
                     ?>
-                    <?php $showTitleOption = $this->showTitleOption; ?>
-                    <?php if ($showTitleOption == 'item_title'): ?>
-                    <h3 class="margin-top-1 separator-center"><?php echo $item->link($item->displayTitle()); ?></h3>
-                <?php elseif ($showTitleOption == 'file_name'): ?>
-                    <h3 class="margin-top-1 separator-center"><?php echo $media->displayTitle(); ?></h3>
-                <?php endif; ?>
-                <?php endif; ?>
+                    <div class="separator-center">
+                        <?php $showTitleOption = $this->showTitleOption; ?>
+                        <?php if ($showTitleOption == 'item_title'): ?>
+                            <h3 class="margin-top-1"><?php echo $item->link($item->displayTitle()); ?></h3>
+                        <?php elseif ($showTitleOption == 'file_name'): ?>
+                            <h3 class="margin-top-1"><?php echo $media->displayTitle(); ?></h3>
+                        <?php endif; ?>
+                    <?php endif; ?>
+                    <?php
+                        $altTitle = $item->value('dcterms:alternative');
+                        if ($altTitle):
+                        ?>
+                        <h3 class="subtitle alternative"><small><?php echo $altTitle; ?></small></h3>
+                    <?php endif; ?>
+                    <?php
+                        $date = $item->value('dcterms:date');
+                        if ($date):
+                        ?>
+                        <h3><small date><?php echo $date; ?></small></h3>
+                    <?php endif; ?>
+                    <?php
+                        $origin = $item->value('curation:location');
+                        if ($origin):
+                        ?>
+                        <h3><small origin><?php echo $origin; ?></small></h3>
+                    <?php endif; ?>
+                    </div>
                 <?php
                 $caption = $attachment->caption();
                 if ($caption):

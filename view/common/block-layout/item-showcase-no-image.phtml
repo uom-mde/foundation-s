@@ -18,18 +18,24 @@
                             <h3 class="margin-top-1"><?php echo $media->displayTitle(); ?></h3>
                         <?php endif; ?>
                     <?php endif; ?>
-                        <?php
+                    <?php
+                        $altTitle = $item->value('dcterms:alternative');
+                        if ($altTitle):
+                        ?>
+                        <h3 class="subtitle alternative"><small><?php echo $altTitle; ?></small></h3>
+                    <?php endif; ?>
+                    <?php
                         $date = $item->value('dcterms:date');
-                            if ($date):
-                            ?>
-                            <h3><small><?php echo $date; ?></small></h3>
-                        <?php endif; ?>
-                        <?php
-                        $created = $item->value('dcterms:created');
-                            if ($created):
-                            ?>
-                            <h3><small><?php echo $created; ?></small></h3>
-                        <?php endif; ?>
+                        if ($date):
+                        ?>
+                        <h3><small date><?php echo $date; ?></small></h3>
+                    <?php endif; ?>
+                    <?php
+                        $origin = $item->value('curation:location');
+                        if ($origin):
+                        ?>
+                        <h3><small origin><?php echo $origin; ?></small></h3>
+                    <?php endif; ?>
                     </div>
                 <?php
                 $caption = $attachment->caption();
@@ -45,7 +51,7 @@
                     $identifier = $item->value('dcterms:identifier');
                     if ($identifier):
                     ?>
-                    <h3 class="h4 padding-horizontal-1 xlarge-padding-horizontal-2 xlarge-padding-horizontal-3"><small><?php echo 'Reference ' . $identifier; ?></small></h3>
+                    <h3 class="h4 identifier padding-horizontal-1 xlarge-padding-horizontal-2 xlarge-padding-horizontal-3"><small><?php echo 'Reference ' . $identifier; ?></small></h3>
                     <?php endif; ?>
                 </div>
 

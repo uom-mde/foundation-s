@@ -86,17 +86,23 @@ $lang = $filterLocale ? $this->lang() : null;
         <?php elseif ($showTitleOption == 'file_name'): ?>
         <h3><?php echo $item->link($media->displayTitle()); ?></h3>
         <?php endif; ?>
-    <?php
+        <?php
+            $altTitle = $item->value('dcterms:alternative');
+            if ($altTitle):
+            ?>
+            <h3 class="subtitle alternative"><small><?php echo $altTitle; ?></small></h3>
+        <?php endif; ?>
+        <?php
          $date = $item->value('dcterms:date');
          if ($date):
          ?>
-      <h3><small><?php echo $date; ?></small></h3>
+      <h3><small date><?php echo $date; ?></small></h3>
       <?php endif; ?>
       <?php
          $origin = $item->value('curation:location');
          if ($origin):
          ?>
-      <h3><small><?php echo $origin; ?></small></h3>
+      <h3><small origin><?php echo $origin; ?></small></h3>
       <?php endif; ?>
       </div>
     <div class="text font-wide">

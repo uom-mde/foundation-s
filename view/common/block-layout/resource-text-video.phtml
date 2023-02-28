@@ -92,19 +92,19 @@ $lang = $filterLocale ? $this->lang() : null;
             $altTitle = $item->value('dcterms:alternative');
             if ($altTitle):
             ?>
-            <h3 class="subtitle"><small><?php echo $altTitle; ?></small></h3>
+            <h3 class="subtitle alternative"><small><?php echo $altTitle; ?></small></h3>
         <?php endif; ?>
         <?php
             $date = $item->value('dcterms:date');
             if ($date):
             ?>
-        <h3><small><?php echo $date; ?></small></h3>
+        <h3><small date><?php echo $date; ?></small></h3>
         <?php endif; ?>
         <?php
             $origin = $item->value('curation:location');
             if ($origin):
             ?>
-        <h3><small><?php echo $origin; ?></small></h3>
+        <h3><small origin><?php echo $origin; ?></small></h3>
         <?php endif; ?>
         </div>
             <div class="text font-wide">
@@ -113,7 +113,7 @@ $lang = $filterLocale ? $this->lang() : null;
                 $identifier = $item->value('dcterms:identifier');
                 if ($identifier):
                 ?>
-            <h3 class="h4"><small><?php echo 'Reference ' . $identifier; ?></small></h3>
+            <h3 class="h4 reference"><small><?php echo 'Reference ' . $identifier; ?></small></h3>
             <?php endif; ?>
             </div>
         </div>
