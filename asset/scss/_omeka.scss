@@ -1684,6 +1684,7 @@ figcaption.orbit-caption.caption p {
     /*Added for Annona*/ 
     font-style: initial;
     font-weight: initial;
+    font-size: initial;
     @include breakpoint(large) {
         margin-bottom: $global-margin;
         text-align: right;
