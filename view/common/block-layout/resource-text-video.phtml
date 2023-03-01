@@ -88,12 +88,6 @@ $lang = $filterLocale ? $this->lang() : null;
             <?php elseif ($showTitleOption == 'file_name'): ?>
             <h3><?php echo $item->link($media->displayTitle()); ?></h3>
             <?php endif; ?>
-            <?php
-            $altTitle = $item->value('dcterms:alternative');
-            if ($altTitle):
-            ?>
-            <h3 class="subtitle alternative"><small><?php echo $altTitle; ?></small></h3>
-        <?php endif; ?>
         <?php
             $date = $item->value('dcterms:date');
             if ($date):
