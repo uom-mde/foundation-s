@@ -2730,10 +2730,10 @@ polygon>.svgactive:hover {
 .annotation>div {
     padding: 1em;
     /*font-size: $global-font-size;*/
-    @include breakpoint(600 down) {
+    @include breakpoint(800 down) {
     font-size: unset!important; 
     }
-    @include breakpoint(601 up) {
+    @include breakpoint(801 up) {
         font-size: 1rem; 
         }
 }
