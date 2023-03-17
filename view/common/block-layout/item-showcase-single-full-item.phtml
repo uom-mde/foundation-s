@@ -39,14 +39,14 @@
                 $caption = $attachment->caption();
                 if ($caption):
                     ?>
-                    <div class="caption padding-1 xlarge-padding-horizontal-2 xlarge-padding-horizontal-3 font-wide flex-child-grow grid-container"><?php echo $caption; ?></div>
+                    <div class="caption padding-vertical-1 padding-horizontal-2 xlarge-padding-horizontal-3 font-wide flex-child-grow grid-container"><?php echo $caption; ?></div>
                 <?php endif; ?>
                 <div class="text font-wide align-left">
                     <?php
                     $identifier = $item->value('dcterms:identifier');
                     if ($identifier):
                     ?>
-                    <h3 class="h4 padding-horizontal-1 xlarge-padding-horizontal-2 xlarge-padding-horizontal-3"><small><?php echo 'Reference ' . $identifier; ?></small></h3>
+                    <h3 class="h4 padding-horizontal-1 xlarge-padding-horizontal-2 xlarge-padding-horizontal-3"><small><?php echo 'Ref. ' . $identifier; ?></small></h3>
                     <?php endif; ?>
                 </div>
             </figure>
