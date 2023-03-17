@@ -1476,6 +1476,18 @@ nav.breadcrumbs {
     }
 }
 
+/*Item Showcase Grid*/ 
+.col-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax((rem-calc(270px)), 1fr));
+    gap: rem-calc(32px);
+    line-height: 1.5;
+}
+
+.col-container.grid-media-container {
+    grid-template-columns: repeat(auto-fit, minmax((rem-calc(270px)), 1fr));
+}
+
 /*Media Embed*/
 /*Centre media embed items when option chosen*/
 .center.file, .center.assets {
