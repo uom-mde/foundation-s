@@ -5,7 +5,7 @@
 <div id="block-<?php echo $this->blockId; ?>" class="full-width-css grid-y grid-margin-y small-padding-0 medium-padding-1 large-padding-2 region <?php echo $this->regionClass; ?>" data-target-region-id="<?php echo $this->targetID; ?>">
     <div class="grid-x grid-margin-x flex-container align-spaced">
         <?php foreach ($attachments as $attachment): ?>
-            <div class="item-listing-item max-height item resource flex-container flex-dir-column align-middle item-count-<?php echo $itemCount; ?> small-margin-bottom-1 medium-margin-bottom-2">
+            <div class="item-listing-item max-image-height item resource flex-container flex-dir-column align-middle item-count-<?php echo $itemCount; ?> small-margin-bottom-1 medium-margin-bottom-2">
                 <?php
                 $item = $attachment->item();
                 if ($item):

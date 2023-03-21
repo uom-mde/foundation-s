@@ -2968,7 +2968,8 @@ ul.language-switcher.locale-code li span.active {
 }
 
 /*Maximum image height for Item Showcase Block*/ 
-figure.max-height img {
+figure.max-image-height img,
+.max-image-height img {
     max-height: 85vh;
 }
 
