@@ -35,13 +35,13 @@ $escapeAttr = $plugins->get('escapeHtmlAttr');
     <?php if (!count($attachments)) return; ?>
     <?php $attachment = $attachments[array_rand($attachments)]; ?>
     <?php if (empty($attachment['asset'])) return; ?>
-    <div class="small-12 medium-8">
-        <div class="hero-image image-large region-splash flex-container <?= $escapeAttr($attachment['class']) ?>" style="background-image:linear-gradient(rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.4)),url(<?= $attachment['asset']->assetUrl() ?>);">
+    <div class="small-12 medium-8 xlarge-9">
+        <div class="hero-image image-xlarge region-splash flex-container <?= $escapeAttr($attachment['class']) ?>" style="background-image:linear-gradient(rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.4)),url(<?= $attachment['asset']->assetUrl() ?>);">
         </div>
     </div>
 
     <?php if ($attachment['caption']) : ?>
-        <div class="small-12 medium-4 flex-container align-middle align-center region-splash colour-scheme-2 text-treatment-2 margin-bottom-0"> 
+        <div class="small-12 medium-4 xlarge-3 flex-container align-middle align-center region-splash colour-scheme-4 text-treatment-2 margin-bottom-0"> 
             <h2 class="text-treatment-3 large-padding-2"><?= $attachment['caption'] ?></h2>
             <?php $attachmentUrl = $attachment['page'] ? $attachment['page']->siteUrl() : $attachment['url']; ?>
             <?php if ($attachment['alt_link_title'] && $attachmentUrl) : ?>

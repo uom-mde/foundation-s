@@ -373,7 +373,8 @@ body.vertical-menu header .desktop {
     margin: 0 rem-calc(12) rem-calc(12) rem-calc(12);
     order: 2;
     @include breakpoint(339) {
-        margin: 0 rem-calc(12) rem-calc(12) rem-calc(24);
+        margin: 0 rem-calc(12) rem-calc(12) rem-calc(24); /*with language selector*/
+        /*without additional languages, bottom margin must be removed*/ 
     }
     @include breakpoint(588) {
         order: 0;
@@ -1548,7 +1549,7 @@ nav.breadcrumbs {
 /*Foundation S Prototype*/ 
 .lead {
     @include breakpoint (large down) {
-        font-size: 110%;
+        font-size: 125%;
     }
 }
 
@@ -1584,6 +1585,9 @@ nav.breadcrumbs {
 
     .image-large {
         height: 80vh;
+        }
+    .image-xlarge {
+        height: 90vh;
         }
         
         .image-medium {
