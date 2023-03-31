@@ -6,12 +6,23 @@ $this->headLink()->appendStylesheet($assetUrl('css/style.css', 'PageBlocks'));
 ?>
 
 <section class="col-container col-media-container">
-    <div class="col-single">
-        <?php foreach ($attachments as $attachment) {
-            echo $attachment->media()->render();
-        } ?>
-    </div>
-    <div class="col-single">
-        <?= $html ?>
-    </div>
+    <?php foreach ($attachments as $attachment): ?>
+        <?php $item = $attachment->item(); 
+            $media = $attachment->media() ? : $item->primaryMedia();
+            $mediaRenderer = $media->renderer();
+            $mediaType = $media->mediaType();
+            ?>
+        <div class="col-single">
+            <?php if ($media && $mediaRenderer === 'iiif') :
+                    echo $item->linkRaw($this->thumbnail($media, 'medium-large'));
+                    elseif ($media && $mediaType === 'image/jpeg') :
+                    echo $item->linkRaw($this->thumbnail($media, 'medium-large'));
+                    elseif ($media) :
+                    echo $media->render();
+            endif; ?>
+        </div>
+        <div class="col-single">
+            <div class="caption padding-1 xlarge-padding-bottom-3"><?= $html ?></div>
+        </div>
+    <?php endforeach; ?>
 </section>

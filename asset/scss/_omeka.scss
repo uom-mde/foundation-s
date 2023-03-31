@@ -1481,6 +1481,7 @@ nav.breadcrumbs {
 .col-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax((rem-calc(270px)), 1fr));
+    align-items: center;
     gap: rem-calc(32px);
     line-height: 1.5;
 }
