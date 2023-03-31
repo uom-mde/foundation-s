@@ -6,7 +6,7 @@ $this->headLink()->appendStylesheet($assetUrl('css/style.css', 'PageBlocks'));
 
 ?>
 
-<section class="col-container col-media-container media-details-container">
+<section class="col-container col-media-container media-details-container padding-1 large-padding-vertical-2 xlarge-padding-vertical-3">
     <?php foreach ($attachments as $attachment): ?>
         <?php $item = $attachment->item(); 
             $media = $attachment->media() ? : $item->primaryMedia();
@@ -14,15 +14,27 @@ $this->headLink()->appendStylesheet($assetUrl('css/style.css', 'PageBlocks'));
             $mediaType = $media->mediaType();
         ?>
         <div class="col-single">
-            <?= $item->linkRaw($this->thumbnail($media, 'large')); ?>
+            <?php if ($media && $mediaRenderer === 'iiif') :
+                   echo $item->linkRaw($this->thumbnail($media, 'medium-large'));
+                   elseif ($media && $mediaType === 'image/jpeg') :
+                   echo $item->linkRaw($this->thumbnail($media, 'medium-large'));
+                   elseif ($media) :
+                   echo $media->render();
+            endif; ?>
             <?php if ($showHeading): ?>
-                <h4><?= $item->link($item->displayTitle('', $lang)) ?></h4>
+                <h3 class="padding-top-1 text-center"><?= $item->link($item->displayTitle('', $lang)) ?></h3>
             <?php endif; ?>
             <?php if (!empty($properties)): ?>
                 <?php foreach ($properties as $property): ?>
-                    <p><?= $item->value($property, [ 'type' => 'literal', 'lang' => $lang ])
+                    <p class="h5 subheader text-center"><?= $item->value($property, [ 'type' => 'literal', 'lang' => $lang ])
                         ?? $item->value($property, [ 'type' => 'literal' ]) ?></p>
                 <?php endforeach; ?>
+            <?php endif; ?>
+            <?php
+            $caption = $attachment->caption();
+            if ($caption):
+            ?>
+                <div class="caption padding-1 xlarge-padding-bottom-3"><?php echo $caption; ?></div>
             <?php endif; ?>
         </div>
     <?php endforeach; ?>
