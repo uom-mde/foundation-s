@@ -5,7 +5,7 @@ $this->headLink()->appendStylesheet($assetUrl('css/style.css', 'PageBlocks'));
 
 ?>
 
-<section class="col-container col-media-container">
+<section class="col-container col-media-container padding-1 large-padding-vertical-2 xlarge-padding-vertical-3">
     <?php foreach ($attachments as $attachment): ?>
         <?php $item = $attachment->item(); 
             $media = $attachment->media() ? : $item->primaryMedia();

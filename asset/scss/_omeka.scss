@@ -1105,19 +1105,21 @@ a.resource-link img {
 
 .left {
     float: left;
-    margin: 0 $global-margin $global-margin 0;
+    margin: 0 (2.5 * $global-margin) $global-margin 0;
     max-width: 40%;
-    @include breakpoint(small down) {
+    @include breakpoint(medium down) {
         max-width: 50%;
+        margin: 0 $global-margin $global-margin 0;
     }
 }
 
 .right {
     float: right;
-    margin: 0 0 $global-margin $global-margin;
+    margin: 0 (2.5 * $global-margin) $global-margin 0;
     max-width: 40%;
     @include breakpoint(medium down) {
         max-width: 50%;
+        margin: 0 $global-margin $global-margin 0;
     }
 }
 
@@ -1488,6 +1490,10 @@ nav.breadcrumbs {
 
 .col-container.grid-media-container {
     grid-template-columns: repeat(auto-fit, minmax((rem-calc(270px)), 1fr));
+}
+
+.media-details-container > .col-single:only-child {
+    max-width: rem-calc(800);
 }
 
 /*Media Embed*/

@@ -15,9 +15,9 @@ $this->headLink()->appendStylesheet($assetUrl('css/style.css', 'PageBlocks'));
         ?>
         <div class="col-single">
             <?php if ($media && $mediaRenderer === 'iiif') :
-                   echo $item->linkRaw($this->thumbnail($media, 'medium-large'));
+                   echo $item->linkRaw($this->thumbnail($media, 'large'));
                    elseif ($media && $mediaType === 'image/jpeg') :
-                   echo $item->linkRaw($this->thumbnail($media, 'medium-large'));
+                   echo $item->linkRaw($this->thumbnail($media, 'large'));
                    elseif ($media) :
                    echo $media->render();
             endif; ?>
