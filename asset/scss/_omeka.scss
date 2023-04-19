@@ -972,7 +972,7 @@ a.resource-link img {
 #itemfiles.leftgallery {
     width: 100%;
     align-self: flex-start;
-    @include breakpoint(medium up) {
+    @include breakpoint(large up) {
         width: 70%;
     }
 }
@@ -980,7 +980,7 @@ a.resource-link img {
 #itemfiles.leftgallery~#resource-values {
     width: 100%;
     margin: 0;
-    @include breakpoint(medium up) {
+    @include breakpoint(large up) {
         padding-left: $global-padding;
         width: 30%;
     }
