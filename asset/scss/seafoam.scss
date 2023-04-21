@@ -27,6 +27,10 @@ h1.site-title {
   }
 }
 
+.site-title {
+  margin-right: $global-margin;
+}
+
 .site-title img {
   margin: $global-margin 0;
 }
@@ -75,6 +79,10 @@ header .top-bar-right {
       display: none;
   }
 }
+
+.top-bar a {
+  color: $white;
+  }
 
 .banner {
   position: relative;
