@@ -15,7 +15,7 @@ $thumbnail-shadow-hover: 0 0 6px 1px rgba($primary-color, 0.5);
 @import 'foundation-core';
 @import 'omeka';
 
-.site-title h1 {
+h1.site-title {
   margin-bottom: 0;
   font-size: $global-font-size;
   margin-right: 1.5 * $global-margin;
@@ -64,6 +64,12 @@ a.nav-header:visited {
   color: #fff;
 }
 
+header .top-bar {
+  @include breakpoint(small down) {
+    padding: 0.5 * $global-padding;    
+  }
+}
+
 header .top-bar-right {
   @include breakpoint(medium down) {
       display: none;
@@ -88,12 +94,8 @@ header .top-bar-right {
 .university-logo {
   margin: rem-calc(12);
   display: flex;
-  flex-grow: 3;
   @include breakpoint(339) {
       margin: rem-calc(12) rem-calc(24);
-  }
-  @include breakpoint(588) {
-      flex-grow: unset;
   }
 }
 
@@ -115,9 +117,15 @@ header .top-bar-right {
       margin: 0 rem-calc(12) rem-calc(12) rem-calc(24); /*with language selector*/
       /*without additional languages, bottom margin must be removed*/ 
   }
-  @include breakpoint(588) {
+  @include breakpoint(medium) {
       order: 0;
       margin: 0;
+  }
+  @include breakpoint(599 down) {
+    margin-right: 5rem;
+}
+  @include breakpoint(400 down) {
+    margin-right: 0;
   }
 }
 
