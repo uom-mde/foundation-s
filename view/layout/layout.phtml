@@ -68,22 +68,29 @@ endif;
                 <?php echo $this->partial('common/search-form'); ?>
             </div>
         </div>
+        <div id="offCanvas" class="off-canvas position-left" data-off-canvas>
+            <?php echo $site->publicNav()->menu()->setPartial('common/foundation-navigation.phtml')->renderPartialWithParams(['layout' => 'vertical']); ?>
+            <div class="search">
+                <?php echo $this->partial('common/search-form'); ?>
+            </div>
+        </div>
         <div class="off-canvas-content" data-off-canvas-content>
             <a id="skipnav" href="#content"><?php echo $this->translate('Skip to main content'); ?></a>
             <?php echo $userBar; ?>
             <header>
-                <?php if ($navLayout == 'vertical') : ?>
+                <?php if ($navLayout == 'vertical'): ?>
                 <?php echo $this->partial('common/header-vertical'); ?>
-                <?php else : ?>
+                <?php else: ?>
                 <?php echo $this->partial('common/header-dropdown'); ?>
                 <?php endif; ?>
-                <?php if ($banner) : ?>
-                <div class="banner <?php echo $bannerWidth; ?>">
-                    <img src="<?php echo $this->themeSettingAssetUrl('banner'); ?>" title="Banner">
-                </div>
-                <?php endif; ?>
             </header>
+            <?php if ($banner && ($navLayout == 'dropdown')): ?>
+            <div class="banner <?php echo $bannerWidth; ?>"><img src="<?php echo $this->themeSettingAssetUrl('banner'); ?>" title="Banner" role="presentation" aria-hidden="true"></div>
+            <?php endif; ?>
             <div id="content" role="main">
+                <?php if ($banner && ($navLayout == 'vertical')): ?>
+                <div class="banner <?php echo $bannerWidth; ?>"><img src="<?php echo $this->themeSettingAssetUrl('banner'); ?>" title="Banner" role="presentation" aria-hidden="true"></div>
+                <?php endif; ?>
                 <?php echo $this->content; ?>
             </div>
             <footer class="footerContainer">							
