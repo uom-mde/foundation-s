@@ -1819,6 +1819,11 @@ ul.language-switcher.locale-code li span.active {
   }
 }
 
+.mirador-canvas-nav [type=button]:focus {
+  background-color: transparent!important;
+  color: inherit;
+  }
+
 /*Cookie Bar*/ 
 .cb-enable,
 .cb-policy {
