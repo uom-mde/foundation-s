@@ -646,7 +646,7 @@ figcaption.orbit-caption.caption p {
   max-width: unset;
 }
 
-.sketchfab-embed-wrapper iframe {
+.embeds .sketchfab-embed-wrapper iframe {
   @include breakpoint(xlarge) {
       width: calc($grid-container * 0.9)!important;
       height: calc((($grid-container * 0.9) / 16) * 9)!important;
@@ -661,6 +661,7 @@ figcaption.orbit-caption.caption p {
       height: 50.625vh!important;
   }
 }
+
 .link-text-white a {
   color: $white;
 }
