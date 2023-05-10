@@ -526,6 +526,18 @@ nav.breadcrumbs {
   margin: 0 auto;
 }
 
+/*Full screen height for Resource Text Openseadragon embed*/
+.resource-text-openseadragon .openseadragon {
+  height: calc(70vh - rem-calc(12))!important;
+  @include breakpoint(medium) {
+  height: calc(100vh - rem-calc(12))!important;
+}
+}
+
+/*Button align for Full Screen Openseadragon Resource Text Block*/ 
+.openseadragon-container img {
+  vertical-align: top!important;
+}
 
 .media-text {
   @include breakpoint(medium) {
