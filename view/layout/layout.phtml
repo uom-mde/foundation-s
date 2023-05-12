@@ -155,10 +155,10 @@ endif;
         <script>
           $(document).foundation(); 
         </script>
-        <script type="text/javascript" src="<?php echo $this->assetUrl('js/annona.js'); ?>"></script>
         <?php
             echo $this->inlineScript()
-            ->prependFile($this->assetUrl('js/img-orientation.js'));
+            ->appendScript($this->assetUrl('js/img-orientation.js'))
+            ->appendScript($this->assetUrl('js/annona.js'));
         ?>
     </body>
 </html>
