@@ -156,9 +156,9 @@ endif;
           $(document).foundation(); 
         </script>
         <?php
-            echo $this->inlineScript()
-            ->appendScript($this->assetUrl('js/img-orientation.js'))
-            ->appendScript($this->assetUrl('js/annona.js'));
-        ?>
+        echo $this->inlineScript()
+        ->prependFile($this->assetUrl('js/img-orientation.js'))
+        ->prependFile($this->assetUrl('js/annona.js'));
+    ?>
     </body>
 </html>

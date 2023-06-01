@@ -1908,4 +1908,10 @@ figure.max-image-height img,
   & img {
     max-height: 90vh;
   }
-} 
+}
+
+/*Test slide overlay for OpenSeadragon Resource with text block*/ 
+.position-right #SeadragonOffCanvas {
+  width: 600px;
+  background: #000000de;
+}
