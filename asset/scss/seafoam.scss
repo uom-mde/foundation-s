@@ -1901,3 +1901,8 @@ figure.max-image-height img,
       padding-bottom: 0.5 * $global-padding;
   }
 }
+
+/*Click to reveal styling*/ 
+.dropdown-pane.is-open {
+  display: contents;
+} 
