@@ -1905,4 +1905,7 @@ figure.max-image-height img,
 /*Click to reveal styling*/ 
 .dropdown-pane.is-open {
   display: contents;
+  & img {
+    max-height: 90vh;
+  }
 } 
