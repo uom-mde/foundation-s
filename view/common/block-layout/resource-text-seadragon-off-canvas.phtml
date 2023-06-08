@@ -27,7 +27,7 @@ $lang = $filterLocale ? $this->lang() : null;
         <h3 class="h2 padding-vertical-1"><?= $escape($heading) ?></h3>
     </div>
     <?php endif; ?>
-    <div class="<?= $alignmentClass . ' ' . $thumbnailType . ' captions-' . $captionPosition ?> media file large-7 xlarge-8">
+    <div class="<?= $alignmentClass . ' ' . $thumbnailType . ' captions-' . $captionPosition ?> media file small-12">
     <div class="attachments resource-text-openseadragon">
             <?php
             foreach ($attachments as $attachment):
@@ -74,35 +74,40 @@ $lang = $filterLocale ? $this->lang() : null;
             <?php endforeach; ?>
         </div>
     </div>
-    <div class="resource-text large-5 xlarge-4 flex-container flex-dir-column align-center padding-1 large-padding-2 xlarge-padding-3">
-    <div class="metadata margin-bottom-1 separator-center">
-        <?php $showTitleOption = $this->showTitleOption; ?>
-        <?php if ($showTitleOption == 'item_title'): ?>
-        <h3><?php echo $item->link($item->displayTitle()); ?></h3>
-        <?php elseif ($showTitleOption == 'file_name'): ?>
-        <h3><?php echo $item->link($media->displayTitle()); ?></h3>
-        <?php endif; ?>
-        <?php
-         $date = $item->value('dcterms:date');
-         if ($date):
-         ?>
-      <h3><small date><?php echo $date; ?></small></h3>
-      <?php endif; ?>
-      <?php
-         $origin = $item->value('curation:location');
-         if ($origin):
-         ?>
-      <h3><small origin><?php echo $origin; ?></small></h3>
-      <?php endif; ?>
-      </div>
-    <div class="text font-wide">
-        <?= $html ?>
-        <?php
-         $identifier = $item->value('dcterms:identifier');
-         if ($identifier):
-         ?>
-      <h3 class="h4"><small><?php echo 'Ref. ' . $identifier; ?></small></h3>
-      <?php endif; ?>
+    <div class="off-canvas-wrapper">
+        <div class="off-canvas-content" id="SeadragonOffCanvas" data-off-canvas-content>
+        <button type="button" class="button" data-toggle="SeadragonOffCanvas">View Text</button>
+            <div class="resource-text flex-container flex-dir-column align-center padding-1 large-padding-2 xlarge-padding-3 off-canvas-absolute position-left" data-off-canvas data-content-scroll="false">
+                <div class="metadata margin-bottom-1 separator-center">
+                    <?php $showTitleOption = $this->showTitleOption; ?>
+                    <?php if ($showTitleOption == 'item_title'): ?>
+                    <h3><?php echo $item->link($item->displayTitle()); ?></h3>
+                    <?php elseif ($showTitleOption == 'file_name'): ?>
+                    <h3><?php echo $item->link($media->displayTitle()); ?></h3>
+                    <?php endif; ?>
+                    <?php
+                    $date = $item->value('dcterms:date');
+                    if ($date):
+                    ?>
+                <h3><small date><?php echo $date; ?></small></h3>
+                <?php endif; ?>
+                <?php
+                    $origin = $item->value('curation:location');
+                    if ($origin):
+                    ?>
+                <h3><small origin><?php echo $origin; ?></small></h3>
+                <?php endif; ?>
+                </div>
+                <div class="text font-wide">
+                    <?= $html ?>
+                    <?php
+                    $identifier = $item->value('dcterms:identifier');
+                    if ($identifier):
+                    ?>
+                    <h3 class="h4"><small><?php echo 'Ref. ' . $identifier; ?></small></h3>
+                    <?php endif; ?>
+                </div>
+            </div>
+        </div>
     </div>
-</div>
 </div>
