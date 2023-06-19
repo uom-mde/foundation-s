@@ -1674,17 +1674,21 @@ polygon>.svgactive:hover {
 
 .seadragonbox .openseadragon-container {
   @include breakpoint(medium) {
-      height: 85vh!important;
+      height: 95vh!important;
       } 
   @include breakpoint(xlarge) {
-      height: 80vh!important;
+      height: 90vh!important;
       } 
 }
 
 .seadragonbox {
-  @include breakpoint(small only) {
+  height: 90vh!important;
+  @include breakpoint(medium) {
+      height: 95vh!important;
+      } 
+  @include breakpoint(xlarge) {
       height: 90vh!important;
-  }
+      } 
 }
 
 #storyboard_viewer button:hover,
