@@ -21,7 +21,7 @@ $filterLocale = (bool) $this->siteSetting('filter_locale_values');
 $lang = $filterLocale ? $this->lang() : null;
 ?>
 
-<div class="block full-width-css grid-x grid-padding-x padding-1 large-padding-2 margin-bottom-1 background-colour-uom-footer media-text">
+<div class="block full-width-css grid-x grid-padding-x padding-1 large-padding-2 margin-bottom-1 media-text">
     <?php if (!empty($heading)): ?>
     <div class="media-text-heading margin-bottom-1">
         <h3 class="h2 padding-vertical-1"><?= $escape($heading) ?></h3>
@@ -78,9 +78,9 @@ $lang = $filterLocale ? $this->lang() : null;
     <div class="metadata margin-bottom-1 separator-center">
         <?php $showTitleOption = $this->showTitleOption; ?>
         <?php if ($showTitleOption == 'item_title'): ?>
-        <h3><?php echo $item->link($item->displayTitle()); ?></h3>
+        <h3 class="h2"><?php echo $item->link($item->displayTitle()); ?></h3>
         <?php elseif ($showTitleOption == 'file_name'): ?>
-        <h3><?php echo $item->link($media->displayTitle()); ?></h3>
+        <h3 class="h2"><?php echo $item->link($media->displayTitle()); ?></h3>
         <?php endif; ?>
         <?php
          $date = $item->value('dcterms:date');
