@@ -517,6 +517,16 @@ nav.breadcrumbs {
   }
 
 /*Resource with Text block*/
+.text {
+  padding: $global-padding 0;
+  @include breakpoint(large) {
+    padding: 2 * $global-padding 0;
+  }
+  @include breakpoint(xlarge) {
+    padding: 2 * $global-padding $global-padding;
+  }
+}
+
 .resource-text {
   margin: 0 auto;
 }
