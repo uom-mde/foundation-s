@@ -182,19 +182,28 @@ body.vertical-menu footer {
   padding: 0; 
   margin: 0; 
   max-width: unset;
+  & p {
+    color: $white;
+  }
+  & a {
+    color: $warning-color;
+  }
+  & a:hover {
+    text-decoration: underline;
+  }
 }
 
 .footerContainer h3 {
   color: $white;
   @include breakpoint(medium down) {
-  font-size: rem-calc(16);
+  font-size: 1.4rem;
   }
 }
 
 
 .footerLogos { 
   float: left; 
-  width: rem-calc(280); 
+  max-width: rem-calc(280); 
 }
 
 .footerLogos img { 
