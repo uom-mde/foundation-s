@@ -61,7 +61,9 @@ endif;
     </head>
 
     <?php echo $this->htmlElement('body class="no-js"'); ?>
-    
+        <!-- Google Tag Manager (noscript) -->
+            <noscript><iframe src=https://www.googletagmanager.com/ns.html?id=GTM-MTKP79D height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript> 
+        <!-- End Google Tag Manager (noscript) -->
         <div id="offCanvas" class="off-canvas position-left" data-off-canvas>
             <?php echo $site->publicNav()->menu()->setPartial('common/foundation-navigation.phtml')->renderPartialWithParams(['layout' => 'vertical']); ?>
             <div class="search">
