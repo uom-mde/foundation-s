@@ -466,17 +466,37 @@ nav.breadcrumbs {
   .hero-image body #content {
   padding-top: 0;
   }
+
+  .hero-title {
+    max-width: 100%;
+    @include breakpoint(medium) {
+      max-width: 75%;
+    }
+    @include breakpoint(large) {
+      max-width: 60%;
+    }
+    @include breakpoint(xlarge) {
+      max-width: 50%;
+    }
+  }
+
+  .hero-title h2 p {
+    background-color: rgba(255, 255, 255, 0.8);
+    line-height: 1.2;
+    padding: 1.5 * $global-padding 2.5 * $global-padding;
+    font-weight: 300;
+    @include breakpoint(medium) {
+      line-height: 1.4;
+    }
+  }
   
   .hero-image h2 {
-  background-color: rgba(255, 255, 255, 0.8);
-  font-size: 2 * $global-font-size;
-  font-weight: 300;
-  padding: 1em;
+    font-size: 2.5 * $global-font-size;
   @include breakpoint(large) {
       font-size: rem-calc(52px);
   }
   }
-          
+  
   /*Hero image sizes*/
   .image-full {
       height: 100vh;
