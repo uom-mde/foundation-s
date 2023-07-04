@@ -21,7 +21,7 @@ $filterLocale = (bool) $this->siteSetting('filter_locale_values');
 $lang = $filterLocale ? $this->lang() : null;
 ?>
 
-<div class="block media-text grid-x grid-padding-x medium-padding-1 align-spaced full-width-css">
+<div class="block media-text grid-x grid-padding-x align-spaced full-width-css">
     <?php if (!empty($heading)): ?>
     <div class="media-text-heading">
         <h3 class="h2 padding-vertical-1"><?= $escape($heading) ?></h3>

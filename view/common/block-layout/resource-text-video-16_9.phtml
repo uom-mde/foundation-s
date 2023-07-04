@@ -27,7 +27,7 @@ $lang = $filterLocale ? $this->lang() : null;
     <h3 class="h2 padding-vertical-1"><?= $escape($heading) ?></h3>
     </div>
     <?php endif; ?>
-    <div class="cell <?= $alignmentClass . ' ' . $thumbnailType . ' captions-' . $captionPosition ?> media file large-6 xlarge-7 flex-container flex-dir-column align-center">
+    <div class="cell <?= $alignmentClass . ' ' . $thumbnailType . ' captions-' . $captionPosition ?> media file xlarge-8 flex-container flex-dir-column align-center">
         <div class="attachments responsive-embed aspect16_9">
             <?php
             foreach ($attachments as $attachment):
@@ -80,7 +80,7 @@ $lang = $filterLocale ? $this->lang() : null;
             <?php endforeach; ?>
         </div>
     </div>
-    <div class="resource-text large-6 xlarge-5 flex-container flex-dir-column align-center padding-1 large-padding-2 xlarge-padding-3">
+    <div class="resource-text xlarge-4 flex-container flex-dir-column align-center padding-1 large-padding-2 xlarge-padding-3">
         <div class="metadata margin-bottom-1 separator-center">
             <?php $showTitleOption = $this->showTitleOption; ?>
             <?php if ($showTitleOption == 'item_title'): ?>
