@@ -8,7 +8,7 @@ $this->headTitle($this->setting('installation_title', 'Omeka S'))->setSeparator(
 if (isset($stylesheet)) {
     $this->headLink()->prependStylesheet($this->assetUrl("css/$stylesheet.css"));
 } else {
-    $this->headLink()->prependStylesheet($this->assetUrl('css/default.css'));
+    $this->headLink()->prependStylesheet($this->assetUrl('css/seafoam.css'));
 }
 $this->headLink()->prependStylesheet($this->assetUrl('css/iconfonts.css', 'Omeka'));
 $this->headLink()->prependStylesheet('//fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400&display=swap');
