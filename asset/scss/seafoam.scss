@@ -496,6 +496,33 @@ nav.breadcrumbs {
       font-size: rem-calc(52px);
   }
   }
+
+  .hero-title-bottom {
+    width: 100%;
+  }
+
+  .hero-image .hero-title-bottom h2 {
+    width: 100%;
+    margin-bottom: 0;
+  }
+
+  .hero-title-bottom h2 p {
+    margin-bottom: 0;
+    background-color: rgba(255, 255, 255, 0.8);
+    line-height: 1.2;
+    padding: 1.5 * $global-padding 2.5 * $global-padding;
+    font-weight: 300;
+    @include breakpoint(medium) {
+      line-height: 1.4;
+      padding-left: 3 * $global-padding
+    }
+    @include breakpoint(large) {
+      padding-left: 4 * $global-padding
+    }
+    @include breakpoint(xlarge) {
+      padding-left: 5 * $global-padding
+    }
+  }
   
   /*Hero image sizes*/
   .image-full {
