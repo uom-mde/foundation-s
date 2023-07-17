@@ -496,6 +496,33 @@ nav.breadcrumbs {
       font-size: rem-calc(52px);
   }
   }
+
+  .hero-title-bottom {
+    width: 100%;
+  }
+
+  .hero-image .hero-title-bottom h2 {
+    width: 100%;
+    margin-bottom: 0;
+  }
+
+  .hero-title-bottom h2 p {
+    margin-bottom: 0;
+    background-color: rgba(255, 255, 255, 0.8);
+    line-height: 1.2;
+    padding: 1.5 * $global-padding 2.5 * $global-padding;
+    font-weight: 300;
+    @include breakpoint(medium) {
+      line-height: 1.4;
+      padding-left: 3 * $global-padding
+    }
+    @include breakpoint(large) {
+      padding-left: 4 * $global-padding
+    }
+    @include breakpoint(xlarge) {
+      padding-left: 5 * $global-padding
+    }
+  }
   
   /*Hero image sizes*/
   .image-full {
@@ -565,6 +592,25 @@ nav.breadcrumbs {
   margin: 0 auto;
 }
 
+/*Resource with Text - Image Cover*/
+.image-cover .left {
+  float: unset;
+  margin: unset;
+  max-width: unset;
+  order: 0;
+}
+
+.image-cover .right {
+  float: unset;
+  margin: unset;
+  max-width: unset;
+  order: 1;
+}
+
+.image-cover-img {
+  position: relative;
+}
+
 /*Full screen height for Resource Text Openseadragon embed*/
 .resource-text-openseadragon .openseadragon {
   height: calc(70vh - rem-calc(12))!important;
@@ -579,14 +625,21 @@ nav.breadcrumbs {
 }
 
 .media-text {
+  padding: $global-padding;
   @include breakpoint(medium) {
-      padding: $global-padding;
+      padding: 2 * $global-padding $global-padding; 
       }
   &.left {
       order: 0;
   }
   &.right {
       order: 1;
+  }
+  @include breakpoint(large) {
+    padding: 3 * $global-padding $global-padding;
+  }
+  @include breakpoint(xlarge) {
+    padding: 4 * $global-padding $global-padding;
   }
 }
 
@@ -615,25 +668,6 @@ nav.breadcrumbs {
   @include breakpoint(large) {
       padding-left: 1.5 * $global-padding;
       }
-}
-
-/*Resource with Text - Image Cover*/
-.image-cover .left {
-  float: unset;
-  margin: unset;
-  max-width: unset;
-  order: 0;
-}
-
-.image-cover .right {
-  float: unset;
-  margin: unset;
-  max-width: unset;
-  order: 1;
-}
-
-.image-cover-img {
-  position: relative;
 }
 
 figcaption.orbit-caption.caption p {
@@ -676,6 +710,54 @@ figcaption.orbit-caption.caption p {
 .captions-right .resource .orbit-caption.caption.caption {
   text-align: right;
 }
+
+/*Browse Preview Gallery*/ 
+
+.og-grid > li {
+  @include breakpoint(xlarge) {
+    height: rem-calc(600px)!important;
+    }
+  @include breakpoint(large down) {
+    height: rem-calc(450px)!important;
+    }
+  @include breakpoint(medium down) {
+    height: rem-calc(350px)!important;
+      }
+  @include breakpoint(400 down) {
+    height: rem-calc(300px)!important;
+      }
+  @include breakpoint(390 down) {
+  height: rem-calc(200px)!important;
+  }
+  }
+  
+  #og-grid img.large-img {
+  height: rem-calc(200px);
+  @include breakpoint(400) {
+    height: rem-calc(300px);
+      }
+  @include breakpoint(medium) {
+  height: rem-calc(350px);
+    }
+  @include breakpoint(large) {
+    height: rem-calc(450px);
+    }
+  @include breakpoint(xlarge) {
+    height: rem-calc(600px);
+    }
+  }
+  
+  .og-expander {
+  z-index: 10000;
+  }
+
+/*Browse Preview CSS Grid*/ 
+.og-grid-cover {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax((rem-calc(270px)), 1fr));
+  gap: rem-calc(12px);
+  line-height: 1.5;
+  }
 
 /*External Content*/ 
 

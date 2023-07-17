@@ -1,4 +1,4 @@
-<div class="full-width-css col-container col-media-container medium-padding-1" data-target-region-id="<?php echo $this->targetID; ?>">
+<div class="col-container col-media-container medium-padding-1" data-target-region-id="<?php echo $this->targetID; ?>">
     <?php foreach ($attachments as $attachment): ?>
         <div class="max-image-height item resource small-margin-bottom-1 medium-margin-bottom-2 text-center">
             <?php
@@ -6,21 +6,22 @@
             if ($item):
                 ?>
                 <?php
-                $title = $this->plugin('escapeHtml')($item->displayTitle());
-                $media = $attachment->media() ?: $item->primaryMedia();
-                if ($media):
-                    $image = preg_match('/alt=""/', $this->thumbnail($media, $this->thumbnailType)) == 1 ? $item->linkRaw($this->thumbnail($media, $this->thumbnailType, ['alt' => $title])) : $item->linkRaw($this->thumbnail($media, $this->thumbnailType));
-                    echo $image;
-                endif;
-                ?>
+            $media = $attachment->media() ? : $item->primaryMedia();
+            $mediaRenderer = $media->renderer();
+            if ($media) :
+                echo $media->render([
+                    'thumbnailType' => $thumbnailType,
+                ]);
+            endif;
+            ?>
                     <?php $showTitleOption = $this->showTitleOption; ?>
                     <?php if ($showTitleOption == 'item_title'): ?>
                         <div class="separator-center">
-                        <h3 class="margin-top-1 large-margin-top-2 xlarge-margin-top-3"><?php echo $item->link($item->displayTitle()); ?></h3>
+                            <h3 class="margin-top-1"><?php echo $item->link($item->displayTitle()); ?></h3>
                         </div>
                     <?php elseif ($showTitleOption == 'file_name'): ?>
                         <div class="separator-center">
-                        <h3 class="margin-top-1 large-margin-top-2 xlarge-margin-top-3"><?php echo $media->displayTitle(); ?></h3>
+                            <h3 class="margin-top-1"><?php echo $media->displayTitle(); ?></h3>
                         </div>
                     <?php endif; ?>
                 <?php endif; ?>
