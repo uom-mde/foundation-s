@@ -447,9 +447,7 @@ nav.breadcrumbs {
 
 /*Foundation S Prototype*/ 
 .lead {
-  @include breakpoint (large down) {
-      font-size: 125%;
-  }
+  line-height: 1.6;
 }
 
 /*BlockPlus Blocks*/
@@ -1704,10 +1702,6 @@ html, body {
 
 /*Annona*/ 
 
-#storyboard_viewer.annonaview.storyboard_viewer {
-  background: $black;
-  }
-
 .annonaview .content .attribution, .annonaview .content .authorship, .annonaview .content .tags {
   font-style: unset;
   }
@@ -1784,12 +1778,9 @@ polygon>.svgactive:hover {
 }
 
 #storyboard_viewer.annonaview.storyboard_viewer {
+  background: $black;
   @include breakpoint(medium) {
       height: 95vh;
-      }
-
-  @include breakpoint(xlarge) {
-  height: 90vh;
   }
 }
 
