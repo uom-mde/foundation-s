@@ -10,7 +10,7 @@
                     $title = $this->plugin('escapeHtml')($item->displayTitle());
                     $media = $attachment->media() ?: $item->primaryMedia();
                     ?>
-                    <div class="separator-center">
+                    <div class="separator-center metadata">
                         <?php $showTitleOption = $this->showTitleOption; ?>
                         <?php if ($showTitleOption == 'item_title'): ?>
                             <h3 class="margin-top-1"><?php echo $item->link($item->displayTitle()); ?></h3>

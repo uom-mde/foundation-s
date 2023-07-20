@@ -200,7 +200,6 @@ body.vertical-menu footer {
   }
 }
 
-
 .footerLogos { 
   float: left; 
   max-width: rem-calc(280); 
@@ -260,35 +259,6 @@ body.vertical-menu footer {
 }
 
 //End UoM footer code
-
-/*Increase size of thumbnails for Media Embed blocks*/ 
-.left {
-  float: left;
-  margin: 0 (2.5 * $global-margin) $global-margin 0;
-  max-width: 40%;
-  @include breakpoint(medium down) {
-      max-width: 50%;
-      margin: 0 $global-margin $global-margin 0;
-  }
-}
-
-.right {
-  float: right;
-  margin: 0 (2.5 * $global-margin) $global-margin 0;
-  max-width: 40%;
-  @include breakpoint(medium down) {
-      max-width: 50%;
-      margin: 0 $global-margin $global-margin 0;
-  }
-}
-
-.file img {
-  max-width: 100%;
-  height: auto;
-  @include breakpoint(large) {
-  max-height: 100vh;
-  }
-}
 
 /*John McCrory edits*/
 
@@ -351,6 +321,10 @@ nav.breadcrumbs {
 /*Original Omeka S Blocks*/
 //-----------------------------
 
+.site-page-pagination {
+  margin-bottom: $global-margin;
+}
+
 /*Item Showcase*/
 .fixed-image-height img {
   height: 100%;
@@ -389,6 +363,35 @@ nav.breadcrumbs {
 }
 
 /*Media Embed*/
+/*Increase size of thumbnails for Media Embed blocks*/ 
+.left {
+  float: left;
+  margin: 0 (2.5 * $global-margin) $global-margin 0;
+  max-width: 40%;
+  @include breakpoint(medium down) {
+      max-width: 50%;
+      margin: 0 $global-margin $global-margin 0;
+  }
+}
+
+.right {
+  float: right;
+  margin: 0 (2.5 * $global-margin) $global-margin 0;
+  max-width: 40%;
+  @include breakpoint(medium down) {
+      max-width: 50%;
+      margin: 0 $global-margin $global-margin 0;
+  }
+}
+
+.file img {
+  max-width: 100%;
+  height: auto;
+  @include breakpoint(large) {
+  max-height: 100vh;
+  }
+}
+
 /*Centre media embed items when option chosen*/
 .center.file, .center.assets {
   display: flex;
@@ -582,12 +585,16 @@ nav.breadcrumbs {
 }
 
 .resource-text {
+  max-width: rem-calc(600);
   margin: 0 auto;
 }
 
-.resource-text {
-  max-width: rem-calc(600);
-  margin: 0 auto;
+.metadata h1 a,
+.metadata h2 a,
+.metadata h3 a,
+.metadata h2.h1 a,
+.metadata h3.h2 a {
+  font-weight: 600;
 }
 
 /*Resource with Text - Image Cover*/
@@ -615,6 +622,17 @@ nav.breadcrumbs {
   @include breakpoint(medium) {
   height: calc(100vh - rem-calc(12))!important;
 }
+}
+
+/*Add dark background to Openseadragon container*/
+.openseadragon-container {
+  background-color: $uom-footer!important;
+}
+
+.resource-text-openseadragon .openseadragon-container {
+  @include breakpoint(medium) {
+    border-radius: rem-calc(12);
+  }
 }
 
 /*Button align for Full Screen Openseadragon Resource Text Block*/ 
@@ -1780,7 +1798,7 @@ polygon>.svgactive:hover {
 #storyboard_viewer.annonaview.storyboard_viewer {
   background: $black;
   @include breakpoint(medium) {
-      height: 95vh;
+      height: 97vh!important;
   }
 }
 

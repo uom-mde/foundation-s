@@ -18,12 +18,14 @@
                 echo $item->linkRaw($this->thumbnail($media, $this->thumbnailType));
             endif;
         ?>
+        <div class="metadata">
         <?php $showTitleOption = $this->showTitleOption; ?>
         <?php if ($showTitleOption == 'item_title'): ?>
         <h3 class="h2"><?php echo $item->link($item->displayTitle()); ?></h3>
         <?php elseif ($showTitleOption == 'file_name'): ?>
         <h3 class="h2"><?php echo $media->displayTitle(); ?></h3>
         <?php endif; ?>
+        </div>
     <?php endif; ?>
 
     <?php
