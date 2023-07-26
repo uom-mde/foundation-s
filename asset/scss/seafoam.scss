@@ -835,13 +835,9 @@ figcaption.orbit-caption.caption p {
 }
 
 /*Showcase*/ 
-.showcase {
-  height: 100vh;
-}
-
 .showcase .entries {
   display: grid!important;
-  grid-template-columns: repeat(auto-fit, minmax(16.875rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(calc(320px), 1fr));
 }
 
 .showcase .entries.full-width-css {
@@ -849,10 +845,25 @@ figcaption.orbit-caption.caption p {
   margin-right: -50vw!important;
 } 
 
+.showcase .entry img {
+  max-height: unset!important;
+  @include breakpoint(large) {
+  max-height: 85vh!important;
+}
+}
+
 .showcase .entry:not(:only-child) {
   width: unset!important;
-  display: flex;
-  flex-direction: column;
+}
+
+.showcase .entry:not(:only-child) img {
+  max-height: unset!important;
+  @include breakpoint(large) {
+    max-height: 27rem!important;
+  }
+  @include breakpoint(xlarge) {
+  max-height: 30rem!important;
+  }
 }
 
 /*Item Showcase Full Image*/ 

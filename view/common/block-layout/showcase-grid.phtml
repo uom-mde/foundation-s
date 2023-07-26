@@ -31,10 +31,10 @@ $siteSlug = $site->slug();
 
 <div class="block showcase <?= $divclass ? ' ' . $escapeAttr($divclass) : '' ?>">
     <?php if (!empty($heading)): ?>
-    <h2><?= $heading ?></h2>
+    <h2 class="padding-vertical-1 large-padding-vertical-2"><?= $heading ?></h2>
     <?php endif; ?>
     <?php if (!empty($html)): ?>
-    <div class="content">
+    <div class="content margin-bottom-1 large-margin-bottom-2">
         <?= $html ?>
     </div>
     <?php endif; ?>
