@@ -835,34 +835,24 @@ figcaption.orbit-caption.caption p {
 }
 
 /*Showcase*/ 
+.showcase {
+  height: 100vh;
+}
+
 .showcase .entries {
+  display: grid!important;
+  grid-template-columns: repeat(auto-fit, minmax(16.875rem, 1fr));
+}
+
+.showcase .entries.full-width-css {
+  margin-left: -50vw!important;
+  margin-right: -50vw!important;
+} 
+
+.showcase .entry:not(:only-child) {
+  width: unset!important;
+  display: flex;
   flex-direction: column;
-  @include breakpoint(medium) {
-      .showcase .entries {
-          flex-direction: row;
-      }
-}
-
-.showcase .showcase-three .entry:not(:only-child) {
-  width: 100%;
-}
-
-.showcase .showcase-three .entry:not(:only-child) img {
-  max-height: 35rem!important;
-}
-
-/*Three items in Item Showcase*/
-.entry.entry-item h3 a {
-  color: $white;
-}
-
-.showcase-three {
-  background: $uom-footer;
-}
-
-.showcase .showcase-three .entry:not(:only-child) {
-  width: 33%;
-}
 }
 
 /*Item Showcase Full Image*/ 
