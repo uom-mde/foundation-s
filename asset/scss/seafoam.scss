@@ -1070,13 +1070,16 @@ figcaption.orbit-caption.caption p {
 
 .card img {
   width: 100%;
-  height: rem-calc(350px);
-  object-fit: cover;
+  height: 100%;
+  @include breakpoint(medium) {
+    height: rem-calc(350px);
+    object-fit: cover;
+  }
   @include breakpoint(large) {
-      height: rem-calc(350px)
+      height: rem-calc(500px)
   }
   @include breakpoint(xxlarge) {
-      height: rem-calc(450px)
+      height: rem-calc(650px)
   }
 }
 
@@ -1962,6 +1965,10 @@ ul.language-switcher.locale-code li span.active {
 }
 
 /*Mirador Viewer*/ 
+.mirador {
+  margin: 2 * $global-margin 0;
+}
+
 .MuiIconButton-root {
   @include breakpoint (351 down) {
       padding: rem-calc(6)!important;
