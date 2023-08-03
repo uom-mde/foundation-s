@@ -617,7 +617,8 @@ nav.breadcrumbs {
 }
 
 /*Full screen height for Resource Text Openseadragon embed*/
-.resource-text-openseadragon .openseadragon {
+.resource-text-openseadragon .openseadragon,
+.item-showcase-openseadragon .openseadragon {
   height: calc(70vh - rem-calc(12))!important;
   @include breakpoint(medium) {
   height: calc(100vh - rem-calc(12))!important;
