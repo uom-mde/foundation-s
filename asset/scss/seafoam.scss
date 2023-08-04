@@ -349,18 +349,44 @@ nav.breadcrumbs {
 /*Item Showcase Grid*/ 
 .col-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax((rem-calc(270px)), 1fr));
+  grid-template-columns: repeat(auto-fit, minmax((rem-calc(300px)), 1fr));
   gap: rem-calc(32px);
   line-height: 1.5;
 }
 
 .col-container.grid-media-container {
-  grid-template-columns: repeat(auto-fit, minmax((rem-calc(270px)), 1fr));
+  grid-template-columns: repeat(auto-fit, minmax((rem-calc(300px)), 1fr));
 }
+
+/*Display full item for Item Showcase*/ 
+.col-container.full-item {
+  justify-items: center;
+  }
 
 .media-details-container > .col-single:only-child {
   max-width: rem-calc(800);
 }
+
+/*Item Showcase Grid Cards*/
+.item-showcase-cover {
+  display: grid;
+}
+
+.item-showcase-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  @include breakpoint(medium) {
+    height: rem-calc(300px);
+}
+  @include breakpoint(large) {
+      height: rem-calc(350px);
+  }
+  @include breakpoint(xxlarge) {
+      height: rem-calc(450px);
+  }
+}
+
 
 /*Media Embed*/
 /*Increase size of thumbnails for Media Embed blocks*/ 
@@ -1076,11 +1102,15 @@ figcaption.orbit-caption.caption p {
     object-fit: cover;
   }
   @include breakpoint(large) {
-      height: rem-calc(500px)
+      height: rem-calc(350px)
   }
   @include breakpoint(xxlarge) {
-      height: rem-calc(650px)
+      height: rem-calc(450px)
   }
+}
+
+.card.resource {
+  border: unset;
 }
 
 /*Compact Cards*/

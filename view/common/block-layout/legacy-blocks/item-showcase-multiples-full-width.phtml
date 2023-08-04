@@ -2,9 +2,9 @@
     $itemCount = count($this->attachments);
 ?>
 
-<div class="full-width-css grid-x grid-margin-x flex-container align-spaced small-padding-0 medium-padding-1 large-padding-2">
+<div class="item-showcase-multiples full-width-css grid-x grid-margin-x flex-container align-spaced small-padding-0 medium-padding-1 large-padding-2">
     <?php foreach ($attachments as $attachment): ?>
-        <div class="card auto item resource flex-container flex-dir-column align-middle small-margin-bottom-1 medium-margin-bottom-2">
+        <div class="card auto item resource flex-container flex-dir-column align-middle margin-1 medium-margin-bottom-2">
             <?php
             $item = $attachment->item();
             if ($item):
