@@ -53,6 +53,10 @@ ul.dropdown.menu li:hover {
   color: $white;
 }
 
+.nested a.nav-header {
+  line-height: inherit;
+}
+
 a.nav-header:visited {
   background: $secondary-color;
 }
@@ -61,6 +65,7 @@ a.nav-header:visited {
 .toc-block>ul.dropdown>li.opens-left>.is-dropdown-submenu, 
 .toc-block ul ul.dropdown>li.opens-left>.is-dropdown-submenu {
   z-index: 999999;
+  background: #2c0142;
 }
 
 .dropdown.menu>li.is-dropdown-submenu-parent.active:hover>a {
@@ -563,11 +568,11 @@ nav.breadcrumbs {
       height: 90vh;
       }
       
-      .image-medium {
+  .image-medium {
       height: rem-calc(500px);
       }
       
-      .image-small {
+  .image-small {
       height: rem-calc(300px);
       }
 
