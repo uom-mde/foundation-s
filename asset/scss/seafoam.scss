@@ -53,6 +53,10 @@ ul.dropdown.menu li:hover {
   color: $white;
 }
 
+.nested a.nav-header {
+  line-height: inherit;
+}
+
 a.nav-header:visited {
   background: $secondary-color;
 }
@@ -61,6 +65,7 @@ a.nav-header:visited {
 .toc-block>ul.dropdown>li.opens-left>.is-dropdown-submenu, 
 .toc-block ul ul.dropdown>li.opens-left>.is-dropdown-submenu {
   z-index: 999999;
+  background: #2c0142;
 }
 
 .dropdown.menu>li.is-dropdown-submenu-parent.active:hover>a {
@@ -349,18 +354,44 @@ nav.breadcrumbs {
 /*Item Showcase Grid*/ 
 .col-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax((rem-calc(270px)), 1fr));
+  grid-template-columns: repeat(auto-fit, minmax((rem-calc(300px)), 1fr));
   gap: rem-calc(32px);
   line-height: 1.5;
 }
 
 .col-container.grid-media-container {
-  grid-template-columns: repeat(auto-fit, minmax((rem-calc(270px)), 1fr));
+  grid-template-columns: repeat(auto-fit, minmax((rem-calc(300px)), 1fr));
 }
+
+/*Display full item for Item Showcase*/ 
+.col-container.full-item {
+  justify-items: center;
+  }
 
 .media-details-container > .col-single:only-child {
   max-width: rem-calc(800);
 }
+
+/*Item Showcase Grid Cards*/
+.item-showcase-cover {
+  display: grid;
+}
+
+.item-showcase-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  @include breakpoint(medium) {
+    height: rem-calc(300px);
+}
+  @include breakpoint(large) {
+      height: rem-calc(350px);
+  }
+  @include breakpoint(xxlarge) {
+      height: rem-calc(450px);
+  }
+}
+
 
 /*Media Embed*/
 /*Increase size of thumbnails for Media Embed blocks*/ 
@@ -537,11 +568,11 @@ nav.breadcrumbs {
       height: 90vh;
       }
       
-      .image-medium {
+  .image-medium {
       height: rem-calc(500px);
       }
       
-      .image-small {
+  .image-small {
       height: rem-calc(300px);
       }
 
@@ -1070,14 +1101,21 @@ figcaption.orbit-caption.caption p {
 
 .card img {
   width: 100%;
-  height: rem-calc(350px);
-  object-fit: cover;
+  height: 100%;
+  @include breakpoint(medium) {
+    height: rem-calc(350px);
+    object-fit: cover;
+  }
   @include breakpoint(large) {
       height: rem-calc(350px)
   }
   @include breakpoint(xxlarge) {
       height: rem-calc(450px)
   }
+}
+
+.card.resource {
+  border: unset;
 }
 
 /*Compact Cards*/
@@ -1962,6 +2000,10 @@ ul.language-switcher.locale-code li span.active {
 }
 
 /*Mirador Viewer*/ 
+.mirador {
+  margin: 2 * $global-margin 0;
+}
+
 .MuiIconButton-root {
   @include breakpoint (351 down) {
       padding: rem-calc(6)!important;

@@ -1,0 +1,35 @@
+<div class="full-width-css col-container col-media-container medium-padding-1" data-target-region-id="<?php echo $this->targetID; ?>">
+    <?php foreach ($attachments as $attachment): ?>
+        <div class="item-showcase-cover item resource text-center">
+            <?php
+            $item = $attachment->item();
+            if ($item):
+                ?>
+                <?php
+                $title = $this->plugin('escapeHtml')($item->displayTitle());
+                $media = $attachment->media() ?: $item->primaryMedia();
+                if ($media):
+                    $image = preg_match('/alt=""/', $this->thumbnail($media, $this->thumbnailType)) == 1 ? $item->linkRaw($this->thumbnail($media, $this->thumbnailType, ['alt' => $title])) : $item->linkRaw($this->thumbnail($media, $this->thumbnailType));
+                    echo $image;
+                endif;
+                ?>
+                    <?php $showTitleOption = $this->showTitleOption; ?>
+                    <?php if ($showTitleOption == 'item_title'): ?>
+                        <div class="separator-center metadata">
+                        <h3 class="margin-top-1 large-margin-top-2 xlarge-margin-top-3"><?php echo $item->link($item->displayTitle()); ?></h3>
+                        </div>
+                    <?php elseif ($showTitleOption == 'file_name'): ?>
+                        <div class="separator-center metadata">
+                        <h3 class="margin-top-1 large-margin-top-2 xlarge-margin-top-3"><?php echo $media->displayTitle(); ?></h3>
+                        </div>
+                    <?php endif; ?>
+                <?php endif; ?>
+            <?php
+            $caption = $attachment->caption();
+            if ($caption):
+                ?>
+                <div class="caption padding-1 font-wide grid-container text-left"><?php echo $caption; ?></div>
+            <?php endif; ?>
+        </div>
+    <?php endforeach; ?>
+</div>

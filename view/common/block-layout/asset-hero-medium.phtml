@@ -34,7 +34,7 @@ $escapeAttr = $plugins->get('escapeHtmlAttr');
 <?php if (empty($attachment['asset'])) return; ?>
 
 <div class="full-width-css">
-    <div class="hero-image image-large region-splash flex-container <?= $escapeAttr($attachment['class']) ?>" style="background-image:linear-gradient(rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.4)),url(<?= $attachment['asset']->assetUrl() ?>);">
+    <div class="hero-image image-medium region-splash flex-container <?= $escapeAttr($attachment['class']) ?>" style="background-image:linear-gradient(rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.4)),url(<?= $attachment['asset']->assetUrl() ?>);">
         <?php if ($attachment['caption']) : ?>
             <div class="grid-container grid-x flex-grow align-middle">
                 <div class="hero-title">
