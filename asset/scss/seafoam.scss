@@ -392,6 +392,28 @@ nav.breadcrumbs {
   }
 }
 
+/*Item Showcase Grid Cards - FUll Item is displayed*/
+.item-showcase-cover-full {
+  display: grid;
+}
+
+.item-showcase-cover-full img {
+  width: 100%;
+  height: 100%;
+  @include breakpoint(medium) {
+    max-height: rem-calc(300px);
+    width: auto;
+}
+  @include breakpoint(large) {
+    max-height: rem-calc(350px);
+    width: auto;
+  }
+  @include breakpoint(xxlarge) {
+    max-height: rem-calc(450px);
+    width: auto;
+  }
+}
+
 
 /*Media Embed*/
 /*Increase size of thumbnails for Media Embed blocks*/ 
