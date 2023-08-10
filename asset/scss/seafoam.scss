@@ -366,6 +366,7 @@ nav.breadcrumbs {
 /*Display full item for Item Showcase*/ 
 .col-container.full-item {
   justify-items: center;
+  align-items: end;
   }
 
 .media-details-container > .col-single:only-child {
@@ -412,6 +413,14 @@ nav.breadcrumbs {
   @include breakpoint(xxlarge) {
     max-height: rem-calc(450px);
     width: auto;
+  }
+}
+
+.item-showcase-multiples.card a img {
+  @include breakpoint(medium only) {
+    object-fit: unset;
+    width: 100%;
+    max-height: rem-calc(500px);
   }
 }
 

@@ -1,3 +1,10 @@
+<div class="grix-x grid-container">
+    <?php if (!empty($heading)): ?>
+        <div class="media-text-heading">
+            <h3 class="h2 padding-vertical-1"><?= $heading ?></h3>
+        </div>
+    <?php endif; ?>
+</div>
 <div class="full-width-css col-container col-media-container medium-padding-1" data-target-region-id="<?php echo $this->targetID; ?>">
     <?php foreach ($attachments as $attachment): ?>
         <div class="item-showcase-cover item resource text-center">
