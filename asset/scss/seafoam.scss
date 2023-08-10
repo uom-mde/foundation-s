@@ -395,6 +395,7 @@ nav.breadcrumbs {
 /*Item Showcase Grid Cards - FUll Item is displayed*/
 .item-showcase-cover-full {
   display: grid;
+  align-items: end;
 }
 
 .item-showcase-cover-full img {
@@ -413,7 +414,6 @@ nav.breadcrumbs {
     width: auto;
   }
 }
-
 
 /*Media Embed*/
 /*Increase size of thumbnails for Media Embed blocks*/ 
