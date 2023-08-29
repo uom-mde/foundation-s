@@ -2129,3 +2129,9 @@ figure.max-image-height img,
   width: 600px;
   background: #000000de;
 }
+
+/*Maximum Block Height*/ 
+.max-block-height {
+  height: 100vh;
+  overflow-y: scroll;
+}
