@@ -1862,6 +1862,11 @@ polygon>.svgactive:hover {
       }
 }
 
+/*Remove padding from Storyboard Viewer*/ 
+#storyboard_viewer {
+  padding-bottom: 0;
+}
+
 #storyboard_viewer .excerpt {
   background-color: $white;
 }
