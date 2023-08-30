@@ -25,10 +25,6 @@ $escape = $plugins->get('escapeHtml');
 $escapeAttr = $plugins->get('escapeHtmlAttr');
 ?>
 
-<?php if (!empty($heading)) : ?>
-    <h2><?= $escape($heading) ?></h2>
-<?php endif; ?>
-
 <?php if (!count($attachments)) return; ?>
 <?php $attachment = $attachments[array_rand($attachments)]; ?>
 <?php if (empty($attachment['asset'])) return; ?>
@@ -47,4 +43,7 @@ $escapeAttr = $plugins->get('escapeHtmlAttr');
             </div>
         <?php endif; ?>
     </div>
+    <?php if (!empty($heading)) : ?>
+        <p class="h4 padding-horizontal-1 medium-large-padding-horizontal-2 large-padding-horizontal-3"><?= $escape($heading) ?></p>
+    <?php endif; ?>
 </div>

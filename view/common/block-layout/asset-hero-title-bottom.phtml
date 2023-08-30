@@ -45,4 +45,7 @@ $escapeAttr = $plugins->get('escapeHtmlAttr');
             </div>
         <?php endif; ?>
     </div>
+    <?php if (!empty($heading)) : ?>
+        <p class="h4 padding-horizontal-1 medium-large-padding-horizontal-2 large-padding-horizontal-3"><?= $escape($heading) ?></p>
+    <?php endif; ?>
 </div>
