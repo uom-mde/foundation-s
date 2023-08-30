@@ -25,16 +25,16 @@ $escape = $plugins->get('escapeHtml');
 $escapeAttr = $plugins->get('escapeHtmlAttr');
 ?>
 
-<div class="full-width-css grid-x region-splash">
+<div class="asset-hero full-width-css grid-x region-splash">
     <?php if (!count($attachments)) return; ?>
     <?php $attachment = $attachments[array_rand($attachments)]; ?>
     <?php if (empty($attachment['asset'])) return; ?>
-    <div class="small-12 large-7">
+    <div class="small-12 large-7 xlarge-8">
         <div class="hero-image image-xlarge flex-container <?= $escapeAttr($attachment['class']) ?>" style="background-image:linear-gradient(rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.4)),url(<?= $attachment['asset']->assetUrl() ?>);">
         </div>
     </div>
 
-    <div class="small-12 large-5 flex-container flex-dir-column align-middle align-center colour-scheme-4 text-treatment-2 margin-bottom-0"> 
+    <div class="small-12 large-5 xlarge-4 flex-container flex-dir-column align-middle align-center colour-scheme-4 text-treatment-2 margin-bottom-0"> 
 
     <?php if (!empty($heading)) : ?>
         <div class="flex-container"> 
