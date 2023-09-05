@@ -28,8 +28,8 @@ $lang = $filterLocale ? $this->lang() : null;
     </div>
     <?php endif; ?>
     <div class="<?= $alignmentClass . ' ' . $thumbnailType . ' captions-' . $captionPosition ?> media file image-cover-img large-6 flex-container">
-        <div class="attachments flex-container">
-        <?php
+    <div class="attachments">
+            <?php
             foreach ($attachments as $attachment):
                 $render = null;
                 $title = null;
