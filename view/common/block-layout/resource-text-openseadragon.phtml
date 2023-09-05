@@ -60,17 +60,14 @@
                     endif;
                 endif;
             
-                $caption = $attachment->caption();
-            ?>
-         <div class="item resource">
+             $caption = $attachment->caption();
+             ?>
             <?= $render ?>
-            <?php if ($attachment->caption()): ?>
             <div class="caption">
-               <figcaption class="orbit-caption caption"><?php echo $caption; ?></figcaption>
+                <?= $caption ?>                   
             </div>
-            <?php endif; ?>
-         </div>
-         <?php endforeach; ?>
+         <?php
+         endforeach; ?>
       </div>
    </div>
    <div class="resource-text max-block-height large-5 xlarge-4 flex-container flex-dir-column padding-1 large-padding-2 xlarge-padding-3">
