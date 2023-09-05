@@ -72,34 +72,34 @@ $lang = $filterLocale ? $this->lang() : null;
       </div>
    </div>
     <div class="resource-text max-block-height large-5 xlarge-4 flex-container flex-dir-column padding-1 large-padding-2 xlarge-padding-3">
-    <div class="metadata margin-bottom-1 separator-center">
-        <?php $showTitleOption = $this->showTitleOption; ?>
-        <?php if ($showTitleOption == 'item_title'): ?>
-        <h3><?php echo $item->link($item->displayTitle()); ?></h3>
-        <?php elseif ($showTitleOption == 'file_name'): ?>
-        <h3><?php echo $item->link($media->displayTitle()); ?></h3>
+        <div class="metadata margin-bottom-1 separator-center">
+            <?php $showTitleOption = $this->showTitleOption; ?>
+            <?php if ($showTitleOption == 'item_title'): ?>
+            <h3><?php echo $item->link($item->displayTitle()); ?></h3>
+            <?php elseif ($showTitleOption == 'file_name'): ?>
+            <h3><?php echo $item->link($media->displayTitle()); ?></h3>
+            <?php endif; ?>
+            <?php
+            $date = $item->value('dcterms:date');
+            if ($date):
+            ?>
+        <h3><small date><?php echo $date; ?></small></h3>
         <?php endif; ?>
         <?php
-         $date = $item->value('dcterms:date');
-         if ($date):
-         ?>
-      <h3><small date><?php echo $date; ?></small></h3>
-      <?php endif; ?>
-      <?php
-         $origin = $item->value('curation:location');
-         if ($origin):
-         ?>
-      <h3><small origin><?php echo $origin; ?></small></h3>
-      <?php endif; ?>
-      </div>
-    <div class="text font-wide">
-        <?= $html ?>
-        <?php
-         $identifier = $item->value('dcterms:identifier');
-         if ($identifier):
-         ?>
-      <h3 class="h4"><small><?php echo 'Ref. ' . $identifier; ?></small></h3>
-      <?php endif; ?>
+            $origin = $item->value('curation:location');
+            if ($origin):
+            ?>
+        <h3><small origin><?php echo $origin; ?></small></h3>
+        <?php endif; ?>
+        </div>
+        <div class="text font-wide">
+            <?= $html ?>
+            <?php
+            $identifier = $item->value('dcterms:identifier');
+            if ($identifier):
+            ?>
+        <h3 class="h4"><small><?php echo 'Ref. ' . $identifier; ?></small></h3>
+        <?php endif; ?>
+        </div>
     </div>
-</div>
 </div>
