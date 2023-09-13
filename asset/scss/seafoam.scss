@@ -394,12 +394,12 @@ nav.breadcrumbs {
 }
 
 /*Item Showcase Grid Cards - FUll Item is displayed*/
-.item-showcase-cover-full {
+.item-showcase-cover-centre {
   display: grid;
-  align-items: end;
+  align-items: center;
 }
 
-.item-showcase-cover-full img {
+.item-showcase-cover-centre img {
   width: 100%;
   height: 100%;
   @include breakpoint(medium) {
@@ -693,13 +693,13 @@ nav.breadcrumbs {
 .item-showcase-openseadragon .openseadragon {
   height: calc(70vh - rem-calc(12))!important;
   @include breakpoint(medium) {
-  height: calc(100vh - rem-calc(12))!important;
+  height: calc(90vh - rem-calc(12))!important;
 }
 }
 
 /*Add dark background to Openseadragon container*/
 .openseadragon-container {
-  background-color: $uom-footer!important;
+  background-color: #1c1919!important;
 }
 
 .resource-text-openseadragon .openseadragon-container {
