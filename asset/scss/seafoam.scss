@@ -424,6 +424,22 @@ nav.breadcrumbs {
   }
 }
 
+/*Increase font-size for single Item Showcase blocks*/
+.item-showcase h2,
+.item-showcase h3 {
+  font-size: 1.3 * $global-font-size;
+  font-weight: 400;
+}
+
+.item-showcase:only-child h2,
+.item-showcase:only-child h3 {
+  font-size: 1.7 * $global-font-size;
+  margin-top: $global-margin;
+  @include breakpoint (large) {
+  margin-top: 2 * $global-margin!important;
+  }
+}
+
 /*Media Embed*/
 /*Increase size of thumbnails for Media Embed blocks*/ 
 .left {
@@ -1687,7 +1703,7 @@ padding-bottom: 75%;
 /* Blockquote main style */
 blockquote {
    position: relative;
-   max-width: 620px;
+   max-width: rem-calc(620px);
    margin: 2 * $global-margin auto;
    align-self: center;
    padding: unset;
@@ -1704,8 +1720,8 @@ blockquote h3 {
    margin: 0;
    border: 2px solid #fff;
    border: solid 2px;
-   border-radius:20px;
-   padding: 25px;
+   border-radius: rem-calc(20px);
+   padding: rem-calc(25px);
    @include breakpoint(large) {
       font-size: 3 * $global-font-size;
       line-height: 1.2;
