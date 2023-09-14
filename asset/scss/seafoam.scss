@@ -367,7 +367,7 @@ nav.breadcrumbs {
 /*Display full item for Item Showcase*/ 
 .col-container.full-item {
   justify-items: center;
-  align-items: center; /*Changed from end 13/09/23 JMc*/ 
+  align-items: baseline; /*Changed from end 13/09/23 JMc*/ 
 }
 
 .media-details-container > .col-single:only-child {
