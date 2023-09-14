@@ -327,6 +327,7 @@ nav.breadcrumbs {
 //-----------------------------
 
 .site-page-pagination {
+  margin-top: 2 * $global-margin;
   margin-bottom: $global-margin;
 }
 
@@ -416,11 +417,16 @@ nav.breadcrumbs {
   }
 }
 
-.item-showcase-multiples.card a img {
-  @include breakpoint(medium only) {
-    object-fit: unset;
-    width: 100%;
-    max-height: rem-calc(500px);
+.item-showcase-multiples .card img {
+  @include breakpoint(medium) {
+    object-fit: contain;
+    max-height: rem-calc(300px);
+  }
+  @include breakpoint(large) {
+    max-height: rem-calc(350px);
+  }
+  @include breakpoint(xxlarge) {
+    max-height: rem-calc(450px);
   }
 }
 
@@ -1061,6 +1067,16 @@ figcaption.orbit-caption.caption p {
   border-radius: rem-calc(6);
   overflow:hidden;
   background: $white;
+  & .caption {
+    border-radius: rem-calc(0 0 6 6);
+  }
+  & .caption p {
+      margin-bottom: 0;
+  }
+}
+
+.item-listing-item,
+.item-showcase-multiples .card.resource {
   /*border: solid (0.5 * $global-margin) $white;*/
   @include breakpoint(medium) {
       &.item-count-2,
@@ -1081,12 +1097,6 @@ figcaption.orbit-caption.caption p {
       .item-count-5 {
           width: 32%;
       } 
-  }
-  & .caption {
-      border-radius: rem-calc(0 0 6 6);
-  }
-  & .caption p {
-      margin-bottom: 0;
   }
 }
 
