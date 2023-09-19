@@ -331,6 +331,19 @@ nav.breadcrumbs {
 }
 
 /*Item Showcase*/
+.item-showcase .caption {
+  max-width: rem-calc(750);
+}
+
+.item-showcase .separator-center {
+  max-width: rem-calc(500);
+  margin: 0 auto;
+}
+
+.item-showcase .openseadragon-container {
+  border-radius: 0.25rem;
+}
+
 .fixed-image-height img {
   height: 100%;
   width: 100%;
@@ -438,7 +451,7 @@ nav.breadcrumbs {
 
 .item-showcase:only-child h2,
 .item-showcase:only-child h3 {
-  font-weight: 600;
+  font-weight: 400;
   font-size: 1.7 * $global-font-size;
   margin-top: $global-margin;
   @include breakpoint (large) {
@@ -688,7 +701,7 @@ nav.breadcrumbs {
 .metadata h3 a,
 .metadata h2.h1 a,
 .metadata h3.h2 a {
-  font-weight: 600;
+  font-weight: 400;
 }
 
 /*Resource with Text - Image Cover*/
@@ -1208,7 +1221,7 @@ figcaption.orbit-caption.caption p {
 .card-compact h3 {
   margin-bottom: 0;
   font-size: 1.1em;
-  font-weight: 600;
+  font-weight: 400;
   a {
       position: absolute;
       bottom: 0%;
