@@ -7,7 +7,6 @@
 // Sea Foam Settings
 
 $topbar-background: $primary-color;
-  
 $thumbnail-border: 4px solid $secondary-color;
 $thumbnail-shadow: none;
 $thumbnail-shadow-hover: 0 0 6px 1px rgba($primary-color, 0.5);
@@ -327,10 +326,24 @@ nav.breadcrumbs {
 //-----------------------------
 
 .site-page-pagination {
+  margin-top: 2 * $global-margin;
   margin-bottom: $global-margin;
 }
 
 /*Item Showcase*/
+.item-showcase .caption {
+  max-width: rem-calc(750);
+}
+
+.item-showcase .separator-center {
+  max-width: rem-calc(500);
+  margin: 0 auto;
+}
+
+.item-showcase .openseadragon-container {
+  border-radius: 0.25rem;
+}
+
 .fixed-image-height img {
   height: 100%;
   width: 100%;
@@ -366,8 +379,8 @@ nav.breadcrumbs {
 /*Display full item for Item Showcase*/ 
 .col-container.full-item {
   justify-items: center;
-  align-items: end;
-  }
+  align-items: center; /*Changed from end 13/09/23 JMc*/ 
+}
 
 .media-details-container > .col-single:only-child {
   max-width: rem-calc(800);
@@ -416,11 +429,33 @@ nav.breadcrumbs {
   }
 }
 
-.item-showcase-multiples.card a img {
-  @include breakpoint(medium only) {
-    object-fit: unset;
-    width: 100%;
-    max-height: rem-calc(500px);
+.item-showcase-multiples .card img {
+  @include breakpoint(medium) {
+    object-fit: contain;
+    max-height: rem-calc(300px);
+  }
+  @include breakpoint(large) {
+    max-height: rem-calc(350px);
+  }
+  @include breakpoint(xxlarge) {
+    max-height: rem-calc(450px);
+  }
+}
+
+/*Increase font-size for single Item Showcase blocks*/
+.item-showcase h2,
+.item-showcase h3 {
+  font-size: 1.2 * $global-font-size;
+  font-weight: 300;
+}
+
+.item-showcase:only-child h2,
+.item-showcase:only-child h3 {
+  font-weight: 400;
+  font-size: 1.7 * $global-font-size;
+  margin-top: $global-margin;
+  @include breakpoint (large) {
+  margin-top: 2 * $global-margin!important;
   }
 }
 
@@ -666,7 +701,7 @@ nav.breadcrumbs {
 .metadata h3 a,
 .metadata h2.h1 a,
 .metadata h3.h2 a {
-  font-weight: 600;
+  font-weight: 400;
 }
 
 /*Resource with Text - Image Cover*/
@@ -1045,6 +1080,16 @@ figcaption.orbit-caption.caption p {
   border-radius: rem-calc(6);
   overflow:hidden;
   background: $white;
+  & .caption {
+    border-radius: rem-calc(0 0 6 6);
+  }
+  & .caption p {
+      margin-bottom: 0;
+  }
+}
+
+.item-listing-item,
+.item-showcase-multiples .card.resource {
   /*border: solid (0.5 * $global-margin) $white;*/
   @include breakpoint(medium) {
       &.item-count-2,
@@ -1063,14 +1108,8 @@ figcaption.orbit-caption.caption p {
   @include breakpoint(xlarge) {
       &.item-count-3,
       .item-count-5 {
-          width: 32%;
+          width: 31%;
       } 
-  }
-  & .caption {
-      border-radius: rem-calc(0 0 6 6);
-  }
-  & .caption p {
-      margin-bottom: 0;
   }
 }
 
@@ -1182,7 +1221,7 @@ figcaption.orbit-caption.caption p {
 .card-compact h3 {
   margin-bottom: 0;
   font-size: 1.1em;
-  font-weight: 600;
+  font-weight: 400;
   a {
       position: absolute;
       bottom: 0%;
@@ -1687,7 +1726,7 @@ padding-bottom: 75%;
 /* Blockquote main style */
 blockquote {
    position: relative;
-   max-width: 620px;
+   max-width: rem-calc(620px);
    margin: 2 * $global-margin auto;
    align-self: center;
    padding: unset;
@@ -1704,8 +1743,8 @@ blockquote h3 {
    margin: 0;
    border: 2px solid #fff;
    border: solid 2px;
-   border-radius:20px;
-   padding: 25px;
+   border-radius: rem-calc(20px);
+   padding: rem-calc(25px);
    @include breakpoint(large) {
       font-size: 3 * $global-font-size;
       line-height: 1.2;

@@ -1,3 +1,7 @@
+<?php
+    $itemCount = count($this->attachments);
+?>
+
 <div class="grix-x grid-container">
     <?php if (!empty($heading)): ?>
         <div class="media-text-heading">
@@ -7,7 +11,7 @@
 </div>
 <div class="item-showcase-multiples grid-x grid-margin-x flex-container align-spaced small-padding-0">
     <?php foreach ($attachments as $attachment): ?>
-        <div class="card auto item resource flex-container flex-dir-column align-middle margin-1 medium-margin-bottom-2">
+        <div class="item-showcase card auto item item-count-<?php echo $itemCount; ?> resource flex-container flex-dir-column align-middlemargin-1 medium-margin-bottom-2">
             <?php
             $item = $attachment->item();
             if ($item):
@@ -27,18 +31,6 @@
                     <?php elseif ($showTitleOption == 'file_name'): ?>
                         <h3 class="margin-top-1"><?php echo $media->displayTitle(); ?></h3>
                     <?php endif; ?>
-                <?php endif; ?>
-                <?php
-                    $date = $item->value('dcterms:date');
-                    if ($date):
-                    ?>
-                    <h3><small date><?php echo $date; ?></small></h3>
-                <?php endif; ?>
-                <?php
-                    $origin = $item->value('curation:location');
-                    if ($origin):
-                    ?>
-                    <h3><small origin><?php echo $origin; ?></small></h3>
                 <?php endif; ?>
                 </div>
             <?php
