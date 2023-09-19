@@ -1,25 +1,44 @@
-<div class="header-uom grid-x grid-padding-x grid-container flex-container align-middle align-justify">
-    <div class="university-logo"><a href="http://www.manchester.ac.uk/library"><img
-            src="https://assets.manchester.ac.uk/corporate/images/design/logo-university-of-manchester.png"
-            alt="The University of Manchester Library logo" /> </a>
+<?php
+$hero = $this->themeSettingAssetUrl('hero');
+?>
+
+<?php if ($hero):?>
+    <style>
+        @media screen and (min-width: 48em) {
+            #hero-image {
+                background-image:linear-gradient(rgba(0, 0, 0, 0.527),rgba(0, 0, 0, 0.3)) ,  url('<?php echo $this->escapeHtml($hero)?>');
+                background-position: center;
+                background-size: cover;
+                height: 80vh;
+            }
+        }
+    </style>	
+<?php endif; ?>
+
+<div class="full-width-css" id="hero-image">
+    <div class="header-uom grid-x grid-padding-x grid-container flex-container align-middle align-justify">
+        <div class="university-logo"><a href="http://www.manchester.ac.uk/library"><img
+                src="https://assets.manchester.ac.uk/logos/hi-res/TAB_UNI_MAIN_logo/White_for_coloured_background/TAB_allwhite.png"
+                alt="The University of Manchester Library logo" /> </a>
+        </div>
+        <div class="site-heading">
+            <p>Manchester Digital Exhibitions</p>
+        </div>
+        <div id="lang">
+            <?php if ($this->getHelperPluginManager()->has('languageSwitcher')) echo $this->languageSwitcher([ 'locale_as_code' => true ]); ?>
+        </div>
+        <nav class="title-bar" data-responsive-toggle="responsive-menu" data-hide-for="large">
+                <button class="menu-toggle" type="button" data-toggle="offCanvas"
+                    aria-label="<?php echo $this->translate('Menu'); ?>"><i class="fas fa-bars"></i></button>
+        </nav>
     </div>
-    <div class="site-heading">
-        <p>Manchester Digital Exhibitions</p>
-    </div>
-    <div id="lang">
-        <?php if ($this->getHelperPluginManager()->has('languageSwitcher')) echo $this->languageSwitcher([ 'locale_as_code' => true ]); ?>
-    </div>
-    <nav class="title-bar" data-responsive-toggle="responsive-menu" data-hide-for="large">
-            <button class="menu-toggle" type="button" data-toggle="offCanvas"
-                aria-label="<?php echo $this->translate('Menu'); ?>"><i class="fas fa-bars"></i></button>
-    </nav>
-</div>
-<div class="top-bar">
-    <nav class="top-bar-left">
-        <?php $siteLogo = ($this->themeSetting('logo')) ? '<img src="' . $this->themeSettingAssetUrl('logo') . '" title="Logo" alt="">' : ''; ?>
-        <h1 class="site-title"><a href="<?php echo $site->url(); ?>"><?php echo $siteLogo; ?><span class="site-title-label <?php echo ($siteLogo !== '') ? 'sr-only' : ''; ?>"><?php echo $this->escapeHtml($site->title()); ?></span></a></h1>
-    </nav>
-    <div class="top-bar-right" id="responsive-menu">
-        <?php echo $site->publicNav()->menu()->setPartial('common/foundation-navigation.phtml')->renderPartialWithParams(['layout' => 'dropdown']); ?>
+    <div class="top-bar">
+        <nav class="top-bar-left">
+            <?php $siteLogo = ($this->themeSetting('logo')) ? '<img src="' . $this->themeSettingAssetUrl('logo') . '" title="Logo" alt="">' : ''; ?>
+            <h1 class="site-title"><a href="<?php echo $site->url(); ?>"><?php echo $siteLogo; ?><span class="site-title-label <?php echo ($siteLogo !== '') ? 'sr-only' : ''; ?>"><?php echo $this->escapeHtml($site->title()); ?></span></a></h1>
+        </nav>
+        <div class="top-bar-right" id="responsive-menu">
+            <?php echo $site->publicNav()->menu()->setPartial('common/foundation-navigation.phtml')->renderPartialWithParams(['layout' => 'dropdown']); ?>
+        </div>
     </div>
 </div>
