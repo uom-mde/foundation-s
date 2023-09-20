@@ -994,6 +994,10 @@ dl dt {
   margin-bottom: 2 * $global-margin;
 }
 
+.value:first-child {
+margin-top: 2 * $global-margin;
+}
+
 
 /*Agile Theme Tools Blocks*/ 
 /*Old Item Listing with Introduction Block*/
