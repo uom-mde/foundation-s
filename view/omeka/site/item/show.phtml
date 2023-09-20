@@ -50,19 +50,19 @@ $valueLang = $filterLocale ? [$lang, ''] : null;
     
     <div class="grid-x grid-margin-x">
         <?php if ($leftSidebarHasBlocks): ?>
-        <div class="left-sidebar cell medium-<?php echo $sidebarWidth; ?>">
+        <div class="left-sidebar cell medium-<?php echo $sidebarWidth; ?> margin-top-1-horizontal-1 large-medium-margin-top-2 xlarge-medium-margin-top-3">
             <?php echo $leftSidebarBlockContent->getBlocks(); ?>
         </div>
         <?php endif; ?>
 
         <?php if ($mainWithSidebarHasBlocks): ?>
-        <div class="main-with-sidebar cell medium-<?php echo $mainWidth; ?>">
+        <div class="main-with-sidebar cell medium-<?php echo $mainWidth; ?> margin-top-1-horizontal-1 large-medium-margin-top-2 xlarge-medium-margin-top-3">
             <?php echo $mainWithSidebarBlockContent->getBlocks(); ?>
         </div>
         <?php endif; ?>
 
         <?php if ($rightSidebarHasBlocks): ?>
-        <div class="right-sidebar cell medium-<?php echo $sidebarWidth; ?>">
+        <div class="right-sidebar cell medium-<?php echo $sidebarWidth; ?> background-colour-uom-footer margin-top-1-horizontal-1 large-medium-margin-top-2 xlarge-medium-margin-top-3 medium-padding-horizontal-1 large-padding-horizontal-2 xlarge-padding-horizontal-3">
             <?php echo $rightSidebarBlockContent->getBlocks(); ?>
         </div>
         <?php endif; ?>
