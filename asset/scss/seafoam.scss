@@ -982,6 +982,19 @@ figcaption.orbit-caption.caption p {
   }
 }
 
+/*Item Show updates*/ 
+dl dt {
+  font-weight: bold;
+  border-bottom: 1px solid $light-gray;
+  margin-bottom: $global-margin;
+  font-size: 1.2 * $global-font-size;
+}
+
+.property {
+  margin-bottom: 2 * $global-margin;
+}
+
+
 /*Agile Theme Tools Blocks*/ 
 /*Old Item Listing with Introduction Block*/
 .item-listing h2,

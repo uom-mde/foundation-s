@@ -31,7 +31,7 @@ $valueLang = $filterLocale ? [$lang, ''] : null;
 <div class="<?php echo ($showLayout == 'inline') ? 'inline' : 'stack'; ?>">
     <?php $this->trigger('view.show.before'); ?>
     <?php if ($fullWidthMainHasBlocks): ?>
-    <div class="full-width-main">
+    <div class="full-width-main margin-bottom-2 xlarge-margin-bottom-3">
         <?php echo $fullWidthMainBlockContent->getBlocks(); ?>
     </div>
     <?php endif; ?>
@@ -48,21 +48,21 @@ $valueLang = $filterLocale ? [$lang, ''] : null;
     }
     ?>
     
-    <div class="grid-x grid-margin-x">
+    <div class="grid-x grid-margin-x margin-bottom-1 large-margin-bottom-2 xlarge-margin-bottom-3">
         <?php if ($leftSidebarHasBlocks): ?>
-        <div class="left-sidebar cell medium-<?php echo $sidebarWidth; ?> margin-top-1-horizontal-1 large-medium-margin-top-2 xlarge-medium-margin-top-3">
+        <div class="left-sidebar cell medium-<?php echo $sidebarWidth; ?> margin-top-1 medium-margin-top-2 xlarge-margin-top-3">
             <?php echo $leftSidebarBlockContent->getBlocks(); ?>
         </div>
         <?php endif; ?>
 
         <?php if ($mainWithSidebarHasBlocks): ?>
-        <div class="main-with-sidebar cell medium-<?php echo $mainWidth; ?> margin-top-1-horizontal-1 large-medium-margin-top-2 xlarge-medium-margin-top-3">
+        <div class="main-with-sidebar cell medium-<?php echo $mainWidth; ?> margin-top-1 medium-margin-top-2 xlarge-margin-top-3">
             <?php echo $mainWithSidebarBlockContent->getBlocks(); ?>
         </div>
         <?php endif; ?>
 
         <?php if ($rightSidebarHasBlocks): ?>
-        <div class="right-sidebar cell medium-<?php echo $sidebarWidth; ?> background-colour-uom-footer margin-top-1-horizontal-1 large-medium-margin-top-2 xlarge-medium-margin-top-3 medium-padding-horizontal-1 large-padding-horizontal-2 xlarge-padding-horizontal-3">
+        <div class="right-sidebar cell medium-<?php echo $sidebarWidth; ?> background-colour-uom-footer margin-top-1 large-margin-top-0 padding-1 large-padding-2 xlarge-padding-3">
             <?php echo $rightSidebarBlockContent->getBlocks(); ?>
         </div>
         <?php endif; ?>
