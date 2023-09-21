@@ -682,6 +682,12 @@ nav.breadcrumbs {
   }
 
 /*Resource with Text block*/
+/*Sensitive content*/
+.unblur-image {
+  filter: blur(50px);
+  -webkit-filter: blur(50px);
+}
+
 .text {
   padding: $global-padding 0;
   @include breakpoint(large) {
