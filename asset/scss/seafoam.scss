@@ -688,6 +688,27 @@ nav.breadcrumbs {
   -webkit-filter: blur(50px);
 }
 
+button#unblur-image {
+  margin: 0;
+  padding: 1rem;
+  width: 100%;
+  font-size: 1rem;
+}
+
+h3.warning-text {
+font-weight: 400;
+}
+
+.sensitive-material .large-7 {
+order: 1;
+margin-top: 4 * $global-margin;
+  @include breakpoint(large) {
+  margin-top: initial;
+  order: 0;
+  }
+}
+/*End Sensitive Material*/
+
 .text {
   padding: $global-padding 0;
   @include breakpoint(large) {

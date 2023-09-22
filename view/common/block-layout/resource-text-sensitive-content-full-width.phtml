@@ -21,14 +21,14 @@ $filterLocale = (bool) $this->siteSetting('filter_locale_values');
 $lang = $filterLocale ? $this->lang() : null;
 ?>
 
-<div class="full-width-css block media-text grid-x grid-padding-x align-spaced">
+<div class="sensitive-material full-width-css block media-text grid-x grid-padding-x align-spaced">
     <?php if (!empty($heading)): ?>
     <div class="media-text-heading">
         <h3 class="h2 padding-vertical-1"><?= $escape($heading) ?></h3>
     </div>
     <?php endif; ?>
     <div class="large-7">
-        <div class="flex-container align-spaced large-padding-right-1 large-padding-right-0 large-padding-top-1">  
+        <div class="flex-container flex-dir-column align-spaced large-padding-right-1 large-padding-right-0 large-padding-top-1">
             <div class="attachments">
                 <div class="<?= $alignmentClass . ' ' . $thumbnailType . ' captions-' . $captionPosition ?> media file media-text-image unblur-image" id="blur-image" data-toggler=".unblur-image">
                 
@@ -81,7 +81,7 @@ $lang = $filterLocale ? $this->lang() : null;
                         <?php endforeach; ?>
                     </div>
             </div>
-        </div>
+        </div> 
     </div>
     <div class="resource-text large-5 flex-container flex-dir-column align-center padding-1 large-padding-2 xlarge-padding-3">
     <div class="metadata margin-bottom-1 separator-center">
@@ -95,6 +95,7 @@ $lang = $filterLocale ? $this->lang() : null;
     <div class="text font-wide">
         <?= $html ?>
     </div>
-    <button class="button" id="unblur-image" type="button" data-toggle="blur-image">Click to toggle image</button>
+    <h3 class="h4 warning-text margin-bottom-2 xlarge-bottom-top-3">This image contains material visitors may find offensive or upsetting.</h3>
+    <button class="button warning" id="unblur-image" type="button" data-toggle="blur-image">Click to view image</button>
 </div>
 </div>
