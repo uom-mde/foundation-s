@@ -2225,7 +2225,9 @@ figure.max-image-height img,
 }
 
 /*Maximum Block Height*/ 
+@include breakpoint(large) {
 .max-block-height {
   height: 100vh;
   overflow-y: auto;
+}
 }
