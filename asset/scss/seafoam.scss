@@ -935,6 +935,22 @@ figcaption.orbit-caption.caption p {
   }
 }
 
+/*Fix Sketchfab and <iframe> views in Item Show page*/
+.stack .media-render.oembed .sketchfab-embed-wrapper iframe {
+    width: 100%!important;
+    height: 50vh;
+  
+  @include breakpoint(medium) {
+    height: 60vh;
+}
+  @include breakpoint(large) {
+    height: 70vh;
+  }
+  @include breakpoint(xlarge) {
+    height: 80vh;
+}
+}
+
 .link-text-white a {
   color: $white;
 }
