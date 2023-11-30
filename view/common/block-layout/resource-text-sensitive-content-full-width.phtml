@@ -14,7 +14,7 @@
 $escape = $this->plugin('escapeHtml');
 $hyperlink = $this->plugin('hyperlink');
 $siteSetting = $this->plugin('siteSetting');
-
+$uniqueId = uniqid();
 $linkType = $siteSetting('attachment_link_type', 'item');
 
 $filterLocale = (bool) $this->siteSetting('filter_locale_values');
@@ -29,8 +29,8 @@ $lang = $filterLocale ? $this->lang() : null;
     <?php endif; ?>
     <div class="large-7">
         <div class="flex-container flex-dir-column align-spaced large-padding-right-1 large-padding-right-0 large-padding-top-1">
-            <div class="attachments flex-container align-center">
-                <div class="<?= $alignmentClass . ' ' . $thumbnailType . ' captions-' . $captionPosition ?> media file media-text-image unblur-image" id="blur-image" data-toggler=".unblur-image">
+            <div class="attachments">
+                <div class="<?= $alignmentClass . ' ' . $thumbnailType . ' captions-' . $captionPosition ?> media file media-text-image unblur-image" id="blur-image-<?= $uniqueId ?>" data-toggler=".unblur-image">
                 
                     <?php
                         foreach ($attachments as $attachment):
@@ -96,6 +96,6 @@ $lang = $filterLocale ? $this->lang() : null;
         <?= $html ?>
     </div>
     <h3 class="h4 warning-text margin-bottom-2 xlarge-bottom-top-3">This image contains material visitors may find offensive or upsetting.</h3>
-    <button class="button warning" id="unblur-image" type="button" data-toggle="blur-image">Click to view image</button>
+    <button class="button warning" id="unblur-image" type="button" data-toggle="blur-image-<?= $uniqueId ?>">Click to view image</button>
 </div>
 </div>
