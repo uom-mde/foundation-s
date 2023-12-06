@@ -693,6 +693,9 @@ button#unblur-image {
   padding: 1rem;
   width: 100%;
   font-size: 1rem;
+  .caption {
+    color: $dark-gray;
+  }
 }
 
 h3.warning-text {
