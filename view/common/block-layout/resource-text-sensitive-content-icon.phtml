@@ -27,7 +27,7 @@ $lang = $filterLocale ? $this->lang() : null; ?>
     <?php
 endif; ?>
     <div class="large-7 flex-container align-center">
-        <div id="unblur-image" type="button" data-toggle="blur-image-<?=$uniqueId
+        <button id="unblur-image" type="button" data-toggle="blur-image-<?=$uniqueId
 ?>" class="flex-container flex-dir-column align-spaced large-padding-right-1 large-padding-right-0 large-padding-top-1 margin-bottom-0 align-middle">
             <div class="sensitive-content padding-1 large-padding-2 xlarge-padding-3 flex-container flex-dir-column">
                 <h3 class="h4 warning-text margin-bottom-2 xlarge-bottom-top-3">This image contains sensitive content. Click or press to view.</h3>
@@ -80,7 +80,7 @@ foreach ($attachments as $attachment):
 endforeach; ?>
                 </div>
             </div>
-        </div>
+        </button>
     </div>
     <div class="resource-text large-5 flex-container flex-dir-column align-center padding-1 large-padding-2 xlarge-padding-3">
         <div class="metadata margin-bottom-1 separator-center">
