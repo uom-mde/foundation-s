@@ -721,6 +721,12 @@ margin-top: 4 * $global-margin;
   border-radius: 0.5rem;
 }
 
+i.far.fa-eye-slash.fa-lg {
+color: $dark-gray; 
+margin: 0 auto; 
+font-size: 3rem;
+}
+
 #unblur-image {
 background-color: unset!important;
 }
