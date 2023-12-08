@@ -693,12 +693,17 @@ button#unblur-image {
   padding: 1rem;
   width: 100%;
   font-size: 1rem;
+  .caption {
+    color: $dark-gray;
+  }
 }
 
 h3.warning-text {
 font-weight: 400;
+color: $dark-gray;
 }
 
+/*Sensitive content - container*/
 .sensitive-material .large-7 {
 order: 1;
 margin-top: 4 * $global-margin;
@@ -707,6 +712,29 @@ margin-top: 4 * $global-margin;
   order: 0;
   }
 }
+
+/*Sensitive content - icon and message*/
+.sensitive-content {
+  position: absolute;
+  z-index: 99999;
+  background: #ffffff9c;
+  border-radius: 0.5rem;
+}
+
+i.far.fa-eye-slash.fa-lg {
+color: $dark-gray; 
+margin: 0 auto; 
+font-size: 3rem;
+}
+
+#unblur-image {
+background-color: unset!important;
+}
+
+#unblur-image[aria-expanded="false"] .sensitive-content {
+display: none;
+}
+
 /*End Sensitive Material*/
 
 .text {
