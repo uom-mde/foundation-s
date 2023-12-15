@@ -790,9 +790,12 @@ display: none;
 /*Full screen height for Resource Text Openseadragon embed*/
 .resource-text-openseadragon .openseadragon,
 .item-showcase-openseadragon .openseadragon {
-  height: calc(70vh - rem-calc(12))!important;
+  height: calc(65vh - rem-calc(12))!important;
   @include breakpoint(medium) {
-  height: calc(90vh - rem-calc(12))!important;
+  height: calc(75vh - rem-calc(12))!important;
+  @include breakpoint(large) {
+  height: calc(95vh - rem-calc(12))!important;
+  }
 }
 }
 
