@@ -629,8 +629,12 @@ nav.breadcrumbs {
   }
 
   h3.caption {
-      background: #e7e7e7;
-      padding: 0.1em 0;
+      background: #f7f7f7;
+      padding: 0.5rem 0;
+      border-bottom: solid 1px $light-gray;
+      p {
+        margin-bottom: 0;
+      }
   }
   
   /*Hero image sizes*/
@@ -719,12 +723,16 @@ margin-top: 4 * $global-margin;
   z-index: 99999;
   background: #ffffff9c;
   border-radius: 0.5rem;
+  max-width: 30rem;
 }
 
 i.far.fa-eye-slash.fa-lg {
 color: $dark-gray; 
-margin: 0 auto; 
-font-size: 3rem;
+margin: 1rem auto 0rem; 
+font-size: 2rem;
+  @include breakpoint(large) {
+    font-size: 3rem;
+  }
 }
 
 #unblur-image {
