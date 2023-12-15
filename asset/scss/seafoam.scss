@@ -791,6 +791,7 @@ display: none;
 .resource-text-openseadragon .openseadragon,
 .item-showcase-openseadragon .openseadragon {
   height: calc(65vh - rem-calc(12))!important;
+  margin: 0 1rem;
   @include breakpoint(medium) {
   height: calc(75vh - rem-calc(12))!important;
   @include breakpoint(large) {
