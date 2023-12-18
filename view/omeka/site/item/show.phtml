@@ -29,18 +29,14 @@ $useUniversalViewer = false;
 foreach ($itemMedia as $media) {
     $mediaType = $media->mediaType();
     $mediaRenderer = $media->renderer();
-    if (strpos($mediaRenderer, 'iiif') !== false
-    || $mediaType === 'image/jpeg' 
-    ) {
+
+    if ($mediaRenderer !== null && (strpos($mediaRenderer, 'iiif') !== false || $mediaType === 'image/jpeg')) {
         $useMiradorViewer = true;
-    }
-    elseif (strpos($mediaType, 'pdf') !== false 
-    ) {
+    } elseif ($mediaType !== null && strpos($mediaType, 'pdf') !== false) {
         $useUniversalViewer = true;
-    }
-    else {
+    } else {
         $useMediaRender = true;
-    break;
+        break;
     }
 }
 ?>
@@ -56,9 +52,11 @@ foreach ($itemMedia as $media) {
     <div class="full-width-main margin-bottom-2 xlarge-margin-bottom-3">
     <?php if ($useMiradorViewer): ?>
         <?php echo $this->mirador($item); ?> 
-    <?php elseif ($useUniversalViewer): ?>    
-        <?php echo $this->universalViewer($item); ?> 
-    <?php elseif ($useMediaRender): ?>    
+    <?php endif; ?>
+    <?php if ($useUniversalViewer): ?>    
+        <?php echo $this->universalViewer($item); ?>
+    <?php endif; ?> 
+    <?php if ($useMediaRender): ?>    
         <?php echo $media->render(); ?> 
     <?php endif; ?>
     </div>

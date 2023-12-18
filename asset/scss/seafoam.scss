@@ -2023,14 +2023,19 @@ polygon>.svgactive:hover {
 
 #storyboard_viewer.annonaview.storyboard_viewer {
   background: $black;
+  height: 70vh!important;
   @include breakpoint(medium) {
-      height: 97vh!important;
+      height: 80vh!important;
   }
+    @include breakpoint(xlarge) {
+      height: 90vh!important;
+      } 
 }
 
 .seadragonbox .openseadragon-container {
-  @include breakpoint(medium) {
-      height: 95vh!important;
+      height: 70vh!important;
+      @include breakpoint(medium) {
+      height: 80vh!important;
       } 
   @include breakpoint(xlarge) {
       height: 90vh!important;
@@ -2038,9 +2043,9 @@ polygon>.svgactive:hover {
 }
 
 .seadragonbox {
-  height: 90vh!important;
-  @include breakpoint(medium) {
-      height: 95vh!important;
+  height: 70vh!important;
+      @include breakpoint(medium) {
+      height: 80vh!important;
       } 
   @include breakpoint(xlarge) {
       height: 90vh!important;
