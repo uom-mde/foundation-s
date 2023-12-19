@@ -106,8 +106,11 @@ header .top-bar-right {
 .university-logo {
   margin: rem-calc(12);
   display: flex;
-  @include breakpoint(339) {
+  @include breakpoint(355) {
       margin: rem-calc(12) rem-calc(24);
+  }
+  @include breakpoint(400) {
+    flex-grow: 1;
   }
 }
 
@@ -174,6 +177,13 @@ ul.language-switcher.locale-code li a {
   font-weight: 400;
 }
 /*End Language Selector*/
+
+/*Remove margin for menu button on smaller screens*/ 
+@include breakpoint(349 down) {
+.title-bar button {
+  margin: 0;
+}
+}
 
 /*Revised by JMc to allow for UoM footer*/ 
 body.vertical-menu footer {
