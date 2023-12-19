@@ -35,12 +35,12 @@
                 $caption = $attachment->caption();
                 if ($caption):
                     ?>
-                    <div class="caption padding-1 xlarge-padding-horizontal-2 xlarge-padding-horizontal-3 font-wide flex-child-grow grid-container">
+                    <div class="caption padding-1 xlarge-padding-horizontal-2 xlarge-padding-horizontal-3 flex-child-grow grid-container">
                         <p class="margin-bottom-0"><?php echo $caption; ?></p>
                     </div>
                 <?php endif; ?>
 
-                <div class="text font-wide align-left">
+                <div class="text align-left">
                     <?php
                     $identifier = $item->value('dcterms:identifier');
                     if ($identifier):

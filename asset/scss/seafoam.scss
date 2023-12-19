@@ -200,7 +200,7 @@ body.vertical-menu footer {
     color: $white;
   }
   & a {
-    color: $warning-color;
+    color: $white;
   }
   & a:hover {
     text-decoration: underline;
@@ -1091,6 +1091,25 @@ dl dt {
 margin-top: 2 * $global-margin;
 }
 
+/*IvyRze blocks*/ 
+/*Image Banner block*/
+.overlay-container {
+  h2 {
+    font-size: 3rem;
+    font-weight: 600;
+  }
+  p {
+    font-size: 1.5rem;
+  }
+}
+
+.image-banner .overlay-container {
+  min-height: clamp(350px, 35vh, 451px);
+}
+
+.image-banner .image-container img {
+  max-width: 1400px;
+}
 
 /*Agile Theme Tools Blocks*/ 
 /*Old Item Listing with Introduction Block*/

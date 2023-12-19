@@ -80,7 +80,7 @@ $lang = $filterLocale ? $this->lang() : null;
             <?php endforeach; ?>
         </div>
     </div>
-    <div class="resource-text large-6 flex-container grid-y grid-padding-y flex-dir-column align-middle align-center font-wide padding-1 xlarge-padding-2">
+    <div class="resource-text large-6 flex-container grid-y grid-padding-y flex-dir-column align-middle align-center padding-1 xlarge-padding-2">
     <div class="metadata margin-bottom-1 separator-center">
         <?php $showTitleOption = $this->showTitleOption; ?>
         <?php if ($showTitleOption == 'item_title'): ?>
@@ -101,7 +101,7 @@ $lang = $filterLocale ? $this->lang() : null;
       <h3><small origin><?php echo $origin; ?></small></h3>
       <?php endif; ?>
       </div>
-    <div class="text font-wide">
+    <div class="text">
         <?= $html ?>
         <?php
          $identifier = $item->value('dcterms:identifier');

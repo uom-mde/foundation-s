@@ -48,10 +48,10 @@
             $caption = $attachment->caption();
             if ($caption):
                 ?>
-                <div class="caption padding-1 font-wide grid-container text-left"><?php echo $caption; ?></div>
+                <div class="caption padding-1 grid-container text-left"><?php echo $caption; ?></div>
             <?php endif; ?>
 
-            <div class="text font-wide text-center">
+            <div class="text text-center">
                 <?php
                 $identifier = $item->value('dcterms:identifier');
                 if ($identifier):
