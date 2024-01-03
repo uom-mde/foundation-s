@@ -1120,7 +1120,10 @@ section.image-banner {
 
 /*Additional Search Bar*/
 .search-bar {
+  display: none;
+  @include breakpoint(large) {
   display: flex;
+  }
 }
 
 .search-bar svg {
