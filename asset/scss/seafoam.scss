@@ -1118,6 +1118,25 @@ section.image-banner {
   }
 }
 
+/*Additional Search Bar*/
+svg {
+  width: 20px;
+  height: 20px;
+}
+
+.button {
+  border-radius: 50px;
+}
+
+.search-button {
+  display: none;
+  &.is-shown {
+    display: flex;
+  }
+}
+
+
+
 /*Agile Theme Tools Blocks*/ 
 /*Old Item Listing with Introduction Block*/
 .item-listing h2,
