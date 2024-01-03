@@ -20,9 +20,13 @@ h1.site-title {
   margin-right: 1.5 * $global-margin;
   font-weight: 600;
   color: $white;
-
+  max-width: 60%;
   @include breakpoint(medium) {
-      font-size: 1.2 * $global-font-size;
+    font-size: 1.2 * $global-font-size;
+    max-width: 70%;
+  }
+  @include breakpoint(large) {
+    max-width: unset;
   }
 }
 
@@ -1176,17 +1180,6 @@ nav.top-bar-left {
   @include breakpoint(large) {
     justify-content: unset;
   }
-}
-
-h1.site-title {
-  flex-shrink: 1;
-  max-width: 60%;
-    @include breakpoint(medium) {
-      max-width: 70%;
-    }
-    @include breakpoint(large) {
-      max-width: unset;
-    }
 }
 
 #show-search-menu-mobile .input-group-button button {
