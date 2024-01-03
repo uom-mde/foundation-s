@@ -1201,7 +1201,7 @@ h1.site-title {
   @include breakpoint(large) {
   width: 124px;
   }
-  @include breakpoint(1000px) {
+  @include breakpoint(1050px) {
     width: auto;
   }
 }
