@@ -20,9 +20,13 @@ h1.site-title {
   margin-right: 1.5 * $global-margin;
   font-weight: 600;
   color: $white;
-
+  max-width: 60%;
   @include breakpoint(medium) {
-      font-size: 1.2 * $global-font-size;
+    font-size: 1.2 * $global-font-size;
+    max-width: 70%;
+  }
+  @include breakpoint(large) {
+    max-width: unset;
   }
 }
 
@@ -1117,6 +1121,87 @@ section.image-banner {
     margin-top: -2 * $global-margin;
   }
 }
+
+/*Additional Search Bar*/
+.search-bar {
+  display: none;
+  @include breakpoint(large) {
+  display: flex;
+  }
+}
+
+.search-bar-mobile {
+  display: flex;
+  @include breakpoint(large) {
+  display: none;
+  }
+}
+
+.search-bar svg,
+.search-bar-mobile svg {
+  width: 20px;
+  height: 20px;
+}
+.search-bar button.search-icon,
+.search-bar-mobile button.search-icon {
+  margin: 0 $global-margin;
+  border-radius: 50px;
+}
+
+.search-bar button.search-icon {
+  @include breakpoint(large) {
+    margin: 0 0.5rem;
+  }
+  @include breakpoint(1000px) {
+    margin: 0 1rem;
+  }
+}
+
+.search-button {
+  display: none;
+  &.is-shown {
+    display: flex;
+  }
+}
+
+button.search-icon[aria-expanded="true"] {
+  background: $uom-footer;
+  opacity: 0.35;
+}
+
+.input-group-field {
+  height: 100%;
+}
+
+nav.top-bar-left {
+  justify-content: space-between;
+  flex-flow: wrap;
+  row-gap: $global-margin;
+  @include breakpoint(large) {
+    justify-content: unset;
+  }
+}
+
+#show-search-menu-mobile .input-group-button button {
+  background: $secondary-color;
+  }
+
+.search-bar-mobile button.search-icon[aria-expanded=true] {
+  background: $primary-color;
+  }
+  
+#show-search-menu input[type=text]:not(:only-child) {
+  @include breakpoint(large) {
+  width: 124px;
+  }
+  @include breakpoint(1050px) {
+    width: auto;
+  }
+}
+
+#show-search-menu-mobile input[type=text]:not(:only-child) {
+  width: 100%;
+  }
 
 /*Agile Theme Tools Blocks*/ 
 /*Old Item Listing with Introduction Block*/
