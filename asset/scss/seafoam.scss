@@ -1119,12 +1119,16 @@ section.image-banner {
 }
 
 /*Additional Search Bar*/
-svg {
+.search-bar {
+  display: flex;
+}
+
+.search-bar svg {
   width: 20px;
   height: 20px;
 }
-
-.button {
+.search-bar button.search-icon {
+  margin: 0 $global-margin;
   border-radius: 50px;
 }
 
@@ -1135,7 +1139,14 @@ svg {
   }
 }
 
+button.search-icon[aria-expanded="true"] {
+  background: $uom-footer;
+  opacity: 0.35;
+}
 
+.input-group-field {
+  height: 100%;
+}
 
 /*Agile Theme Tools Blocks*/ 
 /*Old Item Listing with Introduction Block*/
