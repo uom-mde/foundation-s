@@ -1188,6 +1188,10 @@ h1.site-title {
   background: $primary-color;
   }
 
+#show-search-menu-mobile input[type=text]:not(:only-child) {
+  width: 100%;
+  }
+
 /*Agile Theme Tools Blocks*/ 
 /*Old Item Listing with Introduction Block*/
 .item-listing h2,
