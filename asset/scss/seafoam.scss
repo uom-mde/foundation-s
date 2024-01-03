@@ -1111,6 +1111,13 @@ margin-top: 2 * $global-margin;
   max-width: 1400px;
 }
 
+section.image-banner {
+  margin-top: -1 * $global-margin;
+  @include breakpoint(medium) {
+    margin-top: -2 * $global-margin;
+  }
+}
+
 /*Agile Theme Tools Blocks*/ 
 /*Old Item Listing with Introduction Block*/
 .item-listing h2,
