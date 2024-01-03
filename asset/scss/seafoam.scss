@@ -1126,11 +1126,20 @@ section.image-banner {
   }
 }
 
-.search-bar svg {
+.search-bar-mobile {
+  display: flex;
+  @include breakpoint(large) {
+  display: none;
+  }
+}
+
+.search-bar svg,
+.search-bar-mobile svg {
   width: 20px;
   height: 20px;
 }
-.search-bar button.search-icon {
+.search-bar button.search-icon,
+.search-bar-mobile button.search-icon {
   margin: 0 $global-margin;
   border-radius: 50px;
 }
@@ -1150,6 +1159,34 @@ button.search-icon[aria-expanded="true"] {
 .input-group-field {
   height: 100%;
 }
+
+nav.top-bar-left {
+  justify-content: space-between;
+  flex-flow: wrap;
+  row-gap: $global-margin;
+  @include breakpoint(large) {
+    justify-content: unset;
+  }
+}
+
+h1.site-title {
+  flex-shrink: 1;
+  max-width: 60%;
+    @include breakpoint(medium) {
+      max-width: 70%;
+    }
+    @include breakpoint(large) {
+      max-width: unset;
+    }
+}
+
+#show-search-menu-mobile .input-group-button button {
+  background: $secondary-color;
+  }
+
+.search-bar-mobile button.search-icon[aria-expanded=true] {
+  background: $primary-color;
+  }
 
 /*Agile Theme Tools Blocks*/ 
 /*Old Item Listing with Introduction Block*/
