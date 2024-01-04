@@ -1203,6 +1203,30 @@ nav.top-bar-left {
   width: 100%;
   }
 
+  /*Site Switcher Button*/ 
+  .button-site-switcher {
+  margin: 0; 
+  border-radius: 1.25rem;
+  /*fill: $white;*/
+  display: flex;
+  align-items: center;
+  background: $white;
+  border: solid rem-calc(1px) $medium-gray;
+  & ul {
+    margin-left: 0;
+    list-style-type: none;
+  }
+  & ul.navigation {
+  margin-bottom: 0;
+  }
+  /*& ul li a {
+  color: $white;
+  }*/
+  & svg {
+    margin-right: rem-calc(12px);
+  }
+  }
+
 /*Agile Theme Tools Blocks*/ 
 /*Old Item Listing with Introduction Block*/
 .item-listing h2,
