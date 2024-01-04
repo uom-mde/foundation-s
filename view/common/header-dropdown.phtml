@@ -22,6 +22,9 @@
             <button class="menu-toggle" type="button" data-toggle="offCanvas"
                 aria-label="<?php echo $this->translate('Menu'); ?>"><i class="fas fa-bars"></i></button>
     </nav>
+    <button>
+    <?= $this->navMenu('explicit-content') ?>
+    </button>
 </div>
 <div class="top-bar">
     <nav class="top-bar-left">
@@ -37,7 +40,6 @@
             <?php echo $this->partial('common/search-form'); ?>
         </div>
     </div>
-
     </nav>
     <div class="top-bar-right" id="responsive-menu">
         <?php echo $site->publicNav()->menu()->setPartial('common/foundation-navigation.phtml')->renderPartialWithParams(['layout' => 'dropdown']); ?>
