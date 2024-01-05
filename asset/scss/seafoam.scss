@@ -1204,7 +1204,7 @@ nav.top-bar-left {
   }
 
   /*Site Switcher Button*/ 
-  .button-site-switcher {
+.button-site-switcher {
   margin: 0; 
   border-radius: 1.25rem;
   /*fill: $white;*/
@@ -1220,13 +1220,17 @@ nav.top-bar-left {
   & ul.navigation {
   margin-bottom: 0;
   }
-  /*& ul li a {
-  color: $white;
-  }*/
   & svg {
     margin: 0 rem-calc(12px);
   }
+  &:hover svg path {
+    fill: $white;
+  } 
   }
+
+button.button-site-switcher:hover ul li a {
+  color: $white;
+}
 
 /*Agile Theme Tools Blocks*/ 
 /*Old Item Listing with Introduction Block*/
