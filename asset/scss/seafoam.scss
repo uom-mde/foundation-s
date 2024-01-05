@@ -1135,6 +1135,9 @@ section.image-banner {
   @include breakpoint(large) {
   display: none;
   }
+  & svg path {
+    fill: $white;
+  }
 }
 
 .search-bar svg,
@@ -1149,11 +1152,15 @@ section.image-banner {
 }
 
 .search-bar button.search-icon {
+  background: $white;;
   @include breakpoint(large) {
     margin: 0 0.5rem;
   }
   @include breakpoint(1000px) {
     margin: 0 1rem;
+  }
+  & svg path {
+    fill: $dark-gray;
   }
 }
 
@@ -1165,8 +1172,11 @@ section.image-banner {
 }
 
 button.search-icon[aria-expanded="true"] {
-  background: $uom-footer;
+  background: $medium-gray;
   opacity: 0.35;
+  & svg path {
+    fill: $white;
+  }
 }
 
 .input-group-field {
@@ -1182,6 +1192,10 @@ nav.top-bar-left {
   }
 }
 
+.input-group-button button {
+  border-radius: 0 1.25rem 1.25rem 0;
+}
+
 #show-search-menu-mobile .input-group-button button {
   background: $secondary-color;
   }
@@ -1191,6 +1205,7 @@ nav.top-bar-left {
   }
   
 #show-search-menu input[type=text]:not(:only-child) {
+  border-radius: 1.25rem 0 0 1.25rem;
   @include breakpoint(large) {
   width: 124px;
   }
