@@ -1154,7 +1154,7 @@ section.image-banner {
 
 .search-bar button.search-icon,
 .search-bar-mobile button.search-icon {
-  margin: 0 $global-margin;
+  margin: 0 (0.5 * $global-margin) 0 $global-margin;
   border-radius: 50px;
 }
 
@@ -1181,6 +1181,7 @@ section.image-banner {
 button.search-icon[aria-expanded="true"] {
   background: $medium-gray;
   opacity: 0.35;
+  margin: 0 (0.5 * $global-margin) 0 $global-margin;
   & svg.inactive {
     display: none;
   }
@@ -1215,7 +1216,7 @@ nav.top-bar-left {
 
 .search-bar-mobile button.search-icon[aria-expanded=true] {
   background: $primary-color;
-  margin: 0;
+  margin: 0 $global-margin;
   }
   
 #show-search-menu input[type=text]:not(:only-child) {
