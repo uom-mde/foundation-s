@@ -46,10 +46,12 @@ $escapeAttr = $plugins->get('escapeHtmlAttr');
         <?php endif; ?>
     </div>
     <?php if ($attachment['caption'] !== ''): ?>
-        <div class="grid-container">
-            <h3 class="h5 caption padding-horizontal-1 medium-large-padding-horizontal-2 large-padding-horizontal-3">
-                <?= empty($attachment['raw']) ? $attachment['caption'] : $escape($attachment['caption']) ?>
-            </h3>
+        <div class="hero-title-caption">
+            <div class="grid-container">
+                <h3 class="h5 caption padding-horizontal-1">
+                    <?= empty($attachment['raw']) ? $attachment['caption'] : $escape($attachment['caption']) ?>
+                </h3>
+            </div>
         </div>
     <?php endif; ?>
 </div>
