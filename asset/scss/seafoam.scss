@@ -671,6 +671,24 @@ nav.breadcrumbs {
       height: rem-calc(300px);
       }
 
+  /*Hero Image FixedWidth*/
+  .hero-image.hero-image-fixed {
+    max-width: 1600px;
+    margin: 0 auto;
+  }
+
+  .hero-image-fixed .hero-title-bottom h2 {
+    padding: 0;
+  } 
+
+  .hero-image-fixed.image-large {
+    max-height: 500px;
+    }
+
+  .hero-image-fixed .grid-container h3.caption {
+    margin-bottom: 0;
+  }
+
 /*Asset with Hero and two columns*/ 
 .hero-two-col {
   position: relative;
@@ -2398,6 +2416,11 @@ ul.language-switcher.locale-code li span.active {
 
 .no-margin {
   margin: unset;
+}
+
+/*Grey Background*/
+.gray-background {
+background: $light-gray
 }
 
 /*Maximum image height for Item Showcase Block*/ 
