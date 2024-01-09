@@ -617,6 +617,8 @@ nav.breadcrumbs {
   .hero-title-bottom .hero-title {
     width: 100%;
     max-width: 100%;
+    background-color: rgba(255,255,255,.8);
+    padding: 1rem 2.5rem;
   }
 
   .hero-image .hero-title-bottom h2 {
@@ -626,19 +628,12 @@ nav.breadcrumbs {
 
   .hero-title-bottom h2 {
     margin-bottom: 0;
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: transparent;
     line-height: 1.2;
-    padding: $global-padding 2.5 * $global-padding;
+    padding: $global-padding;
     font-weight: 300;
     @include breakpoint(medium) {
       line-height: 1.4;
-      padding-left: 3 * $global-padding
-    }
-    @include breakpoint(large) {
-      padding-left: 4 * $global-padding
-    }
-    @include breakpoint(xlarge) {
-      padding-left: 5 * $global-padding
     }
   }
 
