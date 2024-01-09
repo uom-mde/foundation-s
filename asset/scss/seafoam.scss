@@ -1128,12 +1128,18 @@ section.image-banner {
   @include breakpoint(large) {
   display: flex;
   }
+  & svg.active {
+    display: none;
+  }
 }
 
 .search-bar-mobile {
   display: flex;
   @include breakpoint(large) {
   display: none;
+  }
+  & svg.active {
+    display: none;
   }
   & svg path {
     fill: $white;
@@ -1145,6 +1151,7 @@ section.image-banner {
   width: 20px;
   height: 20px;
 }
+
 .search-bar button.search-icon,
 .search-bar-mobile button.search-icon {
   margin: 0 $global-margin;
@@ -1174,6 +1181,12 @@ section.image-banner {
 button.search-icon[aria-expanded="true"] {
   background: $medium-gray;
   opacity: 0.35;
+  & svg.inactive {
+    display: none;
+  }
+  & svg.active {
+    display: flex;
+  }
   & svg path {
     fill: $white;
   }
