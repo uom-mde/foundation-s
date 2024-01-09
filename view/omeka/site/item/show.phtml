@@ -52,11 +52,9 @@ foreach ($itemMedia as $media) {
     <div class="full-width-main margin-bottom-2 xlarge-margin-bottom-3">
     <?php if ($useMiradorViewer): ?>
         <?php echo $this->mirador($item); ?> 
-    <?php endif; ?>
-    <?php if ($useUniversalViewer): ?>    
+    <?php elseif ($useUniversalViewer): ?>    
         <?php echo $this->universalViewer($item); ?>
-    <?php endif; ?> 
-    <?php if ($useMediaRender): ?>    
+    <?php elseif ($useMediaRender): ?>    
         <?php echo $media->render(); ?> 
     <?php endif; ?>
     </div>
