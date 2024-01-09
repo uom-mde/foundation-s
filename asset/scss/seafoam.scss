@@ -1202,6 +1202,7 @@ nav.top-bar-left {
 
 .search-bar-mobile button.search-icon[aria-expanded=true] {
   background: $primary-color;
+  margin: 0;
   }
   
 #show-search-menu input[type=text]:not(:only-child) {
