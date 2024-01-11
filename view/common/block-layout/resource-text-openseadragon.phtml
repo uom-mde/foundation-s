@@ -39,34 +39,34 @@ $lang = $filterLocale ? $this->lang() : null;
              $link = null;
              $item = $attachment->item();
              if ($item):
-                 $media = $attachment->media() ?: $item->primaryMedia();
-                 $mediaRenderer = $media->renderer();
-                 $mediaType = $media->mediaType();
-                 echo $media->render([
-                     "thumbnailType" => $thumbnailType,
-                     "link" => $link,
-                 ]);
+                $media = $attachment->media() ? : $item->primaryMedia();
+                $mediaRenderer = $media->renderer();
+                $mediaType = $media->mediaType();
+                if ($media && $mediaRenderer === 'iiif') :
+                    echo $this->thumbnail($media, $this->thumbnailType);
+                elseif ($media && $mediaType === 'image/jpeg') :
+                    echo $this->thumbnail($media, $this->thumbnailType);
+                elseif ($media) :
+                    echo $media->render(['thumbnailType' => $thumbnailType,'link' => $link,]);
+                endif;
+            
 
-                 if ($showTitleOption == "item_title"):
-                     $title = $item->displayTitle(null, $lang);
-                 elseif ($media && $showTitleOption == "file_name"):
-                     $title = $media->displayTitle(null, $lang);
-                 endif;
+                if ($showTitleOption == 'item_title'):
+                    $title = $item->displayTitle(null, $lang);
+                elseif ($media && $showTitleOption == 'file_name'):
+                    $title = $media->displayTitle(null, $lang);
+                endif;
 
-                 if ($title):
-                     if ($media && $linkType === "media"):
-                         $link = $media->link($title);
-                     elseif (
-                         $media &&
-                         $linkType === "original" &&
-                         $media->hasOriginal()
-                     ):
-                         $link = $hyperlink($title, $media->originalUrl());
-                     else:
-                         $link = $item->link($title);
-                     endif;
-                 endif;
-             endif;
+                if ($title):
+                    if ($media && $linkType === 'media'):
+                        $link = $media->link($title);
+                    elseif ($media && $linkType === 'original' && $media->hasOriginal()):
+                        $link = $hyperlink($title, $media->originalUrl());
+                    else:
+                        $link = $item->link($title);
+                    endif;
+                endif;
+            endif;
 
              $caption = $attachment->caption();
              ?>

@@ -39,10 +39,14 @@ $lang = $filterLocale ? $this->lang() : null;
                     $media = $attachment->media() ? : $item->primaryMedia();
                     $mediaRenderer = $media->renderer();
                     $mediaType = $media->mediaType();
-                   echo $media->render([
-                   'thumbnailType' => $thumbnailType,
-                   'link' => $link,
-                    ]);
+                    if ($media && $mediaRenderer === 'iiif') :
+                        echo $this->thumbnail($media, $this->thumbnailType);
+                    elseif ($media && $mediaType === 'image/jpeg') :
+                        echo $this->thumbnail($media, $this->thumbnailType);
+                    elseif ($media) :
+                        echo $media->render(['thumbnailType' => $thumbnailType,'link' => $link,]);
+                    endif;
+                
 
                     if ($showTitleOption == 'item_title'):
                         $title = $item->displayTitle(null, $lang);
