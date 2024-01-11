@@ -87,8 +87,11 @@ $lang = $filterLocale ? $this->lang() : null;
         <h3><?php echo $item->link($media->displayTitle()); ?></h3>
         <?php endif; ?>
       </div>
-    <div class="text">
-        <?= $html ?>
-    </div>
+      <div class="text">
+            <?= $html ?>
+            <div class="learn-more">
+                <h3 class="h4"><?php echo $item->link('Learn more about this item'); ?></h3>
+            </div>
+        </div>
 </div>
 </div>

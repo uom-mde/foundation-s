@@ -101,14 +101,17 @@ $lang = $filterLocale ? $this->lang() : null;
       <h3><small origin><?php echo $origin; ?></small></h3>
       <?php endif; ?>
       </div>
-    <div class="text">
-        <?= $html ?>
-        <?php
-         $identifier = $item->value('dcterms:identifier');
-         if ($identifier):
-         ?>
-      <h3 class="h4"><small><?php echo 'Ref. ' . $identifier; ?></small></h3>
-      <?php endif; ?>
-    </div>
+      <div class="text">
+            <?= $html ?>
+            <div class="learn-more">
+                <h3 class="h4"><?php echo $item->link('Learn more about this item'); ?></h3>
+            </div>
+            <?php
+            $identifier = $item->value("dcterms:identifier");
+            if ($identifier): ?>
+            <h3 class="h4"><small><?php echo "Ref. " . $identifier; ?></small></h3>
+            <?php endif;
+            ?>
+        </div>
     </div>
 </div>
