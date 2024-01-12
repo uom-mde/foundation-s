@@ -87,9 +87,9 @@ $lang = $filterLocale ? $this->lang() : null;
       </div>
       <div class="text">
             <?= $html ?>
-            <div class="learn-more">
-                <h3 class="h4"><?php echo $item->link('Learn more about this item'); ?></h3>
-            </div>
         </div>
-</div>
+        <button class="button medium warning learn-more">
+            <h3 class="h5"><?php echo $item->link('Learn more about this item'); ?></h3>
+        </button>
+    </div>
 </div>

@@ -101,9 +101,6 @@ $lang = $filterLocale ? $this->lang() : null;
       </div>
       <div class="text">
             <?= $html ?>
-            <div class="learn-more">
-                <h3 class="h4"><?php echo $item->link('Learn more about this item'); ?></h3>
-            </div>
             <?php
             $identifier = $item->value("dcterms:identifier");
             if ($identifier): ?>
@@ -111,5 +108,8 @@ $lang = $filterLocale ? $this->lang() : null;
             <?php endif;
             ?>
         </div>
+        <button class="button medium warning learn-more">
+            <h3 class="h5"><?php echo $item->link('Learn more about this item'); ?></h3>
+        </button>
     </div>
 </div>
