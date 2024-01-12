@@ -17,7 +17,7 @@
                 $media = $attachment->media() ?: $item->primaryMedia();
                 if ($media):
                     $image = preg_match('/alt=""/', $this->thumbnail($media, $this->thumbnailType)) == 1 ? $this->thumbnail($media, $this->thumbnailType, ['alt' => $title]) : $this->thumbnail($media, $this->thumbnailType);
-                    echo $image;  // Assuming $item is an object and should be called as a method, not a function.
+                    echo $image;
                 endif;                
                 ?>
                     <?php $showTitleOption = $this->showTitleOption; ?>
@@ -37,9 +37,6 @@
                 ?>
                 <div class="caption padding-1 grid-container text-left"><?php echo $caption; ?></div>
             <?php endif; ?>
-            <div class="learn-more">
-                <h3 class="h5"><?php echo $item->link('Learn more about this item'); ?></h3>
-            </div>
         </div>
     <?php endforeach; ?>
 </div>
