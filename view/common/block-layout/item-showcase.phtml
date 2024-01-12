@@ -18,20 +18,23 @@
             echo $this->thumbnail($media, $this->thumbnailType);
         endif;
         ?>
-        <?php $showTitleOption = $this->showTitleOption; ?>
-        <?php if ($showTitleOption == 'item_title'): ?>
-        <h3"><?php echo $item->link($item->displayTitle()); ?></h3>
-        <?php elseif ($showTitleOption == 'file_name'): ?>
-        <h3><?php echo $media->displayTitle(); ?></h3>
+            <?php $showTitleOption = $this->showTitleOption; ?>
+            <?php if ($showTitleOption == 'item_title'): ?>
+            <h3"><?php echo $item->link($item->displayTitle()); ?></h3>
+            <?php elseif ($showTitleOption == 'file_name'): ?>
+            <h3><?php echo $media->displayTitle(); ?></h3>
+            <?php endif; ?>
         <?php endif; ?>
-    <?php endif; ?>
 
-    <?php
-    $caption = $attachment->caption();
-    if ($caption):
-    ?>
-        <div class="caption"><?php echo $caption; ?></div>
-    <?php endif; ?>
+        <?php
+        $caption = $attachment->caption();
+        if ($caption):
+        ?>
+            <div class="caption"><?php echo $caption; ?></div>
+        <?php endif; ?>
+        <button class="button medium warning learn-more">
+            <h3 class="h5"><?php echo $item->link('Learn more about this item'); ?></h3>
+        </button>
     </div>
 <?php endforeach; ?>
 </div>
