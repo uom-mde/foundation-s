@@ -33,7 +33,7 @@ endif; ?>
                 <i class="far fa-eye-slash fa-lg"></i>
                 <h3 class="h4 warning-text margin-top-1 xlarge-margin-top-2">This item contains sensitive content which people may find offensive. Click or press to view.</h3>
             </div>
-            <div class="attachments">
+            <div class="attachments max-image-height">
                 <div class="<?=$alignmentClass . ' ' . $thumbnailType . ' captions-' . $captionPosition ?> media file media-text-image unblur-image" id="blur-image-<?=$uniqueId ?>" data-toggler=".unblur-image">
                     <?php
 foreach ($attachments as $attachment):
@@ -85,7 +85,7 @@ endforeach; ?>
             </div>
         </button>
     </div>
-    <div class="resource-text large-5 flex-container flex-dir-column align-center padding-1 large-padding-2 xlarge-padding-3">
+    <div class="resource-text large-5 flex-container flex-dir-column align-center padding-horizontal-1 large-padding-horizontal-2 xlarge-padding-horizontal-3">
         <div class="metadata margin-bottom-1 separator-center">
             <?php $showTitleOption = $this->showTitleOption; ?>
             <?php if ($showTitleOption == "item_title"): ?>

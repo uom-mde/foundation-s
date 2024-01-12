@@ -27,8 +27,8 @@ $lang = $filterLocale ? $this->lang() : null;
         <h3 class="h2 padding-vertical-1"><?= $escape($heading) ?></h3>
     </div>
     <?php endif; ?>
-    <div class="<?= $alignmentClass . ' ' . $thumbnailType . ' captions-' . $captionPosition ?> media file media-text-image large-7 flex-container align-spaced large-padding-right-1 large-padding-right-0 large-padding-top-1">
-        <div class="attachments">
+    <div class="<?= $alignmentClass . ' ' . $thumbnailType . ' captions-' . $captionPosition ?> media file media-text-image large-7 flex-container align-spaced padding-horizontal-1 large-padding-horizontal-2 xlarge-padding-horizontal-3">
+        <div class="attachments max-image-height">
         <?php
             foreach ($attachments as $attachment):
                 $render = null;
