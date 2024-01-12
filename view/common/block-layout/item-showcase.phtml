@@ -15,7 +15,7 @@
         <?php
         $media = $attachment->media() ?: $item->primaryMedia();
         if ($media):
-            echo $item->linkRaw($this->thumbnail($media, $this->thumbnailType));
+            echo $this->thumbnail($media, $this->thumbnailType);
         endif;
         ?>
         <?php $showTitleOption = $this->showTitleOption; ?>
