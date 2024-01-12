@@ -12,16 +12,15 @@
             if ($media && $mediaRenderer !== 'iiif') :
                 echo $media->render([
                 'thumbnailType' => $thumbnailType,
-                'link' => $link,
             ]);
             elseif ($media) :
-                echo $item->linkRaw($this->thumbnail($media, $this->thumbnailType));
+                echo $this->thumbnail($media, $this->thumbnailType);
             endif;
         ?>
         <div class="metadata">
         <?php $showTitleOption = $this->showTitleOption; ?>
         <?php if ($showTitleOption == 'item_title'): ?>
-        <h3><?php echo $item->link($item->displayTitle()); ?></h3>
+        <h3><?php echo $item->displayTitle(); ?></h3>
         <?php elseif ($showTitleOption == 'file_name'): ?>
         <h3><?php echo $media->displayTitle(); ?></h3>
         <?php endif; ?>
@@ -34,6 +33,9 @@
     ?>
         <div class="caption padding-1"><?php echo $caption; ?></div>
     <?php endif; ?>
+    </div>
+    <div class="learn-more">
+        <h3 class="h5"><?php echo $item->link('Learn more about this item'); ?></h3>
     </div>
 <?php endforeach; ?>
     </div>
