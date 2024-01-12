@@ -48,9 +48,9 @@
                     <h3 class="h4 identifier padding-horizontal-1 xlarge-padding-horizontal-2 xlarge-padding-horizontal-3"><small><?php echo 'Ref. ' . $identifier; ?></small></h3>
                     <?php endif; ?>
                 </div>
-                <button class="button medium warning learn-more">
-                    <h3 class="h5"><?php echo $item->link('Learn more about this item'); ?></h3>
-                </button>
+                <div class="learn-more">
+                    <h3 class="button medium warning"><?php echo $item->link("Learn more about this item"); ?></h3>
+                </div>
             </div>
         <?php endforeach; ?>
     </div>
