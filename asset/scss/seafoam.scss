@@ -475,6 +475,11 @@ nav.breadcrumbs {
   }
 }
 
+/*Change button size for link to Item Show*/ 
+.item-showcase .learn-more h3 {
+  font-size: 1.1 * $global-font-size;
+}
+
 /*Media Embed*/
 /*Increase size of thumbnails for Media Embed blocks*/ 
 .left {
