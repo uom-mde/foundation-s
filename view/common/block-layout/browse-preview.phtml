@@ -19,7 +19,7 @@ $valueLang = $filterLocale ? [$lang, ''] : null;
 
 <?php if ($this->heading): ?>
 <div class="preview-header">
-    <h3><?php echo $this->hyperlink($this->heading, $queryUrl); ?></h3>
+    <h2><?php echo $this->hyperlink($this->heading, $queryUrl); ?></h2>
     <?php
     if ($this->linkText):
         echo $this->hyperlink($this->linkText, $queryUrl);

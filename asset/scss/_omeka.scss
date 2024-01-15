@@ -1052,8 +1052,8 @@ body.vertical-menu footer {
 }
 
 .attachments .media-render > h3,
-.file h3,
-.item-showcase h3 {
+.file h2,
+.item-showcase h2 {
   font-size: rem-calc(map-deep-get($header-styles, small, h4, font-size));
   margin: $global-margin 0;
 }
@@ -1234,7 +1234,7 @@ body.vertical-menu footer {
   }
 }
 
-.results > h3 {
+.results > h2 {
   border-bottom: 1px solid $light-gray;  
 }
 

@@ -127,7 +127,7 @@ $siteSlug = $site->slug();
         <div class="entry entry-<?= $resourceType ?>">
             <?= $render ?>
             <?php if ($title && $url): ?>
-            <h3><?= $hyperlink($title, $url, ['class' => $linkClass]) ?></h3>
+            <h2><?= $hyperlink($title, $url, ['class' => $linkClass]) ?></h2>
             <?php endif; ?>
             <?php if ($caption): ?>
             <div class="caption">

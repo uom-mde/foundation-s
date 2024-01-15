@@ -5,7 +5,7 @@
 <div class="grix-x grid-container">
     <?php if (!empty($heading)): ?>
         <div class="media-text-heading">
-            <h3 class="h2 padding-vertical-1"><?= $heading ?></h3>
+            <h2 class="h2 padding-vertical-1"><?= $heading ?></h2>
         </div>
     <?php endif; ?>
 </div>
@@ -27,9 +27,9 @@
                 <div class="separator-center">
                     <?php $showTitleOption = $this->showTitleOption; ?>
                     <?php if ($showTitleOption == 'item_title'): ?>
-                        <h3 class="margin-top-1"><?php echo $item->displayTitle(); ?></h3>
+                        <h2 class="margin-top-1"><?php echo $item->displayTitle(); ?></h2>
                     <?php elseif ($showTitleOption == 'file_name'): ?>
-                        <h3 class="margin-top-1"><?php echo $media->displayTitle(); ?></h3>
+                        <h2 class="margin-top-1"><?php echo $media->displayTitle(); ?></h2>
                     <?php endif; ?>
                 <?php endif; ?>
                 </div>
@@ -40,7 +40,7 @@
                 <div class="caption padding-1 xlarge-padding-2 xlarge-padding-horizontal-3 flex-child-grow"><?php echo $caption; ?></div>
             <?php endif; ?>
             <div class="learn-more">
-                <h3 class="hollow button medium warning"><?php echo $item->link("Learn more about this item"); ?></h3>
+                <h2 class="hollow button medium warning"><?php echo $item->link("Learn more about this item"); ?></h2>
             </div>
         </div>
     <?php endforeach; ?>

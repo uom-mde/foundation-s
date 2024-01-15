@@ -466,13 +466,13 @@ nav.breadcrumbs {
 
 /*Increase font-size for single Item Showcase blocks*/
 .item-showcase h2,
-.item-showcase h3 {
+.item-showcase h2 {
   font-size: 1.2 * $global-font-size;
   font-weight: 400;
 }
 
 .item-showcase:only-child h2,
-.item-showcase:only-child h3 {
+.item-showcase:only-child h2 {
   font-weight: 400;
   font-size: 1.7 * $global-font-size;
   margin-top: $global-margin;
@@ -482,7 +482,7 @@ nav.breadcrumbs {
 }
 
 /*Change button size for link to Item Show*/ 
-.item-showcase .learn-more h3 {
+.item-showcase .learn-more h2 {
   font-size: 1.1 * $global-font-size;
 }
 
@@ -567,10 +567,10 @@ nav.breadcrumbs {
   a.button {
       color: $white;
   }
-  h3 small {
+  h2 small {
       color: $white;
   }
-  .learn-more h3.button a {
+  .learn-more h2.button a {
     color: $black;
   }
 }
@@ -657,7 +657,7 @@ nav.breadcrumbs {
     background-color: rgb(247 247 247);
   }
 
-  h3.caption {
+  h2.caption {
       background: #f7f7f7;
       padding: 0.5rem 0;
       border-bottom: solid 1px $light-gray;
@@ -700,7 +700,7 @@ nav.breadcrumbs {
     max-height: 500px;
     }
 
-  .hero-image-fixed .grid-container h3.caption {
+  .hero-image-fixed .grid-container h2.caption {
     margin-bottom: 0;
   }
 
@@ -749,7 +749,7 @@ button#unblur-image {
   }
 }
 
-h3.warning-text {
+h2.warning-text {
 font-weight: 400;
 color: $dark-gray;
 }
@@ -809,9 +809,9 @@ display: none;
 
 .metadata h1 a,
 .metadata h2 a,
-.metadata h3 a,
+.metadata h2 a,
 .metadata h2.h1 a,
-.metadata h3.h2 a {
+.metadata h2.h2 a {
   font-weight: 400;
 }
 
@@ -933,19 +933,19 @@ figcaption.orbit-caption.caption p {
 }
 
 .image-cover .title-area p,
-.image-cover .title-area h3 {
+.image-cover .title-area h2 {
   padding: $global-padding;
 }
 
-.captions-center .resource h3,
+.captions-center .resource h2,
 .captions-center .resource .orbit-caption.caption {
   text-align: center;
 }
-.captions-left .resource h3,
+.captions-left .resource h2,
 .captions-left .resource .orbit-caption.caption.caption {
   text-align: left;
 }
-.captions-right .resource h3,
+.captions-right .resource h2,
 .captions-right .resource .orbit-caption.caption.caption {
   text-align: right;
 }
@@ -1391,7 +1391,7 @@ margin-top: 0.5 * $global-margin;
   padding: 2 * $global-padding;
 }
 
-.item-listing-title-area h3 {
+.item-listing-title-area h2 {
   text-align: center;
 }
 
@@ -2054,7 +2054,7 @@ blockquote {
 }
 
 /* Blockquote header */
-blockquote h3 {
+blockquote h2 {
    position: relative; /* for pseudos */
    color: $primary-color;
    font-size: 2 * $global-font-size;
@@ -2072,7 +2072,7 @@ blockquote h3 {
 }
 
 /* Blockquote right double quotes */
-blockquote h3:after {
+blockquote h2:after {
    content:"";
    position: absolute;
    border: 2px solid $primary-color;
@@ -2086,7 +2086,7 @@ blockquote h3:after {
    z-index: 3; 
 }
 
-blockquote h3:before {
+blockquote h2:before {
    content:"";
    position: absolute;
    width: 80px;

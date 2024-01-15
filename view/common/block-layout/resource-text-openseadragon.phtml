@@ -23,7 +23,7 @@ $lang = $filterLocale ? $this->lang() : null;
 <div class="block media-text full-width-css grid-x grid-padding-x padding-1 large-padding-2 margin-bottom-1">
    <?php if (!empty($heading)): ?>
    <div class="media-text-heading margin-bottom-1">
-      <h3 class="h2 padding-vertical-1"><?= $escape($heading) ?></h3>
+      <h2 class="h2 padding-vertical-1"><?= $escape($heading) ?></h2>
    </div>
    <?php endif; ?>
    <div class="<?= $alignmentClass .
@@ -78,20 +78,20 @@ $lang = $filterLocale ? $this->lang() : null;
         <div class="metadata margin-bottom-1 separator-center">
             <?php $showTitleOption = $this->showTitleOption; ?>
             <?php if ($showTitleOption == "item_title"): ?>
-            <h3><?php echo $item->displayTitle(); ?></h3>
+            <h2><?php echo $item->displayTitle(); ?></h2>
             <?php elseif ($showTitleOption == "file_name"): ?>
-            <h3><?php echo $media->displayTitle(); ?></h3>
+            <h2><?php echo $media->displayTitle(); ?></h2>
             <?php endif; ?>
             <?php
             $date = $item->value("dcterms:date");
             if ($date): ?>
-            <h3><small date><?php echo $date; ?></small></h3>
+            <h2><small date><?php echo $date; ?></small></h2>
             <?php endif;
             ?>
             <?php
             $origin = $item->value("curation:location");
             if ($origin): ?>
-            <h3><small origin><?php echo $origin; ?></small></h3>
+            <h2><small origin><?php echo $origin; ?></small></h2>
             <?php endif;
             ?>
         </div>
@@ -100,12 +100,12 @@ $lang = $filterLocale ? $this->lang() : null;
             <?php
             $identifier = $item->value("dcterms:identifier");
             if ($identifier): ?>
-            <h3 class="h4"><small><?php echo "Ref. " . $identifier; ?></small></h3>
+            <h2 class="h4"><small><?php echo "Ref. " . $identifier; ?></small></h2>
             <?php endif;
             ?>
         </div>
         <div class="learn-more">
-            <h3 class="button large warning"><?php echo $item->link("Learn more about this item"); ?></h3>
+            <h2 class="button large warning"><?php echo $item->link("Learn more about this item"); ?></h2>
         </div>
     </div>
 </div>

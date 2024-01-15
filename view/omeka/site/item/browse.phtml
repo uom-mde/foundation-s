@@ -56,7 +56,7 @@ $sortHeadings = [
 
 <?php if ($itemSetShow): ?>
     <?php echo $this->pageTitle($itemSet->displayTitle(null, $valueLang), 2); ?>
-    <h3><?php echo $translate('Item set'); ?></h3>
+    <h2><?php echo $translate('Item set'); ?></h2>
     <div class="<?php echo ($showLayout == 'inline') ? 'inline' : 'stack'; ?>">
         <?php if ($fullWidthMainHasBlocks): ?>
         <div class="full-width-main">
@@ -91,7 +91,7 @@ $sortHeadings = [
     </div>
 
     <div class="item-set-items">
-    <?php echo '<h3>' . $escape($translate('Items')) . '</h3>'; ?>
+    <?php echo '<h2>' . $escape($translate('Items')) . '</h2>'; ?>
 <?php else: ?>
     <?php echo $this->pageTitle($translate('Items'), 2); ?>
 <?php endif; ?>

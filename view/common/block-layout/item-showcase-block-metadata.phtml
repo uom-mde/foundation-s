@@ -1,7 +1,7 @@
 <div class="grix-x grid-container">
     <?php if (!empty($heading)): ?>
         <div class="media-text-heading">
-            <h3 class="h2 padding-vertical-1"><?= $heading ?></h3>
+            <h2 class="h2 padding-vertical-1"><?= $heading ?></h2>
         </div>
     <?php endif; ?>
 </div>
@@ -23,11 +23,11 @@
                     <?php $showTitleOption = $this->showTitleOption; ?>
                     <?php if ($showTitleOption == 'item_title'): ?>
                         <div class="separator-center metadata">
-                            <h3 class="margin-top-1"><?php echo $item->displayTitle(); ?></h3>
+                            <h2 class="margin-top-1"><?php echo $item->displayTitle(); ?></h2>
                         </div>
                     <?php elseif ($showTitleOption == 'file_name'): ?>
                         <div class="separator-center metadata">
-                            <h3 class="margin-top-1"><?php echo $media->displayTitle(); ?></h3>
+                            <h2 class="margin-top-1"><?php echo $media->displayTitle(); ?></h2>
                         </div>
                     <?php endif; ?>
                 <?php endif; ?>
@@ -35,13 +35,13 @@
                 $date = $item->value('dcterms:date');
                 if ($date):
                 ?>
-                <h3 class="text-center"><small date><?php echo $date; ?></small></h3>
+                <h2 class="text-center"><small date><?php echo $date; ?></small></h2>
             <?php endif; ?>
             <?php
                 $origin = $item->value('curation:location');
                 if ($origin):
                 ?>
-                <h3 class="text-center"><small origin><?php echo $origin; ?></small></h3>
+                <h2 class="text-center"><small origin><?php echo $origin; ?></small></h2>
             <?php endif; ?>
             <?php
             $caption = $attachment->caption();
@@ -55,11 +55,11 @@
                 $identifier = $item->value('dcterms:identifier');
                 if ($identifier):
                 ?>
-                <h3 class="grid-container h4 identifier text-left"><small><?php echo 'Ref. ' . $identifier; ?></small></h3>
+                <h2 class="grid-container h4 identifier text-left"><small><?php echo 'Ref. ' . $identifier; ?></small></h2>
                 <?php endif; ?>
             </div>
             <div class="learn-more">
-                <h3 class="hollow button medium warning"><?php echo $item->link("Learn more about this item"); ?></h3>
+                <h2 class="hollow button medium warning"><?php echo $item->link("Learn more about this item"); ?></h2>
             </div>
         </div>
     <?php endforeach; ?>
