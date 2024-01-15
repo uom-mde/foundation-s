@@ -35,7 +35,7 @@ $escapeAttr = $plugins->get('escapeHtmlAttr');
             <div class="grid-x hero-title-bottom align-bottom">
                 <div class="hero-title">
                     <div class="grid-container">
-                        <h2><?= $heading ?></h2>
+                        <h1><?= $heading ?></h1>
                         <?php $attachmentUrl = $attachment['page'] ? $attachment['page']->siteUrl() : ($attachment['url'] ?? null); ?>
                         <?php if ($attachment['alt_link_title'] && $attachmentUrl) : ?>
                             <a href="<?= $escapeAttr($attachmentUrl) ?>"><button class="btn knowmore"><?= $escape($attachment['alt_link_title']) ?></button></a>
