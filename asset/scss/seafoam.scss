@@ -567,6 +567,9 @@ nav.breadcrumbs {
   a.button {
       color: $white;
   }
+  h2 {
+    color: $warning-color;
+}
   h2 small {
       color: $white;
   }
@@ -749,7 +752,7 @@ button#unblur-image {
   }
 }
 
-h2.warning-text {
+h2.h5.warning-text {
 font-weight: 400;
 color: $dark-gray;
 }
@@ -883,13 +886,7 @@ display: none;
 }
 
 .media-text h2 {
-  margin-bottom: 1.5 * $global-margin;
-  @include breakpoint(medium) {
-      margin-bottom: 2 * $global-margin;
-  }
-  @include breakpoint(large) {
-      margin-bottom: 2.5 * $global-margin;
-  }
+  margin-bottom: $global-margin;
 }
 
 .media-text .left,

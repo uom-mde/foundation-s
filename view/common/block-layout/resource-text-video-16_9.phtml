@@ -99,9 +99,6 @@ $lang = $filterLocale ? $this->lang() : null;
         </div>
         <div class="text">
             <?= $html ?>
-            <div class="learn-more">
-                <h2 class="h4"><?php echo $item->link('Learn more about this item'); ?></h2>
-            </div>
             <?php
             $identifier = $item->value("dcterms:identifier");
             if ($identifier): ?>
