@@ -681,12 +681,17 @@ nav.breadcrumbs {
       }
 
   .image-large {
+    height: 55vh;
+    @include breakpoint(medium) {
       height: 70vh;
       }
+  }
   .image-xlarge {
-      height: 80vh;
+    height: 65vh;
+    @include breakpoint(medium) {
+      height: 70vh;
       }
-      
+  }  
   .image-medium {
       height: rem-calc(500px);
       }
