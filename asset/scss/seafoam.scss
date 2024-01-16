@@ -663,7 +663,7 @@ nav.breadcrumbs {
   .hero-title-caption {
     width: 100%;
     background-color: rgb(247 247 247);
-    padding: 0.5rem 0;
+    padding: 0;
     border-bottom: solid rem-calc(1px) $light-gray;
     margin-bottom: 0;
   }
@@ -2420,7 +2420,7 @@ ul.language-switcher.locale-code li span.active {
 
 /*Mirador Viewer*/ 
 .mirador {
-  margin: 2 * $global-margin 0;
+  margin: 2 * $global-margin 0!important;
 }
 
 .MuiIconButton-root {
