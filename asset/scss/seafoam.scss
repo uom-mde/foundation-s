@@ -611,7 +611,7 @@ nav.breadcrumbs {
     }
   }
 
-  .hero-title h2 {
+  .hero-title h1 {
     background-color: rgba(255, 255, 255, 0.8);
     line-height: 1.2;
     padding: 1.5 * $global-padding 2.5 * $global-padding;
@@ -621,7 +621,7 @@ nav.breadcrumbs {
     }
   }
   
-  .hero-image h2 {
+  .hero-image h1 {
     font-size: 2.5 * $global-font-size;
   @include breakpoint(large) {
       font-size: rem-calc(52px);
@@ -658,27 +658,26 @@ nav.breadcrumbs {
   .hero-title-caption {
     width: 100%;
     background-color: rgb(247 247 247);
+    padding: 0.5rem 0;
+    border-bottom: solid rem-calc(1px) $light-gray;
+    margin-bottom: 0;
   }
 
-  h2.caption {
+  caption p {
       background: #f7f7f7;
-      padding: 0.5rem 0;
-      border-bottom: solid 1px $light-gray;
-      p {
-        margin-bottom: 0;
-      }
+      font-size: 1.2 * $global-font-size;
   }
   
   /*Hero image sizes*/
   .image-full {
-      height: 100vh;
+      height: 90vh;
       }
 
   .image-large {
-      height: 80vh;
+      height: 70vh;
       }
   .image-xlarge {
-      height: 90vh;
+      height: 80vh;
       }
       
   .image-medium {
