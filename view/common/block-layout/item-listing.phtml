@@ -6,7 +6,7 @@
     <?php if ($this->hasTitle || $this->hasIntroduction): ?>
         <div class='item-listing-title-area grid-container padding-bottom-2 flex-container flex-dir-column align-middle'>
             <?php if ($this->hasTitle): ?>
-                <h3 class="h1"><?php echo $this->title; ?></h3>
+                <h2 class="h1"><?php echo $this->title; ?></h2>
             <?php endif; ?>
             <?php if ($this->hasIntroduction): ?>
                 <div class='block-introduction medium-padding-2'>
@@ -36,9 +36,9 @@
                     ?>
                     <?php $showTitleOption = $this->showTitleOption; ?>
                     <?php if ($showTitleOption == 'item_title'): ?>
-                    <h3><?php echo $item->link($item->displayTitle()); ?></h3>
+                    <h2><?php echo $item->link($item->displayTitle()); ?></h2>
                 <?php elseif ($showTitleOption == 'file_name'): ?>
-                    <h3><?php echo $media->displayTitle(); ?></h3>
+                    <h2><?php echo $media->displayTitle(); ?></h2>
                 <?php endif; ?>
                 <?php endif; ?>
 

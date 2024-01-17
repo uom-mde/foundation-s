@@ -21,8 +21,8 @@ $lang = $filterLocale ? $this->lang() : null; ?>
 
 <div class="sensitive-material full-width-css block media-text grid-x grid-padding-x align-spaced">
     <?php if (!empty($heading)): ?>
-    <div class="media-text-heading">
-        <h3 class="h2 padding-vertical-1 margin-bottom-1"><?=$escape($heading) ?></h3>
+    <div class="media-text-heading medium-offset-1 large-offset-2">
+        <h2 class="h2 padding-vertical-1 margin-bottom-1"><?=$escape($heading) ?></h2>
     </div>
     <?php
 endif; ?>
@@ -31,7 +31,7 @@ endif; ?>
 ?>" class="flex-container flex-dir-column align-spaced align-middle">
             <div class="sensitive-content margin-horizontal-1 padding-horizontal-1 large-padding-horizontal-2 xlarge-padding-horizontal-3 flex-container flex-dir-column">
                 <i class="far fa-eye-slash fa-lg"></i>
-                <h3 class="h4 warning-text margin-top-1 xlarge-margin-top-2">This item contains sensitive content which people may find offensive. Click or press to view.</h3>
+                <h2 class="h5 warning-text margin-top-1 xlarge-margin-top-2">This item contains sensitive content which people may find offensive. Click or press to view.</h2>
             </div>
             <div class="attachments max-image-height">
                 <div class="<?=$alignmentClass . ' ' . $thumbnailType . ' captions-' . $captionPosition ?> media file media-text-image unblur-image" id="blur-image-<?=$uniqueId ?>" data-toggler=".unblur-image">
@@ -89,9 +89,9 @@ endforeach; ?>
         <div class="metadata margin-bottom-1 separator-center">
         <?php $showTitleOption = $this->showTitleOption; ?>
             <?php if ($showTitleOption == "item_title"): ?>
-            <h3><?php echo $item->displayTitle(); ?></h3>
+            <h2><?php echo $item->displayTitle(); ?></h2>
             <?php elseif ($showTitleOption == "file_name"): ?>
-            <h3><?php echo $media->displayTitle(); ?></h3>
+            <h2><?php echo $media->displayTitle(); ?></h2>
             <?php endif; ?>
         </div>
         <div class="text">
@@ -99,12 +99,12 @@ endforeach; ?>
             <?php
             $identifier = $item->value("dcterms:identifier");
             if ($identifier): ?>
-            <h3 class="h4"><small><?php echo "Ref. " . $identifier; ?></small></h3>
+            <h2 class="h4"><small><?php echo "Ref. " . $identifier; ?></small></h2>
             <?php endif;
             ?>
         </div>
         <div class="learn-more">
-            <h3 class="button large warning"><?php echo $item->link("Learn more about this item"); ?></h3>
+            <h2 class="hollow button large warning"><?php echo $item->link("Learn more about this item"); ?></h2>
         </div>
     </div>
 </div>

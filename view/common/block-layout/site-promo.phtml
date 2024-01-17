@@ -21,10 +21,10 @@
         </div>
     <?php endforeach; ?>
     <div class="site-promo-text large-6 flex-container flex-dir-column padding-1 medium-padding-2">
-        <h3><a href="<?php echo $this->baseUrl . $this->siteSelectLink; ?>"><?php echo $this->siteSelectTitle; ?></a></h3>
+        <h2><a href="<?php echo $this->baseUrl . $this->siteSelectLink; ?>"><?php echo $this->siteSelectTitle; ?></a></h2>
         <?php if($this->containsHarmfulContent == 1): ?>
             <div class="site-promo-harmful-content-flag">
-                <h3>May contain harmful content</h3>
+                <h2>May contain harmful content</h2>
             </div>
         <?php endif; ?>
         <p><?php echo $this->html; ?></p>

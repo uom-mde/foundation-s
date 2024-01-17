@@ -32,9 +32,9 @@
                 </li>
                 <?php $showTitleOption = $this->showTitleOption; ?>
                 <?php if ($showTitleOption == 'item_title'): ?>
-                <h3><?php echo $item->link($item->displayTitle()); ?></h3>
+                <h2><?php echo $item->link($item->displayTitle()); ?></h2>
             <?php elseif ($showTitleOption == 'file_name'): ?>
-                <h3><?php echo $media->displayTitle(); ?></h3>
+                <h2><?php echo $media->displayTitle(); ?></h2>
             <?php endif; ?>
             <?php endif; ?>
 

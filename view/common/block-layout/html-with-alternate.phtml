@@ -39,7 +39,7 @@
                 else {
                     $alternates .= '<div class="html-alternate-text">';
                 }
-                $alternates .= '<h3 class="alternate-title">' . $el[3] . '</h3>';
+                $alternates .= '<h2 class="alternate-title">' . $el[3] . '</h2>';
                 $alternates .= '<div class="alternate-html-content">' . $el[4] . '</div></div>';
                 $alternates .= '</div>';
             }
@@ -49,7 +49,7 @@
             <?php echo $select; ?>
             <div class="alternate-option-original active"<?php if ($this->originalLanguageCode != $pageBaseLang) {' lang="' . $this->originalLanguageCode . '"';} ?>>
                 <?php if (strlen($this->htmlTitle) > 0): ?>
-                    <h3 class="alternate-title"><?php echo $this->htmlTitle; ?></h3>
+                    <h2 class="alternate-title"><?php echo $this->htmlTitle; ?></h2>
                 <?php endif; ?>
                 <div class="alternate-html-content"><?php echo $this->html; ?></div>
             </div>
@@ -60,7 +60,7 @@
                 <?php echo $selectSecond; ?>
                 <div class="alternate-option-original"<?php if ($this->originalLanguageCode != $pageBaseLang) {' lang="' . $this->originalLanguageCode . '"';} ?>>
                     <?php if (strlen($this->htmlTitle) > 0): ?>
-                        <h3 class="alternate-title"><?php echo $this->htmlTitle; ?></h3>
+                        <h2 class="alternate-title"><?php echo $this->htmlTitle; ?></h2>
                     <?php endif; ?>
                     <div class="alternate-html-content"><?php echo $this->html; ?></div>
                 </div>

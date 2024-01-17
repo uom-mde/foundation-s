@@ -23,8 +23,8 @@ $lang = $filterLocale ? $this->lang() : null;
 
 <div class="block media-text grid-x grid-padding-x align-spaced align-middle full-width-css">
     <?php if (!empty($heading)): ?>
-    <div class="media-text-heading">
-        <h3 class="h2 padding-vertical-1"><?= $escape($heading) ?></h3>
+    <div class="media-text-heading medium-offset-1 large-offset-2">
+        <h2 class="h2 padding-vertical-1"><?= $escape($heading) ?></h2>
     </div>
     <?php endif; ?>
     <div class="<?= $alignmentClass . ' ' . $thumbnailType . ' captions-' . $captionPosition ?> media file media-text-image large-7 flex-container align-spaced padding-horizontal-1 large-padding-horizontal-2 xlarge-padding-horizontal-3">
@@ -80,16 +80,16 @@ $lang = $filterLocale ? $this->lang() : null;
     <div class="metadata margin-bottom-1 separator-center">
         <?php $showTitleOption = $this->showTitleOption; ?>
         <?php if ($showTitleOption == "item_title"): ?>
-        <h3><?php echo $item->displayTitle(); ?></h3>
+        <h2><?php echo $item->displayTitle(); ?></h2>
         <?php elseif ($showTitleOption == "file_name"): ?>
-        <h3><?php echo $media->displayTitle(); ?></h3>
+        <h2><?php echo $media->displayTitle(); ?></h2>
         <?php endif; ?>
       </div>
       <div class="text">
             <?= $html ?>
         </div>
         <div class="learn-more">
-            <h3 class="button large warning"><?php echo $item->link("Learn more about this item"); ?></h3>
+            <h2 class="hollow button large warning"><?php echo $item->link("Learn more about this item"); ?></h2>
         </div>
     </div>
 </div>
