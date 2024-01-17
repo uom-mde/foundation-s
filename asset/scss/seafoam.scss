@@ -581,6 +581,17 @@ nav.breadcrumbs {
   .learn-more h2.button a {
     color: $black;
   }
+  .learn-more .hollow.button.warning a {
+    color: $warning-color;
+  }
+  .learn-more .hollow.button.warning:hover a {
+    color: $black;
+  }
+}
+
+/*Add colour fill to hollow button*/ 
+.learn-more .button.hollow.warning:hover {
+  background: $warning-color;
 }
 
 /*Foundation S Prototype*/ 
@@ -668,7 +679,7 @@ nav.breadcrumbs {
     margin-bottom: 0;
   }
 
-  .caption p {
+  .hero-title-caption .caption p {
       background: #f7f7f7;
       font-size: $global-font-size;
       margin: 0.5 * $global-margin 0;
