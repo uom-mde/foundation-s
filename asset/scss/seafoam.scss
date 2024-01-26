@@ -589,6 +589,11 @@ nav.breadcrumbs {
   }
 }
 
+/*Remove margin from h2 learn more button*/
+.learn-more h2.button {
+  margin: 0;
+}
+
 /*Add colour fill to hollow button*/ 
 .learn-more .button.hollow.warning:hover {
   background: $warning-color;
