@@ -22,7 +22,7 @@ $this->headLink()->appendStylesheet($assetUrl('css/style.css', 'PageBlocks'));
                    echo $media->render();
             endif; ?>
             <?php if ($showHeading): ?>
-                <h3 class="padding-top-1 text-center"><?= $item->link($item->displayTitle('', $lang)) ?></h3>
+                <h2 class="padding-top-1 text-center"><?= $item->link($item->displayTitle('', $lang)) ?></h2>
             <?php endif; ?>
             <?php if (!empty($properties)): ?>
                 <?php foreach ($properties as $property): ?>

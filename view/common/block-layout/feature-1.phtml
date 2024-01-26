@@ -35,7 +35,7 @@ if ($itemCount % 2 == 1) {
                     <?php if ($page['hasEmbeddedBlocks'] && array_key_exists('representativeImage',$page['embeddedBlocks'])): ?>
                         <?php echo $page['embeddedBlocks']['representativeImage'][0]; ?>
                     <?php endif; ?>
-                    <h3><a href='<?php echo $page['o:url']; ?>'><?php echo $page['o:title']; ?></a></h3>
+                    <h2><a href='<?php echo $page['o:url']; ?>'><?php echo $page['o:title']; ?></a></h2>
                 </div>
             <?php endforeach; ?>
         </div>

@@ -14,9 +14,9 @@ $thumbnail-shadow-hover: 0 0 6px 1px rgba($primary-color, 0.5);
 @import 'foundation-core';
 @import 'omeka';
 
-h1.site-title {
+p.site-title {
   margin-bottom: 0;
-  font-size: $global-font-size;
+  font-size: 1.1 * $global-font-size;
   margin-right: 1.5 * $global-margin;
   font-weight: 600;
   color: $white;
@@ -110,11 +110,16 @@ header .top-bar-right {
 .university-logo {
   margin: rem-calc(12);
   display: flex;
+  flex-grow: 1;
   @include breakpoint(355) {
       margin: rem-calc(12) rem-calc(24);
   }
   @include breakpoint(400) {
     flex-grow: 1;
+  }
+  @include breakpoint(medium) {
+    flex-grow: 0;
+    flex-shrink: 1;
   }
 }
 
@@ -425,6 +430,7 @@ nav.breadcrumbs {
 .item-showcase-cover-centre {
   display: grid;
   align-items: center;
+  justify-items: center;
 }
 
 .item-showcase-cover-centre img {
@@ -459,19 +465,24 @@ nav.breadcrumbs {
 
 /*Increase font-size for single Item Showcase blocks*/
 .item-showcase h2,
-.item-showcase h3 {
+.item-showcase h2 {
   font-size: 1.2 * $global-font-size;
-  font-weight: 600;
+  font-weight: 400;
 }
 
 .item-showcase:only-child h2,
-.item-showcase:only-child h3 {
+.item-showcase:only-child h2 {
   font-weight: 400;
   font-size: 1.7 * $global-font-size;
   margin-top: $global-margin;
   @include breakpoint (large) {
   margin-top: 2 * $global-margin!important;
   }
+}
+
+/*Change button size for link to Item Show*/ 
+.item-showcase .learn-more h2 {
+  font-size: 1.1 * $global-font-size;
 }
 
 /*Media Embed*/
@@ -501,6 +512,12 @@ nav.breadcrumbs {
   height: auto;
   @include breakpoint(large) {
   max-height: 100vh;
+  }
+}
+
+.file .metadata h2 {
+  @include breakpoint(large) {
+  font-size: rem-calc(28px);
   }
 }
 
@@ -555,9 +572,26 @@ nav.breadcrumbs {
   a.button {
       color: $white;
   }
-  h3 small {
+  h2 {
+    color: $warning-color;
+}
+  h2 small {
       color: $white;
   }
+  .learn-more h2.button a {
+    color: $black;
+  }
+  .learn-more .hollow.button.warning a {
+    color: $warning-color;
+  }
+  .learn-more .hollow.button.warning:hover a {
+    color: $black;
+  }
+}
+
+/*Add colour fill to hollow button*/ 
+.learn-more .button.hollow.warning:hover {
+  background: $warning-color;
 }
 
 /*Foundation S Prototype*/ 
@@ -593,7 +627,7 @@ nav.breadcrumbs {
     }
   }
 
-  .hero-title h2 {
+  .hero-title h1 {
     background-color: rgba(255, 255, 255, 0.8);
     line-height: 1.2;
     padding: 1.5 * $global-padding 2.5 * $global-padding;
@@ -603,7 +637,7 @@ nav.breadcrumbs {
     }
   }
   
-  .hero-image h2 {
+  .hero-image h1 {
     font-size: 2.5 * $global-font-size;
   @include breakpoint(large) {
       font-size: rem-calc(52px);
@@ -621,16 +655,16 @@ nav.breadcrumbs {
     padding: 1rem 2.5rem;
   }
 
-  .hero-image .hero-title-bottom h2 {
+  .hero-image .hero-title-bottom h1 {
     width: 100%;
     margin-bottom: 0;
   }
 
-  .hero-title-bottom h2 {
+  .hero-title-bottom h1 {
     margin-bottom: 0;
     background-color: transparent;
     line-height: 1.2;
-    padding: $global-padding;
+    padding: 0 * $global-padding;
     font-weight: 300;
     @include breakpoint(medium) {
       line-height: 1.4;
@@ -640,29 +674,35 @@ nav.breadcrumbs {
   .hero-title-caption {
     width: 100%;
     background-color: rgb(247 247 247);
+    padding: 0;
+    border-bottom: solid rem-calc(1px) $light-gray;
+    margin-bottom: 0;
   }
 
-  h3.caption {
+  .hero-title-caption .caption p {
       background: #f7f7f7;
-      padding: 0.5rem 0;
-      border-bottom: solid 1px $light-gray;
-      p {
-        margin-bottom: 0;
-      }
+      font-size: $global-font-size;
+      margin: 0.5 * $global-margin 0;
+      color: lighten($black, 20%);
   }
   
   /*Hero image sizes*/
   .image-full {
-      height: 100vh;
+      height: 90vh;
       }
 
   .image-large {
-      height: 80vh;
+    height: 55vh;
+    @include breakpoint(medium) {
+      height: 70vh;
       }
+  }
   .image-xlarge {
-      height: 90vh;
+    height: 65vh;
+    @include breakpoint(medium) {
+      height: 70vh;
       }
-      
+  }  
   .image-medium {
       height: rem-calc(500px);
       }
@@ -685,7 +725,7 @@ nav.breadcrumbs {
     max-height: 500px;
     }
 
-  .hero-image-fixed .grid-container h3.caption {
+  .hero-image-fixed .grid-container h2.caption {
     margin-bottom: 0;
   }
 
@@ -734,7 +774,7 @@ button#unblur-image {
   }
 }
 
-h3.warning-text {
+h2.h5.warning-text {
 font-weight: 400;
 color: $dark-gray;
 }
@@ -794,9 +834,9 @@ display: none;
 
 .metadata h1 a,
 .metadata h2 a,
-.metadata h3 a,
+.metadata h2 a,
 .metadata h2.h1 a,
-.metadata h3.h2 a {
+.metadata h2.h2 a {
   font-weight: 400;
 }
 
@@ -868,13 +908,7 @@ display: none;
 }
 
 .media-text h2 {
-  margin-bottom: 1.5 * $global-margin;
-  @include breakpoint(medium) {
-      margin-bottom: 2 * $global-margin;
-  }
-  @include breakpoint(large) {
-      margin-bottom: 2.5 * $global-margin;
-  }
+  margin-bottom: 0 * $global-margin;
 }
 
 .media-text .left,
@@ -918,19 +952,19 @@ figcaption.orbit-caption.caption p {
 }
 
 .image-cover .title-area p,
-.image-cover .title-area h3 {
+.image-cover .title-area h2 {
   padding: $global-padding;
 }
 
-.captions-center .resource h3,
+.captions-center .resource h2,
 .captions-center .resource .orbit-caption.caption {
   text-align: center;
 }
-.captions-left .resource h3,
+.captions-left .resource h2,
 .captions-left .resource .orbit-caption.caption.caption {
   text-align: left;
 }
-.captions-right .resource h3,
+.captions-right .resource h2,
 .captions-right .resource .orbit-caption.caption.caption {
   text-align: right;
 }
@@ -1140,6 +1174,11 @@ section.image-banner {
   }
 }
 
+/*Accordion*/ 
+button.accordion-trigger {
+  cursor: pointer;
+}
+
 /*Additional Search Bar*/
 .search-bar {
   display: none;
@@ -1234,7 +1273,10 @@ nav.top-bar-left {
 
 .search-bar-mobile button.search-icon[aria-expanded=true] {
   background: $primary-color;
-  margin: 0 $global-margin;
+  margin: 0;
+    @include breakpoint(medium) {
+    margin: 0 $global-margin;
+    }
   }
   
 #show-search-menu input[type=text]:not(:only-child) {
@@ -1373,7 +1415,7 @@ margin-top: 0.5 * $global-margin;
   padding: 2 * $global-padding;
 }
 
-.item-listing-title-area h3 {
+.item-listing-title-area h2 {
   text-align: center;
 }
 
@@ -1593,6 +1635,9 @@ margin-top: 0.5 * $global-margin;
 .colour-scheme-4 {
   /*background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 50%, rgba(0,0,0,0.3) 100%);*/ 
   background-color: $uom-footer;
+  & h1 {
+    color: $white;
+}
   & h2 {
       color: $white;
   }
@@ -2036,7 +2081,7 @@ blockquote {
 }
 
 /* Blockquote header */
-blockquote h3 {
+blockquote h2 {
    position: relative; /* for pseudos */
    color: $primary-color;
    font-size: 2 * $global-font-size;
@@ -2054,7 +2099,7 @@ blockquote h3 {
 }
 
 /* Blockquote right double quotes */
-blockquote h3:after {
+blockquote h2:after {
    content:"";
    position: absolute;
    border: 2px solid $primary-color;
@@ -2068,7 +2113,7 @@ blockquote h3:after {
    z-index: 3; 
 }
 
-blockquote h3:before {
+blockquote h2:before {
    content:"";
    position: absolute;
    width: 80px;
@@ -2393,7 +2438,7 @@ ul.language-switcher.locale-code li span.active {
 
 /*Mirador Viewer*/ 
 .mirador {
-  margin: 2 * $global-margin 0;
+  margin: 2 * $global-margin 0!important;
 }
 
 .MuiIconButton-root {

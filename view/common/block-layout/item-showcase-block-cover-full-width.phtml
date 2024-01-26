@@ -1,7 +1,7 @@
 <div class="grix-x grid-container">
     <?php if (!empty($heading)): ?>
-        <div class="media-text-heading">
-            <h3 class="h2 padding-vertical-1"><?= $heading ?></h3>
+        <div class="media-text-heading medium-offset-1 large-offset-2">
+            <h2 class="h2 padding-vertical-1"><?= $heading ?></h2>
         </div>
     <?php endif; ?>
 </div>
@@ -16,18 +16,18 @@
                 $title = $this->plugin('escapeHtml')($item->displayTitle());
                 $media = $attachment->media() ?: $item->primaryMedia();
                 if ($media):
-                    $image = preg_match('/alt=""/', $this->thumbnail($media, $this->thumbnailType)) == 1 ? $item->linkRaw($this->thumbnail($media, $this->thumbnailType, ['alt' => $title])) : $item->linkRaw($this->thumbnail($media, $this->thumbnailType));
+                    $image = preg_match('/alt=""/', $this->thumbnail($media, $this->thumbnailType)) == 1 ? $this->thumbnail($media, $this->thumbnailType, ['alt' => $title]) : $this->thumbnail($media, $this->thumbnailType);
                     echo $image;
-                endif;
+                endif;  
                 ?>
                     <?php $showTitleOption = $this->showTitleOption; ?>
                     <?php if ($showTitleOption == 'item_title'): ?>
                         <div class="separator-center metadata">
-                        <h3 class="margin-top-1 large-margin-top-2 xlarge-margin-top-3"><?php echo $item->link($item->displayTitle()); ?></h3>
+                        <h2 class="margin-top-1 large-margin-top-2 xlarge-margin-top-3"><?php echo $item->displayTitle(); ?></h2>
                         </div>
                     <?php elseif ($showTitleOption == 'file_name'): ?>
                         <div class="separator-center metadata">
-                        <h3 class="margin-top-1 large-margin-top-2 xlarge-margin-top-3"><?php echo $media->displayTitle(); ?></h3>
+                        <h2 class="margin-top-1 large-margin-top-2 xlarge-margin-top-3"><?php echo $media->displayTitle(); ?></h2>
                         </div>
                     <?php endif; ?>
                 <?php endif; ?>
@@ -37,6 +37,9 @@
                 ?>
                 <div class="caption padding-1 grid-container text-left"><?php echo $caption; ?></div>
             <?php endif; ?>
+            <div class="learn-more">
+                <h2 class="hollow button medium warning"><?php echo $item->link("Learn more about this item"); ?></h2>
+            </div>
         </div>
     <?php endforeach; ?>
 </div>

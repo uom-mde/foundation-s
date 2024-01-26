@@ -13,22 +13,22 @@
                     <div class="separator-center metadata">
                         <?php $showTitleOption = $this->showTitleOption; ?>
                         <?php if ($showTitleOption == 'item_title'): ?>
-                            <h3 class="margin-top-1"><?php echo $item->link($item->displayTitle()); ?></h3>
+                            <h2 class="margin-top-1"><?php echo $item->displayTitle(); ?></h2>
                         <?php elseif ($showTitleOption == 'file_name'): ?>
-                            <h3 class="margin-top-1"><?php echo $media->displayTitle(); ?></h3>
+                            <h2 class="margin-top-1"><?php echo $media->displayTitle(); ?></h2>
                         <?php endif; ?>
                     <?php endif; ?>
                     <?php
                         $date = $item->value('dcterms:date');
                         if ($date):
                         ?>
-                        <h3><small date><?php echo $date; ?></small></h3>
+                        <h2><small date><?php echo $date; ?></small></h2>
                     <?php endif; ?>
                     <?php
                         $origin = $item->value('curation:location');
                         if ($origin):
                         ?>
-                        <h3><small origin><?php echo $origin; ?></small></h3>
+                        <h2><small origin><?php echo $origin; ?></small></h2>
                     <?php endif; ?>
                     </div>
                 <?php
@@ -45,10 +45,12 @@
                     $identifier = $item->value('dcterms:identifier');
                     if ($identifier):
                     ?>
-                    <h3 class="h4 identifier padding-horizontal-1 xlarge-padding-horizontal-2 xlarge-padding-horizontal-3"><small><?php echo 'Ref. ' . $identifier; ?></small></h3>
+                    <h2 class="h4 identifier padding-horizontal-1 xlarge-padding-horizontal-2 xlarge-padding-horizontal-3"><small><?php echo 'Ref. ' . $identifier; ?></small></h2>
                     <?php endif; ?>
                 </div>
-
+                <div class="learn-more">
+                    <h2 class="hollow button medium warning"><?php echo $item->link("Learn more about this item"); ?></h2>
+                </div>
             </div>
         <?php endforeach; ?>
     </div>

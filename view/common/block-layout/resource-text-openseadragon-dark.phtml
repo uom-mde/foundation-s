@@ -23,11 +23,11 @@ $lang = $filterLocale ? $this->lang() : null;
 
 <div class="block media-text full-width-css grid-x grid-padding-x margin-bottom-1 background-colour-uom-footer">
     <?php if (!empty($heading)): ?>
-    <div class="media-text-heading margin-bottom-1">
-        <h3 class="h2 padding-vertical-1"><?= $escape($heading) ?></h3>
+    <div class="media-text-heading medium-offset-1 large-offset-2 margin-bottom-1">
+        <h2 class="h2 padding-vertical-1"><?= $escape($heading) ?></h2>
     </div>
     <?php endif; ?>
-    <div class="<?= $alignmentClass . ' ' . $thumbnailType . ' captions-' . $captionPosition ?> media file large-7 xlarge-8">
+    <div class="<?= $alignmentClass . ' ' . $thumbnailType . ' captions-' . $captionPosition ?> media file large-7 xlarge-8 padding-horizontal-1 large-padding-horizontal-2 xlarge-padding-horizontal-3">
     <div class="attachments resource-text-openseadragon">
             <?php
             foreach ($attachments as $attachment):
@@ -71,35 +71,38 @@ $lang = $filterLocale ? $this->lang() : null;
          endforeach; ?>
       </div>
    </div>
-    <div class="resource-text max-block-height large-5 xlarge-4 flex-container flex-dir-column align-center padding-1 large-padding-2 xlarge-padding-3">
+    <div class="resource-text large-5 xlarge-4 flex-container flex-dir-column align-center align-middle padding-1 large-padding-2">
         <div class="metadata margin-bottom-1 separator-center">
             <?php $showTitleOption = $this->showTitleOption; ?>
-            <?php if ($showTitleOption == 'item_title'): ?>
-            <h3><?php echo $item->link($item->displayTitle()); ?></h3>
-            <?php elseif ($showTitleOption == 'file_name'): ?>
-            <h3><?php echo $item->link($media->displayTitle()); ?></h3>
+            <?php if ($showTitleOption == "item_title"): ?>
+            <h2><?php echo $item->displayTitle(); ?></h2>
+            <?php elseif ($showTitleOption == "file_name"): ?>
+            <h2><?php echo $media->displayTitle(); ?></h2>
             <?php endif; ?>
             <?php
             $date = $item->value('dcterms:date');
             if ($date):
             ?>
-        <h3><small date><?php echo $date; ?></small></h3>
+        <h2><small date><?php echo $date; ?></small></h2>
         <?php endif; ?>
         <?php
             $origin = $item->value('curation:location');
             if ($origin):
             ?>
-        <h3><small origin><?php echo $origin; ?></small></h3>
+        <h2><small origin><?php echo $origin; ?></small></h2>
         <?php endif; ?>
         </div>
         <div class="text">
             <?= $html ?>
             <?php
-            $identifier = $item->value('dcterms:identifier');
-            if ($identifier):
+            $identifier = $item->value("dcterms:identifier");
+            if ($identifier): ?>
+            <h2 class="h4"><small><?php echo "Ref. " . $identifier; ?></small></h2>
+            <?php endif;
             ?>
-        <h3 class="h4"><small><?php echo 'Ref. ' . $identifier; ?></small></h3>
-        <?php endif; ?>
+        </div>
+        <div class="learn-more">
+            <h2 class="hollow button large warning"><?php echo $item->link("Learn more about this item"); ?></h2>
         </div>
     </div>
 </div>
