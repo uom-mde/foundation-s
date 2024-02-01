@@ -26,11 +26,7 @@ $lang = $filterLocale ? $this->lang() : null;
       <h2 class="h2 padding-vertical-1"><?= $escape($heading) ?></h2>
    </div>
    <?php endif; ?>
-   <div class="<?= $alignmentClass .
-       " " .
-       $thumbnailType .
-       " captions-" .
-       $captionPosition ?> media file large-7 xlarge-8 padding-horizontal-1 large-padding-horizontal-2 xlarge-padding-horizontal-3">
+   <div class="<?= $alignmentClass . ' ' . $thumbnailType . ' captions-' . $captionPosition ?> media file large-7 xlarge-8 padding-horizontal-1 large-padding-horizontal-2 xlarge-padding-horizontal-3">
       <div class="attachments resource-text-openseadragon">
          <?php foreach ($attachments as $attachment):
 
@@ -105,7 +101,7 @@ $lang = $filterLocale ? $this->lang() : null;
             ?>
         </div>
         <div class="learn-more">
-            <h2 class="hollow button large warning"><?php echo $item->link("View full item"); ?></h2>
+            <h2 class="button large warning"><?php echo $item->link("View full item"); ?></h2>
         </div>
     </div>
 </div>

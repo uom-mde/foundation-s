@@ -837,6 +837,15 @@ display: none;
   margin: 0 auto;
 }
 
+/*Align captions for Openseadragon*/
+.media-text .captions-right .resource-text-openseadragon .caption {
+  text-align: right;
+}
+
+.media-text .captions-center .resource-text-openseadragon .caption {
+  text-align: center;
+}
+
 .metadata h1 a,
 .metadata h2 a,
 .metadata h2 a,
