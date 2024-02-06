@@ -3,7 +3,7 @@
             src="https://assets.manchester.ac.uk/corporate/images/design/logo-university-of-manchester.png"
             alt="The University of Manchester Library logo" /> </a>
     </div>
-    <div class="site-heading" aria-level="1">
+    <div class="site-heading" role ="heading" aria-level="1">
         <p>Manchester Digital Exhibitions</p>
     </div>
     <div id="lang">
@@ -30,7 +30,7 @@
 <div class="top-bar">
     <nav class="top-bar-left">
         <?php $siteLogo = ($this->themeSetting('logo')) ? '<img src="' . $this->themeSettingAssetUrl('logo') . '" title="Logo" alt="">' : ''; ?>
-        <p class="site-title" aria-level="2"><a href="<?php echo $site->url(); ?>"><?php echo $siteLogo; ?><span class="site-title-label <?php echo ($siteLogo !== '') ? 'sr-only' : ''; ?>"><?php echo $this->escapeHtml($site->title()); ?></span></a></p>
+        <div class="site-title" role="heading" aria-level="2"><a href="<?php echo $site->url(); ?>"><?php echo $siteLogo; ?><span class="site-title-label <?php echo ($siteLogo !== '') ? 'sr-only' : ''; ?>"><?php echo $this->escapeHtml($site->title()); ?></span></a></p>
 
         <div class="search-bar-mobile">
         <button class="button search-icon" data-toggle="show-search-menu-mobile" aria-label="Toggle search">
