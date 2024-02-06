@@ -643,7 +643,6 @@ nav.breadcrumbs {
   }
   
   .hero-image h1 {
-    font-size: 2.5 * $global-font-size;
   @include breakpoint(large) {
       font-size: rem-calc(52px);
   }
@@ -1337,6 +1336,23 @@ nav.top-bar-left {
 
 span.resource-name {
 margin-top: 0.5 * $global-margin;
+}
+
+/*Revise text for search results*/ 
+.results>ul>li {
+  position: relative;
+  justify-content: flex-start;
+}
+
+span.resource-name {
+  margin-top: 0.5rem;
+  position: absolute;
+  width: 100%;
+  margin: 0 auto;
+  bottom: 10%;
+  background: #ffffffe6;
+  padding: 1rem;
+  font-size: 1.4rem;
 }
 
 /*Agile Theme Tools Blocks*/ 
