@@ -10,6 +10,7 @@
  * @var string $showTitleOption "item_title" or "file_name" or "none".
  * @var string $captionPosition "center", "left" or "right".
  */
+$this->headScript()->prependFile($this->assetUrl('js/annona.js'));
 
 $escape = $this->plugin('escapeHtml');
 $hyperlink = $this->plugin('hyperlink');
