@@ -11,8 +11,8 @@
  * @var string $captionPosition "center", "left" or "right".
  */
 
-$this->headLink()->prependStylesheet($this->assetUrl('css/annona.css'));
-$this->headScript()->prependFile($this->assetUrl('js/annona.js'));
+$this->headLink()->appendStylesheet($this->assetUrl('css/annona.css'));
+$this->headScript()->appendFile($this->assetUrl('js/annona.js'));
 
 $escape = $this->plugin('escapeHtml');
 $hyperlink = $this->plugin('hyperlink');

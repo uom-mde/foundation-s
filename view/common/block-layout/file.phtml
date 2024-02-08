@@ -1,6 +1,6 @@
 <?php
-$this->headLink()->prependStylesheet($this->assetUrl('css/annona.css')); 
-$this->headScript()->prependFile($this->assetUrl('js/annona.js'));
+$this->headLink()->appendStylesheet($this->assetUrl('css/annona.css')); 
+$this->headScript()->appendFile($this->assetUrl('js/annona.js'));
 ?>
 
 <div class="<?php echo $this->alignmentClass . ' ' . $this->thumbnailType; ?> file">
