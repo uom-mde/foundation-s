@@ -12,6 +12,7 @@
  */
 
 $this->headScript()->prependFile($this->assetUrl('js/annona.js'));
+$this->headLink()->prependStylesheet($this->assetUrl('css/annona.css'));
 
 $escape = $this->plugin("escapeHtml");
 $hyperlink = $this->plugin("hyperlink");
