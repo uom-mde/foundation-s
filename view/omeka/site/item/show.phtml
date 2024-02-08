@@ -28,15 +28,16 @@ foreach ($itemMedia as $media) {
     $mediaType = $media->mediaType();
     $mediaRenderer = $media->renderer();
 
-    if ($mediaRenderer !== null && ($mediaRenderer == 'iiif' || $mediaRenderer == 'iiifPresentation' || $mediaType === 'image/jpeg')) {
+    if ($mediaRenderer == 'iiif' || $mediaRenderer == 'iiifPresentation' || $mediaType === 'image/jpeg') {
         $viewers[] = 'mirador';
-    } elseif ($mediaType !== null && strpos($mediaType, 'pdf') !== false) {
+    } elseif ($mediaType == 'pdf') {
         $viewers[] = 'universal';
+    } elseif ($mediaRenderer == 'youtube') {
+        $viewers[] = 'youtube';
     } else {
         $viewers[] = 'default';
     }
 }
-
 ?>
 
 <div class="resource-title">
@@ -56,9 +57,14 @@ foreach ($itemMedia as $media) {
             if ($viewer == 'universal') {    
                 echo $this->universalViewer($item); 
             } 
-            if ($viewer == 'default') {     
+            if ($viewer == 'youtube') {
+                echo "<div class='responsive-embed widescreen'>";     
                 echo $media->render();  // Assuming you want to render the default media
+                echo "</div>";
             }
+            //if ($viewer == 'default') {     
+            //    echo $media->render();  // Assuming you want to render the default media
+            //}
         }
         ?>
     </div>
