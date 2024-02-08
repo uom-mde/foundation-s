@@ -8,6 +8,8 @@ $itemMedia = $item->media();
 $showLayout = $this->themeSetting('show_layout');
 $mediaDisplay = $this->themeSetting('media_display');
 $this->headLink()->appendStylesheet($this->assetUrl('css/resource-page-blocks.css', 'Omeka'));
+$this->headLink()->prependStylesheet($this->assetUrl('css/annona.css'));
+$this->headScript()->prependFile($this->assetUrl('js/annona.js'));
 
 $fullWidthMainBlockContent = $this->resourcePageBlocks($item, 'full_width_main');
 $fullWidthMainHasBlocks = $fullWidthMainBlockContent->hasBlocks();
