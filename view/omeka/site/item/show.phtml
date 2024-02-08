@@ -30,13 +30,14 @@ foreach ($itemMedia as $media) {
     $mediaType = $media->mediaType();
     $mediaRenderer = $media->renderer();
 
-    if ($mediaRenderer !== null && (strpos($mediaRenderer, 'iiif') !== false || $mediaType === 'image/jpeg')) {
+    if ($mediaRenderer !== null && ($mediaRenderer == 'iiif' || $mediaRenderer == 'iiifPresentation' || $mediaType === 'image/jpeg')) {
         $useMiradorViewer = true;
-    } elseif ($mediaType !== null && strpos($mediaType, 'pdf') !== false) {
+    } 
+    elseif ($mediaType !== null && strpos($mediaType, 'pdf') !== false) {
         $useUniversalViewer = true;
     } else {
         $useMediaRender = true;
-        break;
+    break;
     }
 }
 ?>
@@ -50,15 +51,17 @@ foreach ($itemMedia as $media) {
     <?php $this->trigger('view.show.before'); ?>
 
     <div class="full-width-main margin-bottom-2 xlarge-margin-bottom-3">
-    <?php if ($useMiradorViewer): ?>
-        <?php echo $this->mirador($item); ?> 
-    <?php endif; ?>
-    <?php if ($useUniversalViewer): ?>    
-        <?php echo $this->universalViewer($item); ?>
-    <?php endif; ?>
-    <?php if ($useMediaRender): ?>    
-        <?php echo $media->render(); ?> 
-    <?php endif; ?>
+    <?php 
+    if ($useMiradorViewer){
+        echo $this->mirador($item);
+    } 
+    if ($useUniversalViewer){    
+        echo $this->universalViewer($item); 
+    } 
+    if ($useMediaRender){     
+        echo $media->render();  
+    } 
+    ?>
     </div>
 
     <?php if ($fullWidthMainHasBlocks): ?>
