@@ -22,47 +22,48 @@ $filterLocale = (bool) $this->siteSetting('filter_locale_values');
 $lang = $this->lang();
 $valueLang = $filterLocale ? [$lang, ''] : null;
 
-$useMediaRender = false;
-$useMiradorViewer = false;
-$useUniversalViewer = false;
+$viewers = []; // Initialize an array to store viewer types
 
 foreach ($itemMedia as $media) {
     $mediaType = $media->mediaType();
     $mediaRenderer = $media->renderer();
 
     if ($mediaRenderer !== null && ($mediaRenderer == 'iiif' || $mediaRenderer == 'iiifPresentation' || $mediaType === 'image/jpeg')) {
-        $useMiradorViewer = true;
-    } 
-    elseif ($mediaType !== null && strpos($mediaType, 'pdf') !== false) {
-        $useUniversalViewer = true;
+        $viewers[] = 'mirador';
+    } elseif ($mediaType !== null && strpos($mediaType, 'pdf') !== false) {
+        $viewers[] = 'universal';
     } else {
-        $useMediaRender = true;
-    break;
+        $viewers[] = 'default';
     }
 }
+
 ?>
 
 <div class="resource-title">
-<?php echo $this->pageTitle($item->displayTitle(null, $valueLang), 2); ?>
-<h2 class="label"><?php echo $translate('Item'); ?></h2>
+    <?php echo $this->pageTitle($item->displayTitle(null, $valueLang), 2); ?>
+    <h2 class="label"><?php echo $translate('Item'); ?></h2>
 </div>
 
 <div class="<?php echo ($showLayout == 'inline') ? 'inline' : 'stack'; ?>">
     <?php $this->trigger('view.show.before'); ?>
 
     <div class="full-width-main margin-bottom-2 xlarge-margin-bottom-3">
-    <?php 
-    if ($useMiradorViewer){
-        echo $this->mirador($item);
-    } 
-    if ($useUniversalViewer){    
-        echo $this->universalViewer($item); 
-    } 
-    if ($useMediaRender){     
-        echo $media->render();  
-    } 
-    ?>
+        <?php 
+        foreach ($viewers as $viewer) {
+            if ($viewer == 'mirador') {
+                echo $this->mirador($item);
+            } 
+            if ($viewer == 'universal') {    
+                echo $this->universalViewer($item); 
+            } 
+            if ($viewer == 'default') {     
+                echo $media->render();  // Assuming you want to render the default media
+            }
+        }
+        ?>
     </div>
+</div>
+
 
     <?php if ($fullWidthMainHasBlocks): ?>
     <div class="full-width-main margin-bottom-2 xlarge-margin-bottom-3">
