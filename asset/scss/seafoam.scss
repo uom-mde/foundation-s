@@ -14,15 +14,10 @@ $thumbnail-shadow-hover: 0 0 6px 1px rgba($primary-color, 0.5);
 @import 'foundation-core';
 @import 'omeka';
 
-p.site-title {
-  margin-bottom: 0;
-  font-size: 1.1 * $global-font-size;
-  margin-right: 1.5 * $global-margin;
-  font-weight: 600;
-  color: $white;
+.site-title {
+  margin-right: $global-margin;
   max-width: 60%;
   @include breakpoint(medium) {
-    font-size: 1.2 * $global-font-size;
     max-width: 70%;
   }
   @include breakpoint(large) {
@@ -30,12 +25,19 @@ p.site-title {
   }
 }
 
-.site-title {
-  margin-right: $global-margin;
-}
-
 .site-title img {
   margin: $global-margin 0;
+}
+
+span.h4.site-title-label {
+  margin-bottom: 0;
+  font-size: 1.1 * $global-font-size;
+  margin-right: 1.5 * $global-margin;
+  font-weight: 600;
+  color: $white;
+  @include breakpoint(medium) {
+    font-size: 1.2 * $global-font-size;
+  }
 }
 
 ul.dropdown.menu li {
@@ -1265,6 +1267,10 @@ button.search-icon[aria-expanded="true"] {
 
 .input-group-field {
   height: 100%;
+}
+
+.top-bar-left {
+  min-width: rem-calc(175);
 }
 
 nav.top-bar-left {
