@@ -35,7 +35,8 @@ foreach ($itemMedia as $index => $media) {
 
     if ($mediaRenderer == 'iiif' || $mediaRenderer == 'iiifPresentation' || $mediaType === 'image/jpeg') {
         $viewers[] = 'mirador';
-    } elseif ($mediaType == 'application/pdf') {
+    }
+      elseif ($mediaType == 'application/pdf') {
         $viewers[] = 'universal';
     } elseif ($mediaRenderer == 'youtube') {
         $viewers[] = 'youtube';
