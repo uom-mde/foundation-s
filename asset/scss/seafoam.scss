@@ -680,13 +680,12 @@ nav.breadcrumbs {
   .hero-title-caption {
     width: 100%;
     background-color: rgb(247 247 247);
-    padding: 0;
+    padding: rem-calc(6) 0 0 0;
     border-bottom: solid rem-calc(1px) $light-gray;
-    margin-bottom: 0;
+    margin: rem-calc(-7) 0 0 0;
   }
 
   .hero-title-caption .caption p {
-      background: #f7f7f7;
       font-size: $global-font-size;
       margin: 0.5 * $global-margin 0;
       color: lighten($black, 30%);
@@ -756,6 +755,11 @@ nav.breadcrumbs {
   @include breakpoint(large) {
   top: 25%;
   }
+}
+
+/*Centre Introductory html*/
+.page-header {
+  max-width: rem-calc(900);
 }
 
 /*Flex-grow*/
