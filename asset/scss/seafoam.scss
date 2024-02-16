@@ -687,7 +687,7 @@ nav.breadcrumbs {
 
   .hero-title-caption .caption p {
       font-size: $global-font-size;
-      margin: 0 0 0.5 * $global-margin $global-margin;
+      margin: 0 0 0.5 * $global-margin 0.5 * $global-margin;
       color: lighten($black, 35%);
       padding-top: rem-calc(7);
   }
@@ -1211,6 +1211,11 @@ margin-top: 2 * $global-margin;
 /*Underline links on Item Show page*/
 .stack .main-with-sidebar .property a {
   text-decoration: underline;
+  }
+
+  a.uri-value-link {
+    text-decoration: underline;
+    color: $primary-color;
   }
 
 /*IvyRze blocks*/ 
