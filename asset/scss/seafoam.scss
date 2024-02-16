@@ -687,8 +687,9 @@ nav.breadcrumbs {
 
   .hero-title-caption .caption p {
       font-size: $global-font-size;
-      margin: 0.5 * $global-margin 0;
+      margin: 0 0 0.5 * $global-margin 0;
       color: lighten($black, 30%);
+      padding-top: rem-calc(8);
   }
   
   /*Hero image sizes*/
@@ -1076,6 +1077,47 @@ figcaption.orbit-caption.caption p {
 }
 }
 
+/*Sketchfab Embeds HTML*/ 
+/*Rules for oEmbed Sketchfab Embed - Penicillin Syringe*/
+.media-render .sketchfab-embed-wrapper iframe {
+  height: 30vh!important;
+  width: 90vw!important;
+  }
+  
+  @media screen and (min-width: 600px) {
+  .media-render .sketchfab-embed-wrapper iframe {
+  height: 60vh!important;
+  width: 90vw!important;
+  }
+  }
+  
+  @media screen and (min-width: 900px) {
+  .media-render .sketchfab-embed-wrapper iframe {
+  height: 80vh!important;
+  width: 70vw!important;
+  }
+  }
+  
+  @media screen and (min-width: 1200px) {
+  .media-render .sketchfab-embed-wrapper iframe {
+  width: 80vw!important;
+  }
+  }
+  
+  .media-text .sketchfab-embed-wrapper iframe {
+  width: 50vw!important;
+  height: 500px!important;
+  margin: 0 auto;
+  }
+  
+  @media screen and (max-width: 899px) {
+  .media-text .sketchfab-embed-wrapper iframe {
+  width: 90vw!important;
+  }
+  }
+  
+  /*End rules for oEmbed Sketchfab Embed - HTML*/
+
 .link-text-white a {
   color: $white;
 }
@@ -1166,7 +1208,25 @@ dl dt {
 margin-top: 2 * $global-margin;
 }
 
+/*Underline links on Item Show page*/
+.stack .main-with-sidebar .property a {
+  text-decoration: underline;
+  }
+
 /*IvyRze blocks*/ 
+/*Accordion*/ 
+.accordion-trigger {
+  padding-block: 20px;
+  }
+  
+  button.accordion-trigger {
+  cursor: pointer;
+  }
+
+.accordion-content.collapsed {
+  padding: 0;
+}
+
 /*Image Banner block*/
 .overlay-container {
   h2 {
@@ -2490,6 +2550,11 @@ ul.language-switcher.locale-code li span.active {
 .mirador-canvas-nav [type=button]:focus {
   background-color: transparent!important;
   color: inherit;
+  }
+
+  /*Max height for Mirador viewer on mobiles*/
+.media-text .resource-text-openseadragon .iiif_presentation iframe {
+  max-height: 100vh!important;
   }
 
 /*Cookie Bar*/ 
