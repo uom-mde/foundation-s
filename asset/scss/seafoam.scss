@@ -1218,6 +1218,10 @@ margin-top: 2 * $global-margin;
     color: $primary-color;
   }
 
+.right-sidebar .property dd.value a:hover {
+  text-decoration: underline;
+}
+
 /*IvyRze blocks*/ 
 /*Accordion*/ 
 .accordion-trigger {
