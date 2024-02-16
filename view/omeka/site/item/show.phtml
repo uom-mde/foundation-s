@@ -75,13 +75,13 @@ foreach ($viewers as $viewer) {
         if ($miradorViewer !== null) {
             echo $miradorViewer;
         } 
-        //if ($universalViewer !== null) {
-        //    echo $universalViewer;
-        //} 
-        if ($youtubeViewer !== null) {
+        elseif ($universalViewer !== null) {
+            echo $universalViewer;
+        } 
+        elseif ($youtubeViewer !== null) {
             echo $youtubeViewer;
         } 
-        if ($defaultViewer !== null) {
+        elseif ($defaultViewer !== null) {
             echo $defaultViewer;
         }
         ?>
