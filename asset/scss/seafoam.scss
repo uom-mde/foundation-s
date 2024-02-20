@@ -657,7 +657,7 @@ nav.breadcrumbs {
   .hero-title-bottom .hero-title {
     width: 100%;
     max-width: 100%;
-    background-color: rgba(255,255,255,.8);
+    background-color: rgba(255,255,255,.7);
     padding: 1rem 0 1rem 1rem;
   }
 
@@ -686,7 +686,7 @@ nav.breadcrumbs {
   }
 
   .hero-title-caption .caption p {
-      font-size: $global-font-size;
+      font-size: .95 * $global-font-size;
       margin: 0 0 0.5 * $global-margin 0.5 * $global-margin;
       color: lighten($black, 35%);
       padding-top: rem-calc(7);
