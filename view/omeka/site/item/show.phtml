@@ -33,7 +33,7 @@ foreach ($itemMedia as $index => $media) {
     $mediaType = $media->mediaType();
     $mediaRenderer = $media->renderer();
 
-    if ($mediaRenderer == 'iiif' || $mediaRenderer == 'iiifPresentation' || $mediaType === 'image/jpeg') {
+    if ($mediaRenderer == 'iiifPresentation' || $mediaRenderer == 'iiif' || $mediaType === 'image/jpeg') {
         $viewers[] = 'mirador';
     }
       elseif ($mediaType == 'application/pdf') {
