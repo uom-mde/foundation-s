@@ -717,6 +717,13 @@ nav.breadcrumbs {
       height: rem-calc(300px);
       }
 
+  .image-letterbox {
+    height: 300px;
+    @include breakpoint(medium) {
+      height: 500px;
+    }
+  }
+
   /*Hero Image FixedWidth*/
   .hero-image.hero-image-fixed {
     max-width: 1600px;
