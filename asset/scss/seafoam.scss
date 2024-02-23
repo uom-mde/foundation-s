@@ -73,16 +73,19 @@ a.nav-header:visited {
 }
 
 header .top-bar {
-  @include breakpoint(small down) {
-    padding: 0.5 * $global-padding;    
+    padding: 0.5 * $global-padding;  
+  @include breakpoint(medium) {
+    padding: 0;
+  }  
+  }
+
+header .top-bar-right {
+  display: none;
+  @include breakpoint(large) {
+      display: flex;
   }
 }
 
-header .top-bar-right {
-  @include breakpoint(medium down) {
-      display: none;
-  }
-}
 
 .top-bar a {
   color: $white;
