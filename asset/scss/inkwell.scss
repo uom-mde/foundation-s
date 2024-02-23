@@ -1,25 +1,14 @@
 @charset 'utf-8';
 @import 'globals-default';
-@import 'globals-inkwell';
+@import 'globals-seafoam';
 @import 'settings';
 // Sea Foam Settings
 $topbar-background: transparent;
-$header-font-family: "Playfair Display",
-serif;
 $thumbnail-shadow-hover: 0 0 6px 1px rgba($primary-color, 0.5);
 $button-color: $black;
 @import 'foundation-core';
+@import 'seafoam';
 @import 'omeka';
-body {
-    font-weight: 500;
-}
-
-header {
-    border-top: $global-padding solid $primary-color;
-    @include breakpoint(medium down) {
-        border-top: 0;
-    }
-}
 
 header .menu a {
     color: $black;
@@ -74,4 +63,22 @@ label,
     body.vertical-menu header .title-bar button.menu-toggle {
         color: #000;
     }
+}
+
+/*Update menu bar*/ 
+.top-bar a {
+    color: $black;
+}
+
+.top-bar, .top-bar ul {
+    background-color: transparent;
+}
+
+header .menu a {
+    text-decoration: none;
+}
+
+.menu .active>a {
+    background: transparent;
+    color: $black;
 }
