@@ -14,9 +14,9 @@ $thumbnail-shadow-hover: 0 0 6px 1px rgba($primary-color, 0.5);
 @import 'omeka';
 
 .site-title {
-  margin-right: $global-margin;
+  margin-left: $global-margin;
   padding-left: $global-padding;
-  max-width: 60%;
+  max-width: calc(100vw - rem-calc(120));
   @include breakpoint(medium) {
     max-width: 70%;
   }
@@ -79,7 +79,7 @@ a.nav-header:visited {
 }
 
 header .top-bar {
-  padding: 0 0.5 * $global-padding;
+  padding: 0.5 * $global-padding $global-padding;
   @include breakpoint(large) {
     padding: 0.5 * $global-padding;    
   }
@@ -1469,6 +1469,12 @@ button.search-icon[aria-expanded="true"] {
 
 .top-bar-left {
   min-width: rem-calc(175);
+}
+
+@include breakpoint(large) {
+  .top-bar .top-bar-left {
+    flex: 1 1 (rem-calc(350));
+  }
 }
 
 nav.top-bar-left {
