@@ -14,7 +14,6 @@ $thumbnail-shadow-hover: 0 0 6px 1px rgba($primary-color, 0.5);
 @import 'omeka';
 
 .site-title {
-  margin-left: $global-margin;
   padding-left: $global-padding;
   max-width: calc(100vw - rem-calc(120));
   @include breakpoint(medium) {
@@ -79,9 +78,9 @@ a.nav-header:visited {
 }
 
 header .top-bar {
-  padding: 0.5 * $global-padding $global-padding;
+  padding: 0.25 * $global-padding $global-padding 0;
   @include breakpoint(large) {
-    padding: 0.5 * $global-padding;    
+    padding: 0.5 * $global-padding 0;    
   }
 }
 
