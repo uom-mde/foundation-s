@@ -79,14 +79,9 @@ a.nav-header:visited {
 }
 
 header .top-bar {
-  @include breakpoint(small down) {
+  padding: 0 0.5 * $global-padding;
+  @include breakpoint(large) {
     padding: 0.5 * $global-padding;    
-  }
-}
-
-header .top-bar-right {
-  @include breakpoint(medium down) {
-      display: none;
   }
 }
 
