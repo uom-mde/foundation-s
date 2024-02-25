@@ -226,6 +226,9 @@ header .top-bar {
   display: inline-block;
   background-color: transparent;
   padding: 0;
+  @include breakpoint(large) {
+    display: none;
+  }
   
   button {
     margin: 0 $global-margin 0 0;
