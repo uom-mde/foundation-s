@@ -184,10 +184,8 @@ ul.language-switcher.locale-code li a {
 /*End Language Selector*/
 
 /*Remove margin for menu button on smaller screens*/ 
-@include breakpoint(349 down) {
 .title-bar button {
-  margin: 0;
-}
+  margin: rem-calc(0 0 0 5);
 }
 
 /*Revised by JMc to allow for UoM footer*/ 
