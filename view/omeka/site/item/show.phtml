@@ -25,6 +25,7 @@ $valueLang = $filterLocale ? [$lang, ''] : null;
 
 $viewers = [];
 $miradorViewer = null;
+$miradorImageViewer = null;
 $universalViewer = null;
 $youtubeViewer = null;
 $defaultViewer = null;
@@ -38,11 +39,19 @@ foreach ($itemMedia as $index => $media) {
         echo "Media Renderer: $mediaRenderer, Media Type: $mediaType<br>";
 
     if ($firstMedia) {
-        if ($mediaRenderer == 'iiifPresentation' || $mediaRenderer == 'iiif' || $mediaType === 'image/jpeg') {
+        if ($mediaRenderer == 'iiifPresentation') {
+            $viewers[] = 'mirador';
+            $firstMedia = false;
+        } elseif ($mediaRenderer == 'iiif') {
+            $viewers[] = 'universal';
+            $miradorImageViewer = "<div>" . $this->mirador($item) . "</div>";
+            $firstMedia = false;
+        } elseif ($mediaType === 'image/jpeg') {
             $viewers[] = 'mirador';
             $firstMedia = false;
         } elseif ($mediaType == 'application/pdf') {
             $viewers[] = 'universal';
+            $universalViewer = "<div>" . $this->universalViewer($item) . "</div>";
             $firstMedia = false;
         } elseif ($mediaRenderer == 'youtube') {
             $viewers[] = 'youtube';
@@ -73,6 +82,9 @@ foreach ($itemMedia as $index => $media) {
         // Display the main viewer
         if ($miradorViewer !== null) {
             echo $miradorViewer;
+        }
+        elseif ($miradorImageViewer !== null) {
+            echo $miradorImageViewer;
         } 
         elseif ($universalViewer !== null) {
             echo $universalViewer;
