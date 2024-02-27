@@ -4,8 +4,6 @@
 @import 'settings';
 // Sea Foam Settings
 $topbar-background: transparent;
-$header-font-family: "Playfair Display",
-serif;
 $thumbnail-shadow-hover: 0 0 6px 1px rgba($primary-color, 0.5);
 $button-color: $black;
 @import 'foundation-core';
@@ -50,6 +48,10 @@ label,
     color: $black;
 }
 
+span.h4.site-title-label {
+    color: $black;
+}
+
 .media-list .lg-thumb-item img,
 .media-list img.lg-image {
     border: 0;
@@ -82,3 +84,49 @@ header .menu a {
     background: transparent;
     color: $black;
 }
+
+/*25 02 24 Additions*/ 
+/*Remove purple from mobile search*/
+.search-bar-mobile button {
+    background-color: transparent;
+    }
+    
+    .search-bar-mobile svg path {
+        fill: $black;
+    }
+
+/*Remove a:hover background colour*/
+a:hover {
+    background-color: unset;
+ }
+ 
+ /*Dark purple on active menu element*/
+ .menu .active>a, .toc-block>ul .active>a, .toc-block ul ul .active>a {
+     color: $white;
+     background: $secondary-color;
+     font-weight: 600;
+ }
+ 
+ /*Border under top navigation menu*/
+ .top-bar {
+     border-bottom: solid 1px #cfcccc;
+ }
+ 
+ .top-bar a:hover {
+     color: $white;
+     background-color: $primary-color;
+     transition: background-color .25s ease-out,color .25s ease-out;
+ }
+ 
+ /*Remove border from search icon*/
+ header .button {
+ border: unset;
+ }
+ 
+ ul.dropdown.menu li:hover {
+ background-color: $primary-color;
+ }
+ 
+ ul.dropdown.menu li:hover a {
+ color: $white;
+ }

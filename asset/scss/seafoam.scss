@@ -1,5 +1,4 @@
 @charset 'utf-8';
-
 @import 'globals-default';
 @import 'globals-seafoam';
 @import 'settings';
@@ -15,8 +14,8 @@ $thumbnail-shadow-hover: 0 0 6px 1px rgba($primary-color, 0.5);
 @import 'omeka';
 
 .site-title {
-  margin-right: $global-margin;
-  max-width: 60%;
+  padding-left: $global-padding;
+  max-width: calc(100vw - rem-calc(120));
   @include breakpoint(medium) {
     max-width: 70%;
   }
@@ -79,14 +78,9 @@ a.nav-header:visited {
 }
 
 header .top-bar {
-  @include breakpoint(small down) {
-    padding: 0.5 * $global-padding;    
-  }
-}
-
-header .top-bar-right {
-  @include breakpoint(medium down) {
-      display: none;
+  padding: 0.25 * $global-padding $global-padding 0;
+  @include breakpoint(large) {
+    padding: 0.5 * $global-padding 0;    
   }
 }
 
@@ -190,10 +184,8 @@ ul.language-switcher.locale-code li a {
 /*End Language Selector*/
 
 /*Remove margin for menu button on smaller screens*/ 
-@include breakpoint(349 down) {
 .title-bar button {
-  margin: 0;
-}
+  margin: rem-calc(0 0 0 5);
 }
 
 /*Revised by JMc to allow for UoM footer*/ 
@@ -606,6 +598,70 @@ nav.breadcrumbs {
   line-height: 1.6;
 }
 
+/*IIIF Presentation media type*/
+.media-render.iiif_presentation iframe {
+  height: 100vh!important;
+  }
+
+/*List of sites*/
+
+.site-list {
+  display: grid;
+  /*grid-template-columns: repeat(3, 1fr);*/
+  grid-auto-rows: 1fr;
+  grid-column-gap: 24px;
+  grid-row-gap: 24px;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+}
+
+.list-of-sites .site-list .site-thumbnail-image {
+  max-width: 100%;
+  float: unset;
+  margin-right: 0;
+  height: 350px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.list-of-sites .site-list .site-summary {
+overflow: hidden;
+line-clamp: 5;
+text-overflow: ellipsis;
+display: -webkit-box;
+-webkit-line-clamp: 3;
+-webkit-box-orient: vertical; 
+ margin: 1rem 0 1rem 0;
+}
+
+.site {
+position: relative;
+}
+
+.site a.site-link {
+position: absolute;
+}
+
+.site a {
+position: absolute;
+  bottom: 109px;
+  text-decoration: none;
+  color: #040404;
+  background: #fff;
+  width: 80%;
+  font-size: 24px;
+  padding: 1rem;
+}
+
+.site-thumbnail img {
+transition: transform .4s; /* Animation */
+}
+
+.site-thumbnail img:hover {
+cursor: pointer;
+transform: scale(1.01);
+}
+
+
 /*BlockPlus Blocks*/
 //--------------------------------
 
@@ -724,6 +780,45 @@ nav.breadcrumbs {
     }
   }
 
+  /*Openseadragon hero 24/02/24*/ 
+  .openseadragon-hero {
+    height: rem-calc(300);
+    margin-top: -1rem;
+    position: relative;
+    @include breakpoint (rem-calc(600)) {
+      height: 500px!important;
+      margin-top: -2rem!important;
+    }
+    @include breakpoint (rem-calc(1200)) {
+      height: rem-calc(600)!important;
+    }
+    }
+    
+    .openseadragon-hero .hero-title-openseadragon {
+    position: absolute;
+    bottom: 10%;
+    /*max-width: 450px;*/
+    @include breakpoint(large) {
+      bottom: 20%;
+    }
+    }
+    
+    .openseadragon-hero .hero-title-openseadragon  h1 {
+        background: #1d1d1d;
+        padding: 0.5rem;
+        color: #fff;
+        @include breakpoint(large) {
+          font-size: 300%;
+        }
+    }
+    
+    .openseadragon-hero-large {
+    height: 70vh!important;
+    @include breakpoint(600) {
+      height: 80vh!important;
+    }
+    }
+    
   /*Hero Image FixedWidth*/
   .hero-image.hero-image-fixed {
     max-width: 1600px;
@@ -913,6 +1008,25 @@ display: none;
 /*Button align for Full Screen Openseadragon Resource Text Block*/ 
 .openseadragon-container img {
   vertical-align: top!important;
+}
+
+/*Fix for Openseadragon toolbar*/ 
+/*Fix Openseadragon toolbar issue 24/02/2024*/
+.iiif-storyboard-wide-container:has(#header_toolbar) {
+  height: calc(70vh + 35px)!important;
+  margin-bottom: 1rem;
+}
+
+@media print, screen and (min-width: 37.5em) {
+.iiif-storyboard-wide-container:has(#header_toolbar) {
+  height: calc(80vh + 35px)!important;
+}
+}
+
+@media print, screen and (min-width: 75em) {
+.iiif-storyboard-wide-container:has(#header_toolbar) {
+  height: calc(90vh + 35px)!important;
+}
 }
 
 .media-text {
@@ -1122,6 +1236,12 @@ figcaption.orbit-caption.caption p {
   width: 90vw!important;
   }
   }
+
+  /*Additional Sketchfab rules*/
+  /*HTML Responsive Embed Fix 24/02/24*/
+.media-render .sketchfab-embed-wrapper iframe {
+  width: 100%!important;
+}
   
   /*End rules for oEmbed Sketchfab Embed - HTML*/
 
@@ -1346,6 +1466,12 @@ button.search-icon[aria-expanded="true"] {
 
 .top-bar-left {
   min-width: rem-calc(175);
+}
+
+@include breakpoint(large) {
+  .top-bar .top-bar-left {
+    flex: 1 1 (rem-calc(350));
+  }
 }
 
 nav.top-bar-left {
