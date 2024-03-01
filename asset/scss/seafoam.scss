@@ -479,6 +479,11 @@ nav.breadcrumbs {
   font-size: 1.1 * $global-font-size;
 }
 
+/*Remove margin top for button*/ 
+.learn-more h2.button {
+  margin-top: 0!important;
+  }
+
 /*Media Embed*/
 /*Increase size of thumbnails for Media Embed blocks*/ 
 .left {
