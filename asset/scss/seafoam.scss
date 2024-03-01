@@ -458,13 +458,11 @@ nav.breadcrumbs {
 }
 
 /*Increase font-size for single Item Showcase blocks*/
-.item-showcase h2,
 .item-showcase h2 {
   font-size: 1.2 * $global-font-size;
   font-weight: 400;
 }
 
-.item-showcase:only-child h2,
 .item-showcase:only-child h2 {
   font-weight: 400;
   font-size: 1.7 * $global-font-size;
