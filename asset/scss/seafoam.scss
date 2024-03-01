@@ -2694,6 +2694,20 @@ ul.language-switcher.locale-code li span.active {
   max-height: 100vh!important;
   }
 
+/*Universal Viewer*/ 
+.universal-viewer #content {
+  margin: 0!important;
+  padding: 0!important;
+  }
+  
+  .universal-viewer .openseadragon-container {
+  background-color: initial !important;
+  }
+  
+  body:not(.browse) .universal-viewer #content {
+  max-width: 100%!important;
+  }
+
 /*Cookie Bar*/ 
 .cb-enable,
 .cb-policy {

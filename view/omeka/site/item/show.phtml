@@ -43,7 +43,7 @@ foreach ($itemMedia as $index => $media) {
             $viewers[] = 'mirador';
             $firstMedia = false;
         } elseif ($mediaRenderer == 'iiif') {
-            $viewers[] = 'universal';
+            $viewers[] = 'mirador';
             $miradorImageViewer = "<div>" . $this->mirador($item) . "</div>";
             $firstMedia = false;
         } elseif ($mediaType === 'image/jpeg') {
