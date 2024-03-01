@@ -49,10 +49,6 @@ foreach ($itemMedia as $index => $media) {
         } elseif ($mediaType === 'image/jpeg') {
             $viewers[] = 'mirador';
             $firstMedia = false;
-        } elseif ($mediaType == 'application/pdf') {
-            $viewers[] = 'universal';
-            $universalViewer = "<div>" . $this->universalViewer($item) . "</div>";
-            $firstMedia = false;
         } elseif ($mediaRenderer == 'youtube') {
             $viewers[] = 'youtube';
             $youtubeViewer = "<div class='responsive-embed widescreen'>" . $media->render() . "</div>";
