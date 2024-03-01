@@ -465,10 +465,11 @@ nav.breadcrumbs {
 
 .item-showcase:only-child h2 {
   font-weight: 400;
-  font-size: 1.7 * $global-font-size;
+  font-size: 1.4 * $global-font-size;
   margin-top: $global-margin;
   @include breakpoint (large) {
-  margin-top: 2 * $global-margin!important;
+  /*margin-top: 2 * $global-margin!important;*/
+  font-size: 1.7 * $global-font-size;
   }
 }
 
