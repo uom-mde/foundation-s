@@ -789,12 +789,17 @@ transform: scale(1.01);
     height: rem-calc(300);
     margin-top: -1rem;
     position: relative;
-    @include breakpoint (rem-calc(600)) {
-      height: 500px!important;
+    @include breakpoint (medium) {
+      height: rem-calc(350);
       margin-top: -2rem!important;
     }
-    @include breakpoint (rem-calc(1200)) {
-      height: rem-calc(600)!important;
+    @include breakpoint (large) {
+      height: rem-calc(400);
+      margin-top: -2rem!important;
+    }
+    @include breakpoint (xlarge) {
+      height: rem-calc(500);
+      margin-top: -2rem!important;
     }
     }
     
@@ -822,6 +827,8 @@ transform: scale(1.01);
       height: 80vh!important;
     }
     }
+
+
     
   /*Hero Image FixedWidth*/
   .hero-image.hero-image-fixed {
@@ -1948,6 +1955,11 @@ span.resource-name {
 #content > #blocks > .byline {
   display: none;
 }
+
+/*Underline links in text*/
+#content p a {
+  text-decoration: underline;
+  }
 
 /*Home page with Introduction*/
 /*Slick Slider*/
