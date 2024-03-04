@@ -721,6 +721,18 @@ transform: scale(1.01);
     padding: 1rem 0 1rem 1rem;
   }
 
+  .hero-title-middle .hero-title {
+    background-color: $black;
+    max-width: unset;
+  }
+
+  .hero-title-middle .hero-title h1 {
+    background-color: unset;
+    @include breakpoint (small only) {
+      font-size: 2 * $global-font-size;
+    }
+  }
+
   .hero-image .hero-title-bottom h1 {
     width: 100%;
     margin-bottom: 0;
@@ -732,6 +744,16 @@ transform: scale(1.01);
     line-height: 1.2;
     padding: 0 * $global-padding;
     font-weight: 300;
+    @include breakpoint(medium) {
+      line-height: 1.4;
+    }
+  }
+
+  .hero-title-middle h1 {
+    padding: 0;
+    line-height: 1.2;
+    font-weight: 300;
+    color: $white;
     @include breakpoint(medium) {
       line-height: 1.4;
     }
