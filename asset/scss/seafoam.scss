@@ -729,7 +729,7 @@ transform: scale(1.01);
   .hero-title-middle .hero-title h1 {
     background-color: unset;
     @include breakpoint (small only) {
-      font-size: 2 * $global-font-size;
+      font-size: 1.5 * $global-font-size;
     }
   }
 
