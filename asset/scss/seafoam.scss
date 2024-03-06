@@ -604,8 +604,11 @@ nav.breadcrumbs {
 
 /*IIIF Presentation media type*/
 .media-render.iiif_presentation iframe {
-  height: 100vh!important;
+  height: 80vh;
+  @include breakpoint(large) {
+  height: 90vh!important;
   }
+}
 
 /*List of sites*/
 
@@ -2729,8 +2732,11 @@ ul.language-switcher.locale-code li span.active {
 
   /*Max height for Mirador viewer on mobiles*/
 .media-text .resource-text-openseadragon .iiif_presentation iframe {
-  max-height: 100vh!important;
+  max-height: 80vh;
+  @include breakpoint(large) {
+  max-height: 90vh!important;
   }
+}
 
 /*Universal Viewer*/ 
 .universal-viewer #content {
