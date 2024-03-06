@@ -2545,7 +2545,7 @@ polygon>.svgactive:hover {
 #storyboard_viewer.annonaview.storyboard_viewer {
   background: $black;
   height: 70vh!important;
-  @include breakpoint(medium) {
+  @include breakpoint(large) {
       height: 80vh!important;
   }
     @include breakpoint(xlarge) {
@@ -2555,7 +2555,7 @@ polygon>.svgactive:hover {
 
 .seadragonbox .openseadragon-container {
       height: 70vh!important;
-      @include breakpoint(medium) {
+      @include breakpoint(large) {
       height: 80vh!important;
       } 
   @include breakpoint(xlarge) {
@@ -2565,7 +2565,7 @@ polygon>.svgactive:hover {
 
 .seadragonbox {
   height: 70vh!important;
-      @include breakpoint(medium) {
+      @include breakpoint(large) {
       height: 80vh!important;
       } 
   @include breakpoint(xlarge) {
