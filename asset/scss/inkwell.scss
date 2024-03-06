@@ -141,6 +141,10 @@ a:hover {
     background: transparent;
  }
 
+ button.search-icon[aria-expanded="true"] {
+    background: transparent!important;
+ }
+
  /*Add fill colour to close button*/
  button.search-icon[aria-expanded=true] svg path {
     fill: $dark-gray;
