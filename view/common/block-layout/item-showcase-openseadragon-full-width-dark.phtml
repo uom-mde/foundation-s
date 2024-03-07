@@ -30,11 +30,11 @@ $this->headLink()->appendStylesheet($this->assetUrl('css/annona.css'));
                         <?php $showTitleOption = $this->showTitleOption; ?>
                         <?php if ($showTitleOption == 'item_title'): ?>
                             <div class="separator-center metadata">
-                                <h2 class="margin-top-1"><?php echo $item->displayTitle(); ?></h2>
+                                <h2 class="margin-top-2"><?php echo $item->displayTitle(); ?></h2>
                             </div>
                         <?php elseif ($showTitleOption == 'file_name'): ?>
                             <div class="separator-center metadata">
-                                <h2 class="margin-top-1"><?php echo $media->displayTitle(); ?></h2>
+                                <h2 class="margin-top-2"><?php echo $media->displayTitle(); ?></h2>
                             </div>
                         <?php endif; ?>
                     <?php endif; ?>
