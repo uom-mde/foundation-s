@@ -350,7 +350,7 @@ nav.breadcrumbs {
 }
 
 .item-showcase .separator-center {
-  max-width: rem-calc(500);
+  max-width: rem-calc(550);
   margin: 0 auto;
 }
 
@@ -853,7 +853,11 @@ transform: scale(1.01);
     }
     }
 
-
+    .openseadragon-hero picture img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      }
     
   /*Hero Image FixedWidth*/
   .hero-image.hero-image-fixed {
@@ -1051,16 +1055,10 @@ display: none;
 .iiif-storyboard-wide-container:has(#header_toolbar) {
   height: calc(70vh + 35px)!important;
   margin-bottom: 1rem;
-}
-
-@media print, screen and (min-width: 37.5em) {
-.iiif-storyboard-wide-container:has(#header_toolbar) {
+@include breakpoint(large) {
   height: calc(80vh + 35px)!important;
 }
-}
-
-@media print, screen and (min-width: 75em) {
-.iiif-storyboard-wide-container:has(#header_toolbar) {
+@include breakpoint(xlarge) {
   height: calc(90vh + 35px)!important;
 }
 }
@@ -1385,6 +1383,14 @@ margin-top: 2 * $global-margin;
   text-decoration: underline;
 }
 
+  .right-sidebar.background-colour-uom-footer {
+    @include breakpoint (medium down) {
+  margin-left: 0!important;
+  margin-right: 0!important;
+  width: 100%;
+  } 
+  }
+
 /*IvyRze blocks*/ 
 /*Accordion*/ 
 .accordion-trigger {
@@ -1559,14 +1565,18 @@ nav.top-bar-left {
 
 .resource.show .resource-link img, #linked-resources img, .results .resource-link img {
     width: 90vw;
-    height: auto;
-    max-height: 400px;
+    height: 20rem;
+    max-height: rem-calc(400);
     object-fit: cover;
     @include breakpoint(medium){
-      width: 350px;
-      max-height: 350px;
+      width: rem-calc(400);
+      max-height: rem-calc(400);
     }
 }
+
+span.resource-name {
+  position: revert;
+  }
 
 .results>ul>li {
     padding: 1rem;
