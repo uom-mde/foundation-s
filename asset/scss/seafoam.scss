@@ -795,17 +795,20 @@ transform: scale(1.01);
       }
   }  
   .image-medium {
-      height: rem-calc(500px);
+      height: rem-calc(500);
       }
       
   .image-small {
-      height: rem-calc(300px);
+      height: rem-calc(300);
       }
 
   .image-letterbox {
-    height: 300px;
+    height: rem-calc(300);
     @include breakpoint(medium) {
-      height: 500px;
+      height: rem-calc(451);
+    }
+    @include breakpoint(xlarge) {
+      height: rem-calc(500);
     }
   }
 
