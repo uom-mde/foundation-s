@@ -362,17 +362,17 @@ nav.breadcrumbs {
   height: 100%;
   width: 100%;
   @include breakpoint(medium) {
-      height: rem-calc(300px);
+      height: rem-calc(300);
       width: 100%;
       object-fit: cover;
   }
   @include breakpoint(large) {
-      height: rem-calc(400px);
+      height: rem-calc(400);
       width: 100%;
       object-fit: cover;
   }
   @include breakpoint(xxlarge) {
-      height: rem-calc(450px);
+      height: rem-calc(450);
       width: 100%;
       object-fit: cover;
   }
@@ -381,13 +381,13 @@ nav.breadcrumbs {
 /*Item Showcase Grid*/ 
 .col-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax((rem-calc(300px)), 1fr));
-  gap: rem-calc(32px);
+  grid-template-columns: repeat(auto-fit, minmax((rem-calc(300)), 1fr));
+  gap: rem-calc(32);
   line-height: 1.5;
 }
 
 .col-container.grid-media-container {
-  grid-template-columns: repeat(auto-fit, minmax((rem-calc(300px)), 1fr));
+  grid-template-columns: repeat(auto-fit, minmax((rem-calc(300)), 1fr));
 }
 
 /*Display full item for Item Showcase*/ 
@@ -410,13 +410,13 @@ nav.breadcrumbs {
   height: 100%;
   object-fit: cover;
   @include breakpoint(medium) {
-    height: rem-calc(300px);
+    height: rem-calc(300);
 }
   @include breakpoint(large) {
-      height: rem-calc(350px);
+      height: rem-calc(350);
   }
   @include breakpoint(xxlarge) {
-      height: rem-calc(450px);
+      height: rem-calc(450);
   }
 }
 
@@ -431,15 +431,15 @@ nav.breadcrumbs {
   width: 100%;
   height: 100%;
   @include breakpoint(medium) {
-    max-height: rem-calc(300px);
+    max-height: rem-calc(300);
     width: auto;
 }
   @include breakpoint(large) {
-    max-height: rem-calc(350px);
+    max-height: rem-calc(350);
     width: auto;
   }
   @include breakpoint(xxlarge) {
-    max-height: rem-calc(450px);
+    max-height: rem-calc(450);
     width: auto;
   }
 }
@@ -447,30 +447,35 @@ nav.breadcrumbs {
 .item-showcase-multiples .card img {
   @include breakpoint(medium) {
     object-fit: contain;
-    max-height: rem-calc(300px);
+    max-height: rem-calc(300);
   }
   @include breakpoint(large) {
-    max-height: rem-calc(350px);
+    max-height: rem-calc(350);
   }
   @include breakpoint(xxlarge) {
-    max-height: rem-calc(450px);
+    max-height: rem-calc(450);
   }
 }
 
 /*Increase font-size for single Item Showcase blocks*/
 .item-showcase h2 {
   font-size: 1.2 * $global-font-size;
-  font-weight: 400;
+  font-weight: 300;
 }
 
 .item-showcase:only-child h2 {
-  font-weight: 400;
-  font-size: 1.4 * $global-font-size;
+  font-weight: 300;
+  font-size: 1.25 * $global-font-size;
   margin-top: $global-margin;
   @include breakpoint (large) {
-  /*margin-top: 2 * $global-margin!important;*/
   font-size: 1.7 * $global-font-size;
   }
+}
+
+.item-showcase:only-child .metadata h2 {
+  @include breakpoint(large) {
+  font-size: 1.75rem;
+}
 }
 
 /*Change button size for link to Item Show*/ 
@@ -515,7 +520,7 @@ nav.breadcrumbs {
 
 .file .metadata h2 {
   @include breakpoint(large) {
-  font-size: rem-calc(28px);
+  font-size: rem-calc(28);
   }
 }
 
@@ -567,6 +572,9 @@ nav.breadcrumbs {
   a {
       color: $warning-color;
   }
+  a:hover {
+    text-decoration: underline;
+  }
   a.button {
       color: $white;
   }
@@ -616,8 +624,8 @@ nav.breadcrumbs {
   display: grid;
   /*grid-template-columns: repeat(3, 1fr);*/
   grid-auto-rows: 1fr;
-  grid-column-gap: 24px;
-  grid-row-gap: 24px;
+  grid-column-gap: rem-calc(24);
+  grid-row-gap: rem-calc(24);
   grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
 }
 
@@ -625,7 +633,7 @@ nav.breadcrumbs {
   max-width: 100%;
   float: unset;
   margin-right: 0;
-  height: 350px;
+  height: rem-calc(350);
   width: 100%;
   object-fit: cover;
 }
@@ -650,12 +658,12 @@ position: absolute;
 
 .site a {
 position: absolute;
-  bottom: 109px;
+  bottom: rem-calc(109);
   text-decoration: none;
   color: #040404;
   background: #fff;
   width: 80%;
-  font-size: 24px;
+  font-size: rem-calc(24);
   padding: 1rem;
 }
 

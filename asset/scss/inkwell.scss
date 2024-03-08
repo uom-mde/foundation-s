@@ -43,6 +43,10 @@ label,
     color: $white;
 }
 
+.site-title a:hover span {
+    color: $white;
+    }
+
 span.h4.site-title-label {
     color: $black;
 }
@@ -89,11 +93,14 @@ header .menu a {
 /*Remove purple from mobile search*/
 .search-bar-mobile button {
     background-color: transparent;
+    &:hover {
+        background-color: transparent;
+    }
     }
     
-    .search-bar-mobile svg path {
-        fill: $black;
-    }
+.search-bar-mobile svg path {
+    fill: $black;
+}
 
 /*Remove a:hover background colour*/
 a:hover {
@@ -149,3 +156,11 @@ a:hover {
  button.search-icon[aria-expanded=true] svg path {
     fill: $dark-gray;
 }
+
+/*Footer*/ 
+.background-colour-uom-footer a:hover,
+.footerContainer a:hover  {
+color: $white;
+text-decoration: underline;
+}
+
