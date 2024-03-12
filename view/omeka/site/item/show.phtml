@@ -2,12 +2,13 @@
 $translate = $this->plugin('translate');
 $escape = $this->plugin('escapeHtml');
 $this->headLink()->appendStylesheet($this->assetUrl('css/resource-page-blocks.css', 'Omeka'));
+$this->headLink()->appendStylesheet($this->assetUrl('css/annona.css'));
+$this->headScript()->appendFile($this->assetUrl('js/annona.js'));
 $this->htmlElement('body')->appendAttribute('class', 'item resource show');
 $embedMedia = $this->siteSetting('item_media_embed', false);
 $itemMedia = $item->media();
 $showLayout = $this->themeSetting('show_layout');
 $mediaDisplay = $this->themeSetting('media_display');
-$this->headLink()->appendStylesheet($this->assetUrl('css/resource-page-blocks.css', 'Omeka'));
 
 $fullWidthMainBlockContent = $this->resourcePageBlocks($item, 'full_width_main');
 $fullWidthMainHasBlocks = $fullWidthMainBlockContent->hasBlocks();
@@ -22,44 +23,74 @@ $filterLocale = (bool) $this->siteSetting('filter_locale_values');
 $lang = $this->lang();
 $valueLang = $filterLocale ? [$lang, ''] : null;
 
-$useMediaRender = false;
-$useMiradorViewer = false;
-$useUniversalViewer = false;
+$viewers = [];
+$miradorViewer = null;
+$miradorImageViewer = null;
+$universalViewer = null;
+$youtubeViewer = null;
+$defaultViewer = null;
 
-foreach ($itemMedia as $media) {
+// Loop through Item Media and Choose Viewer for the First Item Only
+$firstMedia = true;
+foreach ($itemMedia as $index => $media) {
     $mediaType = $media->mediaType();
     $mediaRenderer = $media->renderer();
+        // Add debugging statements
+        // echo "Media Renderer: $mediaRenderer, Media Type: $mediaType<br>";
 
-    if ($mediaRenderer !== null && (strpos($mediaRenderer, 'iiif') !== false || $mediaType === 'image/jpeg')) {
-        $useMiradorViewer = true;
-    } elseif ($mediaType !== null && strpos($mediaType, 'pdf') !== false) {
-        $useUniversalViewer = true;
+    if ($firstMedia) {
+        if ($mediaRenderer == 'iiifPresentation') {
+            $viewers[] = 'mirador';
+            $firstMedia = false;
+        } elseif ($mediaRenderer == 'iiif') {
+            $viewers[] = 'mirador';
+            $miradorImageViewer = "<div>" . $this->mirador($item) . "</div>";
+            $firstMedia = false;
+        } elseif ($mediaRenderer == 'youtube') {
+            $viewers[] = 'youtube';
+            $youtubeViewer = "<div class='responsive-embed widescreen'>" . $media->render() . "</div>";
+            $firstMedia = false;
+        } else {
+            $viewers[] = 'default';
+            $defaultViewer = $media->render();
+            $firstMedia = false;
+        }
     } else {
-        $useMediaRender = true;
-        break;
+        // For additional media, you may want to handle them differently or skip them.
+        // You can add additional logic here if needed.
     }
 }
 ?>
 
 <div class="resource-title">
-<?php echo $this->pageTitle($item->displayTitle(null, $valueLang), 2); ?>
-<h2 class="label"><?php echo $translate('Item'); ?></h2>
+    <?php echo $this->pageTitle($item->displayTitle(null, $valueLang), 2); ?>
+    <h2 class="label"><?php echo $translate('Item'); ?></h2>
 </div>
 
 <div class="<?php echo ($showLayout == 'inline') ? 'inline' : 'stack'; ?>">
     <?php $this->trigger('view.show.before'); ?>
 
     <div class="full-width-main margin-bottom-2 xlarge-margin-bottom-3">
-    <?php if ($useMiradorViewer): ?>
-        <?php echo $this->mirador($item); ?> 
-    <?php endif; ?>
-    <?php if ($useUniversalViewer): ?>    
-        <?php echo $this->universalViewer($item); ?>
-    <?php endif; ?>
-    <?php if ($useMediaRender): ?>    
-        <?php echo $media->render(); ?> 
-    <?php endif; ?>
+        <?php 
+        // Display the main viewer
+        if ($miradorViewer !== null) {
+            echo $miradorViewer;
+        }
+        elseif ($miradorImageViewer !== null) {
+            echo $miradorImageViewer;
+        } 
+        elseif ($universalViewer !== null) {
+            echo $universalViewer;
+        } 
+        elseif ($youtubeViewer !== null) {
+            echo $youtubeViewer;
+        } 
+        elseif ($defaultViewer !== null) {
+            echo $defaultViewer;
+        }
+        ?>
     </div>
+</div>
 
     <?php if ($fullWidthMainHasBlocks): ?>
     <div class="full-width-main margin-bottom-2 xlarge-margin-bottom-3">

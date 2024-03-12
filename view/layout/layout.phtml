@@ -14,7 +14,6 @@ if (isset($stylesheet)) {
 }
 $this->headLink()->prependStylesheet($this->assetUrl('css/iconfonts.css', 'Omeka'));
 $this->headLink()->prependStylesheet('//fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400&display=swap');
-$this->headLink()->prependStylesheet($this->assetUrl('css/annona.css'));
 $this->headScript()->prependFile($this->assetUrl('vendor/foundation/foundation.min.js'));
 $this->headScript()->prependFile($this->assetUrl('js/global.js', 'Omeka'));
 $this->headScript()->prependFile($this->assetUrl('js/langselect.js'));
@@ -56,6 +55,7 @@ $bannerPosition = ($this->themeSetting('banner_position')) ? str_replace('_', '-
             }
         <?php endif; ?>
         </style>
+        <!-- Google Tag Manager --> <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0], j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src= 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f); })(window,document,'script','dataLayer','GTM-MTKP79D'); </script> <!-- End Google Tag Manager -->
     </head>
 
     <?php echo $this->htmlElement('body class="no-js"'); ?>
@@ -149,9 +149,5 @@ $bannerPosition = ($this->themeSetting('banner_position')) ? str_replace('_', '-
         <script>
           $(document).foundation(); 
         </script>
-        <?php
-        echo $this->inlineScript()
-        ->prependFile($this->assetUrl('js/annona.js'));
-    ?>
     </body>
 </html>

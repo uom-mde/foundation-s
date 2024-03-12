@@ -1,3 +1,8 @@
+<?php 
+$this->headScript()->appendFile($this->assetUrl('js/annona.js'));
+$this->headLink()->appendStylesheet($this->assetUrl('css/annona.css'));
+?>
+
 <div class="grix-x grid-container">
     <?php if (!empty($heading)): ?>
         <div class="media-text-heading medium-offset-1 large-offset-2">
@@ -8,7 +13,7 @@
 <div class="full-width-css medium-padding-horizontal-1 large-padding-horizontal-2 xlarge-padding-horizontal-3">
     <div class="col-container col-media-container medium-padding-1" data-target-region-id="<?php echo $this->targetID; ?>">
         <?php foreach ($attachments as $attachment): ?>
-            <div class="item-showcase item-showcase-openseadragon item resource small-margin-bottom-1 medium-margin-bottom-2 text-center">
+            <div class="item-showcase item-showcase-openseadragon item resource margin-bottom-3 text-center">
                 <?php
                 $item = $attachment->item();
                 if ($item):
@@ -25,12 +30,18 @@
                         <?php $showTitleOption = $this->showTitleOption; ?>
                         <?php if ($showTitleOption == 'item_title'): ?>
                             <div class="separator-center metadata">
-                                <h2 class="margin-top-1"><?php echo $item->displayTitle(); ?></h2>
+                                <h2 class="margin-top-2"><?php echo $item->displayTitle(); ?></h2>
                             </div>
                         <?php elseif ($showTitleOption == 'file_name'): ?>
                             <div class="separator-center metadata">
-                                <h2 class="margin-top-1"><?php echo $media->displayTitle(); ?></h2>
+                                <h2 class="margin-top-2"><?php echo $media->displayTitle(); ?></h2>
                             </div>
+                        <?php endif; ?>
+                        <?php
+                        $date = $item->value('dcterms:date');
+                        if ($date):
+                        ?>
+                            <h2><small date><?php echo $date; ?></small></h2>
                         <?php endif; ?>
                     <?php endif; ?>
                 <?php
@@ -40,7 +51,7 @@
                     <div class="caption padding-1 grid-container"><?php echo $caption; ?></div>
                 <?php endif; ?>
                 <div class="learn-more">
-                    <h2 class="hollow button medium warning"><?php echo $item->link("View full item"); ?></h2>
+                    <h2 class="button medium warning"><?php echo $item->link("View full item"); ?></h2>
                 </div>
             </div>
         <?php endforeach; ?>

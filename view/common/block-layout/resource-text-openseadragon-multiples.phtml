@@ -11,6 +11,9 @@
  * @var string $captionPosition "center", "left" or "right".
  */
 
+$this->headLink()->appendStylesheet($this->assetUrl('css/annona.css'));
+$this->headScript()->appendFile($this->assetUrl('js/annona.js'));
+
 $escape = $this->plugin("escapeHtml");
 $hyperlink = $this->plugin("hyperlink");
 $siteSetting = $this->plugin("siteSetting");
@@ -30,7 +33,7 @@ $lang = $filterLocale ? $this->lang() : null;
        " " .
        $thumbnailType .
        " captions-" .
-       $captionPosition ?> media file large-7 xlarge-8 padding-horizontal-1 large-padding-horizontal-2 xlarge-padding-horizontal-3">
+       $captionPosition ?> media file large-7 xlarge-8 medium-padding-horizontal-1 large-padding-horizontal-2 xlarge-padding-horizontal-3">
       <div class="attachments resource-text-openseadragon">
          <?php foreach ($attachments as $attachment):
 

@@ -4,8 +4,6 @@
 @import 'settings';
 // Sea Foam Settings
 $topbar-background: transparent;
-$header-font-family: "Playfair Display",
-serif;
 $thumbnail-shadow-hover: 0 0 6px 1px rgba($primary-color, 0.5);
 $button-color: $black;
 @import 'foundation-core';
@@ -32,12 +30,7 @@ a,
     &:hover,
     &:focus {
         color: #000;
-        background-color: lighten($primary-color, 40%);
     }
-}
-
-a.resource-link:hover .resource-name {
-    background-color: lighten($primary-color, 40%);
 }
 
 body.vertical-menu header a {
@@ -47,6 +40,14 @@ body.vertical-menu header a {
 
 label,
 .label {
+    color: $white;
+}
+
+.site-title a:hover span {
+    color: $white;
+    }
+
+span.h4.site-title-label {
     color: $black;
 }
 
@@ -63,6 +64,11 @@ label,
     body.vertical-menu header .title-bar button.menu-toggle {
         color: #000;
     }
+}
+
+/*Remove margin from top menu buttons*/ 
+.title-bar button {
+    margin: 0;
 }
 
 /*Update menu bar*/ 
@@ -82,3 +88,79 @@ header .menu a {
     background: transparent;
     color: $black;
 }
+
+/*25 02 24 Additions*/ 
+/*Remove purple from mobile search*/
+.search-bar-mobile button {
+    background-color: transparent;
+    &:hover {
+        background-color: transparent;
+    }
+    }
+    
+.search-bar-mobile svg path {
+    fill: $black;
+}
+
+/*Remove a:hover background colour*/
+a:hover {
+    background-color: unset;
+ }
+ 
+ /*Dark purple on active menu element*/
+ .menu .active>a, .toc-block>ul .active>a, .toc-block ul ul .active>a {
+     color: $white;
+     background: $secondary-color;
+     font-weight: 600;
+ }
+ 
+ /*Border under top navigation menu*/
+ .top-bar {
+     border-bottom: solid 1px #cfcccc;
+ }
+ 
+ .top-bar a:hover {
+     color: $white;
+     background-color: $primary-color;
+     transition: background-color .25s ease-out,color .25s ease-out;
+ }
+ 
+ /*Remove border from search icon*/
+ header .button {
+ border: unset;
+ }
+ 
+ ul.dropdown.menu li:hover {
+ background-color: $primary-color;
+ }
+ 
+ ul.dropdown.menu li:hover a {
+ color: $white;
+ }
+
+ /*Add padding when search button is showed*/ 
+ .search-button.is-shown {
+    padding: $global-padding $global-padding $global-padding 0;
+ }
+
+ /*Change search button background*/ 
+ .search-bar-mobile button.search-icon[aria-expanded=true] {
+    background: transparent;
+ }
+
+ button.search-icon[aria-expanded="true"] {
+    background: transparent!important;
+ }
+
+ /*Add fill colour to close button*/
+ button.search-icon[aria-expanded=true] svg path {
+    fill: $dark-gray;
+}
+
+/*Footer*/ 
+.background-colour-uom-footer a:hover,
+.footerContainer a:hover  {
+color: $white;
+text-decoration: underline;
+}
+
