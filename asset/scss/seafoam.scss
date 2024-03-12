@@ -922,6 +922,10 @@ transform: scale(1.01);
   }
 
 /*Resource with Text block*/
+.attachments {
+  flex-grow: 1;
+}
+
 /*Sensitive content*/
 .unblur-image {
   filter: blur(50px);
@@ -1414,6 +1418,21 @@ margin-top: 2 * $global-margin;
 
 .accordion-content.collapsed {
   padding: 0;
+}
+
+/*PDF Viewer*/ 
+#pdf-container,
+#pdfjs-container  {
+height: 60vh!important;
+@include breakpoint(medium) {
+  height: 75vh!important;
+}
+@include breakpoint(large) {
+  height: 80vh!important;
+}
+@include breakpoint(xlarge) {
+  height: 90vh!important;
+}
 }
 
 /*Image Banner block*/
