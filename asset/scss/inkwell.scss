@@ -190,6 +190,10 @@ border-color: $dark-gray transparent transparent;
     border-color: $white transparent transparent;
 }
 
+#responsive-menu > ul > li.dropdown.active.is-dropdown-submenu-parent.opens-left.is-active > a:hover:after {
+    border-color: $white transparent transparent;
+}
+
 /*Footer*/ 
 .background-colour-uom-footer a:hover,
 .footerContainer a:hover  {
