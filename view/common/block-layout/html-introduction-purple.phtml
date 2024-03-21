@@ -11,13 +11,11 @@ $escape = $this->plugin('escapeHtml');
 
 <div class="full-width-css colour-scheme-2 padding-vertical-1 flex-container <?= $this->escapeHtmlAttr($divclass) ?>">
     <div class="grid-x grid-container flex-container">
-        <div class="page-header">
-            <?php if (!empty($heading)): ?>
-            <h2><?= $escape($heading) ?></h2>
-            <?php endif; ?>
-            <div class="padding-vertical-1 medium-padding-vertical-2 large-padding-vertical-3 lead">
-                <?= $html ?>
-            </div>
+        <?php if (!empty($heading)): ?>
+        <h2><?= $escape($heading) ?></h2>
+        <?php endif; ?>
+        <div class="padding-vertical-1 medium-padding-vertical-2 large-padding-vertical-3 lead">
+            <?= $html ?>
         </div>
     </div>
 </div>
