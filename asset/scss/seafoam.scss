@@ -344,6 +344,11 @@ nav.breadcrumbs {
 }
 
 /*Item Showcase*/
+/*Remove gold border when more than one item*/ 
+.item-showcase:not(:only-child) .separator-center::after {
+  display: none;
+  }
+
 .item-showcase .caption {
   max-width: rem-calc(750);
   margin: 0 auto;
@@ -708,11 +713,18 @@ transform: scale(1.01);
   .hero-title h1 {
     background-color: rgba(255, 255, 255, 0.8);
     line-height: 1.2;
-    padding: 1.5 * $global-padding 2.5 * $global-padding;
+    padding: 0.5 * $global-padding;
     font-weight: 300;
+    font-size: 2 * $global-font-size;
     @include breakpoint(medium) {
       line-height: 1.4;
+      font-size: 2.5 * $global-font-size;
     }
+  }
+
+  .hero-title.dark h1 {
+    background-color: $black;
+    color: $white;
   }
   
   .hero-image h1 {
