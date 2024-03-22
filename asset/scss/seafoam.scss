@@ -495,7 +495,7 @@ nav.breadcrumbs {
 
 /*Media Embed*/
 /*Increase size of thumbnails for Media Embed blocks*/ 
-.left {
+.media-embed-block.left {
   float: left;
   margin: 0 1.5 * $global-margin $global-margin 0!important;
   max-width: 50%!important;
@@ -508,7 +508,7 @@ nav.breadcrumbs {
   }
 }
 
-.right {
+.media-embed-block.right {
   float: right;
   margin: 0 0 $global-margin 1.5 * $global-margin!important;
   max-width: 50%;
