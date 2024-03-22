@@ -495,30 +495,35 @@ nav.breadcrumbs {
 
 /*Media Embed*/
 /*Increase size of thumbnails for Media Embed blocks*/ 
-.left .media-render img {
+.left {
   float: left;
-  margin: 0 $global-margin $global-margin 0;
-  max-width: 50%;
+  margin: 0 1.5 * $global-margin $global-margin 0!important;
+  max-width: 50%!important;
   @include breakpoint(medium) {
-    margin: 0 2 * $global-margin $global-margin 0;
-  }
+    margin: 0 2 * $global-margin $global-margin 0!important;
+}
   @include breakpoint(large) {
-      max-width: 40%;
-      margin: 3 * $global-margin $global-margin 0;
+      max-width: 40%!important;
+      margin: 0 3 * $global-margin $global-margin 0!important;
   }
 }
 
-.right .media-render img {
+.right {
   float: right;
-  margin: 0 0 $global-margin $global-margin;
+  margin: 0 0 $global-margin 1.5 * $global-margin!important;
   max-width: 50%;
   @include breakpoint(medium) {
-    margin: 0 0 2 * $global-margin $global-margin;
-  }
+    margin: 0 0 $global-margin 2 * $global-margin!important;
+}
   @include breakpoint(large) {
       max-width: 40%;
       margin: 0 3 * $global-margin $global-margin;
   }
+}
+
+.left .max-image-height img,
+.right .max-image-height img {
+  max-height: 50vh;
 }
 
 .file img {
