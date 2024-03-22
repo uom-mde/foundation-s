@@ -30,10 +30,10 @@ $escapeAttr = $plugins->get('escapeHtmlAttr');
 <?php if (empty($attachment['asset'])) return; ?>
 
 <div class="full-width-css">
-    <div role="banner" class="hero-image image-large region-splash flex-container <?= $escapeAttr($attachment['class']) ?>" style="background-image:linear-gradient(rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 1)),url(<?= $attachment['asset']->assetUrl() ?>);">
+    <div role="banner" class="hero-image image-large region-splash flex-container <?= $escapeAttr($attachment['class']) ?>" style="background-image:linear-gradient(rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.6)),url(<?= $attachment['asset']->assetUrl() ?>);">
         <?php if (!empty($heading)) : ?>
-            <div class="grid-container grid-x flex-grow align-self-bottom">
-                <div class="hero-title dark">
+            <div class="grid-container grid-x flex-grow align-self-middle">
+                <div class="hero-title dark-background">
                     <h1><?= $heading ?></h1>
                     <?php $attachmentUrl = $attachment['page'] ? $attachment['page']->siteUrl() : ($attachment['url'] ?? null); ?>
                     <?php if ($attachment['alt_link_title'] && $attachmentUrl) : ?>
@@ -44,7 +44,7 @@ $escapeAttr = $plugins->get('escapeHtmlAttr');
         <?php endif; ?>
     </div>
     <?php if ($attachment['caption'] !== ''): ?>
-        <div class="hero-title-caption">
+        <div class="hero-title-caption dark-background">
             <div class="grid-container caption padding-horizontal-1">
                 <?= empty($attachment['raw']) ? $attachment['caption'] : $escape($attachment['caption']) ?>
             </div>

@@ -716,14 +716,15 @@ transform: scale(1.01);
     padding: 0.5 * $global-padding;
     font-weight: 300;
     font-size: 2 * $global-font-size;
+    margin-bottom: 0;
     @include breakpoint(medium) {
       line-height: 1.4;
       font-size: 2.5 * $global-font-size;
     }
   }
 
-  .hero-title.dark h1 {
-    background-color: $black;
+  .hero-title.dark-background h1 {
+    background-color: $uom-footer;
     color: $white;
   }
   
@@ -788,6 +789,10 @@ transform: scale(1.01);
     padding: 0;
     border-bottom: solid rem-calc(1px) $light-gray;
     margin: 0;
+    &.dark-background {
+      background-color: lighten($uom-footer, 2%);
+      border-bottom: solid rem-calc(1px) lighten($uom-footer, 15%);
+    }
   }
 
   .hero-title-caption .caption p {
@@ -795,6 +800,10 @@ transform: scale(1.01);
       margin: 0 0 0.5 * $global-margin 0.5 * $global-margin;
       color: lighten($black, 35%);
       padding-top: rem-calc(7);
+  }
+
+  .hero-title-caption.dark-background .caption p {
+    color: $white;
   }
   
   /*Hero image sizes*/
@@ -2842,6 +2851,15 @@ ul.language-switcher.locale-code li span.active {
 /*Grey Background*/
 .gray-background {
 background: $light-gray
+}
+
+/*Dark background*/ 
+.dark-background,
+.dark-background h1,
+.dark-background h2,
+.dark-background h3 {
+  background-color: $uom-footer;
+  color: $white;
 }
 
 /*Maximum image height for Item Showcase Block*/ 
