@@ -553,6 +553,13 @@ nav.breadcrumbs {
   color: $white;
 }
 
+/*Content Warning*/
+.content-warning {
+  background-color: $alert-color;
+  color: $white;
+  padding: $global-padding;
+}
+
 /*Coloured backgrounds*/
 .background-colour-primary {
   background-color: $primary-color;
