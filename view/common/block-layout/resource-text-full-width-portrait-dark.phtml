@@ -41,7 +41,7 @@ $lang = $filterLocale ? $this->lang() : null;
                     $mediaType = $media->mediaType();
                     if ($media && $mediaRenderer === 'iiif') :
                         echo $this->thumbnail($media, $this->thumbnailType);
-                    elseif ($media && $mediaType === 'image/jpeg') :
+                    elseif ($mediaType === 'image/jpeg' || $mediaType === 'image/tiff' || $mediaType === 'image/png') :
                         echo $this->thumbnail($media, $this->thumbnailType);
                     elseif ($media) :
                         echo $media->render(['thumbnailType' => $thumbnailType,'link' => $link,]);
