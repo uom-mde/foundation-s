@@ -8,9 +8,9 @@ $this->headMeta()->appendName('viewport', 'width=device-width, initial-scale=1')
 $this->headTitle($siteTitle)->setSeparator(' · ');
 $this->headTitle()->append($this->setting('installation_title', 'Omeka S'));
 if (isset($stylesheet)) {
-    $this->headLink()->prependStylesheet($this->assetUrl("css/$stylesheet.css"));
+    $this->headLink()->appendStylesheet($this->assetUrl("css/$stylesheet.css"));
 } else {
-    $this->headLink()->prependStylesheet($this->assetUrl('css/seafoam.css'));
+    $this->headLink()->appendStylesheet($this->assetUrl('css/seafoam.css'));
 }
 $this->headLink()->prependStylesheet($this->assetUrl('css/iconfonts.css', 'Omeka'));
 $this->headLink()->prependStylesheet('//fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400&display=swap');
@@ -19,6 +19,7 @@ $this->headScript()->prependFile($this->assetUrl('js/global.js', 'Omeka'));
 $this->headScript()->prependFile($this->assetUrl('js/langselect.js'));
 $this->headScript()->prependFile($this->assetUrl('vendor/jquery/jquery.min.js', 'Omeka'));
 $this->trigger('view.layout');
+$this->jsTranslate();
 $userBar = $this->userBar();
 
 $navLayout = ($this->themeSetting('nav_layout')) ? $this->themeSetting('nav_layout') : 'dropdown';
@@ -31,7 +32,7 @@ $banner = $this->themeSettingAssetUrl('banner');
 $bannerWidth = ($this->themeSetting('banner_width')) ? $this->themeSetting('banner_width') : '';
 $bannerHeight = $this->themeSetting('banner_height');
 $bannerHeightMobile = $this->themeSetting('banner_height_mobile');
-$bannerPosition = ($this->themeSetting('banner_position')) ? str_replace('_', '-', $this->themeSetting('banner_position')) : 'center';
+$bannerPosition = ($this->themeSetting('banner_position')) ? str_replace('_','-', $this->themeSetting('banner_position')) : 'center';
 ?>
 <?php echo $this->doctype(); ?>
 <?php echo $this->htmlElement('html'); ?>
@@ -43,11 +44,11 @@ $bannerPosition = ($this->themeSetting('banner_position')) ? str_replace('_', '-
         <?php echo $this->headScript(); ?>
         <style>
             .banner {
-                height: <?php echo ($bannerHeight !== '') ? $bannerHeight : 'auto' ?>;
+                height: <?php echo ($bannerHeight !== '') ? $bannerHeight: 'auto'  ?>;
                 background-image: url(<?php echo $this->themeSettingAssetUrl('banner'); ?>);
                 background-position: <?php echo $bannerPosition; ?>;
             }
-        <?php if ($bannerHeightMobile !== '') : ?>
+        <?php if ($bannerHeightMobile !== ''): ?>
             @media screen and (max-width:640px) {
                 .banner {
                     height: <?php echo $bannerHeightMobile; ?>;
@@ -58,7 +59,7 @@ $bannerPosition = ($this->themeSetting('banner_position')) ? str_replace('_', '-
         <!-- Google Tag Manager --> <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0], j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src= 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f); })(window,document,'script','dataLayer','GTM-MTKP79D'); </script> <!-- End Google Tag Manager -->
     </head>
 
-    <?php echo $this->htmlElement('body class="no-js"'); ?>
+    <?php echo $this->htmlElement('body'); ?>
         <!-- Google Tag Manager (noscript) -->
             <noscript><iframe src=https://www.googletagmanager.com/ns.html?id=GTM-MTKP79D height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript> 
         <!-- End Google Tag Manager (noscript) -->
