@@ -36,18 +36,16 @@ $lang = $filterLocale ? $this->lang() : null;
                 $link = null;
                 $item = $attachment->item();
                 if ($item):
-                    $media = $attachment->media() ?: $item->primaryMedia();
-                    if ($media) { // Check if $media is not null
-                        $mediaRenderer = $media->renderer();
-                        $mediaType = $media->mediaType();
-                        
-                        if ($mediaRenderer === 'iiif') :
-                            echo $this->thumbnail($media, $this->thumbnailType);
-                        elseif ($mediaType === 'image/jpeg' || $mediaType === 'image/tiff' || $mediaType === 'image/png') :
-                            echo $this->thumbnail($media, $this->thumbnailType);
-                        else:
-                            echo $media->render(['thumbnailType' => $thumbnailType, 'link' => $link]);
-                        endif;
+                    $media = $attachment->media() ? : $item->primaryMedia();
+                    $mediaRenderer = $media->renderer();
+                    $mediaType = $media->mediaType();
+                    if ($media && $mediaRenderer === 'iiif') :
+                        echo $this->thumbnail($media, $this->thumbnailType);
+                    elseif ($mediaType === 'image/jpeg' || $mediaType === 'image/tiff' || $mediaType === 'image/png') :
+                        echo $this->thumbnail($media, $this->thumbnailType);
+                    elseif ($media) :
+                        echo $media->render(['thumbnailType' => $thumbnailType,'link' => $link,]);
+                    endif;
                 
 
                     if ($showTitleOption == 'item_title'):
