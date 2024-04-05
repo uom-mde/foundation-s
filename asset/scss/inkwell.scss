@@ -1,14 +1,14 @@
 @charset 'utf-8';
-@import 'globals-default';
-@import 'globals-seafoam';
-@import 'settings';
+// @import 'globals-default';
+// @import 'globals-inkwell';
+// @import 'settings';
 // Sea Foam Settings
+// @import 'foundation-core';
+@import 'seafoam';
+// @import 'omeka';
 $topbar-background: transparent;
 $thumbnail-shadow-hover: 0 0 6px 1px rgba($primary-color, 0.5);
 $button-color: $black;
-@import 'foundation-core';
-@import 'seafoam';
-@import 'omeka';
 
 header .menu a {
     color: $black;
