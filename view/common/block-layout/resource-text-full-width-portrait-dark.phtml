@@ -68,9 +68,11 @@ $lang = $filterLocale ? $this->lang() : null;
                 $caption = $attachment->caption();
             ?>
             <div class="item resource">
-                <?= $render ?>                
+                <?= $render ?>              
                 <div class="caption">
-                    <figcaption class="orbit-caption caption no-overlay"><?php echo $caption; ?></figcaption>                  
+                    <?php if (isset($caption) && !empty($caption)) : ?>
+                        <figcaption class="orbit-caption caption no-overlay"><?php echo $caption; ?></figcaption>
+                    <?php endif; ?>
                 </div>
             </div>
             <?php endforeach; ?>
