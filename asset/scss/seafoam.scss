@@ -1185,6 +1185,10 @@ figcaption.orbit-caption.caption p {
   padding: $global-padding;
 }
 
+.item.resource {
+  width: 100%;
+}
+
 .captions-center .resource h2,
 .captions-center .resource .orbit-caption.caption {
   text-align: center;
@@ -2910,4 +2914,9 @@ figure.max-image-height img,
 .max-block-height img {
   height: 100vh;
   overflow-y: auto;
+}
+
+/*Stop figcaption overlapping image*/
+.orbit-caption.no-overlay {
+  position: unset;
 }
