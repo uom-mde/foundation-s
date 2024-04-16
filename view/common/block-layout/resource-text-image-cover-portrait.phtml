@@ -21,14 +21,14 @@ $filterLocale = (bool) $this->siteSetting('filter_locale_values');
 $lang = $filterLocale ? $this->lang() : null;
 ?>
 
-<div class="block media-text full-width-css grid-x grid-padding-x margin-bottom-1 flex-container image-cover">
+<div class="block media-text full-width-css grid-x grid-padding-x margin-bottom-1 flex-container image-cover padding-horizontal-1">
     <?php if (!empty($heading)): ?>
     <div class="grid-container cell margin-bottom-1">
         <h2 class="h2 padding-vertical-1"><?= $escape($heading) ?></h2>
     </div>
     <?php endif; ?>
-    <div class="<?= $alignmentClass . ' ' . $thumbnailType . ' captions-' . $captionPosition ?> media file image-cover-img large-6 flex-container padding-horizontal-1">
-    <div class="attachments max-image-height">
+    <div class="<?= $alignmentClass . ' ' . $thumbnailType . ' captions-' . $captionPosition ?> media file image-cover-img large-6 flex-container align-self-middle">
+    <div class="attachments">
             <?php
             foreach ($attachments as $attachment):
                 $render = null;
