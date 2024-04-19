@@ -38,14 +38,16 @@ $this->headLink()->appendStylesheet($this->assetUrl('css/annona.css'));
                             </div>
                         <?php endif; ?>
                     <?php endif; ?>
-                <?php
-                $caption = $attachment->caption();
-                if ($caption):
-                    ?>
-                    <div class="caption padding-1 grid-container"><?php echo $caption; ?></div>
-                <?php endif; ?>
-                <div class="learn-more">
-                    <h2 class="button medium warning"><?php echo $item->link("View full item"); ?></h2>
+                <div class="margin-top-1 medium-margin-top-2">
+                    <?php
+                    $caption = $attachment->caption();             
+                    if ($caption):
+                        ?>
+                        <div class="caption grid-container margin-bottom-1 medium-margin-bottom-2"><?php echo $caption; ?></div>
+                    <?php endif; ?>
+                    <div class="learn-more">
+                        <h2 class="button medium warning"><?php echo $item->link("View full item"); ?></h2>
+                    </div>
                 </div>
             </div>
         <?php endforeach; ?>

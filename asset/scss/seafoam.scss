@@ -607,6 +607,21 @@ nav.breadcrumbs {
   h2 small {
       color: $white;
   }
+  h3 {
+    color: $warning-color;
+  }
+  h3 small {
+      color: $white;
+  }
+  h4 {
+    color: $warning-color;
+  }
+  h4 small {
+      color: $white;
+  }
+  p.h4 small {
+    color: $white;
+  }
   .learn-more h2.button a {
     color: $black;
   }
