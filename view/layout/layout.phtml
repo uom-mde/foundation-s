@@ -35,7 +35,7 @@ $bannerHeightMobile = $this->themeSetting('banner_height_mobile');
 $bannerPosition = ($this->themeSetting('banner_position')) ? str_replace('_', '-', $this->themeSetting('banner_position')) : 'center';
 ?>
 <?php echo $this->doctype(); ?>
-<?php echo $this->htmlElement('html'); ?>
+<?php echo $this->htmlElement('html class="no-js"'); ?>
     <head>
         <?php echo $this->headMeta(); ?>
         <?php echo $this->headTitle(); ?>
