@@ -2544,6 +2544,10 @@ html, body {
 
 /*Annona*/ 
 
+.pageButton {
+  cursor: pointer;
+}
+
 .annonaview .content .attribution, .annonaview .content .authorship, .annonaview .content .tags {
   font-style: unset;
   }
