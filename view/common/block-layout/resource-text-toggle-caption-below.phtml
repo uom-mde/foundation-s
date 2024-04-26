@@ -14,7 +14,7 @@
 $escape = $this->plugin('escapeHtml');
 $hyperlink = $this->plugin('hyperlink');
 $siteSetting = $this->plugin('siteSetting');
-
+$uniqueId = uniqid();
 $linkType = $siteSetting('attachment_link_type', 'item');
 
 $filterLocale = (bool) $this->siteSetting('filter_locale_values');
