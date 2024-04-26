@@ -1720,9 +1720,6 @@ span.resource-name {
   min-height: 90vh;
   object-fit: cover;
   object-position: center;
-  @include breakpoint(large) {
-      max-height: unset;
-  }
 }
 
 .item-listing {
