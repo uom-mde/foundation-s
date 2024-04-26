@@ -68,15 +68,14 @@
                     <?=$render
                         ?>
                     <?php if ($attachment->caption()): ?>
-                    <button id="reveal-caption" type="button" data-toggle="show-caption-id-<?=$uniqueId
-                        ?>" class="flex-container flex-dir-column align-spaced align-middle">
-                        <div class="flex-container flex-dir-column">
-                            <h2 class="h5 margin-top-0">Click or press to view the item description.</h2>
-                        </div>
-                        <figcaption class="orbit-caption  margin-horizontal-1 padding-1 reveal-caption" id="show-caption-id-<?=$uniqueId ?>" data-toggler=".reveal-caption">
+                        <figcaption class="orbit-caption padding-1 reveal-caption" id="show-caption-id-<?=$uniqueId ?>" data-toggler=".reveal-caption">
                             <?=$caption
                                 ?>
                         </figcaption>
+                        <button id="reveal-caption" type="button" data-toggle="show-caption-id-<?=$uniqueId
+                        ?>" class="flex-container flex-dir-column align-spaced align-middle margin-bottom-1 medium-margin-bottom-2 large-margin-bottom-0">
+                            <h2 class="h5 margin-top-0">Click or press to view the item description.</h2>
+                        </button>
                     <?php endif ?>
                 </div>
                 <?php
