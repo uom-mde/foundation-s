@@ -72,7 +72,7 @@ $lang = $filterLocale ? $this->lang() : null;
                 <?php if ($attachment->caption()): ?>
                     <?php if (isset($caption) && !empty($caption)) : ?>
                         <button id="reveal-caption" type="button" data-toggle="show-caption-id-<?=$uniqueId
-                        ?>" class="flex-container flex-dir-column align-spaced align-middle">
+                        ?>" class="flex-container flex-dir-column align-spaced align-middle button alert">
                             <h2 class="h5 margin-top-0">View the item description</h2>
                         </button>
                         <figcaption class="orbit-caption padding-1 reveal-caption" id="show-caption-id-<?=$uniqueId ?>" data-toggler=".reveal-caption">
