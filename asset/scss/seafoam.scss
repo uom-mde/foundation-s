@@ -1043,6 +1043,16 @@ display: none;
 
 /*End Sensitive Material*/
 
+/*Toggle caption*/ 
+.toggle-caption .orbit-caption {
+  bottom: rem-calc(59px);
+}
+@include breakpoint(large) {
+.toggle-caption .orbit-caption {
+  bottom: rem-calc(60px);
+}
+}
+
 .text {
   padding: $global-padding 0;
   @include breakpoint(large) {
@@ -1707,7 +1717,7 @@ span.resource-name {
 .item-listing,
 .image-cover-img img {
   width: 100vw;
-  min-height: 100vh;
+  min-height: 90vh;
   object-fit: cover;
   object-position: center;
   @include breakpoint(large) {
@@ -2932,14 +2942,14 @@ figure.max-image-height img,
   background: #000000de;
 }
 
-/*Maximum Block Height*/ 
-.max-block-height,
+/*Maximum Block Height*/
 .max-block-height img {
-  height: 100vh;
-  overflow-y: auto;
+  /*height: 95vh;*/
+  /*overflow-y: auto;*/
 }
 
 /*Stop figcaption overlapping image*/
-.orbit-caption.no-overlay {
+.orbit-caption.no-overlay,
+.no-overlay .orbit-caption {
   position: unset;
 }
