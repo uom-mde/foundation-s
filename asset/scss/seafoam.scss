@@ -1193,6 +1193,12 @@ figcaption.orbit-caption.caption p {
   }
 }
 
+figcaption.orbit-caption {
+  font-style: initial;
+  font-weight: initial;
+  font-size: initial;
+}
+
 .image-cover .title-area {
   @include breakpoint(large) {
       height: 100vh;
