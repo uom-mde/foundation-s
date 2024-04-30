@@ -2652,6 +2652,13 @@ polygon>.svgactive:hover {
       } 
 }
 
+.panelTruck_viewer {
+@include breakpoint (small only) {
+  width: 90vw;
+  margin: 0 auto;
+}
+}
+
 .seadragonbox .openseadragon-container {
       height: 70vh!important;
       @include breakpoint(large) {
