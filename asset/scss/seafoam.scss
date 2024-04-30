@@ -2640,7 +2640,8 @@ polygon>.svgactive:hover {
   background-color: $white;
 }
 
-#storyboard_viewer.annonaview.storyboard_viewer {
+#storyboard_viewer.annonaview.storyboard_viewer,
+.panelTruck_viewer {
   background: $black;
   height: 70vh!important;
   @include breakpoint(large) {
