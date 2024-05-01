@@ -647,6 +647,11 @@ nav.breadcrumbs {
   text-decoration: none;
 }
 
+/*Styling for caption-toggle button*/
+.caption-toggle.background-colour-uom-footer .toggle-caption .button h2 {
+  color: $white;
+} 
+
 /*Foundation S Prototype*/ 
 .lead {
   line-height: 1.6;
@@ -1182,7 +1187,6 @@ display: none;
     margin-right: 8.3333333333%;
 }
 }
-
 
 .media-text-heading {
   flex-basis: 100%;
