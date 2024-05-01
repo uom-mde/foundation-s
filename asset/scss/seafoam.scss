@@ -1049,6 +1049,10 @@ display: none;
 /*End Sensitive Material*/
 
 /*Toggle caption*/ 
+.orbit-caption {
+  background-color: rgba(10,10,10, .9); 
+}
+
 .toggle-caption .orbit-caption {
   bottom: rem-calc(59px);
 }
