@@ -1171,6 +1171,19 @@ display: none;
   margin: unset;
 }
 
+.media-text.caption-toggle .left {
+  @include breakpoint(xlarge) {
+    margin-left: 8.3333333333%;
+}
+}
+
+.media-text.caption-toggle .right {
+  @include breakpoint(xlarge) {
+    margin-right: 8.3333333333%;
+}
+}
+
+
 .media-text-heading {
   flex-basis: 100%;
   @include breakpoint(medium) {
