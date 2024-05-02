@@ -648,9 +648,12 @@ nav.breadcrumbs {
 }
 
 /*Styling for caption-toggle button*/
-.caption-toggle.background-colour-uom-footer .toggle-caption .button h2 {
-  color: $white;
-} 
+.caption-toggle .toggle-caption .button {
+  background-color: $dark-gray; 
+  h2 {
+    color:$white;
+  }
+}
 
 /*Foundation S Prototype*/ 
 .lead {
