@@ -21,7 +21,7 @@ $filterLocale = (bool) $this->siteSetting('filter_locale_values');
 $lang = $filterLocale ? $this->lang() : null;
 ?>
 
-<div class="block media-text caption-toggle full-width-css grid-x grid-padding-x margin-bottom-1 flex-container image-cover padding-horizontal-1">
+<div class="block media-text caption-toggle full-width-css grid-x grid-padding-x margin-bottom-1 flex-container image-cover padding-horizontal-1 background-colour-uom-footer">
     <?php if (!empty($heading)): ?>
     <div class="grid-container cell margin-bottom-2 large-margin-bottom-3">
         <h2 class="h2 padding-vertical-1"><?= $escape($heading) ?></h2>
@@ -72,7 +72,7 @@ $lang = $filterLocale ? $this->lang() : null;
                 <?php if ($attachment->caption()): ?>
                     <?php if (isset($caption) && !empty($caption)) : ?>
                         <button id="reveal-caption" type="button" data-toggle="show-caption-id-<?=$uniqueId
-                        ?>" class="flex-container flex-dir-column align-spaced align-middle button warning">
+                        ?>" class="flex-container flex-dir-column align-spaced align-middle button">
                             <h2 class="h5 margin-top-0">Read a description of the image</h2>
                         </button>
                         <figcaption class="orbit-caption padding-1 reveal-caption" id="show-caption-id-<?=$uniqueId ?>" data-toggler=".reveal-caption">

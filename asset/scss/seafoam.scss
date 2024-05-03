@@ -647,6 +647,14 @@ nav.breadcrumbs {
   text-decoration: none;
 }
 
+/*Styling for caption-toggle button*/
+.caption-toggle .toggle-caption .button {
+  background-color: $dark-gray; 
+  h2 {
+    color:$white;
+  }
+}
+
 /*Foundation S Prototype*/ 
 .lead {
   line-height: 1.6;
@@ -1044,6 +1052,10 @@ display: none;
 /*End Sensitive Material*/
 
 /*Toggle caption*/ 
+.orbit-caption {
+  background-color: rgba(10,10,10, .9); 
+}
+
 .toggle-caption .orbit-caption {
   bottom: rem-calc(59px);
 }
@@ -1171,6 +1183,18 @@ display: none;
   margin: unset;
 }
 
+.media-text.caption-toggle .left {
+  @include breakpoint(xlarge) {
+    margin-left: 8.3333333333%;
+}
+}
+
+.media-text.caption-toggle .right {
+  @include breakpoint(xlarge) {
+    margin-right: 8.3333333333%;
+}
+}
+
 .media-text-heading {
   flex-basis: 100%;
   @include breakpoint(medium) {
@@ -1191,6 +1215,12 @@ figcaption.orbit-caption.caption p {
       margin-bottom: $global-margin;
       text-align: right;
   }
+}
+
+figcaption.orbit-caption {
+  font-style: initial;
+  font-weight: initial;
+  font-size: initial;
 }
 
 .image-cover .title-area {
