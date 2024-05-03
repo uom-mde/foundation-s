@@ -102,6 +102,20 @@ header .top-bar {
   width: 100%;
 }
 
+.sub-menu-buttons {
+  margin: $global-margin;
+  @include breakpoint(medium) {
+    margin: 2 * $global-margin $global-margin;
+  }
+  @include breakpoint(xlarge) {
+    margin: 3 * $global-margin $global-margin;
+  }
+  }
+
+  .sub-menu-buttons .button {
+    margin: 0.5 * $global-margin;
+    }
+
 /*Set size of University logo*/
 .university-logo {
   margin: rem-calc(12);
@@ -362,6 +376,16 @@ nav.breadcrumbs {
 .item-showcase .openseadragon-container {
   border-radius: 0.25rem;
 }
+
+/*Item Showcase Hover*/
+.button a:hover {
+  text-decoration: none;
+  }
+
+  /*Position caption to the left*/ 
+.item-showcase .caption {
+  text-align: left;
+  }
 
 .fixed-image-height img {
   height: 100%;
@@ -1304,6 +1328,17 @@ figcaption.orbit-caption {
   line-height: 1.5;
   }
 
+  /*Limit number of lines displayed in Browse*/
+.description.full,
+#section-content .description {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+
 /*External Content*/ 
 
 .external-content .left.media.file,
@@ -1503,6 +1538,33 @@ margin-top: 2 * $global-margin;
   } 
   }
 
+  /*iFrame Responsive Embed for Item Show*/
+.resource.show .media-render>* {
+  max-width: 100%;
+}
+
+  /*Faceted Browse*/
+#facets label {
+  color: #000;
+  align-items: baseline;
+}
+
+/*Remove padding from Faceted Browse titles*/
+#section-content span.resource-name {
+padding: unset;
+}
+
+/*Faceted Browse*/
+.select-list-item .value:first-child {
+  margin-top: 0;
+  }
+  
+  @media print, screen and (min-width: 37.5em) {
+  .subsection-text .h3 {
+      font-size: 1.625rem;
+  }
+  }
+
 /*IvyRze blocks*/ 
 /*Accordion*/ 
 .accordion-trigger {
@@ -1695,7 +1757,7 @@ nav.top-bar-left {
     flex-direction: column;
 }
 
-.resource.show .resource-link img, 
+.resource.show .resource-link img,
 #linked-resources img, 
 .results 
 .resource-link img {
@@ -2100,6 +2162,11 @@ span.resource-name {
 #content p a {
   text-decoration: underline;
   }
+
+  #content p a.button {
+    text-decoration: none;
+    margin: $global-margin 0.5 * $global-margin;
+}
 
 /*Home page with Introduction*/
 /*Slick Slider*/
@@ -2856,6 +2923,11 @@ ul.language-switcher.locale-code li span.active {
   max-height: 90vh!important;
   }
 }
+
+/*Full width Mirador Viewer*/
+.media-render.iiif_presentation {
+  width: 100%;
+  }
 
 /*Universal Viewer*/ 
 .universal-viewer #content {
