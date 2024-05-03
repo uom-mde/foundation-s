@@ -1384,24 +1384,17 @@ figcaption.orbit-caption {
 .media-render .sketchfab-embed-wrapper iframe {
   height: 30vh!important;
   width: 90vw!important;
-  }
-  
-  @media screen and (min-width: 600px) {
-  .media-render .sketchfab-embed-wrapper iframe {
+
+ @include breakpoint(medium){
   height: 60vh!important;
   width: 90vw!important;
   }
-  }
-  
-  @media screen and (min-width: 900px) {
-  .media-render .sketchfab-embed-wrapper iframe {
+  @include breakpoint(large){
   height: 80vh!important;
   width: 70vw!important;
   }
-  }
-  
-  @media screen and (min-width: 1200px) {
-  .media-render .sketchfab-embed-wrapper iframe {
+ 
+  @include breakpoint(xlarge){
   width: 80vw!important;
   }
   }
@@ -1416,7 +1409,8 @@ figcaption.orbit-caption {
   .media-text .sketchfab-embed-wrapper iframe {
   width: 90vw!important;
   }
-  }
+}
+
 
   /*Additional Sketchfab rules*/
   /*HTML Responsive Embed Fix 24/02/24*/
