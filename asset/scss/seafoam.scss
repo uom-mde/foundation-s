@@ -84,6 +84,15 @@ header .top-bar {
   }
 }
 
+/*Removed from _omeka.scss*/
+header .top-bar-right {
+  display: none;
+  @include breakpoint(large) {
+    display: flex;
+    align-items: center;
+  }
+}
+
 .top-bar a {
   color: $white;
   }
@@ -183,6 +192,12 @@ ul.language-switcher.locale-code li a {
 }
 /*End Language Selector*/
 
+
+.title-bar {
+  @include breakpoint(large) {
+    display: none;
+  }
+}
 /*Remove margin for menu button on smaller screens*/ 
 .title-bar button {
   margin: rem-calc(0 0 0 5);

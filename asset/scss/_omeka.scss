@@ -192,14 +192,7 @@ h1.site-title {
   margin: $global-margin;
 }
 
-header .top-bar-right {
-  display: none;
-  @include breakpoint(large) {
-    display: flex;
-    align-items: center;
-  }
-}
-
+header .top-bar-right,
 header .top-bar-left {
   display: flex;
   align-items: center;
@@ -228,9 +221,6 @@ header .top-bar {
   display: inline-block;
   background-color: transparent;
   padding: 0;
-  @include breakpoint(large) {
-    display: none;
-  }
   
   button {
     margin: 0 $global-margin 0 0;
@@ -241,9 +231,6 @@ header .top-bar {
 
 .banner {
     position: relative;
-    display: flex;
-    align-items: center;
-    overflow: hidden;
     width: 100%;
     margin-bottom: $global-margin;
     background-repeat: no-repeat;
@@ -251,20 +238,12 @@ header .top-bar {
     background-position: center;
     height: 200px;
 
-    &.contained {
-      @include xy-grid-container;
-    }
-
     img {
       visibility: hidden;
     }
 }
 
-.banner img {
-  width: 100%;
-}
-
-body.vertical-menu .banner.fullbleed {
+.body.vertical-menu .banner.fullbleed {
   width: calc(100% + #{2 * $global-margin});
   margin: (-2 * $global-margin) (-1 * $global-margin) $global-margin;
   
@@ -589,10 +568,6 @@ body.vertical-menu footer {
 @container (max-width: 400px) {
   .resource-grid .resource {
     width: 100% !important;
-  }
-
-  .resource-name {
-    display: block;
   }
 }
 
@@ -1075,10 +1050,6 @@ justify-content: space-between;
   display: none;
 }
 
-#advanced-search .value {
-  margin-bottom: $global-margin !important;
-}
-
 #advanced-search .query-text {
   margin-right: .25 * $global-margin;
 }
@@ -1334,8 +1305,7 @@ justify-content: space-between;
 
 .list-of-pages.with-container {
   background-color: $light-gray;
-  border-width: 1px 0;
-  padding: $global-padding;
+    padding: $global-padding;
 
   ul {
     list-style: none;
