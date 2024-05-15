@@ -1,0 +1,27 @@
+<?php
+/**
+ * @var \Laminas\View\Renderer\PhpRenderer $this
+ * @var \Omeka\Api\Representation\AbstractResourceEntityRepresentation $resource
+ * @var \Laminas\View\Renderer\PhpRenderer $this
+ * @var \Omeka\Api\Representation\SitePageBlockRepresentation $block
+ * @var \Omeka\Api\Representation\SiteBlockAttachmentRepresentation[] $attachments
+ */
+
+// A simple block to do something not possible with default blocks.
+
+$plugins = $this->getHelperPluginManager();
+$translate = $plugins->get('translate');
+?>
+
+<div class="block resource-block block-simple">
+    <?= $translate('Date') ?>
+    <?php
+        foreach ($attachments as $attachment):
+         $item = $attachment->item();
+         $date = $item->value('dcterms:date');
+         if ($date):
+         ?>
+      <h2><small date><?php echo $date; ?></small></h2>
+      <?php endif; ?>
+      <?php endforeach; ?>
+</div>
