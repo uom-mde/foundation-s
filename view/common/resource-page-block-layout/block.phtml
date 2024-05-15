@@ -14,14 +14,28 @@ $translate = $plugins->get('translate');
 ?>
 
 <div class="block resource-block block-simple">
-    <?= $translate('Date') ?>
     <?php
-        foreach ($attachments as $attachment):
-         $item = $attachment->item();
-         $date = $item->value('dcterms:date');
-         if ($date):
-         ?>
-      <h2><small date><?php echo $date; ?></small></h2>
-      <?php endif; ?>
-      <?php endforeach; ?>
+        $siteTitle = $site->title();
+        if ($siteTitle === 'Omeka 4 Test') {
+            // Fetch all values for 'dcterms:date' (assuming it's a collection-related field)
+            $collectionItems = $item->value('dcterms:date', ['all' => true]);
+            if (!empty($collectionItems)) {
+                echo '<div class="collection-items">';
+                foreach ($collectionItems as $collectionItem) {
+                    if (is_array($collectionItem)) {
+                        // If $collectionItem is an array of values, output each one
+                        echo '<div class="collection-item">';
+                        foreach ($collectionItem as $value) {
+                            echo '<span>' . $value . '</span>'; // Output each collection item value
+                        }
+                        echo '</div>';
+                    } else {
+                        // Handle single value case
+                        echo '<div class="collection-item"><span>' . $collectionItem . '</span></div>';
+                    }
+                }
+                echo '</div>';
+            }
+        }
+    ?>
 </div>
