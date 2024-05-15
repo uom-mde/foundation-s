@@ -127,31 +127,6 @@ foreach ($itemMedia as $index => $media) {
         <?php if ($rightSidebarHasBlocks): ?>
         <div class="right-sidebar cell medium-<?php echo $sidebarWidth; ?> background-colour-uom-footer margin-top-1 large-margin-top-0 padding-1 large-padding-2 xlarge-padding-3">
             <?php echo $rightSidebarBlockContent->getBlocks(); ?>
-            <?php
-                $siteTitle = $site->title();
-                if ($siteTitle === 'Omeka 4 Test') {
-                    // Fetch all values for 'dcterms:date' (assuming it's a collection-related field)
-                    $collectionItems = $item->value('dcterms:date', ['all' => true]);
-                    if (!empty($collectionItems)) {
-                        echo '<div class="collection-items">';
-                        foreach ($collectionItems as $collectionItem) {
-                            if (is_array($collectionItem)) {
-                                // If $collectionItem is an array of values, output each one
-                                echo '<div class="collection-item">';
-                                foreach ($collectionItem as $value) {
-                                    echo '<span>' . $value . '</span>'; // Output each collection item value
-                                }
-                                echo '</div>';
-                            } else {
-                                // Handle single value case
-                                echo '<div class="collection-item"><span>' . $collectionItem . '</span></div>';
-                            }
-                        }
-                        echo '</div>';
-                    }
-                }
-            ?>
-
         </div>
         <?php endif; ?>
     </div>
