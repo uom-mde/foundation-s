@@ -13,6 +13,7 @@ $itemSetNames = array_map(function($set) {
 }, $itemSets);
 $showLayout = $this->themeSetting('show_layout');
 $mediaDisplay = $this->themeSetting('media_display');
+$uniqueId = uniqid();
 
 $fullWidthMainBlockContent = $this->resourcePageBlocks($item, 'full_width_main');
 $fullWidthMainHasBlocks = $fullWidthMainBlockContent->hasBlocks();
@@ -79,7 +80,15 @@ foreach ($itemMedia as $index => $media) {
     // Display the main viewer
     if ($miradorImageViewer !== null) {
         if (in_array("Sensitive Content", $itemSetNames)) {
-            echo "<div class='blur-item'>" . $miradorImageViewer . "</div>";
+            echo "<div class='flex-container align-center'>" . $miradorImageViewer . 
+            "<button id='unblur-image' type='button' data-toggle='blur-image-{$uniqueId}' class='flex-container flex-dir-column align-spaced align-middle'>" .
+            "<div class='sensitive-content margin-horizontal-1 large-margin-horizontal-2 padding-1 large-padding-2 xlarge-padding-3 flex-container flex-dir-column'>" .
+            "<i class='far fa-eye-slash fa-lg'></i>" .
+            "<h2 class='h5 warning-text margin-top-1 xlarge-margin-top-2'>This item contains sensitive content which people may find offensive. Click or press to view.</h2>" .
+            "</div>" .
+            "<div class='unblur-image' id='blur-image-{$uniqueId}' data-toggler='.unblur-image'>$miradorImageViewer</div>" .
+            "</button>" .
+            "</div>";
         } else {
             echo $miradorImageViewer;
         }
