@@ -71,25 +71,20 @@ foreach ($itemMedia as $index => $media) {
     <h2 class="label"><?php echo $translate('Item'); ?></h2>
 </div>
 
-<?php if (in_array("Sensitive Content", $itemSetNames))
-  echo $item->displayTitle();
-else
-  return;
-?>
-
 <div class="<?php echo ($showLayout == 'inline') ? 'inline' : 'stack'; ?>">
     <?php $this->trigger('view.show.before'); ?>
 
     <div class="full-width-main margin-bottom-2 xlarge-margin-bottom-3">
     <?php 
     // Display the main viewer
-    if ($miradorViewer !== null) {
+    if ($miradorImageViewer !== null) {
         if (in_array("Sensitive Content", $itemSetNames)) {
-            echo "<div class='blur-item'>" . $miradorViewer . "</div>";
+            echo "<div class='blur-item'>" . $miradorImageViewer . "</div>";
         } else {
-            echo $miradorViewer;
+            echo $miradorImageViewer;
         }
-    } elseif ($universalViewer !== null) {
+    }
+      elseif ($universalViewer !== null) {
         echo $universalViewer;
     } elseif ($youtubeViewer !== null) {
         echo $youtubeViewer;
