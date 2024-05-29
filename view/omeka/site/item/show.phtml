@@ -81,22 +81,22 @@ else
     <?php $this->trigger('view.show.before'); ?>
 
     <div class="full-width-main margin-bottom-2 xlarge-margin-bottom-3">
-        <?php 
-        // Display the main viewer
-        if (in_array("Sensitive Content", $itemSetNames) && ($miradorViewer !== null)) {
+    <?php 
+    // Display the main viewer
+    if ($miradorViewer !== null) {
+        if (in_array("Sensitive Content", $itemSetNames)) {
             echo "<div class='blur-item'>" . $miradorViewer . "</div>";
-            }
-
-        elseif ($universalViewer !== null) {
-            echo $universalViewer;
-        } 
-        elseif ($youtubeViewer !== null) {
-            echo $youtubeViewer;
-        } 
-        elseif ($defaultViewer !== null) {
-            echo $defaultViewer;
+        } else {
+            echo $miradorViewer;
         }
-        ?>
+    } elseif ($universalViewer !== null) {
+        echo $universalViewer;
+    } elseif ($youtubeViewer !== null) {
+        echo $youtubeViewer;
+    } elseif ($defaultViewer !== null) {
+        echo $defaultViewer;
+    }
+    ?>
     </div>
 </div>
 
