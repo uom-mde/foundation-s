@@ -3046,6 +3046,11 @@ button#reveal-caption {
 display: none;
 }
 
+/*Ensure Mirador loads correctly for Sensitive Content Items*/
+.sensitive-full-width {
+  width: 100%;
+  }
+
 /*Test slide overlay for OpenSeadragon Resource with text block*/ 
 .position-right #SeadragonOffCanvas {
   width: 600px;
