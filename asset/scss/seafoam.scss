@@ -2535,7 +2535,8 @@ blockquote {
 }
 
 /* Blockquote header */
-blockquote h2 {
+blockquote h2,
+blockquote p {
    position: relative; /* for pseudos */
    color: $primary-color;
    font-size: 2 * $global-font-size;
@@ -2553,7 +2554,8 @@ blockquote h2 {
 }
 
 /* Blockquote right double quotes */
-blockquote h2:after {
+blockquote h2:after,
+blockquote p:after {
    content:"";
    position: absolute;
    border: 2px solid $primary-color;
@@ -2567,7 +2569,8 @@ blockquote h2:after {
    z-index: 3; 
 }
 
-blockquote h2:before {
+blockquote h2:before,
+blockquote p:before {
    content:"";
    position: absolute;
    width: 80px;
