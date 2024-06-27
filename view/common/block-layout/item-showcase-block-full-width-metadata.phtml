@@ -1,3 +1,8 @@
+<?php
+$siteSetting = $this->plugin('siteSetting');
+$currentLocale = $this->siteSetting('locale') ?: 'en_US';
+?>
+
 <div class="grix-x grid-container">
     <?php if (!empty($heading)): ?>
         <div class="media-text-heading medium-offset-1 large-offset-2">

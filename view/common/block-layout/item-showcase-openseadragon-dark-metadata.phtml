@@ -1,6 +1,8 @@
 <?php 
 $this->headScript()->appendFile($this->assetUrl('js/annona.js'));
 $this->headLink()->appendStylesheet($this->assetUrl('css/annona.css'));
+$siteSetting = $this->plugin('siteSetting');
+$currentLocale = $this->siteSetting('locale') ?: 'en_US';
 ?>
 
 <div class="full-width-css background-colour-uom-footer">
