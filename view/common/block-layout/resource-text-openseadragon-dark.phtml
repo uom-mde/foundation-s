@@ -20,6 +20,7 @@ $siteSetting = $this->plugin('siteSetting');
 $linkType = $siteSetting('attachment_link_type', 'item');
 $filterLocale = (bool) $this->siteSetting('filter_locale_values');
 $lang = $filterLocale ? $this->lang() : null;
+$currentLocale = $this->siteSetting('locale') ?: 'en_US';
 ?>
 
 <div class="block media-text full-width-css grid-x grid-padding-x background-colour-uom-footer">

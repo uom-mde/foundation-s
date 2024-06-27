@@ -17,7 +17,8 @@ $siteSetting = $this->plugin('siteSetting');
 $uniqueId = uniqid();
 $linkType = $siteSetting('attachment_link_type', 'item');
 $filterLocale = (bool)$this->siteSetting('filter_locale_values');
-$lang = $filterLocale ? $this->lang() : null; ?>
+$lang = $filterLocale ? $this->lang() : null;
+$currentLocale = $this->siteSetting('locale') ?: 'en_US'; ?>
 
 <div class="sensitive-material full-width-css block media-text grid-x grid-padding-x align-spaced">
     <?php if (!empty($heading)): ?>
