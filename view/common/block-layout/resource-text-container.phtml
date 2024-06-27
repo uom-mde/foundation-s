@@ -96,7 +96,11 @@ $currentLocale = $this->siteSetting('locale') ?: 'en_US';
             ?>
         </div>
         <div class="learn-more">
-            <h2 class="button large warning"><?php echo $item->link("View full item"); ?></h2>
+            <?php if ($currentLocale == 'es'): ?>
+                <h2 class="button large warning"><?php echo $item->link("Lea la descripción de la imagen"); ?></h2>
+            <?php else: ?>
+                <h2 class="button large warning"><?php echo $item->link("View full item"); ?></h2>
+            <?php endif; ?>
         </div>
     </div>
 </div>
