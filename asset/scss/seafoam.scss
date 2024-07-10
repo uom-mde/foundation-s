@@ -554,7 +554,7 @@ nav.breadcrumbs {
   max-width: 100%;
   height: auto;
   @include breakpoint(large) {
-  max-height: 100vh;
+  max-height: 80vh;
   }
 }
 
@@ -1077,7 +1077,7 @@ display: none;
 
 /*Toggle caption*/ 
 .orbit-caption {
-  background-color: rgba(10,10,10, .9); 
+  background-color: unset; 
 }
 
 .toggle-caption .orbit-caption {
@@ -1237,7 +1237,6 @@ figcaption.orbit-caption.caption p {
   font-size: initial;
   @include breakpoint(large) {
       margin-bottom: $global-margin;
-      text-align: right;
   }
 }
 

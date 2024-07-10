@@ -1,3 +1,8 @@
+<?php
+$siteSetting = $this->plugin('siteSetting');
+$currentLocale = $this->siteSetting('locale') ?: 'en_US';
+?>
+
 <div id="block-<?php echo $this->blockId; ?>" class="full-width-css grid-y grid-margin-y margin-top-1 medium-margin-top-0 small-padding-0 medium-padding-1 large-padding-horizontal-2 region <?php echo $this->regionClass; ?>" data-target-region-id="<?php echo $this->targetID; ?> ">
     <div class="grid-x grid-margin-x flex-container align-spaced">
         <?php foreach ($attachments as $attachment): ?>

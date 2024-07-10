@@ -1,3 +1,8 @@
+<?php
+$siteSetting = $this->plugin('siteSetting');
+$currentLocale = $this->siteSetting('locale') ?: 'en_US';
+?>
+
 <div id="block-<?php echo $this->blockId; ?>" class="full-width-css grid-y grid-margin-y margin-top-1 medium-margin-top-0 small-padding-0 medium-padding-1 large-padding-horizontal-2 background-colour-uom-footer region <?php echo $this->regionClass; ?>" data-target-region-id="<?php echo $this->targetID; ?> ">
     <div class="grid-x grid-margin-x flex-container align-spaced">
         <?php foreach ($attachments as $attachment): ?>
@@ -26,9 +31,13 @@
                             ?>
                             <div class="caption grid-container margin-bottom-1 medium-margin-bottom-2"><?php echo $caption; ?></div>
                         <?php endif; ?>
-                    <div class="learn-more">
-                        <h2 class="button medium warning"><?php echo $item->link("View full item"); ?></h2>
-                    </div>
+            <div class="learn-more">
+                <?php if ($currentLocale == 'es'): ?>
+                    <h2 class="button medium warning"><?php echo $item->link("Ver más"); ?></h2>
+                <?php else: ?>
+                    <h2 class="button medium warning"><?php echo $item->link("View full item"); ?></h2>
+                <?php endif; ?>
+            </div>
                 </div>
             </div>
         <?php endforeach; ?>
