@@ -2513,106 +2513,55 @@ padding-bottom: 75%;
 }
 
 /*Blockquote*/
-/* center the blockquote in the page */
-.blockquote-wrapper {
+.blockquote-container {
   display: flex;
-  height: 100%;
-  padding: 0 20px;
-  @include breakpoint(medium) {
-      height: 100vh;
-  }
+  flex-direction: column;
+  padding: 1rem 2rem !important;
+  align-items: center;
+  justify-content: center;
+  background: #497D7E;
 }
 
-/* Blockquote main style */
+.blockquote-container p {
+  /*margin-top: 48px;*/
+  font-size: 1em;
+  color: #fff;
+}
+
 blockquote {
-   position: relative;
-   max-width: rem-calc(620px);
-   margin: 2 * $global-margin auto;
-   align-self: center;
-   padding: unset;
-   border-left: unset;
+  color: #fff;
+  font-weight: 100;
+  font-size: 2rem;
+  max-width: 600px;
+  line-height: 1.4;
+  position: relative;
+  margin: 5rem auto 4rem;
+  padding: 0.5rem;
 }
 
-/* Blockquote header */
-blockquote h2,
-blockquote p {
-   position: relative; /* for pseudos */
-   color: $primary-color;
-   font-size: 2 * $global-font-size;
-   font-weight: normal;
-   line-height: 1;
-   margin: 0;
-   border: 2px solid #fff;
-   border: solid 2px;
-   border-radius: rem-calc(20px);
-   padding: rem-calc(25px);
-   @include breakpoint(large) {
-      font-size: 3 * $global-font-size;
-      line-height: 1.2;
-   }
+blockquote:before,
+blockquote:after {
+  position: absolute;
+  color: #8facad;
+  font-size: 8rem;
+  width: 4rem;
+  height: 4rem;
 }
 
-/* Blockquote right double quotes */
-blockquote h2:after,
-blockquote p:after {
-   content:"";
-   position: absolute;
-   border: 2px solid $primary-color;
-   border-radius: 0 50px 0 0;
-   width: 60px;
-   height: 60px;
-   bottom: -60px;
-   left: 50px;
-   border-bottom: none;
-   border-left: none;
-   z-index: 3; 
+blockquote:before {
+  content: "“";
+  top: -5rem;
 }
 
-blockquote h2:before,
-blockquote p:before {
-   content:"";
-   position: absolute;
-   width: 80px;
-   border: 6px solid $light-gray;
-   bottom: -3px;
-   left: 50px;
-   z-index: 2;
+blockquote:after {
+  content: "”";
+  bottom: -1rem;
+  right: 0;
 }
 
-/* Blockquote subheader */
-blockquote cite {
-   position: relative;
-   color: $black;
-   font-size: 1.3 * $global-font-size;
-   font-weight: 400;
-   line-height: 1.2;
-   margin: 0;
-   padding-top: 15px;
-   z-index: 1;
-   margin-left:150px;
-   padding-left:12px;
-}
-
-
-blockquote cite:first-letter {
- margin-left:-12px;
- display: inline;
-}
-
-blockquote cite p {
-  display: inline;
-  font-style: initial;
-  font-size: 1.2 * $global-font-size;
-}
-
-.background-colour-1 {
-  background: $warning-color;
-  margin-top: $global-margin;
-  margin-bottom: $global-margin;
-  @include breakpoint(large) {
-      margin-top: 2 * $global-margin;
-      margin-bottom: 2 * $global-margin;
-   }
+cite {
+  line-height: 2;
+  text-align: left;
 }
 
 /*Remove margin from top of blocks*/
