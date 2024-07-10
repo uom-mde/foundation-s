@@ -2055,46 +2055,49 @@ span.resource-name {
 }
 
 .colour-scheme-1 {
-  background: $black;
-  color: $white;
+  background: $uom-footer;
 }
 
 .colour-scheme-2 {
   background: $secondary-color;
-  color: $white;
 }
 
 .colour-scheme-3 {
-  background: #502e05;
-  color: $white;
-}
-
-
-.colour-scheme-3 .image-background figure img,
-.colour-scheme-4 .image-background figure img {
-  opacity: 0.3;
+  background: $alert-color;
 }
 
 .colour-scheme-4 {
   /*background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 50%, rgba(0,0,0,0.3) 100%);*/ 
-  background-color: $uom-footer;
-  & h1 {
-    color: $white;
-}
-  & h2 {
-      color: $white;
-  }
-  & h3 {
-      color: $white;
-  }
+  background-color: $black;
 }
 
-.colour-scheme-1 p,
-.colour-scheme-1 h2,
-.colour-scheme-2 p,
-.colour-scheme-3 p,
-.colour-scheme-4 p {
+.colour-scheme-5 {
+  background-color: $warning-color;
+}
+
+.colour-scheme-1,
+.colour-scheme-2,
+.colour-scheme-3,
+.colour-scheme-4 {
+    color: $white;
+    & p {
       color: $white;
+    }
+    & h2 {
+      color: $white;
+    }
+    & h3 {
+      color: $white;
+    }
+    & cite {
+      color: $white;
+    }
+    & blockquote:before {
+      color: $white;
+    }
+    & blockquote:after {
+      color: $white;
+    }
   }
 
   /*Text for mid-size option text*/
@@ -2531,18 +2534,25 @@ padding-bottom: 75%;
 blockquote {
   color: #fff;
   font-weight: 100;
-  font-size: 2rem;
+  font-size: 1.5rem;
   max-width: 600px;
   line-height: 1.4;
   position: relative;
   margin: 5rem auto 4rem;
   padding: 0.5rem;
+  border-left: unset;
+  @include breakpoint(medium) {
+    font-size: 2rem;
+  }
+  @include breakpoint(xlarge) {
+    max-width: 800px;
+  }
 }
 
 blockquote:before,
 blockquote:after {
   position: absolute;
-  color: #8facad;
+  color: $black;
   font-size: 8rem;
   width: 4rem;
   height: 4rem;
@@ -2562,6 +2572,8 @@ blockquote:after {
 cite {
   line-height: 2;
   text-align: left;
+  font-size: 1rem;
+  font-style: normal;
 }
 
 /*Remove margin from top of blocks*/
