@@ -87,12 +87,14 @@ endforeach; ?>
         </button>
     </div>
     <div class="resource-text large-5 flex-container flex-dir-column align-center align-middle padding-horizontal-1 large-padding-horizontal-2 xlarge-padding-horizontal-3">
-        <div class="metadata margin-bottom-1 separator-center">
+        <div class="metadata">
             <?php $showTitleOption = $this->showTitleOption; ?>
             <?php if ($showTitleOption == "item_title"): ?>
             <h2><?php echo $item->displayTitle(); ?></h2>
+            <div class="separator-center margin-bottom-1"></div>
             <?php elseif ($showTitleOption == "file_name"): ?>
             <h2><?php echo $media->displayTitle(); ?></h2>
+            <div class="separator-center margin-bottom-1"></div>
             <?php endif; ?>
         </div>
         <div class="text">

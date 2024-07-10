@@ -80,15 +80,17 @@ $currentLocale = $this->siteSetting('locale') ?: 'en_US';
         </div>
     </div>
     <div class="resource-text large-6 flex-container grid-y grid-padding-y flex-dir-column align-middle align-center padding-1 large-padding-2 xlarge-padding-3">
-    <div class="metadata margin-bottom-1 separator-center">
-        <?php $showTitleOption = $this->showTitleOption; ?>
-        <?php if ($showTitleOption == "item_title"): ?>
-        <h2><?php echo $item->displayTitle(); ?></h2>
-        <?php elseif ($showTitleOption == "file_name"): ?>
-        <h2><?php echo $media->displayTitle(); ?></h2>
-        <?php endif; ?>
-      </div>
-      <div class="text">
+        <div class="metadata">
+            <?php $showTitleOption = $this->showTitleOption; ?>
+            <?php if ($showTitleOption == "item_title"): ?>
+            <h2><?php echo $item->displayTitle(); ?></h2>
+            <div class="separator-center margin-bottom-1"></div>
+            <?php elseif ($showTitleOption == "file_name"): ?>
+            <h2><?php echo $media->displayTitle(); ?></h2>
+            <div class="separator-center margin-bottom-1"></div>
+            <?php endif; ?>
+        </div>
+        <div class="text">
             <?= $html ?>
         </div>
         <div class="learn-more">
