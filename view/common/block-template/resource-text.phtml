@@ -3,23 +3,19 @@
  * @var \Laminas\View\Renderer\PhpRenderer $this
  * @var \Omeka\Api\Representation\SitePageBlockRepresentation $block
  * @var \Omeka\Api\Representation\SiteBlockAttachmentRepresentation[] $attachments
- * @var string $heading
- * @var string $html
- * @var string $alignmentClass "left" or "right"
  * @var string $thumbnailType
  * @var string $showTitleOption "item_title" or "file_name" or "none".
- * @var string $captionPosition "center", "left" or "right".
  */
 
-$escape = $this->plugin('escapeHtml');
-$hyperlink = $this->plugin('hyperlink');
-$siteSetting = $this->plugin('siteSetting');
-
-$linkType = $siteSetting('attachment_link_type', 'item');
-
-$filterLocale = (bool) $this->siteSetting('filter_locale_values');
-$lang = $filterLocale ? $this->lang() : null;
-?>
+ $plugins = $this->getHelperPluginManager();
+ $hyperlink = $plugins->get('hyperlink');
+ $siteSetting = $plugins->get('siteSetting');
+ 
+ $linkType = $siteSetting('attachment_link_type', 'item');
+ 
+ $filterLocale = (bool) $siteSetting('filter_locale_values');
+ $lang = $filterLocale ? $this->lang() : null;
+ ?>
 
 <div class="block media-text grid-x grid-padding-x align-spaced align-middle full-width-css">
     <?php if (!empty($heading)): ?>
