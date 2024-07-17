@@ -1,0 +1,63 @@
+<?php
+/**
+ * @var \Laminas\View\Renderer\PhpRenderer $this
+ * @var \Omeka\Api\Representation\SitePageBlockRepresentation $block
+ * @var \Omeka\Api\Representation\SiteBlockAttachmentRepresentation[] $attachments
+ * @var string $thumbnailType
+ * @var string $showTitleOption "item_title" or "file_name" or "none".
+ */
+
+ $plugins = $this->getHelperPluginManager();
+$hyperlink = $plugins->get('hyperlink');
+$siteSetting = $plugins->get('siteSetting');
+
+$linkType = $siteSetting('attachment_link_type', 'item');
+
+$filterLocale = (bool) $siteSetting('filter_locale_values');
+$lang = $filterLocale ? $this->lang() : null;
+?>
+
+<div class="block media-text">
+    <div class="resource-text align-middle padding-1 flex-container flex-dir-column align-middle align-center">
+            <?php foreach ($attachments as $attachment): 
+                $render = null;
+                $title = null;
+                $link = null;
+                $item = $attachment->item();
+                $caption = $attachment->caption();
+                if ($item) {
+                    $media = $attachment->media() ?: $item->primaryMedia();
+                    if ($media) {
+                        if ($showTitleOption == 'item_title') {
+                            $title = $item->displayTitle(null, $lang);
+                        } elseif ($showTitleOption == 'file_name') {
+                            $title = $media->displayTitle(null, $lang);
+                        }
+                    }
+                }
+                ?>
+            <?php endforeach; ?>
+        <div class="metadata margin-bottom-1 separator-center">
+            <?php if ($showTitleOption == "item_title"): ?>
+                <h2><?= htmlspecialchars($item->displayTitle()) ?></h2>
+            <?php elseif ($showTitleOption == "file_name" && isset($media)): ?>
+                <h2><?= htmlspecialchars($media->displayTitle()) ?></h2>
+            <?php endif; ?>
+            <?php if ($date = $item->value('dcterms:date')): ?>
+                <h2><small date><?= htmlspecialchars($date) ?></small></h2>
+            <?php endif; ?>
+            <?php if ($origin = $item->value('curation:location')): ?>
+                <h2><small origin><?= htmlspecialchars($origin) ?></small></h2>
+            <?php endif; ?>
+        </div>
+        <div class="text">
+            <?= $caption ?>
+            <?php if ($identifier = $item->value("dcterms:identifier")): ?>
+                <h2 class="h4"><small><?= "Ref. " . htmlspecialchars($identifier) ?></small></h2>
+            <?php endif; ?>
+        </div>
+        <div class="learn-more">
+            <h2 class="button large warning"><?= $item->link("View full item") ?></h2>
+        </div>
+    </div>
+</div>
