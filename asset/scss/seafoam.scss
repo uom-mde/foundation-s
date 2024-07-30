@@ -1149,6 +1149,49 @@ display: none;
 }
 }
 
+/*Item Showcase Multiples*/ 
+.item-count-2 #storyboard_viewer.annonaview.storyboard_viewer {
+  @include breakpoint(large) {
+    height: 65vh !important;
+  }
+}
+.item-count-2 .seadragonbox {
+  @include breakpoint(large) {
+    height: 65vh !important;
+  }
+}
+.item-count-2 .seadragonbox .openseadragon-container {
+  @include breakpoint(large) {
+    height: 65vh !important;
+  }
+}
+.item-count-2 .openseadragon {
+  @include breakpoint(large) {
+    height: 65vh !important;
+  }
+}
+
+.item-count-3 #storyboard_viewer.annonaview.storyboard_viewer {
+  @include breakpoint(large) {
+    height: 50vh !important;
+  }
+}
+.item-count-3 .seadragonbox {
+  @include breakpoint(large) {
+    height: 50vh !important;
+  }
+}
+.item-count-3 .seadragonbox .openseadragon-container {
+  @include breakpoint(large) {
+    height: 50vh !important;
+  }
+}
+.item-count-3 .openseadragon {
+  @include breakpoint(large) {
+    height: 50vh !important;
+  }
+}
+
 /*Add dark background to Openseadragon container*/
 .openseadragon-container {
   background-color: #1c1919!important;

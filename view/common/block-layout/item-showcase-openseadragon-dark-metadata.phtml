@@ -3,6 +3,7 @@ $this->headScript()->appendFile($this->assetUrl('js/annona.js'));
 $this->headLink()->appendStylesheet($this->assetUrl('css/annona.css'));
 $siteSetting = $this->plugin('siteSetting');
 $currentLocale = $this->siteSetting('locale') ?: 'en_US';
+$itemCount = count($this->attachments);
 ?>
 
 <div class="full-width-css background-colour-uom-footer">
@@ -15,7 +16,7 @@ $currentLocale = $this->siteSetting('locale') ?: 'en_US';
     </div>
     <div class="col-container col-media-container medium-padding-1">
         <?php foreach ($attachments as $attachment): ?>
-            <div class="item-showcase item-showcase-openseadragon item resource margin-bottom-3 text-center">
+            <div class="item-showcase item-showcase-openseadragon item resource margin-bottom-3 text-center  item-count-<?php echo $itemCount; ?>">
                 <?php
                 $item = $attachment->item();
                 if ($item):
