@@ -29,16 +29,15 @@ $itemCount = count($this->attachments);
                     ]);
                 endif;
                 ?>
-                        <?php $showTitleOption = $this->showTitleOption; ?>
-                        <?php if ($showTitleOption == 'item_title'): ?>
-                            <div class="separator-center metadata">
-                                <h2 class="margin-top-2"><?php echo $item->displayTitle(); ?></h2>
-                            </div>
-                        <?php elseif ($showTitleOption == 'file_name'): ?>
-                            <div class="separator-center metadata">
-                                <h2 class="margin-top-2"><?php echo $media->displayTitle(); ?></h2>
-                            </div>
-                        <?php endif; ?>
+                    <?php if ($showTitleOption == 'item_title'): ?>
+                        <div class="separator-center metadata">
+                            <h2 class="margin-top-1 xlarge-margin-top-2"><?php echo $item->displayTitle(); ?></h2>
+                        </div>
+                    <?php elseif ($showTitleOption == 'file_name'): ?>
+                        <div class="separator-center metadata">
+                            <h2 class="margin-top-1 xlarge-margin-top-2"><?php echo $media->displayTitle(); ?></h2>
+                        </div>
+                    <?php endif; ?>
                     <?php endif; ?>
                 <div class="margin-top-1 medium-margin-top-2">
                     <?php

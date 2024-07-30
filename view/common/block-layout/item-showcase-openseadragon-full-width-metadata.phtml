@@ -30,15 +30,14 @@ $itemCount = count($this->attachments);
                 ]);
             endif;
             ?>
-                    <?php $showTitleOption = $this->showTitleOption; ?>
-                    <?php if ($showTitleOption == 'item_title'): ?>
-                        <div class="separator-center metadata">
-                            <h2 class="margin-top-2 padding-horizontal-1"><?php echo $item->displayTitle(); ?></h2>
-                        </div>
-                    <?php elseif ($showTitleOption == 'file_name'): ?>
-                        <div class="separator-center metadata">
-                            <h2 class="margin-top-2 padding-horizontal-1"><?php echo $media->displayTitle(); ?></h2>
-                        </div>
+                <?php if ($showTitleOption == 'item_title'): ?>
+                    <div class="separator-center metadata">
+                        <h2 class="margin-top-1 xlarge-margin-top-2"><?php echo $item->displayTitle(); ?></h2>
+                    </div>
+                <?php elseif ($showTitleOption == 'file_name'): ?>
+                    <div class="separator-center metadata">
+                        <h2 class="margin-top-1 xlarge-margin-top-2"><?php echo $media->displayTitle(); ?></h2>
+                    </div>
                     <?php endif; ?>
                     <?php
                         $date = $item->value('dcterms:date');
