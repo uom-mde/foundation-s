@@ -6,7 +6,7 @@ $currentLocale = $this->siteSetting('locale') ?: 'en_US';
 $itemCount = count($this->attachments);
 ?>
 
-<div class="full-width-css background-colour-uom-footer">
+<div class="full-width-css background-colour-uom-footer padding-1 large-padding-2 xlarge-padding-3">
     <div class="grix-x grid-container background-colour-uom-footer">
         <?php if (!empty($heading)): ?>
             <div class="media-text-heading medium-offset-1 large-offset-2">
@@ -14,7 +14,7 @@ $itemCount = count($this->attachments);
             </div>
         <?php endif; ?>
     </div>
-    <div class="col-container col-media-container medium-padding-1">
+    <div class="col-container col-media-container medium-padding-1 grid-container">
         <?php foreach ($attachments as $attachment): ?>
             <div class="item-showcase item-showcase-openseadragon item resource margin-bottom-3 text-center  item-count-<?php echo $itemCount; ?>">
                 <?php
