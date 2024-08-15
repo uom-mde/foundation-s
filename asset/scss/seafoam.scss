@@ -2784,12 +2784,13 @@ polygon>.svgactive:hover {
   @include breakpoint(xlarge) {
       height: 90vh!important;
       }
-  .item-showcase .seadragonbox {
-      @include breakpoint(xlarge) {
-      height: 80vh!important;
-      }
-  } 
 }
+
+.item-showcase .seadragonbox {
+  @include breakpoint(xlarge) {
+  height: 80vh!important;
+  }
+} 
 
 #storyboard_viewer button:hover,
 #multistoryboard button:hover {
