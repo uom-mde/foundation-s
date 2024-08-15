@@ -1137,14 +1137,24 @@ display: none;
 }
 
 /*Full screen height for Resource Text Openseadragon embed*/
-.resource-text-openseadragon .openseadragon,
-.item-showcase-openseadragon .openseadragon {
+.resource-text-openseadragon .openseadragon {
   height: calc(65vh - rem-calc(12))!important;
   margin: 0 1rem;
   @include breakpoint(medium) {
   height: calc(75vh - rem-calc(12))!important;
   @include breakpoint(large) {
   height: calc(90vh - rem-calc(12))!important;
+  }
+}
+}
+
+.item-showcase-openseadragon .openseadragon  {
+  height: calc(65vh - rem-calc(12))!important;
+  margin: 0 1rem;
+  @include breakpoint(medium) {
+  height: calc(75vh - rem-calc(12))!important;
+  @include breakpoint(large) {
+  height: calc(80vh - rem-calc(12))!important;
   }
 }
 }
@@ -1227,9 +1237,6 @@ display: none;
   margin-bottom: 1rem;
 @include breakpoint(large) {
   height: calc(80vh + 35px)!important;
-}
-@include breakpoint(xlarge) {
-  height: calc(90vh + 35px)!important;
 }
 }
 
@@ -2750,9 +2757,6 @@ polygon>.svgactive:hover {
   @include breakpoint(large) {
       height: 80vh!important;
   }
-    @include breakpoint(xlarge) {
-      height: 90vh!important;
-      } 
 }
 
 .seadragonbox .openseadragon-container {
@@ -2765,6 +2769,13 @@ polygon>.svgactive:hover {
       } 
 }
 
+/*Additional class added 15/08/24*/ 
+.item-showcase .seadragonbox .openseadragon-container {
+    @include breakpoint(xlarge) {
+      height: 80vh!important;
+  } 
+}
+
 .seadragonbox {
   height: 70vh!important;
       @include breakpoint(large) {
@@ -2772,7 +2783,12 @@ polygon>.svgactive:hover {
       } 
   @include breakpoint(xlarge) {
       height: 90vh!important;
-      } 
+      }
+  .item-showcase .seadragonbox {
+      @include breakpoint(xlarge) {
+      height: 80vh!important;
+      }
+  } 
 }
 
 #storyboard_viewer button:hover,
