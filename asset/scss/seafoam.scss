@@ -888,9 +888,15 @@ transform: scale(1.01);
       }
   }
   .image-xlarge {
-    height: 65vh;
+    height: 100vh;
     @include breakpoint(medium) {
-      height: 70vh;
+      height: 80vh;
+      }
+    @include breakpoint(large) {
+      height: 90vh;
+      }
+    @include breakpoint(xlarge) {
+      height: 100vh;
       }
   }  
   .image-medium {
