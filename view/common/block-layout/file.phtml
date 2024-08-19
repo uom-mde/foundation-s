@@ -4,7 +4,7 @@ $this->headScript()->appendFile($this->assetUrl('js/annona.js'));
 ?>
 
 <div class="media-embed-block <?php echo $this->alignmentClass . ' ' . $this->thumbnailType; ?> file">
-    <div class="attachments max-image-height">
+    <div class="attachments max-image-height flex-container align-center flex-dir-column">
     <?php foreach($this->attachments as $attachment): ?>
         <div class="item resource max-image-height">
         <?php
