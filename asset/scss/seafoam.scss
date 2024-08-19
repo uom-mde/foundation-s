@@ -890,13 +890,13 @@ transform: scale(1.01);
   .image-xlarge {
     height: 100vh;
     @include breakpoint(medium) {
-      height: 80vh;
-      }
-    @include breakpoint(large) {
       height: 90vh;
       }
+    @include breakpoint(large) {
+      height: 85vh;
+      }
     @include breakpoint(xlarge) {
-      height: 100vh;
+      height: 80vh;
       }
   }  
   .image-medium {

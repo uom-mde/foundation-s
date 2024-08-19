@@ -4,7 +4,7 @@ $prevText = $translate('Previous');
 $nextText = $translate('Next');
 ?>
 <?php if ($prevPage || $nextPage): ?>
-<div class="grid-container site-page-pagination">
+<div class="grid-container site-page-pagination padding-top-1 large-padding-top-2">
     <?php echo $prevPage ? $this->hyperlink($prevText, $prevPage->siteUrl()) : ''; ?>
     <?php echo $nextPage ? $this->hyperlink($nextText, $nextPage->siteUrl()) : ''; ?>
 </div>
