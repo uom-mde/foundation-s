@@ -902,6 +902,10 @@ transform: scale(1.01);
   .image-medium {
       height: rem-calc(500);
       }
+
+  .image-medium-large {
+    height: rem-calc(550);
+    }
       
   .image-small {
       height: rem-calc(300);
@@ -1658,6 +1662,10 @@ height: 60vh!important;
 
 /*Image Banner block*/
 .overlay-container {
+  h1 {
+    font-size: 3rem;
+    font-weight: 600;
+  }
   h2 {
     font-size: 3rem;
     font-weight: 600;
