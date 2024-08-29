@@ -582,11 +582,24 @@ nav.breadcrumbs {
 .content-warning {
   background-color: $light-gray;
   color: $black;
-  padding: 3 * $global-padding 0;
 }
 
 .content-warning-panel {
-  background-color: $medium-gray;
+  background-color: $dark-gray;
+  max-width: 90px;
+  padding: 0 0.5 * $global-padding;
+  @include breakpoint(large) {
+    padding: 0 $global-padding;
+  }
+}
+
+.content-warning-text {
+  padding: 3 * $global-padding 0;
+}
+
+.fa-exclamation-triangle:before {
+  color: $white;
+  font-size: 18px;
 }
 
 /*Coloured backgrounds*/
