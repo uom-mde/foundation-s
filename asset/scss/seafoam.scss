@@ -580,9 +580,13 @@ nav.breadcrumbs {
 
 /*Content Warning*/
 .content-warning {
-  background-color: $alert-color;
-  color: $white;
-  padding: $global-padding;
+  background-color: $light-gray;
+  color: $black;
+  padding: 3 * $global-padding 0;
+}
+
+.content-warning-panel {
+  background-color: $medium-gray;
 }
 
 /*Coloured backgrounds*/
