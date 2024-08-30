@@ -922,12 +922,16 @@ transform: scale(1.01);
       }
   }  
   .image-medium {
-      height: rem-calc(500);
+      height: rem-calc(400);
       }
 
   .image-medium-large {
-    height: rem-calc(550);
+    height: rem-calc(450);
     }
+
+  .image-large {
+    height: rem-calc(500);
+  }
       
   .image-small {
       height: rem-calc(300);
@@ -1243,6 +1247,18 @@ display: none;
 .item-count-3 .openseadragon {
   @include breakpoint(medium) {
     height: 50vh !important;
+  }
+}
+
+.item-count-2 .file img {
+@include breakpoint(medium) {
+  max-height: 60vh;
+  }
+}
+
+.item-count-3 .file img {
+  @include breakpoint(medium) {
+    max-height: 50vh;
   }
 }
 
