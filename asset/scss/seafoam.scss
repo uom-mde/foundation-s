@@ -714,6 +714,10 @@ nav.breadcrumbs {
   }
 }
 
+.item-showcase .media-render.iiif_presentation iframe {
+  height: 80vh;
+}
+
 /*List of sites*/
 
 .site-list {
@@ -1703,10 +1707,12 @@ height: 60vh!important;
   h1 {
     font-size: 3rem;
     font-weight: 600;
+    text-shadow: rem-calc(1px) rem-calc(1px) rem-calc(1px) $black;
   }
   h2 {
     font-size: 3rem;
     font-weight: 600;
+    text-shadow: rem-calc(1px) rem-calc(1px) rem-calc(1px) $black;
   }
   p {
     font-size: 1.5rem;
