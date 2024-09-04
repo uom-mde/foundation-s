@@ -3,10 +3,10 @@ $this->headLink()->appendStylesheet($this->assetUrl('css/annona.css'));
 $this->headScript()->appendFile($this->assetUrl('js/annona.js'));
 ?>
 
-<div class="media-embed-block <?php echo $this->alignmentClass . ' ' . $this->thumbnailType; ?> file">
+<div class="media-embed-block flex-container flex-dir-column align-middle <?php echo $this->alignmentClass . ' ' . $this->thumbnailType; ?> file">
     <div class="attachments max-image-height">
     <?php foreach($this->attachments as $attachment): ?>
-        <div class="item resource max-image-height">
+        <div class="item resource max-image-height flex-container flex-dir-column align-middle">
         <?php
         $item = $attachment->item();
         if ($item):
@@ -22,7 +22,7 @@ $this->headScript()->appendFile($this->assetUrl('js/annona.js'));
                     echo $this->thumbnail($media, $this->thumbnailType);
                 endif;
             ?>
-            <div class="metadata">
+            <div class="metadata margin-vertical-1">
             <?php $showTitleOption = $this->showTitleOption; ?>
             <?php if ($showTitleOption == 'item_title'): ?>
             <h2><?php echo $item->displayTitle(); ?></h2>
@@ -38,7 +38,7 @@ $this->headScript()->appendFile($this->assetUrl('js/annona.js'));
         ?>
             <div class="caption padding-1"><?php echo $caption; ?></div>
         <?php endif; ?>
-        <div class="learn-more">
+        <div class="learn-more margin-bottom-1">
             <h2 class="hollow button medium warning"><?php echo $item->link("View full item"); ?></h2>
         </div>
     </div>
