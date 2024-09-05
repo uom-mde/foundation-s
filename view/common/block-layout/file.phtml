@@ -1,37 +1,51 @@
 <?php
 $this->headLink()->appendStylesheet($this->assetUrl('css/annona.css')); 
 $this->headScript()->appendFile($this->assetUrl('js/annona.js'));
+$hyperlink = $this->plugin('hyperlink');
+
+
 ?>
 
-<div class="media-embed-block flex-container flex-dir-column align-middle <?php echo $this->alignmentClass . ' ' . $this->thumbnailType; ?> file">
+<div class="media-embed-block flex-container flex-dir-column align-middle <?php echo $this->escapeHtml(implode(' ', $classes)); ?> file">
     <div class="attachments max-image-height">
     <?php foreach($this->attachments as $attachment): ?>
+        <?php $item = $attachment->item(); ?>
         <div class="item resource max-image-height flex-container flex-dir-column align-middle">
         <?php
-        $item = $attachment->item();
-        if ($item):
-        ?>
-            <?php
-                $media = $attachment->media() ? : $item->primaryMedia();
-                $mediaRenderer = $media->renderer();
-                if ($media && $mediaRenderer !== 'iiif') :
+            $media = $attachment->media() ?: $item->primaryMedia();
+            $mediaRenderer = $media->renderer();
+            if ($media):
+                if ($mediaDisplay === 'thumbnail') {
+                    switch ($link) {
+                        case 'original':
+                            $url = $media->originalUrl();
+                            break;
+                        case 'item':
+                            $url = $item->url();
+                            break;
+                        case 'media':
+                            $url = $media->url();
+                            break;
+                        default:
+                            throw new \InvalidArgumentException(sprintf('Invalid link type "%s"', $link));
+                    }
+                    echo $hyperlink->raw($this->thumbnail($media, $thumbnailType), $url);
+                } else {
                     echo $media->render([
-                    'thumbnailType' => $thumbnailType,
-                ]);
-                elseif ($media) :
-                    echo $this->thumbnail($media, $this->thumbnailType);
-                endif;
-            ?>
-            <div class="metadata margin-vertical-1">
+                        'thumbnailType' => $thumbnailType,
+                        'link' => $link,
+                    ]);
+                }
+            endif;
+        ?>
+        <div class="metadata margin-vertical-1">
             <?php $showTitleOption = $this->showTitleOption; ?>
             <?php if ($showTitleOption == 'item_title'): ?>
             <h2><?php echo $item->displayTitle(); ?></h2>
             <?php elseif ($showTitleOption == 'file_name'): ?>
             <h2><?php echo $media->displayTitle(); ?></h2>
             <?php endif; ?>
-            </div>
-        <?php endif; ?>
-
+        </div>
         <?php
         $caption = $attachment->caption();
         if ($caption):
@@ -42,6 +56,6 @@ $this->headScript()->appendFile($this->assetUrl('js/annona.js'));
             <h2 class="hollow button medium warning"><?php echo $item->link("View full item"); ?></h2>
         </div>
     </div>
-<?php endforeach; ?>
+    <?php endforeach; ?>
     </div>
 </div>
