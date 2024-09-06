@@ -1129,7 +1129,7 @@ display: none;
   @include breakpoint(medium) {
   height: calc(75vh - rem-calc(12))!important;
   @include breakpoint(large) {
-  height: calc(90vh - rem-calc(12))!important;
+  height: calc(80vh - rem-calc(12))!important;
   }
 }
 }
