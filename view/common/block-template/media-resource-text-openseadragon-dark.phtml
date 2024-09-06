@@ -58,18 +58,9 @@ $lang = $filterLocale ? $this->lang() : null;
             <?php elseif ($showTitleOption == "file_name" && isset($media)): ?>
                 <h2><?= htmlspecialchars($media->displayTitle()) ?></h2>
             <?php endif; ?>
-            <?php if ($date = $item->value('dcterms:date')): ?>
-                <h2><small date><?= htmlspecialchars($date) ?></small></h2>
-            <?php endif; ?>
-            <?php if ($origin = $item->value('curation:location')): ?>
-                <h2><small origin><?= htmlspecialchars($origin) ?></small></h2>
-            <?php endif; ?>
         </div>
         <div class="text">
             <?= $caption ?>
-            <?php if ($identifier = $item->value("dcterms:identifier")): ?>
-                <h2 class="h4"><small><?= "Ref. " . htmlspecialchars($identifier) ?></small></h2>
-            <?php endif; ?>
         </div>
         <div class="learn-more">
             <h2 class="button large warning"><?= $item->link("View full item") ?></h2>

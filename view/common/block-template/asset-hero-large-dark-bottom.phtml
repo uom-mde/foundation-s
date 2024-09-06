@@ -2,15 +2,6 @@
 
 /**
  * @var \Laminas\View\Renderer\PhpRenderer $this
- * @var array $attachments Contains keys:
- *   - asset (AssetRepresentation)
- *   - page (PageRepresentation)
- *   - caption (string): the html is purified according to settings
- *   - alt_link_title (string)
- *   Specific to the module version:
- *   - class (string)
- *   - title (string): deprecated alias of "alt_link_title"
- *   - url (string): deprecated, will be removed. Use "page", "caption", alt title, or original asset alt value instead.
  * @var array $assets Deprecated, alias of attachments.
  * @var string $heading
  * @var string $className
@@ -23,6 +14,7 @@
 $plugins = $this->getHelperPluginManager();
 $escape = $plugins->get('escapeHtml');
 $escapeAttr = $plugins->get('escapeHtmlAttr');
+[$caption, $class, $url, $label, $isLocalUrl, $isMediaFile, $isHtmlCaption] = $this->captionClassAndUrl($attachment['caption']);
 ?>
 
 <?php if (!count($attachments)) return; ?>

@@ -478,11 +478,6 @@ nav.breadcrumbs {
 }
 
 /*Increase font-size for single Item Showcase blocks*/
-.item-showcase h2 {
-  font-size: 1.2 * $global-font-size;
-  font-weight: 300;
-}
-
 .item-showcase:only-child h2 {
   font-weight: 300;
   font-size: 1.25 * $global-font-size;
@@ -3001,4 +2996,13 @@ display: none;
 .orbit-caption.no-overlay,
 .no-overlay .orbit-caption {
   position: unset;
+}
+
+/*Version 4.1 additions*/
+.attachments {
+  width: 100%;
+}
+
+.media-render.iiif {
+  width: 100%;
 }
