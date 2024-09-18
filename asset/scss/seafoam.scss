@@ -3006,3 +3006,42 @@ display: none;
 .media-render.iiif {
   width: 100%;
 }
+
+/*Generic Block Group Code*/ 
+/*For Inclusion*/
+.media-text { 
+  width: 100%;
+  padding: 1rem 1rem 0 1rem;
+ }
+ 
+ /*Testing CSS Grid horizontal and vertical blocks*/
+ .block-blockGroup.resourceText {
+    gap: 1em;
+    flex-direction: column;
+ }
+ 
+ .resourceText {
+  padding: 0 1em;
+ }
+ 
+ .resourceText .block-media:has(.layout-horizontal) {
+  width: 100%;
+}
+ 
+ @media print, screen and (min-width: 56.25em) {
+ .block-blockGroup.resourceText:has(.layout-horizontal) {
+    flex-direction: row;
+ }
+ 
+ .resourceText .block-media:has(.layout-horizontal) {
+    width: 58.3333333333%;
+    flex-grow: 1;
+    flex-shrink: 0;
+  }
+ 
+ .resourceText .block-html  {
+    min-width: 41.6666666667%;
+    flex-grow: 0;
+    flex-shrink: 1;
+  }
+ }
