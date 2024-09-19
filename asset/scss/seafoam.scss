@@ -3112,3 +3112,16 @@ display: none;
     grid-template-columns: 1fr 3fr 1fr;
   }
 }
+
+/*Multiple Media items in Media Embed Vertical*/ 
+.layout-vertical.attachment-count-2 .resource-text-openseadragon .openseadragon {
+@include breakpoint(large) {
+  height: calc(60vh - .75rem) !important;
+}
+}
+
+.layout-vertical.attachment-count-3 .resource-text-openseadragon .openseadragon {
+  @include breakpoint(large) {
+  height: calc(45vh - .75rem) !important;
+} 
+}
