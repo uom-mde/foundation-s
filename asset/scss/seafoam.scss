@@ -3015,6 +3015,7 @@ display: none;
  }
  
  /*Testing CSS Grid horizontal and vertical blocks*/
+ /*Flex Option*/
  .block-blockGroup.resourceText {
     gap: 1em;
     flex-direction: column;
@@ -3062,3 +3063,52 @@ display: none;
     flex-shrink: 1;
   }
  }
+
+ /*Grid Option*/
+ .resourceTextGrid .block-heading {
+  grid-area: header;
+}
+  
+  .resourceTextGrid .block-media {
+  grid-area: media-block;
+}
+  
+  .resourceTextGrid .block-html {
+  grid-area: text;
+  align-self: center;
+}
+
+ .resourceTextGrid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr;
+  grid-template-areas: 
+  "header" 
+  "media-block"
+  "text";
+ }
+
+ .resourceTextGrid:has(.layout-horizontal) {
+  @include breakpoint(large) {
+  grid-template-columns: 3fr 2fr;
+  grid-template-areas: 
+  "header header" 
+  "media-block text" ;
+  }
+}
+
+.resourceTextGrid:has(.layout-vertical) {
+  @include breakpoint(medium) {
+  grid-template-columns: 1fr 12fr 1fr;
+  grid-template-areas:
+  ". header ."
+  ". media-block ."
+  ". text .";
+  }
+  @include breakpoint(large) {
+    grid-template-columns: 1fr 8fr 1fr;
+  }
+  @include breakpoint(xlarge) {
+    grid-template-columns: 1fr 3fr 1fr;
+  }
+}
