@@ -546,7 +546,7 @@ nav.breadcrumbs {
 
 .file .metadata h2 {
   @include breakpoint(large) {
-  font-size: rem-calc(28);
+  font-size: $global-font-size * 1.6;
   }
 }
 
@@ -3097,6 +3097,15 @@ display: none;
   }
 }
 
+.resourceTextGrid.mediaRight:has(.layout-horizontal) {
+  @include breakpoint(large) {
+  grid-template-columns: 2fr 3fr;
+  grid-template-areas: 
+  "header ." 
+  "text media-block" ;
+  }
+}
+
 .resourceTextGrid:has(.layout-vertical) {
   @include breakpoint(medium) {
   grid-template-columns: 1fr 12fr 1fr;
@@ -3110,6 +3119,16 @@ display: none;
   }
   @include breakpoint(xlarge) {
     grid-template-columns: 1fr 3fr 1fr;
+  }
+}
+
+.resourceTextGrid:has(.layout-vertical) {
+  @include breakpoint(medium) {
+  grid-template-columns: 1fr 12fr 1fr;
+  grid-template-areas:
+  ". header ."
+  ". media-block ."
+  ". text .";
   }
 }
 
