@@ -3122,16 +3122,6 @@ display: none;
   }
 }
 
-.resourceTextGrid:has(.layout-vertical) {
-  @include breakpoint(medium) {
-  grid-template-columns: 1fr 12fr 1fr;
-  grid-template-areas:
-  ". header ."
-  ". media-block ."
-  ". text .";
-  }
-}
-
 /*Multiple Media items in Media Embed Vertical*/ 
 .layout-vertical.attachment-count-2 .resource-text-openseadragon .openseadragon {
 @include breakpoint(large) {
