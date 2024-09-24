@@ -3071,6 +3071,7 @@ display: none;
   
   .resourceTextGrid .block-media {
   grid-area: media-block;
+  width: 100%;
 }
   
   .resourceTextGrid .block-html {
@@ -3082,6 +3083,7 @@ display: none;
   display: grid;
   gap: 1rem;
   grid-template-columns: 1fr;
+  justify-items: center;
   grid-template-areas: 
   "header" 
   "media-block"
@@ -3092,7 +3094,7 @@ display: none;
   @include breakpoint(large) {
   grid-template-columns: 3fr 2fr;
   grid-template-areas: 
-  "header header" 
+  "header ." 
   "media-block text" ;
   }
 }
@@ -3119,6 +3121,14 @@ display: none;
   }
   @include breakpoint(xlarge) {
     grid-template-columns: 1fr 3fr 1fr;
+  }
+}
+
+/*Add potrtait option for openseadragon containers*/
+.portrait .openseadragon {
+  @include breakpoint(medium) {
+    max-width: rem-calc(700);
+    
   }
 }
 
