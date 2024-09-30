@@ -1,0 +1,15 @@
+<?php
+/**
+ * @var \Laminas\View\Renderer\PhpRenderer $this
+ * @var \Omeka\Api\Representation\SitePageBlockRepresentation $block
+ */
+
+?>
+
+<div class="full-width-css padding-vertical-1 flex-container background-colour-uom-footer">
+    <div class="grid-x grid-container flex-container">
+        <div class="padding-vertical-1 medium-padding-vertical-2 large-padding-vertical-3 lead">
+            <?= $block->dataValue('html', '') ?>
+        </div>
+    </div>
+</div>
