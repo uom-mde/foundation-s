@@ -3124,10 +3124,20 @@ display: none;
   }
 }
 
-/*Add potrtait option for openseadragon containers*/
-.portrait .openseadragon {
+/*Add portrait option for narrower media*/ 
+.portrait.resourceTextGrid:has(.layout-horizontal) {
+  @include breakpoint(large) {
+    grid-template-columns: 0.5fr 2fr 2fr 0.5fr;
+    grid-template-areas:
+    ". header . ."
+    ". media-block text .";
+}
+}
+
+.portrait .media-embed-block {
   @include breakpoint(medium) {
     max-width: rem-calc(700);
+    margin: 0 auto;
     
   }
 }
