@@ -2,7 +2,7 @@
     $itemCount = count($this->attachments);
 ?>
 
-<div id="block-<?php echo $this->blockId; ?>" class="full-width-css item-listing-with-introduction grid-y grid-margin-y small-padding-0 medium-padding-1 large-padding-2 region <?php echo $this->regionClass; ?>" data-target-region-id="<?php echo $this->targetID; ?> ">
+<div id="block-<?php echo $this->blockId; ?>" class="full-width item-listing-with-introduction grid-y grid-margin-y small-padding-0 medium-padding-1 large-padding-2 region <?php echo $this->regionClass; ?>" data-target-region-id="<?php echo $this->targetID; ?> ">
     <?php if ($this->hasTitle || $this->hasIntroduction): ?>
         <div class='item-listing-title-area grid-container padding-bottom-2 flex-container flex-dir-column align-middle'>
             <?php if ($this->hasTitle): ?>

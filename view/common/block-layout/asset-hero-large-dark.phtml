@@ -29,7 +29,7 @@ $escapeAttr = $plugins->get('escapeHtmlAttr');
 <?php $attachment = $attachments[array_rand($attachments)]; ?>
 <?php if (empty($attachment['asset'])) return; ?>
 
-<div class="full-width-css">
+<div class="full-width">
     <div role="banner" class="hero-image image-large region-splash flex-container <?= $escapeAttr($attachment['class']) ?>" style="background-image:linear-gradient(rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.6)),url(<?= $attachment['asset']->assetUrl() ?>);">
         <?php if (!empty($heading)) : ?>
             <div class="grid-container grid-x flex-grow align-self-middle">

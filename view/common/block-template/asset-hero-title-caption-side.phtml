@@ -25,7 +25,7 @@ $escape = $plugins->get('escapeHtml');
 $escapeAttr = $plugins->get('escapeHtmlAttr');
 ?>
 
-<div role="banner" class="asset-hero full-width-css grid-x region-splash">
+<div role="banner" class="asset-hero full-width grid-x region-splash">
     <?php if (!count($attachments)) return; ?>
     <?php $attachment = $attachments[array_rand($attachments)]; ?>
     <?php if (empty($attachment['asset'])) return; ?>

@@ -46,7 +46,7 @@ $page = $attachment['page'] ?? null;
 $title = strlen($attachment['alt_link_title']) ? $attachment['alt_link_title'] : ($page ? $page->title() : ($label ?: ($caption && $isHtmlCaption ? strip_tags($caption) : $caption)));
 ?>
 
-<div class="full-width-css">
+<div class="full-width">
     <div role="banner" class="hero-image image-large region-splash flex-container" style="background-image:linear-gradient(rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.6)),url(<?= $attachment['asset']->assetUrl() ?>);">
         <?php if (!empty($heading)) : ?>
             <div class="grid-container grid-x flex-grow align-self-bottom">

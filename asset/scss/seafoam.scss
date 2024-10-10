@@ -300,7 +300,7 @@ body.vertical-menu footer {
   margin-left: calc(((100vw - var(--scrollbar-width)) * -0.5) + 50%)!important;
   }
 
-  .full-width-css {    
+  .full-width {    
   left: 50%;
   position: relative;
   margin-left: -50vw;
@@ -599,7 +599,7 @@ nav.breadcrumbs {
   }
 }
 
-.background-colour-uom-footer {
+.dark-background {
   background-color: $uom-footer;
   color: $white;
   a {
@@ -1442,7 +1442,7 @@ figcaption.orbit-caption {
   grid-template-columns: repeat(auto-fit, minmax(calc(320px), 1fr));
 }
 
-.showcase .entries.full-width-css {
+.showcase .entries.full-width {
   margin-left: -50vw!important;
   margin-right: -50vw!important;
 } 
@@ -1505,7 +1505,7 @@ margin-top: 2 * $global-margin;
   text-decoration: underline;
 }
 
-  .right-sidebar.background-colour-uom-footer {
+  .right-sidebar.dark-background {
     @include breakpoint (medium down) {
   margin-left: 0!important;
   margin-right: 0!important;

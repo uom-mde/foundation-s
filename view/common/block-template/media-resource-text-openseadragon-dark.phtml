@@ -20,7 +20,7 @@ $filterLocale = (bool) $siteSetting('filter_locale_values');
 $lang = $filterLocale ? $this->lang() : null;
 ?>
 
-<div class="block media-text full-width-css grid-x grid-padding-x background-colour-uom-footer">
+<div class="block media-text full-width grid-x grid-padding-x dark-background">
     <div class="<?= htmlspecialchars($thumbnailType) ?> media file large-7 xlarge-8 medium-padding-horizontal-1 large-padding-horizontal-2 xlarge-padding-horizontal-3">
         <div class="attachments resource-text-openseadragon">
             <?php foreach ($attachments as $attachment): 
