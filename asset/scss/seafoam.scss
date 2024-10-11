@@ -3015,103 +3015,85 @@ display: none;
  }
  
  /*Testing CSS Grid horizontal and vertical blocks*/
+/*Testing CSS Grid horizontal and vertical blocks*/
  /*Flex Option*/
  .block-blockGroup.resourceText {
-    gap: 1em;
-    flex-direction: column;
- }
- 
- .resourceText {
-  padding: 0 1em;
- }
- 
- .resourceText .block-media:has(.layout-horizontal) {
-  width: 100%;
+  gap: 1em;
+  flex-direction: column;
 }
- 
 
- .block-blockGroup.resourceText:has(.layout-horizontal) {
-  @include breakpoint(large) {
-    flex-direction: row;
- }
+.resourceText {
+padding: 0 1em;
 }
- 
- .resourceText .block-media:has(.layout-horizontal) {
-  @include breakpoint(large) {
-    width: 58.3333333333%;
-    flex-grow: 1;
-    flex-shrink: 0;
+
+.resourceText .block-media:has(.layout-horizontal) {
+width: 100%;
+}
+
+.resourceText .block-media:has(.layout-vertical .openseadragon) {
+  width: 95vw;
+  margin: 0 auto;
+  @include breakpoint(medium) {
+    min-width: 80vw;
   }
-}
-
-  .resourceText .block-media:has(.layout-vertical .openseadragon) {
-    width: 95vw;
-    margin: 0 auto;
-    @include breakpoint(medium) {
-      min-width: 80vw;
-    }
-    @include breakpoint(large) {
+  @include breakpoint(large) {
     min-width: 50vw;
-    max-width: 700px;
+    max-width: rem-calc(700px);
   }
 }
- 
- .resourceText .block-html  {
+
+.block-blockGroup.resourceText:has(.layout-horizontal) {
   @include breakpoint(large) {
-    min-width: 41.6666666667%;
-    flex-grow: 0;
-    flex-shrink: 1;
-  }
- }
-
- /*Grid Option*/
- .resourceTextGrid .block-heading {
-  grid-area: header;
+  flex-direction: row;
 }
-  
-  .resourceTextGrid .block-media {
-  grid-area: media-block;
-  width: 100%;
-}
-  
-  .resourceTextGrid .block-html {
-  grid-area: text;
-  align-self: center;
 }
 
- .resourceTextGrid {
-  display: grid;
-  gap: 1rem;
-  grid-template-columns: 1fr;
-  justify-items: center;
-  grid-template-areas: 
-  "header" 
-  "media-block"
-  "text";
- }
-
- .resourceTextGrid:has(.layout-horizontal) {
+.resourceText .block-html  {
   @include breakpoint(large) {
-  grid-template-columns: 3fr 2fr;
-  grid-template-areas: 
-  "header ." 
-  "media-block text" ;
+  min-width: 41.6666666667%;
+  flex-grow: 0;
+  flex-shrink: 1;
   }
 }
 
-.resourceTextGrid.mediaRight:has(.layout-horizontal) {
-  @include breakpoint(large) {
-  grid-template-columns: 2fr 3fr;
-  grid-template-areas: 
-  "header ." 
-  "text media-block" ;
-  }
+/*Grid Option*/
+.resourceTextGrid .block-heading {
+grid-area: header;
+}
+
+.resourceTextGrid .block-media {
+grid-area: media-block;
+width: 100%;
+}
+
+.resourceTextGrid .block-html {
+grid-area: text;
+align-self: center;
+}
+
+.resourceTextGrid .block-html h2 {
+  text-align: center;
+}
+
+.resourceTextGrid .file-caption-text.media-embed {
+  grid-area: media-embed-media;
+}
+
+.resourceTextGrid {
+display: grid;
+gap: 1rem;
+grid-template-columns: 1fr;
+justify-items: center;
+grid-template-areas: 
+"header" 
+"media-block"
+"text";
 }
 
 .resourceTextGrid:has(.layout-vertical) {
   @include breakpoint(medium) {
-  grid-template-columns: 1fr 12fr 1fr;
-  grid-template-areas:
+    grid-template-columns: 1fr 12fr 1fr;
+    grid-template-areas:
   ". header ."
   ". media-block ."
   ". text .";
@@ -3124,33 +3106,164 @@ display: none;
   }
 }
 
-/*Add portrait option for narrower media*/ 
-.portrait.resourceTextGrid:has(.layout-horizontal) {
-  @include breakpoint(large) {
-    grid-template-columns: 0.5fr 2fr 2fr 0.5fr;
-    grid-template-areas:
-    ". header . ."
-    ". media-block text .";
-}
-}
-
-.portrait .media-embed-block {
+.resourceTextGrid:has(.layout-vertical.file-caption-text) {
+  grid-template-areas: 
+  "media-embed-media"
+  "text";
   @include breakpoint(medium) {
-    max-width: rem-calc(700);
-    margin: 0 auto;
-    
+    grid-template-areas: 
+    ". media-embed-media ."
+    ". text .";
+    }
+  @include breakpoint(large) {
+    grid-template-areas: 
+    ". media-embed-media ."
+    ". text .";
+    }
+  }
+
+  .layout-vertical.file.media-embed {
+    @include breakpoint(large) {
+    padding: 0;
   }
 }
 
-/*Multiple Media items in Media Embed Vertical*/ 
-.layout-vertical.attachment-count-2 .resource-text-openseadragon .openseadragon {
-@include breakpoint(large) {
-  height: calc(60vh - .75rem) !important;
+  .resourceTextGrid:has(.layout-horizontal) {
+    @include breakpoint(large) {
+    grid-template-columns: 3fr 2fr;
+    grid-template-areas: 
+    "header ." 
+    "media-block text" ;
+    }
+  }
+
+/*Ensure Learn More button is below text for vertical Media blocks*/
+.resourceTextGrid {
+  row-gap: 0;
+} 
+
+.resourceTextGrid .block-html p {
+  margin-bottom: 70px;
+  margin-block-start: 0;
+  }
+
+  .resourceTextGrid .learn-more {
+  justify-content: center;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/*Add class where Media caption is Text*/
+.resourceTextGrid:has(.layout-horizontal.file-caption-text) {
+  grid-template-areas: 
+  "media-embed-media"
+  "text";
+  @include breakpoint(large) {
+    grid-template-areas: 
+    "media-embed-media text" ;
+    }
+  }
+
+/*Add a portrait class*/ 
+.portrait .media-embed-block {
+  @include breakpoint(medium) {
+  max-width: rem-calc(700);
+  margin: 0 auto; 
 }
 }
 
+.portrait.resourceTextGrid:has(.layout-horizontal) {
+  @include breakpoint(large) {
+  grid-template-columns: 0.5fr 2fr 2fr 0.5fr;
+  grid-template-areas:
+  ". header . ."
+  ". media-block text .";
+}
+}
+
+.layout-vertical.attachment-count-2 .resource-text-openseadragon .openseadragon {
+  @include breakpoint(large) {
+  height: calc(60vh - .75rem) !important;
+}
+}
 .layout-vertical.attachment-count-3 .resource-text-openseadragon .openseadragon {
   @include breakpoint(large) {
   height: calc(45vh - .75rem) !important;
 } 
 }
+
+/*Add option to place media to the right*/ 
+.resourceTextGrid.mediaRight:has(.layout-horizontal) {
+  @include breakpoint(large) {
+  grid-template-columns: 2fr 3fr;
+  grid-template-areas: 
+  "header ." 
+  "media-block" ;
+  }
+}
+
+/*Add class for Media caption as text*/ 
+.resourceTextGrid.mediaRight:has(.layout-horizontal.file-caption-text) {
+  @include breakpoint(large) {
+  grid-template-areas: 
+  "text media-embed-media" ;
+  }
+}
+
+/*Move location of Learn More button*/ 
+.resourceTextGrid:has(.layout-horizontal) .learn-more {
+  @include breakpoint(large) {
+  justify-content: center;
+  position: initial;
+  bottom: unset;
+  left: unset;
+  transform: initial;
+}
+}
+
+/*Fixes*/
+.item.resource {
+  width: 100%;
+}
+
+/*Embed media alongside HTML*/ 
+  /*Allow openseadragon use in Media Embed*/
+  .medium .openseadragon {
+    height: 40vh!important;
+  }
+
+  .resourceText .block-media:has(.layout-horizontal) {
+    width: 100%;
+    @include breakpoint(large) {
+      flex-direction: row;
+      flex-grow: 1;
+      flex-shrink: 0;
+    }
+    }
+    
+  .block-media.text-around-image {
+    display: block;
+    float: left;
+    width: 400px;
+    margin: 0 1rem 1rem 0;
+  }
+
+  .block-media.text-around-image.right {
+    float: right;
+    margin: 0 0 1rem 1rem;
+  }
+
+  .media-render.iiif {
+    width: 100%;
+  }
+
+  .media.file {
+    width: 100%;
+  }
+
+  /*Centre img for non-iiif material*/ 
+  .media-embed .resource {
+    text-align: center;
+  }
