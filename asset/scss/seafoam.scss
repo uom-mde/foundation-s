@@ -531,11 +531,6 @@ nav.breadcrumbs {
   }
 }
 
-.media-embed-block.left .max-image-height img,
-.media-embed-block.right .max-image-height img {
-  max-height: 50vh;
-}
-
 .file img {
   max-width: 100%;
   height: auto;
@@ -2937,12 +2932,6 @@ background: $light-gray
   color: $white;
 }
 
-/*Maximum image height for Item Showcase Block*/ 
-figure.max-image-height img,
-.max-image-height img {
-  max-height: 85vh;
-}
-
 .item-listing-item.max-height.item-count-1 img {
   height: unset;
   max-height: 85vh;
@@ -3253,6 +3242,17 @@ grid-template-areas:
   .block-media.text-around-image.right {
     float: right;
     margin: 0 0 1rem 1rem;
+  }
+
+  .media-render {
+    width: 100%;
+    padding: 1rem;
+    @include breakpoint(large) {
+      padding: 1rem 2rem;
+      @include breakpoint(large) {
+      padding: 1rem 3rem; 
+      }
+    }
   }
 
   .media-render.iiif {
