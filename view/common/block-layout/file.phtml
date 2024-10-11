@@ -10,7 +10,7 @@ $hyperlink = $this->plugin('hyperlink');
     <div class="attachments resource-text-openseadragon flex-container">
     <?php foreach($this->attachments as $attachment): ?>
         <?php $item = $attachment->item(); ?>
-        <div class="item resource max-image-height flex-container flex-dir-column align-middle">
+        <div class="item resource flex-container flex-dir-column align-middle">
         <?php
             $media = $attachment->media() ?: $item->primaryMedia();
             $mediaRenderer = $media->renderer();
