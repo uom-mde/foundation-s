@@ -295,11 +295,6 @@ body.vertical-menu footer {
 /*John McCrory edits*/
 
 /*Full Width CSS Rules*/
-.full-width {
-  width: calc(100vw - var(--scrollbar-width));
-  margin-left: calc(((100vw - var(--scrollbar-width)) * -0.5) + 50%)!important;
-  }
-
   .full-width {    
   left: 50%;
   position: relative;
@@ -307,6 +302,11 @@ body.vertical-menu footer {
   margin-right: -50vw;
   max-width: 100vw;
 }
+
+.full-width-js {
+  width: calc(100vw - var(--scrollbar-width));
+  margin-left: calc(((100vw - var(--scrollbar-width)) * -0.5) + 50%)!important;
+  }
 
 /*Full Width CSS Alternative*/
 .full-width-hero {
