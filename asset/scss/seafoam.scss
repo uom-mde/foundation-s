@@ -614,7 +614,7 @@ nav.breadcrumbs {
   }
   h2 {
     color: $warning-color;
-}
+  }
   h2 small {
       color: $white;
   }
@@ -3244,13 +3244,17 @@ grid-template-areas:
     margin: 0 0 1rem 1rem;
   }
 
+  .media-embed {
+    width: 100%;
+    }
+
   .media-render {
     width: 100%;
     padding: 1rem;
     @include breakpoint(large) {
-      padding: 1rem 2rem;
+      padding: 1rem 1.5rem 1rem 0;
       @include breakpoint(large) {
-      padding: 1rem 3rem; 
+      padding: 1rem 2rem 1rem 0; 
       }
     }
   }
