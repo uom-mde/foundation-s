@@ -213,6 +213,7 @@ body.vertical-menu footer {
   background: $uom-footer; 
   padding: 0; 
   margin: 0; 
+  width: 100vw;
   max-width: unset;
   & p {
     color: $white;
@@ -223,6 +224,11 @@ body.vertical-menu footer {
   & a:hover {
     text-decoration: underline;
   }
+}
+
+/*Fix for footer*/ 
+.footerContainer.full-width {
+  margin-right: unset;
 }
 
 .footerContainer h3 {
@@ -3268,3 +3274,4 @@ grid-template-areas:
   .no-margin-top {
     margin-top:-1 * $global-margin;
   }
+
