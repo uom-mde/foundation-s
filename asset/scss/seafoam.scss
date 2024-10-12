@@ -3202,6 +3202,10 @@ grid-template-areas:
 }
 
 /*Move location of Learn More button*/ 
+.resourceTextGrid.file-caption-block .block-html p {
+  margin-block-end: 7rem;
+  }
+  
 .resourceTextGrid:has(.layout-horizontal) .learn-more {
   @include breakpoint(large) {
   justify-content: center;
