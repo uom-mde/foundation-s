@@ -633,6 +633,9 @@ nav.breadcrumbs {
   p.h4 small {
     color: $white;
   }
+  .learn-more .button a {
+    color: $black;
+  }
   .learn-more h2.button a {
     color: $black;
   }
@@ -2927,15 +2930,6 @@ ul.language-switcher.locale-code li span.active {
 /*Grey Background*/
 .gray-background {
 background: $light-gray
-}
-
-/*Dark background*/ 
-.dark-background,
-.dark-background h1,
-.dark-background h2,
-.dark-background h3 {
-  background-color: $uom-footer;
-  color: $white;
 }
 
 .item-listing-item.max-height.item-count-1 img {

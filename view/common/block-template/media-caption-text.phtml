@@ -1,7 +1,7 @@
 <?php
 $hyperlink = $this->plugin('hyperlink');
 ?>
-<div class="full-width resourceTextGrid padding-horizontal-1 large-padding-horizontal-2 xlarge-padding-horizontal-3 margin-vertical-1 large-margin-vertical-2">
+<div class="full-width file-caption-block resourceTextGrid padding-horizontal-1 large-padding-horizontal-2 xlarge-padding-horizontal-3 margin-vertical-1 large-margin-vertical-2">
     <div class="file file-caption-text media-embed <?php echo $this->escapeHtml(implode(' ', $classes)); ?>">
         <?php foreach($attachments as $attachment): ?>
         <?php $item = $attachment->item(); ?>
@@ -34,7 +34,7 @@ $hyperlink = $this->plugin('hyperlink');
             ?>
             </div>
         </div>
-        <div class="block-html padding-horizontal-1 large-padding-horizontal-2">
+        <div class="block-html padding-horizontal-1">
             <?php if ($showTitleOption === 'item_title'): ?>
                 <div class="separator-center metadata">
                     <h2 class="margin-vertical-1 large-margin-vertical-2"><?php echo $item->displayTitle(); ?></h2>
@@ -48,7 +48,7 @@ $hyperlink = $this->plugin('hyperlink');
             <?php if ($caption): ?>
                 <div class="caption margin-top-1 large-margin-top-2"><?php echo $caption; ?></div>
             <?php endif; ?>
-            <div class="learn-more">
+            <div class="learn-more flex-container align-center">
                 <button class="button medium warning"><?php echo $item->link("View full item"); ?></button>
             </div>
         </div>
