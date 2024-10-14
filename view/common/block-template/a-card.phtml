@@ -1,6 +1,16 @@
 <?php $escape = $this->plugin('escapeHtml'); ?>
 
-<div class="assets">
+<?php
+// Count the number of attachments that have an 'asset'
+$assetCount = count(array_filter($attachments, function($attachment) {
+    return !empty($attachment['asset']);
+}));
+
+// Assign asset column class based on asset count
+$assetColumn = in_array($assetCount, [1, 2, 4]) ? 'asset-column-2' : 'asset-column-3';
+?>
+
+<div class="assets <?php echo $assetColumn; ?>">
   <?php foreach ($attachments as $attachment): ?>
     <?php $asset = $attachment['asset']; ?>
     <div class="asset card">

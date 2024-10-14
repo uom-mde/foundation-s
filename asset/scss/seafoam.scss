@@ -3277,3 +3277,26 @@ grid-template-areas:
     margin-top:-1 * $global-margin;
   }
 
+  /*Asset Cards*/ 
+.assets.asset-column-2:has(.asset.card) {
+  display: grid;
+  grid-template-columns: repeat(2, 49%);
+  grid-auto-flow: row;
+  gap: 1rem;
+}
+
+.assets.asset-column-3:has(.asset.card) {
+  display: grid;
+  grid-template-columns: repeat(3, 33%);
+  grid-auto-flow: row;
+  gap: 1rem;
+}
+
+.asset.card {
+  width: 100%;
+}
+
+.assets:has(.asset.card) .card img {
+  height: 20rem;
+}
+
