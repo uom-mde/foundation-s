@@ -3278,18 +3278,47 @@ grid-template-areas:
   }
 
   /*Asset Cards*/ 
+  .card img {
+    object-fit: cover;
+  }
+
+  .assets:has(.asset.card) .card img {
+    height: 12rem;
+    @include breakpoint(medium) {
+    height: 15rem;
+    }
+    @include breakpoint(large) {
+    height: 18rem;
+    }
+    @include breakpoint(xlarge) {
+      height: 20rem;
+      }
+  }
 .assets.asset-column-2:has(.asset.card) {
   display: grid;
-  grid-template-columns: repeat(2, 49%);
   grid-auto-flow: row;
   gap: 1rem;
+  grid-template-columns: repeat(1, 100%);
+  @include breakpoint(medium) {
+    grid-template-columns: repeat(2, 48%);
+  }
+  @include breakpoint(large) {
+  gap: 2rem;
+}
 }
 
 .assets.asset-column-3:has(.asset.card) {
   display: grid;
-  grid-template-columns: repeat(3, 33%);
   grid-auto-flow: row;
   gap: 1rem;
+  grid-template-columns: repeat(1, 100%);
+  @include breakpoint(medium) {
+    grid-template-columns: repeat(2, 48%);
+  }
+  @include breakpoint(large) {
+  grid-template-columns: repeat(3, 32%);
+  gap: 2rem;
+}
 }
 
 .asset.card {
@@ -3302,9 +3331,5 @@ grid-template-areas:
   & span.h3 {
     color: $white;
   }
-}
-
-.assets:has(.asset.card) .card img {
-  height: 20rem;
 }
 
