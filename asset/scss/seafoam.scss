@@ -3001,9 +3001,6 @@ display: none;
 .media-text { 
   width: 100%;
   padding: 0;
-  @include breakpoint(medium) {
-  padding: 1rem 1rem 0 1rem;
-  }
  }
  
  /*Testing CSS Grid horizontal and vertical blocks*/
@@ -3257,9 +3254,6 @@ grid-template-areas:
 
   .media-render {
     width: 100%;
-    @include breakpoint(medium) {
-    padding: 1rem;
-    }
     @include breakpoint(large) {
       padding: 1rem 1.5rem 1rem 0;
       @include breakpoint(large) {
@@ -3342,6 +3336,9 @@ grid-template-areas:
 .square .openseadragon {
   height: rem-calc(280px)!important;
   width: 85vw!important;
+  @include breakpoint(400) {
+    width: 88vw!important;
+  }
   @include breakpoint(500) {
     width: rem-calc(360px)!important;
     height: rem-calc(360px)!important;
