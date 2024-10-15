@@ -1299,45 +1299,6 @@ figcaption.orbit-caption {
   font-family: $body-font-family!important;
 }
 
-/*Showcase*/ 
-.showcase .entries {
-  display: grid!important;
-  grid-template-columns: repeat(auto-fit, minmax(calc(320px), 1fr));
-}
-
-.showcase .entries.full-width {
-  margin-left: -50vw!important;
-  margin-right: -50vw!important;
-} 
-
-.showcase .entry img {
-  max-height: unset!important;
-  @include breakpoint(large) {
-  max-height: 85vh!important;
-}
-}
-
-.showcase .entry:not(:only-child) {
-  width: unset!important;
-}
-
-.showcase .entry:not(:only-child) img {
-  max-height: unset!important;
-  @include breakpoint(large) {
-    max-height: 27rem!important;
-  }
-  @include breakpoint(xlarge) {
-  max-height: 30rem!important;
-  }
-}
-
-/*Item Showcase Full Image*/ 
-.image-full img.portrait {
-  @include breakpoint (small only) {
-  max-height: 30rem;
-  }
-}
-
 /*Item Show updates*/ 
 dl dt {
   font-weight: bold;
@@ -2479,6 +2440,7 @@ grid-template-areas:
 
   /*Asset Cards*/ 
   .card img {
+    width: 100%;
     object-fit: cover;
   }
 
