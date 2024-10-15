@@ -3299,7 +3299,7 @@ grid-template-areas:
   grid-auto-flow: row;
   gap: 1rem;
   grid-template-columns: repeat(1, 100%);
-  @include breakpoint(medium) {
+  @include breakpoint(520) {
     grid-template-columns: repeat(2, 48%);
   }
   @include breakpoint(large) {
@@ -3312,7 +3312,7 @@ grid-template-areas:
   grid-auto-flow: row;
   gap: 1rem;
   grid-template-columns: repeat(1, 100%);
-  @include breakpoint(medium) {
+  @include breakpoint(520) {
     grid-template-columns: repeat(2, 48%);
   }
   @include breakpoint(large) {
