@@ -3277,3 +3277,60 @@ grid-template-areas:
     margin-top:-1 * $global-margin;
   }
 
+  /*Asset Cards*/ 
+  .card img {
+    object-fit: cover;
+  }
+
+  .assets:has(.asset.card) .card img {
+    height: 12rem;
+    @include breakpoint(medium) {
+    height: 14rem;
+    }
+    @include breakpoint(large) {
+    height: 16rem;
+    }
+    @include breakpoint(xlarge) {
+      height: 18rem;
+      }
+  }
+.assets.asset-column-2:has(.asset.card) {
+  display: grid;
+  grid-auto-flow: row;
+  gap: 1rem;
+  grid-template-columns: repeat(1, 100%);
+  @include breakpoint(520) {
+    grid-template-columns: repeat(2, 48%);
+  }
+  @include breakpoint(large) {
+  gap: 2rem;
+}
+}
+
+.assets.asset-column-3:has(.asset.card) {
+  display: grid;
+  grid-auto-flow: row;
+  gap: 1rem;
+  grid-template-columns: repeat(1, 100%);
+  @include breakpoint(520) {
+    grid-template-columns: repeat(2, 48%);
+  }
+  @include breakpoint(large) {
+  grid-template-columns: repeat(3, 32%);
+  gap: 2rem;
+}
+}
+
+.asset.card {
+  @include card-container($light-gray, $black, 0, 0, rem-calc(4), rgba(149, 157, 165, 0.2) 0px 8px 24px);
+  width: 100%;
+  & span.card-divider {
+    background: $white;
+    margin-bottom: 0;
+  }
+  & span.h3 {
+    color: $black;
+    font-weight: 800;
+  }
+}
+
