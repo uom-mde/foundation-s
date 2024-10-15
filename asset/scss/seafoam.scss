@@ -3293,7 +3293,15 @@ grid-template-areas:
 }
 
 .asset.card {
+  @include card-container($light-gray, $black, 0, 0, rem-calc(12), rgba(149, 157, 165, 0.2) 0px 8px 24px);
   width: 100%;
+  & span.card-divider {
+    background: $primary-color;
+    margin-bottom: 0;
+  }
+  & span.h3 {
+    color: $white;
+  }
 }
 
 .assets:has(.asset.card) .card img {
