@@ -2221,8 +2221,9 @@ grid-template-areas:
 } 
 
 .resourceTextGrid .block-html p {
-  margin-bottom: 70px;
+  margin-bottom: rem-calc(70px);
   margin-block-start: 0;
+  max-width: rem-calc(700);
   }
 
   .resourceTextGrid .learn-more {
@@ -2490,5 +2491,19 @@ grid-template-areas:
   }
   @include breakpoint(large) {
   height: 80vh!important;
+  }
+}
+
+/*YouTube Styling*/ 
+.youtube iframe {
+  width: 100%;
+  height: 50vh;
+  border-radius: rem-calc(6);
+  max-width: rem-calc(800)!important;
+  @include breakpoint(medium) {
+    height: 60vh!important;
+  }
+  @include breakpoint(large) {
+    height: 70vh!important;
   }
 }
