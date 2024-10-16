@@ -949,13 +949,8 @@ display: none;
   margin: 0 auto;
 }
 
-/*Align captions for Openseadragon*/
-.media-text .captions-right .resource-text-openseadragon .caption {
-  text-align: right;
-}
-
-.media-text .captions-center .resource-text-openseadragon .caption {
-  text-align: center;
+.metadata {
+  margin: 0 0 0.5rem 0; 
 }
 
 .metadata h1 a,
@@ -985,45 +980,14 @@ display: none;
   position: relative;
 }
 
-/*Full screen height for Resource Text Openseadragon embed*/
-.resource-text-openseadragon .openseadragon {
-  height: calc(65vh - rem-calc(12))!important;
-  margin: 0 1rem;
-  @include breakpoint(medium) {
-  height: calc(75vh - rem-calc(12))!important;
-  @include breakpoint(large) {
-  height: calc(80vh - rem-calc(12))!important;
-  }
-}
-}
-
 /*Add dark background to Openseadragon container*/
 .openseadragon-container {
   background-color: #1c1919!important;
 }
 
-.resource-text-openseadragon .openseadragon-container {
-  @include breakpoint(medium) {
-    border-radius: rem-calc(12);
-  }
-}
-
 /*Button align for Full Screen Openseadragon Resource Text Block*/ 
 .openseadragon-container img {
   vertical-align: top!important;
-}
-
-/*Fix for Openseadragon toolbar*/ 
-/*Fix Openseadragon toolbar issue 24/02/2024*/
-.iiif-storyboard-wide-container:has(#header_toolbar) {
-  height: calc(70vh + 35px)!important;
-  margin-bottom: 1rem;
-@include breakpoint(large) {
-  height: calc(80vh + 35px)!important;
-}
-@include breakpoint(xlarge) {
-  height: calc(90vh + 35px)!important;
-}
 }
 
 .media-text {
@@ -1840,36 +1804,7 @@ polygon>.svgactive:hover {
   background-color: $white;
 }
 
-#storyboard_viewer.annonaview.storyboard_viewer {
-  background: $black;
-  height: 70vh!important;
-  @include breakpoint(large) {
-      height: 80vh!important;
-  }
-    @include breakpoint(xlarge) {
-      height: 90vh!important;
-      } 
-}
-
-.seadragonbox .openseadragon-container {
-      height: 70vh!important;
-      @include breakpoint(large) {
-      height: 80vh!important;
-      } 
-  @include breakpoint(xlarge) {
-      height: 90vh!important;
-      } 
-}
-
-.seadragonbox {
-  height: 70vh!important;
-      @include breakpoint(large) {
-      height: 80vh!important;
-      } 
-  @include breakpoint(xlarge) {
-      height: 90vh!important;
-      } 
-}
+/*Removed Storyboard viewer CSS*/ 
 
 #storyboard_viewer button:hover,
 #multistoryboard button:hover {
@@ -2024,14 +1959,6 @@ ul.language-switcher.locale-code li span.active {
   background-color: transparent!important;
   color: inherit;
   }
-
-  /*Max height for Mirador viewer on mobiles*/
-.media-text .resource-text-openseadragon .iiif_presentation iframe {
-  max-height: 80vh;
-  @include breakpoint(large) {
-  max-height: 90vh!important;
-  }
-}
 
 /*Universal Viewer*/ 
 .universal-viewer #content {
@@ -2416,12 +2343,7 @@ grid-template-areas:
 
   .media-render {
     width: 100%;
-    @include breakpoint(large) {
-      padding: 1rem 1.5rem 1rem 0;
-      @include breakpoint(large) {
-      padding: 1rem 2rem 1rem 0; 
-      }
-    }
+    padding: 1rem;
   }
 
   .media.file {
@@ -2496,6 +2418,8 @@ grid-template-areas:
   }
 }
 
+/*Openseadragon*/ 
+
 .square .openseadragon {
   height: rem-calc(280px)!important;
   width: 85vw!important;
@@ -2509,14 +2433,62 @@ grid-template-areas:
 }
 
 .medium .openseadragon {
+  height: 60vh!important;
+  @include breakpoint(medium) {
+  height: 75vh!important;
+  }
+  @include breakpoint(large) {
   height: 50vh!important;
+  }
 }
 
 .medium-large .openseadragon {
+  height: 60vh!important;
+  @include breakpoint(medium) {
+  height: 75vh!important;
+  }
+  @include breakpoint(large) {
   height: 65vh!important;
+  }
 }
 
 .large .openseadragon {
+  height: 60vh!important;
+  @include breakpoint(medium) {
+  height: 75vh!important;
+  }
+  @include breakpoint(large) {
   height: 80vh!important;
+  }
 }
 
+/*Seadragon Styling*/ 
+.medium .seadragonbox {
+  height: 60vh!important;
+  @include breakpoint(medium) {
+  height: 75vh!important;
+  }
+  @include breakpoint(large) {
+  height: 50vh!important;
+  }
+}
+
+.medium-large .seadragonbox {
+  height: 60vh!important;
+  @include breakpoint(medium) {
+  height: 75vh!important;
+  }
+  @include breakpoint(large) {
+  height: 65vh!important;
+  }
+}
+
+.large .seadragonbox {
+  height: 60vh!important;
+  @include breakpoint(medium) {
+  height: 75vh!important;
+  }
+  @include breakpoint(large) {
+  height: 80vh!important;
+  }
+}

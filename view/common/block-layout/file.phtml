@@ -43,7 +43,7 @@ $thumbnailType = $block->dataValue('thumbnail_type');
             ?>
             <div class="caption padding-1"><?php echo $caption; ?></div>
         <?php endif; ?>
-        <div class="metadata margin-vertical-1">
+        <div class="metadata">
             <?php $showTitleOption = $this->showTitleOption; ?>
             <?php if ($showTitleOption == 'item_title'): ?>
             <h2 class="h3"><?php echo $item->displayTitle(); ?></h2>
