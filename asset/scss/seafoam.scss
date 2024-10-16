@@ -400,9 +400,6 @@ nav.breadcrumbs {
 .file img {
   max-width: 100%;
   height: auto;
-  @include breakpoint(large) {
-  max-height: 100vh;
-  }
 }
 
 .file .metadata h2 {
@@ -2180,7 +2177,7 @@ grid-template-areas:
     grid-template-columns: 1fr 8fr 1fr;
   }
   @include breakpoint(xlarge) {
-    grid-template-columns: 1fr 3fr 1fr;
+    grid-template-columns: 1fr 4fr 1fr;
   }
 }
 
@@ -2248,7 +2245,7 @@ grid-template-areas:
 /*Add a portrait class*/ 
 .portrait .media-embed-block {
   @include breakpoint(medium) {
-  max-width: rem-calc(700);
+  max-width: rem-calc(800);
   margin: 0 auto; 
 }
 }
@@ -2346,6 +2343,10 @@ grid-template-areas:
     width: 100%;
     padding: 1rem;
   }
+  /*Remove padding for square thumbnail*/ 
+  .square .media-render {
+    padding: 0;
+  }
 
   .media.file {
     width: 100%;
@@ -2415,12 +2416,11 @@ grid-template-areas:
   }
   & span.h3 {
     color: $black;
-    font-weight: 800;
   }
 }
 
-/*Openseadragon*/ 
-
+/*Square Thumbnail Styling*/ 
+.media-embed-block .square img,
 .square .openseadragon {
   height: rem-calc(280px)!important;
   width: 85vw!important;
@@ -2433,6 +2433,7 @@ grid-template-areas:
   }
 }
 
+/*Openseadragon*/ 
 .medium .openseadragon {
   height: 60vh!important;
   @include breakpoint(medium) {
@@ -2505,5 +2506,35 @@ grid-template-areas:
   }
   @include breakpoint(large) {
     height: 70vh!important;
+  }
+}
+
+/*JPEG Styling*/
+.media-embed-block .medium img {
+  height: 60vh!important;
+  @include breakpoint(medium) {
+    height: vh!important;
+  }
+  @include breakpoint(large) {
+    height: 60vh!important;
+  }
+} 
+
+.media-embed-block .medium-large img {
+  height: 60vh!important;
+  @include breakpoint(medium) {
+    height: 75vh!important;
+  }
+  @include breakpoint(large) {
+    height: 70vh!important;
+  }
+}
+.media-embed-block .large img {
+  height: 60vh!important;
+  @include breakpoint(medium) {
+    height: 75vh!important;
+  }
+  @include breakpoint(large) {
+    height: 85vh!important;
   }
 }
