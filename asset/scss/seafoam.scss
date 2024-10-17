@@ -1312,21 +1312,6 @@ margin-top: 2 * $global-margin;
   padding: 0;
 }
 
-/*PDF Viewer*/ 
-#pdf-container,
-#pdfjs-container  {
-height: 60vh!important;
-@include breakpoint(medium) {
-  height: 75vh!important;
-}
-@include breakpoint(large) {
-  height: 80vh!important;
-}
-@include breakpoint(xlarge) {
-  height: 90vh!important;
-}
-}
-
 /*Additional Search Bar*/
 .search-bar {
   display: none;
@@ -2406,9 +2391,11 @@ grid-template-areas:
   }
 }
 
-/*Seadragon Styling*/ 
-.medium .seadragonbox {
+/*Seadragonbox Styling*/ 
+.seadragonbox {
   height: 60vh!important;
+}
+.medium .seadragonbox {
   @include breakpoint(medium) {
   height: 75vh!important;
   }
@@ -2418,7 +2405,6 @@ grid-template-areas:
 }
 
 .medium-large .seadragonbox {
-  height: 60vh!important;
   @include breakpoint(medium) {
   height: 75vh!important;
   }
@@ -2428,7 +2414,6 @@ grid-template-areas:
 }
 
 .large .seadragonbox {
-  height: 60vh!important;
   @include breakpoint(medium) {
   height: 75vh!important;
   }
@@ -2467,6 +2452,32 @@ grid-template-areas:
   @include breakpoint(large) {
     max-height: 85vh!important;
   }
+}
+
+/*PDF Viewer*/ 
+#pdf-container,
+#pdfjs-container  {
+height: 60vh!important;
+@include breakpoint(medium) {
+  height: 65vh!important;
+}
+}
+
+.medium-large #pdf-container,
+.medium-large #pdfjs-container {
+@include breakpoint(large) {
+  height: 70vh!important;
+}
+}
+
+.large #pdf-container,
+.large #pdfjs-container {
+@include breakpoint(large) {
+  height: 75vh!important;
+}
+@include breakpoint(xlarge) {
+  height: 80vh!important;
+}
 }
 
 /*Image Banner block*/
