@@ -806,52 +806,6 @@ transform: scale(1.01);
       width: 100%;
       object-fit: cover;
       }
-    
-  /*Hero Image FixedWidth*/
-  .hero-image.hero-image-fixed {
-    max-width: 1600px;
-    margin: 0 auto;
-  }
-
-  .hero-image-fixed .hero-title-bottom h2 {
-    padding: 0;
-  } 
-
-  .hero-image-fixed.image-large {
-    max-height: 500px;
-    }
-
-  .hero-image-fixed .grid-container h2.caption {
-    margin-bottom: 0;
-  }
-
-/*Asset with Hero and two columns*/ 
-.hero-two-col {
-  position: relative;
-}
-
-.asset-heading {
-  position: absolute;
-  left: 10%;
-  top: 10%;
-  @include breakpoint(large) {
-  top: 40%;
-  }
-}
-
-.asset-caption {
-  position: absolute;
-  right: 0;
-  top: 30%;
-  @include breakpoint(large) {
-  top: 25%;
-  }
-}
-
-/*Centre Introductory html*/
-.page-header {
-  max-width: rem-calc(900);
-}
 
 /*Flex-grow*/
 .flex-grow {
