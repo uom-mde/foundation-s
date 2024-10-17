@@ -2112,7 +2112,7 @@ grid-template-areas:
 
   .media-render {
     width: 100%;
-    padding: 1rem;
+    padding: 1rem 1rem 0 1rem;
   }
   /*Remove padding for square thumbnail*/ 
   .square .media-render {
@@ -2412,5 +2412,20 @@ section.image-banner {
   margin-top: -1 * $global-margin;
   @include breakpoint(medium) {
     margin-top: -2 * $global-margin;
+  }
+}
+
+/*Caption*/ 
+.item .caption {
+  padding: .5 * $global-padding .5 * $global-padding 0 .5 * $global-padding;
+  text-align: left;
+  font-size: 0.9 * $global-font-size;
+  color: $dark-gray;
+  margin: 0 1 * $global-margin 0.5 * $global-margin 1 * $global-margin;
+  border-left: solid 5px $warning-color;
+  & p {
+    padding-bottom: rem-calc(8);
+    /*border-bottom: solid 1px $light-gray;*/ 
+    margin-bottom: 0;
   }
 }
