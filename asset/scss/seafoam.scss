@@ -2186,17 +2186,6 @@ grid-template-areas:
 }
 }
 
-.layout-vertical.attachment-count-2 .resource-text-openseadragon .openseadragon {
-  @include breakpoint(large) {
-  height: calc(60vh - .75rem) !important;
-}
-}
-.layout-vertical.attachment-count-3 .resource-text-openseadragon .openseadragon {
-  @include breakpoint(large) {
-  height: calc(45vh - .75rem) !important;
-} 
-}
-
 /*Add option to place media to the right*/ 
 .resourceTextGrid.mediaRight:has(.layout-horizontal) {
   @include breakpoint(large) {
@@ -2452,6 +2441,55 @@ grid-template-areas:
   @include breakpoint(large) {
     max-height: 85vh!important;
   }
+}
+
+/*Multiples styling*/ 
+.layout-vertical.attachment-count-2 .resource-text-openseadragon .medium .openseadragon,
+.layout-vertical.attachment-count-2 .resource-text-openseadragon .medium-large .openseadragon,
+.layout-vertical.attachment-count-2 .resource-text-openseadragon .large .openseadragon,
+.layout-vertical.attachment-count-3 .resource-text-openseadragon .medium .openseadragon,
+.layout-vertical.attachment-count-3 .resource-text-openseadragon .medium-large .openseadragon,
+.layout-vertical.attachment-count-3 .resource-text-openseadragon .large .openseadragon {
+  height: 40vh!important;
+  width: 100%;
+}
+
+.media-embed-block.layout-vertical.attachment-count-2 .resource-text-openseadragon,
+.media-embed-block.layout-vertical.attachment-count-3 .resource-text-openseadragon {
+  flex-direction: column;
+  @include breakpoint(medium) {
+    flex-direction: row;
+  }
+}
+
+.layout-vertical.attachment-count-2 .resource-text-openseadragon .medium .openseadragon {
+  @include breakpoint(large) {
+  height: calc(40vh - .75rem) !important;
+}
+}
+
+.layout-vertical.attachment-count-2 .resource-text-openseadragon .medium-large .openseadragon {
+  @include breakpoint(large) {
+  height: calc(50vh - .75rem) !important;
+}
+}
+
+.layout-vertical.attachment-count-2 .resource-text-openseadragon .large .openseadragon {
+  @include breakpoint(large) {
+  height: calc(60vh - .75rem) !important;
+}
+}
+
+.layout-vertical.attachment-count-3 .resource-text-openseadragon .medium-large .openseadragon {
+  @include breakpoint(large) {
+  height: calc(50vh - .75rem) !important;
+}
+}
+
+.layout-vertical.attachment-count-3 .resource-text-openseadragon .large .openseadragon {
+  @include breakpoint(large) {
+  height: calc(60vh - .75rem) !important;
+}
 }
 
 /*PDF Viewer*/ 
