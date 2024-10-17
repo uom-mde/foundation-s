@@ -2233,6 +2233,15 @@ grid-template-areas:
 }
 }
 
+.portrait.resourceTextGrid.mediaRight:has(.layout-horizontal) {
+  @include breakpoint(large) {
+  grid-template-columns: 0.5fr 2fr 2fr 0.5fr;
+  grid-template-areas:
+  ". header . ."
+  ". text media-block .";
+}
+}
+
 .layout-vertical.attachment-count-2 .resource-text-openseadragon .openseadragon {
   @include breakpoint(large) {
   height: calc(60vh - .75rem) !important;
