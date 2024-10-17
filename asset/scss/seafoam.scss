@@ -2063,48 +2063,7 @@ display: none;
   padding: 0;
  }
  
- /*Testing CSS Grid horizontal and vertical blocks*/
-/*Testing CSS Grid horizontal and vertical blocks*/
- /*Flex Option*/
- .block-blockGroup.resourceText {
-  gap: 1em;
-  flex-direction: column;
-}
-
-.resourceText {
-padding: 0 1em;
-}
-
-.resourceText .block-media:has(.layout-horizontal) {
-width: 100%;
-}
-
-.resourceText .block-media:has(.layout-vertical .openseadragon) {
-  width: 95vw;
-  margin: 0 auto;
-  @include breakpoint(medium) {
-    min-width: 80vw;
-  }
-  @include breakpoint(large) {
-    min-width: 50vw;
-    max-width: rem-calc(700px);
-  }
-}
-
-.block-blockGroup.resourceText:has(.layout-horizontal) {
-  @include breakpoint(large) {
-  flex-direction: row;
-}
-}
-
-.resourceText .block-html  {
-  @include breakpoint(large) {
-  min-width: 41.6666666667%;
-  flex-grow: 0;
-  flex-shrink: 1;
-  }
-}
-
+ /*CSS Grid horizontal and vertical blocks*/
 /*Grid Option*/
 .resourceTextGrid .block-heading {
 grid-area: header;
