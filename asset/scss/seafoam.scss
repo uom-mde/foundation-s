@@ -1327,48 +1327,6 @@ height: 60vh!important;
 }
 }
 
-/*Image Banner block*/
-.overlay-container {
-  h2 {
-    font-size: 3rem;
-    font-weight: 600;
-  }
-  p {
-    font-size: 1.5rem;
-  }
-}
-
-.image-banner .overlay-container {
-  min-height: clamp(350px, 40vh, 451px);
-}
-
-.image-banner .image-container img {
-  max-width: unset; 
-}
-
-/*Add dark text option for Image Banner*/ 
-.image-banner-dark-text .image-banner .overlay-container > h1,
-.image-banner-dark-text .image-banner .overlay-container > p {
-  font-weight: 300;
-  background: #ffffffba;
-  color: #000;
-  padding: 1rem;
-  width: fit-content;
-}
-
-.image-banner-dark-text .image-banner .overlay-container > p {
-  padding: 0.5rem;
-  margin-block: 0;
-  opacity: 0.9;
-}
-
-section.image-banner {
-  margin-top: -1 * $global-margin;
-  @include breakpoint(medium) {
-    margin-top: -2 * $global-margin;
-  }
-}
-
 /*Additional Search Bar*/
 .search-bar {
   display: none;
@@ -2552,5 +2510,47 @@ grid-template-areas:
   }
   @include breakpoint(large) {
     height: 85vh!important;
+  }
+}
+
+/*Image Banner block*/
+.overlay-container {
+  h2 {
+    font-size: 3rem;
+    font-weight: 600;
+  }
+  p {
+    font-size: 1.5rem;
+  }
+}
+
+.image-banner .overlay-container {
+  min-height: clamp(380px, 40vh, 451px);
+}
+
+.image-banner .image-container img {
+  max-width: unset; 
+}
+
+/*Add dark text option for Image Banner*/ 
+.image-banner-dark-text .image-banner .overlay-container > h1,
+.image-banner-dark-text .image-banner .overlay-container > p {
+  font-weight: 300;
+  background: #ffffffba;
+  color: #000;
+  padding: 1rem;
+  width: fit-content;
+}
+
+.image-banner-dark-text .image-banner .overlay-container > p {
+  padding: 0.5rem;
+  margin-block: 0;
+  opacity: 0.9;
+}
+
+section.image-banner {
+  margin-top: -1 * $global-margin;
+  @include breakpoint(medium) {
+    margin-top: -2 * $global-margin;
   }
 }
