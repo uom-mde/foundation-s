@@ -1984,13 +1984,16 @@ grid-template-areas:
   row-gap: 0;
 } 
 
-.resourceTextGrid .block-html p {
-  margin-bottom: rem-calc(70px);
+.resourceTextGrid .block-html p:only-child {
+  margin-bottom: rem-calc(85px);
   margin-block-start: 0;
   max-width: rem-calc(700);
+  @include breakpoint(large) {
+    margin-bottom: rem-calc(70px);
   }
+}
 
-  .resourceTextGrid .learn-more {
+  .resourceTextGrid .learn-more:only-child {
   justify-content: center;
   position: absolute;
   bottom: 0;
@@ -2353,24 +2356,25 @@ grid-template-areas:
 }
 }
 
-.attachment-count-2 .metadata,
-.attachment-count-3 .metadata {
-  margin: $global-margin;
-  @include breakpoint(large) {
-    margin: $global-margin 0 2 * $global-margin 0;
-  }
-}
-
 .attachment-count-2 .metadata h2,
 .attachment-count-3 .metadata h2,
 .attachment-count-2 .metadata h2.h3,
 .attachment-count-3 .metadata h2.h3 {
   font-weight: 800;
+  margin: $global-margin;
   @include breakpoint(medium) {
     font-size: 110%;
   }
   @include breakpoint(large) {
     font-size: 110%;
+  }
+}
+
+.attachment-count-2 .metadata:only-child,
+.attachment-count-3 .metadata:only-child {
+  margin: $global-margin;
+  @include breakpoint(large) {
+    margin: $global-margin 0 2 * $global-margin 0;
   }
 }
 
