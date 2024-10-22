@@ -402,12 +402,6 @@ nav.breadcrumbs {
   height: auto;
 }
 
-.file .metadata h2 {
-  @include breakpoint(large) {
-  font-size: $global-font-size * 1.6;
-  }
-}
-
 /*Centre media embed items when option chosen*/
 .center.file, .center.assets {
   display: flex;
@@ -2139,6 +2133,18 @@ grid-template-areas:
     object-fit: cover;
   }
 
+  /*Card hover colour change*/ 
+  .card a:hover img {
+    opacity: 0.5; /* Adjust opacity for blend effect */
+    background-color: #6b2c91;
+    transition: opacity 0.1s ease;
+    z-index: 1;
+}
+
+  .card a:hover {
+  background-color: #6b2c91;
+  }
+
   .assets:has(.asset.card) .card img {
     height: 12rem;
     @include breakpoint(medium) {
@@ -2347,6 +2353,27 @@ grid-template-areas:
 }
 }
 
+.attachment-count-2 .metadata,
+.attachment-count-3 .metadata {
+  margin: $global-margin;
+  @include breakpoint(large) {
+    margin: $global-margin 0 2 * $global-margin 0;
+  }
+}
+
+.attachment-count-2 .metadata h2,
+.attachment-count-3 .metadata h2,
+.attachment-count-2 .metadata h2.h3,
+.attachment-count-3 .metadata h2.h3 {
+  font-weight: 800;
+  @include breakpoint(medium) {
+    font-size: 110%;
+  }
+  @include breakpoint(large) {
+    font-size: 110%;
+  }
+}
+
 /*PDF Viewer*/ 
 #pdf-container,
 #pdfjs-container  {
@@ -2422,10 +2449,9 @@ section.image-banner {
   font-size: 0.9 * $global-font-size;
   color: $dark-gray;
   margin: 0 1 * $global-margin 0.5 * $global-margin 1 * $global-margin;
-  border-left: solid 5px $warning-color;
+  border-left: solid rem-calc(6) $light-gray;
   align-self: baseline;
   & p {
-    padding-bottom: rem-calc(8);
     /*border-bottom: solid 1px $light-gray;*/ 
     margin-bottom: 0;
   }
