@@ -400,6 +400,16 @@ nav.breadcrumbs {
 .file img {
   max-width: 100%;
   height: auto;
+  max-height: 60vh;
+  @include breakpoint(medium) {
+    max-height: 70vh;
+  }
+  @include breakpoint(large) {
+    max-height: 80vh;
+  }
+  @include breakpoint(xlarge) {
+    max-height: 90vh;
+  }
 }
 
 /*Centre media embed items when option chosen*/
@@ -1886,6 +1896,11 @@ display: none;
   width: 100%;
 }
 
+.media-render.file {
+  display: flex;
+  justify-content: center;
+}
+
 .media-render.iiif {
   width: 100%;
 }
@@ -2220,7 +2235,7 @@ grid-template-areas:
   height: 75vh!important;
   }
   @include breakpoint(large) {
-  height: 50vh!important;
+  height: 60vh!important;
   }
 }
 
@@ -2230,7 +2245,7 @@ grid-template-areas:
   height: 75vh!important;
   }
   @include breakpoint(large) {
-  height: 65vh!important;
+  height: 80vh!important;
   }
 }
 
@@ -2240,7 +2255,7 @@ grid-template-areas:
   height: 75vh!important;
   }
   @include breakpoint(large) {
-  height: 80vh!important;
+  height: 90vh!important;
   }
 }
 
@@ -2253,7 +2268,7 @@ grid-template-areas:
   height: 75vh!important;
   }
   @include breakpoint(large) {
-  height: 50vh!important;
+  height: 60vh!important;
   }
 }
 
@@ -2262,7 +2277,7 @@ grid-template-areas:
   height: 75vh!important;
   }
   @include breakpoint(large) {
-  height: 65vh!important;
+  height: 80vh!important;
   }
 }
 
@@ -2271,7 +2286,7 @@ grid-template-areas:
   height: 75vh!important;
   }
   @include breakpoint(large) {
-  height: 80vh!important;
+  height: 90vh!important;
   }
 }
 
