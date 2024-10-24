@@ -35,9 +35,13 @@ foreach ($itemMedia as $index => $media) {
     $mediaRenderer = $media->renderer();
     
     // Add a rule to dynamically handle media based on the renderer
-    if ($mediaRenderer === 'iiif') {
+    //if ($mediaRenderer === 'iiif_presentation') {
         // Add 'iiif' renderer to the allowedMediaTypes dynamically
-        $allowedMediaTypes[] = 'iiif';
+    //    $allowedMediaTypes[] = 'iiif_presentation';
+    //}
+    if ($mediaRenderer === 'youtube') {
+        // Add 'iiif' renderer to the allowedMediaTypes dynamically
+        $allowedMediaTypes[] = 'youtube';
     }
 }
 
@@ -53,13 +57,15 @@ foreach ($itemMedia as $index => $media) {
 
     <div class="full-width-main margin-bottom-2 xlarge-margin-bottom-3">
         <?php 
-            if (in_array($mediaType, $allowedMediaTypes)) {
+            if (in_array($mediaType, $allowedMediaTypes) || $mediaRenderer === 'youtube') {
             //Use Octopus Viewer for supported media types
                 echo $this->octopusViewer()->forItem($item);
+                echo $mediaRenderer;
                 echo 'Octopus Rule Activated';
             } else {
                 echo $media->render();
                 echo 'Default Rule Activated';
+                echo $mediaRenderer;
             }
         ?>
     </div>
