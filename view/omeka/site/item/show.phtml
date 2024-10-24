@@ -24,43 +24,23 @@ $filterLocale = (bool) $this->siteSetting('filter_locale_values');
 $lang = $this->lang();
 $valueLang = $filterLocale ? [$lang, ''] : null;
 
-$viewers = [];
-$miradorViewer = null;
-$miradorImageViewer = null;
-$universalViewer = null;
-$youtubeViewer = null;
-$defaultViewer = null;
+// Iterate through the media associated with the item
+// Define a base array of media types that should be handled by Octopus Viewer
+$allowedMediaTypes = ['image/jpeg', 'image/png', 'application/pdf', 'youtube'];
 
-// Loop through Item Media and Choose Viewer for the First Item Only
-$firstMedia = true;
+// Iterate through the media associated with the item
 foreach ($itemMedia as $index => $media) {
+    // Get the media type (e.g., "image/jpeg", "application/pdf")
     $mediaType = $media->mediaType();
     $mediaRenderer = $media->renderer();
-        // Add debugging statements
-        // echo "Media Renderer: $mediaRenderer, Media Type: $mediaType<br>";
-
-    if ($firstMedia) {
-        if ($mediaRenderer == 'iiifPresentation') {
-            $viewers[] = 'mirador';
-            $firstMedia = false;
-        } elseif ($mediaRenderer == 'iiif') {
-            $viewers[] = 'mirador';
-            $miradorImageViewer = "<div>" . $this->mirador($item) . "</div>";
-            $firstMedia = false;
-        } elseif ($mediaRenderer == 'youtube') {
-            $viewers[] = 'youtube';
-            $youtubeViewer = "<div class='responsive-embed widescreen'>" . $media->render() . "</div>";
-            $firstMedia = false;
-        } else {
-            $viewers[] = 'default';
-            $defaultViewer = $media->render();
-            $firstMedia = false;
-        }
-    } else {
-        // For additional media, you may want to handle them differently or skip them.
-        // You can add additional logic here if needed.
+    
+    // Add a rule to dynamically handle media based on the renderer
+    if ($mediaRenderer === 'iiif') {
+        // Add 'iiif' renderer to the allowedMediaTypes dynamically
+        $allowedMediaTypes[] = 'iiif';
     }
 }
+
 ?>
 
 <div class="resource-title">
@@ -73,22 +53,14 @@ foreach ($itemMedia as $index => $media) {
 
     <div class="full-width-main margin-bottom-2 xlarge-margin-bottom-3">
         <?php 
-        // Display the main viewer
-        if ($miradorViewer !== null) {
-            echo $miradorViewer;
-        }
-        elseif ($miradorImageViewer !== null) {
-            echo $miradorImageViewer;
-        } 
-        elseif ($universalViewer !== null) {
-            echo $universalViewer;
-        } 
-        elseif ($youtubeViewer !== null) {
-            echo $youtubeViewer;
-        } 
-        elseif ($defaultViewer !== null) {
-            echo $defaultViewer;
-        }
+            if (in_array($mediaType, $allowedMediaTypes)) {
+            //Use Octopus Viewer for supported media types
+                echo $this->octopusViewer()->forItem($item);
+                echo 'Octopus Rule Activated';
+            } else {
+                echo $media->render();
+                echo 'Default Rule Activated';
+            }
         ?>
     </div>
 </div>
