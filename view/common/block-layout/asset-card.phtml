@@ -1,4 +1,28 @@
-<?php $escape = $this->plugin('escapeHtml'); ?>
+<?php
+/**
+ * @var \Laminas\View\Renderer\PhpRenderer $this
+ * @var array $attachments Contains keys:
+ *   - asset (AssetRepresentation)
+ *   - page (PageRepresentation)
+ *   - caption (string): the html is purified according to settings
+ *   - alt_link_title (string)
+ *   Specific to the module version:
+ *   - class (string)
+ *   - title (string): deprecated alias of "alt_link_title"
+ *   - url (string): deprecated, will be removed. Use "page", "caption", alt title, or original asset alt value instead.
+ * @var array $assets Deprecated, alias of attachments.
+ * @var string $heading
+ * @var string $className
+ * @var string $alignment
+ */
+
+// This template is the equivalent of the old "assets.phtml" one, before upstream merge.
+
+$plugins = $this->getHelperPluginManager();
+$escape = $plugins->get('escapeHtml');
+$escapeAttr = $plugins->get('escapeHtmlAttr');
+$assetElement = $plugins->get('assetElement');
+?>
 
 <?php
 // Count the number of attachments that have an 'asset'
@@ -25,8 +49,10 @@ $assetColumn = in_array($assetCount, [1, 2, 4]) ? 'asset-column-2' : 'asset-colu
         <?php else: ?>
             <?php echo $assetImage; ?>
         <?php endif; ?>
-        <?php if ($attachment['caption'] !== ''): ?>
-        <div class="caption card-section"><?php echo $escape($attachment['caption']); ?></div>
+        <?php if ($attachment['caption']): ?>
+        <div class="caption">
+            <?= $attachment['caption'] ?>
+        </div>
         <?php endif; ?>
     </div>
   <?php endforeach; ?>
