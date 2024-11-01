@@ -24,23 +24,33 @@ $escapeAttr = $plugins->get('escapeHtmlAttr');
 $assetElement = $plugins->get('assetElement');
 ?>
 
-<div class="block block-asset assets <?= $escape($className . ' ' . $alignment) ?>">
+<?php
+// Count the number of attachments that have an 'asset'
+$assetCount = count(array_filter($attachments, function($attachment) {
+    return !empty($attachment['asset']);
+}));
+
+// Assign asset column class based on asset count
+$assetColumn = in_array($assetCount, [1, 2, 4]) ? 'asset-column-2' : 'asset-column-3';
+?>
+
+<div class="assets <?php echo $assetColumn; ?> margin-top-1 large-margin-top-2 xlarge-margin-top-3 block block-asset assets <?= $escape($className . ' ' . $alignment) ?>">
     <?php if (!empty($heading)): ?>
     <h2><?= $escape($heading) ?></h2>
     <?php endif; ?>
     <?php foreach ($attachments as $attachment): ?>
-    <div class="asset<?= empty($attachment['class']) ? '' : ' ' . $escapeAttr($attachment['class']) ?>">
-        <?php if ($attachment['asset']): ?>
-            <?php $attachmentUrl = $attachment['page'] ? $attachment['page']->siteUrl() : $attachment['url']; ?>
-            <?php if ($attachmentUrl):?>
-        <a href="<?= $escapeAttr($attachmentUrl) ?>"<?php if (filter_var($attachmentUrl, FILTER_VALIDATE_URL)): ?> target="_blank"<?php endif; ?>>
-            <?= $assetElement($attachment['asset'], ['alt' => $attachment['alt_link_title']]) ?>
-        </a>
-            <?php else: ?>
-        <span>
-            <?= $assetElement($attachment['asset'], ['alt' => $attachment['alt_link_title']]) ?>
-        </span>
-            <?php endif; ?>
+    <?php $asset = $attachment['asset']; ?>
+    <div class="asset card">
+        <?php $assetImage = ($asset) ? $this->thumbnail($asset, 'square', ['class' => 'card-image']) : ''; ?>
+        <?php $page = (array_key_exists('page', $attachment)) ? $attachment['page'] : null; ?>
+        <?php if ($page): ?>
+            <a href="<?php echo $escape($page->siteUrl()); ?>">
+                <?php $altLinkTitle = ($attachment['alt_link_title'] !== '') ? $escape($attachment['alt_link_title']) : false; ?>
+                <?php echo $assetImage; ?>
+                <span class="h4 link-title card-divider"><?php echo ($altLinkTitle) ? $altLinkTitle : $escape($page->title()); ?></span>
+            </a>
+        <?php else: ?>
+            <?php echo $assetImage; ?>
         <?php endif; ?>
         <?php if ($attachment['caption']): ?>
         <div class="caption">
