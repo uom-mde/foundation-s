@@ -1199,73 +1199,6 @@ display: none;
 }
 }
 
-/*Item Showcase Multiples*/ 
-.item-count-2 #storyboard_viewer.annonaview.storyboard_viewer {
-  @include breakpoint(medium) {
-    height: 60vh !important;
-  }
-  @include breakpoint(large) {
-    height: 65vh !important;
-  }
-}
-.item-count-2 .seadragonbox {
-  @include breakpoint(medium) {
-    height: 60vh !important;
-  }
-  @include breakpoint(large) {
-    height: 65vh !important;
-  }
-}
-.item-count-2 .seadragonbox .openseadragon-container {
-  @include breakpoint(medium) {
-    height: 60vh !important;
-  }
-  @include breakpoint(large) {
-    height: 65vh !important;
-  }
-}
-.item-count-2 .openseadragon {
-  @include breakpoint(medium) {
-    height: 60vh !important;
-  }
-  @include breakpoint(large) {
-    height: 65vh !important;
-  }
-}
-
-.item-count-3 #storyboard_viewer.annonaview.storyboard_viewer {
-  @include breakpoint(medium) {
-    height: 50vh !important;
-  }
-}
-.item-count-3 .seadragonbox {
-  @include breakpoint(medium) {
-    height: 50vh !important;
-  }
-}
-.item-count-3 .seadragonbox .openseadragon-container {
-  @include breakpoint(medium) {
-    height: 50vh !important;
-  }
-}
-.item-count-3 .openseadragon {
-  @include breakpoint(medium) {
-    height: 50vh !important;
-  }
-}
-
-.item-count-2 .file img {
-@include breakpoint(medium) {
-  max-height: 60vh;
-  }
-}
-
-.item-count-3 .file img {
-  @include breakpoint(medium) {
-    max-height: 50vh;
-  }
-}
-
 /*Add dark background to Openseadragon container*/
 .openseadragon-container {
   background-color: #1c1919!important;
@@ -3216,6 +3149,74 @@ width: 100%;
 }
 & span.h4 {
   color: $black;
-  font-weight: 800;
+  font-weight: 400;
 }
+}
+
+/*Item SHowcase Multiples*/ 
+/*Item Showcase Multiples*/ 
+.item-count-2 #storyboard_viewer.annonaview.storyboard_viewer {
+  @include breakpoint(medium) {
+    height: 60vh !important;
+  }
+  @include breakpoint(large) {
+    height: 65vh !important;
+  }
+}
+.item-count-2 .seadragonbox {
+  @include breakpoint(medium) {
+    height: 60vh !important;
+  }
+  @include breakpoint(large) {
+    height: 65vh !important;
+  }
+}
+.item-count-2 .seadragonbox .openseadragon-container {
+  @include breakpoint(medium) {
+    height: 60vh !important;
+  }
+  @include breakpoint(large) {
+    height: 65vh !important;
+  }
+}
+.item-count-2 .openseadragon {
+  @include breakpoint(medium) {
+    height: 60vh !important;
+  }
+  @include breakpoint(large) {
+    height: 65vh !important;
+  }
+}
+
+.item-count-3 #storyboard_viewer.annonaview.storyboard_viewer {
+  @include breakpoint(medium) {
+    height: 50vh !important;
+  }
+}
+.item-count-3 .seadragonbox {
+  @include breakpoint(medium) {
+    height: 50vh !important;
+  }
+}
+.item-count-3 .seadragonbox .openseadragon-container {
+  @include breakpoint(medium) {
+    height: 50vh !important;
+  }
+}
+.item-count-3 .openseadragon {
+  @include breakpoint(medium) {
+    height: 50vh !important;
+  }
+}
+
+.item-count-2 .file img {
+@include breakpoint(medium) {
+  max-height: 60vh;
+  }
+}
+
+.item-count-3 .file img {
+  @include breakpoint(medium) {
+    max-height: 50vh;
+  }
 }
