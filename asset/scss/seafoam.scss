@@ -414,6 +414,9 @@ nav.breadcrumbs {
   grid-template-columns: repeat(auto-fit, minmax((rem-calc(300)), 1fr));
   gap: rem-calc(32);
   line-height: 1.5;
+  @include breakpoint(xlarge) {
+    gap: 3rem;
+  }
 }
 
 .col-container.grid-media-container {
@@ -2746,6 +2749,9 @@ polygon>.svgactive:hover {
   @include breakpoint(large) {
       height: 80vh!important;
   }
+  @include breakpoint(xlarge) {
+    height: 90vh!important;
+}
 }
 
 .seadragonbox .openseadragon-container {
