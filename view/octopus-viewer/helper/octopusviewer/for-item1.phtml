@@ -1,0 +1,28 @@
+<?php
+/**
+ * @var Omeka\Api\Representation\ItemRepresentation $item
+ */
+
+// Define an array of allowed media types
+$allowedMediaTypes = ['image/jpeg', 'image/png', 'application/pdf'];
+
+// Flag to determine if item has allowed media
+$hasAllowedMedia = false;
+
+// Loop through each media associated with the item
+foreach ($item->media() as $media) {
+    if (in_array($media->mediaType(), $allowedMediaTypes)) {
+        $hasAllowedMedia = true;
+        break; // Stop checking if an allowed media type is found
+    }
+}
+
+?>
+
+<?php if ($hasAllowedMedia): ?>
+    <div class="octopusviewer-wrapper">
+        <?= $this->octopusViewer()->viewer(['item_id' => $item->id()], $item->displayTitle()); ?>
+    </div>
+<?php else: ?>
+    <p>This item cannot be displayed in the viewer due to unsupported media types.</p>
+<?php endif; ?>
