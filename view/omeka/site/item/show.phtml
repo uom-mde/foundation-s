@@ -24,27 +24,15 @@ $filterLocale = (bool) $this->siteSetting('filter_locale_values');
 $lang = $this->lang();
 $valueLang = $filterLocale ? [$lang, ''] : null;
 
-// Iterate through the media associated with the item
-// Define a base array of media types that should be handled by Octopus Viewer
-$allowedMediaTypes = ['image/jpeg', 'image/png', 'application/pdf'];
-
-// Iterate through the media associated with the item
 foreach ($itemMedia as $index => $media) {
     // Get the media type (e.g., "image/jpeg", "application/pdf")
     $mediaType = $media->mediaType();
     $mediaRenderer = $media->renderer();
-    
-    // Add a rule to dynamically handle media based on the renderer
-    if ($mediaRenderer === 'iiif_presentation') {
-        // Add 'iiif' renderer to the allowedMediaTypes dynamically
-    $allowedMediaTypes[] = 'iiif_presentation';
-    }
-    if ($mediaRenderer === 'youtube') {
-        // Add 'iiif' renderer to the allowedMediaTypes dynamically
-        $allowedMediaTypes[] = 'youtube';
-    };
 }
 
+// Iterate through the media associated with the item
+// Define a base array of media types that should be handled by Octopus Viewer
+$allowedMediaTypes = ['image/jpeg', 'image/png', 'application/pdf', 'iiif_presentation', 'youtube'];
 ?>
 
 <div class="resource-title">
@@ -57,7 +45,7 @@ foreach ($itemMedia as $index => $media) {
 
     <div class="full-width-main margin-bottom-2 xlarge-margin-bottom-3">
         <?php 
-            if (in_array($mediaType, $allowedMediaTypes) || $mediaRenderer === 'youtube' || $mediaRenderer === 'iiif_presentation') {
+            if (in_array($mediaType, $allowedMediaTypes)) {
             //Use Octopus Viewer for supported media types
                 echo $this->octopusViewer()->forItem($item);
                 echo $mediaRenderer;
