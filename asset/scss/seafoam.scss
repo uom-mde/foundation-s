@@ -1926,6 +1926,7 @@ width: 100%;
 .resourceTextGrid .block-html {
 grid-area: text;
 align-self: center;
+max-width: rem-calc(850);
 }
 
 .resourceTextGrid .block-html h2 {
