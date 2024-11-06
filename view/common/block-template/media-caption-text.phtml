@@ -5,7 +5,7 @@ $hyperlink = $this->plugin('hyperlink');
 $thumbnailType = $block->dataValue('thumbnail_type');
 ?>
 <div class="full-width file-caption-block media-caption-text resourceTextGrid padding-horizontal-1 large-padding-2 margin-vertical-1 large-margin-vertical-2">
-    <div class="file file-caption-text media-embed <?php echo $this->escapeHtml(implode(' ', $classes)); ?>">
+    <div class="file file-caption-text media-embed large-padding-horizontal-1 xlarge-padding-horizontal-2 <?php echo $this->escapeHtml(implode(' ', $classes)); ?>">
         <?php foreach($attachments as $attachment): ?>
         <?php $item = $attachment->item(); ?>
         <div class="item resource <?php echo $thumbnailType; ?>">
@@ -38,7 +38,7 @@ $thumbnailType = $block->dataValue('thumbnail_type');
             ?>
             </div>
         </div>
-        <div class="block-html padding-horizontal-1">
+        <div class="block-html large-padding-horizontal-1 xlarge-padding-horizontal-3">
             <?php if ($showTitleOption === 'item_title'): ?>
                 <div class="separator-center metadata">
                     <h2 class="margin-vertical-1 large-margin-vertical-2"><?php echo $item->displayTitle(); ?></h2>
