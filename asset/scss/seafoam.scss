@@ -1963,6 +1963,15 @@ grid-template-areas:
   }
 }
 
+.wide .resourceTextGrid:has(.layout-vertical) {
+  @include breakpoint(large) {
+    grid-template-columns: 1fr 10fr 1fr;
+  }
+  @include breakpoint(xlarge) {
+    grid-template-columns: 1fr 12fr 1fr;
+  }
+}
+
 .resourceTextGrid:has(.layout-vertical.file-caption-text) {
   grid-template-areas: 
   "media-embed-media"
@@ -2152,6 +2161,9 @@ grid-template-areas:
   /*Utility Classes*/ 
   .no-margin-top {
     margin-top:-1 * $global-margin;
+    @include breakpoint(large) {
+      margin-top:-2 * $global-margin;
+    }
   }
 
   /*Asset Cards*/ 
