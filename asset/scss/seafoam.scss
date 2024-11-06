@@ -2075,6 +2075,14 @@ grid-template-areas:
 .resourceTextGrid.file-caption-block .block-html p {
   margin-block-end: 7rem;
   }
+
+  /*Added further rule for Media Embed 'Caption as Text' template*/ 
+  .resourceTextGrid.file-caption-block.media-caption-text .block-html p {
+  margin-block-end: 1rem;
+  @include breakpoint(large) {
+  margin-block-end: 2rem;
+  }
+}
   
 .resourceTextGrid:has(.layout-horizontal) .learn-more {
   @include breakpoint(large) {
@@ -2085,6 +2093,7 @@ grid-template-areas:
   transform: initial;
 }
 }
+
 
 /*Fixes*/
 .item.resource {
