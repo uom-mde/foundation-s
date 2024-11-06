@@ -4,7 +4,7 @@ $this->headScript()->appendFile($this->assetUrl('js/annona.js'));
 $hyperlink = $this->plugin('hyperlink');
 $thumbnailType = $block->dataValue('thumbnail_type');
 ?>
-<div class="full-width file-caption-block media-caption-text resourceTextGrid padding-horizontal-1 large-padding-horizontal-2 xlarge-padding-horizontal-3 margin-vertical-1 large-margin-vertical-2">
+<div class="full-width file-caption-block media-caption-text resourceTextGrid padding-horizontal-1 large-padding-2 xlarge-padding-3 margin-vertical-1 large-margin-vertical-2">
     <div class="file file-caption-text media-embed <?php echo $this->escapeHtml(implode(' ', $classes)); ?>">
         <?php foreach($attachments as $attachment): ?>
         <?php $item = $attachment->item(); ?>
@@ -57,5 +57,6 @@ $thumbnailType = $block->dataValue('thumbnail_type');
             </div>
         </div>
         <?php endforeach; ?>
+    </div>
     </div>
 <div>
