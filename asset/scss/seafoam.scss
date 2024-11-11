@@ -1964,7 +1964,10 @@ grid-template-areas:
   }
 }
 
-.wide .resourceTextGrid:has(.layout-vertical) {
+/*Add wide option*/ 
+
+.wide .resourceTextGrid:has(.layout-vertical),
+.wide.resourceTextGrid:has(.layout-vertical) {
   @include breakpoint(large) {
     grid-template-columns: 1fr 10fr 1fr;
   }
