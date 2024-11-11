@@ -2546,3 +2546,9 @@ section.image-banner {
   .italic-font {
     font-style: italic;
   }
+
+  /*Width 80vw*/
+  .width-80 .attachments.resource-text-openseadragon {
+    min-width: 80vw;
+    max-width: rem-calc(1500);
+  }

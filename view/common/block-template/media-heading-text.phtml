@@ -44,7 +44,7 @@ $lang = $filterLocale ? $this->lang() : null;
                 <h2><?= htmlspecialchars($media->displayTitle()) ?></h2>
             <?php endif; ?>
             <?php if ($alternative = $item->value('dcterms:alternative')): ?>
-                <h2 class="h3 italic-font"><small><?= htmlspecialchars($alternative) ?></small></h2>
+                <h2 class="h4 italic-font"><small><?= htmlspecialchars($alternative) ?></small></h2>
             <?php endif; ?>
         </div>
         <div class="text">
