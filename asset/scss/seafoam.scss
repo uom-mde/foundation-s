@@ -2110,6 +2110,11 @@ grid-template-areas:
   width: 100%;
 }
 
+/*No Learn More button*/ 
+.no-button .learn-more {
+  display: none;
+}
+
 /*Embed media alongside HTML*/ 
   /*Allow openseadragon use in Media Embed*/
   .medium .openseadragon {
@@ -2532,4 +2537,9 @@ section.image-banner {
 
   .resource-meta .description.full {
     display: none;
+  }
+
+  /*Utility Classes*/ 
+  .italic-font {
+    font-style: italic;
   }
