@@ -2596,7 +2596,19 @@ section.image-banner {
   background: #000;
   color: $white;
   }
+
+  .asset-hero-title {
+    height: 100%;
+    }
     
   .asset-hero-caption {
   height: 100%;
+  }
+
+  .asset-hero-caption-bottom {
+    background: #ededed;
+    padding: 0.5 * $global-padding;
+    & p {
+      margin-bottom: 0;
+    }
   }
