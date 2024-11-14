@@ -2608,7 +2608,11 @@ section.image-banner {
   .asset-hero-caption-bottom {
     background: #ededed;
     padding: 0.5 * $global-padding;
+    @include breakpoint(large) {
+      padding: 0.5 * $global-padding 0 0.5 * $global-padding 0;
+    }
     & p {
       margin-bottom: 0;
+      font-size: 0.9 * $global-font-size;
     }
   }

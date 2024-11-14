@@ -62,8 +62,10 @@ $title = strlen($attachment['alt_link_title']) ? $attachment['alt_link_title'] :
 
     <?php if (strlen($caption)): ?>
     <!-- Display the caption as a separate section under the hero if $caption has content -->
-    <div class="asset-hero-caption-bottom grid-container">
-        <p><?= $isHtmlCaption ? $caption : $escape($caption) ?></p>
+    <div class="full-width asset-hero-caption-bottom">
+        <div class=" grid-container">
+            <p><?= $isHtmlCaption ? $caption : $escape($caption) ?></p>
+        </div>
     </div>
     <?php endif; ?>
 
