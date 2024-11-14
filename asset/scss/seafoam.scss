@@ -2575,3 +2575,28 @@ section.image-banner {
     min-width: 80vw;
     max-width: rem-calc(1500);
   }
+
+  /*Asset Hero img*/ 
+  .asset-hero {
+    height: rem-calc(350px);
+    margin-top: -1rem;
+    background-position: center;  /* Centers image horizontally and vertically */
+    background-size: cover;      /* Ensures the image covers the entire element */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    @include breakpoint(medium) {
+      margin-top: -2rem;
+    }
+    @include breakpoint(large) {
+    height: rem-calc(450px);
+    }
+    }
+    
+  .asset-hero h1 {
+  padding: 0.5rem;
+  background: #000;
+  color: $white;
+  }
+    
+  .asset-hero-caption {
+  height: 100%;
+  }
