@@ -2570,6 +2570,10 @@ section.image-banner {
     font-style: italic;
   }
 
+  .no-p-margin-bottom p {
+    margin-bottom: 0;
+  }
+
   /*Width 80vw*/
   .width-80 .attachments.resource-text-openseadragon {
     min-width: 80vw;
