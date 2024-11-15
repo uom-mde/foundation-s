@@ -2133,17 +2133,26 @@ grid-template-areas:
     }
     }
     
-  .block-media.text-around-image {
+  .block-media .text-around-image {
     display: block;
     float: left;
-    width: 400px;
+    width: 50%;
+    margin: 0 1rem 0.5rem 0;
+  @include breakpoint(600) {
+    width: rem-calc(350);
     margin: 0 1rem 1rem 0;
   }
+  @include breakpoint(700) {
+    width: rem-calc(400);
+  }
+}
 
-  .block-media.text-around-image.right {
+.block-media .text-around-image.right {
+    @include breakpoint(600) {
     float: right;
     margin: 0 0 1rem 1rem;
   }
+}
 
   .media-embed {
     width: 100%;
@@ -2279,6 +2288,12 @@ grid-template-areas:
     width: rem-calc(360px)!important;
     height: rem-calc(360px)!important;
   }
+}
+
+/*Ensure above rule does not corrupt buttons in Openseadragon viewer*/ 
+.media-embed-block .square .openseadragon-container img {
+  height: 24px!important;
+  width: 24px!important;
 }
 
 /*Openseadragon*/ 
