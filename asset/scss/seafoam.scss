@@ -97,6 +97,10 @@ header .top-bar-right {
   color: $white;
   }
 
+.top-bar ul ul {
+  background: $secondary-color;
+}
+
 .banner {
   position: relative;
   display: flex;
