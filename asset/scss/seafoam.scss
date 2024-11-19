@@ -2395,10 +2395,10 @@ grid-template-areas:
 }
 
 /*Multiples styling*/ 
-.layout-vertical.attachment-count-2 .openseadragon,
-.layout-vertical.attachment-count-2 img,
-.layout-vertical.attachment-count-3 .openseadragon,
-.layout-vertical.attachment-count-3 img {
+.media-embed-block.layout-vertical.attachment-count-2 .openseadragon,
+.media-embed-block.layout-vertical.attachment-count-2 img,
+.media-embed-block.layout-vertical.attachment-count-3 .openseadragon,
+.media-embed-block.layout-vertical.attachment-count-3 img {
   height: 40vh!important;
   width: 100%;
 }
@@ -2411,36 +2411,36 @@ grid-template-areas:
   }
 }
 
-.layout-vertical.attachment-count-2 .resource-text-openseadragon .medium .openseadragon,
-.layout-vertical.attachment-count-2 .resource-text-openseadragon .medium img {
+.media-embed-block.layout-vertical.attachment-count-2 .resource-text-openseadragon .medium .openseadragon,
+.media-embed-block.layout-vertical.attachment-count-2 .resource-text-openseadragon .medium img {
   @include breakpoint(large) {
   height: calc(40vh - .75rem) !important;
 }
 }
 
-.layout-vertical.attachment-count-2 .resource-text-openseadragon .medium-large .openseadragon,
-.layout-vertical.attachment-count-2 .resource-text-openseadragon .medium-large img {
+.media-embed-block.layout-vertical.attachment-count-2 .resource-text-openseadragon .medium-large .openseadragon,
+.media-embed-block.layout-vertical.attachment-count-2 .resource-text-openseadragon .medium-large img {
   @include breakpoint(large) {
   height: calc(50vh - .75rem) !important;
 }
 }
 
-.layout-vertical.attachment-count-2 .resource-text-openseadragon .large .openseadragon,
-.layout-vertical.attachment-count-2 .resource-text-openseadragon .large img {
+.media-embed-block.layout-vertical.attachment-count-2 .resource-text-openseadragon .large .openseadragon,
+.media-embed-block.layout-vertical.attachment-count-2 .resource-text-openseadragon .large img {
   @include breakpoint(large) {
   height: calc(60vh - .75rem) !important;
 }
 }
 
-.layout-vertical.attachment-count-3 .resource-text-openseadragon .medium-large .openseadragon,
-.layout-vertical.attachment-count-3 .resource-text-openseadragon .medium-large img {
+.media-embed-block.layout-vertical.attachment-count-3 .resource-text-openseadragon .medium-large .openseadragon,
+.media-embed-block.layout-vertical.attachment-count-3 .resource-text-openseadragon .medium-large img {
   @include breakpoint(large) {
   height: calc(50vh - .75rem) !important;
 }
 }
 
-.layout-vertical.attachment-count-3 .resource-text-openseadragon .large .openseadragon,
-.layout-vertical.attachment-count-3 .resource-text-openseadragon .large img {
+.media-embed-block.layout-vertical.attachment-count-3 .resource-text-openseadragon .large .openseadragon,
+.media-embed-block.layout-vertical.attachment-count-3 .resource-text-openseadragon .large img {
   @include breakpoint(large) {
   height: calc(60vh - .75rem) !important;
 }
