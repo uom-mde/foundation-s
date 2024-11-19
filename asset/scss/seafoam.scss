@@ -1609,6 +1609,16 @@ padding: unset;
   }
   }
 
+  /*Faceted Browse*/
+.faceted-browse-page .resource-list .resource-link img {
+  float: unset;
+  display: block;
+  @include breakpoint(450) {
+    float: right;
+    display: inline-block;
+  }
+}
+
 /*IvyRze blocks*/ 
 /*Accordion*/ 
 .accordion-trigger {
@@ -1653,12 +1663,18 @@ height: 60vh!important;
   }
 }
 
+/*Page Block Image Banner*/
 .image-banner .overlay-container {
-  min-height: clamp(350px, 35vh, 451px);
+  min-height: clamp(200px, 20vh, 300px);
 }
 
 .image-banner .image-container img {
-  max-width: 1400px;
+  /*max-width: 1400px;*/
+  max-width: unset;
+}
+
+.image-banner .image-container::after {
+  opacity: 0.2;
 }
 
 section.image-banner {
@@ -3226,3 +3242,8 @@ width: 100%;
     max-height: 50vh;
   }
 }
+
+/*Openseadragon for Item Show*/ 
+.resource.show .media-render >.openseadragon {
+  height: 80vh!important;
+  }
