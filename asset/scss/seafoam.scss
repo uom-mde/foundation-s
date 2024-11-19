@@ -2414,35 +2414,42 @@ grid-template-areas:
 .media-embed-block.layout-vertical.attachment-count-2 .resource-text-openseadragon .medium .openseadragon,
 .media-embed-block.layout-vertical.attachment-count-2 .resource-text-openseadragon .medium .file > a > img {
   @include breakpoint(large) {
-  height: calc(40vh - .75rem) !important;
+  height: calc(50vh - .75rem) !important;
 }
 }
 
 .media-embed-block.layout-vertical.attachment-count-2 .resource-text-openseadragon .medium-large .openseadragon,
 .media-embed-block.layout-vertical.attachment-count-2 .resource-text-openseadragon .medium-large .file > a > img {
   @include breakpoint(large) {
-  height: calc(50vh - .75rem) !important;
+  height: calc(60vh - .75rem) !important;
 }
 }
 
 .media-embed-block.layout-vertical.attachment-count-2 .resource-text-openseadragon .large .openseadragon,
 .media-embed-block.layout-vertical.attachment-count-2 .resource-text-openseadragon .large .file > a > img {
   @include breakpoint(large) {
-  height: calc(60vh - .75rem) !important;
+  height: calc(75vh - .75rem) !important;
+}
+}
+
+.media-embed-block.layout-vertical.attachment-count-3 .resource-text-openseadragon .medium .openseadragon,
+.media-embed-block.layout-vertical.attachment-count-3 .resource-text-openseadragon .medium .file > a > img {
+  @include breakpoint(large) {
+  height: calc(50vh - .75rem) !important;
 }
 }
 
 .media-embed-block.layout-vertical.attachment-count-3 .resource-text-openseadragon .medium-large .openseadragon,
 .media-embed-block.layout-vertical.attachment-count-3 .resource-text-openseadragon .medium-large .file > a > img {
   @include breakpoint(large) {
-  height: calc(50vh - .75rem) !important;
+  height: calc(60vh - .75rem) !important;
 }
 }
 
 .media-embed-block.layout-vertical.attachment-count-3 .resource-text-openseadragon .large .openseadragon,
 .media-embed-block.layout-vertical.attachment-count-3 .resource-text-openseadragon .large .file > a > img {
   @include breakpoint(large) {
-  height: calc(60vh - .75rem) !important;
+  height: calc(70vh - .75rem) !important;
 }
 }
 
