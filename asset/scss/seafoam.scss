@@ -743,9 +743,9 @@ nav.breadcrumbs {
 }
 
 .toggle-caption-img .toggle-caption .orbit-caption {
-  max-height: 61vh;
+  max-height: 60vh;
   @include breakpoint(large) {
-    height: 71vh;
+    max-height: 70vh;
   }
 }
 
