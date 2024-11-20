@@ -1222,7 +1222,7 @@ display: none;
 
 /*Full screen height for Resource Text Openseadragon embed*/
 .resource-text-openseadragon .openseadragon {
-  height: calc(65vh - rem-calc(12))!important;
+  height: calc(60vh - rem-calc(12))!important;
   margin: 0 1rem;
   @include breakpoint(medium) {
   height: calc(75vh - rem-calc(12))!important;
