@@ -974,7 +974,10 @@ transform: scale(1.01);
       }
 
   .image-medium-large {
+    height: rem-calc(400);
+    @include breakpoint(medium) {
     height: rem-calc(450);
+    }
     }
 
   .image-large {
