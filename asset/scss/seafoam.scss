@@ -1692,35 +1692,6 @@ height: 60vh!important;
 }
 }
 
-/*Image Banner block*/
-.overlay-container {
-  h1 {
-    font-size: 3rem;
-    font-weight: 600;
-  }
-  h2 {
-    font-size: 3rem;
-    font-weight: 600;
-  }
-  p {
-    font-size: 1.5rem;
-  }
-}
-
-/*Page Block Image Banner*/
-.image-banner .overlay-container {
-  min-height: clamp(200px, 20vh, 300px);
-}
-
-.image-banner .image-container img {
-  /*max-width: 1400px;*/
-  max-width: unset;
-}
-
-.image-banner .image-container::after {
-  opacity: 0.2;
-}
-
 section.image-banner {
   margin-top: -1 * $global-margin;
   @include breakpoint(medium) {
@@ -3305,3 +3276,42 @@ width: 100%;
     line-height: $lead-lineheight;
   }
 }
+
+/*Page Block Image Banner*/
+.image-banner .image-container img {
+  /*max-width: 1400px;*/
+  max-width: unset;
+}
+
+.image-banner .image-container::after {
+  opacity: 0.2;
+}
+
+.image-banner .overlay-container {
+ min-height: clamp(300px, 20vh, 450px);
+}
+
+.overlay-container h1,
+.overlay-container h2 {
+  background: $black;
+  width: fit-content;
+  padding: 1rem;
+  color: $white;
+  font-weight: 400;
+  @include breakpoint(large) {
+    font-size: rem-calc(42);
+  }
+}
+
+.overlay-container p {
+    font-size: 1.5rem;
+    background: $white;
+    color: $black;
+    width: fit-content;
+    padding: 0.5rem;
+  }
+
+  .image-banner .overlay-container > p {
+    margin-block: 0!important;
+    color: $black;
+  }
