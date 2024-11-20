@@ -697,6 +697,24 @@ nav.breadcrumbs {
 }
 
 /*Styling for caption-toggle button*/
+
+/*Ensure caption does not overflow button*/
+.toggle-caption .orbit-caption {
+  bottom: 84px;
+  background-color: rgba(10, 10, 10, .85);
+}
+@media screen and (min-width: 322px) {
+.toggle-caption .orbit-caption {
+  bottom: 59px;
+}
+}
+
+/*Add overflow-y for larger captions*/
+.toggle-caption .orbit-caption {
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
 .caption-toggle .toggle-caption .button {
   background-color: $dark-gray; 
   h2 {
@@ -704,10 +722,33 @@ nav.breadcrumbs {
   }
 }
 
-/*Foundation S Prototype*/ 
-.lead {
-  line-height: 1.6;
+.toggle-caption-img {
+  width: 100%;
+  position: relative;
+  height: calc(60vh + 59.19px);
+  overflow-y: scroll;
+  @include breakpoint(large) {
+    height: calc(70vh + 59.19px);
+  }
 }
+
+.toggle-caption-img img {
+  height: 60vh;
+  object-fit: cover;
+  object-position: center;
+  width: 100%;
+  @include breakpoint(large) {
+    height: 70vh;
+  }
+}
+
+.toggle-caption-img .toggle-caption .orbit-caption {
+  max-height: 61vh;
+  @include breakpoint(large) {
+    height: 71vh;
+  }
+}
+
 
 /*IIIF Presentation media type*/
 .media-render.iiif_presentation iframe {
@@ -3084,7 +3125,7 @@ figure.max-image-height img,
 /*Reveal caption*/
 button#reveal-caption {
   margin: 0;
-  padding: 1rem;
+  padding: 1rem 0.5rem;
   width: 100%;
   font-size: 1rem;
 }
@@ -3247,3 +3288,17 @@ width: 100%;
 .resource.show .media-render >.openseadragon {
   height: 80vh!important;
   }
+
+  /*4.1 styling*/ 
+  /*Foundation S Prototype*/ 
+.lead {
+  line-height: 1.6;
+}
+
+.lead {
+  font-size: $lead-font-size;
+  @include breakpoint(small only) {
+    font-size: $global-font-size * 1.05; // Adjust font size directly in the class
+    line-height: $lead-lineheight;
+  }
+}
