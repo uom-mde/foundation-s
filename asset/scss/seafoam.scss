@@ -3315,3 +3315,43 @@ width: 100%;
     margin-block: 0!important;
     color: $black;
   }
+
+/*Responsive img hero banner*/ 
+/*Image Hero*/
+.img-hero {
+  height: 18.75rem;
+  position: relative;
+  margin-top: -16px;
+  height: rem-calc(350px);
+  @include breakpoint(medium) {
+    margin-top: -32px !important;
+    height: rem-calc(400px);
+  }
+  @include breakpoint(xlarge) {
+    margin-top: -32px !important;
+    height: rem-calc(450px);
+  }
+}
+
+.img-hero img {
+width: 100%; 
+height: 100%; 
+object-fit: cover;
+display: inline;
+}
+
+#content .img-hero {
+  padding-block: 0;
+}
+
+.img-hero .hero-title-img {
+position: absolute;
+z-index: 9999;
+bottom: 20%;
+} 
+.hero-title-img h1 {
+  color: $white;
+  font-weight: 400;
+  background: $black;
+  padding: 0.5rem 1rem;
+}
