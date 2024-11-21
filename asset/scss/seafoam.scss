@@ -3058,12 +3058,12 @@ background: $light-gray
 /*Maximum image height for Item Showcase Block*/ 
 figure.max-image-height img,
 .max-image-height img {
-  max-height: 85vh;
+  max-height: 80vh;
 }
 
 .item-listing-item.max-height.item-count-1 img {
   height: unset;
-  max-height: 85vh;
+  max-height: 80vh;
 }
 
 /*Toggle Reveal*/
