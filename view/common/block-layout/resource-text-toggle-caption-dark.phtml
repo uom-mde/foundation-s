@@ -19,6 +19,7 @@ $linkType = $siteSetting('attachment_link_type', 'item');
 
 $filterLocale = (bool) $this->siteSetting('filter_locale_values');
 $lang = $filterLocale ? $this->lang() : null;
+$currentLocale = $this->siteSetting('locale') ?: 'en_US';
 ?>
 
 <div class="block media-text caption-toggle full-width-css grid-x grid-padding-x margin-bottom-1 flex-container image-cover padding-horizontal-1 background-colour-uom-footer">
@@ -27,7 +28,7 @@ $lang = $filterLocale ? $this->lang() : null;
         <h2 class="h2 padding-vertical-1"><?= $escape($heading) ?></h2>
     </div>
     <?php endif; ?>
-    <div class="<?= $alignmentClass . ' ' . $thumbnailType . ' captions-' . $captionPosition ?> media file image-cover-img medium-6 xlarge-5 flex-container align-self-middle max-block-height">
+    <div class="<?= $alignmentClass . ' ' . $thumbnailType . ' captions-' . $captionPosition ?> media file toggle-caption-img medium-6 xlarge-5 flex-container align-self-middle max-block-height">
     <div class="attachments">
             <?php
             foreach ($attachments as $attachment):
@@ -71,9 +72,12 @@ $lang = $filterLocale ? $this->lang() : null;
                 <?= $render ?>
                 <?php if ($attachment->caption()): ?>
                     <?php if (isset($caption) && !empty($caption)) : ?>
-                        <button id="reveal-caption" type="button" data-toggle="show-caption-id-<?=$uniqueId
-                        ?>" class="flex-container flex-dir-column align-spaced align-middle button">
-                            <h2 class="h5 margin-top-0">Read a description of the image</h2>
+                        <button id="reveal-caption" type="button" data-toggle="show-caption-id-<?= htmlspecialchars($uniqueId, ENT_QUOTES, 'UTF-8') ?>" class="flex-container flex-dir-column align-spaced align-middle button warning">
+                            <?php if ($currentLocale == 'es'): ?>
+                                <h2 class="h5 margin-top-0">Lea la descripción de la imagen</h2>
+                            <?php else: ?>
+                                <h2 class="h5 margin-top-0">Read a description of the image</h2>
+                            <?php endif; ?>
                         </button>
                         <figcaption class="orbit-caption padding-1 reveal-caption" id="show-caption-id-<?=$uniqueId ?>" data-toggler=".reveal-caption">
                             <?=$caption
@@ -85,20 +89,26 @@ $lang = $filterLocale ? $this->lang() : null;
             <?php endforeach; ?>
         </div>
     </div>
-    <div class="resource-text large-6 flex-container grid-y grid-padding-y flex-dir-column align-middle align-center padding-1 large-padding-2 xlarge-padding-3">
-    <div class="metadata margin-bottom-1 separator-center">
-        <?php $showTitleOption = $this->showTitleOption; ?>
-        <?php if ($showTitleOption == "item_title"): ?>
-        <h2><?php echo $item->displayTitle(); ?></h2>
-        <?php elseif ($showTitleOption == "file_name"): ?>
-        <h2><?php echo $media->displayTitle(); ?></h2>
-        <?php endif; ?>
-      </div>
+    <div class="resource-text large-6 flex-container grid-y grid-padding-y flex-dir-column align-middle padding-1 large-padding-2 xlarge-padding-3">
+        <div class="metadata">
+            <?php $showTitleOption = $this->showTitleOption; ?>
+            <?php if ($showTitleOption == "item_title"): ?>
+            <h2><?php echo $item->displayTitle(); ?></h2>
+            <div class="separator-center margin-bottom-1"></div>
+            <?php elseif ($showTitleOption == "file_name"): ?>
+            <h2><?php echo $media->displayTitle(); ?></h2>
+            <div class="separator-center margin-bottom-1"></div>
+            <?php endif; ?>
+        </div>
       <div class="text">
             <?= $html ?>
         </div>
         <div class="learn-more">
-            <h2 class="button large warning"><?php echo $item->link("View full item"); ?></h2>
+            <?php if ($currentLocale == 'es'): ?>
+                <h2 class="button medium warning hollow"><?php echo $item->link("Ver más"); ?></h2>
+            <?php else: ?>
+                <h2 class="button medium warning hollow"><?php echo $item->link("View full item"); ?></h2>
+            <?php endif; ?>
         </div>
     </div>
 </div>

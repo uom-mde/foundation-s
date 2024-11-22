@@ -1,6 +1,9 @@
 <?php 
 $this->headScript()->appendFile($this->assetUrl('js/annona.js'));
 $this->headLink()->appendStylesheet($this->assetUrl('css/annona.css'));
+$siteSetting = $this->plugin('siteSetting');
+$currentLocale = $this->siteSetting('locale') ?: 'en_US';
+$itemCount = count($this->attachments);
 ?>
 
 <div class="grix-x grid-container">
@@ -10,10 +13,10 @@ $this->headLink()->appendStylesheet($this->assetUrl('css/annona.css'));
         </div>
     <?php endif; ?>
 </div>
-<div class="full-width-css medium-padding-horizontal-1 large-padding-horizontal-2 xlarge-padding-horizontal-3">
-    <div class="col-container col-media-container medium-padding-1" data-target-region-id="<?php echo $this->targetID; ?>">
+<div class="full-width-css padding-horizontal-1 large-padding-horizontal-2 xlarge-padding-horizontal-3">
+    <div class="col-container col-media-container padding-vertical-1" data-target-region-id="<?php echo $this->targetID; ?>">
         <?php foreach ($attachments as $attachment): ?>
-            <div class="item-showcase item-showcase-openseadragon item resource margin-bottom-3 text-center">
+            <div class="item-showcase item-showcase-openseadragon item resource margin-bottom-3 text-center item-count-<?php echo $itemCount; ?>">
                 <?php
                 $item = $attachment->item();
                 if ($item):
@@ -29,19 +32,13 @@ $this->headLink()->appendStylesheet($this->assetUrl('css/annona.css'));
                 ?>
                         <?php $showTitleOption = $this->showTitleOption; ?>
                         <?php if ($showTitleOption == 'item_title'): ?>
-                            <div class="separator-center metadata">
-                                <h2 class="margin-top-2"><?php echo $item->displayTitle(); ?></h2>
-                            </div>
-                        <?php elseif ($showTitleOption == 'file_name'): ?>
-                            <div class="separator-center metadata">
-                                <h2 class="margin-top-2"><?php echo $media->displayTitle(); ?></h2>
-                            </div>
-                        <?php endif; ?>
-                        <?php
-                        $date = $item->value('dcterms:date');
-                        if ($date):
-                        ?>
-                            <h2><small date><?php echo $date; ?></small></h2>
+                        <div class="separator-center metadata">
+                            <h2 class="margin-top-1 xlarge-margin-top-2"><?php echo $item->displayTitle(); ?></h2>
+                        </div>
+                    <?php elseif ($showTitleOption == 'file_name'): ?>
+                        <div class="separator-center metadata">
+                            <h2 class="margin-top-1 xlarge-margin-top-2"><?php echo $media->displayTitle(); ?></h2>
+                        </div>
                         <?php endif; ?>
                     <?php endif; ?>
                 <div class="margin-top-1 medium-margin-top-2">
@@ -51,9 +48,13 @@ $this->headLink()->appendStylesheet($this->assetUrl('css/annona.css'));
                         ?>
                         <div class="caption grid-container margin-bottom-1 medium-margin-bottom-2"><?php echo $caption; ?></div>
                     <?php endif; ?>
-                    <div class="learn-more">
-                        <h2 class="button medium warning"><?php echo $item->link("View full item"); ?></h2>
-                    </div>
+            <div class="learn-more">
+                <?php if ($currentLocale == 'es'): ?>
+                    <h2 class="button medium warning hollow"><?php echo $item->link("Ver más"); ?></h2>
+                <?php else: ?>
+                    <h2 class="button medium warning hollow"><?php echo $item->link("View full item"); ?></h2>
+                <?php endif; ?>
+            </div>
                 </div>
             </div>
         <?php endforeach; ?>

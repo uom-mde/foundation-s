@@ -19,6 +19,7 @@ $linkType = $siteSetting('attachment_link_type', 'item');
 
 $filterLocale = (bool) $this->siteSetting('filter_locale_values');
 $lang = $filterLocale ? $this->lang() : null;
+$currentLocale = $this->siteSetting('locale') ?: 'en_US';
 ?>
 
 <div class="block media-text grid-x grid-padding-x align-spaced">
@@ -76,7 +77,7 @@ $lang = $filterLocale ? $this->lang() : null;
             <?php endforeach; ?>
         </div>
     </div>
-    <div class="resource-text large-5 flex-container flex-dir-column align-center padding-1 large-padding-2 xlarge-padding-3 align-middle">
+    <div class="resource-text large-5 flex-container flex-dir-column padding-1 large-padding-2 xlarge-padding-3 align-middle">
     <div class="metadata margin-bottom-1 separator-center">
         <?php $showTitleOption = $this->showTitleOption; ?>
         <?php if ($showTitleOption == "item_title"): ?>
@@ -107,7 +108,11 @@ $lang = $filterLocale ? $this->lang() : null;
             ?>
         </div>
         <div class="learn-more">
-            <h2 class="button large warning"><?php echo $item->link("View full item"); ?></h2>
+            <?php if ($currentLocale == 'es'): ?>
+                <h2 class="button medium warning hollow"><?php echo $item->link("Ver más"); ?></h2>
+            <?php else: ?>
+                <h2 class="button medium warning hollow"><?php echo $item->link("View full item"); ?></h2>
+            <?php endif; ?>
         </div>
     </div>
 </div>

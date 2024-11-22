@@ -22,6 +22,7 @@ $linkType = $siteSetting('attachment_link_type', 'item');
 
 $filterLocale = (bool) $this->siteSetting('filter_locale_values');
 $lang = $filterLocale ? $this->lang() : null;
+$currentLocale = $this->siteSetting('locale') ?: 'en_US';
 ?>
 
 <div class="block media-text full-width-css grid-x grid-padding-x background-colour-uom-footer">
@@ -74,20 +75,26 @@ $lang = $filterLocale ? $this->lang() : null;
          endforeach; ?>
       </div>
    </div>
-    <div class="resource-text large-5 xlarge-4 flex-container flex-dir-column align-center align-middle padding-1 large-padding-2">
-        <div class="metadata margin-bottom-1 separator-center">
+    <div class="resource-text large-5 xlarge-4 flex-container flex-dir-column align-middle padding-1 large-padding-2">
+        <div class="metadata">
             <?php $showTitleOption = $this->showTitleOption; ?>
             <?php if ($showTitleOption == "item_title"): ?>
             <h2><?php echo $item->displayTitle(); ?></h2>
+            <div class="separator-center margin-bottom-1"></div>
             <?php elseif ($showTitleOption == "file_name"): ?>
             <h2><?php echo $media->displayTitle(); ?></h2>
+            <div class="separator-center margin-bottom-1"></div>
             <?php endif; ?>
         </div>
         <div class="text">
             <?= $html ?>
         </div>
         <div class="learn-more">
-            <h2 class="button large warning"><?php echo $item->link("View full item"); ?></h2>
+            <?php if ($currentLocale == 'es'): ?>
+                <h2 class="button medium warning hollow"><?php echo $item->link("Ver más"); ?></h2>
+            <?php else: ?>
+                <h2 class="button medium warning hollow"><?php echo $item->link("View full item"); ?></h2>
+            <?php endif; ?>
         </div>
     </div>
 </div>

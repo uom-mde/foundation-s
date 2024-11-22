@@ -1,0 +1,24 @@
+<?php
+/**
+ * @var \Laminas\View\Renderer\PhpRenderer $this
+ * @var string $html
+ * @var string $divclass
+ * @var string $heading
+ */
+
+$escape = $this->plugin('escapeHtml');
+?>
+
+<div class="content-warning flex-container flex-dir-column medium-flex-dir-row <?= $this->escapeHtmlAttr($divclass) ?>">
+    <div class="content-warning-panel flex-container align-center align-middle">
+        <i class="fas fa-exclamation-triangle"></i>
+    </div>
+    <div class="grid-x grid-padding-x grid-container flex-container">
+        <?php if (!empty($heading)): ?>
+        <h2><?= $escape($heading) ?></h2>
+        <?php endif; ?>
+        <div class="content-warning-text padding-vertical-1 medium-padding-vertical-2 large-padding-vertical-3 padding-left-1 medium-padding-left-2 large-padding-left-3">
+            <?= $html ?>
+        </div>
+    </div>
+</div>

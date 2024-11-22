@@ -1,5 +1,7 @@
 <?php
     $itemCount = count($this->attachments);
+    $siteSetting = $this->plugin('siteSetting');
+    $currentLocale = $this->siteSetting('locale') ?: 'en_US';
 ?>
 
 <div class="grix-x grid-container">
@@ -40,9 +42,13 @@
                         ?>
                         <div class="caption grid-container margin-bottom-1 medium-margin-bottom-2"><?php echo $caption; ?></div>
                     <?php endif; ?>
-                    <div class="learn-more">
-                        <h2 class="button medium warning"><?php echo $item->link("View full item"); ?></h2>
-                    </div>
+            <div class="learn-more">
+                <?php if ($currentLocale == 'es'): ?>
+                    <h2 class="button medium warning hollow"><?php echo $item->link("Ver más"); ?></h2>
+                <?php else: ?>
+                    <h2 class="button medium warning hollow"><?php echo $item->link("View full item"); ?></h2>
+                <?php endif; ?>
+            </div>
                 </div>
         </div>
     <?php endforeach; ?>
