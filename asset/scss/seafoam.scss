@@ -723,14 +723,19 @@ nav.breadcrumbs {
   }
 }
 
+.left.media.toggle-caption-img {
+max-width: rem-calc(600);
+margin: 0 auto;
+}
+
 .toggle-caption-img {
   width: 100%;
   position: relative;
   height: calc(60vh + 59.19px);
   overflow-y: auto;
-  @include breakpoint(large) {
-    height: calc(70vh + 59.19px);
-  }
+  //@include breakpoint(large) {
+    //height: calc(70vh + 59.19px);
+  //}
 }
 
 .toggle-caption-img img {
@@ -738,16 +743,37 @@ nav.breadcrumbs {
   object-fit: cover;
   object-position: center;
   width: 100%;
-  @include breakpoint(large) {
-    height: 70vh;
-  }
+  //@include breakpoint(large) {
+    //height: 70vh;
+  //}
 }
 
 .toggle-caption-img .toggle-caption .orbit-caption {
   max-height: 61vh;
-  @include breakpoint(large) {
-    max-height: 71vh;
-  }
+  //@include breakpoint(large) {
+    //max-height: 71vh;
+  //}
+}
+
+/*Style scrollbar*/ 
+/* width */
+::-webkit-scrollbar {
+  width: rem-calc(6);
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
 
 
@@ -1303,11 +1329,11 @@ display: none;
   margin: unset;
 }
 
-.media-text.caption-toggle .left {
-  @include breakpoint(xlarge) {
-    margin-left: 8.3333333333%;
-}
-}
+//.media-text.caption-toggle .left {
+  //@include breakpoint(xlarge) {
+    //margin-left: 8.3333333333%;
+//}
+//}
 
 .media-text.caption-toggle .right {
   @include breakpoint(xlarge) {
