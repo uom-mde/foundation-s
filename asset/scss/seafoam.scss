@@ -557,6 +557,7 @@ nav.breadcrumbs {
 .file img {
   max-width: 100%;
   height: auto;
+  max-height: 75vh;
   @include breakpoint(large) {
   max-height: 80vh;
   }
