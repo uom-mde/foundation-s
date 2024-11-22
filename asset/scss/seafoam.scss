@@ -2781,9 +2781,6 @@ polygon>.svgactive:hover {
   @include breakpoint(large) {
       height: 80vh!important;
   }
-  @include breakpoint(xlarge) {
-    height: 90vh!important;
-}
 }
 
 .seadragonbox .openseadragon-container {
