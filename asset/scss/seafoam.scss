@@ -2674,3 +2674,30 @@ section.image-banner {
       font-size: 0.9 * $global-font-size;
     }
   }
+
+/*Media Object Styling*/ 
+.media-object {
+  flex-direction: column;
+  align-items: center;
+  @include breakpoint(medium) {
+    flex-direction: row;
+  }
+  }
+    
+  .media-object-section:first-child {
+  margin-bottom: 2rem;
+  padding-right: 0;
+  @include breakpoint(medium) {
+    margin-bottom: 0;
+    padding-right: 2rem;
+  }
+  }
+  
+  .media-object img {
+    max-width: none;
+    height: 100%;
+  }
+  
+  .media-object .thumbnail {
+  width: initial;
+  }
