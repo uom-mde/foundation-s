@@ -2149,17 +2149,22 @@ grid-template-areas:
   }
   @include breakpoint(700) {
     width: rem-calc(400);
+    margin: 0 2rem 1rem 0;
   }
 }
 
-.block-media.text-around-image.right,
-.block-media .text-around-image.right {
+.block-media.text-around-image-right,
+.block-media .text-around-image-right {
   display: block;
+  float: right;
   width: 50%;
   margin: 0 0 0.5rem 1rem;
     @include breakpoint(600) {
-    float: right;
     margin: 0 0 1rem 1rem;
+  }
+  @include breakpoint(700) {
+    width: rem-calc(400);
+    margin: 0 0 1rem 2rem;
   }
 }
 
