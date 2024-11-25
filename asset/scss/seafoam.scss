@@ -2305,6 +2305,21 @@ grid-template-areas:
   width: 24px!important;
 }
 
+/*Text around Image Openseadragon styling*/ 
+/*Square Thumbnail Styling*/ 
+.text-around-image .square .openseadragon {
+  height: rem-calc(250px)!important;
+  width: 100%!important;
+  @include breakpoint(400) {
+    height: rem-calc(280px)!important;
+    width: 100%!important;
+  }
+  @include breakpoint(500) {
+    width: 100%!important;
+    height: rem-calc(360px)!important;
+  }
+}
+
 /*Openseadragon*/ 
 .medium .openseadragon {
   height: 60vh!important;
