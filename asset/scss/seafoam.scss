@@ -2136,7 +2136,8 @@ grid-template-areas:
       flex-shrink: 0;
     }
     }
-    
+  
+  .block-media.text-around-image,  
   .block-media .text-around-image {
     display: block;
     float: left;
@@ -2151,7 +2152,11 @@ grid-template-areas:
   }
 }
 
+.block-media.text-around-image.right,
 .block-media .text-around-image.right {
+  display: block;
+  width: 50%;
+  margin: 0 0 0.5rem 1rem;
     @include breakpoint(600) {
     float: right;
     margin: 0 0 1rem 1rem;
