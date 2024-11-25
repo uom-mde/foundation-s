@@ -2153,11 +2153,11 @@ grid-template-areas:
   }
 }
 
-.block-media.text-around-image-right,
-.block-media .text-around-image-right {
-  display: block;
+.block-media.text-around-image.block-layout-alignment-block-right,
+.block-media .text-around-image.block-layout-alignment-block-right {
+  //display: block;
   float: right;
-  width: 50%;
+ // width: 50%;
   margin: 0 0 0.5rem 1rem;
     @include breakpoint(600) {
     margin: 0 0 1rem 1rem;
