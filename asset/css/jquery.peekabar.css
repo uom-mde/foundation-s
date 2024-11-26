@@ -1,0 +1,11 @@
+.peek-a-bar {
+    font-family: "Open Sans", sans-serif;
+    margin: 0;
+    position: fixed;
+    width: 100%;
+    left: 0;
+    right: 0;
+    text-align: center;
+    background-color: #6b2c91;
+    color: #fff;
+    cursor: pointer; }

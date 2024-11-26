@@ -14,9 +14,11 @@ if (isset($stylesheet)) {
 }
 $this->headLink()->prependStylesheet($this->assetUrl('css/iconfonts.css', 'Omeka'));
 $this->headLink()->prependStylesheet('//fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400&display=swap');
+$this->headLink()->prependStylesheet($this->assetUrl('css/jquery.peekabar.css'));
 $this->headScript()->prependFile($this->assetUrl('vendor/foundation/foundation.min.js'));
 $this->headScript()->prependFile($this->assetUrl('js/global.js', 'Omeka'));
 $this->headScript()->prependFile($this->assetUrl('js/langselect.js'));
+$this->headScript()->prependFile($this->assetUrl('js/jquery.peekabar.js'));
 $this->headScript()->prependFile($this->assetUrl('vendor/jquery/jquery.min.js', 'Omeka'));
 $this->trigger('view.layout');
 $this->jsTranslate();
@@ -163,6 +165,29 @@ $bannerPosition = ($this->themeSetting('banner_position')) ? str_replace('_', '-
         </div>
         <script>
           $(document).foundation(); 
+        </script> 
+        <?php 
+        session_start(); // Ensure sessions are started
+        // Get the site's slug 
+        $getSiteSlug = $site->slug();
+        // Define an array of slugs that should load the script
+        $allowedSlugs = ['omeka-4-test', 'corala', 'corala-es']; // Replace with your actual slugs
+        // Check if the current site's slug is in the array
+        if (in_array($getSiteSlug, $allowedSlugs)) {
+            // Check if the script has already been loaded for this slug
+        if (empty($_SESSION['script_loaded'][$getSiteSlug])) {
+        // Mark the script as loaded for this slug
+        $_SESSION['script_loaded'][$getSiteSlug] = true;    
+        // Output the script
+        ?>
+        <script>
+            console.log('This script runs only once per browser instance!');
+            var defaultBar = new $.peekABar();
+            defaultBar.show();
         </script>
+        <?php 
+        }
+    }
+    ?>
     </body>
 </html>
