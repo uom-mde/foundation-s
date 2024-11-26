@@ -16,7 +16,7 @@
     this.bar = {};
     this.settings = {};
     var defaults = {
-      html: 'Content Warning: This site contains material you may find inappropriate. View our policy on sensitive material. Click or tap to close this message.',
+      html: 'Content Warning: This site contains material you may find inappropriate. <a href="#">View our policy on sensitive material</a>.',
       delay: 30000,
       autohide: true,
       padding: '1em',

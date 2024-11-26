@@ -9,3 +9,9 @@
     background-color: #6b2c91;
     color: #fff;
     cursor: pointer; }
+
+.peek-a-bar a {
+    text-decoration: underline!important;
+    /*color: #fc3;*/
+    color: #fff;
+}
