@@ -4,7 +4,7 @@ function showContentBanner($site, $currentLocale) {
     $getSiteSlug = $site->slug();
 
     // Define allowed slugs
-    $allowedSlugs = ['omeka-4-test', 'corala', 'corala-es'];
+    $allowedSlugs = ['carcanet', 'corala', 'corala-es'];
 
     // Check if the current slug is in the allowed list
     if (in_array($getSiteSlug, $allowedSlugs)) {
@@ -16,35 +16,43 @@ function showContentBanner($site, $currentLocale) {
             // Set a cookie to mark that the script has been shown
             setcookie($cookieName, '1', time() + 3600, '/'); // 1-hour expiration
 
-            // Tailor message based on locale
-            if ($currentLocale == 'es'): ?>
-                <?php if ($getSiteSlug == 'corala'): ?>
-                    <script>
-                        console.log('Este script se ejecuta solo una vez hasta que la cookie expire.');
-                        var defaultBar = new $.peekABar({
-                            autohide: true,
-                            delay: 10000,
-                            html: 'Advertencia de contenido: este sitio contiene material que puede resultarle molesto. <a href="/s/corala-es/page/Introduccion#content_warning">Consulte nuestra política sobre material confidencial</a>.'
-                        });
-                        defaultBar.show();
-                    </script>
-                <?php else: ?>
+            // Tailor message based on site and then locale
+            if ($getSiteSlug == 'corala-es'): ?>
                 <script>
                     console.log('Este script se ejecuta solo una vez hasta que la cookie expire.');
                     var defaultBar = new $.peekABar({
                         autohide: true,
-                        delay: 10000,
-                        html: 'Advertencia de contenido: este sitio contiene material que puede resultarle molesto. <a href="#">Consulte nuestra política sobre material confidencial</a>.'
+                        delay: 25000,
+                        html: 'Advertencia de contenido: este sitio contiene material que puede resultarle ofensivo. <a href="/s/corala-es/page/Introduccion#content_warning">Ver nuestra política sobre material sensible</a>.'
                     });
                     defaultBar.show();
                 </script>
-            <?php endif; ?>
-            <?php else: ?>
+            <?php elseif ($getSiteSlug == 'corala'): ?>
                 <script>
                     console.log('This script runs only once until the cookie expires.');
                     var defaultBar = new $.peekABar({
                         autohide: true,
-                        delay: 10000,
+                        delay: 25000,
+                        html: 'Content Warning: This site contains material you may find offensive. <a href="/s/corala/page/introduction#content_warning">View our policy on sensitive material</a>.'
+                    });
+                    defaultBar.show();
+                </script>
+            <?php elseif ($currentLocale == 'es'): ?>
+                <script>
+                    console.log('Este script se ejecuta solo una vez hasta que la cookie expire.');
+                    var defaultBar = new $.peekABar({
+                        autohide: true,
+                        delay: 25000,
+                        html: 'Advertencia de contenido: este sitio contiene material que puede resultarle molesto. <a href="#">Consulte nuestra política sobre material confidencial</a>.'
+                    });
+                    defaultBar.show();
+                </script>
+            <?php else : ?>
+                <script>
+                    console.log('This script runs only once until the cookie expires.');
+                    var defaultBar = new $.peekABar({
+                        autohide: true,
+                        delay: 25000,
                         html: 'Content Warning: This site contains material you may find offensive. <a href="#">View our policy on sensitive material</a>.'
                     });
                     defaultBar.show();
