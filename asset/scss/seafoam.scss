@@ -496,19 +496,11 @@ nav.breadcrumbs {
   font-weight: 300;
 }
 
-.item-showcase:only-child h2 {
-  font-weight: 300;
-  font-size: 1.25 * $global-font-size;
-  margin-top: $global-margin;
-  @include breakpoint (large) {
-  font-size: 1.7 * $global-font-size;
-  }
-}
-
+.item-showcase:only-child h2,
 .item-showcase:only-child .metadata h2 {
-  @include breakpoint(large) {
+  font-weight: 300;
   font-size: 1.75rem;
-}
+  margin-top: $global-margin;
 }
 
 /*Change button size for link to Item Show*/ 
