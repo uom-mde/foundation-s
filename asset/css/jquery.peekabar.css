@@ -15,3 +15,7 @@
     /*color: #fc3;*/
     color: #fff;
 }
+
+.peek-a-bar a:focus {
+    color: #fc3;
+}
