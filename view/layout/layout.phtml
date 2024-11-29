@@ -35,6 +35,7 @@ $bannerWidth = ($this->themeSetting('banner_width')) ? $this->themeSetting('bann
 $bannerHeight = $this->themeSetting('banner_height');
 $bannerHeightMobile = $this->themeSetting('banner_height_mobile');
 $bannerPosition = ($this->themeSetting('banner_position')) ? str_replace('_', '-', $this->themeSetting('banner_position')) : 'center';
+$currentLocale = $this->siteSetting('locale') ?: 'en_US';
 ?>
 <?php echo $this->doctype(); ?>
 <?php
@@ -166,28 +167,13 @@ $bannerPosition = ($this->themeSetting('banner_position')) ? str_replace('_', '-
         <script>
           $(document).foundation(); 
         </script> 
-        <?php 
-        // session_start(); // Ensure sessions are started
-        // Get the site's slug 
-        $getSiteSlug = $site->slug();
-        // Define an array of slugs that should load the script
-        $allowedSlugs = ['omeka-4-test', 'corala', 'corala-es']; // Replace with your actual slugs
-        // Check if the current site's slug is in the array
-        if (in_array($getSiteSlug, $allowedSlugs)) {
-            // Check if the script has already been loaded for this slug
-        if (empty($_SESSION['script_loaded'][$getSiteSlug])) {
-        // Mark the script as loaded for this slug
-        $_SESSION['script_loaded'][$getSiteSlug] = true;    
-        // Output the script
+        <!-- Load the content warning banner code --> 
+        <?php echo $this->partial('/templates/content-warning-banner'); ?>
+        <!-- End content warning banner -->
+        <?php
+        
+        // Call the function, passing necessary parameters
+        showContentBanner($site, $currentLocale);
         ?>
-        <script>
-            console.log('This script runs only once per browser instance!');
-            var defaultBar = new $.peekABar();
-            defaultBar.show();
-        </script>
-        <?php 
-        }
-    }
-    ?>
     </body>
 </html>
