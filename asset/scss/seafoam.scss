@@ -3196,7 +3196,7 @@ grid-template-columns: repeat(1, 100%);
   grid-template-columns: repeat(2, 48%);
 }
 @include breakpoint(large) {
-grid-template-columns: repeat(3, 32%);
+grid-template-columns: repeat(3, 31%);
 gap: 2rem;
 }
 }
