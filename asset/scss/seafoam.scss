@@ -2793,16 +2793,35 @@ polygon>.svgactive:hover {
 
 #storyboard_viewer.annonaview.storyboard_viewer {
   background: $black;
-  height: 70vh!important;
+  height: 45vh!important;
+  @include breakpoint(medium) {
+    height: 60vh!important;
+  } 
   @include breakpoint(large) {
       height: 80vh!important;
   }
+  @include breakpoint(xlarge) {
+    height: 90vh!important;
+    } 
+}
+
+#storyboard_viewer.annonaview.storyboard_viewer:has(#header_toolbar) {
+  height: calc(45vh + 35px) !important;
+  @include breakpoint(medium) {
+    height: calc(60vh + 35px) !important;
+  } 
+  @include breakpoint(large) {
+    height: calc(80vh + 35px) !important;
+  }
+  @include breakpoint(xlarge) {
+    height: calc(90vh + 35px) !important;
+    } 
 }
 
 .seadragonbox .openseadragon-container {
       height: 45vh!important;
       @include breakpoint(medium) {
-        height: calc(60vh - rem-calc(12))!important;
+        height: 60vh!important;
       } 
       @include breakpoint(large) {
       height: 80vh!important;
