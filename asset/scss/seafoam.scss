@@ -499,8 +499,10 @@ nav.breadcrumbs {
 .item-showcase:only-child h2,
 .item-showcase:only-child .metadata h2 {
   font-weight: 300;
-  font-size: 1.75rem;
   margin-top: $global-margin;
+  @include breakpoint(medium) {
+    font-size: 1.75rem;
+  }
 }
 
 /*Media Embed*/
