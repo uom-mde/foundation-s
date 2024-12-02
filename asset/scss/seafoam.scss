@@ -495,6 +495,9 @@ nav.breadcrumbs {
   font-size: 1.2 * $global-font-size;
   font-weight: 300;
   @include breakpoint(medium) {
+    font-size: rem-calc(22);
+  }
+  @include breakpoint(large) {
     font-size: 1.75rem;
   }
 }
@@ -504,6 +507,9 @@ nav.breadcrumbs {
   font-weight: 300;
   margin-top: $global-margin;
   @include breakpoint(medium) {
+    font-size: rem-calc(22);
+  }
+  @include breakpoint(large) {
     font-size: 1.75rem;
   }
 }
@@ -551,8 +557,11 @@ nav.breadcrumbs {
 }
 
 .file .metadata h2 {
+  @include breakpoint(medium) {
+    font-size: rem-calc(22);
+  }
   @include breakpoint(large) {
-  font-size: rem-calc(28);
+    font-size: 1.75rem;
   }
 }
 
@@ -1235,10 +1244,10 @@ display: none;
 
 /*Full screen height for Resource Text Openseadragon embed*/
 .resource-text-openseadragon .openseadragon {
-  height: calc(60vh - rem-calc(12))!important;
+  height: calc(45vh - rem-calc(12))!important;
   margin: 0 1rem;
   @include breakpoint(medium) {
-  height: calc(75vh - rem-calc(12))!important;
+  height: calc(60vh - rem-calc(12))!important;
   @include breakpoint(large) {
   height: calc(90vh - rem-calc(12))!important;
   }
@@ -1246,10 +1255,10 @@ display: none;
 }
 
 .item-showcase-openseadragon .openseadragon  {
-  height: calc(65vh - rem-calc(12))!important;
+  height: calc(45vh - rem-calc(12))!important;
   margin: 0;
   @include breakpoint(medium) {
-  height: calc(75vh - rem-calc(12))!important;
+  height: calc(60vh - rem-calc(12))!important;
   @include breakpoint(large) {
   height: calc(80vh - rem-calc(12))!important;
   }
