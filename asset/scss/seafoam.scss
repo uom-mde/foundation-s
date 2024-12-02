@@ -411,7 +411,7 @@ nav.breadcrumbs {
 /*Item Showcase Grid*/ 
 .col-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax((rem-calc(300)), 1fr));
+  grid-template-columns: repeat(auto-fit, minmax((rem-calc(270)), 1fr));
   gap: rem-calc(32);
   line-height: 1.5;
   @include breakpoint(xlarge) {
@@ -494,6 +494,9 @@ nav.breadcrumbs {
 .item-showcase h2 {
   font-size: 1.2 * $global-font-size;
   font-weight: 300;
+  @include breakpoint(medium) {
+    font-size: 1.75rem;
+  }
 }
 
 .item-showcase:only-child h2,
@@ -1244,7 +1247,7 @@ display: none;
 
 .item-showcase-openseadragon .openseadragon  {
   height: calc(65vh - rem-calc(12))!important;
-  margin: 0 1rem;
+  margin: 0;
   @include breakpoint(medium) {
   height: calc(75vh - rem-calc(12))!important;
   @include breakpoint(large) {
@@ -1317,12 +1320,7 @@ display: none;
 
 .media-text-heading {
   flex-basis: 100%;
-  @include breakpoint(medium) {
-      padding-left: 1 * $global-padding;
-      }
-  @include breakpoint(large) {
-      padding-left: 1.5 * $global-padding;
-      }
+  text-align: left;
 }
 
 figcaption.orbit-caption.caption p {
