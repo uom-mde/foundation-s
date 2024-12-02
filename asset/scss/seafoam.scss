@@ -1256,12 +1256,6 @@ display: none;
   background-color: #1c1919!important;
 }
 
-.resource-text-openseadragon .openseadragon-container {
-  @include breakpoint(medium) {
-    border-radius: rem-calc(12);
-  }
-}
-
 /*Button align for Full Screen Openseadragon Resource Text Block*/ 
 .openseadragon-container img {
   vertical-align: top!important;
@@ -3328,11 +3322,10 @@ width: 100%;
   text-align: center;
   background: $uom-footer;
   @include breakpoint(medium) {
-    margin-top: -32px !important;
+    margin-top: rem-calc(-32px) !important;
     height: rem-calc(400px);
   }
   @include breakpoint(xlarge) {
-    margin-top: -31px !important;
     height: rem-calc(450px);
   }
 }
@@ -3360,4 +3353,8 @@ bottom: 20%;
   font-weight: 400;
   background: $black;
   padding: 0.5rem 1rem;
+}
+
+.openseadragon {
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
