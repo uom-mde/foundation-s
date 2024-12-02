@@ -1,0 +1,56 @@
+<?php
+function showContentBanner($site, $currentLocale) {
+    // Get the site's slug
+    $getSiteSlug = $site->slug();
+
+    // Define allowed slugs
+    $allowedSlugs = ['carcanet', 'corala', 'corala-es'];
+
+    // Check if the current slug is in the allowed list
+    if (in_array($getSiteSlug, $allowedSlugs)) {
+        // Construct a unique cookie name for this slug
+        $cookieName = 'content_banner_' . $getSiteSlug;
+
+        // Check if the cookie exists
+        if (empty($_COOKIE[$cookieName])) {
+            // Set a cookie to mark that the script has been shown
+            setcookie($cookieName, '1', time() + 3600, '/'); // 1-hour expiration
+
+            // Tailor message based on site and then locale
+            if ($getSiteSlug == 'corala-es'): ?>
+                <script>
+                    console.log('Este script se ejecuta solo una vez hasta que la cookie expire.');
+                    var defaultBar = new $.peekABar({
+                        html: 'Advertencia de contenido: este sitio contiene material que puede resultarle ofensivo. <a href="/s/corala-es/page/introduccion#content_warning">Ver nuestra política sobre material sensible</a>.'
+                    });
+                    defaultBar.show();
+                </script>
+            <?php elseif ($getSiteSlug == 'corala'): ?>
+                <script>
+                    console.log('This script runs only once until the cookie expires.');
+                    var defaultBar = new $.peekABar({
+                        html: 'Content Warning: This site contains material you may find offensive. <a href="/s/corala/page/introduction#content_warning">View our policy on sensitive material</a>.'
+                    });
+                    defaultBar.show();
+                </script>
+            <?php elseif ($currentLocale == 'es'): ?>
+                <script>
+                    console.log('Este script se ejecuta solo una vez hasta que la cookie expire.');
+                    var defaultBar = new $.peekABar({
+                        html: 'Advertencia de contenido: este sitio contiene material que puede resultarle molesto. <a href="#">Consulte nuestra política sobre material confidencial</a>.'
+                    });
+                    defaultBar.show();
+                </script>
+            <?php else : ?>
+                <script>
+                    console.log('This script runs only once until the cookie expires.');
+                    var defaultBar = new $.peekABar({
+                        html: 'Content Warning: This site contains material you may find offensive. <a href="#">View our policy on sensitive material</a>.'
+                    });
+                    defaultBar.show();
+                </script>
+            <?php endif;
+        }
+    }
+}
+?>
