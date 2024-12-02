@@ -3323,14 +3323,16 @@ width: 100%;
 .img-hero {
   height: 18.75rem;
   position: relative;
-  margin-top: -16px;
+  margin-top: rem-calc(-16px);
   height: rem-calc(350px);
+  text-align: center;
+  background: $uom-footer;
   @include breakpoint(medium) {
     margin-top: -32px !important;
     height: rem-calc(400px);
   }
   @include breakpoint(xlarge) {
-    margin-top: -32px !important;
+    margin-top: -31px !important;
     height: rem-calc(450px);
   }
 }
@@ -3339,7 +3341,9 @@ width: 100%;
 width: 100%; 
 height: 100%; 
 object-fit: cover;
-display: inline;
+display: block;
+margin: 0 auto;
+max-width: rem-calc(2000px);
 }
 
 #content .img-hero {
