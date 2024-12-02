@@ -503,16 +503,6 @@ nav.breadcrumbs {
   margin-top: $global-margin;
 }
 
-/*Change button size for link to Item Show*/ 
-.item-showcase .learn-more h2 {
-  font-size: 1.1 * $global-font-size;
-}
-
-/*Remove margin top for button*/ 
-.learn-more h2.button {
-  margin-top: 0!important;
-  }
-
 /*Media Embed*/
 /*Increase size of thumbnails for Media Embed blocks*/ 
 .media-embed-block.left {
@@ -675,17 +665,13 @@ nav.breadcrumbs {
   }
 }
 
-/*Remove margin from h2 learn more button*/
-.learn-more h2.button {
-  margin: 0;
-}
-
 /*Add colour fill to hollow button*/ 
 .learn-more .button.hollow.warning:hover {
   background: $warning-color;
 }
 
-.button a:hover {
+.button a:hover,
+#content .learn-more p a {
   text-decoration: none;
 }
 
