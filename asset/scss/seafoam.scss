@@ -551,10 +551,19 @@ nav.breadcrumbs {
   }
 }
 
-.media-embed-block.left .max-image-height img,
-.media-embed-block.right .max-image-height img {
-  max-height: 50vh;
+.media-embed-block .openseadragon {
+  height: 275px!important;
+  width: 45vw;
+  @include breakpoint(medium){
+    height: 350px!important;
+  }
+  @include breakpoint(large){
+  width: 40vw;
+  height: 400px!important;
+  max-width: 400px;
+  }
 }
+
 
 .file img {
   max-width: 100%;
