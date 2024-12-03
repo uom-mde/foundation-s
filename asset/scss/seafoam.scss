@@ -583,6 +583,18 @@ nav.breadcrumbs {
   }
 }
 
+.media-embed-block.file .metadata h2 {
+  font-size: 110%;
+  @include breakpoint(medium) {
+    font-size: 120%;
+  }
+}
+
+.media-embed-block.file .learn-more h2 {
+  font-size: 0.8rem;
+  margin: 0;
+}
+
 /*Centre media embed items when option chosen*/
 .center.file, .center.assets {
   display: flex;
