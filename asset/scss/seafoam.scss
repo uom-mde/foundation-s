@@ -777,28 +777,6 @@ margin: 0 auto;
   //}
 }
 
-/*Style scrollbar*/ 
-/* width */
-::-webkit-scrollbar {
-  width: rem-calc(6);
-}
-
-/* Track */
-::-webkit-scrollbar-track {
-  background: #f1f1f1;
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: #888;
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: #555;
-}
-
-
 /*IIIF Presentation media type*/
 .media-render.iiif_presentation iframe {
   height: 80vh;
@@ -3418,4 +3396,31 @@ bottom: 20%;
 
 .openseadragon {
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+
+/*Style scrollbar*/ 
+/* width */
+::-webkit-scrollbar {
+  width: rem-calc(16);
+}
+
+/*Apply smaller scrollbar to CORALA*/ 
+.toggle-caption-img ::-webkit-scrollbar {
+  width: rem-calc(6);
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
