@@ -23,9 +23,12 @@ h2 {
   }
 }
 
-.site-title {
-  padding-left: $global-padding;
+.exhibition-identifier {
+  padding-left: 0.5 * $global-padding;
   max-width: calc(100vw - rem-calc(120));
+  @include breakpoint(355) {
+    padding-left: $global-padding;
+  }
   @include breakpoint(medium) {
     max-width: 70%;
   }
@@ -34,11 +37,11 @@ h2 {
   }
 }
 
-.site-title img {
+.exhibition-identifier img {
   margin: $global-margin 0;
 }
 
-span.h4.site-title-label {
+span.h4.exhibition-identifier-label {
   margin-bottom: 0;
   font-size: 1.1 * $global-font-size;
   margin-right: 1.5 * $global-margin;
@@ -149,7 +152,7 @@ header .top-bar {
 }
 
 /*Set 'Manchester Digital Exhibitions text*/
-.site-heading {
+.site-identifier {
   color: $primary-color;
   text-decoration: none;
   display: flex;
@@ -157,7 +160,7 @@ header .top-bar {
   width: rem-calc(225);
   margin: 0 rem-calc(12) rem-calc(12) rem-calc(12);
   order: 2;
-  @include breakpoint(339) {
+  @include breakpoint(355) {
       margin: 0 rem-calc(12) rem-calc(12) rem-calc(24); /*with language selector*/
       /*without additional languages, bottom margin must be removed*/ 
   }
@@ -173,7 +176,7 @@ header .top-bar {
   }
 }
 
-.site-heading p {
+.site-identifier p {
   color: $primary-color;
   margin-bottom: 0;
   @include breakpoint(700) {
