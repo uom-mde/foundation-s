@@ -6,7 +6,7 @@
 
 <div class="grix-x grid-container">
     <?php if (!empty($heading)): ?>
-        <div class="media-text-heading medium-offset-1 large-offset-2">
+        <div class="media-text-heading">
             <h2 class="h2 padding-vertical-1"><?= $heading ?></h2>
         </div>
     <?php endif; ?>
@@ -40,13 +40,13 @@
                     $caption = $attachment->caption();             
                     if ($caption):
                         ?>
-                        <div class="caption grid-container margin-bottom-1 medium-margin-bottom-2"><?php echo $caption; ?></div>
+                        <div class="caption margin-bottom-1 medium-margin-bottom-2"><?php echo $caption; ?></div>
                     <?php endif; ?>
             <div class="learn-more">
                 <?php if ($currentLocale == 'es'): ?>
-                    <h2 class="button medium warning hollow"><?php echo $item->link("Ver más"); ?></h2>
+                    <p class="button medium warning hollow"><?php echo $item->link("Ver más"); ?></h2>
                 <?php else: ?>
-                    <h2 class="button medium warning hollow"><?php echo $item->link("View full item"); ?></h2>
+                    <p class="button medium warning hollow"><?php echo $item->link("View full item"); ?></h2>
                 <?php endif; ?>
             </div>
                 </div>

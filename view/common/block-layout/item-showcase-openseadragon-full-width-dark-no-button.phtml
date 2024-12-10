@@ -7,7 +7,7 @@ $itemCount = count($this->attachments);
 ?>
 <div class="grix-x grid-container">
     <?php if (!empty($heading)): ?>
-        <div class="media-text-heading medium-offset-1 large-offset-2">
+        <div class="media-text-heading">
             <h2 class="h2 padding-vertical-1"><?= $heading ?></h2>
         </div>
     <?php endif; ?>
@@ -44,7 +44,7 @@ $itemCount = count($this->attachments);
                     $caption = $attachment->caption();             
                     if ($caption):
                         ?>
-                        <div class="caption grid-container margin-bottom-1 medium-margin-bottom-2"><?php echo $caption; ?></div>
+                        <div class="caption margin-bottom-1 medium-margin-bottom-2"><?php echo $caption; ?></div>
                     <?php endif; ?>
                 </div>
             </div>

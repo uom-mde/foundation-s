@@ -138,16 +138,16 @@ body.vertical-menu #user-bar ~ #content {
   display: flex;
 }
 
-.site-title img {
+.exhibition-identifier img {
   max-height: 2rem;
   width: auto;
 }
 
-h1.site-title {
+h1.exhibition-identifier {
   @extend h4;
 }
 
-h1.site-title {
+h1.exhibition-identifier {
   margin: 0;
 
   @include breakpoint(small down) {
@@ -155,12 +155,12 @@ h1.site-title {
   }
 }
 
-.site-title img {
+.exhibition-identifier img {
   margin: 0;
   vertical-align: top;
 }
 
-.site-title a {
+.exhibition-identifier a {
   display: block;
 }
 
@@ -291,12 +291,12 @@ body.vertical-menu header {
     color: $white;
   }
   
-  h1.site-title {
+  h1.exhibition-identifier {
     font-size: 1.125 * $global-font-size;
     font-weight: bold;  
   }
   
-  .site-title img {
+  .exhibition-identifier img {
     max-height: none;
     max-width: 100%;
   }

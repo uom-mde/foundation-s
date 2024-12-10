@@ -5,7 +5,7 @@ $currentLocale = $this->siteSetting('locale') ?: 'en_US';
 
 <div class="grix-x grid-container">
     <?php if (!empty($heading)): ?>
-        <div class="media-text-heading medium-offset-1 large-offset-2">
+        <div class="media-text-heading">
             <h2 class="h2 padding-vertical-1"><?= $heading ?></h2>
         </div>
     <?php endif; ?>
@@ -62,7 +62,7 @@ $currentLocale = $this->siteSetting('locale') ?: 'en_US';
                     <?php endif;
                     ?>
                 <div class="learn-more">
-                    <h2 class="button medium warning hollow"><?php echo $item->link("View full item"); ?></h2>
+                    <p class="button medium warning hollow"><?php echo $item->link("View full item"); ?></h2>
                 </div>
             </div>
         </div>

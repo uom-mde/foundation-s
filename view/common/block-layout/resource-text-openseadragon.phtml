@@ -26,7 +26,7 @@ $currentLocale = $this->siteSetting('locale') ?: 'en_US';
 ?>
 <div class="block media-text full-width-css grid-x grid-padding-x padding-1 large-padding-2 margin-bottom-1">
    <?php if (!empty($heading)): ?>
-   <div class="media-text-heading medium-offset-1 large-offset-2 margin-bottom-1">
+   <div class="media-text-heading margin-bottom-1">
       <h2 class="h2 padding-vertical-1"><?= $escape($heading) ?></h2>
    </div>
    <?php endif; ?>
@@ -74,7 +74,7 @@ $currentLocale = $this->siteSetting('locale') ?: 'en_US';
          endforeach; ?>
       </div>
    </div>
-   <div class="resource-text large-5 xlarge-4 flex-container flex-dir-column align-middle padding-1 large-padding-2">
+   <div class="resource-text large-5 xlarge-4 flex-container flex-dir-column align-middle medium-padding-1 large-padding-2">
         <div class="metadata margin-bottom-1 separator-center">
             <?php $showTitleOption = $this->showTitleOption; ?>
             <?php if ($showTitleOption == "item_title"): ?>
@@ -106,9 +106,9 @@ $currentLocale = $this->siteSetting('locale') ?: 'en_US';
         </div>
         <div class="learn-more">
             <?php if ($currentLocale == 'es'): ?>
-                <h2 class="button medium warning hollow"><?php echo $item->link("Ver más"); ?></h2>
+                <p class="button medium warning hollow"><?php echo $item->link("Ver más"); ?></h2>
             <?php else: ?>
-                <h2 class="button medium warning hollow"><?php echo $item->link("View full item"); ?></h2>
+                <p class="button medium warning hollow"><?php echo $item->link("View full item"); ?></h2>
             <?php endif; ?>
         </div>
     </div>

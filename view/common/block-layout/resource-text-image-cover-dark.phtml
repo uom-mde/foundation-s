@@ -24,7 +24,7 @@ $currentLocale = $this->siteSetting('locale') ?: 'en_US';
 
 <div class="block media-text full-width-css grid-x grid-padding-x margin-bottom-1 flex-container image-cover background-colour-uom-footer">
     <?php if (!empty($heading)): ?>
-    <div class="media-text-heading medium-offset-1 large-offset-2 margin-bottom-1">
+    <div class="media-text-heading margin-bottom-1">
         <h2 class="h2 padding-vertical-1"><?= $escape($heading) ?></h2>
     </div>
     <?php endif; ?>
@@ -111,9 +111,9 @@ $currentLocale = $this->siteSetting('locale') ?: 'en_US';
         </div>
         <div class="learn-more">
             <?php if ($currentLocale == 'es'): ?>
-                <h2 class="button medium warning hollow"><?php echo $item->link("Ver más"); ?></h2>
+                <p class="button medium warning hollow"><?php echo $item->link("Ver más"); ?></h2>
             <?php else: ?>
-                <h2 class="button medium warning hollow"><?php echo $item->link("View full item"); ?></h2>
+                <p class="button medium warning hollow"><?php echo $item->link("View full item"); ?></h2>
             <?php endif; ?>
         </div>
     </div>
