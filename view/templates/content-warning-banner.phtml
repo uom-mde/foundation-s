@@ -1,4 +1,6 @@
 <?php
+session_start(); // Start the session
+
 function showContentBanner($site, $currentLocale) {
     // Get the site's slug
     $getSiteSlug = $site->slug();
@@ -8,18 +10,20 @@ function showContentBanner($site, $currentLocale) {
 
     // Check if the current slug is in the allowed list
     if (in_array($getSiteSlug, $allowedSlugs)) {
-        // Construct a unique cookie name for this slug
-        $cookieName = 'content_banner_' . $getSiteSlug;
+        // Initialize session tracking for this slug if it doesn't exist
+        if (!isset($_SESSION['page_visits'][$getSiteSlug])) {
+            $_SESSION['page_visits'][$getSiteSlug] = 0;
+        }
 
-        // Check if the cookie exists
-        if (empty($_COOKIE[$cookieName])) {
-            // Set a cookie to mark that the script has been shown
-            setcookie($cookieName, '1', time() + 3600, '/'); // 1-hour expiration
+        // Increment the counter for this slug
+        $_SESSION['page_visits'][$getSiteSlug]++;
 
+        // Check if the banner should still be displayed (first two visits)
+        if ($_SESSION['page_visits'][$getSiteSlug] <= 2) {
             // Tailor message based on site and then locale
             if ($getSiteSlug == 'corala-es'): ?>
                 <script>
-                    console.log('Este script se ejecuta solo una vez hasta que la cookie expire.');
+                    console.log('Este script se ejecuta solo durante las dos primeras visitas.');
                     var defaultBar = new $.peekABar({
                         html: 'Aviso: Este sitio contiene material que puede resultar ofensivo. <a href="/s/corala-es/page/introduccion#content_warning">Por favor, dirigirse a nuestra declaración sobre material sensible en la muestra</a>.'
                     });
@@ -27,7 +31,7 @@ function showContentBanner($site, $currentLocale) {
                 </script>
             <?php elseif ($getSiteSlug == 'corala'): ?>
                 <script>
-                    console.log('This script runs only once until the cookie expires.');
+                    console.log('This script runs only during the first two visits.');
                     var defaultBar = new $.peekABar({
                         html: 'Content Warning: This site contains material you may find offensive. <a href="/s/corala/page/introduction#content_warning">View our statement on sensitive material in the exhibition</a>.'
                     });
@@ -35,7 +39,7 @@ function showContentBanner($site, $currentLocale) {
                 </script>
             <?php elseif ($currentLocale == 'es'): ?>
                 <script>
-                    console.log('Este script se ejecuta solo una vez hasta que la cookie expire.');
+                    console.log('Este script se ejecuta solo durante las dos primeras visitas.');
                     var defaultBar = new $.peekABar({
                         html: 'Advertencia de contenido: este sitio contiene material que puede resultarle molesto. <a href="#">Consulte nuestra política sobre material confidencial</a>.'
                     });
@@ -43,7 +47,7 @@ function showContentBanner($site, $currentLocale) {
                 </script>
             <?php else : ?>
                 <script>
-                    console.log('This script runs only once until the cookie expires.');
+                    console.log('This script runs only during the first two visits.');
                     var defaultBar = new $.peekABar({
                         html: 'Content Warning: This site contains material you may find offensive. <a href="#">View our policy on sensitive material</a>.'
                     });
