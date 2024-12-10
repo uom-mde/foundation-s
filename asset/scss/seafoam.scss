@@ -24,8 +24,11 @@ h2 {
 }
 
 .exhibition-identifier {
-  padding-left: $global-padding;
+  padding-left: 0.5 * $global-padding;
   max-width: calc(100vw - rem-calc(120));
+  @include breakpoint(355) {
+    padding-left: $global-padding;
+  }
   @include breakpoint(medium) {
     max-width: 70%;
   }
@@ -157,7 +160,7 @@ header .top-bar {
   width: rem-calc(225);
   margin: 0 rem-calc(12) rem-calc(12) rem-calc(12);
   order: 2;
-  @include breakpoint(339) {
+  @include breakpoint(355) {
       margin: 0 rem-calc(12) rem-calc(12) rem-calc(24); /*with language selector*/
       /*without additional languages, bottom margin must be removed*/ 
   }
