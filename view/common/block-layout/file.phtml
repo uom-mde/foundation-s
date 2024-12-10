@@ -4,23 +4,28 @@ $this->headScript()->appendFile($this->assetUrl('js/annona.js'));
 ?>
 
 <div class="media-embed-block <?php echo $this->alignmentClass . ' ' . $this->thumbnailType; ?> file">
-    <div class="attachments max-image-height flex-container align-center flex-dir-column padding-horizontal-1">
+    <div class="attachments flex-container flex-dir-column">
     <?php foreach($this->attachments as $attachment): ?>
-        <div class="item resource max-image-height flex-container align-middle flex-dir-column">
+        <div class="item resource flex-container flex-dir-column">
         <?php
         $item = $attachment->item();
         if ($item):
         ?>
             <?php
-                $media = $attachment->media() ? : $item->primaryMedia();
+            $media = $attachment->media() ?: $item->primaryMedia(); // Fixing the ternary operator syntax
+            if ($media) {
                 $mediaRenderer = $media->renderer();
-                if ($media && $mediaRenderer !== 'iiif') :
+                if ($mediaRenderer == 'iiif' || 'youtube' || 'audio' || 'video') {
                     echo $media->render([
-                    'thumbnailType' => $thumbnailType,
-                ]);
-                elseif ($media) :
-                    echo $this->thumbnail($media, $this->thumbnailType);
-                endif;
+                        'thumbnailType' => $thumbnailType,
+                        'link' => $link,
+                    ]);
+                } else {
+                    echo $this->thumbnail($media, $thumbnailType ?? 'large'); // Ensuring $thumbnailType is defined
+                }
+            } else {
+                echo 'No media available'; // Optional: handle cases where no media exists
+            }
             ?>
             <div class="metadata">
             <?php $showTitleOption = $this->showTitleOption; ?>

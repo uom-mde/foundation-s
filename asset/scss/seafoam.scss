@@ -14,9 +14,21 @@ $thumbnail-shadow-hover: 0 0 6px 1px rgba($primary-color, 0.5);
 @import 'foundation-core';
 @import 'omeka';
 
-.site-title {
-  padding-left: $global-padding;
+h2 {
+  @include breakpoint(medium) {
+    font-size: rem-calc(22);
+  }
+  @include breakpoint(large) {
+    font-size: 1.75rem;
+  }
+}
+
+.exhibition-identifier {
+  padding-left: 0.5 * $global-padding;
   max-width: calc(100vw - rem-calc(120));
+  @include breakpoint(355) {
+    padding-left: $global-padding;
+  }
   @include breakpoint(medium) {
     max-width: 70%;
   }
@@ -25,15 +37,15 @@ $thumbnail-shadow-hover: 0 0 6px 1px rgba($primary-color, 0.5);
   }
 }
 
-.site-title img {
+.exhibition-identifier img {
   margin: $global-margin 0;
 }
 
-span.h4.site-title-label {
+span.h4.exhibition-identifier-label {
   margin-bottom: 0;
   font-size: 1.1 * $global-font-size;
   margin-right: 1.5 * $global-margin;
-  font-weight: 600;
+  font-weight: 400;
   color: $white;
   @include breakpoint(medium) {
     font-size: 1.2 * $global-font-size;
@@ -140,7 +152,7 @@ header .top-bar {
 }
 
 /*Set 'Manchester Digital Exhibitions text*/
-.site-heading {
+.site-identifier {
   color: $primary-color;
   text-decoration: none;
   display: flex;
@@ -148,7 +160,7 @@ header .top-bar {
   width: rem-calc(225);
   margin: 0 rem-calc(12) rem-calc(12) rem-calc(12);
   order: 2;
-  @include breakpoint(339) {
+  @include breakpoint(355) {
       margin: 0 rem-calc(12) rem-calc(12) rem-calc(24); /*with language selector*/
       /*without additional languages, bottom margin must be removed*/ 
   }
@@ -164,7 +176,7 @@ header .top-bar {
   }
 }
 
-.site-heading p {
+.site-identifier p {
   color: $primary-color;
   margin-bottom: 0;
   @include breakpoint(700) {
@@ -411,7 +423,7 @@ nav.breadcrumbs {
 /*Item Showcase Grid*/ 
 .col-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax((rem-calc(300)), 1fr));
+  grid-template-columns: repeat(auto-fit, minmax((rem-calc(270)), 1fr));
   gap: rem-calc(32);
   line-height: 1.5;
   @include breakpoint(xlarge) {
@@ -494,24 +506,25 @@ nav.breadcrumbs {
 .item-showcase h2 {
   font-size: 1.2 * $global-font-size;
   font-weight: 300;
+  @include breakpoint(medium) {
+    font-size: rem-calc(22);
+  }
+  @include breakpoint(large) {
+    font-size: 1.75rem;
+  }
 }
 
 .item-showcase:only-child h2,
 .item-showcase:only-child .metadata h2 {
   font-weight: 300;
-  font-size: 1.75rem;
   margin-top: $global-margin;
-}
-
-/*Change button size for link to Item Show*/ 
-.item-showcase .learn-more h2 {
-  font-size: 1.1 * $global-font-size;
-}
-
-/*Remove margin top for button*/ 
-.learn-more h2.button {
-  margin-top: 0!important;
+  @include breakpoint(medium) {
+    font-size: rem-calc(22);
   }
+  @include breakpoint(large) {
+    font-size: 1.75rem;
+  }
+}
 
 /*Media Embed*/
 /*Increase size of thumbnails for Media Embed blocks*/ 
@@ -541,10 +554,19 @@ nav.breadcrumbs {
   }
 }
 
-.media-embed-block.left .max-image-height img,
-.media-embed-block.right .max-image-height img {
-  max-height: 50vh;
+.media-embed-block .openseadragon {
+  height: 275px!important;
+  width: 45vw;
+  @include breakpoint(medium){
+    height: 350px!important;
+  }
+  @include breakpoint(large){
+  width: 40vw;
+  height: 400px!important;
+  max-width: 400px;
+  }
 }
+
 
 .file img {
   max-width: 100%;
@@ -556,9 +578,24 @@ nav.breadcrumbs {
 }
 
 .file .metadata h2 {
-  @include breakpoint(large) {
-  font-size: rem-calc(28);
+  @include breakpoint(medium) {
+    font-size: rem-calc(22);
   }
+  @include breakpoint(large) {
+    font-size: 1.75rem;
+  }
+}
+
+.media-embed-block.file .metadata h2 {
+  font-size: 110%;
+  @include breakpoint(medium) {
+    font-size: 120%;
+  }
+}
+
+.media-embed-block.file .learn-more h2 {
+  font-size: 0.8rem;
+  margin: 0;
 }
 
 /*Centre media embed items when option chosen*/
@@ -675,17 +712,13 @@ nav.breadcrumbs {
   }
 }
 
-/*Remove margin from h2 learn more button*/
-.learn-more h2.button {
-  margin: 0;
-}
-
 /*Add colour fill to hollow button*/ 
 .learn-more .button.hollow.warning:hover {
   background: $warning-color;
 }
 
-.button a:hover {
+.button a:hover,
+#content .learn-more p a {
   text-decoration: none;
 }
 
@@ -746,28 +779,6 @@ margin: 0 auto;
     //max-height: 71vh;
   //}
 }
-
-/*Style scrollbar*/ 
-/* width */
-::-webkit-scrollbar {
-  width: rem-calc(6);
-}
-
-/* Track */
-::-webkit-scrollbar-track {
-  background: #f1f1f1;
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: #888;
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: #555;
-}
-
 
 /*IIIF Presentation media type*/
 .media-render.iiif_presentation iframe {
@@ -1244,10 +1255,10 @@ display: none;
 
 /*Full screen height for Resource Text Openseadragon embed*/
 .resource-text-openseadragon .openseadragon {
-  height: calc(60vh - rem-calc(12))!important;
+  height: calc(45vh - rem-calc(12))!important;
   margin: 0 1rem;
   @include breakpoint(medium) {
-  height: calc(75vh - rem-calc(12))!important;
+  height: calc(60vh - rem-calc(12))!important;
   @include breakpoint(large) {
   height: calc(90vh - rem-calc(12))!important;
   }
@@ -1255,10 +1266,10 @@ display: none;
 }
 
 .item-showcase-openseadragon .openseadragon  {
-  height: calc(65vh - rem-calc(12))!important;
-  margin: 0 1rem;
+  height: calc(45vh - rem-calc(12))!important;
+  margin: 0;
   @include breakpoint(medium) {
-  height: calc(75vh - rem-calc(12))!important;
+  height: calc(60vh - rem-calc(12))!important;
   @include breakpoint(large) {
   height: calc(80vh - rem-calc(12))!important;
   }
@@ -1268,12 +1279,6 @@ display: none;
 /*Add dark background to Openseadragon container*/
 .openseadragon-container {
   background-color: #1c1919!important;
-}
-
-.resource-text-openseadragon .openseadragon-container {
-  @include breakpoint(medium) {
-    border-radius: rem-calc(12);
-  }
 }
 
 /*Button align for Full Screen Openseadragon Resource Text Block*/ 
@@ -1335,12 +1340,7 @@ display: none;
 
 .media-text-heading {
   flex-basis: 100%;
-  @include breakpoint(medium) {
-      padding-left: 1 * $global-padding;
-      }
-  @include breakpoint(large) {
-      padding-left: 1.5 * $global-padding;
-      }
+  text-align: left;
 }
 
 figcaption.orbit-caption.caption p {
@@ -2795,14 +2795,33 @@ polygon>.svgactive:hover {
 
 #storyboard_viewer.annonaview.storyboard_viewer {
   background: $black;
-  height: 70vh!important;
+  height: 45vh!important;
+  @include breakpoint(medium) {
+    height: 60vh!important;
+  } 
   @include breakpoint(large) {
       height: 80vh!important;
+  }
+  @include breakpoint(xlarge) {
+    height: 90vh!important;
+    } 
+}
+
+#storyboard_viewer.annonaview.storyboard_viewer:has(#header_toolbar) {
+  height: calc(45vh + 35px) !important;
+  @include breakpoint(medium) {
+    height: calc(60vh + 35px) !important;
+  } 
+  @include breakpoint(large) {
+    height: calc(80vh + 35px) !important;
   }
 }
 
 .seadragonbox .openseadragon-container {
-      height: 70vh!important;
+      height: 45vh!important;
+      @include breakpoint(medium) {
+        height: 60vh!important;
+      } 
       @include breakpoint(large) {
       height: 80vh!important;
       } 
@@ -2819,7 +2838,10 @@ polygon>.svgactive:hover {
 }
 
 .seadragonbox {
-  height: 70vh!important;
+  height: 45vh!important;
+  @include breakpoint(medium) {
+    height: calc(60vh - rem-calc(12))!important;
+  } 
       @include breakpoint(large) {
       height: 80vh!important;
       } 
@@ -3309,7 +3331,7 @@ width: 100%;
 
 .overlay-container h1,
 .overlay-container h2 {
-  background: $black;
+  background: $uom-footer;
   width: fit-content;
   padding: 1rem;
   color: $white;
@@ -3337,14 +3359,15 @@ width: 100%;
 .img-hero {
   height: 18.75rem;
   position: relative;
-  margin-top: -16px;
+  margin-top: rem-calc(-16px);
   height: rem-calc(350px);
+  text-align: center;
+  background: $uom-footer;
   @include breakpoint(medium) {
-    margin-top: -32px !important;
+    margin-top: rem-calc(-32px) !important;
     height: rem-calc(400px);
   }
   @include breakpoint(xlarge) {
-    margin-top: -32px !important;
     height: rem-calc(450px);
   }
 }
@@ -3353,7 +3376,9 @@ width: 100%;
 width: 100%; 
 height: 100%; 
 object-fit: cover;
-display: inline;
+display: block;
+margin: 0 auto;
+max-width: rem-calc(2000px);
 }
 
 #content .img-hero {
@@ -3370,4 +3395,35 @@ bottom: 20%;
   font-weight: 400;
   background: $black;
   padding: 0.5rem 1rem;
+}
+
+.openseadragon {
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+
+/*Style scrollbar*/ 
+/* width */
+::-webkit-scrollbar {
+  width: rem-calc(11);
+}
+
+/*Apply smaller scrollbar to CORALA*/ 
+.toggle-caption-img ::-webkit-scrollbar {
+  width: rem-calc(6);
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }

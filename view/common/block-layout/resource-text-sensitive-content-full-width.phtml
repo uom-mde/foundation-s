@@ -22,7 +22,7 @@ $currentLocale = $this->siteSetting('locale') ?: 'en_US'; ?>
 
 <div class="sensitive-material full-width-css block media-text grid-x grid-padding-x align-spaced">
     <?php if (!empty($heading)): ?>
-    <div class="media-text-heading medium-offset-1 large-offset-2">
+    <div class="media-text-heading">
         <h2 class="h2 padding-vertical-1 margin-bottom-1"><?=$escape($heading) ?></h2>
     </div>
     <?php
@@ -108,9 +108,9 @@ endforeach; ?>
         </div>
         <div class="learn-more">
             <?php if ($currentLocale == 'es'): ?>
-                <h2 class="button medium warning hollow"><?php echo $item->link("Ver más"); ?></h2>
+                <p class="button medium warning hollow"><?php echo $item->link("Ver más"); ?></h2>
             <?php else: ?>
-                <h2 class="button medium warning hollow"><?php echo $item->link("View full item"); ?></h2>
+                <p class="button medium warning hollow"><?php echo $item->link("View full item"); ?></h2>
             <?php endif; ?>
         </div>
     </div>
