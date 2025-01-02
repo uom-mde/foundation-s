@@ -6,13 +6,11 @@
 
 ?>
 
-<div class="full-width padding-vertical-1 flex-container blockquote-wrapper">
-    <div class="grid-x grid-container flex-container">
+<div class="full-width padding-vertical-1 flex-container">
+    <div class="grid-x grid-container flex-container blockquote-wrapper">
         <?php if (!empty($heading)): ?>
             <h2><?= $escape($heading) ?></h2>
         <?php endif; ?>
-        <div class="padding-vertical-1 medium-padding-vertical-2 large-padding-vertical-3 lead">
-            <?= $block->dataValue('html', '') ?>
-        </div>
+        <?= $block->dataValue('html', '') ?>
     </div>
 </div>
