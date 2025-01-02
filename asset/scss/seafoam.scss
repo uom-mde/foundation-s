@@ -1770,6 +1770,18 @@ ul.language-switcher.locale-code li span.active {
 }
 
 /*General Classes*/ 
+/*White Text*/ 
+.white-text p,
+.white-text h2,
+.white-text h3 {
+  color: $white;
+}
+
+/*Fill Button*/ 
+.fill-button .learn-more .hollow {
+  background: $warning-color;
+}
+
 /*Bold fonts*/
 .font-bold {
   font-weight: 600;
@@ -2220,6 +2232,7 @@ grid-template-areas:
   & span.h3 {
     color: $black;
   }
+  background: $white;
 }
 
 .card-image {
