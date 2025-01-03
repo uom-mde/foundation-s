@@ -2356,7 +2356,7 @@ grid-template-areas:
 }
 
 /*YouTube Styling*/ 
-.youtube iframe {
+.medium .youtube iframe {
   width: 100%;
   height: 50vh;
   border-radius: rem-calc(6);
@@ -2366,6 +2366,38 @@ grid-template-areas:
   }
   @include breakpoint(large) {
     height: 70vh!important;
+  }
+}
+
+.medium-large .youtube iframe {
+  width: 100%;
+  height: 50vh;
+  border-radius: rem-calc(6);
+  max-width: rem-calc(1000)!important;
+  @include breakpoint(medium) {
+    height: 65vh!important;
+  }
+  @include breakpoint(large) {
+    height: 70vh!important;
+  }
+  @include breakpoint(xlarge) {
+    height: 75vh!important;
+  }
+}
+
+.large .youtube iframe {
+  width: 100%;
+  height: 50vh;
+  border-radius: rem-calc(6);
+  max-width: rem-calc(1200)!important;
+  @include breakpoint(medium) {
+    height: 70vh!important;
+  }
+  @include breakpoint(large) {
+    height: 80vh!important;
+  }
+  @include breakpoint(xlarge) {
+    height: 90vh!important;
   }
 }
 
