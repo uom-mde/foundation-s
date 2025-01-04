@@ -2391,10 +2391,10 @@ grid-template-areas:
   border-radius: rem-calc(6);
   max-width: rem-calc(1200)!important;
   @include breakpoint(medium) {
-    height: 70vh!important;
+    height: 65vh!important;
   }
   @include breakpoint(large) {
-    height: 80vh!important;
+    height: 75vh!important;
   }
   @include breakpoint(xlarge) {
     height: 90vh!important;
@@ -2569,7 +2569,8 @@ section.image-banner {
 }
 
 /*Caption*/ 
-.item .caption {
+.item .caption,
+.asset > .caption {
   padding: .5 * $global-padding .5 * $global-padding 0 .5 * $global-padding;
   text-align: left;
   font-size: 0.9 * $global-font-size;
@@ -2581,6 +2582,10 @@ section.image-banner {
     /*border-bottom: solid 1px $light-gray;*/ 
     margin-bottom: 0;
   }
+}
+
+.asset .caption {
+  margin-bottom: 0.5 * $global-margin;
 }
 
 /*Resource Grid*/ 
@@ -2717,6 +2722,35 @@ bottom: 20%;
   font-weight: 400;
   background: $black;
   padding: 0.5rem 1rem;
+}
+
+/*Asset Media Object*/ 
+.media-object-section {
+  display: flex;
+  flex-direction: column;
+  @include breakpoint(medium) {
+    flex-direction: row;
+  }
+}
+
+.asset.media-object img {
+  width: 100%;
+  max-width: unset;
+  @include breakpoint(medium) {
+    max-width: 15rem;
+}
+@include breakpoint(large) {
+  max-width: 20rem;
+  margin-right: 1.5 * $global-margin;
+}
+@include breakpoint(xlarge) {
+  max-width: 25rem;
+  margin-right: 2 * $global-margin;
+}
+}
+
+.asset.media-object.has-image .caption {
+  max-width: unset;
 }
 
 /*Media Object Styling*/ 
