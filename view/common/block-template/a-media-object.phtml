@@ -15,6 +15,11 @@
             </a>
         <?php else: ?>
             <?php echo $assetImage; ?>
+            <?php if (!empty($attachment['alt_link_title'])): ?>
+                <div class="alt-link-title">
+                    <p class="h3"><?php echo $escape($attachment['alt_link_title']); ?></p>
+                </div>
+            <?php endif; ?>
         <?php endif; ?>
         <?php if ($attachment['caption'] !== ''): ?>
         <div class="caption"><?php echo $escape($attachment['caption']); ?></div>
