@@ -2570,12 +2570,12 @@ section.image-banner {
 
 /*Caption*/ 
 .item .caption,
-.asset > .caption {
+.caption.asset-caption {
   padding: .5 * $global-padding .5 * $global-padding 0 .5 * $global-padding;
   text-align: left;
   font-size: 0.9 * $global-font-size;
   color: $dark-gray;
-  margin: 0 1 * $global-margin 0.5 * $global-margin 1 * $global-margin;
+  margin: 0 1 * $global-margin 0.5 * $global-margin 0;
   border-left: solid rem-calc(6) $light-gray;
   align-self: baseline;
   & p {
@@ -2733,8 +2733,7 @@ bottom: 20%;
   }
 }
 
-.asset.media-object img,
-.asset.media-object a img {
+.asset.media-object img {
   width: 100%;
   max-width: unset;
   @include breakpoint(medium) {
