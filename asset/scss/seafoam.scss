@@ -2733,20 +2733,21 @@ bottom: 20%;
   }
 }
 
-.asset.media-object img {
+.asset.media-object img,
+.asset.media-object a img {
   width: 100%;
   max-width: unset;
   @include breakpoint(medium) {
     max-width: 15rem;
-}
-@include breakpoint(large) {
-  max-width: 20rem;
-  margin-right: 1.5 * $global-margin;
-}
-@include breakpoint(xlarge) {
-  max-width: 25rem;
-  margin-right: 2 * $global-margin;
-}
+  }
+  @include breakpoint(large) {
+    max-width: 20rem;
+    margin-right: 1.5 * $global-margin;
+  }
+  @include breakpoint(xlarge) {
+    max-width: 25rem;
+    margin-right: 2 * $global-margin;
+  }
 }
 
 .asset.media-object.has-image .caption {
