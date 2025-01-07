@@ -2599,9 +2599,12 @@ height: 60vh!important;
   .faceted-browse-page .resource-list .resource-link img {
     float: unset;
     display: block;
+    margin-left: 0;
     @include breakpoint(450) {
       float: right;
       display: inline-block;
+      max-width: rem-calc(250);
+      margin-left: 1rem;
     }
   }
 
