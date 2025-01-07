@@ -70,11 +70,20 @@ a.nav-header:visited {
 .toc-block ul ul.dropdown>li.opens-left>.is-dropdown-submenu {
   z-index: 999999;
   background: #2c0142;
+  width: rem-calc(250);
 }
 
 .dropdown.menu>li.is-dropdown-submenu-parent.active:hover>a {
   background-color: $primary-color;
   color: #fff;
+}
+
+.dropdown .is-dropdown-submenu a {
+  padding: .7rem 1rem .7rem 1.3rem;
+}
+
+.is-dropdown-submenu .is-dropdown-submenu-parent.opens-left>a::after {
+  left: rem-calc(8);
 }
 
 header .top-bar {
