@@ -67,7 +67,8 @@ a.nav-header:visited {
 
 .dropdown.menu>li.opens-left>.is-dropdown-submenu, 
 .toc-block>ul.dropdown>li.opens-left>.is-dropdown-submenu, 
-.toc-block ul ul.dropdown>li.opens-left>.is-dropdown-submenu {
+.toc-block ul ul.dropdown>li.opens-left>.is-dropdown-submenu,
+.dropdown.menu .nested.is-dropdown-submenu {
   z-index: 999999;
   background: #2c0142;
   width: rem-calc(250);

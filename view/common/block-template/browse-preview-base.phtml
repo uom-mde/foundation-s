@@ -44,7 +44,7 @@ $valueLang = $filterLocale ? [$lang, ''] : null;
 $headingTerm = $this->siteSetting('browse_heading_property_term');
 $bodyTerm = $this->siteSetting('browse_body_property_term');
 foreach ($resources as $resource):
-    $thumbnail = $this->thumbnail($resource, 'medium-large');
+    $thumbnail = $this->thumbnail($resource, 'large');
     $heading = $headingTerm ? $resource->value($headingTerm, ['default' => $translate('[Untitled]'), 'lang' => $valueLang]) : $resource->displayTitle(null, $valueLang);
     $body = $bodyTerm ? $resource->value($bodyTerm, ['lang' => $valueLang]) : $resource->displayDescription(null, $valueLang);
 ?>
