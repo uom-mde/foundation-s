@@ -203,6 +203,17 @@ ul.language-switcher.locale-code li a {
   text-decoration: none;
   font-weight: 400;
 }
+
+a.language-show:hover {
+  color: $warning-color;
+}
+
+.language-show:not(:last-child)::after {
+  padding-right: 0.5rem;
+  padding-left: 0.5rem;
+  content: "|";
+}
+
 /*End Language Selector*/
 
 
