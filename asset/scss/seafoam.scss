@@ -765,6 +765,49 @@ transform: scale(1.01);
     }
   }
 
+  /*Responsive img hero banner*/ 
+.img-hero {
+  height: 18.75rem;
+  position: relative;
+  margin-top: rem-calc(-16px);
+  height: rem-calc(350px);
+  text-align: center;
+  background: $uom-footer;
+  @include breakpoint(medium) {
+    margin-top: rem-calc(-32px) !important;
+    height: rem-calc(400px);
+  }
+  @include breakpoint(xlarge) {
+    height: rem-calc(450px);
+  }
+}
+
+.img-hero img {
+width: 100%; 
+height: 100%; 
+object-fit: cover;
+display: block;
+margin: 0 auto;
+max-width: rem-calc(2000px);
+}
+
+#content .img-hero {
+  padding-block: 0;
+}
+
+.img-hero .hero-title-img {
+position: absolute;
+z-index: 9999;
+bottom: 20%;
+} 
+
+.hero-title-img h1 {
+  color: $white;
+  font-weight: 400;
+  background: $black;
+  padding: 0.5rem 1rem;
+}
+
   /*Openseadragon hero 24/02/24*/ 
   .openseadragon-hero {
     height: rem-calc(300);
@@ -2294,6 +2337,10 @@ grid-template-areas:
 }
 
 /*Openseadragon*/ 
+.openseadragon {
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
 .medium .openseadragon {
   height: 60vh!important;
   @include breakpoint(medium) {
@@ -2525,6 +2572,38 @@ height: 60vh!important;
   height: 80vh!important;
 }
 }
+
+  /*Faceted Browse*/
+  #facets label {
+    color: #000;
+    align-items: baseline;
+  }
+  
+  /*Remove padding from Faceted Browse titles*/
+  #section-content span.resource-name {
+  padding: unset;
+  }
+  
+  /*Faceted Browse*/
+  .select-list-item .value:first-child {
+    margin-top: 0;
+    }
+    
+    @media print, screen and (min-width: 37.5em) {
+    .subsection-text .h3 {
+        font-size: 1.625rem;
+    }
+    }
+  
+    /*Faceted Browse*/
+  .faceted-browse-page .resource-list .resource-link img {
+    float: unset;
+    display: block;
+    @include breakpoint(450) {
+      float: right;
+      display: inline-block;
+    }
+  }
 
 /*Image Banner block*/
 .overlay-container {
@@ -2779,3 +2858,82 @@ bottom: 20%;
   .media-object .thumbnail {
   width: initial;
   }
+
+    /*4.1 styling*/ 
+  /*Foundation S Prototype*/ 
+.lead {
+  line-height: 1.6;
+}
+
+.lead {
+  font-size: $lead-font-size;
+  @include breakpoint(small only) {
+    font-size: $global-font-size * 1.05; // Adjust font size directly in the class
+    line-height: $lead-lineheight;
+  }
+}
+
+/*Page Block Image Banner*/
+.image-banner .image-container img {
+  /*max-width: 1400px;*/
+  max-width: unset;
+}
+
+.image-banner .image-container::after {
+  opacity: 0.2;
+}
+
+.image-banner .overlay-container {
+ min-height: clamp(300px, 20vh, 450px);
+}
+
+.overlay-container h1,
+.overlay-container h2 {
+  background: $uom-footer;
+  width: fit-content;
+  padding: 1rem;
+  color: $white;
+  font-weight: 400;
+  @include breakpoint(large) {
+    font-size: rem-calc(42);
+  }
+}
+
+.overlay-container p {
+    font-size: 1.5rem;
+    background: $white;
+    color: $black;
+    width: fit-content;
+    padding: 0.5rem;
+  }
+
+  .image-banner .overlay-container > p {
+    margin-block: 0!important;
+    color: $black;
+  }
+
+/*Style scrollbar*/ 
+/* width */
+::-webkit-scrollbar {
+  width: rem-calc(11);
+}
+
+/*Apply smaller scrollbar to CORALA*/ 
+.toggle-caption-img ::-webkit-scrollbar {
+  width: rem-calc(6);
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
