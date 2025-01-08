@@ -83,6 +83,10 @@ a.nav-header:visited {
   padding: .7rem 1rem .7rem 1.3rem;
 }
 
+.is-dropdown-submenu {
+  min-width: rem-calc(255);
+}
+
 .is-dropdown-submenu .is-dropdown-submenu-parent.opens-left>a::after {
   left: rem-calc(8);
 }
