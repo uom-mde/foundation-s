@@ -2845,6 +2845,7 @@ bottom: 20%;
   max-width: unset;
   @include breakpoint(medium) {
     max-width: 15rem;
+    margin-top: 1.5 * $global-margin;
   }
   @include breakpoint(large) {
     max-width: 20rem;
