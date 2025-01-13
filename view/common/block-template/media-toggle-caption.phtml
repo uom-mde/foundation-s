@@ -9,7 +9,7 @@ $currentLocale = $this->siteSetting('locale') ?: 'en';
 <div class="<?php echo $this->escapeHtml(implode(' ', $classes)); ?>">
     <?php foreach($attachments as $attachment): ?>
     <?php $item = $attachment->item(); ?>
-    <div class="item resource">
+    <div class="item resource toggle-caption">
         <?php
         $media = $attachment->media() ?: $item->primaryMedia();
         if ($media):
@@ -34,10 +34,7 @@ $currentLocale = $this->siteSetting('locale') ?: 'en';
                     'link' => $link,
                 ]);
             }
-        endif;
-        ?>
-
-        <?php $caption = $attachment->caption(); ?>
+            $caption = $attachment->caption(); ?>
             <div class="toggle-caption">
                 <?php if ($attachment->caption()): ?>
                     <?php if (isset($caption) && !empty($caption)) : ?>
@@ -55,6 +52,8 @@ $currentLocale = $this->siteSetting('locale') ?: 'en';
                     <?php endif; ?>
                 <?php endif; ?>
             </div>
+        <?php endif;
+        ?>
 
         <div class="metadata">
             <?php $showTitleOption = $this->showTitleOption; ?>

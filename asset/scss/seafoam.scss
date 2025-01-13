@@ -551,6 +551,65 @@ nav.breadcrumbs {
   text-decoration: none;
 }
 
+/*Caption Toggle Block*/ 
+/*Styling for caption-toggle button*/
+
+/*Ensure caption does not overflow button*/
+.toggle-caption .orbit-caption {
+  bottom: 84px;
+  background-color: rgba(10, 10, 10, .9);
+}
+@media screen and (min-width: 322px) {
+.toggle-caption .orbit-caption {
+  bottom: 59px;
+}
+}
+
+/*Add overflow-y for larger captions*/
+.toggle-caption .orbit-caption {
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.caption-toggle .toggle-caption .button {
+  background-color: $dark-gray; 
+  h2 {
+    color:$white;
+  }
+}
+
+.left.media.toggle-caption-img {
+max-width: rem-calc(600);
+margin: 0 auto;
+}
+
+.toggle-caption-img {
+  width: 100%;
+  position: relative;
+  height: calc(60vh + 59.19px);
+  overflow-y: auto;
+  //@include breakpoint(large) {
+    //height: calc(70vh + 59.19px);
+  //}
+}
+
+.toggle-caption-img img {
+  height: 60vh;
+  object-fit: cover;
+  object-position: center;
+  width: 100%;
+  //@include breakpoint(large) {
+    //height: 70vh;
+  //}
+}
+
+.toggle-caption-img .toggle-caption .orbit-caption {
+  max-height: 61vh;
+  //@include breakpoint(large) {
+    //max-height: 71vh;
+  //}
+}
+
 /*Styling for caption-toggle button*/
 .caption-toggle .toggle-caption .button {
   background-color: $dark-gray; 
