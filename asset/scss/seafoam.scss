@@ -2740,6 +2740,14 @@ section.image-banner {
     margin-bottom: 0;
   }
 
+  a.warning-color,
+  p.warning-color,
+  h2.warning-color,
+  h3.warning-color,
+  h4.warning-color {
+    color: $warning-color;
+  }
+
   /*Width 80vw*/
   .width-80 .attachments.resource-text-openseadragon {
     min-width: 80vw;
@@ -2966,3 +2974,26 @@ bottom: 20%;
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
+
+/*Warning Bar*/
+/*Content warning banner*/ 
+.peek-a-bar {
+  padding: 0.75rem 1rem;
+  background-color: $primary-color;
+  }
+  
+  .warning-bar {
+  display: flex;
+  }
+  
+  .warning-content {
+    display: flex;
+    flex-grow: 1;
+    justify-content: center;
+  }
+  
+  .close-icon {
+  display: flex;
+  font-size: 2rem;
+  margin: 0 2rem;
+  }
