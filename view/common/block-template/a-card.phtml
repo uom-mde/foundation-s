@@ -20,7 +20,7 @@ $assetColumn = in_array($assetCount, [1, 2, 4]) ? 'asset-column-2' : 'asset-colu
             <a href="<?php echo $escape($page->siteUrl()); ?>">
                 <?php $altLinkTitle = ($attachment['alt_link_title'] !== '') ? $escape($attachment['alt_link_title']) : false; ?>
                 <?php echo $assetImage; ?>
-                <span class="h3 link-title card-divider"><?php echo ($altLinkTitle) ? $altLinkTitle : $escape($page->title()); ?></span>
+                <span class="h4 link-title card-divider"><?php echo ($altLinkTitle) ? $altLinkTitle : $escape($page->title()); ?></span>
             </a>
         <?php else: ?>
             <?php echo $assetImage; ?>

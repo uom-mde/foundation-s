@@ -39,12 +39,12 @@ $valueLang = $filterLocale ? [$lang, ''] : null;
 <?php endif; ?>
 
 
-<ul class="resources resource-count-<?php echo $resourcesCount; ?> <?php echo ($isGrid) ? 'resource-grid' : 'resource-list'; ?>">
+<ul class="resources resource-count-<?php echo $resourcesCount; ?> <?php echo ($isGrid) ? 'resource-grid' : 'resource-list'; ?> padding-horizontal-1 large-padding-horizontal-2 xlarge-padding-horizontal-3">
 <?php
 $headingTerm = $this->siteSetting('browse_heading_property_term');
 $bodyTerm = $this->siteSetting('browse_body_property_term');
 foreach ($resources as $resource):
-    $thumbnail = $this->thumbnail($resource, 'medium');
+    $thumbnail = $this->thumbnail($resource, 'large');
     $heading = $headingTerm ? $resource->value($headingTerm, ['default' => $translate('[Untitled]'), 'lang' => $valueLang]) : $resource->displayTitle(null, $valueLang);
     $body = $bodyTerm ? $resource->value($bodyTerm, ['lang' => $valueLang]) : $resource->displayDescription(null, $valueLang);
 ?>

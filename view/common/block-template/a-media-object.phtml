@@ -11,14 +11,34 @@
             <a href="<?php echo $escape($page->siteUrl()); ?>">
                 <?php $altLinkTitle = ($attachment['alt_link_title'] !== '') ? $escape($attachment['alt_link_title']) : false; ?>
                 <?php echo $assetImage; ?>
-                <span class="link-title"><?php echo ($altLinkTitle) ? $altLinkTitle : $escape($page->title()); ?></span>
             </a>
+            <?php if ($altLinkTitle || $attachment['caption'] !== ''): ?>
+                <div class="media-object-title-caption">
+                    <?php if (!empty($attachment['alt_link_title'])): ?>
+                        <div class="alt-link-title">
+                            <span class="link-title h4 margin-bottom-1"><?php echo $escape($attachment['alt_link_title']); ?></span>
+                        </div>
+                    <?php endif; ?>
+                    <?php if ($attachment['caption'] !== ''): ?>
+                        <div class="caption"><?php echo $escape($attachment['caption']); ?></div>
+                    <?php endif; ?>
+                </div>
+            <?php endif; ?>
         <?php else: ?>
             <?php echo $assetImage; ?>
-        <?php endif; ?>
-        <?php if ($attachment['caption'] !== ''): ?>
-        <div class="caption"><?php echo $escape($attachment['caption']); ?></div>
-        <?php endif; ?>
+                <?php if (!empty($attachment['alt_link_title']) || $attachment['caption'] !== ''): ?>
+                    <div class="media-object-title-caption">
+                        <?php if (!empty($attachment['alt_link_title'])): ?>
+                            <div class="alt-link-title">
+                                <span class="link-title h4 margin-bottom-1"><?php echo $escape($attachment['alt_link_title']); ?></span>
+                            </div>
+                        <?php endif; ?>
+                        <?php if ($attachment['caption'] !== ''): ?>
+                            <div class="caption"><?php echo $escape($attachment['caption']); ?></div>
+                        <?php endif; ?>
+                    </div>
+                <?php endif; ?>
+            <?php endif; ?>
         </div>
     </div>
   <?php endforeach; ?>

@@ -1,13 +1,17 @@
 <?php
+$this->headLink()->appendStylesheet($this->assetUrl('css/annona.css')); 
+$this->headScript()->appendFile($this->assetUrl('js/annona.js'));
 $hyperlink = $this->plugin('hyperlink');
+$thumbnailType = $block->dataValue('thumbnail_type');
 ?>
-<div class="full-width file-caption-block resourceTextGrid padding-horizontal-1 large-padding-horizontal-2 xlarge-padding-horizontal-3 margin-vertical-1 large-margin-vertical-2">
-    <div class="file file-caption-text media-embed <?php echo $this->escapeHtml(implode(' ', $classes)); ?>">
+<div class="full-width file-caption-block media-caption-text resourceTextGrid padding-horizontal-1 large-padding-2 margin-vertical-1 large-margin-vertical-2">
+    <div class="file file-caption-text media-embed large-padding-horizontal-1 xlarge-padding-horizontal-2 <?php echo $this->escapeHtml(implode(' ', $classes)); ?>">
         <?php foreach($attachments as $attachment): ?>
         <?php $item = $attachment->item(); ?>
-        <div class="item resource">
+        <div class="item resource <?php echo $thumbnailType; ?>">
             <?php
             $media = $attachment->media() ?: $item->primaryMedia();
+            $mediaRenderer = $media->renderer();
             if ($media):
                 if ($mediaDisplay === 'thumbnail') {
                     switch ($link) {
@@ -21,9 +25,9 @@ $hyperlink = $this->plugin('hyperlink');
                             $url = $media->url();
                             break;
                         default:
-                            throw new \InvalidArgumentException(sprintf('Invalid link type "%s"', $linkType));
+                        throw new \InvalidArgumentException(sprintf('Invalid link type "%s"', $link));
                     }
-                    echo $this->thumbnail($media, $thumbnailType);
+                    echo $hyperlink->raw($this->thumbnail($media, $thumbnailType), $url);
                 } else {
                     echo $media->render([
                         'thumbnailType' => $thumbnailType,
@@ -34,13 +38,16 @@ $hyperlink = $this->plugin('hyperlink');
             ?>
             </div>
         </div>
-        <div class="block-html padding-horizontal-1">
+        <div class="block-html padding-horizontal-1 xlarge-padding-horizontal-3">
             <?php if ($showTitleOption === 'item_title'): ?>
-                <div class="separator-center metadata">
-                    <h2 class="margin-vertical-1 large-margin-vertical-2"><?php echo $item->displayTitle(); ?></h2>
+                <div class="separator-center metadata margin-vertical-1">
+                    <h2><?php echo $item->displayTitle(); ?></h2>
+                    <?php if ($alternative = $item->value('dcterms:alternative')): ?>
+                        <h2 class="h4 italic-font"><small><?= htmlspecialchars($alternative) ?></small></h2>
+                    <?php endif; ?>
                 </div>
             <?php elseif ($showTitleOption === 'file_name'): ?>
-                <div class="separator-center metadata">
+                <div class="separator-center metadata margin-vertical-1">
                     <h2><?php echo $media->displayTitle(); ?></h2>
                 </div>
             <?php endif; ?>
@@ -49,9 +56,10 @@ $hyperlink = $this->plugin('hyperlink');
                 <div class="caption margin-top-1 large-margin-top-2"><?php echo $caption; ?></div>
             <?php endif; ?>
             <div class="learn-more flex-container align-center">
-                <button class="button medium warning"><?php echo $item->link("View full item"); ?></button>
+                <button class="button medium warning hollow"><?php echo $item->link("View full item"); ?></button>
             </div>
         </div>
         <?php endforeach; ?>
+    </div>
     </div>
 <div>

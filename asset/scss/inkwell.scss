@@ -138,6 +138,11 @@ a:hover {
  color: $white;
  }
 
+/*Ensure sub-sub-menu pointer is white*/
+.is-dropdown-submenu .is-dropdown-submenu-parent.opens-left>a::after {
+    border-color: rgba(0, 0, 0, 0) $white rgba(0, 0, 0, 0) rgba(0, 0, 0, 0);
+}
+
  /*Add padding when search button is showed*/ 
  .search-button.is-shown {
     padding: $global-padding $global-padding $global-padding 0;
