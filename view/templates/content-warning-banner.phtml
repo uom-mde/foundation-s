@@ -8,7 +8,7 @@ function showContentBanner($site, $currentLocale) {
     $getSiteSlug = $site->slug();
 
     // Define allowed slugs
-    $allowedSlugs = ['corala', 'corala-es', 'omeka-4-test'];
+    $allowedSlugs = ['corala', 'corala-es', 'block-testing'];
 
     // Check if the current slug is in the allowed list
     if (in_array($getSiteSlug, $allowedSlugs)) {
@@ -32,9 +32,6 @@ function showContentBanner($site, $currentLocale) {
                             <p class="lead">Aviso: Este sitio contiene material que puede resultar ofensivo. \
                             <a href="/s/corala-es/page/introduccion#content_warning">Por favor, dirigirse a nuestra declaración sobre material sensible en la muestra</a>.</p>\
                             </div>\
-                            <div class="close-icon">\
-                                <i class="fas fa-times"></i>\
-                            </div>\
                         </div>'
                     });
                     defaultBar.show();
@@ -47,9 +44,6 @@ function showContentBanner($site, $currentLocale) {
                             <div class="warning-content">\
                             <p class="lead">Content Warning: This site contains material you may find offensive. \
                             <a href="/s/corala/page/introduction#content_warning">View our statement on sensitive material in the exhibition</a>.</p>\
-                            </div>\
-                            <div class="close-icon">\
-                                <i class="fas fa-times"></i>\
                             </div>\
                         </div>'
                     });
@@ -64,9 +58,6 @@ function showContentBanner($site, $currentLocale) {
                             <p class="lead">Advertencia de contenido: este sitio contiene material que puede resultarle molesto. \
                             <a href="#">Consulte nuestra política sobre material confidencial</a>.</p>\
                             </div>\
-                            <div class="close-icon">\
-                                <i class="fas fa-times"></i>\
-                            </div>\
                         </div>'
                     });
                     defaultBar.show();
@@ -79,9 +70,6 @@ function showContentBanner($site, $currentLocale) {
                             <div class="warning-content">\
                             <p class="lead">Content Warning: This site contains material you may find offensive. \
                             <a href="#">View our policy on sensitive material</a>.</p>\
-                            </div>\
-                            <div class="close-icon">\
-                                <i class="fas fa-times"></i>\
                             </div>\
                         </div>'
                     });
