@@ -563,20 +563,18 @@ nav.breadcrumbs {
   position: relative;
 }
 
-.toggle-caption .orbit-caption {
-  bottom: 84px;
-  background-color: rgba(10, 10, 10, .9);
-}
-@media screen and (min-width: 322px) {
-.toggle-caption .orbit-caption {
-  bottom: 59px;
-}
-}
-
 /*Add overflow-y for larger captions*/
 .toggle-caption .orbit-caption {
-  max-height: 90vh;
+  bottom: 59px;
+  background-color: rgba(10, 10, 10, .8);
   overflow-y: auto;
+  max-height: 61vh;
+  @include breakpoint(322) {
+    bottom: 84px;
+  }
+  @include breakpoint(xlarge) {
+    max-height: 90vh;
+  }
 }
 
 .caption-toggle .toggle-caption .button {
@@ -1973,6 +1971,8 @@ button#reveal-caption {
   padding: 0.75 * $global-padding;
   width: 100%;
   font-size: 1rem;
+  background: $dark-gray;
+  color: $white;
 }
 
 .reveal-caption {
