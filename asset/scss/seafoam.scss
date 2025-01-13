@@ -555,6 +555,14 @@ nav.breadcrumbs {
 /*Styling for caption-toggle button*/
 
 /*Ensure caption does not overflow button*/
+.toggle-caption-block .media-render.file {
+  background: $uom-footer;
+}
+
+.toggle-caption {
+  position: relative;
+}
+
 .toggle-caption .orbit-caption {
   bottom: 84px;
   background-color: rgba(10, 10, 10, .9);
@@ -1962,7 +1970,7 @@ background: $light-gray
 /*Reveal caption*/
 button#reveal-caption {
   margin: 0;
-  padding: 1rem;
+  padding: 0.75 * $global-padding;
   width: 100%;
   font-size: 1rem;
 }

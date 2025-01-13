@@ -9,7 +9,7 @@ $currentLocale = $this->siteSetting('locale') ?: 'en';
 <div class="<?php echo $this->escapeHtml(implode(' ', $classes)); ?>">
     <?php foreach($attachments as $attachment): ?>
     <?php $item = $attachment->item(); ?>
-    <div class="item resource toggle-caption">
+    <div class="item resource toggle-caption-block padding-horizontal-1 large-padding-horizontal-2">
         <?php
         $media = $attachment->media() ?: $item->primaryMedia();
         if ($media):
@@ -55,14 +55,12 @@ $currentLocale = $this->siteSetting('locale') ?: 'en';
         <?php endif;
         ?>
 
-        <div class="metadata">
+        <div class="metadata margin-vertical-1">
             <?php $showTitleOption = $this->showTitleOption; ?>
             <?php if ($showTitleOption == "item_title"): ?>
                 <h2><?php echo $item->displayTitle(); ?></h2>
-                <div class="separator-center margin-bottom-1"></div>
             <?php elseif ($showTitleOption == "file_name"): ?>
                 <h2><?php echo $media->displayTitle(); ?></h2>
-                <div class="separator-center margin-bottom-1"></div>
             <?php endif; ?>
         </div>
 
