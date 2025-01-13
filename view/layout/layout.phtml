@@ -13,6 +13,7 @@ if (isset($stylesheet)) {
     $this->headLink()->prependStylesheet($this->assetUrl('css/seafoam.css'));
 }
 $this->headLink()->prependStylesheet($this->assetUrl('css/iconfonts.css', 'Omeka'));
+$this->headLink()->prependStylesheet($this->assetUrl('css/jquery.peekabar.css'));
 $this->headLink()->prependStylesheet('//fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400&display=swap');
 $this->headScript()->prependFile($this->assetUrl('vendor/foundation/foundation.min.js'));
 $this->headScript()->prependFile($this->assetUrl('js/global.js', 'Omeka'));
@@ -164,5 +165,12 @@ $bannerPosition = ($this->themeSetting('banner_position')) ? str_replace('_','-'
         <script>
           $(document).foundation();
         </script>
+        <!-- Load the content warning banner code --> 
+        <?php echo $this->partial('/templates/content-warning-banner'); ?>
+        <!-- End content warning banner -->
+        <?php       
+        // Call the function, passing necessary parameters
+        showContentBanner($site, $currentLocale);
+        ?>
     </body>
 </html>

@@ -1,0 +1,22 @@
+.peek-a-bar {
+    font-family: "Open Sans", sans-serif;
+    margin: 0;
+    position: fixed;
+    width: 100%;
+    left: 0;
+    right: 0;
+    text-align: center;
+    background-color: #6b2c91;
+    color: #fff;
+    cursor: pointer; }
+
+.peek-a-bar a {
+    text-decoration: underline!important;
+    /*color: #fc3;*/
+    color: #fff;
+}
+
+.peek-a-bar a:hover,
+.peek-a-bar a:focus {
+    color: #fc3;
+}
