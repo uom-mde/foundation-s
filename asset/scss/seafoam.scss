@@ -2126,6 +2126,13 @@ grid-template-areas:
     }
   }
 
+  /*Align media right for caption-text template*/ 
+  .media-caption-text-right .resourceTextGrid:has(.layout-horizontal.file-caption-text) {
+    @include breakpoint(large) {
+    grid-template-areas: "text media-embed-media";
+  }
+}
+
 /*Ensure Learn More button is below text for vertical Media blocks*/
 .resourceTextGrid {
   row-gap: 0;
@@ -2176,7 +2183,7 @@ grid-template-areas:
 }
 }
 
-.portrait.resourceTextGrid.mediaRight:has(.layout-horizontal) {
+.portrait.resourceTextGrid.media-right:has(.layout-horizontal) {
   @include breakpoint(large) {
   grid-template-columns: 0.5fr 2fr 2fr 0.5fr;
   grid-template-areas:
@@ -2186,7 +2193,7 @@ grid-template-areas:
 }
 
 /*Add option to place media to the right*/ 
-.resourceTextGrid.mediaRight:has(.layout-horizontal) {
+.resourceTextGrid.media-right:has(.layout-horizontal) {
   @include breakpoint(large) {
   grid-template-columns: 2fr 3fr;
   grid-template-areas: 
@@ -2196,7 +2203,7 @@ grid-template-areas:
 }
 
 /*Add class for Media caption as text*/ 
-.resourceTextGrid.mediaRight:has(.layout-horizontal.file-caption-text) {
+.resourceTextGrid.media-right:has(.layout-horizontal.file-caption-text) {
   @include breakpoint(large) {
   grid-template-areas: 
   "text media-embed-media" ;
