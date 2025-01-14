@@ -584,6 +584,12 @@ nav.breadcrumbs {
   }
 }
 
+.toggle-caption figcaption {
+  font-size: 0.9rem;
+  font-style: initial;
+  font-weight: 400;
+}
+
 .left.media.toggle-caption-img {
 max-width: rem-calc(600);
 margin: 0 auto;
@@ -592,7 +598,7 @@ margin: 0 auto;
 .toggle-caption-img {
   width: 100%;
   position: relative;
-  height: calc(60vh + 59.19px);
+  height: calc(63vh + 59.19px);
   overflow-y: auto;
   //@include breakpoint(large) {
     //height: calc(70vh + 59.19px);
@@ -1973,6 +1979,9 @@ button#reveal-caption {
   font-size: 1rem;
   background: $dark-gray;
   color: $white;
+  &:hover {
+    background: darken($dark-gray, 5%);
+  }
 }
 
 .reveal-caption {
