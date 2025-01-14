@@ -2127,7 +2127,7 @@ grid-template-areas:
   }
 
   /*Align media right for caption-text template*/ 
-  .media-caption-text-right .resourceTextGrid:has(.layout-horizontal.file-caption-text) {
+  .media-right .resourceTextGrid:has(.layout-horizontal.file-caption-text) {
     @include breakpoint(large) {
     grid-template-areas: "text media-embed-media";
   }
