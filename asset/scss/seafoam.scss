@@ -552,6 +552,10 @@ nav.breadcrumbs {
 }
 
 /*Caption Toggle Block*/ 
+.toggle-caption-block {
+  max-width: rem-calc(800);
+  margin: 0 auto;
+}
 /*Styling for caption-toggle button*/
 
 /*Ensure caption does not overflow button*/
@@ -1043,7 +1047,7 @@ display: none;
 }
 
 .resource-text {
-  max-width: rem-calc(600);
+  max-width: rem-calc(850);
   margin: 0 auto;
 }
 
