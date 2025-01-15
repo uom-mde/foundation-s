@@ -613,7 +613,7 @@ margin: 0 auto;
   height: 60vh;
   object-fit: cover;
   object-position: center;
-  width: 100%;
+  width: 100vw;
   //@include breakpoint(large) {
     //height: 70vh;
   //}
@@ -624,6 +624,10 @@ margin: 0 auto;
   //@include breakpoint(large) {
     //max-height: 71vh;
   //}
+}
+
+.toggle-caption-img .media-render {
+  padding: 0;
 }
 
 /*Styling for caption-toggle button*/
@@ -1978,13 +1982,16 @@ background: $light-gray
 /*Reveal caption*/
 button#reveal-caption {
   margin: 0;
-  padding: 0.75 * $global-padding;
+  padding: 0.75 * $global-padding 0.5 * $global-padding;
   width: 100%;
   font-size: 1rem;
   background: $dark-gray;
   color: $white;
   &:hover {
     background: darken($dark-gray, 5%);
+  }
+  @include breakpoint(large) {
+    padding: 0.75 * $global-padding;
   }
 }
 
