@@ -213,7 +213,7 @@ a.language-show:hover {
   color: $warning-color;
 }
 
-.language-show:not(:last-child)::after {
+a.language-show:not(:last-of-type)::after {
   padding-right: 0.5rem;
   padding-left: 0.5rem;
   content: "|";
