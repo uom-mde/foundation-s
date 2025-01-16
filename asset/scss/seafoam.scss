@@ -559,6 +559,10 @@ nav.breadcrumbs {
 /*Styling for caption-toggle button*/
 
 /*Ensure caption does not overflow button*/
+.orbit-caption {
+  background-color: rgba(10,10,10, .9); 
+}
+
 .toggle-caption-block .media-render.file {
   background: $uom-footer;
 }
@@ -574,7 +578,7 @@ nav.breadcrumbs {
   overflow-y: auto;
   max-height: 61vh;
   @include breakpoint(322) {
-    bottom: rem-calc(84);
+    bottom: rem-calc(56);
   }
   @include breakpoint(xlarge) {
     max-height: 90vh;
@@ -1030,15 +1034,6 @@ display: none;
 }
 
 /*End Sensitive Material*/
-
-/*Toggle caption*/ 
-.orbit-caption {
-  background-color: rgba(10,10,10, .9); 
-}
-
-.toggle-caption .orbit-caption {
-  bottom: rem-calc(59px);
-}
 
 .text {
   padding: $global-padding 0;
