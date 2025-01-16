@@ -606,25 +606,34 @@ margin: 0 auto;
 .toggle-caption-img {
   width: 100%;
   position: relative;
-  height: calc(63vh + 59.19px);
+  height: calc(50vh + 59.19px);
   overflow-y: auto;
   //@include breakpoint(large) {
     //height: calc(70vh + 59.19px);
   //}
+  @include breakpoint(medium) {
+  height: calc(63vh + 59.19px);
+  }
 }
 
 .toggle-caption-img img {
-  height: 60vh;
+  height: 50vh;
   object-fit: cover;
   object-position: center;
   width: 100vw;
   //@include breakpoint(large) {
     //height: 70vh;
   //}
+  @include breakpoint(medium) {
+    height: 60vh;
+  }
 }
 
 .toggle-caption-img .toggle-caption .orbit-caption {
+  max-height: 50vh;
+  @include breakpoint(medium) {
   max-height: 61vh;
+  }
   //@include breakpoint(large) {
     //max-height: 71vh;
   //}
@@ -2298,7 +2307,10 @@ grid-template-areas:
 
   .media-render {
     width: 100%;
+    padding: 0;
+    @include breakpoint(medium) {
     padding: 1rem 1rem 0 1rem;
+    }
   }
   /*Remove padding for square thumbnail*/ 
   .square .media-render {
