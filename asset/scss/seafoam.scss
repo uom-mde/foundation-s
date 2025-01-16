@@ -569,8 +569,8 @@ nav.breadcrumbs {
 
 /*Add overflow-y for larger captions*/
 .toggle-caption .orbit-caption {
-  bottom: rem-calc(60);
-  background-color: rgba(10, 10, 10, .85);
+  bottom: rem-calc(56);
+  background-color: rgba(10, 10, 10, .9);
   overflow-y: auto;
   max-height: 61vh;
   @include breakpoint(322) {
