@@ -2141,6 +2141,7 @@ grid-template-areas:
   .media-right .resourceTextGrid:has(.layout-horizontal.file-caption-text) {
     @include breakpoint(large) {
     grid-template-areas: "text media-embed-media";
+    grid-template-columns: 2fr 3fr;
   }
 }
 
