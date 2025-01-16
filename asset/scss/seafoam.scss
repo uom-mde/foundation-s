@@ -2202,10 +2202,16 @@ grid-template-areas:
 
 .portrait.resourceTextGrid.media-right:has(.layout-horizontal) {
   @include breakpoint(large) {
+  grid-template-columns: 2fr 2fr;
+  grid-template-areas:
+  ". header . ."
+  ". media-block text .";
+}
+@include breakpoint(xlarge) {
   grid-template-columns: 0.5fr 2fr 2fr 0.5fr;
   grid-template-areas:
   ". header . ."
-  ". text media-block .";
+  ". media-block text .";
 }
 }
 
