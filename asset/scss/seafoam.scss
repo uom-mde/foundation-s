@@ -576,7 +576,7 @@ nav.breadcrumbs {
   bottom: rem-calc(56);
   background-color: rgba(10, 10, 10, .9);
   overflow-y: auto;
-  max-height: 61vh;
+  max-height: 60vh;
   @include breakpoint(322) {
     bottom: rem-calc(56);
   }
@@ -612,7 +612,7 @@ margin: 0 auto;
     //height: calc(70vh + 59.19px);
   //}
   @include breakpoint(medium) {
-  height: calc(63vh + 59.19px);
+  height: calc(60vh + 59.19px);
   }
 }
 
@@ -2187,6 +2187,12 @@ grid-template-areas:
 
 .portrait.resourceTextGrid:has(.layout-horizontal) {
   @include breakpoint(large) {
+    grid-template-columns: 2fr 2fr;
+    grid-template-areas:
+    "header ."
+    "media-block text";
+  }
+  @include breakpoint(xlarge) {
   grid-template-columns: 0.5fr 2fr 2fr 0.5fr;
   grid-template-areas:
   ". header . ."
