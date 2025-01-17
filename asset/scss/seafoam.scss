@@ -956,6 +956,7 @@ bottom: 20%;
     .openseadragon-hero .hero-title-openseadragon {
     position: absolute;
     bottom: 10%;
+    max-width: rem-calc(800);
     /*max-width: 450px;*/
     @include breakpoint(large) {
       bottom: 20%;
