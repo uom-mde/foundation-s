@@ -1931,7 +1931,7 @@ ul.language-switcher.locale-code li span.active {
 
 /*General Classes*/ 
 /*Underline Links*/ 
-.dark-background a {
+.dark-background a:not(button a) {
   text-decoration: underline;
 }
 
