@@ -505,8 +505,14 @@ nav.breadcrumbs {
   h2 {
     color: $warning-color;
   }
+  p.h2 {
+    color: $warning-color;
+  }
   h2 small {
       color: $white;
+  }
+  p.h3 {
+    color: $warning-color;
   }
   h3 {
     color: $warning-color;
@@ -515,6 +521,9 @@ nav.breadcrumbs {
       color: $white;
   }
   h4 {
+    color: $warning-color;
+  }
+  p.h4 {
     color: $warning-color;
   }
   h4 small {
@@ -1921,6 +1930,11 @@ ul.language-switcher.locale-code li span.active {
 }
 
 /*General Classes*/ 
+/*Underline Links*/ 
+.dark-background a {
+  text-decoration: underline;
+}
+
 /*White Text*/ 
 .white-text p,
 .white-text h2,
@@ -2347,6 +2361,11 @@ grid-template-areas:
     }
   }
 
+  /*Underline correct items*/ 
+  .block-html > p > a {
+    text-decoration: underline;
+  } 
+
   /*Asset Cards*/ 
   .card img {
     width: 100%;
@@ -2668,7 +2687,7 @@ grid-template-areas:
 .attachment-count-3 .metadata h2,
 .attachment-count-2 .metadata h2.h3,
 .attachment-count-3 .metadata h2.h3 {
-  font-weight: 800;
+  font-weight: 400;
   margin: $global-margin;
   @include breakpoint(medium) {
     font-size: 110%;
@@ -2846,6 +2865,11 @@ section.image-banner {
   }
 
   /*Utility Classes*/ 
+  /*Fix focus dark colour*/ 
+  a:focus {
+    color: $light-gray;
+  }
+
   .italic-font {
     font-style: italic;
   }
