@@ -2505,7 +2505,7 @@ grid-template-areas:
 }
 
 .medium .openseadragon {
-  height: 40vh!important;
+  height: 35vh!important;
   @include breakpoint(medium) {
   height: 50vh!important;
   }
@@ -2515,7 +2515,7 @@ grid-template-areas:
 }
 
 .medium-large .openseadragon {
-  height: 40vh!important;
+  height: 35vh!important;
   @include breakpoint(medium) {
   height: 60vh!important;
   }
@@ -2536,7 +2536,7 @@ grid-template-areas:
 
 /*Seadragonbox Styling*/ 
 .seadragonbox {
-  height: 40vh!important;
+  height: 35vh!important;
 }
 .medium .seadragonbox {
   @include breakpoint(medium) {
