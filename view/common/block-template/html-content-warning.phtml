@@ -1,0 +1,17 @@
+<?php
+/**
+ * @var \Laminas\View\Renderer\PhpRenderer $this
+ * @var \Omeka\Api\Representation\SitePageBlockRepresentation $block
+ */
+
+?>
+
+<div class="content-warning flex-container flex-dir-column medium-flex-dir-row">
+    <div class="content-warning-panel flex-container align-center align-middle">
+        <i class="fas fa-exclamation-triangle"></i>
+    </div>
+    <div class="content-warning-text padding-vertical-1 medium-padding-vertical-2 large-padding-vertical-3 padding-left-1 medium-padding-left-2 large-padding-left-3">
+            <?= $block->dataValue('html', '') ?>
+        </div>
+    </div>
+</div>

@@ -14,9 +14,11 @@ if (isset($stylesheet)) {
 }
 $this->headLink()->prependStylesheet($this->assetUrl('css/iconfonts.css', 'Omeka'));
 $this->headLink()->prependStylesheet('//fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400&display=swap');
+$this->headLink()->prependStylesheet($this->assetUrl('css/jquery.peekabar.css'));
 $this->headScript()->prependFile($this->assetUrl('vendor/foundation/foundation.min.js'));
 $this->headScript()->prependFile($this->assetUrl('js/global.js', 'Omeka'));
 $this->headScript()->prependFile($this->assetUrl('js/langselect.js'));
+$this->headScript()->prependFile($this->assetUrl('js/jquery.peekabar.js'));
 $this->headScript()->prependFile($this->assetUrl('vendor/jquery/jquery.min.js', 'Omeka'));
 $this->trigger('view.layout');
 $this->jsTranslate();
@@ -25,14 +27,15 @@ $userBar = $this->userBar();
 $navLayout = ($this->themeSetting('nav_layout')) ? $this->themeSetting('nav_layout') : 'dropdown';
 $this->htmlElement('body')->appendAttribute('class', $navLayout . '-menu');
 if ($userBar) {
-  $this->htmlElement('body')->appendAttribute('class', 'user-bar');
+    $this->htmlElement('body')->appendAttribute('class', 'user-bar');
 }
 
 $banner = $this->themeSettingAssetUrl('banner');
 $bannerWidth = ($this->themeSetting('banner_width')) ? $this->themeSetting('banner_width') : '';
 $bannerHeight = $this->themeSetting('banner_height');
 $bannerHeightMobile = $this->themeSetting('banner_height_mobile');
-$bannerPosition = ($this->themeSetting('banner_position')) ? str_replace('_','-', $this->themeSetting('banner_position')) : 'center';
+$bannerPosition = ($this->themeSetting('banner_position')) ? str_replace('_', '-', $this->themeSetting('banner_position')) : 'center';
+$currentLocale = $this->siteSetting('locale') ?: 'en_US';
 ?>
 <?php echo $this->doctype(); ?>
 <?php
@@ -109,9 +112,10 @@ $bannerPosition = ($this->themeSetting('banner_position')) ? str_replace('_','-'
                 
                             </div>
                         </div>
-                        <div class="cell small-6 medium-4 padding-left-1 medium-padding-right-1 padding-bottom-1">
+                        <div class="get-in-touch cell small-6 medium-4 padding-left-1 medium-padding-right-1 padding-bottom-1">
                             <h3>Get in touch</h3>
-                            <p><a href="https://forms.library.manchester.ac.uk/public/form/649ac12b3917fcd3e2918ef4">In our efforts to improve this site, we welcome your thoughts, questions, and feedback.</a></p>
+                            <p>In our efforts to improve this site, we welcome your thoughts, questions, and feedback.</p>
+                            <p><a href="https://forms.library.manchester.ac.uk/public/form/649ac12b3917fcd3e2918ef4">Contact us online</a></p>
                         </div>
                         <div class="cell small-12 medium-4 padding-left-1 medium-padding-right-1">
                             <h3>Connect with us</h3>
@@ -164,5 +168,12 @@ $bannerPosition = ($this->themeSetting('banner_position')) ? str_replace('_','-'
         <script>
           $(document).foundation();
         </script>
+        <!-- Load the content warning banner code --> 
+        <?php echo $this->partial('/templates/content-warning-banner'); ?>
+        <!-- End content warning banner -->
+        <?php       
+        // Call the function, passing necessary parameters
+        showContentBanner($site, $currentLocale);
+        ?>
     </body>
 </html>

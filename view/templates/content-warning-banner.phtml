@@ -1,0 +1,82 @@
+<?php
+if (session_status() !== PHP_SESSION_ACTIVE) {
+    session_start(); // Start the session only if not already started
+}
+
+function showContentBanner($site, $currentLocale) {
+    // Get the site's slug
+    $getSiteSlug = $site->slug();
+
+    // Define allowed slugs
+    $allowedSlugs = ['corala', 'corala-es', 'block-testing'];
+
+    // Check if the current slug is in the allowed list
+    if (in_array($getSiteSlug, $allowedSlugs)) {
+        // Initialize session tracking for this slug if it doesn't exist
+        if (!isset($_SESSION['page_visits'][$getSiteSlug])) {
+            $_SESSION['page_visits'][$getSiteSlug] = 0;
+        }
+
+        // Increment the counter for this slug
+        $_SESSION['page_visits'][$getSiteSlug]++;
+
+        // Check if the banner should still be displayed (first two visits)
+        if ($_SESSION['page_visits'][$getSiteSlug] <= 2) {
+            // Tailor message based on site and then locale
+            if ($getSiteSlug == 'corala-es'): ?>
+                <script>
+                    console.log('Este script se ejecuta solo durante las dos primeras visitas.');
+                    var defaultBar = new $.peekABar({
+                        html: '<div class="warning-bar">\
+                            <div class="warning-content">\
+                            <p class="lead">Aviso: Este sitio contiene material que puede resultar ofensivo. \
+                            <a href="/s/corala-es/page/introduccion#content_warning">Por favor, dirigirse a nuestra declaración sobre material sensible en la muestra</a>.</p>\
+                            </div>\
+                        </div>'
+                    });
+                    defaultBar.show();
+                </script>
+            <?php elseif ($getSiteSlug == 'corala'): ?>
+                <script>
+                    console.log('This script runs only during the first two visits.');
+                    var defaultBar = new $.peekABar({
+                        html: '<div class="warning-bar">\
+                            <div class="warning-content">\
+                            <p class="lead">Content Warning: This site contains material you may find offensive. \
+                            <a href="/s/corala/page/introduction#content_warning">View our statement on sensitive material in the exhibition</a>.</p>\
+                            </div>\
+                        </div>'
+                    });
+                    defaultBar.show();
+                </script>
+            <?php elseif ($currentLocale == 'es'): ?>
+                <script>
+                    console.log('Este script se ejecuta solo durante las dos primeras visitas.');
+                    var defaultBar = new $.peekABar({
+                        html: '<div class="warning-bar">\
+                            <div class="warning-content">\
+                            <p class="lead">Advertencia de contenido: este sitio contiene material que puede resultarle molesto. \
+                            <a href="#">Consulte nuestra política sobre material confidencial</a>.</p>\
+                            </div>\
+                        </div>'
+                    });
+                    defaultBar.show();
+                </script>
+            <?php else : ?>
+                <script>
+                    console.log('This script runs only during the first two visits.');
+                    var defaultBar = new $.peekABar({
+                        html: '<div class="warning-bar">\
+                            <div class="warning-content">\
+                            <p class="lead">Content Warning: This site contains material you may find offensive. \
+                            <a class="warning-color" href="#">View our policy on sensitive material</a>.\
+                            </div>\
+                        </div>'
+                    });
+                    defaultBar.show();
+                </script>
+            <?php endif;
+        }
+    }
+}
+?>
