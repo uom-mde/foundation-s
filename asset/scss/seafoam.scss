@@ -2505,9 +2505,9 @@ grid-template-areas:
 }
 
 .medium .openseadragon {
-  height: 60vh!important;
+  height: 40vh!important;
   @include breakpoint(medium) {
-  height: 75vh!important;
+  height: 50vh!important;
   }
   @include breakpoint(large) {
   height: 60vh!important;
@@ -2515,9 +2515,9 @@ grid-template-areas:
 }
 
 .medium-large .openseadragon {
-  height: 60vh!important;
+  height: 40vh!important;
   @include breakpoint(medium) {
-  height: 75vh!important;
+  height: 60vh!important;
   }
   @include breakpoint(large) {
   height: 80vh!important;
@@ -2525,7 +2525,7 @@ grid-template-areas:
 }
 
 .large .openseadragon {
-  height: 60vh!important;
+  height: 40vh!important;
   @include breakpoint(medium) {
   height: 75vh!important;
   }
@@ -2536,11 +2536,11 @@ grid-template-areas:
 
 /*Seadragonbox Styling*/ 
 .seadragonbox {
-  height: 60vh!important;
+  height: 40vh!important;
 }
 .medium .seadragonbox {
   @include breakpoint(medium) {
-  height: 75vh!important;
+  height: 50vh!important;
   }
   @include breakpoint(large) {
   height: 60vh!important;
@@ -2549,7 +2549,7 @@ grid-template-areas:
 
 .medium-large .seadragonbox {
   @include breakpoint(medium) {
-  height: 75vh!important;
+  height: 60vh!important;
   }
   @include breakpoint(large) {
   height: 80vh!important;
