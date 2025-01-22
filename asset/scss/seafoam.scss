@@ -1936,6 +1936,10 @@ ul.language-switcher.locale-code li span.active {
   text-decoration: underline;
 }
 
+.dark-background h2.button a {
+  text-decoration: none;
+}
+
 .dark-background h2.button a:hover {
   text-decoration: none;
 }
@@ -2820,13 +2824,21 @@ section.image-banner {
   text-align: left;
   font-size: 0.9 * $global-font-size;
   color: $dark-gray;
-  margin: 0 1 * $global-margin 0.5 * $global-margin 0;
+  margin: 0 1 * $global-margin 0.5 * $global-margin 0.5 * $global-margin;
   border-left: solid rem-calc(6) $light-gray;
   align-self: baseline;
   & p {
     /*border-bottom: solid 1px $light-gray;*/ 
     margin-bottom: 0;
   }
+}
+
+.dark-background .item .caption {
+  border-left: solid rem-calc(6) $warning-color;
+}
+
+.dark-background .item .caption p {
+  color: #dddddd;
 }
 
 .asset .caption {
