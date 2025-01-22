@@ -1936,10 +1936,12 @@ ul.language-switcher.locale-code li span.active {
   text-decoration: underline;
 }
 
-.dark-background h2.button a {
-  text-decoration: none;
+.dark-background a:not(button a) {
+  text-decoration: underline;
 }
 
+.dark-background button a:hover,
+.dark-background h2.button a,
 .dark-background h2.button a:hover {
   text-decoration: none;
 }
