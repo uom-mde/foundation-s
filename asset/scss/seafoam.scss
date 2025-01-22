@@ -2985,8 +2985,10 @@ max-width: rem-calc(2000px);
 .img-hero .hero-title-img {
 position: absolute;
 z-index: 9999;
-bottom: 20%;
+bottom: 30%;
+max-width: rem-calc(700);
 } 
+
 .hero-title-img h1 {
   color: $white;
   font-weight: 400;
