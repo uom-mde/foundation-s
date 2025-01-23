@@ -220,7 +220,9 @@ a.language-show:not(:last-of-type)::after {
 }
 
 /*End Language Selector*/
-
+.title {
+  font-weight: 400 !important;
+}
 
 .title-bar {
   @include breakpoint(large) {
@@ -1284,12 +1286,16 @@ display: none;
   font-family: $body-font-family!important;
 }
 
-/*Item Show updates*/ 
+/*Item Show updates*/
+.resource.show .grid-x {
+  padding: 0;
+}
+
 dl dt {
-  font-weight: bold;
+  font-weight: 300;
   border-bottom: 1px solid $light-gray;
   margin-bottom: $global-margin;
-  font-size: 1.2 * $global-font-size;
+  font-size: 1.75 * $global-font-size;
 }
 
 .property {
@@ -2558,7 +2564,8 @@ grid-template-areas:
   }
 }
 
-.large .seadragonbox {
+.large .seadragonbox,
+.main-with-sidebar .seadragonbox {
   @include breakpoint(medium) {
   height: 75vh!important;
   }

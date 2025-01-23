@@ -2,9 +2,9 @@
 $translate = $this->plugin('translate');
 $escape = $this->plugin('escapeHtml');
 $this->headLink()->appendStylesheet($this->assetUrl('css/resource-page-blocks.css', 'Omeka'));
+$this->htmlElement('body')->appendAttribute('class', 'item resource show');
 $this->headLink()->appendStylesheet($this->assetUrl('css/annona.css'));
 $this->headScript()->appendFile($this->assetUrl('js/annona.js'));
-$this->htmlElement('body')->appendAttribute('class', 'item resource show');
 $embedMedia = $this->siteSetting('item_media_embed', false);
 $itemMedia = $item->media();
 $showLayout = $this->themeSetting('show_layout');
@@ -23,117 +23,53 @@ $rightSidebarHasBlocks = $rightSidebarBlockContent->hasBlocks();
 $filterLocale = (bool) $this->siteSetting('filter_locale_values');
 $lang = $this->lang();
 $valueLang = $filterLocale ? [$lang, ''] : null;
-
-$viewers = [];
-$miradorViewer = null;
-$miradorImageViewer = null;
-$universalViewer = null;
-$youtubeViewer = null;
-$defaultViewer = null;
-
-// Loop through Item Media and Choose Viewer for the First Item Only
-$firstMedia = true;
-foreach ($itemMedia as $index => $media) {
-    $mediaType = $media->mediaType();
-    $mediaRenderer = $media->renderer();
-        // Add debugging statements
-        // echo "Media Renderer: $mediaRenderer, Media Type: $mediaType<br>";
-
-    if ($firstMedia) {
-        if ($mediaRenderer == 'iiifPresentation') {
-            $viewers[] = 'mirador';
-            $firstMedia = false;
-        } elseif ($mediaRenderer == 'iiif') {
-            $viewers[] = 'mirador';
-            $miradorImageViewer = "<div>" . $this->mirador($item) . "</div>";
-            $firstMedia = false;
-        } elseif ($mediaRenderer == 'youtube') {
-            $viewers[] = 'youtube';
-            $youtubeViewer = "<div class='responsive-embed widescreen'>" . $media->render() . "</div>";
-            $firstMedia = false;
-        } else {
-            $viewers[] = 'default';
-            $defaultViewer = $media->render();
-            $firstMedia = false;
-        }
-    } else {
-        // For additional media, you may want to handle them differently or skip them.
-        // You can add additional logic here if needed.
-    }
-}
 ?>
 
-<div class="full-width">
-    <div class="grid-x grid-padding-x flex-container">
-        <div class="grid-container resource-title">
-            <?php echo $this->pageTitle($item->displayTitle(null, $valueLang), 2); ?>
-            <h2 class="label"><?php echo $translate('Item'); ?></h2>
-        </div>
-        <div class="<?php echo ($showLayout == 'inline') ? 'inline' : 'stack'; ?>">
-            <?php $this->trigger('view.show.before'); ?>
+<div class="resource-title">
+<?php echo $this->pageTitle($item->displayTitle(null, $valueLang), 2); ?>
+<h3 class="label"><?php echo $translate('Item'); ?></h3>
+</div>
 
-            <div class="full-width-main margin-bottom-2 xlarge-margin-bottom-3">
-                <?php 
-                // Display the main viewer
-                if ($miradorViewer !== null) {
-                    echo $miradorViewer;
-                }
-                elseif ($miradorImageViewer !== null) {
-                    echo $miradorImageViewer;
-                } 
-                elseif ($universalViewer !== null) {
-                    echo $universalViewer;
-                } 
-                elseif ($youtubeViewer !== null) {
-                    echo $youtubeViewer;
-                } 
-                elseif ($defaultViewer !== null) {
-                    echo $defaultViewer;
-                }
-                ?>
-            </div>
-        </div>
-
-            <?php if ($fullWidthMainHasBlocks): ?>
-            <div class="full-width-main margin-bottom-2 xlarge-margin-bottom-3">
-                <?php echo $fullWidthMainBlockContent->getBlocks(); ?>
-            </div>
-            <?php endif; ?>
-
-            <?php if ($mainWithSidebarHasBlocks || $leftSidebarHasBlocks || $rightSidebarHasBlocks): ?>
-            
-            <?php 
-            if ($leftSidebarHasBlocks && $rightSidebarHasBlocks) {
-                $sidebarWidth = '3';
-                $mainWidth = '6';
-            } else {
-                $sidebarWidth = '4';
-                $mainWidth = '8';
-            }
-            ?>
-            
-            <div class="grid-x grid-margin-x margin-bottom-1 large-margin-bottom-2 xlarge-margin-bottom-3">
-                <?php if ($leftSidebarHasBlocks): ?>
-                <div class="left-sidebar cell medium-<?php echo $sidebarWidth; ?> margin-top-1 medium-margin-top-2 xlarge-margin-top-3">
-                    <?php echo $leftSidebarBlockContent->getBlocks(); ?>
-                </div>
-                <?php endif; ?>
-
-                <?php if ($mainWithSidebarHasBlocks): ?>
-                <div class="main-with-sidebar cell medium-<?php echo $mainWidth; ?> margin-top-1 medium-margin-top-2 xlarge-margin-top-3">
-                    <?php echo $mainWithSidebarBlockContent->getBlocks(); ?>
-                </div>
-                <?php endif; ?>
-
-                <?php if ($rightSidebarHasBlocks): ?>
-                <div class="right-sidebar cell medium-<?php echo $sidebarWidth; ?> dark-background margin-top-1 large-margin-top-0 padding-1 large-padding-2 xlarge-padding-3">
-                    <?php echo $rightSidebarBlockContent->getBlocks(); ?>
-                </div>
-                <?php endif; ?>
-            </div>
-            <?php endif; ?>
-
-            <?php $this->trigger('view.show.after'); ?>
-        </div>
+<div class="<?php echo ($showLayout == 'inline') ? 'inline' : 'stack'; ?>">
+    <?php $this->trigger('view.show.before'); ?>
+    <?php if ($fullWidthMainHasBlocks): ?>
+    <div class="full-width-main">
+        <?php echo $fullWidthMainBlockContent->getBlocks(); ?>
     </div>
+    <?php endif; ?>
+
+    <?php if ($mainWithSidebarHasBlocks || $leftSidebarHasBlocks || $rightSidebarHasBlocks): ?>
+    
+    <?php 
+    if ($leftSidebarHasBlocks && $rightSidebarHasBlocks) {
+        $sidebarWidth = '3';
+        $mainWidth = '6';
+    } else {
+        $sidebarWidth = '4';
+        $mainWidth = '8';
+    }
+    ?>
+    
+    <div class="grid-x grid-margin-x full-width">
+        <?php if ($leftSidebarHasBlocks): ?>
+        <div class="left-sidebar cell medium-<?php echo $sidebarWidth; ?>">
+            <?php echo $leftSidebarBlockContent->getBlocks(); ?>
+        </div>
+        <?php endif; ?>
+
+        <?php if ($mainWithSidebarHasBlocks): ?>
+        <div class="main-with-sidebar cell medium-<?php echo $mainWidth; ?>">
+            <?php echo $mainWithSidebarBlockContent->getBlocks(); ?>
+        </div>
+        <?php endif; ?>
+
+        <?php if ($rightSidebarHasBlocks): ?>
+        <div class="right-sidebar cell medium-<?php echo $sidebarWidth; ?> large-padding-1 xlarge-padding-2">
+            <?php echo $rightSidebarBlockContent->getBlocks(); ?>
+        </div>
+        <?php endif; ?>
+    </div>
+    <?php endif; ?>
+
+    <?php $this->trigger('view.show.after'); ?>
 </div>
