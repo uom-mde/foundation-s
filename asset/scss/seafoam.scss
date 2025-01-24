@@ -1295,7 +1295,10 @@ dl dt {
   font-weight: 300;
   border-bottom: 1px solid $light-gray;
   margin-bottom: $global-margin;
+  font-size: 1.4 * $global-font-size;
+  @include breakpoint(large) {
   font-size: 1.75 * $global-font-size;
+  }
 }
 
 .property {

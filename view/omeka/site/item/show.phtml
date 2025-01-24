@@ -68,21 +68,24 @@ foreach ($itemMedia as $index => $media) {
     <?php $this->trigger('view.show.before'); ?>
     <?php if ($fullWidthMainHasBlocks): ?>
     <div class="<?php echo ($showLayout == 'inline') ? 'inline' : 'stack'; ?>">
-        <?php $this->trigger('view.show.before'); ?>
+        <div class="full-width grid-x grid-padding-x">
+            <?php $this->trigger('view.show.before'); ?>
 
-    <div class="full-width-main margin-bottom-2 xlarge-margin-bottom-3">
-        <?php 
-        // Display the main viewer
-        if ($youtubeViewer !== null) {
-            echo $youtubeViewer;
-        } 
-        elseif ($defaultViewer !== null) {
-            echo $defaultViewer;
-        }
-        ?>
-    </div>
-</div>
-        <?php echo $fullWidthMainBlockContent->getBlocks(); ?>
+            <div class="main-with-sidebar cell medium-8 margin-bottom-2 xlarge-margin-bottom-3">
+                <?php 
+                // Display the main viewer
+                if ($youtubeViewer !== null) {
+                    echo $youtubeViewer;
+                } 
+                elseif ($defaultViewer !== null) {
+                    echo $defaultViewer;
+                }
+                ?>
+            </div>
+            <div class="right-sidebar cell medium-4 medium-padding-vertical-1 xlarge-padding-horizontal-2">
+                <?php echo $fullWidthMainBlockContent->getBlocks(); ?>
+            </div>
+        </div>
     </div>
     <?php endif; ?>
 
