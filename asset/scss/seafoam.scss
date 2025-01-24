@@ -1368,6 +1368,19 @@ margin-top: 2 * $global-margin;
   }
 }
 
+/*Openseadragon for Item Show*/ 
+.main-with-sidebar .openseadragon,
+.stack .full-width-main .openseadragon,
+.stack .full-width-main .seadragonbox {
+  height: 40vh !important;
+  @include breakpoint(medium) {
+    height: 60vh !important;
+  }
+  @include breakpoint(large) {
+    height: 80vh !important;
+  }
+} 
+
 /*Centre Items*/ 
 .main-with-sidebar .media-render {
   text-align: center;
