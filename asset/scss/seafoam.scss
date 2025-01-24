@@ -1295,7 +1295,10 @@ dl dt {
   font-weight: 300;
   border-bottom: 1px solid $light-gray;
   margin-bottom: $global-margin;
+  font-size: 1.4 * $global-font-size;
+  @include breakpoint(large) {
   font-size: 1.75 * $global-font-size;
+  }
 }
 
 .property {
@@ -1316,9 +1319,9 @@ margin-top: 2 * $global-margin;
     color: $primary-color;
   }
 
-.right-sidebar .property dd.value a:hover {
+/*.right-sidebar .property dd.value a:hover {
   text-decoration: underline;
-}
+}*/
 
   .right-sidebar.dark-background {
     @include breakpoint (medium down) {
@@ -1327,6 +1330,20 @@ margin-top: 2 * $global-margin;
   width: 100%;
   } 
   }
+
+/*Feature for links*/
+dd.value a {
+  padding: .5 * $global-padding;
+  background: $secondary-color;
+  color: $white;
+  line-height: 2;
+  text-decoration: none;
+  &:hover {
+    background: darken($secondary-color, 10%);
+    cursor: pointer;
+    text-decoration: none;
+  }
+}
 
 /*Light Gallery*/ 
 /*Minimum height*/ 
