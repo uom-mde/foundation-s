@@ -1301,6 +1301,19 @@ dl dt {
   }
 }
 
+/*Feature for links*/
+dd.value a {
+  padding: .5 * $global-padding;
+  background: $primary-color;
+  color: $white;
+  line-height: 2;
+  &:hover {
+    background: darken($primary-color, 10%);
+    cursor: pointer;
+    text-decoration: none;
+  }
+}
+
 .property {
   margin-bottom: 2 * $global-margin;
 }
