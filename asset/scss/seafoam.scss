@@ -1833,6 +1833,11 @@ polygon>.svgactive:hover {
   }
 }
 
+/*Fix issue with range/multi-storyboard*/ 
+.rangestoryboard.annonaview.rangestoryboardview span {
+  width: 100% !important;
+}
+
 /* Language bar*/ 
 #language-bar {
   display: flex;
