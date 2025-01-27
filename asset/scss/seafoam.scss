@@ -1333,15 +1333,15 @@ margin-top: 2 * $global-margin;
 
 /*Feature for links*/
 dd.value a {
-  padding: .5 * $global-padding;
-  background: $secondary-color;
-  color: $white;
-  line-height: 2;
-  text-decoration: none;
+  /*padding: .5 * $global-padding;*/
+  /*background: $secondary-color;*/
+  color: $secondary-color;
+  /*line-height: 2;*/
+  text-decoration: underline;
   &:hover {
     background: darken($secondary-color, 10%);
     cursor: pointer;
-    text-decoration: none;
+    text-decoration: underline;
   }
 }
 
