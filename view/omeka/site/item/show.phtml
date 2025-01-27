@@ -31,8 +31,8 @@ $valueLang = $filterLocale ? [$lang, ''] : null;
 ?>
 
 <div class="resource-title">
-<?php echo $this->pageTitle($item->displayTitle(null, $valueLang), 2); ?>
-<h3 class="label"><?php echo $translate('Item'); ?></h3>
+    <?php echo $this->pageTitle($item->displayTitle(null, $valueLang), 2); ?>
+    <h2 class="label"><?php echo $translate('Item'); ?></h2>
 </div>
 
 <div class="<?php echo ($showLayout == 'inline') ? 'inline' : 'stack'; ?>">
@@ -71,7 +71,6 @@ $valueLang = $filterLocale ? [$lang, ''] : null;
     <div class="<?php echo ($showLayout == 'inline') ? 'inline' : 'stack'; ?>">
         <div class="full-width grid-x grid-padding-x">
             <?php $this->trigger('view.show.before'); ?>
-
             <div class="main-with-sidebar cell medium-8 margin-bottom-2 xlarge-margin-bottom-3">
                 <?php 
                 // Display the main viewer
@@ -91,7 +90,6 @@ $valueLang = $filterLocale ? [$lang, ''] : null;
     <?php endif; ?>
 
     <?php if ($mainWithSidebarHasBlocks || $leftSidebarHasBlocks || $rightSidebarHasBlocks): ?>
-    
     <?php 
     if ($leftSidebarHasBlocks && $rightSidebarHasBlocks) {
         $sidebarWidth = '3';

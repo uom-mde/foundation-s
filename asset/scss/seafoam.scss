@@ -1317,7 +1317,7 @@ dl dt:after {
 }
 
 .property {
-  margin-bottom: 2 * $global-margin;
+  margin-bottom: 1.25 * $global-margin;
 }
 
 .value:first-child {
@@ -1509,6 +1509,9 @@ button.search-icon[aria-expanded="true"] {
 
 .top-bar-left {
   min-width: rem-calc(175);
+  @include breakpoint(large) {
+    margin-right: 1.5rem;
+  }
 }
 
 @include breakpoint(large) {
@@ -2185,6 +2188,10 @@ max-width: rem-calc(850);
   text-align: center;
 }
 
+.resourceTextGrid .block-html h2.identifier {
+  text-align: left;
+}
+
 .resourceTextGrid .file-caption-text.media-embed {
   grid-area: media-embed-media;
 }
@@ -2462,6 +2469,18 @@ grid-template-areas:
   }
 
   /*Utility Classes*/ 
+  .small-only {
+    display: block;
+    @include breakpoint(medium) {
+      display: none;
+    }
+  }
+  .medium-up {
+    display: none;
+    @include breakpoint(medium) {
+      display: block;
+    }
+  }
   .no-margin-top {
     margin-top:-1 * $global-margin;
     @include breakpoint(large) {

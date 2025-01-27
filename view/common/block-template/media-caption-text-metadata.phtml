@@ -1,0 +1,71 @@
+<?php
+$this->headLink()->appendStylesheet($this->assetUrl('css/annona.css')); 
+$this->headScript()->appendFile($this->assetUrl('js/annona.js'));
+$hyperlink = $this->plugin('hyperlink');
+$thumbnailType = $block->dataValue('thumbnail_type');
+?>
+<div class="full-width file-caption-block media-caption-text resourceTextGrid padding-horizontal-1 large-padding-2 margin-vertical-1 large-margin-vertical-2">
+    <div class="file file-caption-text media-embed large-padding-horizontal-1 xlarge-padding-horizontal-2 <?php echo $this->escapeHtml(implode(' ', $classes)); ?>">
+        <?php foreach($attachments as $attachment): ?>
+        <?php $item = $attachment->item(); ?>
+        <div class="item resource <?php echo $thumbnailType; ?>">
+            <?php
+            $media = $attachment->media() ?: $item->primaryMedia();
+            $mediaRenderer = $media->renderer();
+            if ($media):
+                if ($mediaDisplay === 'thumbnail') {
+                    switch ($link) {
+                        case 'original':
+                            $url = $media->originalUrl();
+                            break;
+                        case 'item':
+                            $url = $item->url();
+                            break;
+                        case 'media':
+                            $url = $media->url();
+                            break;
+                        default:
+                        throw new \InvalidArgumentException(sprintf('Invalid link type "%s"', $link));
+                    }
+                    echo $hyperlink->raw($this->thumbnail($media, $thumbnailType), $url);
+                } else {
+                    echo $media->render([
+                        'thumbnailType' => $thumbnailType,
+                        'link' => $link,
+                    ]);
+                }
+            endif;
+            ?>
+            </div>
+        </div>
+        <div class="block-html padding-horizontal-1 xlarge-padding-horizontal-3">
+            <?php if ($showTitleOption === 'item_title'): ?>
+                <div class="separator-center metadata margin-vertical-1">
+                    <h2><?php echo $item->displayTitle(); ?></h2>
+                    <?php if ($alternative = $item->value('dcterms:alternative')): ?>
+                        <h2 class="h4 italic-font"><small><?= htmlspecialchars($alternative) ?></small></h2>
+                    <?php endif; ?>
+                </div>
+            <?php elseif ($showTitleOption === 'file_name'): ?>
+                <div class="separator-center metadata margin-vertical-1">
+                    <h2><?php echo $media->displayTitle(); ?></h2>
+                </div>
+            <?php endif; ?>
+            <?php $caption = $attachment->caption(); ?>
+            <?php if ($caption): ?>
+                <div class="caption margin-top-1 large-margin-top-2"><?php echo $caption; ?></div>
+            <?php endif; ?>
+            <?php
+                $identifier = $item->value("dcterms:identifier");
+                if ($identifier): ?>
+                    <h2 class="h4 identifier"><small><?php echo "Ref. " . $identifier; ?></small></h2>
+                <?php endif;
+            ?>
+            <div class="learn-more flex-container align-center">
+                <button class="button medium warning hollow"><?php echo $item->link("View full item"); ?></button>
+            </div>
+        </div>
+        <?php endforeach; ?>
+    </div>
+    </div>
+<div>
