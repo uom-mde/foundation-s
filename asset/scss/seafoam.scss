@@ -1317,7 +1317,7 @@ dl dt:after {
 }
 
 .property {
-  margin-bottom: 2 * $global-margin;
+  margin-bottom: 1.25 * $global-margin;
 }
 
 .value:first-child {
@@ -2462,6 +2462,18 @@ grid-template-areas:
   }
 
   /*Utility Classes*/ 
+  .small-only {
+    display: block;
+    @include breakpoint(medium) {
+      display: none;
+    }
+  }
+  .medium-up {
+    display: none;
+    @include breakpoint(medium) {
+      display: block;
+    }
+  }
   .no-margin-top {
     margin-top:-1 * $global-margin;
     @include breakpoint(large) {
