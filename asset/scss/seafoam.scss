@@ -21,8 +21,14 @@ $thumbnail-shadow-hover: 0 0 6px 1px rgba($primary-color, 0.5);
   @include breakpoint(medium) {
     max-width: 70%;
   }
+  @include breakpoint(900) {
+    padding-left: $global-padding;
+  }
   @include breakpoint(large) {
     max-width: unset;
+  }
+  @include breakpoint(xlarge) {
+    padding-left: 2 * $global-padding;
   }
 }
 
