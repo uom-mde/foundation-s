@@ -24,35 +24,6 @@ $filterLocale = (bool) $this->siteSetting('filter_locale_values');
 $lang = $this->lang();
 $valueLang = $filterLocale ? [$lang, ''] : null;
 
-$viewers = [];
-$youtubeViewer = null;
-$defaultViewer = null;
-$firstMedia = true; // Ensure this is defined
-
-foreach ($itemMedia as $index => $media) {
-    $mediaType = $media->mediaType();
-    $mediaRenderer = $media->renderer();
-
-    // Debugging output
-    // echo "Index: $index, Media Renderer: $mediaRenderer, Media Type: $mediaType<br>";
-
-    if ($firstMedia) {
-        if ($mediaRenderer == 'youtube') {
-            $viewers[] = 'youtube';
-            $youtubeViewer = "<div class='responsive-embed widescreen'>" . $media->render() . "</div>";
-            $firstMedia = false;
-        } else {
-            $viewers[] = 'default';
-            $defaultViewer = $media->render();
-            $firstMedia = false;
-        }
-    } 
-    // else {
-        // Optional logic for additional media
-        //echo "Additional media detected at index $index.<br>";
-    //}
-}
-
 // Debugging output to inspect viewers
 //echo "<pre>";
 // print_r($viewers);
@@ -67,6 +38,36 @@ foreach ($itemMedia as $index => $media) {
 <div class="<?php echo ($showLayout == 'inline') ? 'inline' : 'stack'; ?>">
     <?php $this->trigger('view.show.before'); ?>
     <?php if ($fullWidthMainHasBlocks): ?>
+        <?php 
+        $viewers = [];
+        $youtubeViewer = null;
+        $defaultViewer = null;
+        $firstMedia = true; // Ensure this is defined
+        
+        foreach ($itemMedia as $index => $media) {
+            $mediaType = $media->mediaType();
+            $mediaRenderer = $media->renderer();
+        
+            // Debugging output
+            // echo "Index: $index, Media Renderer: $mediaRenderer, Media Type: $mediaType<br>";
+        
+            if ($firstMedia) {
+                if ($mediaRenderer == 'youtube') {
+                    $viewers[] = 'youtube';
+                    $youtubeViewer = "<div class='responsive-embed widescreen'>" . $media->render() . "</div>";
+                    $firstMedia = false;
+                } else {
+                    $viewers[] = 'default';
+                    $defaultViewer = $media->render();
+                    $firstMedia = false;
+                }
+            } 
+            // else {
+                // Optional logic for additional media
+                //echo "Additional media detected at index $index.<br>";
+            //}
+        }
+        ?>
     <div class="<?php echo ($showLayout == 'inline') ? 'inline' : 'stack'; ?>">
         <div class="full-width grid-x grid-padding-x">
             <?php $this->trigger('view.show.before'); ?>

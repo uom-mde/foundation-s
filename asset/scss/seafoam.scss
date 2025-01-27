@@ -14,8 +14,10 @@ $thumbnail-shadow-hover: 0 0 6px 1px rgba($primary-color, 0.5);
 @import 'omeka';
 
 .site-title {
-  padding-left: $global-padding;
   max-width: calc(100vw - rem-calc(120));
+  @include breakpoint(355) {
+  padding-left: 0.6rem;
+  }
   @include breakpoint(medium) {
     max-width: 70%;
   }
@@ -32,7 +34,7 @@ span.h4.site-title-label {
   margin-bottom: 0;
   font-size: 1.1 * $global-font-size;
   margin-right: 1.5 * $global-margin;
-  font-weight: 600;
+  font-weight: 400;
   color: $white;
   @include breakpoint(medium) {
     font-size: 1.2 * $global-font-size;
@@ -157,10 +159,10 @@ header .top-bar-right {
   text-decoration: none;
   display: flex;
   flex-grow: 3;
-  width: rem-calc(225);
-  margin: 0 rem-calc(12) rem-calc(12) rem-calc(12);
+  width: rem-calc(250);
+  margin: 0 rem-calc(12) 0 rem-calc(12);
   order: 2;
-  @include breakpoint(339) {
+  @include breakpoint(355) {
       margin: 0 rem-calc(12) rem-calc(12) rem-calc(24); /*with language selector*/
       /*without additional languages, bottom margin must be removed*/ 
   }
@@ -1293,12 +1295,19 @@ display: none;
 
 dl dt {
   font-weight: 300;
-  border-bottom: 1px solid $light-gray;
   margin-bottom: $global-margin;
   font-size: 1.4 * $global-font-size;
   @include breakpoint(large) {
-  font-size: 1.75 * $global-font-size;
+  font-size: rem-calc(26);
   }
+}
+
+dl dt:after {
+  content: ""; /* This is necessary for the pseudo element to work. */ 
+  display: block; /* This will put the pseudo element on its own line. */
+  width: 50%; /* Change this to whatever width you want. */
+  max-width: rem-calc(125);
+  border-bottom: 1px solid $warning-color /* This creates the border. Replace black with whatever color you want. */
 }
 
 .property {
