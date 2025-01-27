@@ -1509,6 +1509,9 @@ button.search-icon[aria-expanded="true"] {
 
 .top-bar-left {
   min-width: rem-calc(175);
+  @include breakpoint(large) {
+    margin-right: 1.5rem;
+  }
 }
 
 @include breakpoint(large) {
@@ -2183,6 +2186,10 @@ max-width: rem-calc(850);
 
 .resourceTextGrid .block-html h2 {
   text-align: center;
+}
+
+.resourceTextGrid .block-html h2.identifier {
+  text-align: left;
 }
 
 .resourceTextGrid .file-caption-text.media-embed {
