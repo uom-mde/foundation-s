@@ -1164,6 +1164,10 @@ display: none;
   z-index: 10000;
   }
 
+.preview-grid .og-grid>li {
+  height: unset!important;
+}
+
 /*Browse Preview CSS Grid*/ 
 .og-grid-cover {
   display: grid;
