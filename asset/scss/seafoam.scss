@@ -557,7 +557,8 @@ nav.breadcrumbs {
 }
 
 /*Add White Background rules*/ 
-.white-background .asset-hero h1 {
+.white-background .asset-hero h1,
+.white-background .image-banner .overlay-container > h1 {
   padding: 0.5rem;
   background: rgba($white, .8);
   color: #000;
@@ -572,6 +573,11 @@ nav.breadcrumbs {
   @include breakpoint(xlarge) {
     max-width: rem-calc(750);
   }
+}
+
+.white-background .image-banner .overlay-container > p {
+  color: $white;
+  background-color: rgba($uom-footer, .95);
 }
 
 /*Remove margin from h2 learn more button*/
