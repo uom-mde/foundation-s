@@ -563,15 +563,18 @@ nav.breadcrumbs {
   background: rgba($white, .8);
   color: #000;
   max-width: rem-calc(400);
+  @include breakpoint(600) {
+    font-size: 2 * $global-font-size;
+  }
   @include breakpoint(medium) {
     max-width: rem-calc(500);
   }
   @include breakpoint(large) {
     padding: $global-padding;
-    max-width: rem-calc(600);
+    font-size: 2.5 * $global-font-size;
   }
   @include breakpoint(xlarge) {
-    max-width: rem-calc(750);
+    max-width: rem-calc(600);
   }
 }
 
@@ -3087,6 +3090,9 @@ section.image-banner {
     
   .asset-hero-caption {
   height: 100%;
+  & p {
+    margin-bottom: 0;
+  }
   }
 
   .asset-hero-caption-bottom {
