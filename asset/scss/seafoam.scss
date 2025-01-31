@@ -556,6 +556,24 @@ nav.breadcrumbs {
   }
 }
 
+/*Add White Background rules*/ 
+.white-background .asset-hero h1 {
+  padding: 0.5rem;
+  background: rgba($white, .8);
+  color: #000;
+  max-width: rem-calc(400);
+  @include breakpoint(medium) {
+    max-width: rem-calc(500);
+  }
+  @include breakpoint(large) {
+    padding: $global-padding;
+    max-width: rem-calc(600);
+  }
+  @include breakpoint(xlarge) {
+    max-width: rem-calc(750);
+  }
+}
+
 /*Remove margin from h2 learn more button*/
 .learn-more h2.button {
   margin: 0;
@@ -2917,10 +2935,14 @@ height: 60vh!important;
   max-width: unset; 
 }
 
+/*Reduce font-weight for Image Banner*/ 
+.image-banner .overlay-container > h1 {
+  font-weight: 400!important;
+}
+
 /*Add dark text option for Image Banner*/ 
 .image-banner-dark-text .image-banner .overlay-container > h1,
 .image-banner-dark-text .image-banner .overlay-container > p {
-  font-weight: 300;
   background: #ffffffba;
   color: #000;
   padding: 1rem;
