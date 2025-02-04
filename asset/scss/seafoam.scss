@@ -1385,9 +1385,8 @@ dd.value a {
   /*line-height: 2;*/
   text-decoration: underline;
   &:hover {
-    background: darken($secondary-color, 10%);
+    color: darken($secondary-color, 50%);
     cursor: pointer;
-    text-decoration: underline;
   }
 }
 
@@ -2252,6 +2251,14 @@ grid-template-areas:
   @include breakpoint(xlarge) {
     grid-template-columns: 1fr 4fr 1fr;
   }
+}
+
+/*Customise metadata options*/ 
+.no-alternative .alternative,
+.no-location .location,
+.no-date .date,
+.no-identifier .identifier {
+  display: none;
 }
 
 /*Add wide option*/ 
@@ -3122,7 +3129,7 @@ section.image-banner {
     height: rem-calc(400px);
   }
   @include breakpoint(xlarge) {
-    height: rem-calc(450px);
+    height: rem-calc(500px);
   }
 }
 
