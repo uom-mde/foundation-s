@@ -3255,6 +3255,7 @@ max-width: rem-calc(700);
   padding: 1rem;
   color: $white;
   font-weight: 400;
+  margin-bottom: 0;
   @include breakpoint(large) {
     font-size: rem-calc(42);
   }
