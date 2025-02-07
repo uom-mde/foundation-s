@@ -14,13 +14,21 @@ $thumbnail-shadow-hover: 0 0 6px 1px rgba($primary-color, 0.5);
 @import 'omeka';
 
 .site-title {
-  padding-left: $global-padding;
   max-width: calc(100vw - rem-calc(120));
+  @include breakpoint(355) {
+  padding-left: 0.6rem;
+  }
   @include breakpoint(medium) {
     max-width: 70%;
   }
+  @include breakpoint(900) {
+    padding-left: $global-padding;
+  }
   @include breakpoint(large) {
     max-width: unset;
+  }
+  @include breakpoint(xlarge) {
+    padding-left: 2 * $global-padding;
   }
 }
 
@@ -32,7 +40,7 @@ span.h4.site-title-label {
   margin-bottom: 0;
   font-size: 1.1 * $global-font-size;
   margin-right: 1.5 * $global-margin;
-  font-weight: 600;
+  font-weight: 400;
   color: $white;
   @include breakpoint(medium) {
     font-size: 1.2 * $global-font-size;
@@ -157,10 +165,10 @@ header .top-bar-right {
   text-decoration: none;
   display: flex;
   flex-grow: 3;
-  width: rem-calc(225);
-  margin: 0 rem-calc(12) rem-calc(12) rem-calc(12);
+  width: rem-calc(250);
+  margin: 0 rem-calc(12) 0 rem-calc(12);
   order: 2;
-  @include breakpoint(339) {
+  @include breakpoint(355) {
       margin: 0 rem-calc(12) rem-calc(12) rem-calc(24); /*with language selector*/
       /*without additional languages, bottom margin must be removed*/ 
   }
@@ -220,7 +228,9 @@ a.language-show:not(:last-of-type)::after {
 }
 
 /*End Language Selector*/
-
+.title {
+  font-weight: 400 !important;
+}
 
 .title-bar {
   @include breakpoint(large) {
@@ -532,6 +542,9 @@ nav.breadcrumbs {
   p.h4 small {
     color: $white;
   }
+  p.h5 {
+    color: $warning-color;
+  }
   .learn-more .button a {
     color: $black;
   }
@@ -544,6 +557,33 @@ nav.breadcrumbs {
   .learn-more .hollow.button.warning:hover a {
     color: $black;
   }
+}
+
+/*Add White Background rules*/ 
+.white-background .asset-hero h1,
+.white-background .image-banner .overlay-container > h1 {
+  padding: 0.5rem;
+  background: rgba($white, .8);
+  color: #000;
+  max-width: rem-calc(400);
+  @include breakpoint(600) {
+    font-size: 2 * $global-font-size;
+  }
+  @include breakpoint(medium) {
+    max-width: rem-calc(500);
+  }
+  @include breakpoint(large) {
+    padding: $global-padding;
+    font-size: 2.5 * $global-font-size;
+  }
+  @include breakpoint(xlarge) {
+    max-width: rem-calc(600);
+  }
+}
+
+.white-background .image-banner .overlay-container > p {
+  color: $white;
+  background-color: rgba($uom-footer, .95);
 }
 
 /*Remove margin from h2 learn more button*/
@@ -1154,6 +1194,10 @@ display: none;
   z-index: 10000;
   }
 
+.preview-grid .og-grid>li {
+  height: unset!important;
+}
+
 /*Browse Preview CSS Grid*/ 
 .og-grid-cover {
   display: grid;
@@ -1284,16 +1328,30 @@ display: none;
   font-family: $body-font-family!important;
 }
 
-/*Item Show updates*/ 
+/*Item Show updates*/
+.resource.show .grid-x {
+  padding: 0;
+}
+
 dl dt {
-  font-weight: bold;
-  border-bottom: 1px solid $light-gray;
+  font-weight: 300;
   margin-bottom: $global-margin;
-  font-size: 1.2 * $global-font-size;
+  font-size: 1.4 * $global-font-size;
+  @include breakpoint(large) {
+  font-size: rem-calc(26);
+  }
+}
+
+dl dt:after {
+  content: ""; /* This is necessary for the pseudo element to work. */ 
+  display: block; /* This will put the pseudo element on its own line. */
+  width: 50%; /* Change this to whatever width you want. */
+  max-width: rem-calc(125);
+  border-bottom: 1px solid $warning-color /* This creates the border. Replace black with whatever color you want. */
 }
 
 .property {
-  margin-bottom: 2 * $global-margin;
+  margin-bottom: 1.25 * $global-margin;
 }
 
 .value:first-child {
@@ -1310,9 +1368,9 @@ margin-top: 2 * $global-margin;
     color: $primary-color;
   }
 
-.right-sidebar .property dd.value a:hover {
+/*.right-sidebar .property dd.value a:hover {
   text-decoration: underline;
-}
+}*/
 
   .right-sidebar.dark-background {
     @include breakpoint (medium down) {
@@ -1321,6 +1379,77 @@ margin-top: 2 * $global-margin;
   width: 100%;
   } 
   }
+
+/*Feature for links*/
+dd.value a {
+  /*padding: .5 * $global-padding;*/
+  /*background: $secondary-color;*/
+  color: $secondary-color;
+  /*line-height: 2;*/
+  text-decoration: underline;
+  &:hover {
+    color: darken($secondary-color, 50%);
+    cursor: pointer;
+  }
+}
+
+/*Light Gallery*/ 
+/*Minimum height*/ 
+#itemfiles {
+  min-height: 40vh !important;
+  @include breakpoint(medium) {
+  min-height: 60vh !important;
+  }
+  @include breakpoint(large) {
+    min-height: 80vh !important;
+  }
+  @include breakpoint(xlarge) {
+    min-height: 90vh !important;
+  }
+}
+/*Disable Item Show Download Button*/ 
+#lg-download-1 {
+  display: none;
+}
+
+/*Increase YouTube embed size for Item Show*/ 
+.resource.show .media-render.youtube>* {
+  max-width: unset;
+}
+.main-with-sidebar .youtube iframe {
+  width: 100%;
+  height: 300px;
+  border-radius: rem-calc(6);
+  @include breakpoint(medium) {
+    height: 350px;
+    max-width: 467px !important;
+  }
+  @include breakpoint(large) {
+    max-width: 622px !important;
+  }
+  @include breakpoint(xlarge) {
+    height: 400px;
+    max-width: 711px !important;
+  }
+}
+
+/*Openseadragon for Item Show*/ 
+.main-with-sidebar .openseadragon,
+.stack .full-width-main .openseadragon,
+.stack .full-width-main .seadragonbox {
+  height: 40vh !important;
+  @include breakpoint(medium) {
+    height: 60vh !important;
+  }
+  @include breakpoint(large) {
+    height: 80vh !important;
+  }
+} 
+
+/*Centre Items*/ 
+.main-with-sidebar .media-render {
+  text-align: center;
+}
 
 /*IvyRze blocks*/ 
 /*Accordion*/ 
@@ -1413,6 +1542,9 @@ button.search-icon[aria-expanded="true"] {
 
 .top-bar-left {
   min-width: rem-calc(175);
+  @include breakpoint(large) {
+    margin-right: 1.5rem;
+  }
 }
 
 @include breakpoint(large) {
@@ -1769,6 +1901,11 @@ polygon>.svgactive:hover {
   }
 }
 
+/*Fix issue with range/multi-storyboard*/ 
+.rangestoryboard.annonaview.rangestoryboardview span {
+  width: 100% !important;
+}
+
 /* Language bar*/ 
 #language-bar {
   display: flex;
@@ -2084,6 +2221,10 @@ max-width: rem-calc(850);
   text-align: center;
 }
 
+.resourceTextGrid .block-html h2.identifier {
+  text-align: left;
+}
+
 .resourceTextGrid .file-caption-text.media-embed {
   grid-area: media-embed-media;
 }
@@ -2113,6 +2254,14 @@ grid-template-areas:
   @include breakpoint(xlarge) {
     grid-template-columns: 1fr 4fr 1fr;
   }
+}
+
+/*Customise metadata options*/ 
+.no-alternative .alternative,
+.no-location .location,
+.no-date .date,
+.no-identifier .identifier {
+  display: none;
 }
 
 /*Add wide option*/ 
@@ -2361,6 +2510,18 @@ grid-template-areas:
   }
 
   /*Utility Classes*/ 
+  .small-only {
+    display: block;
+    @include breakpoint(medium) {
+      display: none;
+    }
+  }
+  .medium-up {
+    display: none;
+    @include breakpoint(medium) {
+      display: block;
+    }
+  }
   .no-margin-top {
     margin-top:-1 * $global-margin;
     @include breakpoint(large) {
@@ -2558,7 +2719,8 @@ grid-template-areas:
   }
 }
 
-.large .seadragonbox {
+.large .seadragonbox,
+.main-with-sidebar .seadragonbox {
   @include breakpoint(medium) {
   height: 75vh!important;
   }
@@ -2792,10 +2954,14 @@ height: 60vh!important;
   max-width: unset; 
 }
 
+/*Reduce font-weight for Image Banner*/ 
+.image-banner .overlay-container > h1 {
+  font-weight: 400!important;
+}
+
 /*Add dark text option for Image Banner*/ 
 .image-banner-dark-text .image-banner .overlay-container > h1,
 .image-banner-dark-text .image-banner .overlay-container > p {
-  font-weight: 300;
   background: #ffffffba;
   color: #000;
   padding: 1rem;
@@ -2934,6 +3100,9 @@ section.image-banner {
     
   .asset-hero-caption {
   height: 100%;
+  & p {
+    margin-bottom: 0;
+  }
   }
 
   .asset-hero-caption-bottom {
@@ -2963,7 +3132,7 @@ section.image-banner {
     height: rem-calc(400px);
   }
   @include breakpoint(xlarge) {
-    height: rem-calc(450px);
+    height: rem-calc(500px);
   }
 }
 
@@ -3086,6 +3255,7 @@ max-width: rem-calc(700);
   padding: 1rem;
   color: $white;
   font-weight: 400;
+  margin-bottom: 0;
   @include breakpoint(large) {
     font-size: rem-calc(42);
   }
