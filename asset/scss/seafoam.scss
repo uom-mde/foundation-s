@@ -1317,6 +1317,14 @@ display: none;
   }
 }
 
+/*Page Titles*/ 
+.block-heading {
+  margin-bottom: 1 * $global-margin;
+  @include breakpoint(large) {
+    margin-bottom: 2 * $global-margin;
+  }
+}
+
 /*Timeline Block*/ 
 
 .tl-timeline h1, 
