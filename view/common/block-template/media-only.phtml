@@ -38,27 +38,14 @@ $lang = $filterLocale ? $this->lang() : null;
                         'thumbnailType' => $thumbnailType,
                         'link' => $linkType,
                     ]);
-
-                    // Determine the title based on the $showTitleOption setting
-                    if ($showTitleOption === 'item_title') {
-                        $title = $item->displayTitle(null, $lang);
-                        $alternative = $item->value('dcterms:alternative');
-                        
-                        if ($alternative) {
-                            echo '<h2 class="h4 italic-font"><small>' . htmlspecialchars($alternative, ENT_QUOTES, 'UTF-8') . '</small></h2>';
-                        }
-                    } elseif ($showTitleOption === 'file_name') {
-                        $title = $media->displayTitle(null, $lang);
-                    }
                 }
             }
             ?>
 
             <div class="item resource">
-                <?php if ($title): ?>
-                    <h3><?= htmlspecialchars($title, ENT_QUOTES, 'UTF-8') ?></h3>
+                <?php if ($caption): ?>
+                    <div class="caption"><?php echo $caption; ?></div>
                 <?php endif; ?>
-                <?= htmlspecialchars($caption, ENT_QUOTES, 'UTF-8') ?>
             </div>
         <?php endforeach; ?>
         </div>
