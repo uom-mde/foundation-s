@@ -404,6 +404,12 @@ nav.breadcrumbs {
 }
 
 /*Remove margin top for button*/ 
+.learn-more a,
+button a,
+.button a {
+  text-decoration: none;
+}
+
 .learn-more h2.button {
   margin-top: 0!important;
   }
@@ -1793,6 +1799,11 @@ html, body {
   overflow-x: hidden;
 }
 
+/*Metadata Browse*/ 
+a.metadata-browse-link {
+  display: none;
+}
+
 /*Annona*/ 
 
 .pageButton {
@@ -2077,7 +2088,7 @@ ul.language-switcher.locale-code li span.active {
 
 /*General Classes*/ 
 /*Underline Links*/ 
-.dark-background a:not(button a) {
+.dark-background a:not(.learn-more a) {
   text-decoration: underline;
 }
 
@@ -2633,6 +2644,10 @@ grid-template-areas:
   background-color: rgba(0, 0, 0, 0); /* No color initially */
   transition: background-color 0.3s ease; /* Smooth transition */
   pointer-events: none; /* Makes sure only the image is clickable */
+}
+
+.asset.card a:hover {
+  text-decoration: underline;
 }
 
 /*Square Thumbnail Styling*/ 
