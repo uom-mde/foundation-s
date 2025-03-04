@@ -1,81 +1,67 @@
 <?php
-if (session_status() !== PHP_SESSION_ACTIVE) {
-    session_start(); // Start the session only if not already started
-}
-
 function showContentBanner($site, $currentLocale) {
-    // Get the site's slug
-    $getSiteSlug = $site->slug();
+    // Validate and sanitize slug (using FILTER_SANITIZE_STRING alternative for PHP 8.1+)
+    $getSiteSlug = filter_var($site->slug(), FILTER_UNSAFE_RAW, FILTER_FLAG_STRIP_LOW | FILTER_FLAG_STRIP_HIGH);
 
     // Define allowed slugs
     $allowedSlugs = ['corala', 'corala-es', 'block-testing'];
 
     // Check if the current slug is in the allowed list
-    if (in_array($getSiteSlug, $allowedSlugs)) {
-        // Initialize session tracking for this slug if it doesn't exist
-        if (!isset($_SESSION['page_visits'][$getSiteSlug])) {
-            $_SESSION['page_visits'][$getSiteSlug] = 0;
-        }
+    if (in_array($getSiteSlug, $allowedSlugs, true)) {
+        // Cookie name for page visits
+        $cookieName = 'page_visits_' . $getSiteSlug;
 
-        // Increment the counter for this slug
-        $_SESSION['page_visits'][$getSiteSlug]++;
+        // Get the current visit count from the cookie (default to 0)
+        $visitCount = isset($_COOKIE[$cookieName]) ? (int) $_COOKIE[$cookieName] : 0;
+
+        // Increment the counter
+        $visitCount++;
+
+        // Set the updated cookie value with a 30-day expiration
+        setcookie($cookieName, $visitCount, time() + (7 * 24 * 60 * 60), '/', '', false, true);
 
         // Check if the banner should still be displayed (first two visits)
-        if ($_SESSION['page_visits'][$getSiteSlug] <= 2) {
-            // Tailor message based on site and then locale
-            if ($getSiteSlug == 'corala-es'): ?>
-                <script>
-                    console.log('Este script se ejecuta solo durante las dos primeras visitas.');
-                    var defaultBar = new $.peekABar({
-                        html: '<div class="warning-bar">\
-                            <div class="warning-content">\
-                            <p class="lead">Aviso: Este sitio contiene material que puede resultar ofensivo. \
-                            <a href="/s/corala-es/page/introduccion#content_warning">Por favor, dirigirse a nuestra declaración sobre material sensible en la muestra</a>.</p>\
-                            </div>\
-                        </div>'
-                    });
-                    defaultBar.show();
-                </script>
-            <?php elseif ($getSiteSlug == 'corala'): ?>
-                <script>
-                    console.log('This script runs only during the first two visits.');
-                    var defaultBar = new $.peekABar({
-                        html: '<div class="warning-bar">\
-                            <div class="warning-content">\
-                            <p class="lead">Content Warning: This site contains material you may find offensive. \
-                            <a href="/s/corala/page/introduction#content_warning">View our statement on sensitive material in the exhibition</a>.</p>\
-                            </div>\
-                        </div>'
-                    });
-                    defaultBar.show();
-                </script>
-            <?php elseif ($currentLocale == 'es'): ?>
-                <script>
-                    console.log('Este script se ejecuta solo durante las dos primeras visitas.');
-                    var defaultBar = new $.peekABar({
-                        html: '<div class="warning-bar">\
-                            <div class="warning-content">\
-                            <p class="lead">Advertencia de contenido: este sitio contiene material que puede resultarle molesto. \
-                            <a href="#">Consulte nuestra política sobre material confidencial</a>.</p>\
-                            </div>\
-                        </div>'
-                    });
-                    defaultBar.show();
-                </script>
-            <?php else : ?>
-                <script>
-                    console.log('This script runs only during the first two visits.');
-                    var defaultBar = new $.peekABar({
-                        html: '<div class="warning-bar">\
-                            <div class="warning-content">\
-                            <p class="lead">Content Warning: This site contains material you may find offensive. \
-                            <a class="warning-color" href="#">View our policy on sensitive material</a>.\
-                            </div>\
-                        </div>'
-                    });
-                    defaultBar.show();
-                </script>
-            <?php endif;
+        if ($visitCount <= 2) {
+            // Use a mapping array for content warnings to avoid repetition
+            $warnings = [
+                'corala-es' => [
+                    'message' => 'Aviso: Este sitio contiene material que puede resultar ofensivo.',
+                    'link' => '/s/corala-es/page/introduccion#content_warning',
+                    'policy_text' => 'Consulte nuestra política sobre material sensible'
+                ],
+                'corala' => [
+                    'message' => 'Content Warning: This site contains material you may find offensive.',
+                    'link' => '/s/corala/page/introduction#content_warning',
+                    'policy_text' => 'View our statement on sensitive material'
+                ],
+                'default-es' => [
+                    'message' => 'Advertencia de contenido: este sitio contiene material que puede resultarle molesto.',
+                    'link' => '#',
+                    'policy_text' => 'Consulte nuestra política sobre material sensible'
+                ],
+                'default-en' => [
+                    'message' => 'Content Warning: This site contains material you may find offensive.',
+                    'link' => '#',
+                    'policy_text' => 'View our policy on sensitive material'
+                ]
+            ];
+
+            // Determine which warning to use
+            $warning = $warnings[$getSiteSlug] ?? ($currentLocale === 'es' ? $warnings['default-es'] : $warnings['default-en']);
+
+            // Output the banner with proper escaping to prevent XSS
+            echo '<script>';
+            echo 'console.log("This script runs only during the first two visits.");';
+            echo 'var defaultBar = new $.peekABar({';
+            echo '    html: "<div class=\"warning-bar\">" +';
+            echo '              "<div class=\"warning-content\">" +';
+            echo '              "<p class=\"lead\">' . htmlspecialchars($warning['message'], ENT_QUOTES, 'UTF-8') . ' " +'; 
+            echo '              "<a href=\"' . htmlspecialchars($warning['link'], ENT_QUOTES, 'UTF-8') . '\">' . htmlspecialchars($warning['policy_text'], ENT_QUOTES, 'UTF-8') . '</a>" +'; 
+            echo '              "</div>" +';
+            echo '          "</div>"';
+            echo '});';
+            echo 'defaultBar.show();';
+            echo '</script>';
         }
     }
 }

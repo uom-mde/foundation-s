@@ -168,5 +168,13 @@ $currentLocale = $this->siteSetting('locale') ?: 'en_US';
         <script>
           $(document).foundation();
         </script>
+        <!-- Load content warning banner -->
+        <?php 
+            echo $this->partial('/templates/content-warning-banner'); 
+        ?>
+        <?php       
+        showContentBanner($site, $currentLocale);
+        ?>
+        <!-- End content warning banner -->
     </body>
 </html>
