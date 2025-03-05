@@ -2442,6 +2442,27 @@ grid-template-areas:
   }
 }
 
+.portrait .media-caption-text.resourceTextGrid:has(.layout-horizontal) {
+  @include breakpoint(large) {
+    grid-template-areas: "media-embed-media text" ;
+    grid-template-columns: 2fr 2fr;
+  }
+  @include breakpoint(1500) {
+    grid-template-areas: ". media-embed-media text ." ;
+    grid-template-columns: 0.5fr 2fr 2fr 0.5fr;
+  }
+}
+
+.portrait.media-right .media-caption-text.resourceTextGrid:has(.layout-horizontal) {
+  @include breakpoint(large) {
+    grid-template-areas: "text media-embed-media" ;
+  }
+  @include breakpoint(1500) {
+    grid-template-areas: ". text media-embed-media ." ;
+    grid-template-columns: 0.5fr 2fr 2fr 0.5fr;
+  }
+}
+
 /*Move location of Learn More button*/ 
 .resourceTextGrid.file-caption-block .block-html p {
   margin-block-end: 7rem;
