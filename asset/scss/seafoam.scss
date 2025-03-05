@@ -2225,6 +2225,7 @@ display: none;
 .media-render.file {
   display: flex;
   justify-content: center;
+  padding: $global-padding $global-padding 0 $global-padding;
 }
 
 .media-render.iiif {
@@ -3070,6 +3071,10 @@ section.image-banner {
 
 .asset .caption {
   margin-bottom: 0.5 * $global-margin;
+}
+
+.caption a {
+  text-decoration: underline;
 }
 
 /*Resource Grid*/ 
