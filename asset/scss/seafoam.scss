@@ -522,6 +522,9 @@ button a,
   a.button {
       color: $white;
   }
+  a:focus {
+    color: inherit;
+  }
   h2 {
     color: $warning-color;
   }
