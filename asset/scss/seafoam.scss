@@ -665,18 +665,21 @@ margin: 0 auto;
 .toggle-caption-img {
   width: 100%;
   position: relative;
-  height: calc(50vh + 59.19px);
+  height: calc(42vh + 59.19px);
   overflow-y: auto;
   //@include breakpoint(large) {
     //height: calc(70vh + 59.19px);
   //}
   @include breakpoint(medium) {
-  height: calc(60vh + 59.19px);
+    height: calc(52vh + 59.19px);
+  }
+  @include breakpoint(large) {
+    height: calc(62vh + 59.19px);
   }
 }
 
 .toggle-caption-img img {
-  height: 50vh;
+  height: 40vh;
   object-fit: cover;
   object-position: center;
   width: 100vw;
@@ -684,18 +687,21 @@ margin: 0 auto;
     //height: 70vh;
   //}
   @include breakpoint(medium) {
+    height: 50vh;
+  }
+  @include breakpoint(large) {
     height: 60vh;
   }
 }
 
 .toggle-caption-img .toggle-caption .orbit-caption {
-  max-height: 50vh;
+  max-height: 42vh;
   @include breakpoint(medium) {
-  max-height: 61vh;
+  max-height: 52vh;
   }
-  //@include breakpoint(large) {
-    //max-height: 71vh;
-  //}
+  @include breakpoint(large) {
+    max-height: 62vh;
+  }
 }
 
 .toggle-caption-img .media-render {
