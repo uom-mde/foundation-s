@@ -6,7 +6,6 @@ const browseScripts = () => {
 
         const initMasonryGrid = () => {
             const createMasonryInstance = () => {
-                console.log('Initializing Masonry'); // Debugging
                 var msnry = new Masonry(resourcesSet, {
                     itemSelector: '.resource-masonry',
                     columnWidth: '.grid-sizer',

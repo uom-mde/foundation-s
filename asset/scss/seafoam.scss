@@ -1235,8 +1235,8 @@ display: none;
 
   .resource-grid-mosaic .grid-sizer, 
    .resource-grid-mosaic .resource-masonry {
-    width: 49%;
-    @include breakpoint(medium) {
+    width: 48%;
+    @include breakpoint(776) {
       width: 32%;
     }
   }
