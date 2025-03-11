@@ -1260,6 +1260,10 @@ display: none;
     }
 }
 
+.resource__content a {
+  overflow-wrap: break-word;
+}
+
 /*External Content*/ 
 
 .external-content .left.media.file,
