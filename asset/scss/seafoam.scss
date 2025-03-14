@@ -1403,9 +1403,6 @@ dl dt {
   font-weight: 300;
   margin-bottom: $global-margin;
   font-size: 1.4 * $global-font-size;
-  @include breakpoint(large) {
-  font-size: rem-calc(26);
-  }
 }
 
 dl dt:after {
