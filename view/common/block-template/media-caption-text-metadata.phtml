@@ -5,7 +5,7 @@ $hyperlink = $this->plugin('hyperlink');
 $thumbnailType = $block->dataValue('thumbnail_type');
 ?>
 <div class="full-width file-caption-block media-caption-text resourceTextGrid padding-horizontal-1 large-padding-2 margin-vertical-1 large-margin-vertical-2">
-    <div class="file file-caption-text media-embed large-padding-horizontal-1 xlarge-padding-horizontal-2 <?php echo $this->escapeHtml(implode(' ', $classes)); ?>">
+    <div class="file file-caption-text media-embed large-padding-horizontal-1 <?php echo $this->escapeHtml(implode(' ', $classes)); ?>">
         <?php foreach($attachments as $attachment): ?>
         <?php $item = $attachment->item(); ?>
         <div class="item resource <?php echo $thumbnailType; ?>">
