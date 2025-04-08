@@ -3698,7 +3698,7 @@ transform: scale(1.01);
 
 /*Home Page Cards*/ 
 .site-list .site a {
-  font-size: $global-font-size;
+  font-size: 0.9 * $global-font-size;
   @include breakpoint(medium) {
     font-size: 1.2 * $global-font-size;
   }
@@ -3776,4 +3776,14 @@ transform: scale(1.01);
 .list-of-sites-dynamic > *:nth-child(n+4):nth-child(-n+11),
  .list-of-sites-dynamic > *:nth-child(n+15):nth-child(-n+22) {
   grid-column: span 1;
+
+  &.card .site-thumbnail-image {
+    height: rem-calc(140);
+    @include breakpoint(medium) {
+      height: rem-calc(150);
+    }
+    @include breakpoint(large) {
+      height: rem-calc(200);
+    }
+  }
 }
