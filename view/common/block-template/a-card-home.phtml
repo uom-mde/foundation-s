@@ -1,0 +1,27 @@
+<?php $escape = $this->plugin('escapeHtml'); ?>
+
+<?php foreach ($attachments as $attachment): ?>
+<?php $asset = $attachment['asset']; ?>
+<div class="asset home-card">
+    <?php $assetImage = ($asset) ? $this->thumbnail($asset, 'medium-large', ['class' => 'home-card-image']) : ''; ?>
+    <?php $page = (array_key_exists('page', $attachment)) ? $attachment['page'] : null; ?>
+    <?php if ($page): ?>
+        <div class="home-card-image">
+            <a href="<?php echo $escape($page->siteUrl()); ?>">
+            <?php $altLinkTitle = ($attachment['alt_link_title'] !== '') ? $escape($attachment['alt_link_title']) : false; ?>
+                <?php echo $assetImage; ?>
+            </a>
+        </div>
+    <?php else: ?>
+        <div class="home-card-image">
+            <?php echo $assetImage; ?>
+        </div>
+    <?php endif; ?>
+    <?php if ($attachment['caption'] !== ''): ?>
+        <div class="home-card-text">
+            <span class="h4 link-title"><?php echo ($altLinkTitle) ? $altLinkTitle : $escape($page->title()); ?></span>
+            <div class="caption card-section"><?php echo $escape($attachment['caption']); ?></div>
+        </div>
+    <?php endif; ?>
+</div>
+<?php endforeach; ?>

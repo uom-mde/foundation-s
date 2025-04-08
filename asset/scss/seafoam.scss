@@ -2717,15 +2717,15 @@ grid-template-areas:
   background: $white;
 }
 
-.card-image {
+.home-card-image {
   display: block;
   width: 100%;
   height: auto;
   transition: transform 0.3s ease;
 }
 
-.asset.card:hover .card-image {
-  transform: scale(1.05); /* Slight zoom effect */
+.asset.card:hover .home-card-image {
+  transform: scale(1.1); /* Slight zoom effect */
 }
 
 .asset.card::before {
@@ -3474,4 +3474,306 @@ max-width: rem-calc(700);
 .fa-exclamation-triangle:before {
   color: $white;
   font-size: 18px;
+}
+
+/*Home Page Code*/ 
+/* Ensure the home-card-container is always a 4-column grid */
+.home-card-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 equal columns */
+  grid-template-rows: auto 1fr;
+  gap: 20px; /* Spacing between grid items */
+}
+
+/* Grid areas for children */
+.home-card-text {
+  grid-area: home-card-text;
+  grid-row: 2;
+}
+
+.home-card-image {
+  grid-area: home-card-image;
+  grid-row: 1;
+}
+
+.asset-horizontal-1 .home-card-text ,
+.asset-horizontal-2 .home-card-text ,
+.asset-horizontal-3 .home-card-text ,
+.asset-horizontal-4 .home-card-text {
+  grid-row: 1;
+}
+
+.asset.home-card {
+  display: grid;
+  }
+
+/* Vertical Layouts: Cards stack within the 4-column grid */
+.home-card-container .asset-vertical-1 {
+  grid-column: span 1; /* Takes up 1 column */
+}
+
+.home-card-container .asset-vertical-1 .home-card {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px; 
+  grid-template-areas:
+    "home-card-image"
+    "home-card-text";
+}
+
+.home-card-container .asset-vertical-2 {
+  grid-column: span 2; /* Takes up 2 columns */
+}
+
+.home-card-container .asset-vertical-2 .home-card {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  grid-template-areas:
+    "home-card-image home-card-image"
+    "home-card-text home-card-text";
+}
+
+.home-card-container .asset-vertical-3 {
+  grid-column: span 3; /* Takes up 3 columns*/
+}
+
+.home-card-container .asset-vertical-3 .home-card {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  grid-template-areas:
+    "home-card-image home-card-image home-card-image"
+    "home-card-text home-card-text home-card-text";
+}
+
+.home-card-container .asset-vertical-4 {
+  grid-column: span 4; /* Takes up the entire row */
+}
+
+.home-card-container .asset-vertical-4 .home-card {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-areas:
+    "home-card-image home-card-image home-card-image home-card-image"
+    "home-card-text home-card-text home-card-text home-card-text";
+}
+
+/* Horizontal Layouts: Cards align within the 4-column container */
+.home-card-container .asset-horizontal-2 {
+  grid-column: span 2; /* Takes up 3 columns */
+}
+
+.home-card-container .asset-horizontal-2 .home-card {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  grid-template-areas: 
+  "home-card-image home-card-text"
+  "home-card-image home-card-text";
+}
+
+.home-card-container .asset-horizontal-3 {
+  grid-column: span 3; /* Takes up 3 columns */
+}
+
+.home-card-container .asset-horizontal-3 .home-card {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  grid-template-areas:
+    "home-card-image home-card-image home-card-text"
+    "home-card-image home-card-image home-card-text";
+}
+
+.home-card-container .asset-horizontal-4 {
+  grid-column: span 4; /* Takes up 3 columns */
+}
+
+.home-card-container .asset-horizontal-4 .home-card {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  grid-template-areas:
+    "home-card-image home-card-image home-card-image home-card-text"
+    "home-card-image home-card-image home-card-image home-card-text";
+}
+
+.asset-vertical-1 img {
+  object-fit: cover;
+  height: rem-calc(175);
+}
+
+/*Remove padding*/
+.card-section {
+  padding: 0.3rem;
+}
+
+.home-card .card-section {
+  padding: 0;
+}
+
+.home-card-text span.h4.link-title {
+  margin: rem-calc($global-margin) 0;
+}
+
+/*List of sites*/
+
+.site-list {
+  display: grid;
+  /*grid-template-columns: repeat(3, 1fr);*/
+  grid-auto-rows: 1fr;
+  grid-column-gap: rem-calc(12);
+  grid-row-gap: rem-calc(12);
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    @include breakpoint(medium) {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+    @include breakpoint(xlarge) {
+    grid-column-gap: rem-calc(24);
+    grid-row-gap: rem-calc(24);
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    }
+}
+
+.list-of-sites .site-list .site-thumbnail-image,
+.list-of-sites-dynamic.site-list .card .site-thumbnail-image {
+  max-width: 100%;
+  float: unset;
+  margin-right: 0;
+  width: 100%;
+  object-fit: cover;
+  height: rem-calc(140);
+  @include breakpoint(medium) {
+    height: rem-calc(175);
+  }
+  @include breakpoint(large) {
+    height: rem-calc(200);
+  }
+}
+
+.list-of-sites .site-list .site-summary {
+overflow: hidden;
+text-overflow: ellipsis;
+display: -webkit-box;
+-webkit-line-clamp: 3;
+-webkit-box-orient: vertical; 
+ margin: 0.5rem 0 0.5rem 0;
+}
+
+.site-list .site {
+position: unset;
+margin-bottom: 0;
+@include breakpoint(medium) {
+  margin-bottom: $global-margin;
+}
+}
+
+.site-list .site a.site-link {
+position: unset;
+}
+
+.site-list .site a {
+position: unset;
+  bottom: rem-calc(109);
+  text-decoration: none;
+  color: #040404;
+  background: #fff;
+  font-size: 1.1 * $global-font-size;
+  padding: 0.5rem;
+  @include breakpoint(large) {
+    font-size: 1.3 * $global-font-size;
+  }
+}
+
+.site-thumbnail img {
+transition: transform .4s; /* Animation */
+}
+
+.site-thumbnail img:hover {
+cursor: pointer;
+transform: scale(1.01);
+}
+
+/*Home Page Cards*/ 
+.site-list .site a {
+  font-size: $global-font-size;
+  @include breakpoint(medium) {
+    font-size: 1.2 * $global-font-size;
+  }
+  @include breakpoint(large) {
+  font-size: 1.3 * $global-font-size;
+  }
+}
+
+.site-list .card-divider {
+  padding: 0;
+}
+
+.site a {
+  width: 100%;
+}
+
+/*List of sites - Dynamic*/ 
+.list-of-sites-dynamic {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: auto;
+  grid-auto-flow: dense;
+  gap: 10px;
+  @include breakpoint(medium) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  @include breakpoint(large) {
+  padding: 20px;
+  }
+}
+
+.list-of-sites-dynamic .site-summary.card-section {
+  display: none;
+  @include breakpoint(medium) {
+    display: block;
+  }
+}
+
+/* First item */
+.list-of-sites-dynamic > *:nth-child(1),
+ .list-of-sites-dynamic > *:nth-child(12) {
+  grid-column: 1 / -1;
+
+&.card .site-thumbnail-image {
+  height: rem-calc(180);
+  @include breakpoint(medium) {
+    height: rem-calc(220);
+  }
+  @include breakpoint(large) {
+    height: rem-calc(300);
+  }
+}
+}
+
+/* Next two items */
+.list-of-sites-dynamic > *:nth-child(2),
+.list-of-sites-dynamic > *:nth-child(3),
+ .list-of-sites-dynamic > *:nth-child(13),
+ .list-of-sites-dynamic > *:nth-child(14) {
+  grid-column: span 1;
+  @include breakpoint(medium) {
+  grid-column: span 2;
+  }
+  &.card .site-thumbnail-image {
+    @include breakpoint(medium) {
+      height: rem-calc(180);
+    }
+    @include breakpoint(large) {
+      height: rem-calc(250);
+    }
+  }
+}
+
+/* All other items */
+.list-of-sites-dynamic > *:nth-child(n+4):nth-child(-n+11),
+ .list-of-sites-dynamic > *:nth-child(n+15):nth-child(-n+22) {
+  grid-column: span 1;
 }
