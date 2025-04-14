@@ -2,6 +2,7 @@
 $translate = $this->plugin('translate');
 $escape = $this->plugin('escapeHtml');
 
+$this->headScript()->appendFile($this->assetUrl('js/imagesloaded.pkgd.min.js'));
 $this->headScript()->appendFile($this->assetUrl('js/masonry.pkgd.min.js'));
 $this->headScript()->appendFile($this->assetUrl('js/browse-masonry.js'));
 
