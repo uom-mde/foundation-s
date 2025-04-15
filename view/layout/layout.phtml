@@ -36,6 +36,7 @@ $bannerHeight = $this->themeSetting('banner_height');
 $bannerHeightMobile = $this->themeSetting('banner_height_mobile');
 $bannerPosition = ($this->themeSetting('banner_position')) ? str_replace('_', '-', $this->themeSetting('banner_position')) : 'center';
 $currentLocale = $this->siteSetting('locale') ?: 'en_US';
+$siteCategory = $this->siteSetting('extended_site_description_categories');
 ?>
 <?php echo $this->doctype(); ?>
 <?php
@@ -91,6 +92,25 @@ $currentLocale = $this->siteSetting('locale') ?: 'en_US';
                 <?php if ($banner && ($navLayout == 'vertical')): ?>
                 <div class="banner <?php echo $bannerWidth; ?>"><img src="<?php echo $this->themeSettingAssetUrl('banner'); ?>" title="Banner" role="presentation" aria-hidden="true"></div>
                 <?php endif; ?>
+                <?php
+                $categories = $this->siteSetting('extended_site_description_categories');
+
+                if (!empty($categories) && is_array($categories)): ?>
+                    <ul>
+                        <?php foreach ($categories as $category): ?>
+                            <li><?= $this->escapeHtml($category) ?></li>
+                        <?php endforeach; ?>
+                    </ul>
+                <?php endif; ?>
+
+                <?php if ($this->siteSetting('extended_site_description_featured')): ?>
+                    <!-- Your HTML/PHP here when the checkbox IS checked -->
+                    <div class="featured-site-banner">
+                        <p>This site is featured!</p>
+                    </div>
+                <?php else: ?>
+                    <p>This site is NOT featured</p>
+                <?php endif; ?>
                 <?php echo $this->content; ?>
             </div>
             <?php 
@@ -102,7 +122,7 @@ $currentLocale = $this->siteSetting('locale') ?: 'en_US';
                     <?php echo $footerContent; ?>
                 </footer>
                 <?php else: ?>
-                <footer class="footerContainer full-width">							
+                <footer class="footerContainer full-width">                							
                     <div class="grid-x grid-padding-x grid-container padding-vertical-3">                        
                         <div class="cell small-6 medium-4 padding-left-1 padding-bottom-1">
                             <div class="footerLogos">
