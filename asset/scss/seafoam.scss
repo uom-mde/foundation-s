@@ -1013,15 +1013,15 @@ bottom: 20%;
     margin-top: -1rem;
     position: relative;
     @include breakpoint (medium) {
-      height: rem-calc(350);
-      margin-top: -2rem!important;
-    }
-    @include breakpoint (large) {
       height: rem-calc(400);
       margin-top: -2rem!important;
     }
+    @include breakpoint (large) {
+      height: rem-calc(450);
+      margin-top: -2rem!important;
+    }
     @include breakpoint (xlarge) {
-      height: rem-calc(500);
+      height: rem-calc(600);
       margin-top: -2rem!important;
     }
     }
@@ -1029,7 +1029,7 @@ bottom: 20%;
     .openseadragon-hero .hero-title-openseadragon {
     position: absolute;
     bottom: 10%;
-    max-width: rem-calc(800);
+    max-width: rem-calc(650);
     /*max-width: 450px;*/
     @include breakpoint(large) {
       bottom: 20%;
@@ -1041,7 +1041,7 @@ bottom: 20%;
         padding: 0.5rem;
         color: #fff;
         @include breakpoint(large) {
-          font-size: 300%;
+          font-size: 250%;
         }
     }
     
@@ -1814,6 +1814,15 @@ blockquote {
     font-size: 1.8rem;
     padding: 0.5rem 0.5rem 0.5rem 2rem;
   }
+}
+
+.dark-background blockquote p {
+  color: $warning-color;
+}
+
+.no-border-left blockquote {
+  border-left: none;
+  border-right: .4rem solid $warning-color;
 }
 
 /*blockquote:before,
