@@ -1130,10 +1130,10 @@ display: none;
 .text {
   padding: $global-padding 0;
   @include breakpoint(large) {
-    padding: 2 * $global-padding 0;
+    padding: 0.5 * $global-padding 0;
   }
   @include breakpoint(xlarge) {
-    padding: 2 * $global-padding $global-padding;
+    padding: 0.5 * $global-padding $global-padding;
   }
 }
 
@@ -3186,6 +3186,11 @@ section.image-banner {
   }
 
   /*Utility Classes*/ 
+  /*Width 100%*/ 
+  .width-100 {
+    width: 100%;
+  }
+  
   /*Fix focus dark colour*/ 
   a:focus {
     color: $light-gray;
