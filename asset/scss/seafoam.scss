@@ -621,6 +621,12 @@ button a,
   text-decoration: none;
 }
 
+/*Change text colour in buttons*/ 
+a.button.warning,
+a.button.hollow.warning {
+  color: #0a0a0a;
+}
+
 /*Caption Toggle Block*/ 
 .toggle-caption-block {
   max-width: rem-calc(800);

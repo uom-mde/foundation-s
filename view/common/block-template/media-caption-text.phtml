@@ -56,7 +56,7 @@ $thumbnailType = $block->dataValue('thumbnail_type');
                 <div class="caption margin-top-1 large-margin-top-2"><?php echo $caption; ?></div>
             <?php endif; ?>
             <div class="learn-more flex-container align-center">
-                <button class="button medium warning hollow"><?php echo $item->link("Learn more"); ?></button>
+                <?php echo $item->link("Learn more", null, ['class' => 'button medium warning hollow']); ?>
             </div>
         </div>
         <?php endforeach; ?>
