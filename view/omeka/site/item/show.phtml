@@ -3,8 +3,6 @@ $translate = $this->plugin('translate');
 $escape = $this->plugin('escapeHtml');
 $this->headLink()->appendStylesheet($this->assetUrl('css/resource-page-blocks.css', 'Omeka'));
 $this->htmlElement('body')->appendAttribute('class', 'item resource show');
-$this->headLink()->appendStylesheet($this->assetUrl('css/annona.css'));
-$this->headScript()->appendFile($this->assetUrl('js/annona.js'));
 $embedMedia = $this->siteSetting('item_media_embed', false);
 $itemMedia = $item->media();
 $showLayout = $this->themeSetting('show_layout');
