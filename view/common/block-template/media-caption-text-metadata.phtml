@@ -73,10 +73,12 @@ $thumbnailType = $block->dataValue('thumbnail_type');
                 <div class="caption margin-top-1 large-margin-top-2"><?php echo $caption; ?></div>
             <?php endif; ?>
             <?php
-                $identifier = $item->value("dcterms:identifier");
-                if ($identifier): ?>
+            $identifiers = $item->value('dcterms:identifier', ['all' => true]);
+            if ($identifiers):
+                foreach ($identifiers as $identifier): ?>
                     <h2 class="h4 identifier"><small><?php echo "Ref. " . $identifier; ?></small></h2>
-                <?php endif;
+                <?php endforeach;
+            endif;
             ?>
             <div class="learn-more flex-container align-center">
                 <?php echo $item->link("Learn more", null, ['class' => 'button medium warning hollow']); ?>
