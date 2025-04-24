@@ -572,11 +572,12 @@ button a,
   .learn-more h2.button a {
     color: $black;
   }
-  .learn-more .hollow.button.warning a {
+  .learn-more a.button.hollow.warning {
     color: $warning-color;
   }
-  .learn-more .hollow.button.warning:hover a {
+  .learn-more a.button.hollow.warning:hover {
     color: $black;
+    text-decoration: none;
   }
 }
 
