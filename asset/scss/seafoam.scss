@@ -3016,16 +3016,15 @@ grid-template-areas:
   }
 }
 
-.attachment-count-3 .grid-multiples,
-.attachment-count-5 .grid-multiples {
-  @include breakpoint(medium) {
+.attachment-count-3 .grid-multiples {
+  @include breakpoint(800) {
   grid-template-columns: 1fr 1fr 1fr;
   }
 }
 
-@for $i from 8 through 20 { // Adjust 20 to your max expected count
+@for $i from 5 through 20 { // Adjust 20 to your max expected count
   .attachment-count-#{$i} .grid-multiples {
-    @include breakpoint(medium) {
+    @include breakpoint(800) {
       grid-template-columns: 1fr 1fr 1fr;
     }
   }
