@@ -1,8 +1,4 @@
 <?php
-$hyperlink = $this->plugin('hyperlink');
-$thumbnailType = $block->dataValue('thumbnail_type');
-?>
-<?php
 $hyperlink     = $this->plugin('hyperlink');
 $thumbnailType = $block->dataValue('thumbnail_type');
 ?>
@@ -18,44 +14,19 @@ $thumbnailType = $block->dataValue('thumbnail_type');
             continue;
         }
 
-        // Determine the URL for the thumbnail or media render:
-        if ($mediaDisplay === 'thumbnail') {
-            switch ($link) {
-                case 'original':
-                    $url      = $media->originalUrl();
-                    $imgUrl   = $media->originalUrl();
-                    break;
-                case 'item':
-                    $url      = $item->url();
-                    $imgUrl   = $media->originalUrl();
-                    break;
-                case 'media':
-                    $url      = $media->url();
-                    $imgUrl   = $media->originalUrl();
-                    break;
-                default:
-                    throw new \InvalidArgumentException(sprintf(
-                        'Invalid link type "%s"', 
-                        $link
-                    ));
-            }
-            // For true lazy‑load, output an <img> with data-src:
-            $imgTag = sprintf(
-                '<img class="lazy-image" data-src="%s" alt="%s">',
-                $this->escapeHtmlAttr($this->thumbnail($media, $thumbnailType, ['full'])['src']),
-                $this->escapeHtmlAttr($media->altText() ?: $item->displayTitle())
-            );
-            // Wrap in the hyperlink (you can also do loading="lazy" here as fallback):
-            echo $hyperlink->raw($imgTag, $url);
+        // Always output an <img> or <iframe> with data-src,
+        // regardless of mediaDisplay or link type:
 
-        } else {
-            // For other media types (video, embed), render a placeholder iframe or video tag:
-            $embedUrl = $media->url();
-            echo '<div class="lazy-embed" data-src="' 
-                 . $this->escapeHtmlAttr($embedUrl) 
-                 . '"></div>';
-        }
+        $urlToLoad = ($mediaDisplay === 'thumbnail')
+            ? $this->thumbnail($media, $thumbnailType, ['full'])['src']
+            : $media->url();
+
+        // For images:
+        echo '<img class="lazy-media" '
+           . 'data-src="' . $this->escapeHtmlAttr($urlToLoad) . '" '
+           . 'alt="' . $this->escapeHtmlAttr($media->altText() ?: '') . '">';
+
       endforeach; ?>
     </div>
   </div>
-</div>  <!-- End of reveal-on-scroll -->
+</div>
