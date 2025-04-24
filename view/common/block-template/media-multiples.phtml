@@ -1,15 +1,14 @@
 <?php
-$this->headLink()->appendStylesheet($this->assetUrl('css/annona.css')); 
-$this->headScript()->appendFile($this->assetUrl('js/annona.js'));
 $hyperlink = $this->plugin('hyperlink');
 $thumbnailType = $block->dataValue('thumbnail_type');
+$attachmentCount = count($this->attachments);
 ?>
 
-<div class="media-embed-block flex-container flex-dir-column align-middle <?php echo $this->escapeHtml(implode(' ', $classes)); ?> file">
-    <div class="attachments resource-text-openseadragon flex-container">
+<div class="media-embed-block flex-container flex-dir-column align-middle <?php echo $this->escapeHtml(implode(' ', $classes)); ?> file attachment-count-<?php echo $attachmentCount; ?>">
+    <div class="attachments resource-text-openseadragon grid-multiples">
     <?php foreach($this->attachments as $attachment): ?>
         <?php $item = $attachment->item(); ?>
-        <div class="item resource flex-container flex-dir-column align-middle <?php echo $thumbnailType; ?>">
+        <div class="item resource <?php echo $thumbnailType; ?>">
         <?php
             $media = $attachment->media() ?: $item->primaryMedia();
             $mediaRenderer = $media->renderer();
@@ -40,9 +39,9 @@ $thumbnailType = $block->dataValue('thumbnail_type');
         <div class="metadata">
             <?php $showTitleOption = $this->showTitleOption; ?>
             <?php if ($showTitleOption == 'item_title'): ?>
-            <h2 class="h3"><?php echo $item->displayTitle(); ?></h2>
+            <h2 class="h5 padding-top-1"><?php echo $item->displayTitle(); ?></h2>
             <?php elseif ($showTitleOption == 'file_name'): ?>
-            <h2 class="h3"><?php echo $media->displayTitle(); ?></h2>
+            <h2 class="h5 padding-top-1"><?php echo $media->displayTitle(); ?></h2>
             <?php endif; ?>
         </div>
         <?php

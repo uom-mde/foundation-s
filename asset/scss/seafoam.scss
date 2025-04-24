@@ -2803,11 +2803,11 @@ grid-template-areas:
 .medium .openseadragon {
   height: 35vh!important;
   @include breakpoint(medium) {
-  height: 50vh!important;
+  height: 40vh!important;
   }
   @include breakpoint(large) {
-  height: 60vh!important;
-  }
+    height: 50vh!important;
+    }
 }
 
 .medium-large .openseadragon {
@@ -2816,7 +2816,7 @@ grid-template-areas:
   height: 60vh!important;
   }
   @include breakpoint(large) {
-  height: 80vh!important;
+  height: 75vh!important;
   }
 }
 
@@ -2945,36 +2945,36 @@ grid-template-areas:
 
 .media-embed-block.layout-vertical.attachment-count-2 .resource-text-openseadragon .medium .openseadragon,
 .media-embed-block.layout-vertical.attachment-count-2 .resource-text-openseadragon .medium .file > a > img {
-  @include breakpoint(large) {
-  height: calc(50vh - .75rem) !important;
+  @include breakpoint(medium) {
+  height: calc(45vh - .75rem) !important;
 }
 }
 
 .media-embed-block.layout-vertical.attachment-count-2 .resource-text-openseadragon .medium-large .openseadragon,
 .media-embed-block.layout-vertical.attachment-count-2 .resource-text-openseadragon .medium-large .file > a > img {
-  @include breakpoint(large) {
-  height: calc(65vh - .75rem) !important;
+  @include breakpoint(medium) {
+  height: calc(55vh - .75rem) !important;
 }
 }
 
 .media-embed-block.layout-vertical.attachment-count-2 .resource-text-openseadragon .large .openseadragon,
 .media-embed-block.layout-vertical.attachment-count-2 .resource-text-openseadragon .large .file > a > img {
-  @include breakpoint(large) {
-  height: calc(80vh - .75rem) !important;
+  @include breakpoint(medium) {
+  height: calc(70vh - .75rem) !important;
 }
 }
 
 .media-embed-block.layout-vertical.attachment-count-3 .resource-text-openseadragon .medium .openseadragon,
 .media-embed-block.layout-vertical.attachment-count-3 .resource-text-openseadragon .medium .file > a > img {
-  @include breakpoint(large) {
-  height: calc(50vh - .75rem) !important;
+  @include breakpoint(medium) {
+  height: calc(45vh - .75rem) !important;
 }
 }
 
 .media-embed-block.layout-vertical.attachment-count-3 .resource-text-openseadragon .medium-large .openseadragon,
 .media-embed-block.layout-vertical.attachment-count-3 .resource-text-openseadragon .medium-large .file > a > img {
-  @include breakpoint(large) {
-  height: calc(60vh - .75rem) !important;
+  @include breakpoint(medium) {
+  height: calc(55vh - .75rem) !important;
 }
 }
 
@@ -3004,6 +3004,30 @@ grid-template-areas:
   margin: $global-margin;
   @include breakpoint(large) {
     margin: $global-margin 0 2 * $global-margin 0;
+  }
+}
+
+/*Multiples Grid styling*/
+.grid-multiples {
+  display: grid;
+  grid-template-columns: 1fr;
+  @include breakpoint(medium) {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.attachment-count-3 .grid-multiples,
+.attachment-count-5 .grid-multiples {
+  @include breakpoint(medium) {
+  grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+@for $i from 8 through 20 { // Adjust 20 to your max expected count
+  .attachment-count-#{$i} .grid-multiples {
+    @include breakpoint(medium) {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
   }
 }
 

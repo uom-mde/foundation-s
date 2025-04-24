@@ -7,9 +7,6 @@
  * @var string $showTitleOption "item_title" or "file_name" or "none".
  */
 
-$this->headLink()->appendStylesheet($this->assetUrl('css/annona.css'));
-$this->headScript()->appendFile($this->assetUrl('js/annona.js'));
-
 $plugins = $this->getHelperPluginManager();
 $hyperlink = $plugins->get('hyperlink');
 $siteSetting = $plugins->get('siteSetting');
