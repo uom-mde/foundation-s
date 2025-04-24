@@ -3030,6 +3030,13 @@ grid-template-areas:
   }
 }
 
+// Add an override where two columns are preferred
+.grid-columns-2 .grid-multiples {
+  @include breakpoint(medium) {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
 /*PDF Viewer*/ 
 #pdf-container,
 #pdfjs-container  {
