@@ -76,7 +76,7 @@ $thumbnailType = $block->dataValue('thumbnail_type');
             $identifiers = $item->value('dcterms:identifier', ['all' => true]);
             if ($identifiers):
                 foreach ($identifiers as $identifier): ?>
-                    <h2 class="h4 identifier"><small><?php echo "Ref. " . $identifier; ?></small></h2>
+                    <h2 class="h4 identifier"><small><?php echo $identifier; ?></small></h2>
                 <?php endforeach;
             endif;
             ?>
