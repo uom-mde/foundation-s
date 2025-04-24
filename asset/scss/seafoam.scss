@@ -1030,10 +1030,10 @@ bottom: 20%;
     .openseadragon-hero .hero-title-openseadragon {
     position: absolute;
     bottom: 10%;
-    max-width: rem-calc(650);
+    max-width: 28rem;
     /*max-width: 450px;*/
     @include breakpoint(large) {
-      bottom: 20%;
+      bottom: 15%;
     }
     }
     
@@ -1041,8 +1041,11 @@ bottom: 20%;
         background: #1d1d1d;
         padding: 0.5rem;
         color: #fff;
+        @include breakpoint(medium) {
+          font-size: 200%;
+        }
         @include breakpoint(large) {
-          font-size: 250%;
+          font-size: 230%;
         }
     }
     
