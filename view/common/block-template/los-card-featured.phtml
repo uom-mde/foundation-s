@@ -1,7 +1,6 @@
-<div class="list-of-sites">
+<div class="grid-container">
     <h2 class="site-group-heading">Featured Sites</h2>
-
-    <div class="site-list layout-card">
+    <div class="list-of-sites-dynamic site-list layout-card">
         <?php
         $siteSettingService = $this->getHelperPluginManager()->get('siteSetting');
 
@@ -33,7 +32,6 @@
             endif;
         endforeach;
         ?>
-    </div>
 
     <?php if ($pagination): ?>
         <?php echo $this->pagination(); ?>
