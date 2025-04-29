@@ -805,6 +805,14 @@ cursor: pointer;
 transform: scale(1.1);
 }
 
+.site-summary.card-section {
+  font-size: rem-calc(13);
+}
+
+.site.card {
+  transition: opacity 0.3s ease;
+}
+
 
 /*BlockPlus Blocks*/
 //--------------------------------
@@ -3752,7 +3760,7 @@ transform: scale(1.01);
 
 /*Home Page Cards*/ 
 .site-list .site a {
-  font-size: 0.9 * $global-font-size;
+  font-size: rem-calc(18);
   @include breakpoint(medium) {
     font-size: 1.2 * $global-font-size;
   }
@@ -3839,5 +3847,12 @@ transform: scale(1.01);
     @include breakpoint(large) {
       height: rem-calc(200);
     }
+  }
+}
+
+.list-of-sites-dynamic.site-list:hover .site.card {
+  opacity: 0.7;
+  &:hover {
+    opacity: 1;
   }
 }
