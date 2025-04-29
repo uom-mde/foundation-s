@@ -3850,9 +3850,12 @@ transform: scale(1.01);
   }
 }
 
+.list-of-sites.site-list:hover .site.card,
 .list-of-sites-dynamic.site-list:hover .site.card {
   opacity: 0.7;
-  &:hover {
-    opacity: 1;
-  }
+}
+
+.list-of-sites.site-list .site.card:hover,
+.list-of-sites-dynamic.site-list .site.card:hover {
+  opacity: 1;
 }
