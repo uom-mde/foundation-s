@@ -1,0 +1,58 @@
+<div class="list-of-sites">
+    <div class="site-list layout-card">
+        <?php
+        // Get the siteSetting helper
+        $siteSettingService = $this->getHelperPluginManager()->get('siteSetting');
+
+        // Initialize grouped arrays
+        $externalSites = [];
+        $librarySites = [];
+
+        // First pass: group sites by category
+        foreach ($sites as $site) {
+            $category = $siteSettingService('extended_site_description_categories', null, $site->id());
+
+            // Skip if there's no category
+            if (empty($category)) {
+                continue;
+            }
+
+            // Grouping by category values (array)
+            if (is_array($category)) {
+                if (in_array('External', $category)) {
+                    $externalSites[] = $site;
+                }
+                if (in_array('Library', $category)) {
+                    $librarySites[] = $site;
+                }
+            }
+        }
+        ?>
+
+        <?php if (!empty($externalSites)): ?>
+            <h2>External Sites</h2>
+            <?php foreach ($externalSites as $site): ?>
+                <?php echo $this->partial('common/site-list-entry', [
+                    'site' => $site,
+                    'showSummary' => $summaries,
+                    'showThumbnail' => $thumbnails
+                ]); ?>
+            <?php endforeach; ?>
+        <?php endif; ?>
+
+        <?php if (!empty($librarySites)): ?>
+            <h2>Library Sites</h2>
+            <?php foreach ($librarySites as $site): ?>
+                <?php echo $this->partial('common/site-list-entry', [
+                    'site' => $site,
+                    'showSummary' => $summaries,
+                    'showThumbnail' => $thumbnails
+                ]); ?>
+            <?php endforeach; ?>
+        <?php endif; ?>
+    </div>
+
+    <?php if ($pagination): ?>
+        <?php echo $this->pagination(); ?>
+    <?php endif; ?>
+</div>

@@ -1,0 +1,45 @@
+<div class="list-of-sites">
+    <div class="site-list layout-card">
+        <?php
+        // Set up the SiteSetting helper
+        $siteSettingService = $this->getHelperPluginManager()->get('siteSetting');
+
+        // Initialize grouping arrays
+        $externalSites = [];
+        $librarySites = [];
+
+        // First: categorize sites
+        foreach ($sites as $site) {
+            $category = $siteSettingService('extended_site_description_categories', null, $site->id());
+
+            if ($category === 'External') {
+                $externalSites[] = $site;
+            } elseif ($category === 'Library') {
+                $librarySites[] = $site;
+            }
+        }
+        ?>
+
+        <h2>External Sites</h2>
+        <?php foreach ($externalSites as $site): ?>
+            <?php echo $this->partial('common/site-list-entry', [
+                'site' => $site,
+                'showSummary' => $summaries,
+                'showThumbnail' => $thumbnails
+            ]); ?>
+        <?php endforeach; ?>
+
+        <h2>Library Sites</h2>
+        <?php foreach ($librarySites as $site): ?>
+            <?php echo $this->partial('common/site-list-entry', [
+                'site' => $site,
+                'showSummary' => $summaries,
+                'showThumbnail' => $thumbnails
+            ]); ?>
+        <?php endforeach; ?>
+    </div>
+
+    <?php if ($pagination): ?>
+        <?php echo $this->pagination(); ?>
+    <?php endif; ?>
+</div>

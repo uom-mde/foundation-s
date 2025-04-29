@@ -1,0 +1,23 @@
+<div class="list-of-sites">
+    <div class="site-list layout-card">
+        <?php
+        $siteSettingService = $this->getHelperPluginManager()->get('siteSetting');
+
+        foreach ($sites as $site):
+            $featured = $siteSettingService('extended_site_description_featured', null, $site->id());
+
+            if ($featured):
+                echo $this->partial('common/site-list-entry', [
+                    'site' => $site,
+                    'showSummary' => $summaries,
+                    'showThumbnail' => $thumbnails
+                ]);
+            endif;
+        endforeach;
+        ?>
+    </div>
+
+    <?php if ($pagination): ?>
+        <?php echo $this->pagination(); ?>
+    <?php endif; ?>
+</div>
