@@ -18,7 +18,7 @@
     }
 
     // Function to render styled site cards
-    function renderSiteGroup($groupTitle, $groupSites, $thumbnails, $summaries, $view) {
+    function renderExternalSiteGroup($groupTitle, $groupSites, $thumbnails, $summaries, $view) {
         if (empty($groupSites)) return;
     ?>
 
@@ -50,7 +50,7 @@
         }
 
         // Output both groups
-        renderSiteGroup('External Sites', $externalSites, $thumbnails, $summaries, $this);
+        renderExternalSiteGroup('External Sites', $externalSites, $thumbnails, $summaries, $this);
         ?>
     </div>
 
