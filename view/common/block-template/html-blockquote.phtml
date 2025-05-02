@@ -5,12 +5,13 @@
  */
 
 ?>
-
-<div class="full-width padding-vertical-1 flex-container">
-    <div class="grid-x grid-container flex-container blockquote-wrapper">
-        <?php if (!empty($heading)): ?>
-            <h2><?= $escape($heading) ?></h2>
-        <?php endif; ?>
-        <?= $block->dataValue('html', '') ?>
+<div class="reveal-on-scroll lazy-fade-in">  <!-- Load Effect block -->
+    <div class="full-width padding-vertical-1 flex-container">
+        <div class="grid-x grid-container flex-container blockquote-wrapper">
+            <?php if (!empty($heading)): ?>
+                <h2><?= $escape($heading) ?></h2>
+            <?php endif; ?>
+            <?= $block->dataValue('html', '') ?>
+        </div>
     </div>
 </div>
