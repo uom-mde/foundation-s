@@ -2379,7 +2379,8 @@ grid-template-areas:
 .no-alternative .alternative,
 .no-location .location,
 .no-date .date,
-.no-identifier .identifier {
+.no-identifier .identifier,
+.no-separator .separator-center {
   display: none;
 }
 
