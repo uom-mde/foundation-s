@@ -17,34 +17,36 @@ $filterLocale = (bool) $siteSetting('filter_locale_values');
 $lang = $filterLocale ? $this->lang() : null;
 ?>
 
-<div class="block media-text">
-    <div class="<?= htmlspecialchars($thumbnailType) ?> media file medium-padding-horizontal-1 large-padding-horizontal-2 xlarge-padding-horizontal-3">
-        <div class="attachments resource-text-openseadragon">
-        <?php foreach ($attachments as $attachment): 
-            $title = null;
-            $link = null;
-            $item = $attachment->item();
-            $caption = $attachment->caption();
-            
-            if ($item) {
-                $media = $attachment->media() ?: $item->primaryMedia();
+<div class="reveal-on-scroll lazy-fade-in">  <!-- Load Effect block -->
+    <div class="block media-text">
+        <div class="<?= htmlspecialchars($thumbnailType) ?> media file medium-padding-horizontal-1 large-padding-horizontal-2 xlarge-padding-horizontal-3">
+            <div class="attachments resource-text-openseadragon">
+            <?php foreach ($attachments as $attachment): 
+                $title = null;
+                $link = null;
+                $item = $attachment->item();
+                $caption = $attachment->caption();
+                
+                if ($item) {
+                    $media = $attachment->media() ?: $item->primaryMedia();
 
-                if ($media) {
-                    // Render the media with specified options
-                    echo $media->render([
-                        'thumbnailType' => $thumbnailType,
-                        'link' => $linkType,
-                    ]);
+                    if ($media) {
+                        // Render the media with specified options
+                        echo $media->render([
+                            'thumbnailType' => $thumbnailType,
+                            'link' => $linkType,
+                        ]);
+                    }
                 }
-            }
-            ?>
+                ?>
 
-            <div class="item resource">
-                <?php if ($caption): ?>
-                    <div class="caption"><?php echo $caption; ?></div>
-                <?php endif; ?>
+                <div class="item resource">
+                    <?php if ($caption): ?>
+                        <div class="caption"><?php echo $caption; ?></div>
+                    <?php endif; ?>
+                </div>
+            <?php endforeach; ?>
             </div>
-        <?php endforeach; ?>
         </div>
     </div>
 </div>

@@ -1,39 +1,41 @@
-<div class="grid-container">
-    <h2 class="site-group-heading">Featured Sites</h2>
-    <div class="list-of-sites-dynamic site-list layout-card">
-        <?php
-        $siteSettingService = $this->getHelperPluginManager()->get('siteSetting');
+<div class="reveal-on-scroll lazy-fade-in">  <!-- Load Effect block -->
+    <div class="grid-container">
+        <h2 class="site-group-heading">Featured Sites</h2>
+        <div class="list-of-sites-dynamic site-list layout-card">
+            <?php
+            $siteSettingService = $this->getHelperPluginManager()->get('siteSetting');
 
-        foreach ($sites as $site):
-            $featured = $siteSettingService('extended_site_description_featured', null, $site->id());
+            foreach ($sites as $site):
+                $featured = $siteSettingService('extended_site_description_featured', null, $site->id());
 
-            if ($featured):
-                $thumbnail = $thumbnails ? $site->thumbnail() : null;
-                $summary = $summaries ? $site->summary() : null;
-        ?>
-                <div class="site card">
-                    <?php if ($thumbnail): ?>
-                        <div class="site-thumbnail">
-                            <?php echo $this->thumbnail($thumbnail, 'square', ['class' => 'site-thumbnail-image']); ?>
+                if ($featured):
+                    $thumbnail = $thumbnails ? $site->thumbnail() : null;
+                    $summary = $summaries ? $site->summary() : null;
+            ?>
+                    <div class="site card">
+                        <?php if ($thumbnail): ?>
+                            <div class="site-thumbnail">
+                                <?php echo $this->thumbnail($thumbnail, 'square', ['class' => 'site-thumbnail-image']); ?>
+                            </div>
+                        <?php endif; ?>
+
+                        <div class="card-divider">
+                            <?php echo $this->hyperlink($site->title(), $site->siteUrl(), ['class' => 'site-link']); ?>
                         </div>
-                    <?php endif; ?>
 
-                    <div class="card-divider">
-                        <?php echo $this->hyperlink($site->title(), $site->siteUrl(), ['class' => 'site-link']); ?>
+                        <?php if ($summary): ?>
+                            <div class="site-summary card-section">
+                                <?php echo nl2br($this->escapeHtml($summary)); ?>
+                            </div>
+                        <?php endif; ?>
                     </div>
+            <?php
+                endif;
+            endforeach;
+            ?>
 
-                    <?php if ($summary): ?>
-                        <div class="site-summary card-section">
-                            <?php echo nl2br($this->escapeHtml($summary)); ?>
-                        </div>
-                    <?php endif; ?>
-                </div>
-        <?php
-            endif;
-        endforeach;
-        ?>
-
-    <?php if ($pagination): ?>
-        <?php echo $this->pagination(); ?>
-    <?php endif; ?>
+        <?php if ($pagination): ?>
+            <?php echo $this->pagination(); ?>
+        <?php endif; ?>
+    </div>
 </div>

@@ -21,6 +21,7 @@ $this->headScript()->prependFile($this->assetUrl('js/global.js', 'Omeka'));
 $this->headScript()->prependFile($this->assetUrl('js/langselect.js'));
 $this->headScript()->prependFile($this->assetUrl('js/jquery.peekabar.js'));
 $this->headScript()->prependFile($this->assetUrl('vendor/jquery/jquery.min.js', 'Omeka')); 
+$this->headScript()->prependFile($this->assetUrl('js/load-effect.js'));
 $this->headScript()->appendFile($this->assetUrl('js/annona.js'));
 $this->trigger('view.layout');
 $this->jsTranslate();
