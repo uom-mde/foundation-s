@@ -22,15 +22,21 @@ function applyObserver(element) {
 
 $(document).ready(function() {
 	{		// scope
+		const latest = $('#latest').find('.thrower');
 		const featured = $('#featured').find('.thrower');
+		$(latest).empty();
 		$(featured).empty();
 
 		//Check this in your browser DevTools > Console
 		console.log("NEW contents:", NEW);
+		console.log('Latest element:', latest);
+		console.log('Featured element:', featured);
 
 		$("body").prepend(`<p style="color:red">Loaded ${NEW.length} featured sites.</p>`);
 
 		for (const item of NEW) {
+			console.log('Processing item:', item);  // ✅ Inside the loop
+		
 			const li = $(`
 				<li>
 					<a class="inner" href="${item.url}">
@@ -46,7 +52,7 @@ $(document).ready(function() {
 			`);
 		
 			$(featured).append(li.clone());
-		}
+		}		
 	}
 
 	$('.scrollbox-thrower').each(function() {

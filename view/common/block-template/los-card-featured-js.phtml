@@ -24,6 +24,10 @@ foreach ($sites as $site):
 endforeach;
 ?>
 
+<pre>
+<?php print_r($NEW); ?>
+</pre>
+
 <script>
     window.NEW = <?php echo json_encode($NEW, JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT); ?>;
 </script>
@@ -35,7 +39,8 @@ endforeach;
 
     <aside class="covermain">
         <h1>Featured stories</h1>
-        <section id="featured">
+        <section id="featured" class="full-width">
+        <ul class="thrower"></ul>
             <nav><button class="throwleft" disabled="disabled">&lt;</button><button class="throwright">&gt;</button></nav>
         </section>
         <a class="viewall" href="./">View all</a>
