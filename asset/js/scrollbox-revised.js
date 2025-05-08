@@ -22,15 +22,8 @@ function applyObserver(element) {
 
 $(document).ready(function() {
 	{		// scope
-		const latest = $('#latest').find('.thrower');
 		const featured = $('#featured').find('.thrower');
-		$(latest).empty();
 		$(featured).empty();
-	
-		if (typeof NEW === 'undefined') {
-			console.error("NEW is not defined");
-			return;
-		}
 
 		//Check this in your browser DevTools > Console
 		console.log("NEW contents:", NEW);
