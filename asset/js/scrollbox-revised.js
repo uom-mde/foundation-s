@@ -24,8 +24,10 @@ $(document).ready(function() {
 	{		// scope
 		const latest = $('#latest').find('.thrower');
 		const featured = $('#featured').find('.thrower');
+		const NEW = $('#NEW').find('.thrower');
 		$(latest).empty();
 		$(featured).empty();
+		$(NEW).empty();
 	
 		if (typeof NEW === 'undefined') {
 			console.error("NEW is not defined");
