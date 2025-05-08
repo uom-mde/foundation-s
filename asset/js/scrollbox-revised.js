@@ -31,18 +31,21 @@ $(document).ready(function() {
 		$("body").prepend(`<p style="color:red">Loaded ${NEW.length} featured sites.</p>`);
 
 		for (const item of NEW) {
-			const li = $(`<li>
-		<a class="inner" href="./">
-			<section class="inner2">
-				<img src="${item.thumbnail}">
-				<div>
-					<h4>${item.title}</h4>
-					<p>This is a test. The quick brown fox jumps over the lazy dog.</p>
-				</div>
-			</section>
-		</a>
-	</li>`);
-			$(featured).append($(li).clone());
+			const li = $(`
+				<li>
+					<a class="inner" href="${item.url}">
+						<section class="inner2">
+							${item.thumbnail ? `<img src="${item.thumbnail}" alt="${item.title}">` : ''}
+							<div>
+								<h4>${item.title}</h4>
+								<p>${item.summary ? item.summary : 'No description available.'}</p>
+							</div>
+						</section>
+					</a>
+				</li>
+			`);
+		
+			$(featured).append(li.clone());
 		}
 	}
 
