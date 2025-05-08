@@ -1,11 +1,6 @@
 <?php
-$this->headLink()->prependStylesheet($this->assetUrl('css/scrollbox-revised.css'));
-$this->headScript()->prependFile($this->assetUrl('js/scrollbox.js'));
-?>
-
-<?php
 $siteSettingService = $this->getHelperPluginManager()->get('siteSetting');
-$featuredScrollbox = [];
+$NEW = [];
 
 foreach ($sites as $site):
     $featured = $siteSettingService('extended_site_description_featured', null, $site->id());
@@ -14,7 +9,7 @@ foreach ($sites as $site):
         $thumbnailUrl = $thumbnails && $site->thumbnail() ? $site->thumbnail()->assetUrl() : null;
         $summary = $summaries ? $site->summary() : null;
 
-        $featuredScrollbox[] = [
+        $NEW[] = [
             'title' => $site->title(),
             'url' => $site->siteUrl(),
             'featured' => $featured,
@@ -25,26 +20,12 @@ foreach ($sites as $site):
 endforeach;
 ?>
 
+<pre><?php print_r($NEW); ?></pre>
+
 <script>
-    const featuredScrollbox = <?php echo json_encode($featuredScrollbox); ?>;
-
-    for (const item of featuredScrollbox) {
-        const li = $(`
-            <li>
-                <a class="inner" href="${item.url}">
-
-                <section class="inner2">
-                    <img src="${item.thumbnail}" alt="${item.title}">
-                    <div>
-                        <h4>${item.title}</h4>
-                        <p>${item.summary ? item.summary.replace(/\n/g, '<br>') : ''}</p>
-                    </div>
-			    </section>
-
-                </a>
-            </li>
-        `);
-
-        
-    }
+    window.NEW = <?php echo json_encode($NEW, JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT); ?>;
 </script>
+
+<script src="http://localhost/omeka-s/themes/foundation-s/asset/js/scrollbox-revised.js"></script>
+
+

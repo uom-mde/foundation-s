@@ -21,9 +21,36 @@ function applyObserver(element) {
 }
 
 $(document).ready(function() {
-	{	// scope
+	{		// scope
+		const latest = $('#latest').find('.thrower');
 		const featured = $('#featured').find('.thrower');
+		$(latest).empty();
 		$(featured).empty();
+	
+		if (typeof NEW === 'undefined') {
+			console.error("NEW is not defined");
+			return;
+		}
+
+		//Check this in your browser DevTools > Console
+		console.log("NEW contents:", NEW);
+
+		$("body").prepend(`<p style="color:red">Loaded ${NEW.length} featured sites.</p>`);
+
+		for (const item of NEW) {
+			const li = $(`<li>
+		<a class="inner" href="./">
+			<section class="inner2">
+				<img src="${item.thumbnail}">
+				<div>
+					<h4>${item.title}</h4>
+					<p>This is a test. The quick brown fox jumps over the lazy dog.</p>
+				</div>
+			</section>
+		</a>
+	</li>`);
+			$(featured).append($(li).clone());
+		}
 	}
 
 	$('.scrollbox-thrower').each(function() {
