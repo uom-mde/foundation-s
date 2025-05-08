@@ -28,14 +28,14 @@ $(document).ready(function() {
 		$(featured).empty();
 
 		//Check this in your browser DevTools > Console
-		console.log("NEW contents:", NEW);
+		console.log("featuredScrollbox contents:", featuredScrollbox);
 		console.log('Latest element:', latest);
 		console.log('Featured element:', featured);
 
-		$("body").prepend(`<p style="color:red">Loaded ${NEW.length} featured sites.</p>`);
+		$("body").prepend(`<p style="color:red">Loaded ${featuredScrollbox.length} featured sites.</p>`);
 
-		for (const item of NEW) {
-			console.log('Processing item:', item);  // ✅ Inside the loop
+		for (const item of featuredScrollbox) {
+			console.log('Processing item:', item);
 		
 			const li = $(`
 				<li>
