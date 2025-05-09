@@ -21,47 +21,38 @@ function applyObserver(element) {
 }
 
 $(document).ready(function() {
-	{	// scope
+	{		// scope
 		const latest = $('#latest').find('.thrower');
 		const featured = $('#featured').find('.thrower');
 		$(latest).empty();
 		$(featured).empty();
 
-		LATEST.sort((a, b) => {
-			if (a.released < b.released) return -1;
-			if (a.released > b.released) return 1;
-			return 0;
-		}).reverse();
+		//Check this in your browser DevTools > Console
+		console.log("featuredScrollbox contents:", featuredScrollbox);
+		console.log('Latest element:', latest);
+		console.log('Featured element:', featured);
 
-		for (const item of LATEST) {
-			const li = $(`<li>
-		<a class="inner" href="./">
-			<section class="inner2">
-				<img src="https://www.digitalcollections.manchester.ac.uk${item.thumbnail}">
-				<div>
-					<h4>${item.title}</h4>
-					<p>This is a test. The quick brown fox jumps over the lazy dog.</p>
-				</div>
-			</section>
-		</a>
-	</li>`);
-			$(latest).append($(li).clone());
-		}
+		$("body").prepend(`<p style="color:red">Loaded ${featuredScrollbox.length} featured sites.</p>`);
 
-		for (const item of STORIES) {
-			const li = $(`<li>
-		<a class="inner" href="./">
-			<section class="inner2">
-				<img src="${item.thumbnail}">
-				<div>
-					<h4>${item.title}</h4>
-					<p>This is a test. The quick brown fox jumps over the lazy dog.</p>
-				</div>
-			</section>
-		</a>
-	</li>`);
-			$(featured).append($(li).clone());
-		}
+		for (const item of featuredScrollbox) {
+			console.log('Processing item:', item);
+		
+			const li = $(`
+				<li>
+					<a class="inner" href="${item.url}">
+						<section class="inner2">
+							${item.thumbnail ? `<img src="${item.thumbnail}" alt="${item.title}">` : ''}
+							<div>
+								<h4>${item.title}</h4>
+								<p>${item.summary ? item.summary : 'No description available.'}</p>
+							</div>
+						</section>
+					</a>
+				</li>
+			`);
+		
+			$(featured).append(li.clone());
+		}		
 	}
 
 	$('.scrollbox-thrower').each(function() {
