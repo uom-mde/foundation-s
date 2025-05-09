@@ -27,16 +27,7 @@ $(document).ready(function() {
 		$(latest).empty();
 		$(featured).empty();
 
-		//Check this in your browser DevTools > Console
-		console.log("featuredScrollbox contents:", featuredScrollbox);
-		console.log('Latest element:', latest);
-		console.log('Featured element:', featured);
-
-		$("body").prepend(`<p style="color:red">Loaded ${featuredScrollbox.length} featured sites.</p>`);
-
 		for (const item of featuredScrollbox) {
-			console.log('Processing item:', item);
-		
 			const li = $(`
 				<li>
 					<a class="inner" href="${item.url}">

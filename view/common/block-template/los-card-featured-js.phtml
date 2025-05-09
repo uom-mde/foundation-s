@@ -24,10 +24,6 @@ foreach ($sites as $site):
 endforeach;
 ?>
 
-<pre>
-<?php print_r($featuredScrollbox); ?>
-</pre>
-
 <script>
     window.featuredScrollbox = <?php echo json_encode($featuredScrollbox, JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT); ?>;
     </script>
