@@ -1006,7 +1006,7 @@ max-width: rem-calc(2000px);
 .img-hero .hero-title-img {
 position: absolute;
 z-index: 9999;
-bottom: 20%;
+bottom: 25%;
 } 
 
 .hero-title-img h1 {
@@ -1041,19 +1041,23 @@ bottom: 20%;
     max-width: 28rem;
     /*max-width: 450px;*/
     @include breakpoint(large) {
-      bottom: 15%;
+      bottom: 25%;
     }
     }
     
     .openseadragon-hero .hero-title-openseadragon  h1 {
+        display: inline;  
         background: #1d1d1d;
         padding: 0.5rem;
         color: #fff;
+        line-height: 2.75rem;
         @include breakpoint(medium) {
           font-size: 200%;
+          line-height: 3rem;
         }
         @include breakpoint(large) {
           font-size: 230%;
+          line-height: 3.5rem;
         }
     }
     
@@ -2965,14 +2969,14 @@ grid-template-areas:
 .media-embed-block.layout-vertical.attachment-count-2 .resource-text-openseadragon .medium-large .openseadragon,
 .media-embed-block.layout-vertical.attachment-count-2 .resource-text-openseadragon .medium-large .file > a > img {
   @include breakpoint(medium) {
-  height: calc(55vh - .75rem) !important;
+  height: calc(70vh - .75rem) !important;
 }
 }
 
 .media-embed-block.layout-vertical.attachment-count-2 .resource-text-openseadragon .large .openseadragon,
 .media-embed-block.layout-vertical.attachment-count-2 .resource-text-openseadragon .large .file > a > img {
   @include breakpoint(medium) {
-  height: calc(70vh - .75rem) !important;
+  height: calc(90vh - .75rem) !important;
 }
 }
 
