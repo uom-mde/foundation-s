@@ -3176,12 +3176,18 @@ section.image-banner {
   }
 }
 
-.dark-background .item .caption {
+.dark-background .caption {
   border-left: solid rem-calc(6) $warning-color;
 }
 
-.dark-background .item .caption p {
+.dark-background .caption p {
   color: #dddddd;
+}
+
+.dark-background .caption.asset-caption {
+  padding: 0.5 * $global-padding;
+  color: #bdbdbd;
+  margin-bottom: 0;
 }
 
 .asset .caption {
