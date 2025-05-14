@@ -16,7 +16,7 @@ $thumbnail-shadow-hover: 0 0 6px 1px rgba($primary-color, 0.5);
 /*Font Sizes*/ 
 h2,
 .h2 {
-@include breakpoint(large) {
+@include breakpoint(medium) {
   font-size: 1.4rem;
   }
 }
