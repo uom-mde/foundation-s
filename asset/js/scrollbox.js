@@ -43,6 +43,24 @@ $(document).ready(function() {
 			`);
 		
 			$(featured).append(li.clone());
+		}	
+		
+		for (const item of latestScrollbox) {
+			const li = $(`
+				<li>
+					<a class="inner" href="${item.url}">
+						<section class="inner2">
+							${item.thumbnail ? `<img src="${item.thumbnail}" alt="${item.title}">` : ''}
+							<div>
+								<h4>${item.title}</h4>
+								<p>${item.summary ? item.summary : 'No description available.'}</p>
+							</div>
+						</section>
+					</a>
+				</li>
+			`);
+		
+			$(latest).append(li.clone());
 		}		
 	}
 
