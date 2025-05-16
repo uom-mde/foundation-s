@@ -9,12 +9,14 @@
 
         // Categorize sites
         foreach ($sites as $site) {
+            $featured = $siteSettingService('extended_site_description_featured', null, $site->id());
             $category = $siteSettingService('extended_site_description_categories', null, $site->id());
-
-            if (empty($category)) continue;
-
-            if (is_array($category)) {
-                if (in_array('External', $category)) $externalSites[] = $site;
+        
+            if (empty($category) || !is_array($category)) continue;
+        
+            // Add site only if it has 'External' in category and NOT featured'
+            if (in_array('External', $category) && !$featured) {
+                $externalSites[] = $site;
             }
         }
 
