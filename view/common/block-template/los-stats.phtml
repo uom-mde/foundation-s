@@ -1,0 +1,40 @@
+<?php
+// Set the full base API URL, with trailing slash
+$baseUrl = 'https://digitalexhibitions.manchester.ac.uk/api/';
+
+// Function to get total count from API
+function getOmekaTotal($baseUrl, $endpoint) {
+    $url = $baseUrl . $endpoint;
+
+    $response = file_get_contents($url);
+    if ($response === false) {
+        return 'Error contacting API';
+    }
+
+    // DEBUG: Show raw response
+    echo "<pre>Response from $endpoint:\n" . htmlspecialchars($response) . "</pre>";
+
+    $data = json_decode($response, true);
+    
+    // DEBUG: Show parsed array
+    echo "<pre>Parsed JSON:\n" . print_r($data, true) . "</pre>";
+
+    return $data['o:total_results'] ?? 'Not found';
+}
+
+// Call the function with both base URL and endpoint
+$numSites = getOmekaTotal($baseUrl, 'sites');
+$numItems = getOmekaTotal($baseUrl, 'items');
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Omeka S Stats</title>
+</head>
+<body>
+    <h1>Omeka S Statistics</h1>
+    <p><strong>Number of Sites:</strong> <?php echo htmlspecialchars($numSites); ?></p>
+    <p><strong>Number of Items:</strong> <?php echo htmlspecialchars($numItems); ?></p>
+</body>
+</html>
