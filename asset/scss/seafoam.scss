@@ -1573,6 +1573,12 @@ dd.value a {
   padding: 0;
 }
 
+/*Jumbotron Search*/ 
+.jumbotron-search input[type="text"] {
+  width: 100%;
+  margin: 0;
+}
+
 /*Additional Search Bar*/
 .search-bar {
   display: none;
@@ -3887,8 +3893,9 @@ transform: scale(1.01);
 }
 
 .site-list.los-browse .site-thumbnail-image {
-  height: 10rem;
+  height: 9rem;
 }
+/*End List of Site Browse*/ 
 
 .site-list:hover .site.card,
 .list-of-sites-dynamic.site-list:hover .site.card {
