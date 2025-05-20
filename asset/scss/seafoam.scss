@@ -1574,9 +1574,25 @@ dd.value a {
 }
 
 /*Jumbotron Search*/ 
+.jumbotron-search form {
+  padding: 0!important;
+  max-width: rem-calc(850);
+}
+
 .jumbotron-search input[type="text"] {
   width: 100%;
   margin: 0;
+  padding: 0 rem-calc(16);
+}
+
+.jumbotron-search button[type="submit"] {
+  padding: 0 rem-calc(16)!important;
+}
+
+.jumbotron-search button[type="submit"]:hover {
+  line-height: 2.5em;
+  color: #fff;
+  border-radius: 0 rem-calc(8) rem-calc(8) 0;
 }
 
 .result-site a {
