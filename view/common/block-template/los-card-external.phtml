@@ -13,12 +13,12 @@
             $category = $siteSettingService('extended_site_description_categories', null, $site->id());
         
             if (empty($category) || !is_array($category)) continue;
-        
+
             // Add site only if it has 'External' in category and NOT featured'
             if (in_array('External', $category) && !$featured) {
                 $externalSites[] = $site;
-            }
         }
+    }
 
         // Function to render styled site cards
         function renderExternalSiteGroup($groupTitle, $groupSites, $thumbnails, $summaries, $view) {

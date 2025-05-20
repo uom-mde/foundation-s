@@ -1,0 +1,48 @@
+<?php
+$this->headLink()->appendStylesheet($this->assetUrl('css/scrollbox.css'));
+?>
+
+<?php
+$siteSettingService = $this->getHelperPluginManager()->get('siteSetting');
+$featuredScrollbox = [];
+
+foreach ($sites as $site):
+    $featured = $siteSettingService('extended_site_description_featured', null, $site->id());
+
+    if ($featured):
+        $thumbnailUrl = $thumbnails && $site->thumbnail() ? $site->thumbnail()->assetUrl() : null;
+        $summary = $summaries ? $site->summary() : null;
+
+        $featuredScrollbox[] = [
+            'title' => $site->title(),
+            'url' => $site->siteUrl(),
+            'featured' => $featured,
+            'thumbnail' => $thumbnailUrl,
+            'summary' => $summary
+        ];
+    endif;
+endforeach;
+?>
+
+<script>
+    window.featuredScrollbox = <?php echo json_encode($featuredScrollbox, JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT); ?>;
+    </script>
+
+<?php $this->headScript()->prependFile($this->assetUrl('js/scrollbox.js')); ?>
+
+<div class="full-width">
+    <section class="scrollbox-thrower" style="margin-top: 60px;">
+        <aside class="coverleft">&nbsp;</aside>
+
+        <aside class="covermain">
+            <h1>Featured stories</h1>
+            <section id="featured">
+            <ul class="thrower"></ul>
+                <nav><button class="throwleft" disabled="disabled">&lt;</button><button class="throwright">&gt;</button></nav>
+            </section>
+            <!-- <a class="viewall" href="./">View all</a> -->
+        </aside>
+
+        <aside class="coverright">&nbsp;</aside>
+    </section>
+</div>

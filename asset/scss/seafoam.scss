@@ -3971,6 +3971,35 @@ transform: scale(1.01);
   opacity: 1;
 }
 
+/*List of Sites - Browse*/ 
+.site-list.los-browse {
+  grid-template-columns: 1fr;
+  @include breakpoint(750) {
+    grid-template-columns: 1fr 1fr;
+  }
+  @include breakpoint(xlarge) {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+.site-list.los-browse .site.card {
+  flex-direction: row;
+}
+
+.los-browse .card {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+}
+
+.los-browse .card-divider {
+  background: unset;
+  align-items: center;
+}
+
+.site-list.los-browse .site-thumbnail-image {
+  height: 10rem;
+}
+
 /*Load Effect*/ 
 /*Lazy Load*/ 
 .reveal-on-scroll {

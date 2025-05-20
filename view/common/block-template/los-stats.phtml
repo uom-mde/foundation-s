@@ -1,0 +1,40 @@
+<?php
+$apiBase = $this->serverUrl() . $this->basePath('/api');
+$infoUrl = $apiBase . '/infos';
+$siteUrl = $apiBase . '/infos/sites';
+
+function getInfo($url) {
+    $response = file_get_contents($url);
+    if ($response === false) {
+        return 'Error contacting API';
+    }
+
+    return json_decode($response, true);
+}
+
+// Get general resource info
+$info = getInfo($infoUrl);
+$totalItems = $info['items']['total'] ?? 'N/A';
+$totalMedia = $info['media']['total'] ?? 'N/A';
+$totalItemSets = $info['item_sets']['total'] ?? 'N/A';
+
+// Get site-specific info
+$siteInfo = getInfo($siteUrl);
+$totalSites = $siteInfo['total'] ?? 'N/A';
+$totalPages = $siteInfo['pages'] ?? 'N/A';
+?>
+
+<div class="full-width mde-stats dark-background">
+    <div class="grid-container">
+        <dl>
+            <dt class="h2">Exhibitions</dt>
+            <dd class="h1"><?php echo htmlspecialchars($totalSites); ?></dd>
+            <dt class="h2">Pages</dt>
+            <dd class="h1"><?php echo htmlspecialchars($totalPages); ?></dd>
+            <dt class="h2">Items</dt>
+            <dd class="h1"><?php echo htmlspecialchars($totalItems); ?></dd>
+            <dt class="h2">Media</dt>
+            <dd class="h1"><?php echo htmlspecialchars($totalMedia); ?></dd>
+        </dl>
+    </div>
+</div>

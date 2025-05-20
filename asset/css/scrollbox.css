@@ -1,0 +1,459 @@
+.scrollbox-thrower {
+    width: 100%;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+}
+
+@media screen and (min-width: 640px) {
+    .scrollbox-thrower {
+        grid-template-columns: 1fr 3fr 1fr;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .scrollbox-thrower {
+        grid-template-columns: 1fr 3fr 1fr;
+    }
+}
+
+.scrollbox-thrower aside.coverleft, .scrollbox-thrower aside.coverright
+ {
+    background-color: rgba(255, 255, 255, 0.8);
+    display: block;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+}
+
+.scrollbox-thrower aside.covermain {
+    width: 100%;
+    height: inherit;
+    z-index: 1000;
+    box-sizing: border-box;
+    padding: 0 20px;
+    position: relative;
+}
+
+.scrollbox-thrower aside.covermain > h1 {
+    font-size: 28px;
+    font-weight: 600;
+}
+
+.scrollbox-thrower aside.covermain > section {
+    height: 220px;
+    position: relative;
+    top: 0;
+    left: 0;
+}
+
+.scrollbox-thrower aside.covermain ul {
+    position: relative;
+    width: calc(100% + 20px);
+    box-sizing: border-box;
+    height: 180px;
+    list-style: none;
+    margin: 20px 0 0 0;
+    padding: 0;
+    white-space: nowrap;
+    font-size: 0;
+    transition: left 0.45s ease-in-out;
+}
+
+.scrollbox-thrower aside.covermain ul li {
+    opacity: 1;
+    transition: opacity 200ms ease-in-out, z-index 200ms ease-in-out;
+    transition-delay: 300ms;
+}
+
+.scrollbox-thrower aside.covermain ul li {
+    font-size: 16px;
+    display: inline-grid;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 180px;
+    box-sizing: border-box;
+    padding: 0 10px;
+    opacity: 1;
+    position: relative;
+}
+
+@media screen and (min-width: 640px) {
+    .scrollbox-thrower aside.covermain ul li {
+        width: 50%;
+    }
+}
+
+@media screen and (min-width: 850px) {
+    .scrollbox-thrower aside.covermain ul li {
+        width: 33%;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .scrollbox-thrower aside.covermain ul li {
+        width: 25%;
+    }
+}
+
+.scrollbox-thrower aside.covermain ul li:nth-child(1) a {
+    transition-delay: 50ms;
+}
+
+.scrollbox-thrower aside.covermain ul li a {
+    background-color: cyan;
+    height: 180px;
+    display: block;
+    position: relative;
+    top: 0;
+    left: 0;
+    opacity: 1;
+    transition: opacity 750ms ease-in-out;
+}
+a:visited {
+    color: #8a00bc;
+    text-decoration: none;
+    border-bottom: 1px dotted #ddbfdc;
+}
+
+.scrollbox-thrower aside.covermain ul li a section.inner2 {
+    display: block;
+    width: 100%;
+    height: 180px;
+    position: absolute;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+    transition: top 200ms ease-in-out, left 200ms ease-in-out, width 200ms ease-in-out, height 200ms ease-in-out;
+    transition-delay: 300ms;
+}
+
+.scrollbox-thrower aside.covermain ul li a img {
+    display: block;
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    transition: height 200ms ease-in-out;
+    transition-delay: 300ms;
+}
+
+img {
+    border: 0;
+    -ms-interpolation-mode: bicubic;
+    vertical-align: middle;
+}
+
+.scrollbox-thrower aside.covermain ul li a div {
+    position: absolute;
+    bottom: 0;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 30px;
+    background-color: rgba(66, 66, 66, 0);
+    color: white;
+    transition: height 200ms ease-in-out, background-color 200ms ease-in-out;
+    transition-delay: 300ms;
+}
+
+.scrollbox-thrower aside.covermain ul li a div h4 {
+    display: inline-block;
+    margin: 0;
+    padding: 5px 10px;
+    background-color: #424242;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-width: 100%;
+    height: 30px;
+}
+
+.scrollbox-thrower aside.covermain ul li a div p {
+    padding: 0 10px 5px 10px;
+    opacity: 0;
+    transition: opacity 200ms ease-in-out, width 200ms ease-in-out;
+    transition-delay: 300ms;
+    box-sizing: border-box;
+    width: calc(100% + 40px);
+    overflow: visible;
+    white-space: wrap;
+    font-size: 13px;
+    line-height: 1.2em;
+}
+
+.scrollbox-thrower aside.covermain > section nav {
+    z-index: 9999;
+    position: absolute;
+    top: 69px;
+    right: 0;
+    display: grid
+;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 2px;
+}
+
+.scrollbox-thrower aside.covermain > section nav button[disabled] {
+    opacity: 0.4;
+}
+
+.scrollbox-thrower aside.covermain > section nav button {
+    font-family: "Open Sans";
+    font-weight: bold;
+    font-size: 28px;
+    outline: none;
+    border: none;
+    background-color: silver;
+    color: white;
+    width: 42px;
+    height: 42px;
+}
+
+.scrollbox-thrower aside.covermain a.viewall {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 1rem;
+}
+
+.scrollbox-thrower aside.coverleft, .scrollbox-thrower aside.coverright {
+    background-color: rgba(255, 255, 255, 0.8);
+    display: block;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+}
+
+.scrollbox-thrower button {
+    cursor: default; /* default cursor for all buttons */
+  }
+  
+  .scrollbox-thrower button:enabled {
+    cursor: pointer; /* pointer only for buttons that are enabled */
+  }
+
+  /*MDC CSS*/ 
+
+  .scrollbox-thrower {
+    width: 100%;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 1fr 1177px 1fr;
+  }
+  @media screen and (max-width: 1199px) {
+    .scrollbox-thrower {
+      grid-template-columns: 1fr 100% 1fr;
+    }
+  }
+  .scrollbox-thrower aside.coverleft,
+  .scrollbox-thrower aside.coverright {
+    background-color: rgba(255, 255, 255, 0.8);
+    display: block;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+  }
+  .scrollbox-thrower aside.covermain {
+    width: 100%;
+    height: inherit;
+    z-index: 1000;
+    box-sizing: border-box;
+    padding: 0 20px;
+    position: relative;
+  }
+  .scrollbox-thrower aside.covermain a.viewall {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 1rem;
+  }
+  .scrollbox-thrower aside.covermain > h1 {
+    font-size: 28px;
+    font-weight: 600;
+  }
+  .scrollbox-thrower aside.covermain ul {
+    position: relative;
+    width: calc(100% + 20px);
+    box-sizing: border-box;
+    height: 180px;
+    list-style: none;
+    margin: 20px 0 0 0;
+    padding: 0;
+    white-space: nowrap;
+    font-size: 0;
+    /* hack to get rid of the whitespace between lis */
+    transition: left 0.45s ease-in-out;
+  }
+  .scrollbox-thrower aside.covermain ul li {
+    font-size: 16px;
+    display: inline-grid;
+    margin: 0;
+    padding: 0;
+    width: 25%;
+    height: 180px;
+    box-sizing: border-box;
+    padding: 0 10px;
+    opacity: 1;
+    position: relative;
+    /* for observer fade in, not for hover */
+  }
+  .scrollbox-thrower aside.covermain ul li a {
+    background-color: cyan;
+    height: 180px;
+    display: block;
+    position: relative;
+    top: 0;
+    left: 0;
+    opacity: 1;
+    /* for observer fade in, not for hover */
+    transition: opacity 750ms ease-in-out;
+  }
+  .scrollbox-thrower aside.covermain ul li a section.inner2 {
+    display: block;
+    width: 100%;
+    height: 180px;
+    position: absolute;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+    transition: top 200ms ease-in-out, left 200ms ease-in-out, width 200ms ease-in-out, height 200ms ease-in-out;
+    transition-delay: 300ms;
+  }
+  .scrollbox-thrower aside.covermain ul li a img {
+    display: block;
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    transition: height 200ms ease-in-out;
+    transition-delay: 300ms;
+  }
+  .scrollbox-thrower aside.covermain ul li a div {
+    position: absolute;
+    bottom: 0;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 30px;
+    background-color: rgba(66, 66, 66, 0);
+    color: white;
+    transition: height 200ms ease-in-out, background-color 200ms ease-in-out;
+    transition-delay: 300ms;
+  }
+  .scrollbox-thrower aside.covermain ul li a div h4 {
+    display: inline-block;
+    margin: 0;
+    padding: 5px 10px;
+    background-color: #424242;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-width: 100%;
+    height: 30px;
+  }
+  .scrollbox-thrower aside.covermain ul li a div p {
+    padding: 0 10px 5px 10px;
+    opacity: 0;
+    transition: opacity 200ms ease-in-out, width 200ms ease-in-out;
+    transition-delay: 300ms;
+    box-sizing: border-box;
+    width: calc(100% +  40px );
+    /* needed to stop word-wrap during resize */
+    overflow: visible;
+    white-space: wrap;
+    font-size: 13px;
+    line-height: 1.2em;
+  }
+  .scrollbox-thrower aside.covermain ul li:nth-child(1) a {
+    transition-delay: 50ms;
+  }
+  .scrollbox-thrower aside.covermain ul li:nth-child(2) a {
+    transition-delay: 200ms;
+  }
+  .scrollbox-thrower aside.covermain ul li:nth-child(3) a {
+    transition-delay: 350ms;
+  }
+  .scrollbox-thrower aside.covermain ul li:nth-child(4) a {
+    transition-delay: 500ms;
+  }
+  .scrollbox-thrower aside.covermain ul li:nth-child(5) a {
+    transition-delay: 650ms;
+  }
+  .scrollbox-thrower aside.covermain ul li:nth-child(6) a {
+    transition-delay: 800ms;
+  }
+  .scrollbox-thrower aside.covermain ul li:nth-child(7) a {
+    transition-delay: 950ms;
+  }
+  .scrollbox-thrower aside.covermain ul li:nth-child(8) a {
+    transition-delay: 1100ms;
+  }
+  .scrollbox-thrower aside.covermain ul li:nth-child(9) a {
+    transition-delay: 1250ms;
+  }
+  .scrollbox-thrower aside.covermain ul li:nth-child(10) a {
+    transition-delay: 1400ms;
+  }
+  .scrollbox-thrower aside.covermain ul li {
+    opacity: 1;
+    transition: opacity 200ms ease-in-out, z-index 200ms ease-in-out;
+    transition-delay: 300ms;
+  }
+  .scrollbox-thrower aside.covermain ul:hover li {
+    opacity: 0.2;
+  }
+  .scrollbox-thrower aside.covermain ul li:hover {
+    opacity: 1;
+    z-index: 999;
+  }
+  .scrollbox-thrower aside.covermain ul li:hover section.inner2 {
+    left: -20px;
+    top: -40px;
+    width: calc(100% +  40px );
+    height: calc(100% +  80px );
+  }
+  .scrollbox-thrower aside.covermain ul li:hover div {
+    height: 100px;
+    background-color: #424242;
+  }
+  .scrollbox-thrower aside.covermain ul li:hover img {
+    height: 260px;
+  }
+  .scrollbox-thrower aside.covermain ul li:hover p {
+    opacity: 1;
+    width: 100%;
+  }
+  .scrollbox-thrower aside.covermain ul.observer-hidden li a {
+    opacity: 0;
+  }
+  .scrollbox-thrower aside.covermain > section {
+    height: 220px;
+    position: relative;
+    top: 0;
+    left: 0;
+  }
+  .scrollbox-thrower aside.covermain > section nav {
+    z-index: 9999;
+    position: absolute;
+    top: 69px;
+    right: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 2px;
+  }
+  .scrollbox-thrower aside.covermain > section nav button {
+    font-family: "Open Sans";
+    font-weight: bold;
+    font-size: 28px;
+    outline: none;
+    border: none;
+    background-color: silver;
+    color: white;
+    width: 42px;
+    height: 42px;
+  }
+  .scrollbox-thrower aside.covermain > section nav button[disabled] {
+    opacity: 0.4;
+  }
+  .scrollbox-thrower aside.covermain > section nav button:hover:not(:disabled) {
+    background-color: #660099;
+  }
