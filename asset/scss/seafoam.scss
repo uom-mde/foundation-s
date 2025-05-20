@@ -1432,9 +1432,9 @@ display: none;
 }
 
 dl dt {
-  font-weight: 300;
-  margin-bottom: $global-margin;
-  font-size: 1.4 * $global-font-size;
+  font-weight: 600;
+  margin-bottom: 0.5 * $global-margin;
+  font-size: 1.2 * $global-font-size;
 }
 
 dl dt:after {
@@ -1446,11 +1446,18 @@ dl dt:after {
 }
 
 .property {
-  margin-bottom: 1.25 * $global-margin;
+  margin-bottom: 1 * $global-margin;
 }
 
 .value:first-child {
 margin-top: 2 * $global-margin;
+}
+
+.resource-title {
+  flex-wrap: wrap-reverse;
+  @include breakpoint(large) {
+    flex-wrap: nowrap;
+  }
 }
 
 /*Underline links on Item Show page*/
