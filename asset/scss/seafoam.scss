@@ -785,9 +785,10 @@ position: relative;
 position: absolute;
 }
 
+/*
 .site a {
-  /*position: absolute;
-  bottom: rem-calc(109);*/ 
+  position: absolute;
+  bottom: rem-calc(109); 
   text-decoration: none;
   color: #040404;
   background: #fff;
@@ -795,6 +796,7 @@ position: absolute;
   font-size: rem-calc(24);
   padding: 1rem;
 }
+*/
 
 .site-thumbnail img {
 transition: transform .4s; /* Animation */
