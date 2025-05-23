@@ -1024,15 +1024,15 @@ bottom: 25%;
     margin-top: -1rem;
     position: relative;
     @include breakpoint (medium) {
-      height: rem-calc(400);
+      height: rem-calc(350);
       margin-top: -2rem!important;
     }
     @include breakpoint (large) {
-      height: rem-calc(450);
+      height: rem-calc(400);
       margin-top: -2rem!important;
     }
     @include breakpoint (xlarge) {
-      height: rem-calc(600);
+      height: rem-calc(500);
       margin-top: -2rem!important;
     }
     }
@@ -3999,6 +3999,69 @@ transform: scale(1.01);
 .site-list.los-browse .site-thumbnail-image {
   height: 10rem;
 }
+
+/*Span two columns with the description for los-browse*/ 
+.los-browse .site-summary.card-section {
+  grid-column: 1 / -1; /* spans both columns */
+  grid-row: 2;         /* appears on second row */
+}
+
+/*MDE Stats*/ 
+.mde-stats {
+  display: grid;
+  justify-items: center;
+  /*padding: 40px 0 50px;*/
+  }
+  
+  .mde-stats dl {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: auto;
+  grid-template-areas:
+  "label1 label2 label3 label4"
+  "value1 value2 value3 value4";
+  column-gap: 40px;
+  justify-items: center
+  }
+  
+  .mde-stats dl dt {
+  text-transform: uppercase;
+  color: #b3b2b2;
+  margin: 10px 0;
+  }
+  
+  .mde-stats dl dt:after {
+      content: initial;
+      display: initial;
+      width: unset;
+      max-width: unset;
+      border-bottom: unset;
+  }
+  
+  .mde-stats dl dt:nth-of-type(1) {
+  grid-area: label1;
+  }
+  .mde-stats dl dt:nth-of-type(2) {
+  grid-area: label2;
+  }
+  .mde-stats dl dt:nth-of-type(3) {
+  grid-area: label3;
+  }
+  .mde-stats dl dt:nth-of-type(4) {
+  grid-area: label4;
+  }
+  .mde-stats dl dd:nth-of-type(1) {
+  grid-area: value1;
+  }
+  .mde-stats dl dd:nth-of-type(2) {
+  grid-area: value2;
+  }
+  .mde-stats dl dd:nth-of-type(3) {
+  grid-area: value3;
+  }
+  .mde-stats dl dd:nth-of-type(4) {
+  grid-area: value4;
+  }
 
 /*Load Effect*/ 
 /*Lazy Load*/ 
