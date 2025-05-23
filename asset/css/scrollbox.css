@@ -457,3 +457,10 @@ img {
   .scrollbox-thrower aside.covermain > section nav button:hover:not(:disabled) {
     background-color: #660099;
   }
+
+  #featured h2 {
+      color: #fff;
+      padding: 0 0 0.5rem 0.5rem;
+      background: #1d1d1d;
+      margin-bottom: 0;
+  }

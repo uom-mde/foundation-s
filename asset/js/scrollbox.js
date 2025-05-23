@@ -34,7 +34,7 @@ $(document).ready(function() {
 						<section class="inner2">
 							${item.thumbnail ? `<img src="${item.thumbnail}" alt="${item.title}">` : ''}
 							<div>
-								<h4>${item.title}</h4>
+								<h2 class="h5">${item.title}</h2>
 								<p>${item.summary ? item.summary : 'No description available.'}</p>
 							</div>
 						</section>
