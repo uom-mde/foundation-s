@@ -3246,16 +3246,13 @@ section.image-banner {
   }
 }
 
-.dark-background .caption {
-  border-left: solid rem-calc(6) $warning-color;
-}
-
 .dark-background .caption p {
   color: #dddddd;
 }
 
 .dark-background .caption.asset-caption {
   padding: 0.5 * $global-padding;
+  border-left: solid rem-calc(6) $warning-color;
   color: #bdbdbd;
   margin-bottom: 0;
 }
