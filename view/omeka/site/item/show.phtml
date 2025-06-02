@@ -33,26 +33,8 @@ $valueLang = $filterLocale ? [$lang, ''] : null;
     <?php if ($fullWidthMainHasBlocks): ?>
     <div class="full-width-main">
 
-    <?php foreach ($item->media() as $m): ?>
-        <p>
-            <strong>Media Type:</strong> <?= $m->mediaType() ?: 'n/a'; ?><br>
-            <strong>Renderer:</strong> <?= $m->renderer(); ?><br>
-            <strong>Original URL:</strong> <a href="<?= $m->originalUrl(); ?>" target="_blank"><?= $m->originalUrl(); ?></a>
-        </p>
-    <?php endforeach; ?>
-
-    <?php foreach ($item->media() as $media): ?>
-        <div style="margin-bottom: 1em; padding: 0.5em; border: 1px solid #ccc;">
-            <strong>Media ID:</strong> <?= $media->id(); ?><br>
-            <strong>Media Type:</strong> <?= $media->mediaType() ?: 'N/A'; ?><br>
-            <strong>Renderer:</strong> <?= $media->renderer(); ?><br>
-            <strong>Original Filename:</strong> <?= $media->source(); ?><br>
-            <strong>Original URL:</strong> <a href="<?= $media->originalUrl(); ?>" target="_blank"><?= $media->originalUrl(); ?></a>
-        </div>
-    <?php endforeach; ?>
-
-    <?php
-$excludedRenderers = ['html', 'webvtt', 'iiif'];
+        <?php
+$excludedRenderers = ['html', 'webvtt'];
 $allowedMediaTypes = [];
 $hasRenderable = false;
 
