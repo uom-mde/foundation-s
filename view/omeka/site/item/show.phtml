@@ -33,39 +33,38 @@ $valueLang = $filterLocale ? [$lang, ''] : null;
     <?php if ($fullWidthMainHasBlocks): ?>
     <div class="full-width-main">
 
-        <?php
-$excludedRenderers = ['html', 'webvtt'];
-$allowedMediaTypes = [];
-$hasRenderable = false;
+    <?php
+    $excludedRenderers = ['html', 'webvtt'];
+    $allowedMediaTypes = [];
+    $hasRenderable = false;
 
-// First pass: collect allowed types and check for non-excluded media
-foreach ($item->media() as $media) {
-    if (!in_array($media->renderer(), $excludedRenderers)) {
-        $allowedMediaTypes[] = $media->mediaType();
-        $hasRenderable = true;
+    // First pass: collect allowed types and check for non-excluded media
+    foreach ($item->media() as $media) {
+        if (!in_array($media->renderer(), $excludedRenderers)) {
+            $allowedMediaTypes[] = $media->mediaType();
+            $hasRenderable = true;
+        }
     }
-}
 
-// De-duplicate media types
-$allowedMediaTypes = array_unique($allowedMediaTypes);
+    // De-duplicate media types
+    $allowedMediaTypes = array_unique($allowedMediaTypes);
 
-// Then call Octopus Viewer for those types only
-if ($hasRenderable && !empty($allowedMediaTypes)) {
-    echo $this->octopusViewer()->viewer(
-        [
-            'media_types' => $allowedMediaTypes,
-            'item_id' => $item->id(),
-        ],
-    );
-}
-
-// Fallback: render excluded items manually
-foreach ($item->media() as $media) {
-    if (in_array($media->renderer(), $excludedRenderers)) {
-        echo $media->render();
+    // Then call Octopus Viewer for those types only
+    if ($hasRenderable && !empty($allowedMediaTypes)) {
+        echo $this->octopusViewer()->viewer(
+            [
+                'media_types' => $allowedMediaTypes,
+                'item_id' => $item->id(),
+            ],
+        );
     }
-}
 
+    // Fallback: render excluded items manually
+    foreach ($item->media() as $media) {
+        if (in_array($media->renderer(), $excludedRenderers)) {
+            echo $media->render();
+        }
+    }
 ?>
 
         <?php echo $fullWidthMainBlockContent->getBlocks(); ?>
@@ -84,20 +83,52 @@ foreach ($item->media() as $media) {
     }
     ?>
     
-    <div class="grid-x grid-margin-x">
+    <div class="grid-x grid-margin-x full-width padding-horizontal-1 large-padding-horizontal-2 xlarge-padding-horizontal-3">
         <?php if ($leftSidebarHasBlocks): ?>
         <div class="left-sidebar cell medium-<?php echo $sidebarWidth; ?>">
             <?php echo $leftSidebarBlockContent->getBlocks(); ?>
         </div>
         <?php endif; ?>
 
-        <?php if ($mainWithSidebarHasBlocks): ?>
+        <?php if ($rightSidebarHasBlocks): ?>
         <div class="main-with-sidebar cell medium-<?php echo $mainWidth; ?>">
+        <?php
+            $excludedRenderers = ['html', 'webvtt'];
+            $allowedMediaTypes = [];
+            $hasRenderable = false;
+
+            // First pass: collect allowed types and check for non-excluded media
+            foreach ($item->media() as $media) {
+                if (!in_array($media->renderer(), $excludedRenderers)) {
+                    $allowedMediaTypes[] = $media->mediaType();
+                    $hasRenderable = true;
+                }
+            }
+
+            // De-duplicate media types
+            $allowedMediaTypes = array_unique($allowedMediaTypes);
+
+            // Then call Octopus Viewer for those types only
+            if ($hasRenderable && !empty($allowedMediaTypes)) {
+                echo $this->octopusViewer()->viewer(
+                    [
+                        'media_types' => $allowedMediaTypes,
+                        'item_id' => $item->id(),
+                    ],
+                );
+            }
+
+            // Fallback: render excluded items manually
+            foreach ($item->media() as $media) {
+                if (in_array($media->renderer(), $excludedRenderers)) {
+                    echo $media->render();
+                }
+            }
+        ?>
+            <?php if ($mainWithSidebarHasBlocks): ?>
             <?php echo $mainWithSidebarBlockContent->getBlocks(); ?>
         </div>
         <?php endif; ?>
-
-        <?php if ($rightSidebarHasBlocks): ?>
         <div class="right-sidebar cell medium-<?php echo $sidebarWidth; ?>">
             <?php echo $rightSidebarBlockContent->getBlocks(); ?>
         </div>
