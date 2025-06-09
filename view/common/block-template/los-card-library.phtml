@@ -18,15 +18,17 @@
             if (in_array('Library', $category) && !$featured) {
                 $librarySites[] = $site;
             }
+            $libraryCount = count($librarySites);
         }
 
         // Function to render styled site cards
-        function renderLibrarySiteGroup($groupTitle, $groupSites, $thumbnails, $summaries, $view) {
+        function renderLibrarySiteGroup($groupTitle, $groupSites, $thumbnails, $summaries, $view, $siteCount) {
             if (empty($groupSites)) return;
         ?>
 
         <h2 class="site-group-heading"><?php echo htmlspecialchars($groupTitle); ?></h2>
-        <div class="site-list layout-card">
+        <?php         
+        echo '<div class="site-list layout-card site-count-' . $siteCount . '">';?>
             <?php foreach ($groupSites as $site) {
                     $thumbnail = $thumbnails ? $site->thumbnail() : null;
                     $summary = $summaries ? $site->summary() : null;
@@ -53,9 +55,9 @@
             }
 
             // Output both groups
-            renderLibrarySiteGroup('Library Sites', $librarySites, $thumbnails, $summaries, $this);
+            renderLibrarySiteGroup('Library Sites', $librarySites, $thumbnails, $summaries, $this, $libraryCount);
             ?>
-        </div>
+        <?php echo '</div>'; ?>
 
         <?php if ($pagination): ?>
             <?php echo $this->pagination(); ?>
