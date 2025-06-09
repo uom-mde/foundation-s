@@ -3993,21 +3993,32 @@ transform: scale(1.01);
 .site.card:nth-child(4) { grid-area: d; }
 .site.card:nth-child(5) { grid-area: e; }
 
+/*Three sites*/
+.site-list.site-count-3 {
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-areas:
+  "a a b b"
+  "a a c c";
+}
+
+.site-count-3 .site.card:nth-child(1) .site-thumbnail,
+.site-count-4 .site.card:nth-child(1) .site-thumbnail {
+  flex-grow: 1;
+}
+
+.site-count-3 .site.card:nth-child(1) .site-thumbnail-image,
+.site-count-4 .site.card:nth-child(1) .site-thumbnail-image {
+  height: 100% !important;
+  object-fit: cover;
+  max-height: 35rem;
+}
+
 /*Four sites*/ 
 .site-list.site-count-4 {
   grid-template-columns: repeat(4, 1fr);
   grid-template-areas:
   "a a b b"
   "a a c d";
-}
-
-.site-count-4 .site.card:nth-child(1) .site-thumbnail {
-  flex-grow: 1;
-}
-
-.site-count-4 .site.card:nth-child(1) .site-thumbnail-image {
-  height: 100% !important;
-  object-fit: cover;
 }
 
 .los-browse .card {
