@@ -1,0 +1,69 @@
+<div class="reveal-on-scroll lazy-fade-in">  <!-- Load Effect block -->
+    <div class="list-of-sites">
+        <?php
+        // Get the helper
+        $siteSettingService = $this->getHelperPluginManager()->get('siteSetting');
+
+        // Group arrays
+        $librarySites = [];
+
+        // Categorize sites
+        foreach ($sites as $site) {
+            $featured = $siteSettingService('extended_site_description_featured', null, $site->id());
+            $category = $siteSettingService('extended_site_description_categories', null, $site->id());
+        
+            if (empty($category) || !is_array($category)) continue;
+
+            // Add site only if it has 'Library' in category and NOT featured'
+            if (in_array('Library', $category) && !$featured) {
+                $librarySites[] = $site;
+            }
+            $libraryCount = count($librarySites);
+        }
+
+        // Function to render styled site cards
+        function renderLibrarySiteGroup($groupTitle, $groupSites, $thumbnails, $summaries, $view, $siteCount) {
+            if (empty($groupSites)) return;
+        ?>
+
+        <h2 class="site-group-heading"><?php echo htmlspecialchars($groupTitle); ?></h2>
+        <?php  
+
+        $displaySites = array_slice($groupSites, 0, 3); 
+
+        echo '<div class="site-list layout-card site-count-' . $siteCount . '">';?>
+            <?php foreach ($displaySites as $site) {
+                $thumbnail = $thumbnails ? $site->thumbnail() : null;
+                $summary = $summaries ? $site->summary() : null;
+                ?>
+                    <div class="site card">
+                        <?php if ($thumbnail): ?>
+                            <div class="site-thumbnail">
+                                <?php echo $view->thumbnail($thumbnail, 'square', ['class' => 'site-thumbnail-image']); ?>
+                            </div>
+                        <?php endif; ?>
+
+                        <div class="card-divider">
+                            <?php echo $view->hyperlink($site->title(), $site->siteUrl(), ['class' => 'site-link']); ?>
+                        </div>
+
+                        <?php if ($summary): ?>
+                            <div class="site-summary card-section">
+                                <?php echo nl2br($view->escapeHtml($summary)); ?>
+                            </div>
+                        <?php endif; ?>
+                    </div>
+                <?php
+                }
+            }
+
+            // Output both groups
+            renderLibrarySiteGroup('Library Sites', $librarySites, $thumbnails, $summaries, $this, $libraryCount);
+            ?>
+        <?php echo '</div>'; ?>
+
+        <?php if ($pagination): ?>
+            <?php echo $this->pagination(); ?>
+        <?php endif; ?>
+    </div>
+</div>

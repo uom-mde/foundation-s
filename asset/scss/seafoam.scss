@@ -3986,6 +3986,30 @@ transform: scale(1.01);
   flex-direction: row;
 }
 
+/*Grid template areas site page*/ 
+.site.card:nth-child(1) { grid-area: a; }
+.site.card:nth-child(2) { grid-area: b; }
+.site.card:nth-child(3) { grid-area: c; }
+.site.card:nth-child(4) { grid-area: d; }
+.site.card:nth-child(5) { grid-area: e; }
+
+/*Four sites*/ 
+.site-list.site-count-4 {
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-areas:
+  "a a b b"
+  "a a c d";
+}
+
+.site-count-4 .site.card:nth-child(1) .site-thumbnail {
+  flex-grow: 1;
+}
+
+.site-count-4 .site.card:nth-child(1) .site-thumbnail-image {
+  height: 100% !important;
+  object-fit: cover;
+}
+
 .los-browse .card {
   display: grid;
   grid-template-columns: 1fr 1.5fr;
