@@ -3986,49 +3986,122 @@ transform: scale(1.01);
   flex-direction: row;
 }
 
+.site-list[class*="site-count-"] {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
+  grid-template-rows: auto;
+  gap: 1rem;
+}
+
 /*Grid template areas site page*/ 
+@include breakpoint(475) {
 .site.card:nth-child(1) { grid-area: a; }
 .site.card:nth-child(2) { grid-area: b; }
 .site.card:nth-child(3) { grid-area: c; }
 .site.card:nth-child(4) { grid-area: d; }
 .site.card:nth-child(5) { grid-area: e; }
+.site.card:nth-child(6) { grid-area: f; }
+}
+
+/*One Site*/
+.site-list.site-count-1 {
+  @include breakpoint(475) {
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-areas:
+  "a a"
+  "a a";
+  }
+}
 
 /*Two Sites*/
 .site-list.site-count-2 {
+  @include breakpoint(475) {
   grid-template-columns: repeat(4, 1fr);
   grid-template-areas:
   "a a a b"
   "a a a b";
+  }
 }
 
 
 /*Three sites*/
 .site-list.site-count-3 {
+  @include breakpoint(475) {
   grid-template-columns: repeat(4, 1fr);
   grid-template-areas:
   "a a b b"
   "a a c c";
+  }
 }
 
-.site-count-2 .site.card:nth-child(1) .site-thumbnail,
-.site-count-3 .site.card:nth-child(1) .site-thumbnail,
-.site-count-4 .site.card:nth-child(1) .site-thumbnail {
+[class*="site-count-"] .site.card:nth-child(1) .site-thumbnail {
   flex-grow: 1;
 }
 
 .site-count-3 .site.card:nth-child(1) .site-thumbnail-image,
-.site-count-4 .site.card:nth-child(1) .site-thumbnail-image {
-  height: 100% !important;
+.site-count-4 .site.card:nth-child(1) .site-thumbnail-image,
+.site-count-5 .site.card:nth-child(1) .site-thumbnail-image,
+.site-count-5 .site.card:nth-child(2) .site-thumbnail-image,
+.site-count-6 .site.card:nth-child(1) .site-thumbnail-image,
+.site-count-6 .site.card:nth-child(2) .site-thumbnail-image,
+.site-count-6 .site.card:nth-child(3) .site-thumbnail-image {
+  @include breakpoint(475) {
+  height: 100%;
   object-fit: cover;
-  max-height: 35rem;
+  }
+  @include breakpoint(medium) {
+    height: 25rem;
+    }
+  @include breakpoint(large) {
+  height: 30rem;
+  }
 }
 
 /*Four sites*/ 
 .site-list.site-count-4 {
+  @include breakpoint(475) {
   grid-template-columns: repeat(4, 1fr);
   grid-template-areas:
   "a a b b"
   "a a c d";
+  }
+}
+
+/*Five sites*/ 
+.site-list.site-count-5 {
+  @include breakpoint(475) {
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-areas:
+  "a a b b"
+  "a a b b"
+  "c c d e";
+  }
+}
+
+.site-count-5 .site.card:nth-child(1) .site-thumbnail-image,
+.site-count-5 .site.card:nth-child(2) .site-thumbnail-image {
+  @include breakpoint(475) {
+  height: 25rem;
+  }
+}
+
+/*Six sites*/ 
+.site-list.site-count-6 {
+  @include breakpoint(475) {
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-areas:
+  "a a b c"
+  "a a b c"
+  "d e e f";
+  }
+}
+
+.site-count-6 .site.card:nth-child(1) .site-thumbnail-image,
+.site-count-6 .site.card:nth-child(2) .site-thumbnail-image,
+.site-count-6 .site.card:nth-child(3) .site-thumbnail-image {
+  @include breakpoint(475) {
+  height: 25rem;
+  }
 }
 
 .los-browse .card {
