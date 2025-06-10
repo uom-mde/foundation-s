@@ -3993,6 +3993,15 @@ transform: scale(1.01);
 .site.card:nth-child(4) { grid-area: d; }
 .site.card:nth-child(5) { grid-area: e; }
 
+/*Two Sites*/
+.site-list.site-count-2 {
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-areas:
+  "a a a b"
+  "a a a b";
+}
+
+
 /*Three sites*/
 .site-list.site-count-3 {
   grid-template-columns: repeat(4, 1fr);
@@ -4001,6 +4010,7 @@ transform: scale(1.01);
   "a a c c";
 }
 
+.site-count-2 .site.card:nth-child(1) .site-thumbnail,
 .site-count-3 .site.card:nth-child(1) .site-thumbnail,
 .site-count-4 .site.card:nth-child(1) .site-thumbnail {
   flex-grow: 1;
