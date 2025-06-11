@@ -1,24 +1,33 @@
 <?php
-$apiBase = $this->serverUrl() . $this->basePath('/api');
-$infoUrl = $apiBase . '/infos';
-$siteUrl = $apiBase . '/infos/sites';
+// Get full API endpoint for API Info module
+$infoUrl = $this->serverUrl() . $this->basePath('/api/infos');
+$siteUrl = $infoUrl . '/sites';
 
 function getInfo($url) {
-    $response = file_get_contents($url);
-    if ($response === false) {
-        return 'Error contacting API';
+    $ch = curl_init($url);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    $response = curl_exec($ch);
+    $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+
+    if (curl_errno($ch)) {
+        echo '<p>cURL error: ' . curl_error($ch) . '</p>';
+        return [];
     }
 
+    if ($httpCode !== 200) {
+        echo "<p>API request failed with status: $httpCode</p>";
+        return [];
+    }
+
+    curl_close($ch);
     return json_decode($response, true);
 }
 
-// Get general resource info
 $info = getInfo($infoUrl);
 $totalItems = $info['items']['total'] ?? 'N/A';
 $totalMedia = $info['media']['total'] ?? 'N/A';
 $totalItemSets = $info['item_sets']['total'] ?? 'N/A';
 
-// Get site-specific info
 $siteInfo = getInfo($siteUrl);
 $totalSites = $siteInfo['total'] ?? 'N/A';
 $totalPages = $siteInfo['pages'] ?? 'N/A';
