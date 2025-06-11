@@ -1,11 +1,16 @@
 <?php
 // Get full API endpoint for API Info module
-$infoUrl = $this->serverUrl() . $this->basePath('/api/infos');
-$siteUrl = $infoUrl . '/sites';
+$infoUrl = 'http://localhost/omeka-s/api/infos';
+$siteUrl = 'http://localhost/omeka-s/api/infos/sites';
 
 function getInfo($url) {
     $ch = curl_init($url);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+    // OPTIONAL for testing:
+    // curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
+    // curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+
     $response = curl_exec($ch);
     $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 
