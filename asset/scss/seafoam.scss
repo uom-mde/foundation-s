@@ -768,11 +768,7 @@ margin: 0 auto;
 }
 
 .list-of-sites .site-list .site-summary {
-overflow: hidden;
-line-clamp: 5;
-text-overflow: ellipsis;
 display: -webkit-box;
--webkit-line-clamp: 3;
 -webkit-box-orient: vertical; 
  margin: 1rem 0 1rem 0;
 }
@@ -3797,10 +3793,6 @@ max-width: rem-calc(700);
 }
 
 .list-of-sites .site-list .site-summary {
-overflow: hidden;
-text-overflow: ellipsis;
-display: -webkit-box;
--webkit-line-clamp: 3;
 -webkit-box-orient: vertical; 
  margin: 0.5rem 0 0.5rem 0;
 }
@@ -3993,7 +3985,12 @@ transform: scale(1.01);
   gap: 1rem;
 }
 
-/*Grid template areas site page*/ 
+/*List of sites Mosaic Rules*/ 
+.list-of-sites-mosaic .site-list {
+  grid-auto-rows: auto;
+}
+
+/*Grid template areas site page*/
 @include breakpoint(400) {
 .list-of-sites-mosaic .site.card:nth-child(1) { grid-area: a; }
 .list-of-sites-mosaic .site.card:nth-child(2) { grid-area: b; }
@@ -4043,8 +4040,7 @@ transform: scale(1.01);
 .site-count-5 .site.card:nth-child(1) .site-thumbnail-image,
 .site-count-5 .site.card:nth-child(2) .site-thumbnail-image,
 .site-count-6 .site.card:nth-child(1) .site-thumbnail-image,
-.site-count-6 .site.card:nth-child(2) .site-thumbnail-image,
-.site-count-6 .site.card:nth-child(3) .site-thumbnail-image {
+.site-count-6 .site.card:nth-child(2) .site-thumbnail-image {
   @include breakpoint(400) {
   height: 100%;
   object-fit: cover;
@@ -4090,15 +4086,14 @@ transform: scale(1.01);
   @include breakpoint(400) {
   grid-template-columns: repeat(4, 1fr);
   grid-template-areas:
-  "a a b c"
-  "a a b c"
-  "d e e f";
+  "a a b b"
+  "a a b b"
+  "c d e f";
   }
 }
 
 .site-count-6 .site.card:nth-child(1) .site-thumbnail-image,
-.site-count-6 .site.card:nth-child(2) .site-thumbnail-image,
-.site-count-6 .site.card:nth-child(3) .site-thumbnail-image {
+.site-count-6 .site.card:nth-child(2) .site-thumbnail-image {
   @include breakpoint(400) {
   height: 25rem;
   }

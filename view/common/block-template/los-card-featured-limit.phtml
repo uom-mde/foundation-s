@@ -5,7 +5,7 @@
         $siteSettingService = $this->getHelperPluginManager()->get('siteSetting');
 
         // Group arrays
-        $externalSites = [];
+        $featuredSites = [];
 
         // Categorize sites
         foreach ($sites as $site) {
@@ -16,9 +16,9 @@
 
             // Add site only if it has 'External' in category and NOT featured'
             if (in_array('External', $category) && !$featured) {
-                $externalSites[] = $site;
+                $featuredSites[] = $site;
             }
-            $externalCount = count($externalSites);
+            $featuredCount = count($featuredSites);
         }
 
         // Function to render styled site cards
@@ -29,7 +29,7 @@
         <h2 class="site-group-heading"><?php echo htmlspecialchars($groupTitle); ?></h2>
         <?php  
 
-        $displaySites = array_slice($groupSites, 0, 6); 
+        $displaySites = array_slice($groupSites, 0, 3); 
 
         echo '<div class="site-list layout-card site-count-' . $siteCount . '">';?>
             <?php foreach ($displaySites as $site) {
@@ -58,7 +58,7 @@
             }
 
             // Output both groups
-            renderExternalSiteGroup('External Sites', $externalSites, $thumbnails, $summaries, $this, $externalCount);
+            renderExternalSiteGroup('External Sites', $featuredSites, $thumbnails, $summaries, $this, $featuredCount);
             ?>
         <?php echo '</div>'; ?>
 
