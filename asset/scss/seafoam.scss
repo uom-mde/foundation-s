@@ -3995,12 +3995,12 @@ transform: scale(1.01);
 
 /*Grid template areas site page*/ 
 @include breakpoint(400) {
-.site.card:nth-child(1) { grid-area: a; }
-.site.card:nth-child(2) { grid-area: b; }
-.site.card:nth-child(3) { grid-area: c; }
-.site.card:nth-child(4) { grid-area: d; }
-.site.card:nth-child(5) { grid-area: e; }
-.site.card:nth-child(6) { grid-area: f; }
+.list-of-sites-mosaic .site.card:nth-child(1) { grid-area: a; }
+.list-of-sites-mosaic .site.card:nth-child(2) { grid-area: b; }
+.list-of-sites-mosaic .site.card:nth-child(3) { grid-area: c; }
+.list-of-sites-mosaic .site.card:nth-child(4) { grid-area: d; }
+.list-of-sites-mosaic .site.card:nth-child(5) { grid-area: e; }
+.list-of-sites-mosaic .site.card:nth-child(6) { grid-area: f; }
 }
 
 /*One Site*/
