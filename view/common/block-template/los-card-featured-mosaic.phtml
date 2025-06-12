@@ -1,64 +1,66 @@
-<div class="reveal-on-scroll lazy-fade-in">  <!-- Load Effect block -->
-    <div class="list-of-sites list-of-sites-mosaic">
-        <?php
-        // Get the helper
-        $siteSettingService = $this->getHelperPluginManager()->get('siteSetting');
+<div class="full-width">    
+    <div class="grid-container reveal-on-scroll lazy-fade-in padding-top-1">  <!-- Load Effect block -->
+        <h2 class="subheader site-group-heading margin-vertical-1">Featured Exhibitions</h2>
+        <div class="list-of-sites list-of-sites-mosaic">
+            <?php
+            // Get the helper
+            $siteSettingService = $this->getHelperPluginManager()->get('siteSetting');
 
-        // Group arrays
-        $featuredSites = [];
-        foreach ($sites as $site) {
-            $featured = $siteSettingService('extended_site_description_featured', null, $site->id());
-            
-            if ($featured) {
-                $featuredSites[] = $site;
-            }
-        }
-        //Maximum number of featured sites here is 3
-        $featuredCount = count(array_slice($featuredSites, 0, 3));
-
-        // Function to render styled site cards
-        function renderFeaturedSiteGroup($groupTitle, $groupSites, $thumbnails, $summaries, $view, $siteCount) {
-            if (empty($groupSites)) return;
-        ?>
-
-        <h2 class="site-group-heading"><?php echo htmlspecialchars($groupTitle); ?></h2>
-        <?php  
-
-        $displaySites = array_slice($groupSites, 0, 3); 
-
-        echo '<div class="site-list layout-card site-count-' . $siteCount . '">';?>
-            <?php foreach ($displaySites as $site) {
-                $thumbnail = $thumbnails ? $site->thumbnail() : null;
-                $summary = $summaries ? $site->summary() : null;
-                ?>
-                    <div class="site card">
-                        <?php if ($thumbnail): ?>
-                            <div class="site-thumbnail">
-                                <?php echo $view->thumbnail($thumbnail, 'square', ['class' => 'site-thumbnail-image']); ?>
-                            </div>
-                        <?php endif; ?>
-
-                        <div class="card-divider">
-                            <?php echo $view->hyperlink($site->title(), $site->siteUrl(), ['class' => 'site-link']); ?>
-                        </div>
-
-                        <?php if ($summary): ?>
-                            <div class="site-summary card-section">
-                                <?php echo nl2br($view->escapeHtml($summary)); ?>
-                            </div>
-                        <?php endif; ?>
-                    </div>
-                <?php
+            // Group arrays
+            $featuredSites = [];
+            foreach ($sites as $site) {
+                $featured = $siteSettingService('extended_site_description_featured', null, $site->id());
+                
+                if ($featured) {
+                    $featuredSites[] = $site;
                 }
             }
+            //Maximum number of featured sites here is 3
+            $featuredCount = count(array_slice($featuredSites, 0, 3));
 
-            // Output both groups
-            renderFeaturedSiteGroup('Featured Sites', $featuredSites, $thumbnails, $summaries, $this, $featuredCount);
+            // Function to render styled site cards
+            function renderFeaturedSiteGroup($groupTitle, $groupSites, $thumbnails, $summaries, $view, $siteCount) {
+                if (empty($groupSites)) return;
             ?>
-        <?php echo '</div>'; ?>
 
-        <?php if ($pagination): ?>
-            <?php echo $this->pagination(); ?>
-        <?php endif; ?>
+            <?php  
+
+            $displaySites = array_slice($groupSites, 0, 3); 
+
+            echo '<div class="site-list layout-card site-count-' . $siteCount . '">';?>
+                <?php foreach ($displaySites as $site) {
+                    $thumbnail = $thumbnails ? $site->thumbnail() : null;
+                    $summary = $summaries ? $site->summary() : null;
+                    ?>
+                        <div class="site card">
+                            <?php if ($thumbnail): ?>
+                                <div class="site-thumbnail">
+                                    <?php echo $view->thumbnail($thumbnail, 'square', ['class' => 'site-thumbnail-image']); ?>
+                                </div>
+                            <?php endif; ?>
+
+                            <div class="card-divider">
+                                <?php echo $view->hyperlink($site->title(), $site->siteUrl(), ['class' => 'site-link']); ?>
+                            </div>
+
+                            <?php if ($summary): ?>
+                                <div class="site-summary card-section">
+                                    <?php echo nl2br($view->escapeHtml($summary)); ?>
+                                </div>
+                            <?php endif; ?>
+                        </div>
+                    <?php
+                    }
+                }
+
+                // Output both groups
+                renderFeaturedSiteGroup('Featured Sites', $featuredSites, $thumbnails, $summaries, $this, $featuredCount);
+                ?>
+            <?php echo '</div>'; ?>
+
+            <?php if ($pagination): ?>
+                <?php echo $this->pagination(); ?>
+            <?php endif; ?>
+        </div>
     </div>
 </div>
