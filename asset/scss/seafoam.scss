@@ -14,12 +14,13 @@ $thumbnail-shadow-hover: 0 0 6px 1px rgba($primary-color, 0.5);
 @import 'omeka';
 
 /*Font Sizes*/ 
-h2,
+
+/*h2,
 .h2 {
 @include breakpoint(medium) {
   font-size: 1.4rem;
   }
-}
+}*/ 
 
 .site-title {
   max-width: calc(100vw - rem-calc(120));
@@ -756,6 +757,10 @@ margin: 0 auto;
   grid-column-gap: rem-calc(24);
   grid-row-gap: rem-calc(24);
   grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+}
+
+.list-of-sites .site-list {
+  grid-auto-rows: auto;
 }
 
 .list-of-sites .site-list .site-thumbnail-image {
@@ -3926,6 +3931,7 @@ transform: scale(1.01);
 /*List of Sites - Browse*/ 
 .site-list.los-browse {
   grid-template-columns: 1fr;
+  grid-auto-rows: auto;
   @include breakpoint(750) {
     grid-template-columns: 1fr 1fr;
   }
