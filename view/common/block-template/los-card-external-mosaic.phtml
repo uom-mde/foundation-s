@@ -58,18 +58,24 @@
                 }
 
                 if (count($externalSites) > 6): ?>
-                    <div class="view-all-link">
-                    <a href="<?php echo $this->url('site/page', ['site-slug' => 'home', 'page-slug' => 'browse']); ?>">
-                            View All Research Sites
-                        </a>
-                    </div>
+
                 <?php endif; ?>
+
 
                 <?php
                 // Output both groups
                 renderExternalSiteGroup('External Sites', $externalSites, $thumbnails, $summaries, $this, $externalCount);
                 ?>
             <?php echo '</div>'; ?>
+
+            <div class="view-all-link">
+                <a href="<?php echo $this->url('site/page', [
+                    'site-slug' => 'home',
+                    'page-slug' => 'browse'
+                ]); ?>#los-external-browse" class="button warning margin-vertical-1">
+                    View All Research Sites
+                </a>
+            </div>
 
             <?php if ($pagination): ?>
                 <?php echo $this->pagination(); ?>

@@ -62,6 +62,15 @@
                 ?>
             <?php echo '</div>'; ?>
 
+            <div class="view-all-link">
+                <a href="<?php echo $this->url('site/page', [
+                    'site-slug' => 'home',
+                    'page-slug' => 'browse'
+                ]); ?>#los-library-browse" class="button secondary margin-vertical-1">
+                    View All Special Collections Sites
+                </a>
+            </div>
+
             <?php if ($pagination): ?>
                 <?php echo $this->pagination(); ?>
             <?php endif; ?>
