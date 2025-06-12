@@ -13,7 +13,8 @@
                 $featuredSites[] = $site;
             }
         }
-        $featuredCount = count($featuredSites);
+        //Maximum number of featured sites here is 3
+        $featuredCount = count(array_slice($featuredSites, 0, 3));
 
         // Function to render styled site cards
         function renderFeaturedSiteGroup($groupTitle, $groupSites, $thumbnails, $summaries, $view, $siteCount) {
