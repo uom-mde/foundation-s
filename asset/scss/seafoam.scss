@@ -3996,6 +3996,11 @@ transform: scale(1.01);
   grid-auto-rows: auto;
 }
 
+.list-of-sites-mosaic .card-divider {
+  flex-direction: column;
+  background: unset;
+}
+
 /*Grid template areas site page*/
 @include breakpoint(400) {
 .list-of-sites-mosaic .site.card:nth-child(1) { grid-area: a; }

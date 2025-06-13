@@ -41,13 +41,12 @@
 
                             <div class="card-divider">
                                 <?php echo $view->hyperlink($site->title(), $site->siteUrl(), ['class' => 'site-link']); ?>
+                                <?php if ($summary): ?>
+                                    <div class="site-summary card-section">
+                                        <?php echo nl2br($view->escapeHtml($summary)); ?>
+                                    </div>
+                                <?php endif; ?>
                             </div>
-
-                            <?php if ($summary): ?>
-                                <div class="site-summary card-section">
-                                    <?php echo nl2br($view->escapeHtml($summary)); ?>
-                                </div>
-                            <?php endif; ?>
                         </div>
                     <?php
                     }
