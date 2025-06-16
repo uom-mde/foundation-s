@@ -4082,7 +4082,7 @@ transform: scale(1.01);
 .site-count-6 .site.card:nth-child(1) .card-divider,
 .site-count-6 .site.card:nth-child(2) .card-divider {
   @include breakpoint(400) {
-    flex: 1 1 auto;
+    flex: 1 1 100%;
   }
 }
 
