@@ -2913,6 +2913,19 @@ grid-template-areas:
   }
 }
 
+.layout-vertical .medium-large .openseadragon {
+  height: 40vh!important;
+  @include breakpoint(medium) {
+  height: 70vh!important;
+  }
+  @include breakpoint(large) {
+    height: 80vh!important;
+  }
+  @include breakpoint(xlarge) {
+  height: 75vh!important;
+  }
+}
+
 .large .openseadragon {
   height: 40vh!important;
   @include breakpoint(medium) {
