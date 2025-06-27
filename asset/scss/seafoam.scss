@@ -2724,6 +2724,7 @@ grid-template-areas:
   /*Centre img for non-iiif material*/ 
   .media-embed .resource {
     text-align: center;
+    margin-top: 1rem;
   }
 
   /*Utility Classes*/ 
@@ -3031,6 +3032,14 @@ grid-template-areas:
 }
 
 /*Multiples styling*/ 
+.attachment-count-2 .item.resource:not(:last-child),
+.attachment-count-3 .item.resource:not(:last-child) {
+  margin-right: 1rem;
+  @include breakpoint(large) {
+    margin-right: 0;
+  }
+}
+
 .media-embed-block.layout-vertical.attachment-count-2 .openseadragon,
 .media-embed-block.layout-vertical.attachment-count-2 .file > a > img,
 .media-embed-block.layout-vertical.attachment-count-3 .openseadragon,
