@@ -574,6 +574,9 @@ button a,
   .learn-more h2.button a {
     color: $black;
   }
+  .learn-more h2.hollow.button a {
+    color: $warning-color;
+  }
   .learn-more a.hollow.button.warning {
     color: $warning-color;
   }
@@ -2441,15 +2444,12 @@ grid-template-areas:
 }
 
 .resourceTextGrid:has(.layout-vertical) {
-  @include breakpoint(medium) {
-    grid-template-columns: 1fr 12fr 1fr;
+  @include breakpoint(large) {
+    grid-template-columns: 1fr 8fr 1fr;
     grid-template-areas:
   ". header ."
   ". media-block ."
   ". text .";
-  }
-  @include breakpoint(large) {
-    grid-template-columns: 1fr 8fr 1fr;
   }
   @include breakpoint(xlarge) {
     grid-template-columns: 1fr 4fr 1fr;
@@ -2481,11 +2481,6 @@ grid-template-areas:
   grid-template-areas: 
   "media-embed-media"
   "text";
-  @include breakpoint(medium) {
-    grid-template-areas: 
-    ". media-embed-media ."
-    ". text .";
-    }
   @include breakpoint(large) {
     grid-template-areas: 
     ". media-embed-media ."
@@ -3281,7 +3276,7 @@ section.image-banner {
   }
 }
 
-.dark-background .caption {
+.dark-background .item.resource > .caption {
   border-left: solid rem-calc(6) $warning-color;
 }
 
