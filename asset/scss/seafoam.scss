@@ -1439,7 +1439,12 @@ display: none;
 dl dt {
   font-weight: 600;
   margin-bottom: 0.5 * $global-margin;
-  font-size: 1.2 * $global-font-size;
+  @include breakpoint (medium){
+  font-size: 1.1 * $global-font-size;
+  }
+  @include breakpoint (xlarge){
+    font-size: 1.2 * $global-font-size;
+    }
 }
 
 dl dt:after {
