@@ -746,7 +746,7 @@ margin: 0 auto;
 
 /*IIIF Presentation media type*/
 .media-render.iiif_presentation iframe {
-  height: 80vh;
+  height: 80vh!important;
   @include breakpoint(large) {
   height: 90vh!important;
   }
@@ -2675,7 +2675,7 @@ grid-template-areas:
     display: block;
     float: left;
     width: 50%;
-    margin: 0 1rem 0.5rem 0;
+    margin: 0 0.5rem 0.5rem 0;
   @include breakpoint(600) {
     width: rem-calc(350);
     margin: 0 1rem 1rem 0;
