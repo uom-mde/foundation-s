@@ -2908,9 +2908,22 @@ grid-template-areas:
   @include breakpoint(medium) {
   height: 60vh!important;
   }
-  @include breakpoint(large) {
+  @include breakpoint(xlarge) {
   height: 75vh!important;
   }
+}
+
+.medium-large .openseadragon:not(:only-child) {
+  height: 35vh!important;
+  @include breakpoint(medium) {
+  height: 40vh!important;
+  }
+  @include breakpoint(large) {
+  height: 50vh!important;
+  }
+  @include breakpoint(xlarge) {
+    height: 65vh!important;
+    }
 }
 
 .large .openseadragon {
@@ -2921,7 +2934,7 @@ grid-template-areas:
   @include breakpoint(large) {
   height: 80vh!important;
   }
-  @include breakpoint(x-large) {
+  @include breakpoint(xlarge) {
   height: 90vh!important;
   }
 }
