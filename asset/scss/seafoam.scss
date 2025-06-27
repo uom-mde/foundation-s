@@ -2913,19 +2913,6 @@ grid-template-areas:
   }
 }
 
-.medium-large .openseadragon:not(:only-child) {
-  height: 35vh!important;
-  @include breakpoint(medium) {
-  height: 40vh!important;
-  }
-  @include breakpoint(large) {
-  height: 50vh!important;
-  }
-  @include breakpoint(xlarge) {
-    height: 65vh!important;
-    }
-}
-
 .large .openseadragon {
   height: 40vh!important;
   @include breakpoint(medium) {
@@ -3062,6 +3049,12 @@ grid-template-areas:
 .media-embed-block.layout-vertical.attachment-count-2 .resource-text-openseadragon .medium-large .openseadragon,
 .media-embed-block.layout-vertical.attachment-count-2 .resource-text-openseadragon .medium-large .file > a > img {
   @include breakpoint(medium) {
+  height: calc(45vh - .75rem) !important;
+}
+@include breakpoint(large) {
+  height: calc(50vh - .75rem) !important;
+}
+@include breakpoint(xlarge) {
   height: calc(70vh - .75rem) !important;
 }
 }
@@ -3069,7 +3062,13 @@ grid-template-areas:
 .media-embed-block.layout-vertical.attachment-count-2 .resource-text-openseadragon .large .openseadragon,
 .media-embed-block.layout-vertical.attachment-count-2 .resource-text-openseadragon .large .file > a > img {
   @include breakpoint(medium) {
-  height: calc(90vh - .75rem) !important;
+  height: calc(50vh - .75rem) !important;
+}
+@include breakpoint(large) {
+  height: calc(60vh - .75rem) !important;
+}
+@include breakpoint(xlarge) {
+  height: calc(85vh - .75rem) !important;
 }
 }
 
