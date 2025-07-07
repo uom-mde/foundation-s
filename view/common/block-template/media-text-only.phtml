@@ -19,7 +19,7 @@ $lang = $filterLocale ? $this->lang() : null;
 
 <div class="reveal-on-scroll lazy-fade-in">  <!-- Load Effect block -->
     <div class="block media-text flex-container align-middle align-center">
-        <div class="resource-text align-middle medium-padding-1 flex-container flex-dir-column align-middle align-center">
+        <div class="resource-text align-middle medium-padding-horizontal-1 flex-container flex-dir-column align-middle align-center">
                 <?php foreach ($attachments as $attachment): 
                     $render = null;
                     $title = null;
@@ -81,7 +81,7 @@ $lang = $filterLocale ? $this->lang() : null;
                         </h2>
                     </div>
                 <?php endif; ?>
-            <div class="learn-more flex-container align-center">
+            <div class="learn-more flex-container align-center margin-top-1">
                 <?php echo $item->link("Learn more", null, ['class' => 'button medium warning hollow']); ?>
             </div>
         </div>
