@@ -1466,6 +1466,7 @@ margin-top: 2 * $global-margin;
 .resource-title {
   flex-wrap: wrap-reverse;
   margin-left: 1 * $global-margin;
+  width: 100%;
   @include breakpoint(medium) {
     margin-left: 2 * $global-margin;
   }
