@@ -12,43 +12,43 @@ $thumbnailType = $block->dataValue('thumbnail_type');
             <div class="item resource flex-container flex-dir-column align-middle <?php echo $thumbnailType; ?>">
             <?php
                 $media = $attachment->media() ?: $item->primaryMedia();
-                $mediaRenderer = $media->renderer();
-                if ($media):
-                    if ($mediaDisplay === 'thumbnail') {
-                        switch ($link) {
-                            case 'original':
-                                $url = $media->originalUrl();
-                                break;
-                            case 'item':
-                                $url = $item->url();
-                                break;
-                            case 'media':
-                                $url = $media->url();
-                                break;
-                            default:
-                                throw new \InvalidArgumentException(sprintf('Invalid link type "%s"', $link));
-                        }
-                        echo $hyperlink->raw($this->thumbnail($media, $thumbnailType), $url);
-                    } else {
-                        echo $media->render([
-                            'thumbnailType' => $thumbnailType,
-                            'link' => $link,
-                        ]);
+            $mediaRenderer = $media->renderer();
+            if ($media):
+                if ($mediaDisplay === 'thumbnail') {
+                    switch ($link) {
+                        case 'original':
+                            $url = $media->originalUrl();
+                            break;
+                        case 'item':
+                            $url = $item->url();
+                            break;
+                        case 'media':
+                            $url = $media->url();
+                            break;
+                        default:
+                            throw new \InvalidArgumentException(sprintf('Invalid link type "%s"', $link));
                     }
-                endif;
+                    echo $hyperlink->raw($this->thumbnail($media, $thumbnailType), $url);
+                } else {
+                    echo $media->render([
+                        'thumbnailType' => $thumbnailType,
+                        'link' => $link,
+                    ]);
+                }
+            endif;
             ?>
             <?php
                 $caption = $attachment->caption();
-                if ($caption):
+            if ($caption):
                 ?>
                 <div class="caption"><?php echo $caption; ?></div>
             <?php endif; ?>
             <div class="metadata margin-vertical-1">
                 <?php $showTitleOption = $this->showTitleOption; ?>
                 <?php if ($showTitleOption == 'item_title'): ?>
-                <h2 class="h3"><?php echo $item->displayTitle(); ?></h2>
+                <h2 class="h4"><?php echo $item->displayTitle(); ?></h2>
                 <?php elseif ($showTitleOption == 'file_name'): ?>
-                <h2 class="h3"><?php echo $media->displayTitle(); ?></h2>
+                <h2 class="h4"><?php echo $media->displayTitle(); ?></h2>
                 <?php endif; ?>
             </div>
             <div class="learn-more margin-bottom-1">
