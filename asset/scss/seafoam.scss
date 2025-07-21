@@ -2256,12 +2256,12 @@ ul.language-switcher.locale-code li span.active {
 /*Cookie Bar*/ 
 #cookie-bar {
   top: 10%;
+  width: 75%;
   color: #343536!important;
   text-align: left!important;
   position: fixed;
   right: 0;
   background: #fff!important;
-  width: 60%;
   max-width: rem-calc(650px);
   border-radius: rem-calc(2.5px);
   left: 1em;
@@ -2271,6 +2271,9 @@ ul.language-switcher.locale-code li span.active {
   overflow-x: hidden;
   overflow-y: auto;
   box-shadow: 0 0 18px rgba(0, 0, 0, .2);
+  @include breakpoint(medium) {
+    width: 60%;
+  }
 }
 
 #cookie-bar h2,
@@ -2295,8 +2298,8 @@ line-height: 1.5!important;
 #cookie-bar a.cb-enable,
 #cookie-bar .cb-disable {
   background: #6b2c91!important;
-  margin: rem-calc(15px 0 15px 30px);
-  min-width: rem-calc(135px);
+  margin: rem-calc(7.5px 0 7.5px 30px);
+  width: calc(100% - 60px);
   padding: rem-calc(12px 10px);
   text-align: center!important;
   font-weight: bold;
@@ -2304,11 +2307,15 @@ line-height: 1.5!important;
   &:hover {
     background: darken(#6b2c91, 10%);
 }
+@include breakpoint(medium) {
+  width: rem-calc(135px);
+  margin: rem-calc(15px 0 15px 30px);
+}
 }
 
 #cookie-bar a.cb-policy {
   background: #fff!important;
-  margin: rem-calc(15px 0 15px 30px);
+  margin: rem-calc(7.5px 0 7.5px 30px);
   min-width: rem-calc(135px);
   padding: rem-calc(12px 10px);
   text-align: center!important;
@@ -2316,6 +2323,9 @@ line-height: 1.5!important;
   font-size: rem-calc(16.5px);
   color: #6b2c91!important;
   text-decoration: underline;
+  @include breakpoint(1000) {
+    margin: rem-calc(15px 0 15px 30px);
+  }
 }
 
 /*General Classes*/ 
