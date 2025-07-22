@@ -20,7 +20,7 @@ $this->headScript()->prependFile($this->assetUrl('vendor/foundation/foundation.m
 $this->headScript()->prependFile($this->assetUrl('js/global.js', 'Omeka'));
 $this->headScript()->prependFile($this->assetUrl('js/langselect.js'));
 $this->headScript()->prependFile($this->assetUrl('js/jquery.peekabar.js'));
-$this->headScript()->prependFile($this->assetUrl('vendor/jquery/jquery.min.js', 'Omeka')); 
+$this->headScript()->prependFile($this->assetUrl('vendor/jquery/jquery.min.js', 'Omeka'));
 $this->headScript()->prependFile($this->assetUrl('js/load-effect.js'));
 $this->headScript()->appendFile($this->assetUrl('js/annona.js'));
 $this->trigger('view.layout');
@@ -42,10 +42,10 @@ $currentLocale = $this->siteSetting('locale') ?: 'en_US';
 ?>
 <?php echo $this->doctype(); ?>
 <?php
-    // Create the <html> element with 'lang' and 'class' attributes
-    echo $this->htmlElement('html')
-        ->setAttribute('lang', $this->lang())
-        ->setAttribute('class', 'no-js');
+// Create the <html> element with 'lang' and 'class' attributes
+echo $this->htmlElement('html')
+    ->setAttribute('lang', $this->lang())
+    ->setAttribute('class', 'no-js');
 ?>
     <head>
         <?php echo $this->headMeta(); ?>
@@ -55,7 +55,7 @@ $currentLocale = $this->siteSetting('locale') ?: 'en_US';
         <?php echo $this->headScript(); ?>
         <style>
             .banner {
-                height: <?php echo ($bannerHeight !== '') ? $bannerHeight: 'auto'  ?>;
+                height: <?php echo ($bannerHeight !== '') ? $bannerHeight : 'auto'  ?>;
                 background-image: url(<?php echo $this->themeSettingAssetUrl('banner'); ?>);
                 background-position: <?php echo $bannerPosition; ?>;
             }
@@ -67,13 +67,14 @@ $currentLocale = $this->siteSetting('locale') ?: 'en_US';
             }
         <?php endif; ?>
         </style>
-        <!-- Google Tag Manager --> <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0], j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src= 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f); })(window,document,'script','dataLayer','GTM-MTKP79D'); </script> <!-- End Google Tag Manager -->
     </head>
 
     <?php echo $this->htmlElement('body'); ?>
-        <!-- Google Tag Manager (noscript) -->
+
+        <!-- Google Tag Manager (noscript) for Annona analytics-->
             <noscript><iframe src=https://www.googletagmanager.com/ns.html?id=GTM-MTKP79D height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript> 
         <!-- End Google Tag Manager (noscript) -->
+
         <div id="offCanvas" class="off-canvas position-left" data-off-canvas>
             <?php echo $site->publicNav()->menu()->setPartial('common/foundation-navigation.phtml')->renderPartialWithParams(['layout' => 'vertical']); ?>
         </div>
@@ -96,10 +97,10 @@ $currentLocale = $this->siteSetting('locale') ?: 'en_US';
                 <?php endif; ?>
                 <?php echo $this->content; ?>
             </div>
-            <?php 
-            $poweredByOmekaS = "Powered by Omeka S"; 
-            $footerContent = $this->themeSetting('footer');
-            ?>
+            <?php
+            $poweredByOmekaS = "Powered by Omeka S";
+$footerContent = $this->themeSetting('footer');
+?>
             <?php if ($footerContent && (strpos($footerContent, $poweredByOmekaS) === false)): ?>
                 <footer>
                     <?php echo $footerContent; ?>
@@ -172,12 +173,57 @@ $currentLocale = $this->siteSetting('locale') ?: 'en_US';
           $(document).foundation();
         </script>
         <!-- Load content warning banner -->
-        <?php 
-            echo $this->partial('/templates/content-warning-banner'); 
-        ?>
-        <?php       
-        showContentBanner($site, $currentLocale);
-        ?>
+        <?php
+        echo $this->partial('/templates/content-warning-banner');
+?>
+                <?php
+showContentBanner($site, $currentLocale);
+?>
         <!-- End content warning banner -->
+        <!-- Google Tag Manager for MDE Analytics--> 
+        <script>
+        function getCookieValue(name) {
+        const value = document.cookie
+            .split('; ')
+            .find(row => row.startsWith(name + '='));
+        return value ? value.split('=')[1] : null;
+        }
+
+        function injectGTM(containerId) {
+        if (!window.gtmHasLoaded) {
+            window.gtmHasLoaded = true;
+            (function(w,d,s,l,i){
+            w[l]=w[l]||[];
+            w[l].push({'gtm.start': new Date().getTime(), event:'gtm.js'});
+            var f=d.getElementsByTagName(s)[0],
+                j=d.createElement(s),
+                dl=l!='dataLayer'?'&l='+l:'';
+            j.async=true;
+            j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
+            f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer', containerId);
+        }
+        }
+
+        // Inject GTM if already accepted
+        if (getCookieValue('cb-enabled') === 'accepted') {
+        injectGTM('GTM-MTKP79D');
+        }
+
+        // Listen for Accept button click
+        document.addEventListener('DOMContentLoaded', function () {
+        const acceptBtn = document.querySelector('#cookie-bar .cb-enable');
+        if (acceptBtn) {
+            acceptBtn.addEventListener('click', function () {
+            setTimeout(function () {
+                if (getCookieValue('cb-enabled') === 'accepted') {
+                injectGTM('GTM-MTKP79D');
+                }
+            }, 200);
+            });
+        }
+        });
+        </script>
+        <!-- End Google Tag Manager -->
     </body>
 </html>
