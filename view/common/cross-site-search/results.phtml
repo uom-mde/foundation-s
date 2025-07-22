@@ -42,11 +42,16 @@ if ($responseItems && $responseItems->getTotalResults()):
         <?php foreach ($responseItems->getContent() as $item): ?>
         <?php $sites = $item->sites(); ?>
         <?php $hasThumbnail = $item->primaryMedia(); ?>
-        <li>
+        <li class="layout-card">
             <?php if ($hasThumbnail): ?>
-                <?php echo $item->linkPretty(); ?>
+                <div class="card">
+                    <?php echo $item->linkPretty(); ?>
+                    <span class="result-title"><?php echo $item->displayTitle(); ?></span>
+                </div>
             <?php else: ?>
-                <span class="result-title"><?php echo $item->displayTitle(); ?></span>
+                <div class="card">
+                    <span class="result-title"><?php echo $item->displayTitle(); ?></span>
+                </div>
             <?php endif; ?>
             <ul>
                 <?php foreach ($sites as $site): ?>
