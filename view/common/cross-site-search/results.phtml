@@ -41,13 +41,8 @@ if ($responseItems && $responseItems->getTotalResults()):
     <ul>
         <?php foreach ($responseItems->getContent() as $item): ?>
         <?php $sites = $item->sites(); ?>
-        <?php $hasThumbnail = $item->primaryMedia(); ?>
         <li>
-            <?php if ($hasThumbnail): ?>
-                <?php echo $item->linkPretty(); ?>
-            <?php else: ?>
-                <span class="result-title"><?php echo $item->displayTitle(); ?></span>
-            <?php endif; ?>
+            <span class="result-title"><?php echo $item->displayTitle(); ?></span>
             <ul>
                 <?php foreach ($sites as $site): ?>
                 <li><?php echo $this->hyperlink($site->title(), $item->siteUrl($site->slug())); ?></li>
