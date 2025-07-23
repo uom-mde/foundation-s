@@ -43,17 +43,17 @@ if ($responseItems && $responseItems->getTotalResults()):
         <?php $sites = $item->sites(); ?>
         <?php $hasThumbnail = $item->primaryMedia(); ?>
         <li class="layout-card">
-            <?php if ($hasThumbnail): ?>
-                <div class="card">
-                    <?php echo $item->linkPretty(); ?>
-                    <span class="result-title"><?php echo $item->displayTitle(); ?></span>
-                </div>
-            <?php else: ?>
-                <div class="card">
-                    <span class="result-title"><?php echo $item->displayTitle(); ?></span>
-                </div>
-            <?php endif; ?>
-            <ul>
+        <?php if ($hasThumbnail): ?>
+            <div class="card">
+                <?php echo $item->linkPretty('medium-large', null, null, null); ?>
+                <span class="result-title margin-1"><?php echo $item->displayTitle(); ?></span>
+            </div>
+        <?php else: ?>
+            <div class="card">
+                <span class="result-title margin-1">><?php echo $item->displayTitle(); ?></span>
+            </div>
+        <?php endif; ?>
+            <ul class="margin-1">
                 <?php foreach ($sites as $site): ?>
                 <li><?php echo $this->hyperlink($site->title(), $item->siteUrl($site->slug())); ?></li>
                 <?php endforeach; ?>
