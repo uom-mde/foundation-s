@@ -20,9 +20,11 @@ $this->headScript()->prependFile($this->assetUrl('vendor/foundation/foundation.m
 $this->headScript()->prependFile($this->assetUrl('js/global.js', 'Omeka'));
 $this->headScript()->prependFile($this->assetUrl('js/langselect.js'));
 $this->headScript()->prependFile($this->assetUrl('js/jquery.peekabar.js'));
-$this->headScript()->prependFile($this->assetUrl('vendor/jquery/jquery.min.js', 'Omeka')); 
+$this->headScript()->prependFile($this->assetUrl('vendor/jquery/jquery.min.js', 'Omeka'));
 $this->headScript()->prependFile($this->assetUrl('js/load-effect.js'));
 $this->headScript()->appendFile($this->assetUrl('js/annona.js'));
+$this->headScript()->appendFile($this->assetUrl('js/vgg-image-compare.js'));
+$this->headScript()->appendFile($this->assetUrl('js/vgg-mode-selector.js'));
 $this->trigger('view.layout');
 $this->jsTranslate();
 $userBar = $this->userBar();
@@ -42,10 +44,10 @@ $currentLocale = $this->siteSetting('locale') ?: 'en_US';
 ?>
 <?php echo $this->doctype(); ?>
 <?php
-    // Create the <html> element with 'lang' and 'class' attributes
-    echo $this->htmlElement('html')
-        ->setAttribute('lang', $this->lang())
-        ->setAttribute('class', 'no-js');
+// Create the <html> element with 'lang' and 'class' attributes
+echo $this->htmlElement('html')
+    ->setAttribute('lang', $this->lang())
+    ->setAttribute('class', 'no-js');
 ?>
     <head>
         <?php echo $this->headMeta(); ?>
@@ -55,7 +57,7 @@ $currentLocale = $this->siteSetting('locale') ?: 'en_US';
         <?php echo $this->headScript(); ?>
         <style>
             .banner {
-                height: <?php echo ($bannerHeight !== '') ? $bannerHeight: 'auto'  ?>;
+                height: <?php echo ($bannerHeight !== '') ? $bannerHeight : 'auto'  ?>;
                 background-image: url(<?php echo $this->themeSettingAssetUrl('banner'); ?>);
                 background-position: <?php echo $bannerPosition; ?>;
             }
@@ -96,10 +98,10 @@ $currentLocale = $this->siteSetting('locale') ?: 'en_US';
                 <?php endif; ?>
                 <?php echo $this->content; ?>
             </div>
-            <?php 
-            $poweredByOmekaS = "Powered by Omeka S"; 
-            $footerContent = $this->themeSetting('footer');
-            ?>
+            <?php
+            $poweredByOmekaS = "Powered by Omeka S";
+$footerContent = $this->themeSetting('footer');
+?>
             <?php if ($footerContent && (strpos($footerContent, $poweredByOmekaS) === false)): ?>
                 <footer>
                     <?php echo $footerContent; ?>
@@ -172,12 +174,12 @@ $currentLocale = $this->siteSetting('locale') ?: 'en_US';
           $(document).foundation();
         </script>
         <!-- Load content warning banner -->
-        <?php 
-            echo $this->partial('/templates/content-warning-banner'); 
-        ?>
-        <?php       
-        showContentBanner($site, $currentLocale);
-        ?>
+        <?php
+echo $this->partial('/templates/content-warning-banner');
+?>
+        <?php
+showContentBanner($site, $currentLocale);
+?>
         <!-- End content warning banner -->
     </body>
 </html>
