@@ -176,33 +176,43 @@ $footerContent = $this->themeSetting('footer');
         <?php
         echo $this->partial('/templates/content-warning-banner');
 ?>
-                <?php
+        <?php
 showContentBanner($site, $currentLocale);
 ?>
         <!-- End content warning banner -->
         <!-- Google Tag Manager for MDE Analytics--> 
         <script>
-  // Function to get a cookie by name
-  function getCookieValue(name) {
-    const value = document.cookie
-      .split('; ')
-      .find(row => row.startsWith(name + '='));
-    return value ? value.split('=')[1] : null;
-  }
+function getCookie(name) {
+  const value = `; ${document.cookie}`;
+  const parts = value.split(`; ${name}=`);
+  if (parts.length === 2) return parts.pop().split(';').shift();
+}
 
-  // Check if cookies are accepted before loading GTM
-  if (getCookieValue('cb-enabled') === 'accepted') {
-    (function(w,d,s,l,i){
-      w[l]=w[l]||[];
-      w[l].push({'gtm.start': new Date().getTime(), event:'gtm.js'});
-      var f = d.getElementsByTagName(s)[0],
-          j = d.createElement(s),
-          dl = l != 'dataLayer' ? '&l=' + l : '';
-      j.async = true;
-      j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
-      f.parentNode.insertBefore(j, f);
-    })(window, document, 'script', 'dataLayer', 'GTM-MTKP79D');
+// Function to load GTM
+function loadGTM() {
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({'gtm.start': new Date().getTime(), event: 'gtm.js'});
+  const f = document.getElementsByTagName('script')[0];
+  const j = document.createElement('script');
+  j.async = true;
+  j.src = 'https://www.googletagmanager.com/gtm.js?id=GTM-MTKP79D';
+  f.parentNode.insertBefore(j, f);
+}
+
+// Check on page load
+if (getCookie('cb-enabled') === 'accepted') {
+  loadGTM();
+}
+
+// Also listen for changes (user clicking 'Accept')
+const observer = new MutationObserver(() => {
+  if (getCookie('cb-enabled') === 'accepted') {
+    loadGTM();
+    observer.disconnect(); // Stop observing once loaded
   }
+});
+
+observer.observe(document.documentElement, { childList: true, subtree: true });
 </script>
 
         <!-- End Google Tag Manager -->
