@@ -70,11 +70,6 @@ echo $this->htmlElement('html')
     </head>
 
     <?php echo $this->htmlElement('body'); ?>
-
-        <!-- Google Tag Manager (noscript) for Annona analytics-->
-            <noscript><iframe src=https://www.googletagmanager.com/ns.html?id=GTM-MTKP79D height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript> 
-        <!-- End Google Tag Manager (noscript) -->
-
         <div id="offCanvas" class="off-canvas position-left" data-off-canvas>
             <?php echo $site->publicNav()->menu()->setPartial('common/foundation-navigation.phtml')->renderPartialWithParams(['layout' => 'vertical']); ?>
         </div>
@@ -186,6 +181,16 @@ function getCookie(name) {
   const value = `; ${document.cookie}`;
   const parts = value.split(`; ${name}=`);
   if (parts.length === 2) return parts.pop().split(';').shift();
+}
+
+// Function to load GTM - Annona button click
+function insertNoScriptGTM() {
+  const iframe = document.createElement('iframe');
+  iframe.src = 'https://www.googletagmanager.com/ns.html?id=GTM-MTKP79D';
+  iframe.height = "0";
+  iframe.width = "0";
+  iframe.style = "display:none;visibility:hidden";
+  document.body.appendChild(iframe);
 }
 
 // Function to load GTM
