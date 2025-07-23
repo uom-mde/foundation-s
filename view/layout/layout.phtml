@@ -183,16 +183,6 @@ function getCookie(name) {
   if (parts.length === 2) return parts.pop().split(';').shift();
 }
 
-// Function to load GTM - Annona button click
-function insertNoScriptGTM() {
-  const iframe = document.createElement('iframe');
-  iframe.src = 'https://www.googletagmanager.com/ns.html?id=GTM-MTKP79D';
-  iframe.height = "0";
-  iframe.width = "0";
-  iframe.style = "display:none;visibility:hidden";
-  document.body.appendChild(iframe);
-}
-
 // Function to load GTM
 function loadGTM() {
   window.dataLayer = window.dataLayer || [];
