@@ -1,52 +1,72 @@
 <?php
-$escape = $this->plugin('escapeHtml');
+$escape = $this->plugin("escapeHtml");
 $siteTitle = $site->title();
-$stylesheet = $this->themeSetting('stylesheet');
-$this->htmlElement('html')->setAttribute('lang', $this->lang());
-$this->headMeta()->setCharset('utf-8');
-$this->headMeta()->appendName('viewport', 'width=device-width, initial-scale=1');
-$this->headTitle($siteTitle)->setSeparator(' · ');
-$this->headTitle()->append($this->setting('installation_title', 'Omeka S'));
+$stylesheet = $this->themeSetting("stylesheet");
+$this->htmlElement("html")->setAttribute("lang", $this->lang());
+$this->headMeta()->setCharset("utf-8");
+$this->headMeta()->appendName(
+    "viewport",
+    "width=device-width, initial-scale=1"
+);
+$this->headTitle($siteTitle)->setSeparator(" · ");
+$this->headTitle()->append($this->setting("installation_title", "Omeka S"));
 if (isset($stylesheet)) {
-    $this->headLink()->prependStylesheet($this->assetUrl("css/$stylesheet.css"));
+    $this->headLink()->prependStylesheet(
+        $this->assetUrl("css/$stylesheet.css")
+    );
 } else {
-    $this->headLink()->prependStylesheet($this->assetUrl('css/inkwell.css'));
+    $this->headLink()->prependStylesheet($this->assetUrl("css/inkwell.css"));
 }
-$this->headLink()->prependStylesheet($this->assetUrl('css/iconfonts.css', 'Omeka'));
-$this->headLink()->prependStylesheet('//fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400&display=swap');
-$this->headLink()->prependStylesheet($this->assetUrl('css/jquery.peekabar.css'));
-$this->headLink()->appendStylesheet($this->assetUrl('css/annona.css'));
-$this->headScript()->prependFile($this->assetUrl('vendor/foundation/foundation.min.js'));
-$this->headScript()->prependFile($this->assetUrl('js/global.js', 'Omeka'));
-$this->headScript()->prependFile($this->assetUrl('js/langselect.js'));
-$this->headScript()->prependFile($this->assetUrl('js/jquery.peekabar.js'));
-$this->headScript()->prependFile($this->assetUrl('vendor/jquery/jquery.min.js', 'Omeka'));
-$this->headScript()->prependFile($this->assetUrl('js/load-effect.js'));
-$this->headScript()->appendFile($this->assetUrl('js/annona.js'));
-$this->trigger('view.layout');
+$this->headLink()->prependStylesheet(
+    $this->assetUrl("css/iconfonts.css", "Omeka")
+);
+$this->headLink()->prependStylesheet(
+    "//fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400&display=swap"
+);
+$this->headLink()->prependStylesheet(
+    $this->assetUrl("css/jquery.peekabar.css")
+);
+$this->headLink()->appendStylesheet($this->assetUrl("css/annona.css"));
+$this->headScript()->prependFile(
+    $this->assetUrl("vendor/foundation/foundation.min.js")
+);
+$this->headScript()->prependFile($this->assetUrl("js/global.js", "Omeka"));
+$this->headScript()->prependFile($this->assetUrl("js/langselect.js"));
+$this->headScript()->prependFile($this->assetUrl("js/jquery.peekabar.js"));
+$this->headScript()->prependFile(
+    $this->assetUrl("vendor/jquery/jquery.min.js", "Omeka")
+);
+$this->headScript()->prependFile($this->assetUrl("js/load-effect.js"));
+$this->headScript()->appendFile($this->assetUrl("js/annona.js"));
+$this->trigger("view.layout");
 $this->jsTranslate();
 $userBar = $this->userBar();
 
-$navLayout = ($this->themeSetting('nav_layout')) ? $this->themeSetting('nav_layout') : 'dropdown';
-$this->htmlElement('body')->appendAttribute('class', $navLayout . '-menu');
+$navLayout = $this->themeSetting("nav_layout")
+    ? $this->themeSetting("nav_layout")
+    : "dropdown";
+$this->htmlElement("body")->appendAttribute("class", $navLayout . "-menu");
 if ($userBar) {
-    $this->htmlElement('body')->appendAttribute('class', 'user-bar');
+    $this->htmlElement("body")->appendAttribute("class", "user-bar");
 }
 
-$banner = $this->themeSettingAssetUrl('banner');
-$bannerWidth = ($this->themeSetting('banner_width')) ? $this->themeSetting('banner_width') : '';
-$bannerHeight = $this->themeSetting('banner_height');
-$bannerHeightMobile = $this->themeSetting('banner_height_mobile');
-$bannerPosition = ($this->themeSetting('banner_position')) ? str_replace('_', '-', $this->themeSetting('banner_position')) : 'center';
-$currentLocale = $this->siteSetting('locale') ?: 'en_US';
+$banner = $this->themeSettingAssetUrl("banner");
+$bannerWidth = $this->themeSetting("banner_width")
+    ? $this->themeSetting("banner_width")
+    : "";
+$bannerHeight = $this->themeSetting("banner_height");
+$bannerHeightMobile = $this->themeSetting("banner_height_mobile");
+$bannerPosition = $this->themeSetting("banner_position")
+    ? str_replace("_", "-", $this->themeSetting("banner_position"))
+    : "center";
+$currentLocale = $this->siteSetting("locale") ?: "en_US";
 ?>
 <?php echo $this->doctype(); ?>
-<?php
-// Create the <html> element with 'lang' and 'class' attributes
-echo $this->htmlElement('html')
-    ->setAttribute('lang', $this->lang())
-    ->setAttribute('class', 'no-js');
-?>
+<?php // Create the <html> element with 'lang' and 'class' attributes
+
+echo $this->htmlElement("html")
+    ->setAttribute("lang", $this->lang())
+    ->setAttribute("class", "no-js"); ?>
     <head>
         <?php echo $this->headMeta(); ?>
         <?php echo $this->headTitle(); ?>
@@ -55,11 +75,15 @@ echo $this->htmlElement('html')
         <?php echo $this->headScript(); ?>
         <style>
             .banner {
-                height: <?php echo ($bannerHeight !== '') ? $bannerHeight : 'auto'  ?>;
-                background-image: url(<?php echo $this->themeSettingAssetUrl('banner'); ?>);
+                height: <?php echo $bannerHeight !== ""
+                    ? $bannerHeight
+                    : "auto"; ?>;
+                background-image: url(<?php echo $this->themeSettingAssetUrl(
+                    "banner"
+                ); ?>);
                 background-position: <?php echo $bannerPosition; ?>;
             }
-        <?php if ($bannerHeightMobile !== ''): ?>
+        <?php if ($bannerHeightMobile !== ""): ?>
             @media screen and (max-width:640px) {
                 .banner {
                     height: <?php echo $bannerHeightMobile; ?>;
@@ -69,34 +93,47 @@ echo $this->htmlElement('html')
         </style>
     </head>
 
-    <?php echo $this->htmlElement('body'); ?>
+    <?php echo $this->htmlElement("body"); ?>
         <div id="offCanvas" class="off-canvas position-left" data-off-canvas>
-            <?php echo $site->publicNav()->menu()->setPartial('common/foundation-navigation.phtml')->renderPartialWithParams(['layout' => 'vertical']); ?>
+            <?php echo $site
+                ->publicNav()
+                ->menu()
+                ->setPartial("common/foundation-navigation.phtml")
+                ->renderPartialWithParams(["layout" => "vertical"]); ?>
         </div>
         <div class="off-canvas-content" data-off-canvas-content>
-            <a id="skipnav" href="#content"><?php echo $this->translate('Skip to main content'); ?></a>
+            <a id="skipnav" href="#content"><?php echo $this->translate(
+                "Skip to main content"
+            ); ?></a>
             <?php echo $userBar; ?>
             <header>
-                <?php if ($navLayout == 'vertical'): ?>
-                <?php echo $this->partial('common/header-vertical'); ?>
+                <?php if ($navLayout == "vertical"): ?>
+                <?php echo $this->partial("common/header-vertical"); ?>
                 <?php else: ?>
-                <?php echo $this->partial('common/header-dropdown'); ?>
+                <?php echo $this->partial("common/header-dropdown"); ?>
                 <?php endif; ?>
             </header>
-            <?php if ($banner && ($navLayout == 'dropdown')): ?>
-            <div class="banner <?php echo $bannerWidth; ?>"><img src="<?php echo $this->themeSettingAssetUrl('banner'); ?>" title="Banner" role="presentation" aria-hidden="true"></div>
+            <?php if ($banner && $navLayout == "dropdown"): ?>
+            <div class="banner <?php echo $bannerWidth; ?>"><img src="<?php echo $this->themeSettingAssetUrl(
+                "banner"
+            ); ?>" title="Banner" role="presentation" aria-hidden="true"></div>
             <?php endif; ?>
             <div id="content" role="main">
-                <?php if ($banner && ($navLayout == 'vertical')): ?>
-                <div class="banner <?php echo $bannerWidth; ?>"><img src="<?php echo $this->themeSettingAssetUrl('banner'); ?>" title="Banner" role="presentation" aria-hidden="true"></div>
+                <?php if ($banner && $navLayout == "vertical"): ?>
+                <div class="banner <?php echo $bannerWidth; ?>"><img src="<?php echo $this->themeSettingAssetUrl(
+                    "banner"
+                ); ?>" title="Banner" role="presentation" aria-hidden="true"></div>
                 <?php endif; ?>
                 <?php echo $this->content; ?>
             </div>
             <?php
-            $poweredByOmekaS = "Powered by Omeka S";
-$footerContent = $this->themeSetting('footer');
+                            $poweredByOmekaS = "Powered by Omeka S";
+$footerContent = $this->themeSetting("footer");
 ?>
-            <?php if ($footerContent && (strpos($footerContent, $poweredByOmekaS) === false)): ?>
+            <?php if (
+                $footerContent &&
+                strpos($footerContent, $poweredByOmekaS) === false
+            ): ?>
                 <footer>
                     <?php echo $footerContent; ?>
                 </footer>
@@ -168,48 +205,42 @@ $footerContent = $this->themeSetting('footer');
           $(document).foundation();
         </script>
         <!-- Load content warning banner -->
-        <?php
-        echo $this->partial('/templates/content-warning-banner');
-?>
-        <?php
-showContentBanner($site, $currentLocale);
-?>
+        <?php echo $this->partial("/templates/content-warning-banner"); ?>
+        <?php showContentBanner($site, $currentLocale); ?>
         <!-- End content warning banner -->
         <!-- Google Tag Manager for MDE Analytics--> 
         <script>
-function getCookie(name) {
-  const value = `; ${document.cookie}`;
-  const parts = value.split(`; ${name}=`);
-  if (parts.length === 2) return parts.pop().split(';').shift();
-}
+        function getCookie(name) {
+        const value = `; ${document.cookie}`;
+        const parts = value.split(`; ${name}=`);
+        if (parts.length === 2) return parts.pop().split(';').shift();
+        }
+        // Function to load GTM
+        function loadGTM() {
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({'gtm.start': new Date().getTime(), event: 'gtm.js'});
+        const f = document.getElementsByTagName('script')[0];
+        const j = document.createElement('script');
+        j.async = true;
+        j.src = 'https://www.googletagmanager.com/gtm.js?id=GTM-MTKP79D';
+        f.parentNode.insertBefore(j, f);
+        }
 
-// Function to load GTM
-function loadGTM() {
-  window.dataLayer = window.dataLayer || [];
-  window.dataLayer.push({'gtm.start': new Date().getTime(), event: 'gtm.js'});
-  const f = document.getElementsByTagName('script')[0];
-  const j = document.createElement('script');
-  j.async = true;
-  j.src = 'https://www.googletagmanager.com/gtm.js?id=GTM-MTKP79D';
-  f.parentNode.insertBefore(j, f);
-}
+        // Check on page load
+        if (getCookie('cb-enabled') === 'accepted') {
+        loadGTM();
+        }
 
-// Check on page load
-if (getCookie('cb-enabled') === 'accepted') {
-  loadGTM();
-}
+        // Also listen for changes (user clicking 'Accept')
+        const observer = new MutationObserver(() => {
+        if (getCookie('cb-enabled') === 'accepted') {
+            loadGTM();
+            observer.disconnect(); // Stop observing once loaded
+        }
+        });
 
-// Also listen for changes (user clicking 'Accept')
-const observer = new MutationObserver(() => {
-  if (getCookie('cb-enabled') === 'accepted') {
-    loadGTM();
-    observer.disconnect(); // Stop observing once loaded
-  }
-});
-
-observer.observe(document.documentElement, { childList: true, subtree: true });
-</script>
-
+        observer.observe(document.documentElement, { childList: true, subtree: true });
+        </script>
         <!-- End Google Tag Manager -->
     </body>
 </html>
