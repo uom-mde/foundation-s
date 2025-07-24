@@ -2289,11 +2289,15 @@ h2#cookie-bar-title {
   margin-bottom: 0;
   padding: rem-calc(0 0 10px 30px);
   width: calc(100% - 90px);
+  font-size: rem-calc(20px);
+  font-weight: 600;
 }
 
-#cookie-bar p {
-margin: rem-calc(0 30px 10px 30px)!important;
-line-height: 1.5!important;
+p#cookie-bar-text {
+  font-size: 16.26px;
+  font-weight: 400;
+  line-height: 24.39px;
+  margin: rem-calc(0 30px 10px 30px)!important;
 }
 
 #cookie-bar a.cb-enable,
@@ -2305,6 +2309,7 @@ line-height: 1.5!important;
   text-align: center!important;
   font-weight: bold;
   font-size: rem-calc(16.5px);
+  border-radius: rem-calc(15);
   &:hover {
     background: darken(#6b2c91, 10%);
 }
