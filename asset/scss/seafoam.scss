@@ -2323,12 +2323,15 @@ p#cookie-bar-text {
   background: #fff!important;
   margin: rem-calc(7.5px 0 7.5px 30px);
   min-width: rem-calc(135px);
-  padding: rem-calc(12px 10px);
+  padding: rem-calc(12px 0);
   text-align: center!important;
   font-weight: bold;
   font-size: rem-calc(16.5px);
   color: #6b2c91!important;
   text-decoration: underline;
+  @include breakpoint(918) {
+  padding: rem-calc(12px);
+  }
   @include breakpoint(1000) {
     margin: rem-calc(15px 0 15px 30px);
   }
