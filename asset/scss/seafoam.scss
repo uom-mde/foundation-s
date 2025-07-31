@@ -2257,8 +2257,8 @@ ul.language-switcher.locale-code li span.active {
 
 /*Cookie Bar*/ 
 #cookie-bar {
-  top: 10%;
-  width: 75%;
+  top: 10%!important;
+  width: 75%!important;
   color: #343536!important;
   text-align: left!important;
   position: fixed;
@@ -2272,7 +2272,7 @@ ul.language-switcher.locale-code li span.active {
   max-height: 90%;
   overflow-x: hidden;
   overflow-y: auto;
-  box-shadow: 0 0 18px rgba(0, 0, 0, .2);
+  box-shadow: 0 0 18px rgba(0, 0, 0, .2)!important;
   @include breakpoint(medium) {
     width: 60%;
   }
