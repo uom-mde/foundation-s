@@ -2256,23 +2256,85 @@ ul.language-switcher.locale-code li span.active {
   }
 
 /*Cookie Bar*/ 
-.cb-enable,
-.cb-policy {
-  margin-top: 0.5 * $global-margin;
+#cookie-bar {
+  top: 10%;
+  width: 75%;
+  color: #343536!important;
+  text-align: left!important;
+  position: fixed;
+  right: 0;
+  background: #fff!important;
+  max-width: rem-calc(650px);
+  border-radius: rem-calc(2.5px);
+  left: 1em;
+  margin: 0 auto;
+  font-size: rem-calc(14px);
+  max-height: 90%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  box-shadow: 0 0 18px rgba(0, 0, 0, .2);
+  @include breakpoint(medium) {
+    width: 60%;
+  }
 }
 
-#cookie-bar a.cb-enable {
-  background: $primary-color;
+#cookie-bar h2,
+#cookie-bar p {
+color: #343536;
+}
+
+h2#cookie-bar-title {
+  margin-top: rem-calc(40px);
+  text-align: left;
+  line-height: 1.5!important;
+  margin-bottom: 0;
+  padding: rem-calc(0 0 10px 30px);
+  width: calc(100% - 90px);
+  font-size: rem-calc(20px);
+  font-weight: 600;
+}
+
+p#cookie-bar-text {
+  font-size: 16.26px;
+  font-weight: 400;
+  line-height: 24.39px;
+  margin: rem-calc(0 30px 10px 30px)!important;
+}
+
+#cookie-bar a.cb-enable,
+#cookie-bar .cb-disable {
+  background: #6b2c91!important;
+  margin: rem-calc(7.5px 0 7.5px 30px);
+  width: calc(100% - 60px);
+  padding: rem-calc(12px 10px);
+  text-align: center!important;
+  font-weight: bold;
+  font-size: rem-calc(16.5px);
+  border-radius: rem-calc(15);
   &:hover {
-      background: darken($primary-color, 10%);
+    background: darken(#6b2c91, 10%);
+  }
+  @include breakpoint(medium) {
+  width: rem-calc(135px);
+  margin: rem-calc(15px 0 15px 30px);
   }
 }
 
 #cookie-bar a.cb-policy {
-  background: $warning-color;
-  color: $black;
-  &:hover {
-      background: darken($warning-color, 10%);
+  background: #fff!important;
+  margin: rem-calc(7.5px 0 7.5px 30px);
+  min-width: rem-calc(135px);
+  padding: rem-calc(12px 0);
+  text-align: center!important;
+  font-weight: bold;
+  font-size: rem-calc(16.5px);
+  color: #6b2c91!important;
+  text-decoration: underline;
+  @include breakpoint(918) {
+  padding: rem-calc(12px);
+  }
+  @include breakpoint(1000) {
+    margin: rem-calc(15px 0 15px 30px);
   }
 }
 
