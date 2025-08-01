@@ -32,7 +32,11 @@
         <div class="home-icon">
             <?php
             $defaultSiteSlug = $this->setting('default_site');
-            $defaultSiteUrl = $this->url('site', ['site-slug' => $defaultSiteSlug]);
+            $defaultSiteUrl = $this->getHelper('Url')->fromRoute(
+                'site',
+                ['site-slug' => $defaultSiteSlug],
+                ['force_canonical' => true]
+            );
             ?>
             <a href="<?php echo $defaultSiteUrl; ?>"><i class="fa fa-home" aria-hidden="true"></i></a>
         </div>
