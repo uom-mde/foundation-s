@@ -23,7 +23,6 @@ $thumbnail-shadow-hover: 0 0 6px 1px rgba($primary-color, 0.5);
 }*/ 
 
 .site-title {
-  margin-bottom: 0.5 * $global-margin;
   max-width: calc(100vw - rem-calc(120));
   @include breakpoint(355) {
   padding-left: 0.6rem;
@@ -40,6 +39,11 @@ $thumbnail-shadow-hover: 0 0 6px 1px rgba($primary-color, 0.5);
   @include breakpoint(xlarge) {
     padding-left: 2 * $global-padding;
   }
+}
+
+/*Home Icon*/ 
+.fa-home:before {
+  font-size: rem-calc(22);
 }
 
 .site-title img {
