@@ -30,14 +30,11 @@
 <div class="top-bar">
     <nav class="top-bar-left flex-container align-middle medium-margin-left-1 large-margin-left-2">
         <div class="home-icon">
-        <?php
-        $defaultSlug = $this->setting('default_site');
-        $site = $this->api()->search('sites', ['slug' => $defaultSlug])->getContent()[0] ?? null;
-
-        if ($site):
-            echo '<a href="' . $site->url() . '"><i class="fa fa-home" aria-hidden="true"></i></a>';
-        endif;
-        ?>
+            <?php
+            $defaultSiteSlug = $this->setting('default_site');
+            $defaultSiteUrl = $this->url('site', ['site-slug' => $defaultSiteSlug]);
+            ?>
+            <a href="<?php echo $defaultSiteUrl; ?>"><i class="fa fa-home" aria-hidden="true"></i></a>
         </div>
         <?php $siteLogo = ($this->themeSetting('logo')) ? '<img src="' . $this->themeSettingAssetUrl('logo') . '" title="Logo" alt="">' : ''; ?>
         <div class="site-title" role="heading" aria-level="2">
