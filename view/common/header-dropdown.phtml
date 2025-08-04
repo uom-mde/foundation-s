@@ -31,33 +31,31 @@
     <nav class="top-bar-left flex-container align-middle medium-margin-left-1 large-margin-left-2">
         <div class="home-icon">
 
-            <?php
+        <?php
             $defaultSiteId = $this->setting('default_site');
             $defaultSite = null;
             $defaultSiteUrl = null;
 
             if ($defaultSiteId):
                 try {
-                    // Force fresh API read
+                    // Force uncached read in case the default site was just changed
                     $response = $this->api()->read('sites', (int)$defaultSiteId, [], true);
                     $defaultSite = $response->getContent();
 
                     if ($defaultSite):
-                        $defaultSiteUrl = $defaultSite->url();
+                        $defaultSiteUrl = $defaultSite->slug();
                     endif;
                 } catch (Exception $e) {
-                    // Handle error or leave empty
+                    // Optional: log or show fallback message
                 }
             endif;
             ?>
 
             <?php if ($defaultSiteUrl): ?>
-                <?php echo '<!-- Link points to: ' . $defaultSiteUrl . ' -->'; ?>
-                <a href="<?php echo $defaultSiteUrl; ?>">Home (Default Site)</a>
+                <a href="<?php echo $defaultSiteUrl; ?>"><i class="fa fa-home" aria-hidden="true"></i></a>
             <?php else: ?>
-                <a href="/">Home (Fallback)</a>
+                <a href="https://digitalexhibitions.manchester.ac.uk/s/home"><i class="fa fa-home" aria-hidden="true"></i></a>
             <?php endif; ?>
-
 
         </div>
         <?php $siteLogo = ($this->themeSetting('logo')) ? '<img src="' . $this->themeSettingAssetUrl('logo') . '" title="Logo" alt="">' : ''; ?>
