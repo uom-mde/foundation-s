@@ -31,28 +31,28 @@
     <nav class="top-bar-left flex-container align-middle medium-margin-left-1 large-margin-left-2">
         <div class="home-icon">
 
-            <?php
-                $defaultSiteId = $this->setting('default_site');
-                $defaultSite = null;
-                $defaultSiteUrl = null;
+<?php
+$defaultSiteId = $this->setting('default_site');
+$defaultSite = null;
+$defaultSiteUrl = null;
 
-            if ($defaultSiteId):
-                echo $defaultSiteId;
-                try {
-                    $response = $this->api()->read('sites', (int)$defaultSiteId);
-                    $defaultSite = $response->getContent();
-                    $defaultSiteUrl = $defaultSite->url();
-                } catch (Exception $e) {
-                    // Handle error
-                }
-            endif;
-            ?>
+if ($defaultSiteId):
+    echo '<p>Default site ID: ' . $defaultSiteId . '</p>';
 
-            <?php if ($defaultSiteUrl): ?>
-                <a href="<?php echo $defaultSiteUrl; ?>">Home</a>
-            <?php else: ?>
-                <a href="/">Home</a>
-            <?php endif; ?>
+    try {
+        $response = $this->api()->read('sites', (int)$defaultSiteId);
+        $defaultSite = $response->getContent();
+
+        if ($defaultSite):
+            echo '<p>Loaded site slug: ' . $defaultSite->slug() . '</p>';
+            $defaultSiteUrl = $defaultSite->url();
+        endif;
+    } catch (Exception $e) {
+        echo '<p>Error: ' . $e->getMessage() . '</p>';
+    }
+endif;
+?>
+
 
 
         </div>
