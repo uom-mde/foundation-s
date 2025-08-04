@@ -29,15 +29,9 @@
 </div>
 <div class="top-bar">
     <nav class="top-bar-left flex-container align-middle medium-margin-left-1 large-margin-left-2">
-        <?php /*
-            <div class="home-icon">
-                <?php
-                $defaultSiteSlug = $this->setting('default_site');
-                $defaultSiteUrl = $this->url('site', ['site-slug' => $defaultSiteSlug]);
-                ?>
-                <a href="<?php echo $defaultSiteUrl; ?>"><i class="fa fa-home" aria-hidden="true"></i></a>
-            </div>
-        */ ?>
+        <div class="home-icon">
+            <a href="https://digitalexhibitions.manchester.ac.uk/s/home"><i class="fa fa-home" aria-hidden="true"></i></a>
+        </div>
         <?php $siteLogo = ($this->themeSetting('logo')) ? '<img src="' . $this->themeSettingAssetUrl('logo') . '" title="Logo" alt="">' : ''; ?>
         <div class="site-title" role="heading" aria-level="2">
             <a href="<?php echo $site->url(); ?>">
