@@ -32,28 +32,28 @@
         <div class="home-icon">
 
             <?php
-            $defaultSiteId = $this->setting('default_site');
-            $defaultSite = null;
-            $defaultSiteUrl = null;
+                $defaultSiteId = $this->setting('default_site');
+                $defaultSite = null;
+                $defaultSiteUrl = null;
 
             if ($defaultSiteId):
+                echo $defaultSiteId;
                 try {
                     $response = $this->api()->read('sites', (int)$defaultSiteId);
                     $defaultSite = $response->getContent();
                     $defaultSiteUrl = $defaultSite->url();
                 } catch (Exception $e) {
-                    // Optionally log or ignore
+                    // Handle error
                 }
             endif;
             ?>
-
-            <?php echo $defaultSiteId; ?>
 
             <?php if ($defaultSiteUrl): ?>
                 <a href="<?php echo $defaultSiteUrl; ?>">Home</a>
             <?php else: ?>
                 <a href="/">Home</a>
             <?php endif; ?>
+
 
         </div>
         <?php $siteLogo = ($this->themeSetting('logo')) ? '<img src="' . $this->themeSettingAssetUrl('logo') . '" title="Logo" alt="">' : ''; ?>
