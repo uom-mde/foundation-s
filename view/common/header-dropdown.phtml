@@ -31,28 +31,32 @@
     <nav class="top-bar-left flex-container align-middle medium-margin-left-1 large-margin-left-2">
         <div class="home-icon">
 
-<?php
-$defaultSiteId = $this->setting('default_site');
-$defaultSite = null;
-$defaultSiteUrl = null;
+            <?php
+            $defaultSiteId = $this->setting('default_site');
+            $defaultSite = null;
+            $defaultSiteUrl = null;
 
-if ($defaultSiteId):
-    echo '<p>Default site ID: ' . $defaultSiteId . '</p>';
+            if ($defaultSiteId):
+                try {
+                    // Force fresh API read
+                    $response = $this->api()->read('sites', (int)$defaultSiteId, [], true);
+                    $defaultSite = $response->getContent();
 
-    try {
-        $response = $this->api()->read('sites', (int)$defaultSiteId);
-        $defaultSite = $response->getContent();
+                    if ($defaultSite):
+                        $defaultSiteUrl = $defaultSite->url();
+                    endif;
+                } catch (Exception $e) {
+                    // Handle error or leave empty
+                }
+            endif;
+            ?>
 
-        if ($defaultSite):
-            echo '<p>Loaded site slug: ' . $defaultSite->slug() . '</p>';
-            $defaultSiteUrl = $defaultSite->url();
-        endif;
-    } catch (Exception $e) {
-        echo '<p>Error: ' . $e->getMessage() . '</p>';
-    }
-endif;
-?>
-
+            <?php if ($defaultSiteUrl): ?>
+                <?php echo '<!-- Link points to: ' . $defaultSiteUrl . ' -->'; ?>
+                <a href="<?php echo $defaultSiteUrl; ?>">Home (Default Site)</a>
+            <?php else: ?>
+                <a href="/">Home (Fallback)</a>
+            <?php endif; ?>
 
 
         </div>
