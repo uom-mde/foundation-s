@@ -30,7 +30,31 @@
 <div class="top-bar">
     <nav class="top-bar-left flex-container align-middle medium-margin-left-1 large-margin-left-2">
         <div class="home-icon">
-            <a href="https://digitalexhibitions.manchester.ac.uk/s/home"><i class="fa fa-home" aria-hidden="true"></i></a>
+
+            <?php
+            $defaultSiteId = $this->setting('default_site');
+            $defaultSite = null;
+            $defaultSiteUrl = null;
+
+            if ($defaultSiteId):
+                try {
+                    $response = $this->api()->read('sites', (int)$defaultSiteId);
+                    $defaultSite = $response->getContent();
+                    $defaultSiteUrl = $defaultSite->url();
+                } catch (Exception $e) {
+                    // Optionally log or ignore
+                }
+            endif;
+            ?>
+
+            <?php echo $defaultSiteId; ?>
+
+            <?php if ($defaultSiteUrl): ?>
+                <a href="<?php echo $defaultSiteUrl; ?>">Home</a>
+            <?php else: ?>
+                <a href="/">Home</a>
+            <?php endif; ?>
+
         </div>
         <?php $siteLogo = ($this->themeSetting('logo')) ? '<img src="' . $this->themeSettingAssetUrl('logo') . '" title="Logo" alt="">' : ''; ?>
         <div class="site-title" role="heading" aria-level="2">
