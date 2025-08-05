@@ -1901,6 +1901,13 @@ color: $pull-quote-color;
 }
 }
 
+.fa-quote-left {
+  font-size: 2rem;
+  @include breakpoint(large) {
+    font-size: 3rem;
+  }
+}
+
 /*Responsive Embed*/ 
 .responsive-embed.aspect16_9, 
 .flex-video.aspect16_9 {
@@ -1960,6 +1967,13 @@ blockquote:after {
   bottom: -1rem;
   right: 0;
 }*/
+
+.blockquote-wrapper p {
+  font-size: 1.2rem;
+  @include breakpoint(large) {
+    font-size: 1.4rem;
+  }
+}
 
 cite {
   line-height: 2;
@@ -2815,6 +2829,9 @@ grid-template-areas:
   }
 
   /*Utility Classes*/ 
+  .flex-1-1-0 {
+    flex: 1 1 0;
+  }
   .small-only {
     display: block;
     @include breakpoint(medium) {
