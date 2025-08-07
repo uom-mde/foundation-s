@@ -1828,6 +1828,11 @@ span.resource-name {
   gap: 0.25rem;
 }
 
+.results .resource-link, 
+.resource.show .resource-link {
+  flex-direction: column;
+}
+
 .site.results>a {
   display: block;
   font-size: 1rem;
@@ -3160,13 +3165,13 @@ grid-template-areas:
 }
 
 /*Multiples styling*/ 
-.attachment-count-2 .item.resource:not(:last-child),
+/*.attachment-count-2 .item.resource:not(:last-child),
 .attachment-count-3 .item.resource:not(:last-child) {
   margin-right: 1rem;
   @include breakpoint(large) {
     margin-right: 0;
   }
-}
+}*/
 
 .media-embed-block.layout-vertical.attachment-count-2 .openseadragon,
 .media-embed-block.layout-vertical.attachment-count-2 .file > a > img,
