@@ -4226,10 +4226,10 @@ transform: scale(1.01);
   object-fit: cover;
   }
   @include breakpoint(medium) {
-    height: 25rem;
+    height: 20rem;
     }
   @include breakpoint(large) {
-  height: 25rem;
+  height: 20rem;
   }
 }
 
@@ -4285,7 +4285,7 @@ transform: scale(1.01);
     height: 100%;
     object-fit: cover;
     display: block;
-    max-height: 20rem;
+    max-height: 12rem;
   }
 }
 
