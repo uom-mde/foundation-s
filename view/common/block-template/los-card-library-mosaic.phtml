@@ -23,7 +23,8 @@
                 if (in_array('Library', $category) && !$featured) {
                     $librarySites[] = $site;
                 }
-                $libraryCount = count($librarySites);
+                $librarySites = array_slice($librarySites, 0, 6); // Limit to 6
+                $libraryCount = count($librarySites); // Now always <= 6
             }
 
             // Function to render styled site cards

@@ -23,7 +23,8 @@
                 if (in_array('Research', $category) && !$featured) {
                     $researchSites[] = $site;
                 }
-                $researchCount = count($researchSites);
+                $researchSites = array_slice($researchSites, 0, 6); // Limit to 6
+                $researchCount = count($researchSites); // Now always <= 6
             }
 
             // Function to render styled site cards
