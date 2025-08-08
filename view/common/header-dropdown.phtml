@@ -50,20 +50,16 @@
                 }
             endif;
             ?>
-
-            <?php if ($defaultSiteUrl): ?>
-                <a href="<?php echo $defaultSiteUrl; ?>"><i class="fa fa-home" aria-hidden="true"></i></a>
-            <?php else: ?>
-                <a href="https://digitalexhibitions.manchester.ac.uk/s/home"><i class="fa fa-home" aria-hidden="true"></i></a>
-            <?php endif; ?>
-
+            
+            <?php
+                if ($defaultSiteUrl):
+                    $fullUrl = $this->url('site', ['site-slug' => $defaultSite->slug()], ['force_canonical' => true]); ?>
+                    <a href="<?php echo $fullUrl; ?>"><i class="fa fa-home" aria-hidden="true"></i></a>
+                <?php else: ?>
+                    <a href="https://digitalexhibitions.manchester.ac.uk/s/home"><i class="fa fa-home" aria-hidden="true"></i></a>
+                <?php endif;
+            ?>
         </div>
-<?php
-    if ($defaultSite):
-        $fullUrl = $this->url('site', ['site-slug' => $defaultSite->slug()], ['force_canonical' => true]); ?>
-        <a href="<?php echo $fullUrl; ?>"><i class="fa fa-home" aria-hidden="true"></i></a>
-    <?php endif;
-?>
         <?php $siteLogo = ($this->themeSetting('logo')) ? '<img src="' . $this->themeSettingAssetUrl('logo') . '" title="Logo" alt="">' : ''; ?>
         <div class="site-title" role="heading" aria-level="2">
             <a href="<?php echo $site->url(); ?>">
