@@ -8,7 +8,7 @@
             $siteSettingService = $this->getHelperPluginManager()->get('siteSetting');
 
             // Group arrays
-            $externalSites = [];
+            $researchSites = [];
 
             // Categorize sites
             foreach ($sites as $site) {
@@ -18,14 +18,14 @@
                     continue;
                 }
 
-                // Add site only if it has 'External' in category and NOT featured'
-                if (in_array('External', $category)) {
-                    $externalSites[] = $site;
+                // Add site only if it has 'Research' in category and NOT featured'
+                if (in_array('Research', $category)) {
+                    $researchSites[] = $site;
                 }
             }
 
             // Function to render styled site cards
-            function renderExternalSiteGroup($groupTitle, $groupSites, $thumbnails, $summaries, $view)
+            function renderResearchSiteGroup($groupTitle, $groupSites, $thumbnails, $summaries, $view)
             {
                 if (empty($groupSites)) {
                     return;
@@ -56,7 +56,7 @@
             }
             }
             // Output both groups
-            renderExternalSiteGroup('External Sites', $externalSites, $thumbnails, $summaries, $this);
+            renderResearchSiteGroup('Research Sites', $researchSites, $thumbnails, $summaries, $this);
             ?>
             <?php echo '</div>'; ?>
 
