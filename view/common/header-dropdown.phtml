@@ -54,9 +54,9 @@
             <?php
                 if ($defaultSiteUrl):
                     $fullUrl = $this->url('site', ['site-slug' => $defaultSite->slug()], ['force_canonical' => true]); ?>
-                    <a href="<?php echo $fullUrl; ?>"><i class="fa fa-home" aria-hidden="true"></i></a>
+                    <a href="<?php echo $fullUrl; ?>"><i class="fa fa-home" aria-label="Home" aria-hidden="true"></i></a>
                 <?php else: ?>
-                    <a href="https://digitalexhibitions.manchester.ac.uk/s/home"><i class="fa fa-home" aria-hidden="true"></i></a>
+                    <a href="https://digitalexhibitions.manchester.ac.uk/s/home"><i class="fa fa-home" aria-label="Home" aria-hidden="true"></i></a>
                 <?php endif;
             ?>
         </div>
