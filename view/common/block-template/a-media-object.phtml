@@ -4,6 +4,7 @@
   <?php foreach ($attachments as $attachment): ?>
     <?php $asset = $attachment['asset']; ?>
     <?php $assetImage = ($asset) ? $this->thumbnail($asset, 'square', ['class' => 'thumbnail']) : ''; ?>
+    <?php $altLinkTitle = ($attachment['alt_link_title']); ?>
     <div class="asset media-object <?php echo ($assetImage !== '') ? 'has-image' : ''; ?>">
         <?php $page = (array_key_exists('page', $attachment)) ? $attachment['page'] : null; ?>
         <div class="media-object-section">
@@ -24,6 +25,15 @@
                     <?php endif; ?>
                 </div>
             <?php endif; ?>
+        <?php elseif ($altLinkTitle): ?>
+            <a href="<?php echo $altLinkTitle; ?>">
+            <?php echo $assetImage; ?>
+                <?php if ($attachment['caption'] !== ''): ?>
+                    <div class="media-object-title-caption">
+                        <div class="caption"><?php echo $escape($attachment['caption']); ?></div>
+                    </div>
+                <?php endif; ?>
+            </a>
         <?php else: ?>
             <?php echo $assetImage; ?>
                 <?php if (!empty($attachment['alt_link_title']) || $attachment['caption'] !== ''): ?>
