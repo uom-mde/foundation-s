@@ -33,20 +33,22 @@
                     $summary = $summaries ? $site->summary() : null;
                     ?>
                         <div class="site card">
-                            <?php if ($thumbnail): ?>
-                                <div class="site-thumbnail">
-                                    <?php echo $view->thumbnail($thumbnail, 'square', ['class' => 'site-thumbnail-image']); ?>
-                                </div>
-                            <?php endif; ?>
-
-                            <div class="card-divider">
-                                <?php echo $view->hyperlink($site->title(), $site->siteUrl(), ['class' => 'site-link']); ?>
-                                <?php if ($summary): ?>
-                                    <div class="site-summary card-section">
-                                        <?php echo nl2br($view->escapeHtml($summary)); ?>
+                            <a href="<?php echo $site->siteUrl(); ?>" class="site-link">
+                                <?php if ($thumbnail): ?>
+                                    <div class="site-thumbnail">
+                                        <?php echo $view->thumbnail($thumbnail, 'square', ['class' => 'site-thumbnail-image']); ?>
                                     </div>
                                 <?php endif; ?>
-                            </div>
+
+                                <div class="card-divider">
+                                    <?php echo $view->hyperlink($site->title(), $site->siteUrl(), ['class' => 'site-link']); ?>
+                                    <?php if ($summary): ?>
+                                        <div class="site-summary card-section">
+                                            <?php echo nl2br($view->escapeHtml($summary)); ?>
+                                        </div>
+                                    <?php endif; ?>
+                                </div>
+                            </a>                
                         </div>
                     <?php
                     }
