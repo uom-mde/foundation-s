@@ -3617,15 +3617,12 @@ max-width: rem-calc(700);
   max-width: unset;
   @include breakpoint(medium) {
     max-width: 15rem;
-    margin-top: 1.5 * $global-margin;
+    max-height: 15rem;
+    object-fit: cover;
   }
-  @include breakpoint(large) {
+    @include breakpoint(xlarge) {
     max-width: 20rem;
-    margin-right: 1.5 * $global-margin;
-  }
-  @include breakpoint(xlarge) {
-    max-width: 25rem;
-    margin-right: 2 * $global-margin;
+    max-height: 20rem;
   }
 }
 
