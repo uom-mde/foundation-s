@@ -4200,11 +4200,9 @@ transform: scale(1.01);
   }
 }
 
-/* Remove the flex-grow rule for cards
 [class*="site-count-"] .site.card:nth-child(1) .site-thumbnail {
   flex-grow: 1;
 }
-*/
 
 .site-count-3 .site.card:nth-child(1) .site-thumbnail-image,
 .site-count-5 .site.card:nth-child(1) .site-thumbnail-image,
@@ -4283,7 +4281,7 @@ transform: scale(1.01);
 .site-count-3 .site.card:nth-child(3) .site-thumbnail-image {
   @include breakpoint(large) {
     width: 100%;
-    height: 100%;
+    /*height: 100%;*/
     object-fit: cover;
     display: block;
     max-height: 12rem;

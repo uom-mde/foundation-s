@@ -33,7 +33,7 @@
                     $summary = $summaries ? $site->summary() : null;
                     ?>
                         <div class="site card">
-                            <a href="<?php echo $site->siteUrl(); ?>" class="site-link">
+                            <a href="<?php echo $site->siteUrl(); ?>">
                                 <?php if ($thumbnail): ?>
                                     <div class="site-thumbnail">
                                         <?php echo $view->thumbnail($thumbnail, 'square', ['class' => 'site-thumbnail-image']); ?>
