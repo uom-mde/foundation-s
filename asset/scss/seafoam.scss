@@ -4136,7 +4136,7 @@ transform: scale(1.01);
   /*grid-template-columns: repeat(auto-fit, minmax(100%, 1fr)); JMc 21/08*/
   grid-template-columns: 1fr 1fr;
   grid-template-rows: auto;
-  gap: 0.25rem 0.5rem;
+  gap: 0.5rem;
   @include breakpoint(medium) {
     gap: 0.5rem;
   }
@@ -4337,6 +4337,28 @@ transform: scale(1.01);
   }
   @include breakpoint(large) {
   height: 20rem;
+  }
+}
+
+.site-count-6 .site.card:nth-child(n+3) .site-thumbnail-image {
+  @include breakpoint(400) {
+  height: rem-calc(100);
+  }
+  @include breakpoint(medium) {
+  height: rem-calc(125);
+  }
+  @include breakpoint(large) {
+  height: rem-calc(175);
+  }
+  @include breakpoint(xlarge) {
+  height: rem-calc(175);
+  }
+}
+
+.site-count-6 .site.card:nth-child(n+3) .site-summary {
+  display: none;
+  @include breakpoint(medium) {
+  display: -webkit-box;
   }
 }
 
