@@ -34,7 +34,7 @@
                     ?>
                         <div class="site card">
                             <?php if ($thumbnail): ?>
-                                <a href="<?php echo $site->siteUrl(); ?>" class="padding-0">
+                                <a href="<?php echo $site->siteUrl(); ?>" class="padding-0" aria-label="<?php echo $view->escapeHtmlAttr($site->title()); ?>">
                                     <div class="site-thumbnail">
                                         <?php echo $view->thumbnail($thumbnail, 'square', ['class' => 'site-thumbnail-image']); ?>
                                     </div>
