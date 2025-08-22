@@ -4371,9 +4371,6 @@ transform: scale(1.01);
   @include breakpoint(400) {
   height: rem-calc(100);
   }
-  @include breakpoint(medium) {
-  height: rem-calc(125);
-  }
   @include breakpoint(large) {
   height: rem-calc(175);
   }
@@ -4384,7 +4381,7 @@ transform: scale(1.01);
 
 .site-count-6 .site.card:nth-child(n+3) .site-summary {
   display: none;
-  @include breakpoint(medium) {
+  @include breakpoint(large) {
   display: -webkit-box;
   }
 }
