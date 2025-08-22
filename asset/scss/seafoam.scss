@@ -4335,6 +4335,11 @@ transform: scale(1.01);
 
 /*Six sites*/ 
 .site-list.site-count-6 {
+    grid-template-areas:
+    "a a "
+    "b b"
+    "c d"
+    "e f";
   @include breakpoint(400) {
     grid-template-columns: repeat(4, 1fr);
     grid-template-areas:
