@@ -2825,6 +2825,10 @@ grid-template-areas:
   }
 
   /*Utility Classes*/ 
+.subheader {
+  color: #4f4f4f;
+}
+
   .flex-1-1-0 {
     flex: 1 1 0;
   }
@@ -3910,7 +3914,7 @@ max-width: rem-calc(700);
 
 /*Remove padding*/
 .card-section {
-  padding: 0.3rem;
+  padding: 0.5 * $global-padding;
 }
 
 .home-card .card-section {
@@ -3922,7 +3926,6 @@ max-width: rem-calc(700);
 }
 
 /*List of sites*/
-
 .site-list {
   display: grid;
   /*grid-template-columns: repeat(3, 1fr);*/
@@ -3938,6 +3941,20 @@ max-width: rem-calc(700);
     grid-row-gap: rem-calc(24);
     grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
     }
+}
+
+.site-list[class*="site-count-"] {
+  display: grid;
+  /*grid-template-columns: repeat(auto-fit, minmax(100%, 1fr)); JMc 21/08*/
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+  gap: 0.5rem;
+  @include breakpoint(medium) {
+    gap: 0.5rem;
+  }
+  @include breakpoint(large) {
+    gap: 1rem;
+  }
 }
 
 .list-of-sites .site-list .site-thumbnail-image,
@@ -4131,23 +4148,13 @@ transform: scale(1.01);
   flex-direction: row;
 }
 
-.site-list[class*="site-count-"] {
-  display: grid;
-  /*grid-template-columns: repeat(auto-fit, minmax(100%, 1fr)); JMc 21/08*/
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: auto;
-  gap: 0.5rem;
-  @include breakpoint(medium) {
-    gap: 0.5rem;
-  }
-  @include breakpoint(large) {
-    gap: 1rem;
-  }
-}
-
 /*List of sites Mosaic Rules*/ 
 .list-of-sites-mosaic .site-list {
   grid-auto-rows: auto;
+}
+
+.list-of-sites-mosaic .site-list .site {
+  margin-bottom: 0;
 }
 
 .list-of-sites-mosaic .card-divider {
@@ -4156,14 +4163,12 @@ transform: scale(1.01);
 }
 
 /*Grid template areas site page*/
-@include breakpoint(400) {
 .list-of-sites-mosaic .site.card:nth-child(1) { grid-area: a; }
 .list-of-sites-mosaic .site.card:nth-child(2) { grid-area: b; }
 .list-of-sites-mosaic .site.card:nth-child(3) { grid-area: c; }
 .list-of-sites-mosaic .site.card:nth-child(4) { grid-area: d; }
 .list-of-sites-mosaic .site.card:nth-child(5) { grid-area: e; }
 .list-of-sites-mosaic .site.card:nth-child(6) { grid-area: f; }
-}
 
 /*One Site*/
 .site-list.site-count-1 {
@@ -4188,7 +4193,12 @@ transform: scale(1.01);
 
 /*Three sites*/
 .site-list.site-count-3 {
-  @include breakpoint(400) {
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-areas:
+  "a a"
+  "b c";
+
+  @include breakpoint(medium) {
   grid-template-columns: repeat(4, 1fr);
   grid-template-areas:
   "a a b b"
@@ -4205,9 +4215,10 @@ transform: scale(1.01);
 .site-count-5 .site.card:nth-child(2) .site-thumbnail-image,
 .site-count-6 .site.card:nth-child(1) .site-thumbnail-image,
 .site-count-6 .site.card:nth-child(2) .site-thumbnail-image {
-  @include breakpoint(400) {
-  height: 27.5rem;
   object-fit: cover;
+  height: 12.5rem;
+  @include breakpoint(400) {
+  height: 15rem;
   }
   @include breakpoint(medium) {
     height: 30rem;
@@ -4223,10 +4234,10 @@ transform: scale(1.01);
     object-fit: cover;
     }
     @include breakpoint(medium) {
-      height: 30rem;
+      height: 28.5rem;
       }
     @include breakpoint(large) {
-    height: 35rem;
+    height: 31rem;
     }
 }
 
@@ -4284,6 +4295,16 @@ transform: scale(1.01);
   }
 }
 
+/*Remove site summaries*/
+/*
+.site-count-3 .site.card:nth-child(3) .site-summary,
+.site-count-4 .site.card:nth-child(3) .site-summary {
+  @include breakpoint(400) {
+    display: none;
+  }
+}
+*/
+
 /*Four sites*/ 
 .site-list.site-count-4 {
   @include breakpoint(400) {
@@ -4291,13 +4312,6 @@ transform: scale(1.01);
   grid-template-areas:
   "a a b b"
   "a a c d";
-  }
-}
-
-.site-count-4 .site.card:nth-child(3) .site-summary,
-.site-count-4 .site.card:nth-child(4) .site-summary {
-  @include breakpoint(400) {
-    display: none;
   }
 }
 
