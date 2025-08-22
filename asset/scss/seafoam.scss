@@ -4210,7 +4210,7 @@ transform: scale(1.01);
   object-fit: cover;
   }
   @include breakpoint(medium) {
-    height: 20rem;
+    height: 30rem;
     }
   @include breakpoint(large) {
   height: 20rem;
@@ -4322,11 +4322,19 @@ transform: scale(1.01);
 /*Six sites*/ 
 .site-list.site-count-6 {
   @include breakpoint(400) {
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-areas:
-  "a a b b"
-  "a a b b"
-  "c d e f";
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-areas:
+    "a a b b"
+    "a a b b"
+    "c c d d"
+    "e e f f";
+  }
+  @include breakpoint(850) {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-areas:
+    "a a b b"
+    "a a b b"
+    "c d e f";
   }
 }
 
