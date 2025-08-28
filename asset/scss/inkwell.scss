@@ -118,13 +118,23 @@ a:hover {
  .top-bar {
      border-bottom: solid 1px #cfcccc;
  }
- 
- .top-bar a:hover {
-     color: $white;
-     background-color: $primary-color;
-     transition: background-color .25s ease-out,color .25s ease-out;
- }
- 
+
+ .top-bar .home-icon a:hover {
+    color: #609;
+    -webkit-transition: color .25s ease-out, color .25s ease-out;
+    transition: color .25s ease-out, color .25s ease-out;
+    background-color: unset;
+}
+
+ .site-title a:hover span {
+    color: #609; 
+    /*color: initial;*/
+    background-color: unset;
+    text-decoration: underline;
+    -webkit-transition: color .25s ease-out, color .25s ease-out;
+    transition: color .25s ease-out, color .25s ease-out;
+}
+
  /*Remove border from search icon*/
  header .button {
  border: unset;
