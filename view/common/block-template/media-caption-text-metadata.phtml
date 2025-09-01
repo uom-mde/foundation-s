@@ -47,10 +47,10 @@ $thumbnailType = $block->dataValue('thumbnail_type');
                         <?php endif; ?>
                         <?php $date = $item->value("dcterms:date"); ?>
                         <?php if ($date): ?>
-                            <h2 class="h4 date"><small><?php echo $date; ?></small></h2>
+                            <h2 class="h4 date"><small><?php $this->escapeHtml($date); ?></small></h2>
                         <?php endif; ?>
                         <?php if ($location = $item->value('curation:location')): ?>
-                            <h2 class="h4 location"><small><?= htmlspecialchars($location) ?></small></h2>
+                            <h2 class="h4 location"><small><?php $this->escapeHtml($location); ?></small></h2>
                         <?php endif; ?>
                     </div>
                 <?php elseif ($showTitleOption === 'file_name'): ?>
@@ -62,10 +62,10 @@ $thumbnailType = $block->dataValue('thumbnail_type');
                     <?php endif; ?>
                     <?php $date = $item->value("dcterms:date"); ?>
                         <?php if ($date): ?>
-                            <h2 class="h4 date"><small><?php echo $date; ?></small></h2>
+                            <h2 class="h4 date"><small><?php $this->escapeHtml($date); ?></small></h2>
                         <?php endif; ?>
                     <?php if ($location = $item->value('curation:location')): ?>
-                        <h2 class="h4 location"><small><?= htmlspecialchars($location) ?></small></h2>
+                        <h2 class="h4 location"><small><?php $this->escapeHtml($location); ?></small></h2>
                     <?php endif; ?>
                 <?php endif; ?>
                 <?php $caption = $attachment->caption(); ?>
@@ -76,7 +76,7 @@ $thumbnailType = $block->dataValue('thumbnail_type');
                 $identifiers = $item->value('dcterms:identifier', ['all' => true]);
                 if ($identifiers):
                     foreach ($identifiers as $identifier): ?>
-                        <h2 class="h4 identifier"><small><?php echo $identifier; ?></small></h2>
+                        <h2 class="h4 identifier"><small><?php $this->escapeHtml($identifier); ?></small></h2>
                     <?php endforeach;
                 endif;
                 ?>

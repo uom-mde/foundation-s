@@ -47,10 +47,10 @@ $lang = $filterLocale ? $this->lang() : null;
                         <?php endif; ?>
                         <?php $date = $item->value("dcterms:date"); ?>
                         <?php if ($date): ?>
-                            <h2 class="h4 date"><small><?php echo $date; ?></small></h2>
+                            <h2 class="h4 date"><small><?php $this->escapeHtml($date); ?></small></h2>
                         <?php endif; ?>
                         <?php if ($location = $item->value('curation:location')): ?>
-                            <h2 class="h4 location"><small><?= htmlspecialchars($location) ?></small></h2>
+                            <h2 class="h4 location"><small><?php $this->escapeHtml($location); ?></small></h2>
                         <?php endif; ?>
                     </div>
                 <?php elseif ($showTitleOption === 'file_name'): ?>
@@ -62,10 +62,10 @@ $lang = $filterLocale ? $this->lang() : null;
                     <?php endif; ?>
                     <?php $date = $item->value("dcterms:date"); ?>
                         <?php if ($date): ?>
-                            <h2 class="h4 date"><small><?php echo $date; ?></small></h2>
+                            <h2 class="h4 date"><small><?php $this->escapeHtml($date); ?></small></h2>
                         <?php endif; ?>
                     <?php if ($location = $item->value('curation:location')): ?>
-                        <h2 class="h4 location"><small><?= htmlspecialchars($location) ?></small></h2>
+                        <h2 class="h4 location"><small><?php $this->escapeHtml($location); ?></small></h2>
                     <?php endif; ?>
                 <?php endif; ?>
             </div>
