@@ -2767,7 +2767,7 @@ grid-template-areas:
     display: block;
     float: left;
     width: 50%;
-    margin: 0 0.5rem 0.5rem 0;
+    margin: 0 1rem 0.5rem 0;
   @include breakpoint(600) {
     width: rem-calc(350);
     margin: 0 1rem 1rem 0;
@@ -3406,6 +3406,11 @@ section.image-banner {
     /*border-bottom: solid 1px $light-gray;*/ 
     margin-bottom: 0;
   }
+}
+
+.text-around-image .item .caption {
+  padding: 0;
+  margin: 0.25 * $global-margin 0 0 0;
 }
 
 /*.dark-background .item.resource > .caption {
