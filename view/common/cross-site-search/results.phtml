@@ -36,7 +36,7 @@ if ($responseSitePages && $responseSitePages->getTotalResults()):
 if ($responseItems && $responseItems->getTotalResults()):
     $hasResults = true;
     ?>
-<div class="item results grid-x" data-equalizer>
+<div class="item results grid-x" data-equalizer data-equalize-by-row="true">
     <h2 class="h4"><?php echo $this->translate('Items'); ?></h2>
     <ul class="cell">
         <?php foreach ($responseItems->getContent() as $item): ?>

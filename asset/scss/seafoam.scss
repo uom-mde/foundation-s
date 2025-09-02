@@ -1810,6 +1810,10 @@ span.resource-name {
   padding: 0.25 * $global-padding;
 }
 
+.item.results .card img {
+  height: 200px;
+}
+
 .results>ul>li {
   width: unset!important;
   display: grid;
