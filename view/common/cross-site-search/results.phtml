@@ -36,15 +36,15 @@ if ($responseSitePages && $responseSitePages->getTotalResults()):
 if ($responseItems && $responseItems->getTotalResults()):
     $hasResults = true;
     ?>
-<div class="item results">
+<div class="item results grid-x" data-equalizer>
     <h2 class="h4"><?php echo $this->translate('Items'); ?></h2>
-    <ul>
+    <ul class="cell">
         <?php foreach ($responseItems->getContent() as $item): ?>
         <?php $sites = $item->sites(); ?>
         <?php $hasThumbnail = $item->primaryMedia(); ?>
         <li class="layout-card">
         <?php if ($hasThumbnail): ?>
-            <div class="card">
+            <div class="card" data-equalizer-watch>
                 <?php echo $item->linkRaw($this->thumbnail($item, 'large')); ?>
                 <span class="result-title"><?php echo $item->displayTitle(); ?></span>
             </div>
@@ -53,7 +53,7 @@ if ($responseItems && $responseItems->getTotalResults()):
                 <span class="result-title">><?php echo $item->displayTitle(); ?></span>
             </div>
         <?php endif; ?>
-            <ul class="margin-1">
+            <ul class="margin-0-5">
                 <?php foreach ($sites as $site): ?>
                 <li><?php echo $this->hyperlink($site->title(), $item->siteUrl($site->slug())); ?></li>
                 <?php endforeach; ?>

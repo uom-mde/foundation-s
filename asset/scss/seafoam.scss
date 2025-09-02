@@ -1806,10 +1806,15 @@ span.resource-name {
   margin-left: 0;
 }
 
+.item.results ul ul {
+  padding: 0.25 * $global-padding;
+}
+
 .results>ul>li {
   width: unset!important;
   display: grid;
   grid-template-rows: max-content;
+  align-items: start;
   gap: 0.25rem;
 }
 
@@ -2866,6 +2871,10 @@ grid-template-areas:
     @include breakpoint(large) {
       margin-top:-2 * $global-margin;
     }
+  }
+
+  .margin-0-5 {
+    margin: 0.5 * $global-margin;
   }
 
   /*Underline correct items*/ 
