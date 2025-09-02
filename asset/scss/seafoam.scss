@@ -1776,11 +1776,10 @@ span.resource-name {
   margin-top: 0.5 * $global-margin;
   width: 100%;
   margin: 0 auto;
-  padding: 1rem;
-  font-size: 1.2rem;
+  padding: 0.5 * $global-padding;
+  font-size: 1.1rem;
 }
 
-/*Search Results*/ 
 .results ul {
   display: grid;
   gap: 1rem;
@@ -1819,6 +1818,17 @@ span.resource-name {
   flex-direction: column;
 }
 
+/*Item and site results*/ 
+.results .result-title,
+.results .result-site {
+  padding: 0.5 * $global-padding;
+}
+
+.results>h2 {
+  font-weight: 400;
+}
+
+/*Site results*/ 
 .site.results>a {
   display: block;
   font-size: 1rem;
@@ -1827,6 +1837,18 @@ span.resource-name {
   text-decoration: underline;
 }
 
+.site.results .result-title {
+  background: $secondary-color;
+  & a {
+    color: #fff;
+  }
+}
+
+.site.results>ul>li {
+  border: solid 1px #efefef;
+}
+
+/*Item results*/ 
 .item.results>a,
 .item-set.results>a {
   text-decoration: underline;
