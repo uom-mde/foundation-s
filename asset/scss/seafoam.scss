@@ -1715,7 +1715,6 @@ button.search-icon[aria-expanded="true"] {
 
 nav.top-bar-left {
   justify-content: space-between;
-  flex-flow: wrap;
   row-gap: $global-margin;
   @include breakpoint(large) {
     justify-content: unset;
