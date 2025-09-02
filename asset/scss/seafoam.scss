@@ -1052,11 +1052,12 @@ bottom: 25%;
     }
     
     .openseadragon-hero .hero-title-openseadragon  h1 {
-        display: inline;  
-        background: #1d1d1d;
+        /*display: inline; */ 
+        background: rgba(255, 255, 255, 0.7);
         padding: 0.5rem;
-        color: #fff;
+        color: #333333;
         line-height: 2.75rem;
+        backdrop-filter: blur(5px);
         @include breakpoint(medium) {
           font-size: 200%;
           line-height: 3rem;
