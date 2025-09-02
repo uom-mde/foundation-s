@@ -1045,7 +1045,9 @@ bottom: 25%;
     position: absolute;
     bottom: 10%;
     max-width: 28rem;
-    /*max-width: 450px;*/
+    @include breakpoint(medium) {
+      bottom: 20%;
+    }
     @include breakpoint(large) {
       bottom: 25%;
     }
@@ -1059,10 +1061,14 @@ bottom: 25%;
         line-height: 2.75rem;
         backdrop-filter: blur(5px);
         @include breakpoint(medium) {
-          font-size: 200%;
+          font-size: 180%;
           line-height: 3rem;
         }
         @include breakpoint(large) {
+          font-size: 200%;
+          line-height: 3.25rem;
+        }
+        @include breakpoint(xlarge) {
           font-size: 230%;
           line-height: 3.5rem;
         }
