@@ -1814,6 +1814,12 @@ span.resource-name {
 
 .item.results ul ul {
   padding: 0.5 * $global-padding;
+  li {
+    margin-bottom: 0.5 * $global-margin;
+    &:not(:last-child) {
+    border-bottom: solid 1px $light-gray;
+    }
+  }
 }
 
 .item.results .card img {
@@ -1856,6 +1862,7 @@ span.resource-name {
 .item.results .result-title {
   background: $secondary-color;
   color: #fff;
+  height: 100%;
   & a {
     color: #fff;
   }

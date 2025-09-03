@@ -36,40 +36,34 @@ if ($responseSitePages && $responseSitePages->getTotalResults()):
 if ($responseItems && $responseItems->getTotalResults()):
     $hasResults = true;
     ?>
-<div class="item results grid-x">
+<div class="item results grid-x" data-equalizer="title-eq" data-equalize-by-row="true">
     <h2 class="h4"><?php echo $this->translate('Items'); ?></h2>
-    <ul class="cell">
+    <ul class="cell grid-x">
         <?php foreach ($responseItems->getContent() as $item): ?>
-        <?php $sites = $item->sites(); ?>
-        <?php $hasThumbnail = $item->primaryMedia(); ?>
-        <li class="layout-card" data-equalizer data-equalize-by-row="true">
-        <?php if ($hasThumbnail): ?>
-            <div class="card" data-equalizer-watch> <!-- Start Card div -->
-                <?php echo $item->linkRaw($this->thumbnail($item, 'large')); ?>
-                <span class="result-title"><?php echo $item->displayTitle(); ?></span>
-        <?php else: ?>
-            <div class="card" data-equalizer-watch> <!-- Start Card div -->
-                <span class="result-title">><?php echo $item->displayTitle(); ?></span>
-        <?php endif; ?>
-                <ul class="margin-0-5">
-                    <?php foreach ($sites as $site): ?>
-                    <li><?php echo $this->hyperlink($site->title(), $item->siteUrl($site->slug())); ?></li>
-                    <?php endforeach; ?>
-                </ul>
-            </div>  <!-- End Card div -->
-        </li>
+            <?php $sites = $item->sites(); ?>
+            <?php $hasThumbnail = $item->primaryMedia(); ?>
+            <li class="layout-card cell medium-4">
+                <div class="card">
+                    <?php if ($hasThumbnail): ?>
+                        <?php echo $item->linkRaw($this->thumbnail($item, 'large')); ?>
+                    <?php endif; ?>
+
+                    <!-- Named Equalizer Watch -->
+                    <div class="result-title flex-container flex-dir-column" data-equalizer-watch="title-eq">
+                        <?php echo $item->displayTitle(); ?>
+                    </div>
+
+                    <ul class="margin-0-5">
+                        <?php foreach ($sites as $site): ?>
+                            <li><?php echo $this->hyperlink($site->title(), $item->siteUrl($site->slug())); ?></li>
+                        <?php endforeach; ?>
+                    </ul>
+                </div>
+            </li>
         <?php endforeach; ?>
     </ul>
-    <?php echo $this->hyperlink(
-        sprintf($this->translate('View all results (%s total)'), $responseItems->getTotalResults()),
-        $this->url(
-            null,
-            ['action' => 'items'],
-            ['query' => ['fulltext_search' => $fulltextSearch]],
-            true
-        )
-    ); ?>
 </div>
+
 <?php endif; ?>
 
 <?php if ($responseItemSets && $responseItemSets->getTotalResults()):
