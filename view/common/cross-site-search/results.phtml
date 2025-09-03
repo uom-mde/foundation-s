@@ -9,9 +9,9 @@ $hasResults = false;
 if ($responseSitePages && $responseSitePages->getTotalResults()):
     $hasResults = true;
     ?>
-<div class="site results" data-equalizer id="site-results" data-equalize-by-row="true">
+<div class="site results grid-x" data-equalizer id="site-results" data-equalize-by-row="true">
     <h2 class="h4"><?php echo $this->translate('Site pages'); ?></h2>
-        <ul>
+        <ul class="cell grid-x">
             <?php foreach ($responseSitePages->getContent() as $sitePage): ?>
                 <?php $site = $sitePage->site(); ?>
                 <li class="result-card">
