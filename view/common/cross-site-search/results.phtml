@@ -9,17 +9,21 @@ $hasResults = false;
 if ($responseSitePages && $responseSitePages->getTotalResults()):
     $hasResults = true;
     ?>
-<div class="site results">
+<div class="site results" data-equalizer id="site-results" data-equalize-by-row="true">
     <h2 class="h4"><?php echo $this->translate('Site pages'); ?></h2>
-    <ul>
-    <?php foreach ($responseSitePages->getContent() as $sitePage): ?>
-        <?php $site = $sitePage->site(); ?>
-        <li>
-            <span class="result-title"><?php echo $this->hyperlink($sitePage->title(), $sitePage->siteUrl()); ?></span>
-            <span class="result-site"><?php echo $this->hyperlink($site->title(), $site->siteUrl()); ?></span>
-        </li>
-    <?php endforeach; ?>
-    </ul>
+        <ul>
+            <?php foreach ($responseSitePages->getContent() as $sitePage): ?>
+                <?php $site = $sitePage->site(); ?>
+                <li class="result-card">
+                    <div class="result-title flex-container flex-dir-column" data-equalizer-watch id="site-results">
+                        <?php echo $this->hyperlink($sitePage->title(), $sitePage->siteUrl()); ?>
+                    </div>
+                    <div class="result-site">
+                        <?php echo $this->hyperlink($site->title(), $site->siteUrl()); ?>
+                    </div>
+                </li>
+            <?php endforeach; ?>
+        </ul>
     <?php echo $this->hyperlink(
         sprintf($this->translate('View all results (%s total)'), $responseSitePages->getTotalResults()),
         $this->url(
@@ -36,7 +40,7 @@ if ($responseSitePages && $responseSitePages->getTotalResults()):
 if ($responseItems && $responseItems->getTotalResults()):
     $hasResults = true;
     ?>
-<div class="item results grid-x" data-equalizer="title-eq" data-equalize-by-row="true">
+<div class="item results grid-x" data-equalizer="item-results" data-equalize-by-row="true">
     <h2 class="h4"><?php echo $this->translate('Items'); ?></h2>
     <ul class="cell grid-x">
         <?php foreach ($responseItems->getContent() as $item): ?>
@@ -49,7 +53,7 @@ if ($responseItems && $responseItems->getTotalResults()):
                     <?php endif; ?>
 
                     <!-- Named Equalizer Watch -->
-                    <div class="result-title flex-container flex-dir-column" data-equalizer-watch="title-eq">
+                    <div class="result-title flex-container flex-dir-column" data-equalizer-watch="item-results">
                         <?php echo $item->displayTitle(); ?>
                     </div>
 
