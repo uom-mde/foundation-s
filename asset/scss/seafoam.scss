@@ -1813,7 +1813,7 @@ span.resource-name {
 }
 
 .item.results ul ul {
-  padding: 0.25 * $global-padding;
+  padding: 0.5 * $global-padding;
 }
 
 .item.results .card img {
@@ -1852,8 +1852,10 @@ span.resource-name {
   text-decoration: underline;
 }
 
-.site.results .result-title {
+.site.results .result-title,
+.item.results .result-title {
   background: $secondary-color;
+  color: #fff;
   & a {
     color: #fff;
   }
@@ -1872,7 +1874,6 @@ span.resource-name {
 .item-set.results>ul {
   margin-bottom: 1rem;
 }
-
 
 /*Breadcrumbs*/
 nav.breadcrumbs {
