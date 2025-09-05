@@ -3651,16 +3651,22 @@ max-width: rem-calc(700);
   }
 }
 
+.asset.media-object .media-object-section {
+  @include breakpoint(medium) {
+  width: unset;
+  }
+}
+
 .asset.media-object img {
   width: 100%;
   max-width: unset;
   @include breakpoint(medium) {
-    max-width: 15rem;
+    width: 15rem;
     max-height: 15rem;
     object-fit: cover;
   }
     @include breakpoint(xlarge) {
-    max-width: 20rem;
+    width: 20rem;
     max-height: 20rem;
   }
 }
@@ -3679,7 +3685,7 @@ max-width: rem-calc(700);
   }
     
   .media-object-section:first-child {
-  margin-bottom: 2rem;
+  /*margin-bottom: 2rem;*/ 
   padding-right: 0;
   @include breakpoint(medium) {
     margin-bottom: 0;

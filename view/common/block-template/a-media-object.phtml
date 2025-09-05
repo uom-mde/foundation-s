@@ -5,14 +5,14 @@
     <?php $asset = $attachment['asset']; ?>
     <?php $assetImage = ($asset) ? $this->thumbnail($asset, 'square', ['class' => 'thumbnail']) : ''; ?>
     <?php $altLinkTitle = ($attachment['alt_link_title']); ?>
-    <div class="asset media-object <?php echo ($assetImage !== '') ? 'has-image' : ''; ?>">
+    <div class="asset media-object medium-padding-1 <?php echo ($assetImage !== '') ? 'has-image' : ''; ?>">
         <?php $page = (array_key_exists('page', $attachment)) ? $attachment['page'] : null; ?>
         <?php if ($page): ?>
             <a href="<?php echo $escape($page->siteUrl()); ?>">
                 <?php $altLinkTitle = ($attachment['alt_link_title'] !== '') ? $escape($attachment['alt_link_title']) : false; ?>
                 <?php echo $assetImage; ?>
                 <?php if ($altLinkTitle || $attachment['caption'] !== ''): ?>
-                    <div class="media-object-title-caption">
+                    <div class="media-object-title-caption medium-padding-1 large-padding-1">
                         <?php if (!empty($attachment['alt_link_title'])): ?>
                             <div class="alt-link-title">
                                 <span class="link-title h4 margin-bottom-1"><?php echo $escape($attachment['alt_link_title']); ?></span>
@@ -25,12 +25,12 @@
                 <?php endif; ?>
             </a>
         <?php elseif ($altLinkTitle): ?>
-            <a href="<?php echo $altLinkTitle; ?>">
-                <div class="media-object-section padding-right-1">
+            <a href="<?php echo $altLinkTitle; ?>" class="flex-container flex-dir-column medium-flex-dir-row align-center align-middle">
+                <div class="media-object-section medium-padding-right-1 flex-container">
                     <?php echo $assetImage; ?>
                 </div>
 
-                <div class="media-object-section padding-left-1">
+                <div class="media-object-section padding-1 flex-container">
                     <?php if ($attachment['caption'] !== ''): ?>
                         <div class="media-object-title-caption">
                             <div class="caption"><?php echo $escape($attachment['caption']); ?></div>
@@ -41,7 +41,7 @@
         <?php else: ?>
             <?php echo $assetImage; ?>
                 <?php if (!empty($attachment['alt_link_title']) || $attachment['caption'] !== ''): ?>
-                    <div class="media-object-title-caption">
+                    <div class="media-object-title-caption medium-padding-1">
                         <?php if (!empty($attachment['alt_link_title'])): ?>
                             <div class="alt-link-title">
                                 <span class="link-title h4 margin-bottom-1"><?php echo $escape($attachment['alt_link_title']); ?></span>
