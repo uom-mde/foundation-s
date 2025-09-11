@@ -61,7 +61,7 @@
             ?>
         </div>
         <?php $siteLogo = ($this->themeSetting('logo')) ? '<img src="' . $this->themeSettingAssetUrl('logo') . '" title="Logo" alt="">' : ''; ?>
-        <div class="site-title" role="heading" aria-level="2">
+        <div class="site-title medium-margin-right-1" role="heading" aria-level="2">
             <a href="<?php echo $site->url(); ?>">
                 <?php echo $siteLogo; ?>
                 <span class="h4 site-title-label <?php echo ($siteLogo !== '') ? 'sr-only' : ''; ?>">

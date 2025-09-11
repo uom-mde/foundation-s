@@ -24,20 +24,11 @@ $thumbnail-shadow-hover: 0 0 6px 1px rgba($primary-color, 0.5);
 
 .site-title {
   max-width: calc(100vw - rem-calc(120));
-  @include breakpoint(355) {
-  padding-left: 0.6rem;
-  }
   @include breakpoint(medium) {
     max-width: 70%;
   }
-  @include breakpoint(900) {
-    padding-left: $global-padding;
-  }
   @include breakpoint(large) {
     max-width: unset;
-  }
-  @include breakpoint(xlarge) {
-    padding-left: 2 * $global-padding;
   }
 }
 
@@ -52,17 +43,22 @@ $thumbnail-shadow-hover: 0 0 6px 1px rgba($primary-color, 0.5);
 
 span.h4.site-title-label {
   margin-bottom: 0;
-  font-size: 1.1 * $global-font-size;
-  margin-right: 1.5 * $global-margin;
+  font-size: $global-font-size;
   font-weight: 400;
   color: $white;
-  @include breakpoint(medium) {
-    font-size: 1.2 * $global-font-size;
+  @include breakpoint(xlarge) {
+    font-size: 1.1 * $global-font-size;
   }
 }
 
 ul.dropdown.menu li {
   transition: background-color .25s ease-out,color .25s ease-out;
+  @include breakpoint(medium) {
+    font-size: rem-calc(15);
+  }
+    @include breakpoint(large) {
+    font-size: $global-font-size;
+  }
 }
 
 ul.dropdown.menu li:hover {
@@ -1713,9 +1709,9 @@ button.search-icon[aria-expanded="true"] {
   }
 }
 
-@include breakpoint(large) {
-  .top-bar .top-bar-left {
-    flex: 1 1 (rem-calc(350));
+.top-bar .top-bar-left {
+  @include breakpoint(large) {
+    flex: 1 1 (rem-calc(400));
   }
 }
 
