@@ -56,7 +56,7 @@ ul.dropdown.menu li {
   @include breakpoint(medium) {
     font-size: rem-calc(15);
   }
-    @include breakpoint(large) {
+    @include breakpoint(xlarge) {
     font-size: $global-font-size;
   }
 }
