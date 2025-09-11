@@ -97,6 +97,13 @@ a.nav-header:visited {
   color: #fff;
 }
 
+.dropdown.menu>li>a {
+  padding: 0.7 * $global-padding;
+  @include breakpoint(xlarge) {
+    padding: 0.7 * $global-padding $global-padding;
+  }
+}
+
 .dropdown .is-dropdown-submenu a {
   padding: .7rem 1rem .7rem 1.3rem;
 }
