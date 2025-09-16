@@ -875,6 +875,15 @@ transform: scale(1.1);
   }
   }
 
+  .asset-hero-horizontal h1 {
+    @include breakpoint(medium) {
+      font-size: 2rem;
+  }
+    /*@include breakpoint(large) {
+      font-size: 0.9 * $global-font-size;
+  }*/ 
+  }
+
   .hero-title-bottom {
     width: 100%;
   }
@@ -3556,12 +3565,16 @@ section.image-banner {
   }
 
   /*Asset Hero img*/ 
-  .asset-hero {
-    height: rem-calc(350px);
-    margin-top: -1rem;
+  .asset-hero,
+  .asset-hero-horizontal-img {
     background-position: center;  /* Centers image horizontally and vertically */
     background-size: cover;      /* Ensures the image covers the entire element */
     background-repeat: no-repeat; /* Prevents the image from repeating */
+    height: rem-calc(350px);
+  } 
+
+  .asset-hero {
+    margin-top: -1rem;
     @include breakpoint(medium) {
       margin-top: -2rem;
     }
@@ -3569,6 +3582,19 @@ section.image-banner {
     height: rem-calc(450px);
     }
     }
+  
+  .asset-hero-horizontal-img {
+    @include breakpoint(medium) {
+      margin-top: -1rem;
+    }
+    @include breakpoint(large) {
+      margin-top: 0;
+      height: rem-calc(600);
+    }
+    @include breakpoint(xlarge) {
+      height: rem-calc(700);
+    }
+  }
     
   .asset-hero h1 {
   padding: 0.5rem;
