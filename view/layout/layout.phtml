@@ -47,6 +47,12 @@ $currentLocale = $this->siteSetting('locale') ?: 'en_US';
         ->setAttribute('lang', $this->lang())
         ->setAttribute('class', 'no-js');
 ?>
+</style>
+    <!-- Google Tag Manager --> 
+        <script>
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0], j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src= 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f); })(window,document,'script','dataLayer','GTM-MTKP79D');
+    </script> 
+    <!-- End Google Tag Manager -->
     <head>
         <?php echo $this->headMeta(); ?>
         <?php echo $this->headTitle(); ?>
@@ -175,8 +181,5 @@ $currentLocale = $this->siteSetting('locale') ?: 'en_US';
         showContentBanner($site, $currentLocale);
         ?>
         <!-- End content warning banner -->
-        <!-- Load Google Analytics Cookie Bar -->
-        <script src="<?php echo $this->assetUrl('js/gtm-analytics-load.js'); ?>"></script>
-        <!-- End Google Analytics Cookie Bar -->
     </body>
 </html>
