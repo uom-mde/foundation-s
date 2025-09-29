@@ -21,6 +21,15 @@ $this->headScript()->prependFile($this->assetUrl('js/global.js', 'Omeka'));
 $this->headScript()->prependFile($this->assetUrl('js/langselect.js'));
 $this->headScript()->prependFile($this->assetUrl('js/jquery.peekabar.js'));
 $this->headScript()->prependFile($this->assetUrl('vendor/jquery/jquery.min.js', 'Omeka')); 
+$this->headScript()->prependFile('https://cdn.cookielaw.org/consent/f6c06aa6-cac4-4104-8b3d-70b088ddfff6/OtAutoBlock.js');
+//OneTrust Cookie mechanism
+$this->headScript()->prependFile(
+    'https://cdn.cookielaw.org/scripttemplates/otSDKStub.js', // Script URL
+    'text/javascript',         // Type
+    ['charset' => 'UTF-8', 'data-domain-script' => 'f6c06aa6-cac4-4104-8b3d-70b088ddfff6'] // Additional attributes
+);
+$this->headScript()->prependFile($this->assetUrl('js/oneTrust.js'));
+//End OneTrust Cookie mechanism
 $this->headScript()->prependFile($this->assetUrl('js/load-effect.js'));
 $this->headScript()->appendFile($this->assetUrl('js/annona.js'));
 $this->trigger('view.layout');
