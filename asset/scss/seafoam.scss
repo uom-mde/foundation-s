@@ -1727,7 +1727,8 @@ button.search-icon[aria-expanded="true"] {
 
 .top-bar .top-bar-left {
   @include breakpoint(large) {
-    flex: 1 1 (rem-calc(400));
+    flex: 1 1 auto;
+    max-width: (rem-calc(400));
   }
 }
 
