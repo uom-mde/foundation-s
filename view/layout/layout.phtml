@@ -19,9 +19,15 @@ $this->headLink()->appendStylesheet($this->assetUrl('css/annona.css'));
 $this->headScript()->prependFile($this->assetUrl('vendor/foundation/foundation.min.js'));
 $this->headScript()->prependFile($this->assetUrl('js/global.js', 'Omeka'));
 $this->headScript()->prependFile($this->assetUrl('js/langselect.js'));
+//OneTrust banner and Google Tag Manager
+$this->headScript()->prependFile('https://cdn.cookielaw.org/consent/f6c06aa6-cac4-4104-8b3d-70b088ddfff6/OtAutoBlock.js');
+$this->headScript()->prependFile('https://cdn.cookielaw.org/scripttemplates/otSDKStub.js', ['charset' => 'UTF-8', 'data-domain-script' => 'f6c06aa6-cac4-4104-8b3d-70b088ddfff6']);
+$this->headScript()->prependFile($this->assetUrl('js/oneTrust.js'));
+$this->headScript()->prependFile($this->assetUrl('js/googleTagManager.js'));
+//End OneTrust banner and Google Tag Manager
 $this->headScript()->prependFile($this->assetUrl('js/jquery.peekabar.js'));
 $this->headScript()->prependFile($this->assetUrl('vendor/jquery/jquery.min.js', 'Omeka')); 
-$this->headScript()->prependFile($this->assetUrl('js/load-effect.js'));
+$this->headScript()->appendFile($this->assetUrl('js/load-effect.js'));
 $this->headScript()->appendFile($this->assetUrl('js/annona.js'));
 $this->trigger('view.layout');
 $this->jsTranslate();
@@ -48,16 +54,6 @@ $currentLocale = $this->siteSetting('locale') ?: 'en_US';
         ->setAttribute('class', 'no-js');
 ?>
 </style>
-<!-- OneTrust Cookies Consent Notice start for manchester.ac.uk -->
-    <script type="text/javascript" src="https://cdn.cookielaw.org/consent/f6c06aa6-cac4-4104-8b3d-70b088ddfff6/OtAutoBlock.js"></script>
-    <script src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js" type="text/javascript" charset="UTF-8" data-domain-script="f6c06aa6-cac4-4104-8b3d-70b088ddfff6"></script>
-    <script type="text/javascript" src="/asset/js/oneTrust.js"></script> 
-    <!-- OneTrust Cookies Consent Notice end for manchester.ac.uk -->
-    <!-- Google Tag Manager --> 
-        <script>
-        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0], j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src= 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f); })(window,document,'script','dataLayer','GTM-MTKP79D');
-    </script> 
-    <!-- End Google Tag Manager -->
     <head>
         <?php echo $this->headMeta(); ?>
         <?php echo $this->headTitle(); ?>
