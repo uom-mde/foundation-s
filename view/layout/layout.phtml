@@ -19,14 +19,18 @@ $this->headLink()->appendStylesheet($this->assetUrl('css/annona.css'));
 $this->headScript()->prependFile($this->assetUrl('vendor/foundation/foundation.min.js'));
 $this->headScript()->prependFile($this->assetUrl('js/global.js', 'Omeka'));
 $this->headScript()->prependFile($this->assetUrl('js/langselect.js'));
-//OneTrust banner and Google Tag Manager
-$this->headScript()->prependFile('https://cdn.cookielaw.org/consent/f6c06aa6-cac4-4104-8b3d-70b088ddfff6/OtAutoBlock.js');
-$this->headScript()->prependFile('https://cdn.cookielaw.org/scripttemplates/otSDKStub.js', ['charset' => 'UTF-8', 'data-domain-script' => 'f6c06aa6-cac4-4104-8b3d-70b088ddfff6']);
-$this->headScript()->prependFile($this->assetUrl('js/oneTrust.js'));
-$this->headScript()->prependFile($this->assetUrl('js/googleTagManager.js'));
-//End OneTrust banner and Google Tag Manager
 $this->headScript()->prependFile($this->assetUrl('js/jquery.peekabar.js'));
 $this->headScript()->prependFile($this->assetUrl('vendor/jquery/jquery.min.js', 'Omeka')); 
+//OneTrust banner and Google Tag Manager
+$this->headScript()->appendFile('https://cdn.cookielaw.org/consent/f6c06aa6-cac4-4104-8b3d-70b088ddfff6/OtAutoBlock.js');
+$this->headScript()->appendFile(
+    'https://cdn.cookielaw.org/scripttemplates/otSDKStub.js',
+    'text/javascript',
+    ['charset' => 'UTF-8', 'data-domain-script' => 'f6c06aa6-cac4-4104-8b3d-70b088ddfff6']
+);
+$this->headScript()->appendFile($this->assetUrl('js/oneTrust.js'));
+$this->headScript()->appendFile($this->assetUrl('js/googleTagManager.js'));
+//End OneTrust banner and Google Tag Manager
 $this->headScript()->appendFile($this->assetUrl('js/load-effect.js'));
 $this->headScript()->appendFile($this->assetUrl('js/annona.js'));
 $this->trigger('view.layout');
