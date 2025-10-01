@@ -70,14 +70,14 @@ $currentLocale = $this->siteSetting('locale') ?: 'en_US';
         </style>
         <!--OneTrust banner and Google Tag Manager -->
         <?php
-            $this->headScript()->appendFile('https://cdn.cookielaw.org/consent/f6c06aa6-cac4-4104-8b3d-70b088ddfff6/OtAutoBlock.js');
-            $this->headScript()->appendFile(
+            $this->inlineScript()->appendFile('https://cdn.cookielaw.org/consent/f6c06aa6-cac4-4104-8b3d-70b088ddfff6/OtAutoBlock.js');
+            $this->inlineScript()->appendFile(
                 'https://cdn.cookielaw.org/scripttemplates/otSDKStub.js',
                 'text/javascript',
                 ['charset' => 'UTF-8', 'data-domain-script' => 'f6c06aa6-cac4-4104-8b3d-70b088ddfff6']
             );
-            $this->headScript()->appendFile($this->assetUrl('js/oneTrust.js'));
-            $this->headScript()->appendFile($this->assetUrl('js/googleTagManager.js'));
+            $this->inlineScript()->appendFile($this->assetUrl('js/oneTrust.js'));
+            $this->inlineScript()->appendFile($this->assetUrl('js/googleTagManager.js'));
         ?>
         <!-- End OneTrust banner and Google Tag Manager -->
     </head>
