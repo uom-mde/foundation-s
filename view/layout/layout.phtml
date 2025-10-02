@@ -71,8 +71,8 @@ $currentLocale = $this->siteSetting('locale') ?: 'en_US';
         <!--OneTrust banner and Google Tag Manager -->
         <script type="text/javascript" src="https://cdn.cookielaw.org/consent/f6c06aa6-cac4-4104-8b3d-70b088ddfff6/OtAutoBlock.js"></script>
         <script src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js" type="text/javascript" charset="UTF-8" data-domain-script="f6c06aa6-cac4-4104-8b3d-70b088ddfff6"></script>
-        <script type="text/javascript" src="../../asset/js/oneTrust.js"></script>
-        <script type="text/javascript" src="../../asset/js/googleTagManager.js"></script>
+        <script src="<?= $this->assetUrl('js/oneTrust.js'); ?>"></script>
+        <script src="<?= $this->assetUrl('js/googleTagManager.js'); ?>"></script>
         <!-- End OneTrust banner and Google Tag Manager -->
     </head>
 
