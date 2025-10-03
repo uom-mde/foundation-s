@@ -13,12 +13,11 @@ $uniqueId = uniqid();
         <?php $item = $attachment->item(); ?>
         
         <div class="item resource <?php echo $thumbnailType; ?>">
-            <div class="sensitive-wrapper relative">
-
+            <div class="sensitive-wrapper flex-container align-center align-middle">
                 <!-- Toggle button overlay -->
                 <button class="sensitive-overlay items-center justify-center text-center" type="button" data-toggle="sensitive-<?php echo $uniqueId; ?>"> 
                     <i class="far fa-eye-slash fa-lg margin-bottom-1 large-margin-bottom-2"></i> 
-                    <h2 class="h5 warning-text"> This item contains content which people may find offensive.<br> Click or press to view. </h2> 
+                    <p class="warning-text"> This item contains content which people may find offensive.<br> Click or press to view. </h2> 
                 </button> 
                 <!-- Media block with blur applied --> 
                  <div id="sensitive-<?php echo $uniqueId; ?>" class="sensitive-media" data-toggler="sensitive-media-show"> 
@@ -28,7 +27,7 @@ $uniqueId = uniqid();
         </div>
     </div>
 
-    <div class="block-html padding-horizontal-1 xlarge-padding-horizontal-3">
+    <div class="block-html medium-padding-horizontal-1 xlarge-padding-horizontal-3">
         <?php if ($showTitleOption === 'item_title'): ?>
         <div class="separator-center metadata margin-vertical-1">
             <h2 class="h4"><?php echo $item->displayTitle(); ?></h2>
