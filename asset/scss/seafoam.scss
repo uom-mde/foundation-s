@@ -2908,7 +2908,7 @@ grid-template-areas:
   }
   .no-margin-top {
     margin-top:-1 * $global-margin;
-    @include breakpoint(large) {
+    @include breakpoint(medium) {
       margin-top:-2 * $global-margin;
     }
   }
