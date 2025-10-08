@@ -5,6 +5,7 @@ $this->headLink()->appendStylesheet($this->assetUrl('css/resource-page-blocks.cs
 $this->htmlElement('body')->appendAttribute('class', 'item resource show');
 $embedMedia = $this->siteSetting('item_media_embed', false);
 $itemMedia = $item->media();
+$sensitive = $item->value('dcterms:audience');
 $showLayout = $this->themeSetting('show_layout');
 $mediaDisplay = $this->themeSetting('media_display');
 $this->headLink()->appendStylesheet($this->assetUrl('css/resource-page-blocks.css', 'Omeka'));
@@ -33,19 +34,38 @@ $valueLang = $filterLocale ? [$lang, ''] : null;
     <?php if ($fullWidthMainHasBlocks): ?>
         <?php 
         $viewers = [];
+        $sensitiveViewer = null;   // prevents undefined variable warning
         $youtubeViewer = null;
         $defaultViewer = null;
-        $firstMedia = true; // Ensure this is defined
-        
+        $firstMedia = true;
+
         foreach ($itemMedia as $index => $media) {
             $mediaType = $media->mediaType();
             $mediaRenderer = $media->renderer();
-        
-            // Debugging output
-            // echo "Index: $index, Media Renderer: $mediaRenderer, Media Type: $mediaType<br>";
-        
+
             if ($firstMedia) {
-                if ($mediaRenderer == 'youtube') {
+                if ($sensitive) {
+                    $viewers[] = 'default';
+                    $uniqueId = uniqid('sensitive-');
+                    $sensitiveViewer = "
+                        <div class='sensitive-wrapper flex-container align-center align-middle'>
+                            <button class='sensitive-overlay items-center justify-center text-center' type='button' data-toggle='sensitive-{$uniqueId}'> 
+                                <i class='far fa-eye-slash fa-lg margin-bottom-1 large-margin-bottom-2'></i> 
+                                <p class='warning-text'>
+                                    This item contains content which people may find offensive.<br> 
+                                    Click or press to view.
+                                </p> 
+                            </button>
+                            <div id='sensitive-{$uniqueId}' class='sensitive-media' data-toggler='sensitive-media-show'>
+                                " . $media->render([
+                                    'thumbnailType' => $thumbnailType ?? null,
+                                    'link' => $link ?? null,
+                                ]) . "
+                            </div>
+                        </div>
+                    ";
+                    $firstMedia = false;
+                } elseif ($mediaRenderer == 'youtube') {
                     $viewers[] = 'youtube';
                     $youtubeViewer = "<div class='responsive-embed widescreen'>" . $media->render() . "</div>";
                     $firstMedia = false;
@@ -54,11 +74,7 @@ $valueLang = $filterLocale ? [$lang, ''] : null;
                     $defaultViewer = $media->render();
                     $firstMedia = false;
                 }
-            } 
-            // else {
-                // Optional logic for additional media
-                //echo "Additional media detected at index $index.<br>";
-            //}
+            }
         }
         ?>
     <div class="<?php echo ($showLayout == 'inline') ? 'inline' : 'stack'; ?>">
@@ -71,7 +87,10 @@ $valueLang = $filterLocale ? [$lang, ''] : null;
             <div class="main-with-sidebar cell medium-8 margin-bottom-2 xlarge-margin-bottom-3">
                 <?php 
                 // Display the main viewer
-                if ($youtubeViewer !== null) {
+                if ($sensitiveViewer !== null) {
+                    echo $sensitiveViewer;
+                } 
+                elseif ($youtubeViewer !== null) {
                     echo $youtubeViewer;
                 } 
                 elseif ($defaultViewer !== null) {
