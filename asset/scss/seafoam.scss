@@ -3382,64 +3382,43 @@ height: 60vh!important;
 }
 }
 
+/*Faceted Browse*/
+#facets label {
+  color: #000;
+  align-items: baseline;
+}
+
+/*Remove padding from Faceted Browse titles*/
+#section-content span.resource-name {
+padding: unset;
+}
+
+/*Faceted Browse*/
+.select-list-item .value:first-child {
+  margin-top: 0;
+  }
+  
+  @media print, screen and (min-width: 37.5em) {
+  .subsection-text .h3 {
+      font-size: 1.625rem;
+  }
+  }
+
   /*Faceted Browse*/
-  #facets label {
-    color: #000;
-    align-items: baseline;
-  }
-  
-  /*Remove padding from Faceted Browse titles*/
-  #section-content span.resource-name {
-  padding: unset;
-  }
-  
-  /*Faceted Browse*/
-  .select-list-item .value:first-child {
-    margin-top: 0;
-    }
-    
-    @media print, screen and (min-width: 37.5em) {
-    .subsection-text .h3 {
-        font-size: 1.625rem;
-    }
-    }
-  
-    /*Faceted Browse*/
-  .faceted-browse-page .resource-list .resource-link img {
-    float: unset;
-    display: block;
-    margin-left: 0;
-    @include breakpoint(450) {
-      float: right;
-      display: inline-block;
-      max-width: rem-calc(250);
-      margin-left: 1rem;
-    }
-  }
-
-/*Image Banner block*/
-.overlay-container {
-  h2 {
-    font-size: 3rem;
-    font-weight: 600;
-  }
-  p {
-    font-size: 1.5rem;
+.faceted-browse-page .resource-list .resource-link img {
+  float: unset;
+  display: block;
+  margin-left: 0;
+  @include breakpoint(450) {
+    float: right;
+    display: inline-block;
+    max-width: rem-calc(250);
+    margin-left: 1rem;
   }
 }
 
-.image-banner .overlay-container {
-  min-height: clamp(380px, 40vh, 451px);
-}
+/*Image Banner Block Code*/
 
-.image-banner .image-container img {
-  max-width: unset; 
-}
-
-/*Reduce font-weight for Image Banner*/ 
-.image-banner .overlay-container > h1 {
-  font-weight: 400!important;
-}
 
 /*Add dark text option for Image Banner*/ 
 .image-banner-dark-text .image-banner .overlay-container > h1,
@@ -3463,6 +3442,51 @@ section.image-banner {
   }
 }
 
+.image-banner .image-container img {
+  /*max-width: 1400px;*/
+  max-width: unset;
+}
+
+.image-banner .image-container::after {
+  opacity: 0.2;
+}
+
+.image-banner .overlay-container {
+ min-height: unset!important;
+ height: rem-calc(275px);
+ @include breakpoint(medium) {
+  height: rem-calc(325px);
+ }
+  @include breakpoint(large) {
+  height: rem-calc(350px);
+ }
+  @include breakpoint(xlarge) {
+  height: rem-calc(400px);
+ }
+}
+
+.image-banner .overlay-container h1,
+.image-banner .overlay-container h2 {
+  background: $uom-footer;
+  width: fit-content;
+  padding: 1rem;
+  font-weight: 400!important;
+  margin-bottom: 0;
+  @include breakpoint(large) {
+    font-size: rem-calc(42);
+  }
+}
+
+.image-banner .overlay-container > p {
+  margin-block: 0!important;
+  color: $black;
+  font-size: 1rem;
+  width: fit-content;
+  @include breakpoint(medium) {
+    font-size: 1.5rem;
+  }
+}
+
 .image-banner.tint-light .overlay-container > h1,
 .image-banner.tint-light .overlay-container > p {
   opacity: unset;
@@ -3472,6 +3496,10 @@ section.image-banner {
 
 .image-banner.tint-light .image-container::after {
   background-color: transparent!important;
+}
+
+.image-banner.tint-dark .overlay-container > h1 {
+  color: $white;
 }
 
 /*Caption*/ 
@@ -3771,46 +3799,6 @@ max-width: rem-calc(700);
     line-height: $lead-lineheight;
   }
 }
-
-/*Page Block Image Banner*/
-.image-banner .image-container img {
-  /*max-width: 1400px;*/
-  max-width: unset;
-}
-
-.image-banner .image-container::after {
-  opacity: 0.2;
-}
-
-.image-banner .overlay-container {
- min-height: clamp(300px, 20vh, 450px);
-}
-
-.overlay-container h1,
-.overlay-container h2 {
-  background: $uom-footer;
-  width: fit-content;
-  padding: 1rem;
-  color: $white;
-  font-weight: 400;
-  margin-bottom: 0;
-  @include breakpoint(large) {
-    font-size: rem-calc(42);
-  }
-}
-
-.overlay-container p {
-    font-size: 1.5rem;
-    background: $white;
-    color: $black;
-    width: fit-content;
-    padding: 0.5rem;
-  }
-
-  .image-banner .overlay-container > p {
-    margin-block: 0!important;
-    color: $black;
-  }
 
 /*Style scrollbar*/ 
 /* width */
