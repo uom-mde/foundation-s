@@ -3463,6 +3463,17 @@ section.image-banner {
   }
 }
 
+.image-banner.tint-light .overlay-container > h1,
+.image-banner.tint-light .overlay-container > p {
+  opacity: unset;
+  background: rgba(255, 255, 255, .7)!important;
+  padding: 0.5rem;
+}
+
+.image-banner.tint-light .image-container::after {
+  background-color: transparent!important;
+}
+
 /*Caption*/ 
 .item .caption,
 .caption.asset-caption {
