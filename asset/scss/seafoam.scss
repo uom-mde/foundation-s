@@ -2837,6 +2837,16 @@ grid-template-areas:
     text-decoration: underline;
   } 
 
+  .max-img-height {
+    max-height: rem-calc(300);
+      @include breakpoint(large) {
+      max-height: rem-calc(350);
+    }
+      @include breakpoint(xlarge) {
+      max-height: rem-calc(400);
+    }
+  }
+
   /*Asset Cards*/ 
   .card img {
     width: 100%;
@@ -3218,6 +3228,12 @@ grid-template-areas:
   height: calc(70vh - .75rem) !important;
 }
 }
+
+/*Add margin to multiple items*/ 
+.resource-text-openseadragon .item.resource:not(:only-child):not(:last-child) {
+  margin-right: $global-margin;
+}
+
 
 .attachment-count-2 .metadata h2,
 .attachment-count-3 .metadata h2,
