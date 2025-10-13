@@ -1034,7 +1034,12 @@ bottom: 25%;
   padding: 0.5rem 1rem;
 }
 
-  /*Openseadragon hero 24/02/24*/ 
+/*Openseadragon macOS fix*/
+.openseadragon-canvas:focus {
+  outline: none;
+}
+
+  /*Openseadragon hero 24/02/24*/
   .openseadragon-hero {
     height: rem-calc(300);
     margin-top: -1rem;
