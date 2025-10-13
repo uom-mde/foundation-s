@@ -3436,6 +3436,10 @@ section.image-banner {
   color: $white;
 }
 
+.image-banner.tint-dark .overlay-container > p {
+  background: #1d1d1d;
+}
+
 /*Caption*/ 
 .item .caption,
 .caption.asset-caption {
