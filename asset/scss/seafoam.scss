@@ -3432,12 +3432,15 @@ section.image-banner {
 }
 
 .image-banner.tint-dark .overlay-container > h1,
-.image-banner.tint-dark .overlay-container > h2 {
+.image-banner.tint-dark .overlay-container > h2,
+.image-banner.tint-dark .overlay-container > p {
   color: $white;
 }
 
 .image-banner.tint-dark .overlay-container > p {
   background: #1d1d1d;
+  padding: 0.5 * $global-padding $global-padding;
+  opacity: 1;
 }
 
 /*Caption*/ 
