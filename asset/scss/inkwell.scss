@@ -126,6 +126,11 @@ a:hover {
     background-color: unset;
 }
 
+/*Removed Home button icon until home page is live*/
+.home-icon {
+    display: none;
+}
+
  .site-title a:hover span {
     color: #609; 
     /*color: initial;*/
