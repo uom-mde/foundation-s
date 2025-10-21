@@ -640,6 +640,11 @@ a.button.hollow.warning {
   color: #0a0a0a;
 }
 
+a.button.hollow:hover {
+  color: $white;
+  background-color: $primary-color;
+}
+
 /*Caption Toggle Block*/ 
 .toggle-caption-block {
   max-width: rem-calc(800);
@@ -2842,7 +2847,7 @@ grid-template-areas:
 
   /*Underline correct items*/ 
   .block-html > p > a,
-  .text-block a:not(button a) {
+  .text-block a:not(.button) {
     text-decoration: underline;
   } 
 
