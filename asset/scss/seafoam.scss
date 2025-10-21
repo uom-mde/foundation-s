@@ -41,7 +41,7 @@ $thumbnail-shadow-hover: 0 0 6px 1px rgba($primary-color, 0.5);
   margin: $global-margin 0;
 }
 
-span.h4.site-title-label {
+.h4.site-title-label {
   margin-bottom: 0;
   font-size: $global-font-size;
   font-weight: 400;
@@ -822,6 +822,9 @@ transform: scale(1.1);
   transition: opacity 0.3s ease;
 }
 
+.caption.card-section {
+    padding: 0 1rem 1rem 1rem;
+}
 
 /*BlockPlus Blocks*/
 //--------------------------------
@@ -2912,11 +2915,11 @@ grid-template-areas:
 .asset.card {
   @include card-container($light-gray, $black, 0, 0, rem-calc(4), rgba(0, 0, 0, 0.35) 0px 5px 15px);
   width: 100%;
-  & span.card-divider {
+  & .card-divider {
     background: $white;
     margin-bottom: 0;
   }
-  & span.h3 {
+  & .h3 {
     color: $black;
   }
   background: $white;
@@ -3957,7 +3960,7 @@ max-width: rem-calc(700);
   padding: 0;
 }
 
-.home-card-text span.h4.link-title {
+.home-card-text .h4.link-title {
   margin: rem-calc($global-margin) 0;
 }
 
