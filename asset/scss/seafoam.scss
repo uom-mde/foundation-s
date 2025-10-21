@@ -3248,7 +3248,7 @@ grid-template-areas:
 .attachment-count-2 .metadata h2.h3,
 .attachment-count-3 .metadata h2.h3 {
   font-weight: 400;
-  margin: $global-margin;
+  /*margin: $global-margin;*/
   @include breakpoint(medium) {
     font-size: 110%;
   }
@@ -3259,7 +3259,7 @@ grid-template-areas:
 
 .attachment-count-2 .metadata:only-child,
 .attachment-count-3 .metadata:only-child {
-  margin: $global-margin;
+  /*margin: $global-margin;*/
   @include breakpoint(large) {
     margin: $global-margin 0 2 * $global-margin 0;
   }
