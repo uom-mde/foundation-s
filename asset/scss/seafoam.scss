@@ -2842,7 +2842,7 @@ grid-template-areas:
 
   /*Underline correct items*/ 
   .block-html > p > a,
-  .text-block a {
+  .text-block a:not(button a) {
     text-decoration: underline;
   } 
 
