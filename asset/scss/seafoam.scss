@@ -2841,9 +2841,11 @@ grid-template-areas:
   }
 
   /*Underline correct items*/ 
-  .block-html > p > a {
+  .block-html > p > a,
+  .text-block a {
     text-decoration: underline;
   } 
+
 
   .max-img-height {
     max-height: rem-calc(300);
