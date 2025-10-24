@@ -3325,7 +3325,7 @@ grid-template-areas:
 .grid-multiples {
   display: grid;
   grid-template-columns: 1fr;
-  align-items: end;
+  align-items: flex-start;
   @include breakpoint(medium) {
     grid-template-columns: 1fr 1fr;
   }
