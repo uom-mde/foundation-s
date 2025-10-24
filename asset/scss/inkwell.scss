@@ -158,6 +158,10 @@ a:hover {
     border-color: rgba(0, 0, 0, 0) $white rgba(0, 0, 0, 0) rgba(0, 0, 0, 0);
 }
 
+.is-submenu-item.is-dropdown-submenu-item a {
+    color: $white;
+}
+
  /*Add padding when search button is showed*/ 
  .search-button.is-shown {
     padding: $global-padding $global-padding $global-padding 0;
