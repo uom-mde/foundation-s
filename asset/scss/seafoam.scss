@@ -3113,6 +3113,18 @@ grid-template-areas:
   }
 }
 
+/*Fix for iPhones and media displayed vertically
+@supports (-webkit-touch-callout: none) {
+  .layout-vertical .media-render.html {
+    padding: 1rem; /* Safari + iOS only
+  }
+}*/ 
+
+/*Ensure title is below media for verticla layouts*/
+.layout-vertical .media-render.html {
+  padding: 1rem;
+}
+
 /*Seadragonbox Styling*/ 
 .seadragonbox {
   height: 35vh!important;
