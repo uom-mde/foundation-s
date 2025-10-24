@@ -1173,6 +1173,8 @@ display: none;
   margin: 0 0 0.5rem 0; 
 }
 
+
+
 .metadata h1 a,
 .metadata h2 a,
 .metadata h2 a,
@@ -1903,6 +1905,12 @@ padding-bottom: 56.25%;
 padding-bottom: 75%;
 }
 
+/*Video*/ 
+/*Centre videos*/
+video {
+  width: 100%;
+  }
+
 /*Blockquote*/
 .blockquote-wrapper {
   max-width: rem-calc(800px);
@@ -1926,6 +1934,11 @@ blockquote {
 .dark-background blockquote p {
   color: $warning-color;
 }
+
+.dark-background cite,
+.dark-background .fa-quote-left:before {
+  color: #f63;
+  }
 
 .no-border-left blockquote {
   border-left: none;
@@ -2469,7 +2482,9 @@ display: none;
 .media-render.file {
   display: flex;
   justify-content: center;
+  @include breakpoint(medium) {
   padding: $global-padding $global-padding 0 $global-padding;
+  }
 }
 
 .media-render.iiif {
@@ -2827,6 +2842,10 @@ grid-template-areas:
     }
   }
 
+  .noButton .learn-more {
+    display: none;
+    }
+
   /*Underline correct items*/ 
   .block-html > p > a {
     text-decoration: underline;
@@ -2836,6 +2855,14 @@ grid-template-areas:
   .card img {
     width: 100%;
     object-fit: cover;
+  }
+
+  /*Tooltips*/ 
+  /*Code for tooltips*/
+.dark-background .has-tip {
+  border-bottom: dotted 1px #ededed;
+  color: #fc3;
+  font-weight: unset;
   }
 
   /*Card hover colour change*/ 
@@ -2900,6 +2927,7 @@ grid-template-areas:
     color: $black;
   }
   background: $white;
+  padding-bottom: 1rem;
 }
 
 .home-card-image {
@@ -3136,6 +3164,10 @@ grid-template-areas:
 }
 
 /*Multiples styling*/ 
+.multiples .seadragonbox {
+  display: flex;
+  }
+
 .attachment-count-2 .item.resource:not(:last-child),
 .attachment-count-3 .item.resource:not(:last-child) {
   margin-right: 1rem;
@@ -3240,6 +3272,7 @@ grid-template-areas:
 .grid-multiples {
   display: grid;
   grid-template-columns: 1fr;
+  align-items: end;
   @include breakpoint(medium) {
     grid-template-columns: 1fr 1fr;
   }
