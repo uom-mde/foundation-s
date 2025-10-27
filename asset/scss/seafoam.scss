@@ -3125,6 +3125,10 @@ grid-template-areas:
   padding: 1rem;
 }
 
+.media-render.html:has(#header_toolbar) {
+  margin-bottom: rem-calc(35);
+}
+
 /*Seadragonbox Styling*/ 
 .seadragonbox {
   height: 35vh!important;
@@ -3307,7 +3311,9 @@ grid-template-areas:
 
 /*Add margin to multiple items*/ 
 .resource-text-openseadragon .item.resource:not(:only-child):not(:last-child) {
+  @include breakpoint (medium) {
   margin-right: $global-margin;
+  }
 }
 
 
