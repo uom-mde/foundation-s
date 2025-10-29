@@ -6,7 +6,7 @@ $attachmentCount = count($this->attachments);
 
 <div class="reveal-on-scroll lazy-fade-in">  <!-- Load Effect block -->
     <div class="media-embed-block flex-container flex-dir-column align-middle <?php echo $this->escapeHtml(implode(' ', $classes)); ?> file attachment-count-<?php echo $attachmentCount; ?>">
-        <div class="attachments resource-text-openseadragon grid-multiples">
+        <div class="attachments resource-text-openseadragon grid-multiples padding-horizontal-1">
         <?php foreach($this->attachments as $attachment): ?>
             <?php $item = $attachment->item(); ?>
             <div class="item resource <?php echo $thumbnailType; ?>">
