@@ -758,8 +758,15 @@ margin: 0 auto;
 
 /*IIIF Presentation media type*/
 .media-render.iiif_presentation iframe {
-  height: 80vh!important;
+  padding: 0;
+  height: rem-calc(500)!important;
   @include breakpoint(large) {
+    height: 70vh;
+  }
+  @include breakpoint(large) {
+  height: 80vh!important;
+  }
+  @include breakpoint(xlarge) {
   height: 90vh!important;
   }
 }
@@ -3146,8 +3153,8 @@ grid-template-areas:
   @include breakpoint(medium) {
   height: 60vh!important;
   }
-  @include breakpoint(large) {
-  height: 80vh!important;
+  @include breakpoint(xlarge) {
+  height: 75vh!important;
   }
 }
 
@@ -3211,7 +3218,10 @@ grid-template-areas:
 .media-embed-block img {
   object-fit: contain;
   height: 100%;
-  max-height: 70vh;
+  max-height: rem-calc(300)!important;
+  @include breakpoint(medium) {
+  max-height: rem-calc(350);
+  }
 }
 .media-embed-block .medium img {
   @include breakpoint(large) {
@@ -3224,6 +3234,13 @@ grid-template-areas:
     max-height: 85vh!important;
   }
 }
+
+.media-embed-block .large:not(:only-child) img {
+  max-height: rem-calc(300)!important;
+    @include breakpoint(large) {
+    max-height: rem-calc(500);
+  }
+  }
 
 /*Multiples styling*/ 
 .multiples .seadragonbox {
@@ -3308,6 +3325,17 @@ grid-template-areas:
   height: calc(70vh - .75rem) !important;
 }
 }
+
+/*Three Child elements seadragonbox*/
+  .attachment-count-3 .medium .seadragonbox {
+      height: rem-calc(200) !important;
+      @include breakpoint(medium) {
+        height: rem-calc(300) !important;
+      }
+      @include breakpoint(large) {
+        height: rem-calc(350) !important;
+      }
+  }
 
 /*Add margin to multiple items*/ 
 .resource-text-openseadragon .item.resource:not(:only-child):not(:last-child) {
@@ -3534,7 +3562,10 @@ section.image-banner {
   font-size: 0.9 * $global-font-size;
   color: $dark-gray;
   margin: 0 1 * $global-margin 0.5 * $global-margin 0.5 * $global-margin;
-  border-left: solid rem-calc(6) $light-gray;
+  border-left: solid rem-calc(1) $light-gray;
+  @include breakpoint(medium) {
+    border-left: solid rem-calc(6) $light-gray;
+  }
   align-self: baseline;
   & p {
     /*border-bottom: solid 1px $light-gray;*/ 
@@ -3641,6 +3672,12 @@ section.image-banner {
   .width-80 .attachments.resource-text-openseadragon {
     min-width: 80vw;
     max-width: rem-calc(1500);
+  }
+
+  /*Title under media - media embed default*/
+  .title-under-media .caption {
+  order: 2;
+  padding-bottom: 1rem;
   }
 
   /*Asset Hero img*/ 
