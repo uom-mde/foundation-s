@@ -3714,8 +3714,10 @@ section.image-banner {
     
   .asset-hero h1 {
   padding: 0.5rem;
-  background: #000;
-  color: $white;
+  background: rgba(255, 255, 255, .7);
+  backdrop-filter: blur(0.1875rem);
+  -webkit-backdrop-filter: blur(0.1875rem);
+  color: $black;
   }
 
   .asset-hero-title {
