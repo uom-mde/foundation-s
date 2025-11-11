@@ -894,10 +894,10 @@ transform: scale(1.1);
     @include breakpoint(medium) {
       font-size: 2rem;
   }
-    /*@include breakpoint(large) {
-      font-size: 0.9 * $global-font-size;
-  }*/ 
+    @include breakpoint(large) {
+    font-size: rem-calc(42);
   }
+}
 
   .hero-title-bottom {
     width: 100%;
@@ -2853,6 +2853,17 @@ grid-template-areas:
   }
 
   /*Utility Classes*/ 
+/*Image styling for asset hero*/ 
+.img-auto .asset-hero, 
+.img-auto .asset-hero-horizontal-img {
+  background-size: auto;
+}
+
+.img-contain .asset-hero,
+.img-contain .asset-hero-horizontal-img {
+  background-size: contain;
+}
+
 .subheader {
   color: #4f4f4f;
 }
