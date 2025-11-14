@@ -3816,18 +3816,35 @@ max-width: rem-calc(700);
   }
 }
 
-.asset.media-object img {
+.asset.media-object img,
+.media-object-block .asset img {
   width: 100%;
   max-width: unset;
   @include breakpoint(medium) {
     width: 15rem;
     max-height: 15rem;
-    object-fit: cover;
+    object-fit: contain;
   }
     @include breakpoint(xlarge) {
     width: 20rem;
     max-height: 20rem;
   }
+}
+
+.asset.media-object img {
+  @include breakpoint(medium) {
+    object-fit: cover;
+  }
+}
+
+.media-object-block .asset img {
+    @include breakpoint(medium) {
+    object-fit: contain;
+  }
+}
+
+.media-object-block .caption {
+  text-align: center;
 }
 
 .asset.media-object.has-image .caption {
@@ -3852,12 +3869,14 @@ max-width: rem-calc(700);
   }
   }
   
-  .media-object img {
+  .media-object img,
+  .media-object-block img {
     max-width: none;
     height: 100%;
   }
   
-  .media-object .thumbnail {
+  .media-object .thumbnail,
+  .media-object-block .thumbnail {
   width: initial;
   }
 
