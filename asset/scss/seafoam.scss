@@ -2865,6 +2865,11 @@ grid-template-areas:
   background-size: contain;
 }
 
+/*Remove max height for large img (multiples) */ 
+.no-max-height .media-embed-block .large:not(:only-child) img {
+    max-height: unset!important;
+}
+
 .subheader {
   color: #4f4f4f;
 }
@@ -4491,11 +4496,16 @@ transform: scale(1.01);
 
 /*Four sites*/ 
 .site-list.site-count-4 {
-  @include breakpoint(400) {
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: 1fr 1fr;
   grid-template-areas:
-  "a a b b"
-  "a a c d";
+  "a a"
+  "b b"
+  "c d";
+    @include breakpoint(400) {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-areas:
+    "a a b b"
+    "a a c d";
   }
 }
 
