@@ -4361,7 +4361,7 @@ transform: scale(1.01);
 
 /*One Site*/
 .site-list.site-count-1 {
-  @include breakpoint(400) {
+  @include breakpoint(500) {
   grid-template-columns: repeat(2, 1fr);
   grid-template-areas:
   "a a"
@@ -4371,7 +4371,7 @@ transform: scale(1.01);
 
 /*Two Sites*/
 .site-list.site-count-2 {
-  @include breakpoint(400) {
+  @include breakpoint(500) {
   grid-template-columns: repeat(2, 1fr);
   grid-template-areas:
   "a b"
@@ -4406,7 +4406,7 @@ transform: scale(1.01);
 .site-count-6 .site.card:nth-child(2) .site-thumbnail-image {
   object-fit: cover;
   height: 12.5rem;
-  @include breakpoint(400) {
+  @include breakpoint(500) {
   height: 15rem;
   }
   @include breakpoint(medium) {
@@ -4418,7 +4418,7 @@ transform: scale(1.01);
 }
 
 .site-count-4 .site.card:nth-child(1) .site-thumbnail-image {
-  @include breakpoint(400) {
+  @include breakpoint(500) {
     height: 25rem;
     object-fit: cover;
     }
@@ -4436,7 +4436,7 @@ transform: scale(1.01);
 .site-count-5 .site.card:nth-child(2) .card-divider,
 .site-count-6 .site.card:nth-child(1) .card-divider,
 .site-count-6 .site.card:nth-child(2) .card-divider {
-  @include breakpoint(400) {
+  @include breakpoint(500) {
     flex: 1 1 100%;
   }
 }
@@ -4501,7 +4501,7 @@ transform: scale(1.01);
   "a a"
   "b b"
   "c d";
-    @include breakpoint(400) {
+    @include breakpoint(500) {
     grid-template-columns: repeat(4, 1fr);
     grid-template-areas:
     "a a b b"
@@ -4511,7 +4511,7 @@ transform: scale(1.01);
 
 /*Five sites*/ 
 .site-list.site-count-5 {
-  @include breakpoint(400) {
+  @include breakpoint(500) {
   grid-template-columns: repeat(4, 1fr);
   grid-template-areas:
   "a a b b"
@@ -4522,7 +4522,7 @@ transform: scale(1.01);
 
 .site-count-5 .site.card:nth-child(1) .site-thumbnail-image,
 .site-count-5 .site.card:nth-child(2) .site-thumbnail-image {
-  @include breakpoint(400) {
+  @include breakpoint(500) {
   height: 25rem;
   }
 }
@@ -4534,7 +4534,7 @@ transform: scale(1.01);
     "b b"
     "c d"
     "e f";
-  @include breakpoint(400) {
+  @include breakpoint(500) {
     grid-template-columns: repeat(4, 1fr);
     grid-template-areas:
     "a a b b"
@@ -4553,7 +4553,7 @@ transform: scale(1.01);
 
 .site-count-6 .site.card:nth-child(1) .site-thumbnail-image,
 .site-count-6 .site.card:nth-child(2) .site-thumbnail-image {
-  @include breakpoint(400) {
+  @include breakpoint(500) {
   height: 15rem;
   }
   @include breakpoint(large) {
@@ -4562,7 +4562,7 @@ transform: scale(1.01);
 }
 
 .site-count-6 .site.card:nth-child(n+3) .site-thumbnail-image {
-  @include breakpoint(400) {
+  @include breakpoint(500) {
   height: rem-calc(150);
   }
   @include breakpoint(large) {
