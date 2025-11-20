@@ -13,14 +13,13 @@ $thumbnail-shadow-hover: 0 0 6px 1px rgba($primary-color, 0.5);
 @import 'foundation-core';
 @import 'omeka';
 
-/*Font Sizes*/ 
-
-/*h2,
-.h2 {
-@include breakpoint(medium) {
-  font-size: 1.4rem;
+/*Body*/ 
+@media print, screen and (max-width: 37.4988em) {
+  body:not(.browse) #content {
+      padding: 0;
+      margin: 0.5rem;
   }
-}*/ 
+}
 
 .site-title {
   max-width: calc(100vw - rem-calc(120));
@@ -2806,7 +2805,7 @@ grid-template-areas:
     width: rem-calc(350);
     margin: 0 1rem 1rem 0;
   }
-  @include breakpoint(700) {
+  @include breakpoint(900) {
     width: rem-calc(400);
     margin: 0 2rem 1rem 0;
   }
@@ -3495,7 +3494,7 @@ padding: unset;
 }
 
 section.image-banner {
-  margin-top: -1 * $global-margin;
+  margin-top: 0 * $global-margin;
   @include breakpoint(medium) {
     margin-top: -2 * $global-margin;
   }
