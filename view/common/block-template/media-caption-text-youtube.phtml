@@ -28,8 +28,8 @@ $thumbnailType = $block->dataValue('thumbnail_type');
                             $youtubeId = $m[1];
                         }
 
-                        // If we have a YouTube ID and this is not a thumbnail → OneTrust embed
-                        if ($youtubeId && $mediaDisplay !== 'thumbnail'):
+                        // If we have a YouTube ID → OneTrust embed → Remove thumbnail condition
+                        if ($youtubeId):
                 ?>
 
                             <div class="youtube-placeholder">
