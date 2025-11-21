@@ -1,132 +1,107 @@
 <?php
-
 $hyperlink = $this->plugin('hyperlink');
 $thumbnailType = $block->dataValue('thumbnail_type');
-
 ?>
-<div class="reveal-on-scroll lazy-fade-in">  <!-- Lazy load block -->
+
+<div class="reveal-on-scroll lazy-fade-in">
     <div class="full-width file-caption-block media-caption-text resourceTextGrid padding-1 large-padding-2 margin-vertical-1 large-margin-vertical-2">
         <div class="file file-caption-text media-embed xlarge-padding-horizontal-1 flex-container align-center align-middle <?php echo $this->escapeHtml(implode(' ', $classes)); ?>">
 
             <?php foreach ($attachments as $attachment): ?>
-                <?php $item = $attachment->item(); ?>
-                
-                <div class="item resource <?php echo $thumbnailType; ?>">
-                <?php
+                <?php 
+                    $item  = $attachment->item();
                     $media = $attachment->media() ?: $item->primaryMedia();
 
-                    if ($media):
+                    // DEBUG: Print all media data so we can see what the YouTube ingester stored
+                    echo "<pre style='background:#fff; color:#000; padding:10px; border:1px solid #ccc;'>";
+                    echo "MEDIA DATA:\n";
+                    print_r($media->mediaData());
+                    echo "</pre>";
 
-                        // ------------------------------------------------------------
-                        // NEW: Extract YouTube ID from Omeka’s stored iframe HTML
-                        // ------------------------------------------------------------
-                        $mediaData  = $media->mediaData();
-                        $iframeHtml = $mediaData['html'] ?? '';
-                        $youtubeId  = '';
+                    // Extract YouTube ID from stored iframe HTML
+                    $mediaData  = $media->mediaData();
 
-                        if (preg_match('~embed/([^"?&]+)~', $iframeHtml, $m)) {
+                    $youtubeId = '';
+                    if (!empty($mediaData['o:source'])) {
+                        $source = $mediaData['o:source'];
+                        // catch ?v=, /embed/, /shorts/, youtu.be links
+                        if (preg_match('~(?:v=|embed/|shorts/|youtu\.be/)([^"&?/ ]+)~', $source, $m)) {
                             $youtubeId = $m[1];
                         }
-
-                        // If we have a YouTube ID → OneTrust embed → Remove thumbnail condition
-                        if ($youtubeId):
+                    }
                 ?>
 
-                            <div class="youtube-placeholder">
-                                <div id="placeholder-<?php echo $media->id(); ?>">
+                <div class="item resource <?php echo $thumbnailType; ?>">
 
-                                    <div class="ot-warning">
-                                        <img alt="warning"
-                                            src="https://emojipedia-us.s3.amazonaws.com/source/skype/289/warning_26a0-fe0f.png" />
-                                        <p>Content not working due to Targeting Category not being enabled.</p>
-                                        <a href="#" onclick="enableTargeting(); return false;">Enable Targeting Cookies</a>
-                                    </div>
+                    <!-- OneTrust YouTube Placeholder -->
+                    <div class="youtube-placeholder">
+                        <div id="placeholder-<?php echo $media->id(); ?>">
 
-                                    <!-- Script executed once category C0004 is enabled -->
-                                    <script type="text/plain" class="optanon-category-C0004">
-                                        document.querySelector('#placeholder-<?php echo $media->id(); ?> .ot-warning').style.display = "none";
-                                    </script>
-
-                                    <!-- OneTrust-blocked YouTube iframe -->
-                                    <iframe
-                                        class="optanon-category-C0004"
-                                        data-src="https://www.youtube.com/embed/<?php echo $youtubeId; ?>"
-                                        width="560"
-                                        height="315"
-                                        frameborder="0"
-                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                        allowfullscreen>
-                                    </iframe>
-
-                                </div>
+                            <div class="ot-warning">
+                                <img alt="warning"
+                                     src="https://emojipedia-us.s3.amazonaws.com/source/skype/289/warning_26a0-fe0f.png" />
+                                <p>Content not working due to Targeting Category not being enabled.</p>
+                                <a href="#" onclick="enableTargeting(); return false;">Enable Targeting Cookies</a>
                             </div>
 
-                            <script>
-                                function enableTargeting() {
-                                    OneTrust.UpdateConsent("Category","C0004:1");
-                                }
+                            <!-- Hide warning + load iframe once C0004 is enabled -->
+                            <script type="text/plain" class="optanon-category-C0004">
+                                document.querySelector('#placeholder-<?php echo $media->id(); ?> .ot-warning')
+                                        .style.display = "none";
                             </script>
 
-                <?php
-                        // ------------------------------------------------------------
-                        // NOT YouTube or it's a thumbnail → fallback to Omeka default
-                        // ------------------------------------------------------------
-                        else:
+                            <?php if (!$youtubeId) {
+                                    echo "<p style='color:red;'>Error: No YouTube ID detected.</p>";
+                                } ?>
 
-                            if ($mediaDisplay === 'thumbnail') {
-                                switch ($link) {
-                                    case 'original': $url = $media->originalUrl(); break;
-                                    case 'item':     $url = $item->url(); break;
-                                    case 'media':    $url = $media->url(); break;
-                                    default:
-                                        throw new \InvalidArgumentException(sprintf('Invalid link type "%s"', $link));
-                                }
+                                <iframe
+                                    class="optanon-category-C0004"
+                                    data-src="https://www.youtube.com/embed/<?php echo $youtubeId; ?>"
+                                    width="560"
+                                    height="315"
+                                    frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen>
+                                </iframe>
 
-                                echo $hyperlink->raw($this->thumbnail($media, $thumbnailType), $url);
-
-                            } else {
-                                echo $media->render([
-                                    'thumbnailType' => $thumbnailType,
-                                    'link'          => $link,
-                                ]);
-                            }
-
-                        endif; // end YouTube check
-
-                    endif; // end $media
-                ?>
-                </div>
-
-                <!-- Caption + Titles -->
-                <div class="block-html medium-padding-horizontal-1 xlarge-padding-horizontal-3">
-
-                    <?php if ($showTitleOption === 'item_title'): ?>
-                        <div class="separator-center metadata margin-vertical-1">
-                            <h2 class="h4"><?php echo $item->displayTitle(); ?></h2>
-                            <?php if ($alternative = $item->value('dcterms:alternative')): ?>
-                                <h2 class="h4 italic-font"><small><?php echo $this->escapeHtml($alternative); ?></small></h2>
-                            <?php endif; ?>
                         </div>
-
-                    <?php elseif ($showTitleOption === 'file_name'): ?>
-                        <div class="separator-center metadata margin-vertical-1">
-                            <h2 class="h4"><?php echo $media->displayTitle(); ?></h2>
-                        </div>
-                    <?php endif; ?>
-
-                    <?php $caption = $attachment->caption(); ?>
-                    <?php if ($caption): ?>
-                        <div class="caption margin-top-1 large-margin-top-2"><?php echo $caption; ?></div>
-                    <?php endif; ?>
-
-                    <div class="learn-more flex-container align-center">
-                        <?php echo $item->link("Learn more", null, ['class' => 'button medium warning hollow']); ?>
                     </div>
 
+                    <script>
+                        function enableTargeting() {
+                            OneTrust.UpdateConsent("Category","C0004:1");
+                        }
+                    </script>
+
+                </div>
+            </div>
+
+            <!-- Title, caption, learn-more -->
+            <div class="block-html medium-padding-horizontal-1 xlarge-padding-horizontal-3">
+
+                <?php if ($showTitleOption === 'item_title'): ?>
+                    <div class="separator-center metadata margin-vertical-1">
+                        <h2 class="h4"><?php echo $item->displayTitle(); ?></h2>
+                        <?php if ($alt = $item->value('dcterms:alternative')): ?>
+                            <h2 class="h4 italic-font"><small><?php echo $this->escapeHtml($alt); ?></small></h2>
+                        <?php endif; ?>
+                    </div>
+
+                <?php elseif ($showTitleOption === 'file_name'): ?>
+                    <div class="separator-center metadata margin-vertical-1">
+                        <h2 class="h4"><?php echo $media->displayTitle(); ?></h2>
+                    </div>
+                <?php endif; ?>
+
+                <?php if ($caption = $attachment->caption()): ?>
+                    <div class="caption margin-top-1 large-margin-top-2"><?php echo $caption; ?></div>
+                <?php endif; ?>
+
+                <div class="learn-more flex-container align-center">
+                    <?php echo $item->link("Learn more", null, ['class' => 'button medium warning hollow']); ?>
                 </div>
 
-            <?php endforeach; ?>
-
-        </div>
+            </div>
+        <?php endforeach; ?>
     </div>
 </div>
