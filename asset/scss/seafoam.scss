@@ -2930,8 +2930,34 @@ grid-template-areas:
 
   /*Asset Cards*/ 
   .card img {
-    width: 100%;
-    object-fit: cover;
+      width: 100%;
+      object-fit: cover;
+    }
+
+/*Card column options*/
+  .card-2-columns .assets.asset-column-3:has(.asset.card) {
+    grid-template-columns: repeat(2, 48%);
+    @include breakpoint(large) {
+      gap: 2rem;
+    }
+  }
+
+    .card-3-columns .assets.asset-column-2:has(.asset.card) {
+      @include breakpoint(large) {
+        grid-template-columns: repeat(3, 32%);
+        gap: 2rem;
+    }
+  }
+    .card-4-columns .assets.asset-column-2:has(.asset.card) {
+      @include breakpoint(large) {
+        grid-template-columns: repeat(4, 24%);
+        gap: 2rem;
+    }
+  }
+     .card-4-columns .assets:has(.asset.card) .card img {
+      @include breakpoint(large) {
+        height: 13rem;
+    }
   }
 
   /*Card hover colour change*/ 
