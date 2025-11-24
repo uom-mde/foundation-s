@@ -1598,8 +1598,8 @@ dd.value a {
 }
 
 /*OneTrust Cookie Banner Content*/ 
-.optanon-category-C0004 {
-    display: none !important;
+iframe.optanon-category-C0004[data-src] {
+    display: none;
 }
 
 .ot-warning {
