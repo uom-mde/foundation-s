@@ -1597,6 +1597,23 @@ dd.value a {
   display: none;
 }
 
+/*OneTrust Cookie Banner Content*/ 
+.optanon-category-C0004 {
+    display: none !important;
+}
+
+.ot-warning {
+    padding: $global-padding 0;
+    background: #efefef;
+}
+.ot-warning svg {
+    fill: #cdcdcd;
+    height: rem-calc(300);
+    @include breakpoint(large) {
+      height: rem-calc(400);
+    }
+}
+
 /*Increase YouTube embed size for Item Show*/ 
 .resource.show .media-render.youtube>* {
   max-width: unset;
