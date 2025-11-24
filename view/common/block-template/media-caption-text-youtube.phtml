@@ -5,103 +5,98 @@ $thumbnailType = $block->dataValue('thumbnail_type');
 
 <div class="reveal-on-scroll lazy-fade-in">
     <div class="full-width file-caption-block media-caption-text resourceTextGrid padding-1 large-padding-2 margin-vertical-1 large-margin-vertical-2">
-        
+
         <div class="file file-caption-text media-embed xlarge-padding-horizontal-1 flex-container align-center align-middle <?php echo $this->escapeHtml(implode(' ', $classes)); ?>">
 
         <?php foreach ($attachments as $attachment): ?>
 
             <?php
-                $item      = $attachment->item();
-                $media     = $attachment->media() ?: $item->primaryMedia();
+                $item  = $attachment->item();
+                $media = $attachment->media() ?: $item->primaryMedia();
+
+                // Extract YouTube ID from Omeka’s YouTube ingester
                 $mediaData = $media->mediaData();
                 $youtubeId = $mediaData['id'] ?? '';
-
-                // DEBUG OUTPUT — REMOVE LATER
-                echo "<pre style='background:#fff; color:#000; padding:10px; border:1px solid #ccc;'>";
-                echo "MEDIA DATA:\n";
-                print_r($media->mediaData());
-                echo "</pre>";
             ?>
 
             <div class="item resource <?php echo $thumbnailType; ?>">
 
-                <?php if (!$youtubeId): ?>
+            <?php if ($youtubeId): ?>
 
-                    <p>Error: YouTube ID missing.</p>
+                <!-- OneTrust YouTube Placeholder -->
+                <div id="placeholder-<?php echo $media->id(); ?>">
 
-                <?php else: ?>
-
-                    <!-- OneTrust Placeholder -->
-                    <div class="youtube-placeholder">
-                        <div id="placeholder-<?php echo $media->id(); ?>">
-
-                            <div class="ot-warning">
-                                <img alt="warning"
-                                     src="https://emojipedia-us.s3.amazonaws.com/source/skype/289/warning_26a0-fe0f.png" />
-                                <p>Content not working due to Targeting Category not being enabled.</p>
-                                <a href="#" onclick="enableTargeting(); return false;">Enable Targeting Cookies</a>
-                            </div>
-
-                            <!-- Hide warning once C0004 is enabled -->
-                            <script type="text/plain" class="optanon-category-C0004">
-                                document.querySelector('#placeholder-<?php echo $media->id(); ?> .ot-warning')
-                                            .style.display = "none";
-                            </script>
-
-                            <iframe
-                                class="optanon-category-C0004"
-                                data-src="https://www.youtube.com/embed/<?php echo $youtubeId; ?>"
-                                width="560"
-                                height="315"
-                                frameborder="0"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                allowfullscreen>
-                            </iframe>
-
-                        </div>
+                    <div class="ot-warning">
+                        <img alt="warning" src="https://emojipedia-us.s3.amazonaws.com/source/skype/289/warning_26a0-fe0f.png">
+                        <p>Content not working because Social Media Cookies are not enabled.</p>
+                        <a href="#" onclick="OneTrust.ToggleInfoDisplay(); return false;">Enable Social Media Cookies</a>
                     </div>
 
-                    <script>
+                    <!-- Hide warning once C0004 is enabled -->
+                    <script type="text/plain" class="optanon-category-C0004">
+                        document.querySelector('#placeholder-<?php echo $media->id(); ?> .ot-warning')
+                                .style.display = "none";
+                    </script>
+
+                    <!-- OneTrust-blocked YouTube iframe -->
+                    <iframe
+                        class="optanon-category-C0004"
+                        data-src="https://www.youtube.com/embed/<?php echo $youtubeId; ?>"
+                        width="560"
+                        height="315"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen>
+                    </iframe>
+
+                </div>
+
+                <!-- OneTrust: update consent -->
+                <script>
                     function enableTargeting() {
                         OneTrust.UpdateConsent("Category","C0004:1");
                     }
-                    </script>
+                </script>
 
+            <?php else: ?>
+
+                <p>Error: No YouTube ID found for this media.</p>
+
+            <?php endif; ?>
+
+            </div> <!-- end .item -->
+
+            <!-- TITLE, CAPTION, LEARN MORE -->
+            <div class="block-html medium-padding-horizontal-1 xlarge-padding-horizontal-3">
+
+                <?php if ($showTitleOption === 'item_title'): ?>
+                    <div class="separator-center metadata margin-vertical-1">
+                        <h2 class="h4"><?php echo $item->displayTitle(); ?></h2>
+                        <?php if ($alt = $item->value('dcterms:alternative')): ?>
+                            <h2 class="h4 italic-font"><small><?php echo $this->escapeHtml($alt); ?></small></h2>
+                        <?php endif; ?>
+                    </div>
+
+                <?php elseif ($showTitleOption === 'file_name'): ?>
+                    <div class="separator-center metadata margin-vertical-1">
+                        <h2 class="h4"><?php echo $media->displayTitle(); ?></h2>
+                    </div>
                 <?php endif; ?>
 
-            </div>
-        </div>
+                <?php if ($caption = $attachment->caption()): ?>
+                    <div class="caption margin-top-1 large-margin-top-2">
+                        <?php echo $caption; ?>
+                    </div>
+                <?php endif; ?>
 
-        <!-- TITLE + CAPTION + BUTTON -->
-        <div class="block-html medium-padding-horizontal-1 xlarge-padding-horizontal-3">
-
-            <?php if ($showTitleOption === 'item_title'): ?>
-                <div class="separator-center metadata margin-vertical-1">
-                    <h2 class="h4"><?php echo $item->displayTitle(); ?></h2>
-
-                    <?php if ($alt = $item->value('dcterms:alternative')): ?>
-                        <h2 class="h4 italic-font"><small><?php echo $this->escapeHtml($alt); ?></small></h2>
-                    <?php endif; ?>
+                <div class="learn-more flex-container align-center">
+                    <?php echo $item->link("Learn more", null, ['class' => 'button medium warning hollow']); ?>
                 </div>
 
-            <?php elseif ($showTitleOption === 'file_name'): ?>
-                <div class="separator-center metadata margin-vertical-1">
-                    <h2 class="h4"><?php echo $media->displayTitle(); ?></h2>
-                </div>
-            <?php endif; ?>
-
-            <?php if ($caption = $attachment->caption()): ?>
-                <div class="caption margin-top-1 large-margin-top-2"><?php echo $caption; ?></div>
-            <?php endif; ?>
-
-            <div class="learn-more flex-container align-center">
-                <?php echo $item->link("Learn more", null, ['class' => 'button medium warning hollow']); ?>
             </div>
-
-        </div><!-- end block-html -->
 
         <?php endforeach; ?>
 
-        <!--  </div>end .file -->
-    </div><!-- end .full-width -->
-</div><!-- end wrapper -->
+        </div><!-- end .file -->
+    </div>
+</div>
