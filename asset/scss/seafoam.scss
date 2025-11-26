@@ -1571,6 +1571,11 @@ iframe.optanon-category-C0004[data-src] {
     }
 }
 
+.dark-background .ot-warning a,
+.dark-background .ot-warning p {
+    color: #000;
+}
+
 /*Increase YouTube embed size for Item Show*/ 
 .resource.show .media-render.youtube>* {
   max-width: unset;
