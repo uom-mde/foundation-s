@@ -2719,6 +2719,18 @@ grid-template-areas:
   }
 }
 
+/*Add a portrait narrow class*/
+.portrait-narrow .media-caption-text.resourceTextGrid:has(.layout-horizontal) {
+  @include breakpoint(large) {
+    grid-template-areas: ". media-embed-media text ." ;
+    grid-template-columns: 1fr 2fr 1fr 1fr;
+  }
+  @include breakpoint(1500) {
+    grid-template-areas: ". media-embed-media text ." ;
+    grid-template-columns: 1fr 1.5fr 1fr 1fr;
+  }
+}
+
 .portrait.media-right .media-caption-text.resourceTextGrid:has(.layout-horizontal) {
   @include breakpoint(large) {
     grid-template-areas: "text media-embed-media" ;
