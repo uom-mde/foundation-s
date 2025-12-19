@@ -1075,6 +1075,32 @@ transform: scale(1.1);
       object-fit: cover;
       }
 
+/*Openseadragon block*/ 
+.block-Openseadragon {
+  @include breakpoint (small only) {
+  margin-top: rem-calc(8);
+  }
+}
+
+/*Mapping block*/ 
+/*Change mapping view*/
+.mapping-block {
+    padding: 0 1rem;
+}
+
+.mapping-block .mapping-map {
+    height: rem-calc(400)!important;
+    position: relative;
+    outline: none;
+    width: 100%;
+    max-width: rem-calc(1600px);
+    margin: 0 auto;
+    @include breakpoint (medium) {
+      height: 90vh !important
+    }
+}
+
+
 /*Flex-grow*/
 .flex-grow {
   flex-grow: 1;

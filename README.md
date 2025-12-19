@@ -142,3 +142,40 @@ The Omeka name is a registered trademark of the Corporation for Digital Scholars
 Third-party copyright in this distribution is noted where applicable.
 
 All rights not expressly granted are reserved.
+
+
+# Manchester Digital Exhibitions
+
+This fork of the Foundation S theme uses the following third‑party libraries:
+
+---
+
+## Third‑Party Software Acknowledgments
+
+### Annona
+- **Library**: Annona (NCSU Libraries)  
+- **Authors**: North Carolina State University  
+- **License**: MIT  
+- **Source**: https://github.com/NCSU-Libraries/annona  
+- **Copyright**: © 2021 North Carolina State University  
+- **License text**: See [`licenses/license-annona.txt`](licenses/license-annona.txt)
+
+---
+
+### Cytoscape.js
+- **Library**: Cytoscape.js  
+- **Authors**: The Cytoscape Consortium  
+- **License**: MIT  
+- **Source**: https://js.cytoscape.org  
+- **Copyright**: © 2016 The Cytoscape Consortium  
+- **License text**: See [`licenses/license-cytoscapejs.txt`](licenses/license-cytoscapejs.txt)
+
+---
+
+### Masonry
+- **Library**: Masonry PACKAGED v4.2.2  
+- **Authors**: David DeSandro  
+- **License**: MIT  
+- **Source**: https://masonry.desandro.com  
+- **Copyright**: © David DeSandro  
+- **License text**: See [`licenses/license-masonry.txt`](licenses/license-masonry.txt)
