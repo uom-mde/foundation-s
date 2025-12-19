@@ -75,9 +75,17 @@
       if (el.dataset.iiifQueued === "1") return;
       el.dataset.iiifQueued = "1";
 
+      //test
+      console.log("[IIIF] queued", el.id, new Date().toISOString());
+      //end test
+
       queue.push(async () => {
         await initOpenSeadragon(el);
       });
+
+      //test 2
+      console.log("[IIIF] init", el.id, "active=", active, "time=", new Date().toISOString());
+      //test 2
 
       runQueue();
     }
