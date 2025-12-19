@@ -158,7 +158,7 @@ This fork of the Foundation S theme uses the following third‑party libraries:
 - **License**: MIT  
 - **Source**: https://github.com/NCSU-Libraries/annona  
 - **Copyright**: © 2021 North Carolina State University  
-- **License text**: See [`licenses/license-annona.txt`](licenses/license-annona.txt
+- **License text**: See [`licenses/license-annona.txt`](licenses/license-annona.txt)
 
 ---
 
@@ -178,4 +178,4 @@ This fork of the Foundation S theme uses the following third‑party libraries:
 - **License**: MIT  
 - **Source**: https://masonry.desandro.com  
 - **Copyright**: © David DeSandro  
-- **License text**: See [`licenses/license-masonry.txt`](licenses/license-masonry.txt
+- **License text**: See [`licenses/license-masonry.txt`](licenses/license-masonry.txt)
