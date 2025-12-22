@@ -146,7 +146,22 @@ All rights not expressly granted are reserved.
 
 # Manchester Digital Exhibitions
 
-This fork of the Foundation S theme uses the following third‑party libraries:
+This fork of the Foundation S theme is created for Manchester Digital Exhibitions at the University of Manchester Library. It adds several features used in our exhibitions:
+
+* **Annona**: The [Annona library] (https://github.com/NCSU-Libraries/annona) is bundled, allowing the presentation of annotations created using [Annonatate] (https://annonatate.fly.dev/).
+* **Cytoscape**: An HTML block template allows the presentation of [Cytoscape] (https://js.cytoscape.org) visualisations.
+* **Masonry**: A Browse Preview block allows the use of the [Masonry] (https://masonry.desandro.com) feature.
+* **Banner height**: The maximum banner image height in pixels.
+* **Banner height for mobile devices**: The maximum banner image height in pixels at narrower viewport widths..
+* **Banner position**: Where to anchor the banner image within its container: centered, stuck to the top, or stuck to the bottom.
+* **Footer content**: Control what appears in the footer. This field takes HTML markup.
+* **Layout for browse pages**: Select how to display items within their "browse" views.
+  * **Grid**: Items are organized into rows and columns. This is recommended for items that prominently feature images.
+  * **List**: Items are stacked into a single column.
+  * **Toggle (default: grid)**: Site visitors can choose to display the browse views as grids or lists, and grids are the default.
+  * **Toggle (default: list)**: Site visitors can choose to display the browse views as grids or lists, and lists are the default.
+
+The fork uses the following third‑party libraries:
 
 ---
 
