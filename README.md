@@ -151,15 +151,56 @@ This fork of the Foundation S theme is created for Manchester Digital Exhibition
 * **Annona**: The [Annona library] (https://github.com/NCSU-Libraries/annona) is bundled, allowing the presentation of annotations created using [Annonatate] (https://annonatate.fly.dev/).
 * **Cytoscape**: An HTML block template allows the presentation of [Cytoscape] (https://js.cytoscape.org) visualisations.
 * **Masonry**: A Browse Preview block allows the use of the [Masonry] (https://masonry.desandro.com) feature.
-* **Banner height**: The maximum banner image height in pixels.
-* **Banner height for mobile devices**: The maximum banner image height in pixels at narrower viewport widths..
-* **Banner position**: Where to anchor the banner image within its container: centered, stuck to the top, or stuck to the bottom.
-* **Footer content**: Control what appears in the footer. This field takes HTML markup.
-* **Layout for browse pages**: Select how to display items within their "browse" views.
-  * **Grid**: Items are organized into rows and columns. This is recommended for items that prominently feature images.
-  * **List**: Items are stacked into a single column.
-  * **Toggle (default: grid)**: Site visitors can choose to display the browse views as grids or lists, and grids are the default.
-  * **Toggle (default: list)**: Site visitors can choose to display the browse views as grids or lists, and lists are the default.
+* **Extended Site Description**: The List of Sites block templates rely on the [Extended Site Description] (https://github.com/johndmccrory/ExtendedSiteDescription) module, which classifies our sites as 'Library' or 'Research', and enables sites to be tagged as 'Featured'.
+
+## Page and Block Templates
+
+The following templates have been added to the base theme:
+
+* Asset
+  * **Card**: Uses [Foundation Framework's card container](https://get.foundation/sites/docs/card.html) styles.
+  * **Media object**: Uses [Foundation Framework's media object container](https://get.foundation/sites/docs/media-object.html) styles.
+* Browse preview
+  * **List**: Ignores theme setting for browse view layouts and displays all resources as a single column list.
+  * **Grid**: Ignores theme setting for browse view layouts and displays all resources in a grid that maxes out at 4 columns.
+  * **Toggle (default: list)**: Ignores theme setting for browse view layouts and lets the user choose their browse style, defaulting to a single column list of resources.
+  * **Toggle (default: grid)**: Ignores theme setting for browse view layouts and lets the user choose their browse style, defaulting to a grid of resources maxing out at 4 columns.
+* Item with metadata
+  * **Large media left**: A 2-column layout with the item media rendered to the left of the metadata.
+  * **Large media right**: A 2-column layout with the item media rendered to the right of the metadata.
+* List of pages
+  * **With container**: Provides a gray box container.
+* List of sites
+  * **Browse**:
+  * **Card**:  
+  * **Card Dynamic**:
+  * **Card Featured**: 
+  * **Card Featured Mosaic**: 
+  * **Card Home**:  
+  * **Card Library**: 
+  * **Card Library Browse**: 
+  * **Card Library Mosaic**: 
+  * **Card Research**: 
+  * **Card Research Browse**: 
+  * **Card Research Mosaic**: 
+  * **Home**: 
+* Media Embed 
+  * **Large media left**: A 2-column layout with the item media rendered to the left of the metadata.
+  * **Large media right**: A 2-column layout with the item media rendered to the right of the metadata.
+  * **Large media left**: A 2-column layout with the item media rendered to the left of the metadata.
+  * **Large media right**: A 2-column layout with the item media rendered to the right of the metadata.
+  * **Large media left**: A 2-column layout with the item media rendered to the left of the metadata.
+  * **Large media right**: A 2-column layout with the item media rendered to the right of the metadata.
+  * **Large media left**: A 2-column layout with the item media rendered to the left of the metadata.
+  * **Large media right**: A 2-column layout with the item media rendered to the right of the metadata.
+  * **Large media left**: A 2-column layout with the item media rendered to the left of the metadata.
+  * **Large media right**: A 2-column layout with the item media rendered to the right of the metadata.
+  * **Large media left**: A 2-column layout with the item media rendered to the left of the metadata.
+  * **Large media right**: A 2-column layout with the item media rendered to the right of the metadata.
+  * **Large media left**: A 2-column layout with the item media rendered to the left of the metadata.
+  * **Large media right**: A 2-column layout with the item media rendered to the right of the metadata.
+* Page title
+  * **Accent**: Renders the page title with the theme's primary color as a background color.
 
 The fork uses the following third‑party libraries:
 
