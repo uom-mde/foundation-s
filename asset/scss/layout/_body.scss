@@ -1,0 +1,13 @@
+/*Body*/ 
+body:not(.browse) #content {
+@media print, screen and (max-width: 37.4988em) {
+    padding: 0;
+    margin: 0.5rem;
+  }
+}
+
+/*Revised by JMc to allow for UoM footer*/ 
+body.vertical-menu footer {
+  width: 100%;
+  padding: $global-padding;
+}

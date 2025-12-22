@@ -1,0 +1,60 @@
+/*Media Embed*/
+
+/*Centre media embed items when option chosen*/
+.center.file, .center.assets {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+/*Increase size of thumbnails for Media Embed blocks*/ 
+.media-embed-block.left {
+  float: left;
+  margin: 0 1.5 * $global-margin $global-margin 0!important;
+  max-width: 50%!important;
+  @include breakpoint(medium) {
+    margin: 0 2 * $global-margin $global-margin 0!important;
+}
+  @include breakpoint(large) {
+      max-width: 40%!important;
+      margin: 0 3 * $global-margin $global-margin 0!important;
+  }
+}
+
+.media-embed-block.right {
+  float: right;
+  margin: 0 0 $global-margin 1.5 * $global-margin!important;
+  max-width: 50%;
+  @include breakpoint(medium) {
+    margin: 0 0 $global-margin 2 * $global-margin!important;
+}
+  @include breakpoint(large) {
+      max-width: 40%;
+      margin: 0 3 * $global-margin $global-margin;
+  }
+}
+
+/*Text only template*/
+.resource-text {
+  max-width: rem-calc(850);
+  margin: 0 auto;
+}
+
+/*Metadata*/ 
+.metadata {
+  margin: 0 0 0.5rem 0; 
+}
+
+.metadata h1 a,
+.metadata h2 a,
+.metadata h2 a,
+.metadata h2.h1 a,
+.metadata h2.h2 a {
+  font-weight: 400;
+}
+/*End Metadata*/ 
+
+.item.resource {
+  width: 100%;
+}

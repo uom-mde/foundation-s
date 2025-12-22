@@ -1,0 +1,35 @@
+/*Remove margin top for Learn More button*/ 
+.learn-more a,
+button a,
+.button a {
+  text-decoration: none;
+}
+
+.button a:hover {
+  text-decoration: none;
+}
+
+/*Change text colour in buttons*/ 
+a.button.warning,
+a.button.hollow.warning {
+  color: #0a0a0a;
+}
+
+a.button.hollow:hover {
+  color: $white;
+  background-color: $primary-color;
+}
+
+.learn-more h2.button {
+  margin-top: 0!important;
+}
+
+/*Remove margin from h2 learn more button*/
+.learn-more h2.button {
+  margin: 0;
+}
+
+/*Add colour fill to hollow button*/ 
+.learn-more .button.hollow.warning:hover {
+  background: $warning-color;
+}

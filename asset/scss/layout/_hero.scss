@@ -1,0 +1,229 @@
+/*Hero Image*/ 
+.hero-image {
+  width: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.hero-image body #content {
+    padding-top: 0;
+}
+
+.hero-title {
+    max-width: 100%;
+    @include breakpoint(medium) {
+        max-width: 75%;
+    }
+    @include breakpoint(large) {
+        max-width: 60%;
+    }
+    @include breakpoint(xlarge) {
+        max-width: 50%;
+    }
+}
+
+.hero-title h1 {
+    background-color: rgba(255, 255, 255, 0.8);
+    line-height: 1.2;
+    padding: 0.5 * $global-padding;
+    font-weight: 300;
+    font-size: 2 * $global-font-size;
+    margin-bottom: 0;
+    @include breakpoint(medium) {
+        line-height: 1.4;
+        font-size: 2.5 * $global-font-size;
+    }
+}
+
+.hero-title.dark-background h1 {
+    background-color: $uom-footer;
+    color: $white;
+}
+
+.hero-image h1 {
+    @include breakpoint(large) {
+    font-size: rem-calc(52px);
+    }
+}
+
+.asset-hero-horizontal h1 {
+    @include breakpoint(medium) {
+        font-size: 2rem;
+    }
+    @include breakpoint(large) {
+    font-size: rem-calc(42);
+    }
+}
+
+.hero-title-bottom {
+    width: 100%;
+}
+
+.hero-title-bottom .hero-title {
+    width: 100%;
+    max-width: 100%;
+    background-color: rgba(255,255,255,.7);
+    padding: 1rem 0 1rem 1rem;
+}
+
+.hero-title-middle .hero-title {
+    background-color: $black;
+    max-width: unset;
+}
+
+.hero-title-middle .hero-title h1 {
+    background-color: unset;
+    @include breakpoint (small only) {
+        font-size: 1.5 * $global-font-size;
+    }
+}
+
+.hero-image .hero-title-bottom h1 {
+    width: 100%;
+    margin-bottom: 0;
+}
+
+.hero-title-bottom h1 {
+    margin-bottom: 0;
+    background-color: transparent;
+    line-height: 1.2;
+    padding: 0 * $global-padding;
+    font-weight: 300;
+    @include breakpoint(medium) {
+        line-height: 1.4;
+    }
+}
+
+.hero-title-middle h1 {
+    padding: 0;
+    line-height: 1.2;
+    font-weight: 300;
+    color: $white;
+    @include breakpoint(medium) {
+        line-height: 1.4;
+    }
+}
+
+.hero-title-caption {
+    width: 100%;
+    background-color: rgb(247 247 247);
+    padding: 0;
+    border-bottom: solid rem-calc(1px) $light-gray;
+    margin: 0;
+    &.dark-background {
+        background-color: lighten($uom-footer, 2%);
+        border-bottom: solid rem-calc(1px) lighten($uom-footer, 15%);
+    }
+}
+
+.hero-title-caption .caption p {
+    font-size: .95 * $global-font-size;
+    margin: 0 0 0.5 * $global-margin 0.5 * $global-margin;
+    color: lighten($black, 35%);
+    padding-top: rem-calc(7);
+}
+
+.hero-title-caption.dark-background .caption p {
+    color: $white;
+}
+
+/*Hero image sizes*/
+.image-full {
+    height: 90vh;
+}
+
+.image-large {
+    height: 55vh;
+    @include breakpoint(medium) {
+        height: 70vh;
+    }
+}
+.image-xlarge {
+height: 65vh;
+@include breakpoint(medium) {
+    height: 70vh;
+    }
+}  
+.image-medium {
+    height: rem-calc(500);
+    }
+    
+.image-small {
+    height: rem-calc(300);
+    }
+
+.image-letterbox {
+height: rem-calc(300);
+    @include breakpoint(medium) {
+        height: rem-calc(451);
+    }
+    @include breakpoint(xlarge) {
+        height: rem-calc(500);
+    }
+}
+
+/*Openseadragon hero 24/02/24*/
+.openseadragon-hero {
+height: rem-calc(300);
+margin-top: -1rem;
+position: relative;
+@include breakpoint (medium) {
+    height: rem-calc(350);
+    margin-top: -2rem!important;
+}
+@include breakpoint (large) {
+    height: rem-calc(400);
+    margin-top: -2rem!important;
+}
+@include breakpoint (xlarge) {
+    height: rem-calc(500);
+    margin-top: -2rem!important;
+}
+}
+
+.openseadragon-hero .hero-title-openseadragon {
+position: absolute;
+bottom: 10%;
+max-width: 28rem;
+@include breakpoint(medium) {
+    bottom: 20%;
+}
+@include breakpoint(large) {
+    bottom: 25%;
+}
+}
+
+.openseadragon-hero .hero-title-openseadragon  h1 {
+    /*display: inline; */ 
+    background: rgba(255, 255, 255, 0.7);
+    padding: 0.5rem;
+    color: #333333;
+    line-height: 2.75rem;
+    backdrop-filter: blur(5px);
+    @include breakpoint(medium) {
+        font-size: 180%;
+        line-height: 3rem;
+    }
+    @include breakpoint(large) {
+        font-size: 200%;
+        line-height: 3.25rem;
+    }
+    @include breakpoint(xlarge) {
+        font-size: 230%;
+        line-height: 3.5rem;
+    }
+}
+
+.openseadragon-hero-large {
+height: 70vh!important;
+@include breakpoint(600) {
+    height: 80vh!important;
+}
+}
+
+.openseadragon-hero picture img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}

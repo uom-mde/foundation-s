@@ -1,0 +1,16 @@
+/*Remove download option from LightGallery*/
+.lg-outer[data-lg-slide-type=iframe] .lg-download, 
+.lg-outer[data-lg-slide-type=video] .lg-download {
+  display: none;
+}
+
+/*Add margin to site page pagination*/ 
+.site-page-pagination {
+  margin-top: 2 * $global-margin;
+  margin-bottom: $global-margin;
+}
+
+/*Resource with Text block*/
+.attachments {
+  flex-grow: 1;
+}

@@ -1,0 +1,21 @@
+/*Openseadragon macOS fix*/
+.openseadragon-canvas:focus {
+  outline: none;
+}
+
+/*Openseadragon block*/ 
+.block-Openseadragon {
+  @include breakpoint (small only) {
+  margin-top: rem-calc(8);
+  }
+}
+
+/*Add dark background to Openseadragon container*/
+.openseadragon-container {
+  background-color: #1c1919!important;
+}
+
+/*Button align for Full Screen Openseadragon Resource Text Block*/ 
+.openseadragon-container img {
+  vertical-align: top!important;
+}

@@ -1,0 +1,90 @@
+/*Browse Preview Gallery*/ 
+
+.og-grid > li {
+  @include breakpoint(xlarge) {
+    height: rem-calc(600px)!important;
+    }
+  @include breakpoint(large down) {
+    height: rem-calc(450px)!important;
+    }
+  @include breakpoint(medium down) {
+    height: rem-calc(350px)!important;
+      }
+  @include breakpoint(400 down) {
+    height: rem-calc(300px)!important;
+      }
+  @include breakpoint(390 down) {
+  height: rem-calc(200px)!important;
+  }
+  }
+  
+  #og-grid img.large-img {
+  height: rem-calc(200px);
+  @include breakpoint(400) {
+    height: rem-calc(300px);
+      }
+  @include breakpoint(medium) {
+  height: rem-calc(350px);
+    }
+  @include breakpoint(large) {
+    height: rem-calc(450px);
+    }
+  @include breakpoint(xlarge) {
+    height: rem-calc(600px);
+    }
+  }
+  
+  .og-expander {
+  z-index: 10000;
+  }
+
+.preview-grid .og-grid>li {
+  height: unset!important;
+}
+
+/*Browse Preview CSS Grid*/ 
+.og-grid-cover {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax((rem-calc(270px)), 1fr));
+  gap: rem-calc(12px);
+  line-height: 1.5;
+  }
+
+/*Browse Preview - Masonry*/ 
+.resource-grid-mosaic .resource__thumbnail img {
+  // border-radius: rem-calc(8) rem-calc(8) 0 0 !important;
+  max-height: 100%;
+  object-fit: cover;
+  width: 100%;
+}
+
+  .resource-grid-mosaic .grid-sizer, 
+   .resource-grid-mosaic .resource-masonry {
+    width: 48%;
+    @include breakpoint(776) {
+      width: 32%;
+    }
+  }
+
+.resource-grid-mosaic .resource__thumbnail {
+  line-height: 1;
+  width: 100%;
+}
+
+.resource-grid-mosaic .gutter-sizer {
+    width: rem-calc(8);
+    @include breakpoint(medium) {
+      width: rem-calc(15);
+      }
+}
+
+.resource-grid-mosaic .resource__content {
+  padding: rem-calc(5);
+  @include breakpoint(medium) {
+    padding: rem-calc(8);
+    }
+}
+
+.resource__content a {
+  overflow-wrap: break-word;
+}

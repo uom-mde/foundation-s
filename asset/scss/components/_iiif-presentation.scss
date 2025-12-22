@@ -1,0 +1,14 @@
+/*IIIF Presentation media type*/
+.media-render.iiif_presentation iframe {
+  padding: 0;
+  height: rem-calc(500)!important;
+  @include breakpoint(large) {
+    height: 70vh;
+  }
+  @include breakpoint(large) {
+  height: 80vh!important;
+  }
+  @include breakpoint(xlarge) {
+  height: 90vh!important;
+  }
+}
