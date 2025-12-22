@@ -2141,6 +2141,10 @@ a.metadata-browse-link {
 }
 
 /*Annona*/ 
+/*Set a minimum height for Annona Lazy Load*/
+.annona-defer { 
+  min-height: rem-calc(400); 
+}
 
 .pageButton {
   cursor: pointer;

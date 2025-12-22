@@ -1,9 +1,8 @@
 (() => {
-  const CONCURRENCY = 1;      // safest for 429s
+  const CONCURRENCY = 1;
   const STAGGER_MS = 400;
   const ROOT_MARGIN = "800px";
 
-  // ---- OpenSeadragon readiness (kept from earlier) ----
   const OSD_WAIT_MS = 5000;
   const OSD_POLL_MS = 50;
 
@@ -25,7 +24,7 @@
 
   function boot() {
     const containers = document.querySelectorAll("[data-iiif-stagger]");
-    if (!containers.length) return;
+    const roots = containers.length ? Array.from(containers) : [document];
 
     const queue = [];
     let active = 0;
@@ -41,7 +40,6 @@
       }
     }
 
-    // ---- Job 1: OpenSeadragon IIIF ----
     async function initOpenSeadragon(el) {
       if (el.dataset.iiifInited === "1") return;
 
@@ -74,7 +72,6 @@
       runQueue();
     }
 
-    // ---- Job 2: Annona custom elements (defer connect-to-DOM) ----
     function initAnnona(el) {
       if (el.dataset.annonaInited === "1") return Promise.resolve();
 
@@ -83,7 +80,6 @@
       try {
         attrs = JSON.parse(el.dataset.annonaAttrs || "{}");
       } catch {
-        // If JSON is broken, fail gracefully
         return Promise.resolve();
       }
 
@@ -92,7 +88,6 @@
           const node = document.createElement(tag);
           Object.entries(attrs).forEach(([k, v]) => node.setAttribute(k, String(v)));
 
-          // Optional: simple loading indicator
           el.innerHTML = "";
           el.appendChild(node);
 
@@ -111,14 +106,11 @@
       runQueue();
     }
 
-    // ---- IntersectionObserver: trigger jobs when near viewport ----
     const io = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (!entry.isIntersecting) return;
 
         const el = entry.target;
-
-        // Decide what it is
         if (el.classList.contains("openseadragon") && el.dataset.tileSources) {
           enqueueOpenSeadragon(el);
         } else if (el.classList.contains("annona-defer")) {
@@ -129,10 +121,16 @@
       });
     }, { root: null, rootMargin: ROOT_MARGIN, threshold: 0.01 });
 
-    // Observe both types inside each stagger container
-    containers.forEach(container => {
-      container.querySelectorAll(".openseadragon[data-tile-sources][id]").forEach(el => io.observe(el));
-      container.querySelectorAll(".annona-defer[data-annona-attrs]").forEach(el => io.observe(el));
+    // Observe targets (works for both block pages and Item Show)
+    roots.forEach(root => {
+      root.querySelectorAll(".annona-defer[data-annona-attrs]").forEach(el => io.observe(el));
+      root.querySelectorAll(".openseadragon[data-tile-sources][id]").forEach(el => io.observe(el));
+    });
+
+    // Kickstart: ensures Item Show loads even if IO doesn't fire immediately
+    roots.forEach(root => {
+      root.querySelectorAll(".annona-defer[data-annona-attrs]").forEach(enqueueAnnona);
+      root.querySelectorAll(".openseadragon[data-tile-sources][id]").forEach(enqueueOpenSeadragon);
     });
   }
 

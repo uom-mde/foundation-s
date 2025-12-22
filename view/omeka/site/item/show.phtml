@@ -29,6 +29,24 @@ $valueLang = $filterLocale ? [$lang, ''] : null;
 // echo "</pre>";
 ?>
 
+<?php
+// Isolate Annona blocks
+// Get rendered HTML strings for the block regions
+$fullWidthMainBlocksHtml = $fullWidthMainHasBlocks ? $fullWidthMainBlockContent->getBlocks() : '';
+$mainBlocksHtml          = $mainWithSidebarHasBlocks ? $mainWithSidebarBlockContent->getBlocks() : '';
+$leftBlocksHtml          = $leftSidebarHasBlocks ? $leftSidebarBlockContent->getBlocks() : '';
+$rightBlocksHtml         = $rightSidebarHasBlocks ? $rightSidebarBlockContent->getBlocks() : '';
+
+// Detect Annona placeholders in any region
+$hasAnnona = (
+    (strpos($fullWidthMainBlocksHtml, 'class="annona-defer"') !== false) ||
+    (strpos($mainBlocksHtml, 'class="annona-defer"') !== false) ||
+    (strpos($leftBlocksHtml, 'class="annona-defer"') !== false) ||
+    (strpos($rightBlocksHtml, 'class="annona-defer"') !== false)
+);
+?>
+
+
 <div class="<?php echo ($showLayout == 'inline') ? 'inline' : 'stack'; ?>">
     <?php $this->trigger('view.show.before'); ?>
     <?php if ($fullWidthMainHasBlocks): ?>
@@ -93,7 +111,7 @@ $valueLang = $filterLocale ? [$lang, ''] : null;
                 elseif ($youtubeViewer !== null) {
                     echo $youtubeViewer;
                 } 
-                elseif ($defaultViewer !== null) {
+                else {
                     echo $defaultViewer;
                 }
                 ?>
