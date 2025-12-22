@@ -1,0 +1,28 @@
+/*Timeline Block*/ 
+
+.tl-timeline h1, 
+.tl-timeline h2, 
+.tl-timeline h3, 
+.tl-timeline h4, 
+.tl-timeline h5, 
+.tl-timeline h6 {
+  font-family: $body-font-family!important;
+}
+
+.tl-timeline p {
+    font-family: 'Open Sans'!important;
+    font-size: 16px;
+    line-height: 1.3em;
+}
+
+.tl-timeline .tl-headline-date, .tl-timeline h3.tl-headline-date {
+    font-family: 'Open Sans'!important;
+}
+
+.timeline small {
+color: #fff;
+}
+
+.timeline::after {
+display: none;
+}

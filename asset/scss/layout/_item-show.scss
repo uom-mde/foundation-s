@@ -1,0 +1,83 @@
+/*Item Show updates*/
+.resource.show .grid-x {
+  padding: 0;
+}
+
+dl dt {
+  font-weight: 600;
+  margin-bottom: 0.5 * $global-margin;
+  @include breakpoint (medium){
+  font-size: 1.1 * $global-font-size;
+  }
+  @include breakpoint (xlarge){
+    font-size: 1.2 * $global-font-size;
+    }
+}
+
+dl dt:after {
+  content: ""; /* This is necessary for the pseudo element to work. */ 
+  display: block; /* This will put the pseudo element on its own line. */
+  width: 50%; /* Change this to whatever width you want. */
+  max-width: rem-calc(125);
+  border-bottom: 1px solid $warning-color /* This creates the border. Replace black with whatever color you want. */
+}
+
+.property {
+  margin-bottom: 1 * $global-margin;
+}
+
+.value:first-child {
+margin-top: 2 * $global-margin;
+}
+
+.resource-title {
+  flex-wrap: wrap-reverse;
+  margin-left: 1 * $global-margin;
+  width: 100%;
+  @include breakpoint(medium) {
+    margin-left: 2 * $global-margin;
+  }
+  @include breakpoint(large) {
+    flex-wrap: nowrap;
+  }
+}
+
+/*Underline links on Item Show page*/
+.stack .main-with-sidebar .property a {
+  text-decoration: underline;
+  }
+
+  a.uri-value-link {
+    text-decoration: underline;
+    color: $primary-color;
+  }
+
+/*.right-sidebar .property dd.value a:hover {
+  text-decoration: underline;
+}*/
+
+  .right-sidebar.dark-background {
+    @include breakpoint (medium down) {
+  margin-left: 0!important;
+  margin-right: 0!important;
+  width: 100%;
+  } 
+  }
+
+/*Feature for links*/
+dd.value a {
+  /*padding: .5 * $global-padding;*/
+  /*background: $secondary-color;*/
+  color: $secondary-color;
+  /*line-height: 2;*/
+  text-decoration: underline;
+  &:hover {
+    color: darken($secondary-color, 50%);
+    cursor: pointer;
+  }
+}
+
+/*Disable Item Show Download Button*/ 
+#lg-download-1 {
+  display: none;
+}

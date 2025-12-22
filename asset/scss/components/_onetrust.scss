@@ -1,0 +1,25 @@
+/*OneTrust Cookie Banner Content*/ 
+iframe.optanon-category-C0004[data-src] {
+    display: none;
+}
+
+.ot-warning {
+    padding: $global-padding 0;
+    background: #efefef;
+}
+.ot-warning svg {
+    fill: #cdcdcd;
+    height: rem-calc(300);
+    @include breakpoint(large) {
+      height: rem-calc(400);
+    }
+}
+
+.ot-warning a,
+.ot-warning a:hover {
+    color: $white;
+}
+
+.dark-background .ot-warning p {
+    color: #000;
+}
