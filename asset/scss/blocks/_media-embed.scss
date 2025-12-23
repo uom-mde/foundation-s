@@ -454,3 +454,9 @@ grid-template-areas:
     grid-template-columns: 1fr 1fr;
   }
 }
+
+/*Title under media - media embed default*/
+.title-under-media .caption {
+order: 2;
+padding-bottom: 1rem;
+}

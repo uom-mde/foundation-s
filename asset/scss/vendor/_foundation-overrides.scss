@@ -9,8 +9,20 @@
 /*Lead Text*/ 
 .lead {
   line-height: 1.6;
+  font-size: $lead-font-size;
+  @include breakpoint(small only) {
+    font-size: $global-font-size * 1.05; // Adjust font size directly in the class
+    line-height: $lead-lineheight;
+  }
 }
 
 .subheader {
   color: #4f4f4f;
 }
+
+/*Tooltips*/ 
+.dark-background .has-tip {
+  border-bottom: dotted 1px #ededed;
+  color: #fc3;
+  font-weight: unset;
+  }

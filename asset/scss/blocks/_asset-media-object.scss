@@ -1,0 +1,78 @@
+/*Asset Media Object*/ 
+.media-object-section {
+  display: flex;
+  flex-direction: column;
+  @include breakpoint(medium) {
+    flex-direction: row;
+  }
+}
+
+.asset.media-object .media-object-section {
+  @include breakpoint(medium) {
+  width: unset;
+  }
+}
+
+.asset.media-object img,
+.media-object-block .asset img {
+  width: 100%;
+  max-width: unset;
+  @include breakpoint(medium) {
+    width: 15rem;
+    max-height: 15rem;
+    object-fit: contain;
+  }
+    @include breakpoint(xlarge) {
+    width: 20rem;
+    max-height: 20rem;
+  }
+}
+
+.asset.media-object img {
+  @include breakpoint(medium) {
+    object-fit: cover;
+  }
+}
+
+.media-object-block .asset img {
+    @include breakpoint(medium) {
+    object-fit: contain;
+  }
+}
+
+.media-object-block .caption {
+  text-align: center;
+}
+
+.asset.media-object.has-image .caption {
+  max-width: unset;
+}
+
+/*Media Object Styling*/ 
+.media-object {
+  flex-direction: column;
+  align-items: center;
+  @include breakpoint(medium) {
+    flex-direction: row;
+  }
+  }
+    
+  .media-object-section:first-child {
+  /*margin-bottom: 2rem;*/ 
+  padding-right: 0;
+  @include breakpoint(medium) {
+    margin-bottom: 0;
+    padding-right: 2rem;
+  }
+  }
+  
+  .media-object img,
+  .media-object-block img {
+    max-width: none;
+    height: 100%;
+  }
+  
+  .media-object .thumbnail,
+  .media-object-block .thumbnail {
+  width: initial;
+  }

@@ -165,6 +165,20 @@ The following templates have been added to the base theme:
   * **Grid**: Ignores theme setting for browse view layouts and displays all resources in a grid that maxes out at 4 columns.
   * **Toggle (default: list)**: Ignores theme setting for browse view layouts and lets the user choose their browse style, defaulting to a single column list of resources.
   * **Toggle (default: grid)**: Ignores theme setting for browse view layouts and lets the user choose their browse style, defaulting to a grid of resources maxing out at 4 columns.
+* HTML
+  * **Blockquote**:
+  * **Content Warning**:  
+  * **Cytoscape**:
+  * **Card Featured**: 
+  * **Card Featured Mosaic**: 
+  * **Card Home**:  
+  * **Card Library**: 
+  * **Card Library Browse**: 
+  * **Card Library Mosaic**: 
+  * **Card Research**: 
+  * **Card Research Browse**: 
+  * **Card Research Mosaic**: 
+  * **Home**: 
 * Item with metadata
   * **Large media left**: A 2-column layout with the item media rendered to the left of the metadata.
   * **Large media right**: A 2-column layout with the item media rendered to the right of the metadata.

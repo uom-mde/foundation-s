@@ -10,6 +10,10 @@
   width: 100%;
 }
 
+.media-embed {
+  width: 100%;
+}
+
 .media-render.file {
   display: flex;
   justify-content: center;
@@ -25,4 +29,33 @@
 /*Fixes*/
 .item.resource {
   width: 100%;
+}
+
+/*Page Titles*/ 
+.block-heading {
+  margin-bottom: 1 * $global-margin;
+  @include breakpoint(large) {
+    margin-bottom: 2 * $global-margin;
+  }
+}
+
+/*Metadata Browse*/ 
+a.metadata-browse-link {
+  display: none;
+}
+
+/*Fix focus dark colour*/ 
+a:focus {
+  color: $light-gray;
+}
+
+/*Underline correct items*/ 
+.block-html > p > a,
+.text-block a:not(.button) {
+  text-decoration: underline;
+}
+
+.media-text { 
+  width: 100%;
+  padding: 0;
 }

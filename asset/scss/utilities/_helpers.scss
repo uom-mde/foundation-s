@@ -245,3 +245,34 @@ background: $light-gray
     max-height: rem-calc(400);
   }
 }
+
+.italic-font {
+  font-style: italic;
+}
+
+.no-p-margin-bottom p {
+  margin-bottom: 0;
+}
+
+a.warning-color,
+p.warning-color,
+h2.warning-color,
+h3.warning-color,
+h4.warning-color {
+  color: $warning-color;
+}
+
+/*Width 80vw*/
+.width-80 .attachments.resource-text-openseadragon {
+  min-width: 80vw;
+  max-width: rem-calc(1500);
+}
+
+  /*Width 100%*/ 
+.width-100 {
+  width: 100%;
+}
+
+.link-text-white a {
+color: $white;
+}

@@ -28,3 +28,9 @@
           margin-top: (-2 * $global-padding);
   }
 }
+
+/*Item listing with Introduction*/
+.item-listing-item.max-height.item-count-1 img {
+  height: unset;
+  max-height: 85vh;
+}
