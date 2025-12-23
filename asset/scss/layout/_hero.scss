@@ -227,3 +227,125 @@ height: 70vh!important;
     width: 100%;
     object-fit: cover;
 }
+
+/*Image (img) styling for asset hero*/ 
+.img-auto .asset-hero, 
+.img-auto .asset-hero-horizontal-img {
+  background-size: auto;
+}
+
+.img-contain .asset-hero,
+.img-contain .asset-hero-horizontal-img {
+  background-size: contain;
+}
+
+/*Asset Hero img*/ 
+  .asset-hero,
+  .asset-hero-horizontal-img {
+    background-position: center;  /* Centers image horizontally and vertically */
+    background-size: cover;      /* Ensures the image covers the entire element */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    height: rem-calc(350px);
+  } 
+
+  .asset-hero {
+    margin-top: -1rem;
+    @include breakpoint(medium) {
+      margin-top: -2rem;
+    }
+    @include breakpoint(large) {
+    height: rem-calc(450px);
+    }
+    }
+  
+  .asset-hero-horizontal-img {
+    @include breakpoint(medium) {
+      margin-top: -1rem;
+    }
+    @include breakpoint(large) {
+      margin-top: 0;
+      height: rem-calc(600);
+    }
+    @include breakpoint(xlarge) {
+      height: rem-calc(700);
+    }
+  }
+    
+  .asset-hero h1 {
+  padding: 0.5rem;
+  background: rgba(255, 255, 255, .7);
+  backdrop-filter: blur(0.1875rem);
+  -webkit-backdrop-filter: blur(0.1875rem);
+  color: $black;
+  }
+
+  .asset-hero-title {
+    height: 100%;
+    }
+    
+  .asset-hero-caption {
+  height: 100%;
+  & p {
+    margin-bottom: 0;
+  }
+  }
+
+  .asset-hero-caption-bottom {
+    background: #ededed;
+    padding: 0.5 * $global-padding;
+    @include breakpoint(large) {
+      padding: 0.5 * $global-padding 0 0.5 * $global-padding 0;
+    }
+    & p {
+      margin-bottom: 0;
+      font-size: 0.9 * $global-font-size;
+    }
+  }
+
+/*Image Hero Styling*/ 
+/*Responsive img hero banner*/ 
+/*Image Hero*/
+.img-hero {
+  height: 18.75rem;
+  position: relative;
+  margin-top: rem-calc(-16px);
+  height: rem-calc(350px);
+  text-align: center;
+  background: $uom-footer;
+  @include breakpoint(medium) {
+    margin-top: rem-calc(-32px) !important;
+    height: rem-calc(400px);
+  }
+  @include breakpoint(xlarge) {
+    height: rem-calc(500px);
+  }
+}
+
+.img-hero img {
+width: 100%; 
+height: 100%; 
+object-fit: cover;
+display: block;
+margin: 0 auto;
+max-width: rem-calc(2000px);
+}
+
+#content .img-hero {
+  padding-block: 0;
+}
+
+.img-hero .hero-title-img {
+position: absolute;
+z-index: 9999;
+bottom: 30%;
+max-width: rem-calc(700);
+} 
+
+.hero-title-img h1 {
+  color: #333;
+  font-weight: 400;
+  background: rgba(255, 255, 255, .7);
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+  padding: 0.5rem 1rem;
+}

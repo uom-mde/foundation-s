@@ -99,6 +99,31 @@ width: 100%; // Ensure your hero image takes up the full width.
   }
 }
 
+/*Flex-grow*/
+.flex-grow {
+  flex-grow: 1;
+}
+
+/*General Classes*/ 
+/*Underline Links*/ 
+.dark-background a:not(.learn-more a) {
+  text-decoration: underline;
+}
+
+.dark-background button a:hover,
+.dark-background h2.button a,
+.dark-background h2.button a:hover {
+  text-decoration: none;
+}
+
+/*White Text*/ 
+.white-text p,
+.white-text h1,
+.white-text h2,
+.white-text h3 {
+  color: $white;
+}
+
 /*Add White Background rules*/ 
 .white-background .asset-hero h1,
 .white-background .image-banner .overlay-container > h1 {
@@ -126,7 +151,97 @@ width: 100%; // Ensure your hero image takes up the full width.
   background-color: rgba($uom-footer, .95);
 }
 
-/*Flex-grow*/
-.flex-grow {
-  flex-grow: 1;
+/*Fill Button*/ 
+.fill-button .learn-more .hollow {
+  background: $warning-color;
+}
+
+/*Bold fonts*/
+.font-bold {
+  font-weight: 600;
+}
+
+.video-wrap {
+  width: 100%;
+  max-width: rem-calc(800)!important;
+  margin: 0 auto!important;
+}
+
+/*Large fonts*/ 
+.font-large {
+  font-size: $global-font-size * 1.2;
+}
+
+.no-margin {
+  margin: unset;
+}
+
+/*No right click*/ 
+.no-right-click .media-embed {
+  pointer-events: none;
+}
+
+/*Grey Background*/
+.gray-background {
+background: $light-gray
+}
+
+/*No Learn More button*/ 
+.no-button .learn-more {
+  display: none;
+}
+
+/*Customise metadata for Media Embed block*/ 
+.no-alternative .alternative,
+.no-location .location,
+.no-date .date,
+.no-identifier .identifier,
+.no-separator .separator-center {
+  display: none;
+}
+
+/*Remove max height for large img (multiples) */ 
+.no-max-height .media-embed-block .large:not(:only-child) img {
+    max-height: unset!important;
+}
+
+/*Utility Classes*/ 
+.flex-1-1-0 {
+  flex: 1 1 0;
+}
+.small-only {
+  display: block;
+  @include breakpoint(medium) {
+    display: none;
+  }
+}
+.medium-up {
+  display: none;
+  @include breakpoint(medium) {
+    display: block;
+  }
+}
+.no-margin-top {
+  margin-top:-1 * $global-margin;
+  @include breakpoint(medium) {
+    margin-top:-2 * $global-margin;
+  }
+}
+
+.margin-0-5 {
+  margin: 0.5 * $global-margin;
+}
+
+.noButton .learn-more {
+  display: none;
+}
+
+.max-img-height {
+  max-height: rem-calc(300);
+    @include breakpoint(large) {
+    max-height: rem-calc(350);
+  }
+    @include breakpoint(xlarge) {
+    max-height: rem-calc(400);
+  }
 }

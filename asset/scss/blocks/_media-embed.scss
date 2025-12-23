@@ -35,6 +35,250 @@
   }
 }
 
+/*CSS Grid horizontal and vertical blocks*/
+/*Grid Option*/
+.resourceTextGrid .block-heading {
+grid-area: header;
+}
+
+.resourceTextGrid .block-media {
+grid-area: media-block;
+width: 100%;
+}
+
+.resourceTextGrid .block-html {
+grid-area: text;
+align-self: center;
+max-width: rem-calc(850);
+}
+
+.resourceTextGrid .block-html h2 {
+  text-align: center;
+}
+
+.resourceTextGrid .block-html h2.identifier {
+  text-align: left;
+}
+
+.resourceTextGrid .file-caption-text.media-embed {
+  grid-area: media-embed-media;
+}
+
+.resourceTextGrid {
+display: grid;
+gap: 1rem;
+grid-template-columns: 1fr;
+justify-items: center;
+grid-template-areas: 
+"header" 
+"media-block"
+"text";
+}
+
+.resourceTextGrid:has(.layout-vertical) {
+  @include breakpoint(large) {
+    grid-template-columns: 1fr 8fr 1fr;
+    grid-template-areas:
+  ". header ."
+  ". media-block ."
+  ". text .";
+  }
+  @include breakpoint(xlarge) {
+    grid-template-columns: 1fr 4fr 1fr;
+  }
+}
+
+/*Add wide option*/ 
+
+.wide .resourceTextGrid:has(.layout-vertical),
+.wide.resourceTextGrid:has(.layout-vertical) {
+  @include breakpoint(large) {
+    grid-template-columns: 1fr 10fr 1fr;
+  }
+  @include breakpoint(xlarge) {
+    grid-template-columns: 1fr 12fr 1fr;
+  }
+}
+
+.resourceTextGrid:has(.layout-vertical.file-caption-text) {
+  grid-template-areas: 
+  "media-embed-media"
+  "text";
+  @include breakpoint(large) {
+    grid-template-areas: 
+    ". media-embed-media ."
+    ". text .";
+    }
+  }
+
+  .layout-vertical.file.media-embed {
+    @include breakpoint(large) {
+    padding: 0;
+  }
+}
+
+  .resourceTextGrid:has(.layout-horizontal) {
+    @include breakpoint(large) {
+    grid-template-columns: 3fr 2fr;
+    grid-template-areas: 
+    "header ." 
+    "media-block text" ;
+    }
+  }
+
+  /*Align media right for caption-text template*/ 
+  .media-right .resourceTextGrid:has(.layout-horizontal.file-caption-text) {
+    @include breakpoint(large) {
+    grid-template-areas: "text media-embed-media";
+    grid-template-columns: 2fr 3fr;
+  }
+}
+
+/*Ensure Learn More button is below text for vertical Media blocks*/
+.resourceTextGrid {
+  row-gap: 0;
+} 
+
+.resourceTextGrid .block-html p:only-child {
+  margin-bottom: rem-calc(85px);
+  margin-block-start: 0;
+  max-width: rem-calc(700);
+  @include breakpoint(large) {
+    margin-bottom: rem-calc(70px);
+  }
+}
+
+  .resourceTextGrid .learn-more:only-child {
+  justify-content: center;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/*Add class where Media caption is Text*/
+.resourceTextGrid:has(.layout-horizontal.file-caption-text) {
+  grid-template-areas: 
+  "media-embed-media"
+  "text";
+  @include breakpoint(large) {
+    grid-template-areas: 
+    "media-embed-media text" ;
+    }
+  }
+
+/*Add a portrait class*/ 
+.portrait .media-embed-block {
+  @include breakpoint(medium) {
+  max-width: rem-calc(800);
+  margin: 0 auto; 
+}
+}
+
+.portrait.resourceTextGrid:has(.layout-horizontal) {
+  @include breakpoint(large) {
+    grid-template-columns: 2fr 2fr;
+    grid-template-areas:
+    "header ."
+    "media-block text";
+  }
+  @include breakpoint(xlarge) {
+  grid-template-columns: 0.5fr 2fr 2fr 0.5fr;
+  grid-template-areas:
+  ". header . ."
+  ". media-block text .";
+}
+}
+
+.portrait.resourceTextGrid.media-right:has(.layout-horizontal) {
+  @include breakpoint(large) {
+  grid-template-columns: 2fr 2fr;
+  grid-template-areas:
+  "header ."
+  "media-block text";
+}
+@include breakpoint(xlarge) {
+  grid-template-columns: 0.5fr 2fr 2fr 0.5fr;
+  grid-template-areas:
+  ". header . ."
+  ". media-block text .";
+}
+}
+
+/*Add option to place media to the right*/ 
+.resourceTextGrid.media-right:has(.layout-horizontal) {
+  @include breakpoint(large) {
+  grid-template-columns: 2fr 3fr;
+  grid-template-areas: 
+  "header ." 
+  "text media-block" ;
+  }
+}
+
+/*Add class for Media caption as text*/ 
+.resourceTextGrid.media-right:has(.layout-horizontal.file-caption-text) {
+  @include breakpoint(large) {
+  grid-template-areas: 
+  "text media-embed-media" ;
+  }
+}
+
+.portrait .media-caption-text.resourceTextGrid:has(.layout-horizontal) {
+  @include breakpoint(large) {
+    grid-template-areas: "media-embed-media text" ;
+    grid-template-columns: 2fr 2fr;
+  }
+  @include breakpoint(1500) {
+    grid-template-areas: ". media-embed-media text ." ;
+    grid-template-columns: 0.5fr 2fr 2fr 0.5fr;
+  }
+}
+
+/*Add a portrait narrow class*/
+.portrait-narrow .media-caption-text.resourceTextGrid:has(.layout-horizontal) {
+  @include breakpoint(large) {
+    grid-template-areas: ". media-embed-media text ." ;
+    grid-template-columns: 1fr 2fr 1fr 1fr;
+  }
+  @include breakpoint(1500) {
+    grid-template-areas: ". media-embed-media text ." ;
+    grid-template-columns: 1fr 1.5fr 1fr 1fr;
+  }
+}
+
+.portrait.media-right .media-caption-text.resourceTextGrid:has(.layout-horizontal) {
+  @include breakpoint(large) {
+    grid-template-areas: "text media-embed-media" ;
+  }
+  @include breakpoint(1500) {
+    grid-template-areas: ". text media-embed-media ." ;
+    grid-template-columns: 0.5fr 2fr 2fr 0.5fr;
+  }
+}
+
+/*Move location of Learn More button*/ 
+.resourceTextGrid.file-caption-block .block-html p {
+  margin-block-end: 7rem;
+  }
+
+  /*Added further rule for Media Embed 'Caption as Text' template*/ 
+  .resourceTextGrid.file-caption-block.media-caption-text .block-html p {
+  margin-block-end: 1rem;
+  @include breakpoint(large) {
+  margin-block-end: 2rem;
+  }
+}
+  
+.resourceTextGrid:has(.layout-horizontal) .learn-more {
+  @include breakpoint(large) {
+  justify-content: center;
+  position: initial;
+  bottom: unset;
+  left: unset;
+  transform: initial;
+}
+}
+
 /*Text only template*/
 .resource-text {
   max-width: rem-calc(850);
@@ -72,5 +316,141 @@
   }
   @include breakpoint(xlarge) {
     max-height: 90vh;
+  }
+}
+
+/*Embed media alongside HTML*/ 
+  /*Allow openseadragon use in Media Embed*/
+  .resourceText .block-media:has(.layout-horizontal) {
+    width: 100%;
+    @include breakpoint(large) {
+      flex-direction: row;
+      flex-grow: 1;
+      flex-shrink: 0;
+    }
+    }
+  
+  .block-media.text-around-image,  
+  .block-media .text-around-image {
+    display: block;
+    float: left;
+    width: 50%;
+    margin: 0 1rem 0.5rem 0;
+  @include breakpoint(600) {
+    width: rem-calc(350);
+    margin: 0 1rem 1rem 0;
+  }
+  @include breakpoint(900) {
+    width: rem-calc(400);
+    margin: 0 2rem 1rem 0;
+  }
+}
+
+.block-media.text-around-image.block-layout-alignment-block-right,
+.block-media .text-around-image.block-layout-alignment-block-right {
+  //display: block;
+  float: right;
+ // width: 50%;
+  margin: 0 0 0.5rem 1rem;
+    @include breakpoint(600) {
+    margin: 0 0 1rem 1rem;
+  }
+  @include breakpoint(700) {
+    width: rem-calc(400);
+    margin: 0 0 1rem 2rem;
+  }
+}
+
+  .media-render {
+    width: 100%;
+    padding: 0;
+    @include breakpoint(medium) {
+    padding: 1rem 1rem 0 1rem;
+    }
+  }
+  /*Remove padding for square thumbnail*/ 
+  .square .media-render {
+    padding: 0;
+  }
+
+  .media.file {
+    width: 100%;
+  }
+
+  /*Centre img for non-iiif material*/ 
+  .media-embed .resource {
+    text-align: center;
+    margin-top: 1rem;
+  }
+
+  /*Ensure title is below media for vertical layouts*/
+.layout-vertical .media-render.html {
+  padding: 1rem;
+}
+
+/*Multiples styling*/ 
+.multiples .seadragonbox {
+  display: flex;
+  }
+
+/*Multiples styling*/ 
+/*.attachment-count-2 .item.resource:not(:last-child),
+.attachment-count-3 .item.resource:not(:last-child) {
+  margin-right: 1rem;
+  @include breakpoint(large) {
+    margin-right: 0;
+  }
+}*/
+
+.attachment-count-2 .metadata h2,
+.attachment-count-3 .metadata h2,
+.attachment-count-2 .metadata h2.h3,
+.attachment-count-3 .metadata h2.h3 {
+  font-weight: 400;
+  /*margin: $global-margin;*/
+  @include breakpoint(medium) {
+    font-size: 110%;
+  }
+  @include breakpoint(large) {
+    font-size: 110%;
+  }
+}
+
+.attachment-count-2 .metadata:only-child,
+.attachment-count-3 .metadata:only-child {
+  /*margin: $global-margin;*/
+  @include breakpoint(large) {
+    margin: $global-margin 0 2 * $global-margin 0;
+  }
+}
+
+/*Multiples Grid styling*/
+.grid-multiples {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: flex-start;
+  @include breakpoint(medium) {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.attachment-count-3 .grid-multiples {
+  @include breakpoint(800) {
+  grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+@for $i from 5 through 20 { // Adjust 20 to your max expected count
+  .attachment-count-#{$i} .grid-multiples {
+    @include breakpoint(800) {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+  }
+}
+
+// Add an override where two columns are preferred
+.grid-columns-2 .grid-multiples {
+  @include breakpoint(medium) {
+    grid-template-columns: 1fr 1fr;
   }
 }

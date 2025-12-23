@@ -2,3 +2,127 @@
 .card-divider a {
   color: $white;
 }
+
+/*Asset Cards*/ 
+  .card img {
+      width: 100%;
+      object-fit: cover;
+    }
+
+/*Card column options*/
+  .card-2-columns .assets.asset-column-3:has(.asset.card) {
+    grid-template-columns: repeat(2, 48%);
+    @include breakpoint(large) {
+      gap: 2rem;
+    }
+  }
+
+    .card-3-columns .assets.asset-column-2:has(.asset.card) {
+      @include breakpoint(large) {
+        grid-template-columns: repeat(3, 32%);
+        gap: 2rem;
+    }
+  }
+    .card-4-columns .assets.asset-column-2:has(.asset.card) {
+      @include breakpoint(large) {
+        grid-template-columns: repeat(4, 24%);
+        gap: 2rem;
+    }
+  }
+     .card-4-columns .assets:has(.asset.card) .card img {
+      @include breakpoint(large) {
+        height: 13rem;
+    }
+  }
+
+  /*Card hover colour change*/ 
+  //.card a:hover img {
+  //  opacity: 0.5; /* Adjust opacity for blend effect */
+  //  background-color: #6b2c91;
+  //  transition: opacity 0.1s ease;
+  //  z-index: 1;
+//}
+
+//  .card a:hover {
+//  background-color: #6b2c91;
+//  }*/
+
+  .assets:has(.asset.card) .card img {
+    height: 12rem;
+    @include breakpoint(medium) {
+    height: 14rem;
+    }
+    @include breakpoint(large) {
+    height: 16rem;
+    }
+    @include breakpoint(xlarge) {
+      height: 18rem;
+      }
+  }
+.assets.asset-column-2:has(.asset.card) {
+  display: grid;
+  grid-auto-flow: row;
+  gap: 1rem;
+  grid-template-columns: repeat(1, 100%);
+  @include breakpoint(520) {
+    grid-template-columns: repeat(2, 48%);
+  }
+  @include breakpoint(large) {
+  gap: 2rem;
+}
+}
+
+.assets.asset-column-3:has(.asset.card) {
+  display: grid;
+  grid-auto-flow: row;
+  gap: 1rem;
+  grid-template-columns: repeat(1, 100%);
+  @include breakpoint(520) {
+    grid-template-columns: repeat(2, 48%);
+  }
+  @include breakpoint(large) {
+  grid-template-columns: repeat(3, 32%);
+  gap: 2rem;
+}
+}
+
+.asset.card {
+  @include card-container($light-gray, $black, 0, 0, rem-calc(4), rgba(0, 0, 0, 0.35) 0px 5px 15px);
+  width: 100%;
+  & .card-divider {
+    background: $white;
+    margin-bottom: 0;
+  }
+  & .h3 {
+    color: $black;
+  }
+  background: $white;
+  padding-bottom: 1rem;
+}
+
+.home-card-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: transform 0.3s ease;
+}
+
+.asset.card:hover .home-card-image {
+  transform: scale(1.1); /* Slight zoom effect */
+}
+
+.asset.card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0); /* No color initially */
+  transition: background-color 0.3s ease; /* Smooth transition */
+  pointer-events: none; /* Makes sure only the image is clickable */
+}
+
+.asset.card a:hover {
+  text-decoration: underline;
+}

@@ -1,0 +1,30 @@
+.background-colour-1 {
+  background: $warning-color;
+  margin-top: $global-margin;
+  margin-bottom: $global-margin;
+  @include breakpoint(large) {
+      margin-top: 2 * $global-margin;
+      margin-bottom: 2 * $global-margin;
+   }
+}
+
+/*Remove margin from top of blocks*/
+#splash,
+#region-splash {  
+   @include breakpoint(large) {
+       min-height: rem-calc(700px);
+       height: rem-calc(700px);
+   }
+}
+
+.region-splash,
+.region #splash,
+.margin-top-offset,
+[data-target-region-id="#splash"],
+[data-target-region-id="#splash "] {
+      overflow: hidden;
+      margin-top: (-1 * $global-padding);
+      @include breakpoint(medium) {
+          margin-top: (-2 * $global-padding);
+  }
+}

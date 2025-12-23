@@ -11,3 +11,8 @@ body.vertical-menu footer {
   width: 100%;
   padding: $global-padding;
 }
+
+/*Remove Scroll Bar*/
+html, body {
+  overflow-x: hidden;
+}

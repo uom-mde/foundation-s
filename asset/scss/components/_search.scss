@@ -1,0 +1,251 @@
+/*Additional Search Bar*/
+.search-bar {
+  display: none;
+  @include breakpoint(large) {
+  display: flex;
+  }
+  & svg.active {
+    display: none;
+  }
+}
+
+.search-bar-mobile {
+  display: flex;
+  @include breakpoint(large) {
+  display: none;
+  }
+  & svg.active {
+    display: none;
+  }
+  & svg path {
+    fill: $white;
+  }
+}
+
+.search-bar svg,
+.search-bar-mobile svg {
+  width: 20px;
+  height: 20px;
+}
+
+.search-bar button.search-icon,
+.search-bar-mobile button.search-icon {
+  margin: 0 (0.5 * $global-margin) 0 $global-margin;
+  border-radius: 50px;
+}
+
+.search-bar button.search-icon {
+  background: $white;;
+  @include breakpoint(large) {
+    margin: 0 0.5rem;
+  }
+  @include breakpoint(1000px) {
+    margin: 0 1rem;
+  }
+  & svg path {
+    fill: $dark-gray;
+  }
+}
+
+.search-button {
+  display: none;
+  &.is-shown {
+    display: flex;
+  }
+}
+
+button.search-icon[aria-expanded="true"] {
+  background: $medium-gray;
+  opacity: 0.35;
+  margin: 0 (0.5 * $global-margin) 0 $global-margin;
+  & svg.inactive {
+    display: none;
+  }
+  & svg.active {
+    display: flex;
+  }
+  & svg path {
+    fill: $white;
+  }
+}
+
+.input-group-field {
+  height: 100%;
+}
+
+.top-bar-left {
+  min-width: rem-calc(175);
+  @include breakpoint(large) {
+    margin-right: 1.5rem;
+  }
+}
+
+.top-bar .top-bar-left {
+  @include breakpoint(large) {
+    flex: 1 1 auto;
+    max-width: (rem-calc(400));
+  }
+}
+
+nav.top-bar-left {
+  justify-content: space-between;
+  row-gap: $global-margin;
+  @include breakpoint(large) {
+    justify-content: unset;
+  }
+}
+
+.input-group-button button {
+  border-radius: 0 1.25rem 1.25rem 0;
+}
+
+#show-search-menu-mobile .input-group-button button {
+  background: $secondary-color;
+  }
+
+.search-bar-mobile button.search-icon[aria-expanded=true] {
+  background: $primary-color;
+  margin: 0;
+    @include breakpoint(medium) {
+    margin: 0 $global-margin;
+    }
+  }
+  
+#show-search-menu input[type=text]:not(:only-child) {
+  border-radius: 1.25rem 0 0 1.25rem;
+  @include breakpoint(large) {
+  width: 124px;
+  }
+  @include breakpoint(1050px) {
+    width: auto;
+  }
+}
+
+#show-search-menu-mobile input[type=text]:not(:only-child) {
+  width: 100%;
+  border-radius: 1.5rem 0 0 1.5rem;
+  }
+
+
+/*Search Results*/
+.site_pages.results ul li a {
+  color: $secondary-color;
+  text-decoration: underline;
+  }
+
+.resource.show .resource-link img, 
+#linked-resources img, 
+.results 
+.resource-link img {
+    width: 90vw!important;
+    height: 100%!important;
+    @include breakpoint(medium){
+      object-fit: cover;
+      width: rem-calc(300)!important;
+      height: rem-calc(300)!important;
+    }
+}
+
+span.resource-name {
+  margin-top: 0.5 * $global-margin;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0.5 * $global-padding;
+  font-size: 1.1rem;
+}
+
+.results ul {
+  display: grid;
+  gap: 1rem;
+  @include breakpoint(450) {
+    grid-template-columns: 1fr 1fr;
+  }
+  @include breakpoint(750) {
+    grid-template-columns: 1fr 1fr 1fr ;
+  }
+  @include breakpoint(xlarge) {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}
+
+.result-title a,
+.result-site a {
+  padding: 0;
+  font-size: 1rem;
+}
+
+.results .result-site, 
+.results ul ul {
+  padding-left: 0;
+  margin-left: 0;
+}
+
+.item.results ul ul {
+  padding: 0.5 * $global-padding;
+  li {
+    margin-bottom: 0.5 * $global-margin;
+    &:not(:last-child) {
+    border-bottom: solid 1px $light-gray;
+    }
+  }
+}
+
+.item.results .card img {
+  height: 200px;
+}
+
+.results>ul>li {
+  width: unset!important;
+  display: grid;
+  grid-template-rows: max-content;
+  align-items: start;
+  gap: 0.25rem;
+}
+
+.results .resource-link, 
+.resource.show .resource-link {
+  flex-direction: column;
+}
+
+/*Item and site results*/ 
+.results .result-title,
+.results .result-site {
+  padding: 0.5 * $global-padding;
+}
+
+.results>h2 {
+  font-weight: 400;
+}
+
+/*Site results*/ 
+.site.results>a {
+  display: block;
+  font-size: 1rem;
+  margin-top: 0.5rem;
+  padding-left: 0;
+  text-decoration: underline;
+}
+
+.site.results .result-title,
+.item.results .result-title {
+  background: $secondary-color;
+  color: #fff;
+  height: 100%;
+  & a {
+    color: #fff;
+  }
+}
+
+.site.results>ul>li {
+  border: solid 1px #efefef;
+}
+
+/*Item results*/ 
+.item.results>a,
+.item-set.results>a {
+  text-decoration: underline;
+}
+
+.item-set.results>ul {
+  margin-bottom: 1rem;
+}

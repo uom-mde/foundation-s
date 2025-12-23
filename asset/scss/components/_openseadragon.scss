@@ -19,3 +19,149 @@
 .openseadragon-container img {
   vertical-align: top!important;
 }
+
+.medium .openseadragon {
+  height: 40vh!important;
+}
+
+/*Square Thumbnail Styling*/ 
+.media-embed-block .square img,
+.square .openseadragon {
+  height: rem-calc(280px)!important;
+  width: 85vw!important;
+  @include breakpoint(400) {
+    width: 88vw!important;
+  }
+  @include breakpoint(500) {
+    width: rem-calc(360px)!important;
+    height: rem-calc(360px)!important;
+  }
+}
+
+/*Ensure above rule does not corrupt buttons in Openseadragon viewer*/ 
+.media-embed-block .square .openseadragon-container img {
+  height: 24px!important;
+  width: 24px!important;
+}
+
+/*Text around Image Openseadragon styling*/ 
+/*Square Thumbnail Styling*/ 
+.text-around-image .square .openseadragon {
+  height: rem-calc(250px)!important;
+  width: 100%!important;
+  @include breakpoint(400) {
+    height: rem-calc(280px)!important;
+    width: 100%!important;
+  }
+  @include breakpoint(500) {
+    width: 100%!important;
+    height: rem-calc(360px)!important;
+  }
+}
+
+/*Openseadragon*/ 
+.openseadragon {
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.medium .openseadragon {
+  height: 35vh!important;
+  @include breakpoint(medium) {
+  height: 40vh!important;
+  }
+  @include breakpoint(large) {
+    height: 50vh!important;
+    }
+}
+
+.medium-large .openseadragon {
+  height: 35vh!important;
+  @include breakpoint(medium) {
+  height: 60vh!important;
+  }
+  @include breakpoint(xlarge) {
+  height: 75vh!important;
+  }
+}
+
+.layout-vertical .medium-large .openseadragon {
+  height: 40vh!important;
+  @include breakpoint(medium) {
+  height: 70vh!important;
+  }
+  @include breakpoint(large) {
+    height: 80vh!important;
+  }
+  @include breakpoint(xlarge) {
+  height: 75vh!important;
+  }
+}
+
+.layout-vertical .medium-large .openseadragon:not(:only-child) {
+  @include breakpoint(medium) {
+  height: 50vh!important;
+  }
+  @include breakpoint(large) {
+    height: 60vh!important;
+  }
+  @include breakpoint(xlarge) {
+  height: 70vh!important;
+  }
+}
+
+.large .openseadragon {
+  height: 40vh!important;
+  @include breakpoint(medium) {
+  height: 70vh!important;
+  }
+  @include breakpoint(large) {
+  height: 80vh!important;
+  }
+  @include breakpoint(xlarge) {
+  height: 90vh!important;
+  }
+}
+
+.layout-vertical .large .openseadragon:not(:only-child) {
+  @include breakpoint(medium) {
+  height: 50vh!important;
+  }
+  @include breakpoint(large) {
+    height: 65vh!important;
+  }
+  @include breakpoint(xlarge) {
+  height: 80vh!important;
+  }
+}
+
+/*Seadragonbox Styling*/ 
+.seadragonbox {
+  height: 35vh!important;
+}
+.medium .seadragonbox {
+  @include breakpoint(medium) {
+  height: 50vh!important;
+  }
+  @include breakpoint(large) {
+  height: 60vh!important;
+  }
+}
+
+.medium-large .seadragonbox {
+  @include breakpoint(medium) {
+  height: 60vh!important;
+  }
+  @include breakpoint(xlarge) {
+  height: 75vh!important;
+  }
+}
+
+.large .seadragonbox,
+.main-with-sidebar .seadragonbox {
+  @include breakpoint(medium) {
+  height: 75vh!important;
+  }
+  @include breakpoint(large) {
+  height: 90vh!important;
+  }
+}

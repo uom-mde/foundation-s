@@ -1,0 +1,27 @@
+/*JPEG Styling*/
+.media-embed-block img {
+  object-fit: contain;
+  height: 100%;
+  max-height: rem-calc(300)!important;
+  @include breakpoint(medium) {
+  max-height: rem-calc(350);
+  }
+}
+.media-embed-block .medium img {
+  @include breakpoint(large) {
+    max-height: 60vh!important;
+  }
+} 
+
+.media-embed-block .large img {
+  @include breakpoint(large) {
+    max-height: 85vh!important;
+  }
+}
+
+.media-embed-block .large:not(:only-child) img {
+  max-height: rem-calc(300)!important;
+    @include breakpoint(large) {
+    max-height: rem-calc(500);
+  }
+  }

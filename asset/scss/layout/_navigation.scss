@@ -91,7 +91,15 @@ header .top-bar-right {
   background: $secondary-color;
 }
 
-/*Remove Breadcrumb Navigation*/
+/*Breadcrumbs*/
 nav.breadcrumbs {
-  display: none;
-} 
+  margin-top: -1rem;
+  padding: 1rem 2rem 0 2rem;
+  a {
+      color: #343536;
+      text-decoration: underline;
+  }
+  @include breakpoint(medium) {
+      margin-top: -2rem;
+  }
+}

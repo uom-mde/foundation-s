@@ -1,0 +1,87 @@
+.media-embed-block.layout-vertical.attachment-count-2 .openseadragon,
+.media-embed-block.layout-vertical.attachment-count-2 .file > a > img,
+.media-embed-block.layout-vertical.attachment-count-3 .openseadragon,
+.media-embed-block.layout-vertical.attachment-count-3 .file > a > img {
+  height: 40vh!important;
+  width: 100%;
+}
+
+.media-embed-block.layout-vertical.attachment-count-2 .resource-text-openseadragon,
+.media-embed-block.layout-vertical.attachment-count-3 .resource-text-openseadragon {
+  flex-direction: column;
+  @include breakpoint(medium) {
+    flex-direction: row;
+  }
+}
+
+.media-embed-block.layout-vertical.attachment-count-2 .resource-text-openseadragon .medium .openseadragon,
+.media-embed-block.layout-vertical.attachment-count-2 .resource-text-openseadragon .medium .file > a > img {
+  @include breakpoint(medium) {
+  height: calc(45vh - .75rem) !important;
+}
+}
+
+.media-embed-block.layout-vertical.attachment-count-2 .resource-text-openseadragon .medium-large .openseadragon,
+.media-embed-block.layout-vertical.attachment-count-2 .resource-text-openseadragon .medium-large .file > a > img {
+  @include breakpoint(medium) {
+  height: calc(45vh - .75rem) !important;
+}
+@include breakpoint(large) {
+  height: calc(50vh - .75rem) !important;
+}
+@include breakpoint(xlarge) {
+  height: calc(70vh - .75rem) !important;
+}
+}
+
+.media-embed-block.layout-vertical.attachment-count-2 .resource-text-openseadragon .large .openseadragon,
+.media-embed-block.layout-vertical.attachment-count-2 .resource-text-openseadragon .large .file > a > img {
+  @include breakpoint(medium) {
+  height: calc(50vh - .75rem) !important;
+}
+@include breakpoint(large) {
+  height: calc(60vh - .75rem) !important;
+}
+@include breakpoint(xlarge) {
+  height: calc(85vh - .75rem) !important;
+}
+}
+
+.media-embed-block.layout-vertical.attachment-count-3 .resource-text-openseadragon .medium .openseadragon,
+.media-embed-block.layout-vertical.attachment-count-3 .resource-text-openseadragon .medium .file > a > img {
+  @include breakpoint(medium) {
+  height: calc(45vh - .75rem) !important;
+}
+}
+
+.media-embed-block.layout-vertical.attachment-count-3 .resource-text-openseadragon .medium-large .openseadragon,
+.media-embed-block.layout-vertical.attachment-count-3 .resource-text-openseadragon .medium-large .file > a > img {
+  @include breakpoint(medium) {
+  height: calc(55vh - .75rem) !important;
+}
+}
+
+.media-embed-block.layout-vertical.attachment-count-3 .resource-text-openseadragon .large .openseadragon,
+.media-embed-block.layout-vertical.attachment-count-3 .resource-text-openseadragon .large .file > a > img {
+  @include breakpoint(large) {
+  height: calc(70vh - .75rem) !important;
+}
+}
+
+/*Three Child elements seadragonbox*/
+  .attachment-count-3 .medium .seadragonbox {
+      height: rem-calc(200) !important;
+      @include breakpoint(medium) {
+        height: rem-calc(300) !important;
+      }
+      @include breakpoint(large) {
+        height: rem-calc(350) !important;
+      }
+  }
+
+/*Add margin to multiple items*/ 
+.resource-text-openseadragon .item.resource:not(:only-child):not(:last-child) {
+  @include breakpoint (medium) {
+  margin-right: $global-margin;
+  }
+}
