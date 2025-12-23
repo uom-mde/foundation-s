@@ -124,13 +124,13 @@
     // Observe targets (works for both block pages and Item Show)
     roots.forEach(root => {
       root.querySelectorAll(".annona-defer[data-annona-attrs]").forEach(el => io.observe(el));
-      root.querySelectorAll(".openseadragon[data-tile-sources][id]").forEach(el => io.observe(el));
+      root.querySelectorAll('.openseadragon[data-iiif-defer="1"][data-tile-sources][id]').forEach(el => io.observe(el));
     });
 
     // Kickstart: ensures Item Show loads even if IO doesn't fire immediately
     roots.forEach(root => {
       root.querySelectorAll(".annona-defer[data-annona-attrs]").forEach(enqueueAnnona);
-      root.querySelectorAll(".openseadragon[data-tile-sources][id]").forEach(enqueueOpenSeadragon);
+      root.querySelectorAll('.openseadragon[data-iiif-defer="1"][data-tile-sources][id]').forEach(enqueueOpenSeadragon);
     });
   }
 
@@ -139,4 +139,12 @@
   } else {
     boot();
   }
+
+  if (
+  el.classList.contains("openseadragon") &&
+  el.dataset.tileSources &&
+  el.dataset.iiifDefer === "1"
+) {
+  enqueueOpenSeadragon(el);
+}
 })();
