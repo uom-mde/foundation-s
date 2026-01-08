@@ -111,7 +111,12 @@
         if (!entry.isIntersecting) return;
 
         const el = entry.target;
-        if (el.classList.contains("openseadragon") && el.dataset.tileSources) {
+
+        if (
+          el.classList.contains("openseadragon") &&
+          el.dataset.tileSources &&
+          el.dataset.iiifDefer === "1"
+        ) {
           enqueueOpenSeadragon(el);
         } else if (el.classList.contains("annona-defer")) {
           enqueueAnnona(el);
@@ -121,30 +126,27 @@
       });
     }, { root: null, rootMargin: ROOT_MARGIN, threshold: 0.01 });
 
-    // Observe targets (works for both block pages and Item Show)
+    // Observe targets (blocks + item show fallback)
     roots.forEach(root => {
       root.querySelectorAll(".annona-defer[data-annona-attrs]").forEach(el => io.observe(el));
-      root.querySelectorAll('.openseadragon[data-iiif-defer="1"][data-tile-sources][id]').forEach(el => io.observe(el));
+      root
+        .querySelectorAll('.openseadragon[data-iiif-defer="1"][data-tile-sources][id]')
+        .forEach(el => io.observe(el));
     });
 
     // Kickstart: ensures Item Show loads even if IO doesn't fire immediately
     roots.forEach(root => {
       root.querySelectorAll(".annona-defer[data-annona-attrs]").forEach(enqueueAnnona);
-      root.querySelectorAll('.openseadragon[data-iiif-defer="1"][data-tile-sources][id]').forEach(enqueueOpenSeadragon);
+      root
+        .querySelectorAll('.openseadragon[data-iiif-defer="1"][data-tile-sources][id]')
+        .forEach(enqueueOpenSeadragon);
     });
   }
 
+  // IMPORTANT: this must be OUTSIDE boot(), at the bottom of the IIFE
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", boot);
   } else {
     boot();
   }
-
-  if (
-  el.classList.contains("openseadragon") &&
-  el.dataset.tileSources &&
-  el.dataset.iiifDefer === "1"
-) {
-  enqueueOpenSeadragon(el);
-}
 })();

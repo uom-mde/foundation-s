@@ -1,3 +1,9 @@
+/*Bold Title*/
+
+.right-sidebar h2 {
+  font-weight: 600 !important;
+}
+
 /*Item Show updates*/
 .resource.show .grid-x {
   padding: 0;
@@ -32,14 +38,7 @@ margin-top: 2 * $global-margin;
 
 .resource-title {
   flex-wrap: wrap-reverse;
-  margin-left: 1 * $global-margin;
   width: 100%;
-  @include breakpoint(medium) {
-    margin-left: 2 * $global-margin;
-  }
-  @include breakpoint(large) {
-    flex-wrap: nowrap;
-  }
 }
 
 /*Underline links on Item Show page*/
