@@ -3,7 +3,7 @@
   const STAGGER_MS = 400;
   const ROOT_MARGIN = "800px";
 
-  // ---- OpenSeadragon readiness (kept from earlier) ----
+  // ---- OpenSeadragon readiness ----
   const OSD_WAIT_MS = 5000;
   const OSD_POLL_MS = 50;
 
@@ -24,8 +24,15 @@
   }
 
   function boot() {
-    const containers = document.querySelectorAll("[data-iiif-stagger]");
-    if (!containers.length) return;
+    // Use stagger containers when present; otherwise fall back to Item Show wrapper
+    const staggerContainers = document.querySelectorAll("[data-iiif-stagger]");
+    const itemShowRoot = document.querySelector(".item-show");
+
+    const roots = staggerContainers.length
+      ? Array.from(staggerContainers)
+      : (itemShowRoot ? [itemShowRoot] : []);
+
+    if (!roots.length) return;
 
     const queue = [];
     let active = 0;
@@ -92,7 +99,6 @@
           const node = document.createElement(tag);
           Object.entries(attrs).forEach(([k, v]) => node.setAttribute(k, String(v)));
 
-          // Optional: simple loading indicator
           el.innerHTML = "";
           el.appendChild(node);
 
@@ -129,11 +135,17 @@
       });
     }, { root: null, rootMargin: ROOT_MARGIN, threshold: 0.01 });
 
-    // Observe both types inside each stagger container
-    containers.forEach(container => {
-      container.querySelectorAll(".openseadragon[data-tile-sources][id]").forEach(el => io.observe(el));
-      container.querySelectorAll(".annona-defer[data-annona-attrs]").forEach(el => io.observe(el));
+    // Observe targets inside each root
+    roots.forEach(root => {
+      root.querySelectorAll(".openseadragon[data-tile-sources][id]").forEach(el => io.observe(el));
+      root.querySelectorAll(".annona-defer[data-annona-attrs]").forEach(el => io.observe(el));
     });
+
+    // Kickstart on Item Show so a single media loads immediately
+    if (itemShowRoot) {
+      itemShowRoot.querySelectorAll(".annona-defer[data-annona-attrs]").forEach(enqueueAnnona);
+      itemShowRoot.querySelectorAll(".openseadragon[data-tile-sources][id]").forEach(enqueueOpenSeadragon);
+    }
   }
 
   if (document.readyState === "loading") {
