@@ -257,6 +257,13 @@ a.language-show:not(:last-of-type)::after {
     display: none;
   }
 }
+
+/*Menu button*/ 
+/*Increase size of menu button*/ 
+.fa, [class*=o-icon-]:before, .fas {
+font-size: 1.5rem;
+}
+
 /*Remove margin for menu button on smaller screens*/ 
 .title-bar button {
   margin: rem-calc(0 0 0 5);
