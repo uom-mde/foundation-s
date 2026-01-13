@@ -3812,7 +3812,7 @@ section.image-banner {
 .img-hero {
   height: 18.75rem;
   position: relative;
-  margin-top: rem-calc(-16px);
+  margin-top: -0.5rem;
   height: rem-calc(350px);
   background: $uom-footer;
   @include breakpoint(medium) {
