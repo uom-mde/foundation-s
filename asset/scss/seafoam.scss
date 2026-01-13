@@ -1020,7 +1020,7 @@ transform: scale(1.1);
   /*Openseadragon hero 24/02/24*/
   .openseadragon-hero {
     height: rem-calc(300);
-    margin-top: -1rem;
+    margin-top: -0.5rem;
     position: relative;
     @include breakpoint (medium) {
       height: rem-calc(350);
