@@ -56,7 +56,7 @@
 }
 
 section.image-banner {
-  margin-top: 0 * $global-margin;
+  margin-top: -1 * $global-margin;
   @include breakpoint(medium) {
     margin-top: -2 * $global-margin;
   }
@@ -131,3 +131,75 @@ section.image-banner {
   padding: 0.5 * $global-padding $global-padding;
   opacity: 1;
 }
+
+/*Add an option to display image alongside text for Image Banner block by applying the .image-banner-horizontal class*/ 
+.block-image-banner.image-banner-horizontal .image-banner {
+    @include breakpoint (large) {
+    display: grid;
+    align-items: stretch;
+    height: 30rem;
+    grid-template-columns: 7fr 4fr; 
+    height: 30rem;
+  }
+}
+
+/* Ensure children fill their grid areas */
+.block-image-banner.image-banner-horizontal .image-container,
+.block-image-banner.image-banner-horizontal .overlay-container {
+  @include breakpoint (large) {
+  width: 100%;
+  }
+}
+
+/* Optional: ensure image fills its column */
+.block-image-banner.image-banner-horizontal .image-container img {
+  @include breakpoint (large) {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  }
+}
+
+/*Revisions*/
+/* Horizontal variant: image should stay inside its grid column */
+.block-image-banner.image-banner-horizontal .image-container {
+  @include breakpoint (large) {
+  position: relative;   /* create containing block */
+  overflow: hidden;     /* hide any bleed */
+  }
+}
+
+.block-image-banner.image-banner-horizontal .image-container img {
+  @include breakpoint (large) {
+  position: static;     /* undo position:absolute */
+  width: 100%;          /* use the column width */
+  height: 100%;
+  max-width: none;      /* keep your existing intent */
+  margin-left: 0;       /* undo 50% */
+  transform: none;      /* undo translateX */
+  object-fit: cover;
+  object-position: center;
+  display: block;       /* avoid inline gap */
+  }
+}
+
+/* If you use the ::after overlay, keep it inside the column too */
+.block-image-banner.image-banner-horizontal .image-container::after {
+  @include breakpoint (large) {
+  width: 100%;
+  margin-left: 0;
+  transform: none;
+  }
+}
+
+.image-banner-horizontal .image-banner .overlay-container {
+  @include breakpoint (large) {
+display: unset;
+height: unset;
+display: grid;
+align-content: center;
+justify-content: center;
+/*justify-items: end;*/
+  }
+}
+/*End Image Banner horizontal code*/
