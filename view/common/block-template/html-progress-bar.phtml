@@ -17,7 +17,9 @@ $this->headScript()->prependFile($this->assetUrl('js/progress-bar.js'));
                 <div class="poem-progress__meta"><span data-poem-status="">0%</span></div>
             </nav>
             <div class="text-block padding-vertical-1 large-padding-vertical-2">
-                <?= $block->dataValue('html', '') ?>
+                <section class="poem__body" data-poem-body="">
+                    <?= $block->dataValue('html', '') ?>
+                </section>
             </div>
         </article>
     </div>
