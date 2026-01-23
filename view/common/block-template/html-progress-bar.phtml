@@ -8,8 +8,19 @@ $this->headScript()->prependFile($this->assetUrl('js/progress-bar.js'));
 
 <div class="full-width padding-1">
     <div class="grid-x grid-container">
-        <div class="text-block padding-vertical-1 large-padding-vertical-2">
-            <?= $block->dataValue('html', '') ?>
-        </div>
+        <article class="poem" data-poem="">
+            <nav aria-label="Reading progress" class="poem-progress" data-poem-nav="" hidden="">
+                <div aria-label="Reading progress" aria-valuemax="100" aria-valuemin="0" aria-valuenow="0" class="progress poem-progress__bar" role="progressbar">
+                    <div class="progress-meter" data-poem-meter="" style="width: 0%">&nbsp;</div>
+                </div>
+
+                <div class="poem-progress__meta"><span data-poem-status="">0%</span></div>
+            </nav>
+            <div class="text-block padding-vertical-1 large-padding-vertical-2">
+                <section class="poem__body" data-poem-body="">
+                    <?= $block->dataValue('html', '') ?>
+                </section>
+            </div>
+        </article>
     </div>
 </div>
