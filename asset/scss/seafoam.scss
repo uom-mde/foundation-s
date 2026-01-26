@@ -258,10 +258,19 @@ a.language-show:not(:last-of-type)::after {
   }
 }
 
-/*Menu button*/ 
+/*Mobile menu button*/ 
 /*Increase size of menu button*/ 
 .fa, [class*=o-icon-]:before, .fas {
 font-size: 1.5rem;
+}
+
+.menu-toggle {
+  font-size: 1.25 * $global-font-size;
+}
+
+.hamburger-icon {
+  width: 1.5 * $global-font-size;
+  height: 1.5 * $global-font-size;
 }
 
 /*Remove margin for menu button on smaller screens*/ 
