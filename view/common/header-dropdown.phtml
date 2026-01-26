@@ -23,8 +23,26 @@
         </div>
     </div>
     <nav class="title-bar" data-responsive-toggle="responsive-menu" data-hide-for="large">
-            <button class="menu-toggle" type="button" data-toggle="offCanvas"
-                label="Open search" aria-label="<?php echo $this->translate('Menu'); ?>"><i class="fas fa-bars"></i></button>
+        <button class="menu-toggle" type="button" data-toggle="offCanvas"
+            label="Open search" aria-label="<?php echo $this->translate('Menu'); ?>">
+                <svg
+                class="hamburger-icon"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+                focusable="false"
+                xmlns="http://www.w3.org/2000/svg"
+                >
+                <path
+                    d="M4 7h16M4 12h16M4 17h16"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                />
+                </svg>
+        </button>
     </nav>
 </div>
 <div class="top-bar">
