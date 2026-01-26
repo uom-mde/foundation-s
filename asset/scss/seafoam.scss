@@ -273,6 +273,15 @@ font-size: 1.5rem;
   height: 1.5rem;
 }
 
+.home-icon {
+  width: 1.75rem;
+  height: 1.75rem;
+}
+
+svg.home-icon:hover {
+  fill: #6b2c91;
+}
+
 /*Remove margin for menu button on smaller screens*/ 
 .title-bar button {
   margin: rem-calc(0 0 0 5);
