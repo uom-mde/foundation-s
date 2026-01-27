@@ -53,11 +53,11 @@ $title = strlen($attachment['alt_link_title']) ? $attachment['alt_link_title'] :
     <div class="grid-x grid-padding-x asset-hero__inner align-middle">
 
       <!-- Optional: a crisp portrait card so you never upscale -->
-      <div class="cell medium-6 large-7 asset-hero__media">
+      <div class="cell medium-6 asset-hero__media">
         <img class="asset-hero__img" src="<?= $heroUrl ?>" alt="">
       </div>
 
-      <div class="cell medium-6 large-5 asset-hero__text">
+      <div class="cell medium-6 asset-hero__text">
         <?php if (strlen($caption)): ?>
           <div class="asset-hero__content">
             <h1 class="asset-hero__title"><?= $isHtmlCaption ? $caption : $escape($caption) ?></h1>

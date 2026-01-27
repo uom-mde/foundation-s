@@ -3920,7 +3920,7 @@ justify-content: center;
   background-image: var(--asset-hero-url);
   background-size: cover;
   background-position: center;
-  filter: blur(18px);
+  filter: blur(9px);
   transform: scale(1.06); // prevents blur edge seams
 }
 
@@ -3957,8 +3957,10 @@ justify-content: center;
 .asset-hero__img {
   display: block;
   width: 100%;
-  max-width: 450px;     // <-- key: 900px source / 2 for retina safety
   height: auto;
+  max-height: rem-calc(300);
+  width: auto;
+  max-width: rem-calc(450);
   border-radius: 0.75rem;
   box-shadow: 0 8px 30px rgba(0,0,0,0.25);
 }
@@ -3967,6 +3969,7 @@ justify-content: center;
 .asset-hero__text {
   display: flex;
   align-items: center;
+  justify-content: flex-start;
 }
 
 .asset-hero__content {
