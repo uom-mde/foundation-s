@@ -2936,7 +2936,7 @@ grid-template-areas:
     }
   }
   .no-margin-top {
-    margin-top:-0.5 * $global-margin;
+    margin-top: 0;
     @include breakpoint(medium) {
       margin-top:-2 * $global-margin;
     }
