@@ -157,9 +157,9 @@ a:hover {
     color: $white;
 }
 
- /*Add padding when search button is showed*/ 
+ /*Add padding when search button is displayed*/ 
  .search-button.is-shown {
-    padding: $global-padding 0 $global-padding 0;
+    padding: 0.5 * $global-padding;
  }
 
  /*Change search button background*/ 
@@ -167,7 +167,7 @@ a:hover {
     background: transparent;
  }
 
- button.search-icon[aria-expanded="true"] {
+ button.search-icon[aria-expanded=true] {
     background: transparent!important;
  }
 
@@ -175,6 +175,11 @@ a:hover {
  button.search-icon[aria-expanded=true] svg path {
     fill: $dark-gray;
 }
+
+/*Revise top margin for close icon on mobile search
+button.search-icon[aria-expanded=true] svg.active {
+margin-top: -1rem;
+}*/ 
 
 .toc-block ul ul.dropdown>li.is-dropdown-submenu-parent.active>a {
     padding-right: 2rem;
