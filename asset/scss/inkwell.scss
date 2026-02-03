@@ -159,7 +159,7 @@ a:hover {
 
  /*Add padding when search button is showed*/ 
  .search-button.is-shown {
-    padding: $global-padding $global-padding $global-padding 0;
+    padding: $global-padding 0 $global-padding 0;
  }
 
  /*Change search button background*/ 

@@ -120,7 +120,7 @@ a.nav-header:visited {
 }
 
 header .top-bar {
-  padding: 0.25 * $global-padding $global-padding 0 $global-padding;
+  padding: 0.25 * $global-padding 0 0 $global-padding;
   @include breakpoint(large) {
     padding: 0.5 * $global-padding 0;    
   }
@@ -1101,11 +1101,11 @@ transform: scale(1.1);
       }
 
 /*Openseadragon block*/ 
-.block-Openseadragon {
+/*.block-Openseadragon {
   @include breakpoint (small only) {
   margin-top: rem-calc(8);
   }
-}
+}*/
 
 /*Mapping block*/ 
 /*Change mapping view*/
@@ -1759,7 +1759,7 @@ iframe.optanon-category-C0004[data-src] {
 
 .search-bar button.search-icon,
 .search-bar-mobile button.search-icon {
-  margin: 0 (0.5 * $global-margin) 0 $global-margin;
+  margin: 0;
   border-radius: 50px;
 }
 
@@ -1810,6 +1810,7 @@ button.search-icon[aria-expanded="true"] {
 }
 
 .top-bar .top-bar-left {
+  flex-flow: wrap;
   @include breakpoint(large) {
     flex: 1 1 auto;
     max-width: (rem-calc(400));
