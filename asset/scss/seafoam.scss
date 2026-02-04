@@ -1100,7 +1100,19 @@ transform: scale(1.1);
       object-fit: cover;
       }
 
-/*Openseadragon block*/ 
+/* Allow vertical page scrolling when swiping on the OSD viewer */
+.openseadragon-block .openseadragon-container,
+.openseadragon-block .openseadragon-canvas {
+  touch-action: pan-y !important;
+}
+
+/* Most reliable: stop OSD wrappers receiving touch/pointer events */
+.openseadragon-block .openseadragon-container,
+.openseadragon-block .openseadragon-canvas {
+  pointer-events: none !important;
+}
+
+      /*Openseadragon block*/ 
 /*.block-Openseadragon {
   @include breakpoint (small only) {
   margin-top: rem-calc(8);
