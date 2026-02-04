@@ -29,7 +29,25 @@ $valueLang = $filterLocale ? [$lang, ''] : null;
 // echo "</pre>";
 ?>
 
-<div class="<?php echo ($showLayout == 'inline') ? 'inline' : 'stack'; ?>">
+<?php
+// Isolate Annona blocks
+// Get rendered HTML strings for the block regions
+$fullWidthMainBlocksHtml = $fullWidthMainHasBlocks ? $fullWidthMainBlockContent->getBlocks() : '';
+$mainBlocksHtml          = $mainWithSidebarHasBlocks ? $mainWithSidebarBlockContent->getBlocks() : '';
+$leftBlocksHtml          = $leftSidebarHasBlocks ? $leftSidebarBlockContent->getBlocks() : '';
+$rightBlocksHtml         = $rightSidebarHasBlocks ? $rightSidebarBlockContent->getBlocks() : '';
+
+// Detect Annona placeholders in any region
+$hasAnnona = (
+    (strpos($fullWidthMainBlocksHtml, 'class="annona-defer"') !== false) ||
+    (strpos($mainBlocksHtml, 'class="annona-defer"') !== false) ||
+    (strpos($leftBlocksHtml, 'class="annona-defer"') !== false) ||
+    (strpos($rightBlocksHtml, 'class="annona-defer"') !== false)
+);
+?>
+
+
+<div class="item-show <?php echo ($showLayout == 'inline') ? 'inline' : 'stack'; ?>">
     <?php $this->trigger('view.show.before'); ?>
     <?php if ($fullWidthMainHasBlocks): ?>
         <?php 
@@ -79,10 +97,6 @@ $valueLang = $filterLocale ? [$lang, ''] : null;
         ?>
     <div class="<?php echo ($showLayout == 'inline') ? 'inline' : 'stack'; ?>">
         <div class="full-width grid-x grid-padding-x">
-        <div class="resource-title">
-            <?php echo $this->pageTitle($item->displayTitle(null, $valueLang), 2); ?>
-            <h2 class="label"><?php echo $translate('Item'); ?></h2>
-        </div>
             <?php $this->trigger('view.show.before'); ?>
             <div class="main-with-sidebar cell medium-8 margin-bottom-2 xlarge-margin-bottom-3">
                 <?php 
@@ -93,12 +107,16 @@ $valueLang = $filterLocale ? [$lang, ''] : null;
                 elseif ($youtubeViewer !== null) {
                     echo $youtubeViewer;
                 } 
-                elseif ($defaultViewer !== null) {
+                else {
                     echo $defaultViewer;
                 }
                 ?>
             </div>
             <div class="right-sidebar cell medium-4 medium-padding-vertical-1 xlarge-padding-horizontal-2">
+                <div class="resource-title">
+                    <?php echo $this->pageTitle($item->displayTitle(null, $valueLang), 2); ?>
+                    <h2 class="label"><?php echo $translate('Item'); ?></h2>
+                </div>
                 <?php echo $fullWidthMainBlockContent->getBlocks(); ?>
             </div>
         </div>
