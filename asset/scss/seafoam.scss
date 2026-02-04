@@ -1811,11 +1811,15 @@ button.search-icon[aria-expanded="true"] {
 }
 
 .top-bar .top-bar-left {
-  flex-flow: wrap;
+  flex-wrap: nowrap;
   @include breakpoint(large) {
     flex: 1 1 auto;
     max-width: (rem-calc(400));
   }
+}
+
+.top-bar .top-bar-left:has(button.search-icon[aria-expanded="true"]) {
+  flex-flow: row wrap;
 }
 
 nav.top-bar-left {
