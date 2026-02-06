@@ -8,7 +8,6 @@ $itemMedia = $item->media();
 $sensitive = $item->value('dcterms:audience');
 $showLayout = $this->themeSetting('show_layout');
 $mediaDisplay = $this->themeSetting('media_display');
-$this->headLink()->appendStylesheet($this->assetUrl('css/resource-page-blocks.css', 'Omeka'));
 
 $fullWidthMainBlockContent = $this->resourcePageBlocks($item, 'full_width_main');
 $fullWidthMainHasBlocks = $fullWidthMainBlockContent->hasBlocks();
@@ -37,15 +36,31 @@ $mainBlocksHtml          = $mainWithSidebarHasBlocks ? $mainWithSidebarBlockCont
 $leftBlocksHtml          = $leftSidebarHasBlocks ? $leftSidebarBlockContent->getBlocks() : '';
 $rightBlocksHtml         = $rightSidebarHasBlocks ? $rightSidebarBlockContent->getBlocks() : '';
 
-// Detect Annona placeholders in any region
-$hasAnnona = (
-    (strpos($fullWidthMainBlocksHtml, 'class="annona-defer"') !== false) ||
-    (strpos($mainBlocksHtml, 'class="annona-defer"') !== false) ||
-    (strpos($leftBlocksHtml, 'class="annona-defer"') !== false) ||
-    (strpos($rightBlocksHtml, 'class="annona-defer"') !== false)
-);
+// Detect deferred Annona placeholders by inspecting HTML media renders
+$hasAnnona = false;
+$firstHtmlMediaId = null;
+$firstHtmlMediaRender = null;
+
+foreach ($itemMedia as $media) {
+    if ($media->renderer() !== 'html') continue;
+
+    $firstHtmlMediaId = $media->id();
+    $firstHtmlMediaRender = $media->render();
+
+    if (strpos($firstHtmlMediaRender, 'data-annona-defer="1"') !== false || strpos($firstHtmlMediaRender, 'class="annona-defer"') !== false) {
+        $hasAnnona = true;
+    }
+    break; // only need the first HTML media for item-show viewer
+}
 ?>
 
+<?php if ($hasAnnona): ?>
+    <?php $this->headScript()->appendFile(
+        $this->assetUrl('js/iiif-stagger.js'),
+        'text/javascript',
+        ['defer' => 'defer']
+    ); ?>
+<?php endif; ?>
 
 <div class="item-show <?php echo ($showLayout == 'inline') ? 'inline' : 'stack'; ?>">
     <?php $this->trigger('view.show.before'); ?>
