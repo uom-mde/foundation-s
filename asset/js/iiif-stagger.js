@@ -24,7 +24,7 @@
   }
 
   function boot() {
-    // Use stagger containers when present; otherwise fall back to Item Show wrapper
+    // Keep your “original” root logic
     const staggerContainers = document.querySelectorAll("[data-iiif-stagger]");
     const itemShowRoot = document.querySelector(".item-show");
 
@@ -85,12 +85,20 @@
     function initAnnona(el) {
       if (el.dataset.annonaInited === "1") return Promise.resolve();
 
+      // IMPORTANT: only handle placeholders you explicitly marked as deferred
+      if (el.dataset.annonaDefer !== "1") return Promise.resolve();
+
+      // If something already injected, don’t do it again
+      if (el.querySelector("iiif-storyboard")) {
+        el.dataset.annonaInited = "1";
+        return Promise.resolve();
+      }
+
       const tag = el.dataset.annonaTag || "iiif-storyboard";
       let attrs = {};
       try {
         attrs = JSON.parse(el.dataset.annonaAttrs || "{}");
       } catch {
-        // If JSON is broken, fail gracefully
         return Promise.resolve();
       }
 
@@ -124,9 +132,11 @@
 
         const el = entry.target;
 
-        // Decide what it is
+        // Keep OSD behaviour unchanged
         if (el.classList.contains("openseadragon") && el.dataset.tileSources) {
           enqueueOpenSeadragon(el);
+
+        // Annona: only defer-marked placeholders
         } else if (el.classList.contains("annona-defer")) {
           enqueueAnnona(el);
         }
@@ -138,13 +148,23 @@
     // Observe targets inside each root
     roots.forEach(root => {
       root.querySelectorAll(".openseadragon[data-tile-sources][id]").forEach(el => io.observe(el));
-      root.querySelectorAll(".annona-defer[data-annona-attrs]").forEach(el => io.observe(el));
+
+      // Only observe Annona placeholders that are explicitly deferred
+      root.querySelectorAll('.annona-defer[data-annona-defer="1"][data-annona-attrs]')
+        .forEach(el => io.observe(el));
     });
 
-    // Kickstart on Item Show so a single media loads immediately
+    // ✅ Item Show: initialise immediately (and retry) for reliability
     if (itemShowRoot) {
-      itemShowRoot.querySelectorAll(".annona-defer[data-annona-attrs]").forEach(enqueueAnnona);
-      itemShowRoot.querySelectorAll(".openseadragon[data-tile-sources][id]").forEach(enqueueOpenSeadragon);
+      const initItemShow = () => {
+        itemShowRoot
+          .querySelectorAll('.annona-defer[data-annona-defer="1"][data-annona-attrs]')
+          .forEach(el => initAnnona(el));
+      };
+
+      initItemShow();
+      setTimeout(initItemShow, 50);
+      setTimeout(initItemShow, 250);
     }
   }
 
