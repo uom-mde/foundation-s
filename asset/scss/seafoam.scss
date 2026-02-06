@@ -135,6 +135,10 @@ header .top-bar-right {
   }
 }
 
+.top-bar {
+  border-bottom: none;
+}
+
 .top-bar a {
   color: $white;
   }
