@@ -5024,3 +5024,11 @@ transform: scale(1.01);
 .fa-eye-slash::before {
   content: "\f070";
 }
+
+/*PDF Embed iFrame*/
+.resp-container iframe {
+  width: 100%;
+  max-width: 100%;
+  height: clamp(400px, 75vh, 800px);
+  height: clamp(400px, 75svh, 800px);
+}
