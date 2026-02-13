@@ -2852,7 +2852,8 @@ grid-template-areas:
     }
   
   .block-media.text-around-image,  
-  .block-media .text-around-image {
+  .block-media .text-around-image,
+  .block-asset .text-around-image  {
     display: block;
     float: left;
     width: 50%;
@@ -2983,6 +2984,15 @@ grid-template-areas:
     color: #fc3;
     font-weight: unset;
     }
+  
+  /*Multiple Asset Images*/ 
+    .assets.asset-column-2,
+    .assets.asset-column-3 {
+      display: grid;
+      & img {
+        max-height: 80vh;
+      }
+    }
 
   /*Asset Cards*/ 
   .card img {
@@ -2991,14 +3001,16 @@ grid-template-areas:
     }
 
 /*Card column options*/
-  .card-2-columns .assets.asset-column-3:has(.asset.card) {
+  .card-2-columns .assets.asset-column-2:has(.asset.card),
+  .assets.asset-column-2 {
     grid-template-columns: repeat(2, 48%);
     @include breakpoint(large) {
       gap: 2rem;
     }
   }
 
-    .card-3-columns .assets.asset-column-2:has(.asset.card) {
+    .card-3-columns .assets.asset-column-3:has(.asset.card),
+    .assets.asset-column-3 {
       @include breakpoint(large) {
         grid-template-columns: repeat(3, 32%);
         gap: 2rem;
