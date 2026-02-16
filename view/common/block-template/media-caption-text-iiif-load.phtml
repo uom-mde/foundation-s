@@ -1,0 +1,124 @@
+<?php
+$this->headScript()->appendFile($this->assetUrl('js/iiif-stagger.js'));
+$hyperlink = $this->plugin('hyperlink');
+$thumbnailType = $block->dataValue('thumbnail_type');
+
+/**
+ * Convert immediate-loading embeds to deferred-loading embeds:
+ *  - img src="..." -> img data-src="..."
+ *  - iframe src="..." -> iframe data-src="..."
+ * Adds a marker attribute so JS can pick them up reliably.
+ */
+$deferEmbedSrc = function (string $html): string {
+    // Defer <img src="...">
+    $html = preg_replace(
+        '/<img\b([^>]*?)\bsrc=("|\')(.*?)\2([^>]*?)>/i',
+        '<img$1 data-src=$2$3$2$4 loading="lazy" decoding="async" data-iiif-defer="1">',
+        $html
+    );
+
+    // Defer <iframe src="...">
+    $html = preg_replace(
+        '/<iframe\b([^>]*?)\bsrc=("|\')(.*?)\2([^>]*?)>/i',
+        '<iframe$1 data-src=$2$3$2$4 loading="lazy" data-iiif-defer="1">',
+        $html
+    );
+
+    return $html;
+};
+
+$stripOpenSeadragonInlineScript = function (string $html): string {
+    // Remove inline scripts (the IIIF renderer includes an inline OpenSeadragon init script)
+    return preg_replace('/<script\b[^>]*>.*?<\/script>/is', '', $html);
+};
+
+?>
+
+<div class="reveal-on-scroll lazy-fade-in">
+  <div class="full-width file-caption-block media-caption-text resourceTextGrid padding-1 large-padding-2 margin-vertical-1 large-margin-vertical-2">
+    <div class="file file-caption-text media-embed xlarge-padding-horizontal-1 flex-container align-center align-middle <?php echo $this->escapeHtml(implode(' ', $classes)); ?>"
+         data-iiif-stagger>
+
+      <?php foreach ($attachments as $attachment): ?>
+        <?php $item = $attachment->item(); ?>
+        <?php
+          $media = $attachment->media() ?: $item->primaryMedia();
+          if (!$media) continue;
+
+          $rendererName = $media->renderer(); // string in Omeka S
+          $isIiif = (is_string($rendererName) && stripos($rendererName, 'iiif') !== false);
+        ?>
+
+        <div class="item resource <?php echo $this->escapeHtml($thumbnailType); ?>">
+          <?php
+          if ($mediaDisplay === 'thumbnail') {
+              switch ($link) {
+                  case 'original':
+                      $url = $media->originalUrl();
+                      break;
+                  case 'item':
+                      $url = $item->url();
+                      break;
+                  case 'media':
+                      $url = $media->url();
+                      break;
+                  default:
+                      throw new \InvalidArgumentException(sprintf('Invalid link type "%s"', $link));
+              }
+
+              // Thumbnail HTML (usually <img ...>)
+              $thumbHtml = $this->thumbnail($media, $thumbnailType);
+
+              // If IIIF, defer the thumbnail request too (optional, but helps if you have many)
+              if ($isIiif && is_string($thumbHtml)) {
+                  $thumbHtml = $deferEmbedSrc($thumbHtml);
+              }
+
+              echo $hyperlink->raw($thumbHtml, $url);
+
+          } else {
+            // Full render HTML from Omeka renderer
+            $renderHtml = $media->render([
+                'thumbnailType' => $thumbnailType,
+                'link' => $link,
+            ]);
+
+            if ($isIiif && is_string($renderHtml)) {
+                $renderHtml = $stripOpenSeadragonInlineScript($renderHtml);
+            }
+
+            echo $renderHtml;
+
+          }
+          ?>
+        </div>
+    </div>
+
+    <div class="block-html medium-padding-horizontal-1 xlarge-padding-horizontal-3">
+        <?php if ($showTitleOption === 'item_title'): ?>
+        <div class="separator-center metadata margin-vertical-1">
+            <h2 class="h4"><?php echo $item->displayTitle(); ?></h2>
+            <?php if ($alternative = $item->value('dcterms:alternative')): ?>
+            <h2 class="h4 italic-font"><small><?php echo $this->escapeHtml($alternative); ?></small></h2>
+            <?php endif; ?>
+        </div>
+        <?php elseif ($showTitleOption === 'file_name'): ?>
+        <div class="separator-center metadata margin-vertical-1">
+            <h2 class="h4"><?php echo $media->displayTitle(); ?></h2>
+        </div>
+        <?php endif; ?>
+
+        <?php $caption = $attachment->caption(); ?>
+        <?php if ($caption): ?>
+        <div class="caption margin-top-1 large-margin-top-2"><?php echo $caption; ?></div>
+        <?php endif; ?>
+
+        <div class="learn-more flex-container align-center">
+        <?php echo $item->link("Learn more", null, ['class' => 'button medium warning hollow']); ?>
+        </div>
+    </div>
+
+    <?php endforeach; ?>
+
+    </div>
+</div>

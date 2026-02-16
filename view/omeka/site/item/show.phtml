@@ -8,7 +8,6 @@ $itemMedia = $item->media();
 $sensitive = $item->value('dcterms:audience');
 $showLayout = $this->themeSetting('show_layout');
 $mediaDisplay = $this->themeSetting('media_display');
-$this->headLink()->appendStylesheet($this->assetUrl('css/resource-page-blocks.css', 'Omeka'));
 
 $fullWidthMainBlockContent = $this->resourcePageBlocks($item, 'full_width_main');
 $fullWidthMainHasBlocks = $fullWidthMainBlockContent->hasBlocks();
@@ -29,7 +28,41 @@ $valueLang = $filterLocale ? [$lang, ''] : null;
 // echo "</pre>";
 ?>
 
-<div class="<?php echo ($showLayout == 'inline') ? 'inline' : 'stack'; ?>">
+<?php
+// Isolate Annona blocks
+// Get rendered HTML strings for the block regions
+$fullWidthMainBlocksHtml = $fullWidthMainHasBlocks ? $fullWidthMainBlockContent->getBlocks() : '';
+$mainBlocksHtml          = $mainWithSidebarHasBlocks ? $mainWithSidebarBlockContent->getBlocks() : '';
+$leftBlocksHtml          = $leftSidebarHasBlocks ? $leftSidebarBlockContent->getBlocks() : '';
+$rightBlocksHtml         = $rightSidebarHasBlocks ? $rightSidebarBlockContent->getBlocks() : '';
+
+// Detect deferred Annona placeholders by inspecting HTML media renders
+$hasAnnona = false;
+$firstHtmlMediaId = null;
+$firstHtmlMediaRender = null;
+
+foreach ($itemMedia as $media) {
+    if ($media->renderer() !== 'html') continue;
+
+    $firstHtmlMediaId = $media->id();
+    $firstHtmlMediaRender = $media->render();
+
+    if (strpos($firstHtmlMediaRender, 'data-annona-defer="1"') !== false || strpos($firstHtmlMediaRender, 'class="annona-defer"') !== false) {
+        $hasAnnona = true;
+    }
+    break; // only need the first HTML media for item-show viewer
+}
+?>
+
+<?php if ($hasAnnona): ?>
+    <?php $this->headScript()->appendFile(
+        $this->assetUrl('js/iiif-stagger.js'),
+        'text/javascript',
+        ['defer' => 'defer']
+    ); ?>
+<?php endif; ?>
+
+<div class="item-show <?php echo ($showLayout == 'inline') ? 'inline' : 'stack'; ?>">
     <?php $this->trigger('view.show.before'); ?>
     <?php if ($fullWidthMainHasBlocks): ?>
         <?php 
@@ -79,10 +112,6 @@ $valueLang = $filterLocale ? [$lang, ''] : null;
         ?>
     <div class="<?php echo ($showLayout == 'inline') ? 'inline' : 'stack'; ?>">
         <div class="full-width grid-x grid-padding-x">
-        <div class="resource-title">
-            <?php echo $this->pageTitle($item->displayTitle(null, $valueLang), 2); ?>
-            <h2 class="label"><?php echo $translate('Item'); ?></h2>
-        </div>
             <?php $this->trigger('view.show.before'); ?>
             <div class="main-with-sidebar cell medium-8 margin-bottom-2 xlarge-margin-bottom-3">
                 <?php 
@@ -93,12 +122,16 @@ $valueLang = $filterLocale ? [$lang, ''] : null;
                 elseif ($youtubeViewer !== null) {
                     echo $youtubeViewer;
                 } 
-                elseif ($defaultViewer !== null) {
+                else {
                     echo $defaultViewer;
                 }
                 ?>
             </div>
             <div class="right-sidebar cell medium-4 medium-padding-vertical-1 xlarge-padding-horizontal-2">
+                <div class="resource-title">
+                    <?php echo $this->pageTitle($item->displayTitle(null, $valueLang), 2); ?>
+                    <h2 class="label"><?php echo $translate('Item'); ?></h2>
+                </div>
                 <?php echo $fullWidthMainBlockContent->getBlocks(); ?>
             </div>
         </div>
