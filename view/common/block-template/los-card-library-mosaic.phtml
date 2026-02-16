@@ -65,6 +65,12 @@
                 }
             }
 
+            if (count($librarySites) > 6): ?>
+
+                <?php endif; ?>
+
+
+                <?php
             // Output both groups
             renderLibrarySiteGroup('Library Sites', $librarySites, $thumbnails, $summaries, $this, $libraryCount);
             ?>
