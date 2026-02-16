@@ -4626,6 +4626,9 @@ transform: scale(1.01);
 
 /*Two Sites*/
 .site-list.site-count-2 {
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas:
+  "a b";
   @include breakpoint(500) {
   grid-template-columns: repeat(2, 1fr);
   grid-template-areas:
@@ -4766,6 +4769,12 @@ transform: scale(1.01);
 
 /*Five sites*/ 
 .site-list.site-count-5 {
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas:
+  "a a"
+  "b b"
+  "c c"
+  "d e";
   @include breakpoint(500) {
   grid-template-columns: repeat(4, 1fr);
   grid-template-areas:
@@ -4784,6 +4793,7 @@ transform: scale(1.01);
 
 /*Six sites*/ 
 .site-list.site-count-6 {
+    grid-template-columns: 1fr 1fr;
     grid-template-areas:
     "a a "
     "b b"
