@@ -3314,10 +3314,16 @@ grid-template-areas:
   height: 100%;
   max-height: rem-calc(300)!important;
   @include breakpoint(medium) {
-  max-height: rem-calc(350);
+  max-height: rem-calc(350)!important;
   }
 }
 .media-embed-block .medium img {
+  @include breakpoint(large) {
+    max-height: 60vh!important;
+  }
+} 
+
+.media-embed-block .medium-large img {
   @include breakpoint(large) {
     max-height: 60vh!important;
   }
@@ -3329,10 +3335,23 @@ grid-template-areas:
   }
 }
 
+.media-embed-block .medium-large:not(:only-child) img {
+  max-height: rem-calc(300)!important;
+    @include breakpoint(large) {
+    max-height: rem-calc(450)!important;
+  }
+    @include breakpoint(xlarge) {
+    max-height: rem-calc(500)!important;
+  }
+  }
+
 .media-embed-block .large:not(:only-child) img {
   max-height: rem-calc(300)!important;
     @include breakpoint(large) {
-    max-height: rem-calc(500);
+    max-height: rem-calc(500)!important;
+  }
+    @include breakpoint(xlarge) {
+    max-height: rem-calc(600)!important;
   }
   }
 
