@@ -2973,6 +2973,8 @@ grid-template-areas:
     .assets.asset-column-2,
     .assets.asset-column-3 {
       display: grid;
+      justify-content: space-evenly;
+      justify-items: center;
       & img {
         max-height: 80vh;
       }

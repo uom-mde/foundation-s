@@ -3,7 +3,7 @@
 <div class="assets text-around-image">
   <?php foreach ($attachments as $attachment): ?>
     <?php $asset = $attachment['asset']; ?>
-    <div class="asset">
+    <div class="asset flex-container align-center">
         <?php $assetImage = ($asset) ? $this->thumbnail($asset, 'square') : ''; ?>
         <?php $page = (array_key_exists('page', $attachment)) ? $attachment['page'] : null; ?>
         <?php
