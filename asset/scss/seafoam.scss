@@ -2843,11 +2843,11 @@ grid-template-areas:
     width: 50%;
     margin: 0 1rem 0.5rem 0;
   @include breakpoint(600) {
-    width: rem-calc(350);
+    width: 40%;
     margin: 0 1rem 1rem 0;
   }
   @include breakpoint(900) {
-    width: rem-calc(400);
+    width: 30%;
     margin: 0 2rem 1rem 0;
   }
 }
