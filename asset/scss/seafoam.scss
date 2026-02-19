@@ -864,6 +864,10 @@ transform: scale(1.1);
 
 .caption.card-section {
     padding: 0 1rem 1rem 1rem;
+    font-size: 90%;
+    @include breakpoint(large) {
+      font-size: 100%;
+    }
 }
 
 /*BlockPlus Blocks*/
@@ -2971,7 +2975,8 @@ grid-template-areas:
   
   /*Multiple Asset Images*/ 
     .assets.asset-column-2,
-    .assets.asset-column-3 {
+    .assets.asset-column-3,
+    .assets.asset-column-4 {
       display: grid;
       justify-content: space-evenly;
       justify-items: center;
@@ -3002,7 +3007,7 @@ grid-template-areas:
         gap: 2rem;
     }
   }
-    .card-4-columns .assets.asset-column-2:has(.asset.card) {
+    .card-4-columns .assets.asset-column-4:has(.asset.card) {
       @include breakpoint(large) {
         grid-template-columns: repeat(4, 24%);
         gap: 2rem;
@@ -3031,21 +3036,15 @@ grid-template-areas:
     @include breakpoint(medium) {
     height: 14rem;
     }
-    @include breakpoint(large) {
-    height: 16rem;
-    }
     @include breakpoint(xlarge) {
-      height: 18rem;
+      height: 16rem;
       }
   }
 .assets.asset-column-2:has(.asset.card) {
   display: grid;
   grid-auto-flow: row;
   gap: 1rem;
-  grid-template-columns: repeat(1, 100%);
-  @include breakpoint(520) {
-    grid-template-columns: repeat(2, 48%);
-  }
+  grid-template-columns: repeat(2, 48%);
   @include breakpoint(large) {
   gap: 2rem;
 }
@@ -3055,12 +3054,27 @@ grid-template-areas:
   display: grid;
   grid-auto-flow: row;
   gap: 1rem;
-  grid-template-columns: repeat(1, 100%);
-  @include breakpoint(520) {
-    grid-template-columns: repeat(2, 48%);
-  }
+  grid-template-columns: repeat(2, 48%);
   @include breakpoint(large) {
   grid-template-columns: repeat(3, 32%);
+  gap: 2rem;
+}
+}
+
+.assets.asset-column-4:has(.asset.card) {
+  display: grid;
+  grid-auto-flow: row;
+  gap: 0.5rem;
+  grid-template-columns: repeat(1, 100%);
+    @include breakpoint(420) {
+  gap: 1rem;
+  grid-template-columns: repeat(2, 48%);
+    }
+  @include breakpoint(medium) {
+  gap: 1rem;
+}
+  @include breakpoint(large) {
+  grid-template-columns: repeat(4, 24%);
   gap: 2rem;
 }
 }
@@ -4437,7 +4451,7 @@ max-width: 28rem;
     height: rem-calc(175);
   }
   @include breakpoint(large) {
-    height: rem-calc(200);
+    height: rem-calc(216);
   }
 }
 

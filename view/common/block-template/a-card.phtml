@@ -7,7 +7,13 @@ $assetCount = count(array_filter($attachments, function($attachment) {
 }));
 
 // Assign asset column class based on asset count
-$assetColumn = in_array($assetCount, [1, 2, 4]) ? 'asset-column-2' : 'asset-column-3';
+if ($assetCount === 4) {
+    $assetColumn = 'asset-column-4';
+} elseif (in_array($assetCount, [1, 2])) {
+    $assetColumn = 'asset-column-2';
+} else {
+    $assetColumn = 'asset-column-3';
+}
 ?>
 
 <div class="reveal-on-scroll lazy-fade-in">  <!-- Lazy load block -->
