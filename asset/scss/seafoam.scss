@@ -3065,7 +3065,8 @@ grid-template-areas:
 }
 }
 
-.asset.card {
+.asset.card,
+.site.card {
   @include card-container($light-gray, $black, 0, 0, rem-calc(4), rgba(0, 0, 0, 0.35) 0px 5px 15px);
   width: 100%;
   & .card-divider {
@@ -3080,30 +3081,36 @@ grid-template-areas:
   transition: transform 0.35s ease, box-shadow 0.35s ease;
 }
 
-.asset.card > a {
+.asset.card > a,
+.site.card > a {
   display: block;
   overflow: hidden;
 }
 
-.asset.card .link-title {
+.asset.card .link-title,
+.site.card .link-title {
   transition: color 0.3s ease;
 }
 
-.asset.card:hover .link-title {
+.asset.card:hover .link-title,
+.site.card:hover .link-title {
   color: #333;
 }
 
-.asset.card:hover {
+.asset.card:hover,
+.site.card:hover  {
   transform: translateY(-4px);
   box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
 }
 
-.asset.card:hover img {
+.asset.card:hover img,
+.site.card:hover img {
   transform: scale(1.04);
   filter: brightness(0.92);
 }
 
-.asset.card img {
+.asset.card img,
+.site.card img {
   display: block;
   width: 100%;
   height: auto;
@@ -3115,7 +3122,6 @@ grid-template-areas:
   display: block;
   width: 100%;
   height: auto;
-  transition: transform 0.3s ease;
 }
 
 .asset.card::before {
@@ -4706,6 +4712,7 @@ transform: scale(1.01);
     }
 }
 
+/* Removed home page flex rule
 .site-count-3 .site.card:nth-child(1) .card-divider,
 .site-count-4 .site.card:nth-child(1) .card-divider,
 .site-count-5 .site.card:nth-child(1) .card-divider,
@@ -4715,7 +4722,7 @@ transform: scale(1.01);
   @include breakpoint(500) {
     flex: 1 1 100%;
   }
-}
+}/*
 
 /*List of sites Featured*/ 
 .list-of-sites.list-of-sites-featured .site-list.site-count-2 .site-thumbnail-image {
