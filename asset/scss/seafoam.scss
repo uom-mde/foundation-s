@@ -656,6 +656,7 @@ button a,
 /*Add colour fill to hollow button*/ 
 .learn-more .button.hollow.warning:hover {
   background: $warning-color;
+  color: #1f2a35; 
 }
 
 .button a:hover {
@@ -1549,13 +1550,12 @@ margin-top: 2 * $global-margin;
 
 .resource-title {
   flex-wrap: wrap-reverse;
-  margin-left: 1 * $global-margin;
   width: 100%;
-  @include breakpoint(medium) {
-    margin-left: 2 * $global-margin;
-  }
+  margin-left: 1 * $global-margin;
+  margin-bottom: $global-margin;
   @include breakpoint(large) {
     flex-wrap: nowrap;
+    margin-left: 2 * $global-margin;
   }
 }
 
