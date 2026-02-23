@@ -3536,7 +3536,8 @@ grid-template-areas:
 /*PDF Viewer*/ 
 #pdf-container,
 #pdfjs-container,
-.pdfjs-embed  {
+.pdfjs-embed,
+.pdfjs-embed iframe  {
 height: 60vh!important;
 @include breakpoint(medium) {
   height: 65vh!important;
