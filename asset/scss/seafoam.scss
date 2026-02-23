@@ -3269,7 +3269,9 @@ grid-template-areas:
 
 /*Ensure title is below media for verticla layouts*/
 .layout-vertical .media-render.html {
+  @include breakpoint(medium) {
   padding: 1rem;
+  }
 }
 
 .media-render.html:has(#header_toolbar) {
