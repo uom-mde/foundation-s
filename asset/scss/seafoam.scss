@@ -3017,7 +3017,8 @@ grid-template-areas:
         gap: 2rem;
     }
   }
-     .card-4-columns .assets:has(.asset.card) .card img {
+     .card-4-columns .assets:has(.asset.card) .card img,
+     .asset-column-4 .assets:has(.asset.card) .card img {
       @include breakpoint(large) {
         height: 13rem;
     }
