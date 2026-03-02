@@ -17,6 +17,9 @@ $thumbnailType = $block->dataValue('thumbnail_type');
                 // Extract YouTube ID from Omeka’s YouTube ingester
                 $mediaData = $media->mediaData();
                 $youtubeId = $mediaData['id'] ?? '';
+
+                //Get title to make video accessible
+                $itemTitle = $item->value("dcterms:title");
             ?>
 
             <div class="item resource <?php echo $thumbnailType; ?>">
@@ -40,6 +43,7 @@ $thumbnailType = $block->dataValue('thumbnail_type');
                     <!-- OneTrust-blocked YouTube iframe -->
                     <iframe
                         class="optanon-category-C0004"
+                        title="<?php echo $this->escapeHtml($itemTitle); ?>"
                         data-src="https://www.youtube.com/embed/<?php echo $youtubeId; ?>"
                         frameborder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
