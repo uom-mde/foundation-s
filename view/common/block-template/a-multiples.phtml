@@ -13,7 +13,7 @@ $assetColumn = in_array($assetCount, [1, 2, 4]) ? 'asset-column-2' : 'asset-colu
 <div class="assets <?php echo $assetColumn; ?>">
   <?php foreach ($attachments as $attachment): ?>
     <?php $asset = $attachment['asset']; ?>
-    <div class="asset">
+    <div class="asset margin-bottom-1">
         <?php $assetImage = ($asset) ? $this->thumbnail($asset, 'square') : ''; ?>
         <?php $page = (array_key_exists('page', $attachment)) ? $attachment['page'] : null; ?>
         <?php
