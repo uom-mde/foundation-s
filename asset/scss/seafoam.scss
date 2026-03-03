@@ -3315,22 +3315,26 @@ grid-template-areas:
   }
 }
 
-/*YouTube Styling*/ 
-.medium .youtube iframe {
+/*YouTube and Video Styling*/ 
+.medium .youtube iframe,
+.medium video {
   width: 100%;
   max-width: rem-calc(600);
   aspect-ratio: 4 / 3;
   height: auto;
 }
 
-.medium-large .youtube iframe {
+.medium-large .youtube iframe,
+.medium-large video {
   width: 100%;
   max-width: rem-calc(700);
   aspect-ratio: 16 / 9;
   height: auto;
 }
 
-.large .youtube iframe {
+.large .youtube iframe,
+.large video,
+.main-with-sidebar video {
   width: 100%;
   max-width: rem-calc(850);
   aspect-ratio: 16 / 9;
