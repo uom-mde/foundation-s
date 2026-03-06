@@ -3155,6 +3155,46 @@ grid-template-areas:
   pointer-events: none; /* Makes sure only the image is clickable */
 }
 
+/*Card horizontal*/ 
+/* Card horizontal */
+.asset.card.card-horizontal {
+  @include breakpoint(large) {
+    display: grid;
+    grid-template-areas: "a b";
+    grid-template-columns: 1fr 1fr; // or whatever ratio you want
+    padding-bottom: 0;
+  }
+}
+
+  .asset.card.card-horizontal a {
+    @include breakpoint(large) {
+      display: grid;
+      grid-area: a;
+    }
+  }
+
+  .assets:has(.asset.card.card-horizontal) .card img {
+    height: rem-calc(175);
+    @include breakpoint(medium) {
+    height: rem-calc(200);
+    }
+    @include breakpoint(large) {
+    height: 100%;
+    }
+  }
+
+  .no-caption .assets:has(.asset.card.card-horizontal) .card img {
+    @include breakpoint(large) {
+    height: rem-calc(200);
+    }
+  }
+
+  .asset.card.card-horizontal.card-horizontal-text {
+    @include breakpoint(large) {
+      grid-area: b;
+  }
+}
+
 /*Square Thumbnail Styling*/ 
 .media-embed-block .square img,
 .square .openseadragon {
