@@ -3050,7 +3050,7 @@ grid-template-areas:
   grid-auto-flow: row;
   gap: 1rem;
   grid-template-columns: repeat(2, 48%);
-  @include breakpoint(large) {
+  @include breakpoint(xlarge) {
   gap: 2rem;
 }
 }
@@ -3060,10 +3060,12 @@ grid-template-areas:
   grid-auto-flow: row;
   gap: 1rem;
   grid-template-columns: repeat(2, 48%);
-  @include breakpoint(large) {
+  @include breakpoint(medium) {
   grid-template-columns: repeat(3, 32%);
+  }
+  @include breakpoint(xlarge) {
   gap: 2rem;
-}
+  }
 }
 
 .assets.asset-column-4:has(.asset.card) {
@@ -3080,6 +3082,8 @@ grid-template-areas:
 }
   @include breakpoint(large) {
   grid-template-columns: repeat(4, 24%);
+  }
+  @include breakpoint(xlarge) {
   gap: 2rem;
 }
 }
@@ -3158,11 +3162,11 @@ grid-template-areas:
 /*Card horizontal*/ 
 /* Card horizontal */
 .asset.card.card-horizontal {
+  padding-bottom: 0;
   @include breakpoint(large) {
     display: grid;
     grid-template-areas: "a b";
     grid-template-columns: 1fr 1fr; // or whatever ratio you want
-    padding-bottom: 0;
   }
 }
 
@@ -3174,9 +3178,9 @@ grid-template-areas:
   }
 
   .assets:has(.asset.card.card-horizontal) .card img {
-    height: rem-calc(175);
+    height: rem-calc(130);
     @include breakpoint(medium) {
-    height: rem-calc(200);
+    height: rem-calc(170);
     }
     @include breakpoint(large) {
     height: 100%;
@@ -3185,7 +3189,7 @@ grid-template-areas:
 
   .no-caption .assets:has(.asset.card.card-horizontal) .card img {
     @include breakpoint(large) {
-    height: rem-calc(200);
+    height: rem-calc(180);
     }
   }
 
