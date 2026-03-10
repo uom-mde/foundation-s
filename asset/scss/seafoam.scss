@@ -3171,6 +3171,7 @@ grid-template-areas:
     display: grid;
     grid-template-areas: "a b";
     grid-template-columns: 1fr 1fr; // or whatever ratio you want
+    align-items: center;
   }
 }
 
