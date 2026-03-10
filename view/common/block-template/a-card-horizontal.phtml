@@ -16,28 +16,57 @@ if ($assetCount === 4) {
 }
 ?>
 
-<div class="reveal-on-scroll lazy-fade-in">  <!-- Lazy load block -->
+<div class="reveal-on-scroll lazy-fade-in">
     <div class="assets <?php echo $assetColumn; ?>">
+
     <?php foreach ($attachments as $attachment): ?>
         <?php $asset = $attachment['asset']; ?>
+        <?php $assetImage = ($asset) ? $this->thumbnail($asset, 'square', ['class' => 'card-image']) : ''; ?>
+        <?php $page = (array_key_exists('page', $attachment)) ? $attachment['page'] : null; ?>
+        <?php $altLinkTitle = ($attachment['alt_link_title'] !== '') ? $escape($attachment['alt_link_title']) : false; ?>
+
         <div class="asset card card-horizontal">
-            <?php $assetImage = ($asset) ? $this->thumbnail($asset, 'square', ['class' => 'card-image']) : ''; ?>
-            <?php $page = (array_key_exists('page', $attachment)) ? $attachment['page'] : null; ?>
-            <?php if ($page): ?>
-                <a href="<?php echo $escape($page->siteUrl()); ?>">
-                    <?php $altLinkTitle = ($attachment['alt_link_title'] !== '') ? $escape($attachment['alt_link_title']) : false; ?>
-                    <?php echo $assetImage; ?>
-                </a>
-            <?php else: ?>
+
+        <?php if ($page): ?>
+            <a href="<?php echo $escape($page->siteUrl()); ?>" class="card-link">
+
                 <?php echo $assetImage; ?>
-            <?php endif; ?>
+
+                <div class="card-horizontal-text">
+                    <h2 class="h5 link-title card-divider">
+                        <?php echo ($altLinkTitle) ? $altLinkTitle : $escape($page->title()); ?>
+                    </h2>
+
+                    <?php if ($attachment['caption'] !== ''): ?>
+                        <div class="caption card-section">
+                            <?php echo $escape($attachment['caption']); ?>
+                        </div>
+                    <?php endif; ?>
+                </div>
+
+            </a>
+
+        <?php else: ?>
+
+            <?php echo $assetImage; ?>
+
             <div class="card-horizontal-text">
-                <h2 class="h5 link-title card-divider"><?php echo ($altLinkTitle) ? $altLinkTitle : $escape($page->title()); ?></h2>
+                <h2 class="h5 link-title card-divider">
+                    <?php echo ($altLinkTitle) ? $altLinkTitle : $escape($page->title()); ?>
+                </h2>
+
                 <?php if ($attachment['caption'] !== ''): ?>
-                <div class="caption card-section"><?php echo $escape($attachment['caption']); ?></div>
+                    <div class="caption card-section">
+                        <?php echo $escape($attachment['caption']); ?>
+                    </div>
                 <?php endif; ?>
             </div>
+
+        <?php endif; ?>
+
         </div>
+
     <?php endforeach; ?>
+
     </div>
 </div>

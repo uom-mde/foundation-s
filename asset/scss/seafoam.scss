@@ -3163,6 +3163,9 @@ grid-template-areas:
 /* Card horizontal */
 .asset.card.card-horizontal {
   padding-bottom: 0;
+}
+
+.asset.card.card-horizontal a {
   @include breakpoint(large) {
     display: grid;
     grid-template-areas: "a b";
@@ -3170,14 +3173,8 @@ grid-template-areas:
   }
 }
 
-  .asset.card.card-horizontal a {
-    @include breakpoint(large) {
-      display: grid;
-      grid-area: a;
-    }
-  }
-
-  .assets:has(.asset.card.card-horizontal) .card img {
+  .assets:has(.asset.card.card-horizontal) .card a img {
+    grid-area: a;
     height: rem-calc(130);
     @include breakpoint(medium) {
     height: rem-calc(170);
@@ -3187,13 +3184,13 @@ grid-template-areas:
     }
   }
 
-  .no-caption .assets:has(.asset.card.card-horizontal) .card img {
+  .no-caption .assets:has(.asset.card.card-horizontal) .card a img {
     @include breakpoint(large) {
     height: rem-calc(180);
     }
   }
 
-  .asset.card.card-horizontal.card-horizontal-text {
+  .asset.card.card-horizontal a .card-horizontal-text {
     @include breakpoint(large) {
       grid-area: b;
   }
