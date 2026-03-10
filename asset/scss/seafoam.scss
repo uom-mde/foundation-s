@@ -3176,18 +3176,18 @@ grid-template-areas:
 
   .assets:has(.asset.card.card-horizontal) .card a img {
     grid-area: a;
-    height: rem-calc(130);
+    max-height: rem-calc(130);
     @include breakpoint(medium) {
-    height: rem-calc(170);
+    max-height: rem-calc(170);
     }
     @include breakpoint(large) {
-    height: 100%;
+    max-height: 100%;
     }
   }
 
   .no-caption .assets:has(.asset.card.card-horizontal) .card a img {
     @include breakpoint(large) {
-    height: rem-calc(180);
+    max-height: rem-calc(180);
     }
   }
 
