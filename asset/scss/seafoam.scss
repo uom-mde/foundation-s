@@ -3181,7 +3181,7 @@ grid-template-areas:
     max-height: rem-calc(170);
     }
     @include breakpoint(large) {
-    max-height: 100%;
+    max-height: rem-calc(180);
     }
   }
 
