@@ -2794,6 +2794,14 @@ grid-template-areas:
   }
 }
 
+/*Add margin for title for Media Embed block*/
+.separator-center.metadata h2 {
+  margin-top: 1rem;
+  @include breakpoint(medium) {
+    margin-top: 0;
+  }
+}
+
 /*Move location of Learn More button*/ 
 .resourceTextGrid.file-caption-block .block-html p {
   margin-block-end: 7rem;
