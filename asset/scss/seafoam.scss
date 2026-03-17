@@ -515,6 +515,13 @@ button a,
 }
 
 /*Card Styling*/
+.card-divider {
+  padding: 0.5rem 1rem;
+  @include breakpoint(large) {
+    padding: 1rem;
+  }
+}
+
 .card-divider a {
   color: $white;
 }
@@ -3108,7 +3115,6 @@ grid-template-areas:
     color: $black;
   }
   background: $white;
-  padding-bottom: 1rem;
   transition: transform 0.35s ease, box-shadow 0.35s ease;
 }
 
