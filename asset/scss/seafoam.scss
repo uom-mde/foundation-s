@@ -601,7 +601,8 @@ button a,
   p.h4 {
     color: $warning-color;
   }
-  h4 small {
+  h4 small,
+  .h4 small {
       color: $white;
   }
   p.h4 small {
