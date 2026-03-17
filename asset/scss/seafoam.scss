@@ -515,6 +515,13 @@ button a,
 }
 
 /*Card Styling*/
+.card-divider {
+  padding: 0.5rem 1rem;
+  @include breakpoint(large) {
+    padding: 1rem;
+  }
+}
+
 .card-divider a {
   color: $white;
 }
@@ -2794,6 +2801,14 @@ grid-template-areas:
   }
 }
 
+/*Add margin for title for Media Embed block*/
+.separator-center.metadata h2 {
+  margin-top: 1rem;
+  @include breakpoint(medium) {
+    margin-top: 0;
+  }
+}
+
 /*Move location of Learn More button*/ 
 .resourceTextGrid.file-caption-block .block-html p {
   margin-block-end: 7rem;
@@ -3100,7 +3115,6 @@ grid-template-areas:
     color: $black;
   }
   background: $white;
-  padding-bottom: 1rem;
   transition: transform 0.35s ease, box-shadow 0.35s ease;
 }
 
@@ -3163,37 +3177,36 @@ grid-template-areas:
 /* Card horizontal */
 .asset.card.card-horizontal {
   padding-bottom: 0;
+}
+
+.asset.card.card-horizontal a {
+  height: 100%;
   @include breakpoint(large) {
     display: grid;
     grid-template-areas: "a b";
     grid-template-columns: 1fr 1fr; // or whatever ratio you want
+    align-items: center;
   }
 }
 
-  .asset.card.card-horizontal a {
-    @include breakpoint(large) {
-      display: grid;
-      grid-area: a;
-    }
-  }
-
-  .assets:has(.asset.card.card-horizontal) .card img {
-    height: rem-calc(130);
+  .assets:has(.asset.card.card-horizontal) .card a img {
+    grid-area: a;
+    max-height: rem-calc(130);
     @include breakpoint(medium) {
-    height: rem-calc(170);
+    max-height: rem-calc(170);
     }
     @include breakpoint(large) {
-    height: 100%;
+    max-height: rem-calc(180);
     }
   }
 
-  .no-caption .assets:has(.asset.card.card-horizontal) .card img {
+  .no-caption .assets:has(.asset.card.card-horizontal) .card a img {
     @include breakpoint(large) {
-    height: rem-calc(180);
+    max-height: rem-calc(180);
     }
   }
 
-  .asset.card.card-horizontal.card-horizontal-text {
+  .asset.card.card-horizontal a .card-horizontal-text {
     @include breakpoint(large) {
       grid-area: b;
   }
