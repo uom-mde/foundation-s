@@ -103,10 +103,10 @@ $stripOpenSeadragonInlineScript = function (string $html): string {
             <?php endif; ?>
             <?php $date = $item->value("dcterms:date"); ?>
             <?php if ($date): ?>
-                <h2 class="h4 date"><small><?php echo $this->escapeHtml($date); ?></small></h2>
+                <div class="h4 date"><small><?php echo $this->escapeHtml($date); ?></small></div>
             <?php endif; ?>
             <?php if ($location = $item->value('curation:location')): ?>
-                <h2 class="h4 location"><small><?php echo $this->escapeHtml($location); ?></small></h2>
+                <div class="h4 location"><small><?php echo $this->escapeHtml($location); ?></small></div>
             <?php endif; ?>
         </div>
         <?php elseif ($showTitleOption === 'file_name'): ?>

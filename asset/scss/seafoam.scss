@@ -601,7 +601,8 @@ button a,
   p.h4 {
     color: $warning-color;
   }
-  h4 small {
+  h4 small,
+  .h4 small {
       color: $white;
   }
   p.h4 small {
@@ -5152,6 +5153,10 @@ transform: scale(1.01);
 
 .fa-exclamation-triangle::before {
   content: "\f071";
+}
+
+.fa-toggle-on::before {
+  content: "\f205";
 }
 
 
