@@ -71,7 +71,7 @@ $thumbnailType = $block->dataValue('thumbnail_type');
 
                 <?php if ($showTitleOption === 'item_title'): ?>
                     <div class="metadata margin-vertical-1">
-                        <div class="h4 separator-center"><?php echo $item->displayTitle(); ?></h2>
+                        <div class="h4 separator-center"><?php echo $item->displayTitle(); ?></div>
                         <?php if ($alt = $item->value('dcterms:alternative')): ?>
                             <h2 class="h4 italic-font"><small><?php echo $this->escapeHtml($alt); ?></small></h2>
                         <?php endif; ?>
@@ -79,7 +79,7 @@ $thumbnailType = $block->dataValue('thumbnail_type');
 
                 <?php elseif ($showTitleOption === 'file_name'): ?>
                     <div class="metadata margin-vertical-1">
-                        <div class="h4 separator-center"><?php echo $media->displayTitle(); ?></h2>
+                        <div class="h4 separator-center"><?php echo $media->displayTitle(); ?></div>
                     </div>
                 <?php endif; ?>
 
