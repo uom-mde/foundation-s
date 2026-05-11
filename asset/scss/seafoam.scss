@@ -793,6 +793,10 @@ margin: 0 auto;
   line-height: 1.6;
 }
 
+.callout.secondary {
+  background-color: #f9eeff;
+}
+
 /*IIIF Presentation media type*/
 .media-render.iiif_presentation iframe {
   padding: 0;
@@ -3338,7 +3342,7 @@ grid-template-areas:
   }
 }*/ 
 
-/*Ensure title is below media for verticla layouts*/
+/*Ensure title is below media for vertical layouts*/
 .layout-vertical .media-render.html {
   @include breakpoint(medium) {
   padding: 1rem;
