@@ -30,8 +30,12 @@ $thumbnailType = $block->dataValue('thumbnail_type');
                 <div id="placeholder-<?php echo $media->id(); ?>" class="media-render youtube">
                     <div class="ot-warning">   
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><!--!Font Awesome Pro v7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2025 Fonticons, Inc.--><path d="M320 576C178.6 576 64 461.4 64 320C64 178.6 178.6 64 320 64C461.4 64 576 178.6 576 320C576 461.4 461.4 576 320 576zM320 384C302.3 384 288 398.3 288 416C288 433.7 302.3 448 320 448C337.7 448 352 433.7 352 416C352 398.3 337.7 384 320 384zM320 192C301.8 192 287.3 207.5 288.6 225.7L296 329.7C296.9 342.3 307.4 352 319.9 352C332.5 352 342.9 342.3 343.8 329.7L351.2 225.7C352.5 207.5 338.1 192 319.8 192z"/></svg>   
-                            <p>Video cannot be displayed as cookies are not enabled.</p>
-                            <h2 class="button secondary"><a href="#" onclick="OneTrust.ToggleInfoDisplay(); return false;">Visit the Privacy preference centre</a></h2>
+                            <p><?php echo $this->translate('Video cannot be displayed as cookies are not enabled'); ?></p>
+                            <h2 class="button secondary">
+                                <a href="#" onclick="OneTrust.ToggleInfoDisplay(); return false;">
+                                    <?php echo $this->translate('Visit the Privacy preference centre'); ?>
+                                </a>
+                            </h2>
                     </div>
 
                     <!-- Hide warning once C0004 is enabled -->
@@ -66,16 +70,16 @@ $thumbnailType = $block->dataValue('thumbnail_type');
             <div class="block-html medium-padding-horizontal-1 xlarge-padding-horizontal-3">
 
                 <?php if ($showTitleOption === 'item_title'): ?>
-                    <div class="separator-center metadata margin-vertical-1">
-                        <h2 class="h4"><?php echo $item->displayTitle(); ?></h2>
+                    <div class="metadata margin-vertical-1">
+                        <div class="h4 separator-center"><?php echo $item->displayTitle(); ?></div>
                         <?php if ($alt = $item->value('dcterms:alternative')): ?>
                             <h2 class="h4 italic-font"><small><?php echo $this->escapeHtml($alt); ?></small></h2>
                         <?php endif; ?>
                     </div>
 
                 <?php elseif ($showTitleOption === 'file_name'): ?>
-                    <div class="separator-center metadata margin-vertical-1">
-                        <h2 class="h4"><?php echo $media->displayTitle(); ?></h2>
+                    <div class="metadata margin-vertical-1">
+                        <div class="h4 separator-center"><?php echo $media->displayTitle(); ?></div>
                     </div>
                 <?php endif; ?>
 
@@ -86,7 +90,7 @@ $thumbnailType = $block->dataValue('thumbnail_type');
                 <?php endif; ?>
 
                 <div class="learn-more flex-container align-center">
-                    <?php echo $item->link("Learn more", null, ['class' => 'button medium warning hollow']); ?>
+                    <?php echo $item->link($this->translate('Learn more test'), null, ['class' => 'button medium warning hollow']); ?>
                 </div>
 
             </div>

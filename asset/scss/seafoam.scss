@@ -793,6 +793,10 @@ margin: 0 auto;
   line-height: 1.6;
 }
 
+.callout.secondary {
+  background-color: #f9eeff;
+}
+
 /*IIIF Presentation media type*/
 .media-render.iiif_presentation iframe {
   padding: 0;
@@ -1242,6 +1246,10 @@ font-size: rem-calc(16);
 
 .metadata {
   margin: 0 0 0.5rem 0; 
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  min-height: 0;
 }
 
 .metadata h1 a,
@@ -1250,6 +1258,10 @@ font-size: rem-calc(16);
 .metadata h2.h1 a,
 .metadata h2.h2 a {
   font-weight: 400;
+}
+
+.metadata-value {
+  display: block;
 }
 
 /*Resource with Text - Image Cover*/
@@ -2127,7 +2139,7 @@ blockquote:after {
 cite {
   line-height: 2;
   text-align: left;
-  font-size: $global-font-size;
+  font-size: 1.2rem;
 }
 
 .background-colour-1 {
@@ -3330,7 +3342,7 @@ grid-template-areas:
   }
 }*/ 
 
-/*Ensure title is below media for verticla layouts*/
+/*Ensure title is below media for vertical layouts*/
 .layout-vertical .media-render.html {
   @include breakpoint(medium) {
   padding: 1rem;

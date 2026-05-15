@@ -1,0 +1,106 @@
+<?php $escape = $this->plugin('escapeHtml'); ?>
+
+<?php
+$assetCount = count(array_filter($attachments, function ($attachment) {
+    return !empty($attachment['asset']);
+}));
+
+if ($assetCount === 1) {
+    $assetColumn = 'asset-column-1';
+} elseif ($assetCount === 4) {
+    $assetColumn = 'asset-column-4';
+} elseif (in_array($assetCount, [2], true)) {
+    $assetColumn = 'asset-column-2';
+} else {
+    $assetColumn = 'asset-column-3';
+}
+?>
+
+<div class="reveal-on-scroll lazy-fade-in">
+    <div class="assets <?php echo $assetColumn; ?>">
+
+    <?php foreach ($attachments as $attachment): ?>
+        <?php
+        $asset = $attachment['asset'] ?? null;
+        $assetImage = $asset
+            ? $this->thumbnail($asset, 'square', ['class' => 'card-image'])
+            : '';
+
+        $page = $attachment['page'] ?? null;
+        $rawAltLinkTitle = trim($attachment['alt_link_title'] ?? '');
+        $rawCaption = trim($attachment['caption'] ?? '');
+
+        $isExternalUrl = $rawCaption !== ''
+            && filter_var($rawCaption, FILTER_VALIDATE_URL);
+
+        if ($isExternalUrl) {
+            $linkUrl = $rawCaption;
+        } elseif ($page) {
+            $linkUrl = $page->siteUrl();
+        } else {
+            $linkUrl = false;
+        }
+
+        if ($rawAltLinkTitle !== '') {
+            $linkTitle = $rawAltLinkTitle;
+        } elseif ($page) {
+            $linkTitle = $page->title();
+        } else {
+            $linkTitle = '';
+        }
+
+        // Only show caption text when it is not being used as the external URL.
+        $displayCaption = $isExternalUrl ? '' : $rawCaption;
+        ?>
+
+        <div class="asset card card-horizontal">
+
+        <?php if ($linkUrl): ?>
+            <a
+                href="<?php echo $escape($linkUrl); ?>"
+                class="card-link"
+                <?php echo $isExternalUrl ? 'target="_blank" rel="noopener noreferrer"' : ''; ?>
+            >
+                <?php echo $assetImage; ?>
+
+                <div class="card-horizontal-text flex-container align-center">
+                    <?php if ($linkTitle !== ''): ?>
+                        <h2 class="h5 link-title card-divider">
+                            <?php echo $escape($linkTitle); ?>
+                        </h2>
+                    <?php endif; ?>
+
+                    <?php if ($displayCaption !== ''): ?>
+                        <div class="caption card-section">
+                            <?php echo $escape($displayCaption); ?>
+                        </div>
+                    <?php endif; ?>
+                </div>
+            </a>
+
+        <?php else: ?>
+
+            <?php echo $assetImage; ?>
+
+            <div class="card-horizontal-text flex-container align-center">
+                <?php if ($linkTitle !== ''): ?>
+                    <h2 class="h5 link-title card-divider">
+                        <?php echo $escape($linkTitle); ?>
+                    </h2>
+                <?php endif; ?>
+
+                <?php if ($displayCaption !== ''): ?>
+                    <div class="caption card-section">
+                        <?php echo $escape($displayCaption); ?>
+                    </div>
+                <?php endif; ?>
+            </div>
+
+        <?php endif; ?>
+
+        </div>
+
+    <?php endforeach; ?>
+
+    </div>
+</div>
