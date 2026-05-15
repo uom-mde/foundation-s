@@ -32,6 +32,15 @@ $stripOpenSeadragonInlineScript = function (string $html): string {
     return preg_replace('/<script\b[^>]*>.*?<\/script>/is', '', $html);
 };
 
+$markDeferredOpenSeadragon = function (string $html): string {
+    return preg_replace(
+        '/<div\b([^>]*\bclass=("|\')[^"\']*\bopenseadragon\b[^"\']*\2[^>]*)>/i',
+        '<div$1 data-iiif-defer="1">',
+        $html,
+        1
+    );
+};
+
 ?>
 
 <div class="reveal-on-scroll lazy-fade-in">
@@ -70,9 +79,7 @@ $stripOpenSeadragonInlineScript = function (string $html): string {
               $thumbHtml = $this->thumbnail($media, $thumbnailType);
 
               // If IIIF, defer the thumbnail request too (optional, but helps if you have many)
-              if ($isIiif && is_string($thumbHtml)) {
-                  $thumbHtml = $deferEmbedSrc($thumbHtml);
-              }
+              // Leave thumbnails alone unless a separate lazy-loader restores data-src to src.
 
               echo $hyperlink->raw($thumbHtml, $url);
 
@@ -85,6 +92,7 @@ $stripOpenSeadragonInlineScript = function (string $html): string {
 
             if ($isIiif && is_string($renderHtml)) {
                 $renderHtml = $stripOpenSeadragonInlineScript($renderHtml);
+                $renderHtml = $markDeferredOpenSeadragon($renderHtml);
             }
 
             echo $renderHtml;
