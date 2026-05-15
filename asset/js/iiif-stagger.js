@@ -133,7 +133,11 @@
         const el = entry.target;
 
         // Keep OSD behaviour unchanged
-        if (el.classList.contains("openseadragon") && el.dataset.tileSources) {
+        if (
+          el.classList.contains("openseadragon") &&
+          el.dataset.tileSources &&
+          el.dataset.iiifDefer === "1"
+        ) {
           enqueueOpenSeadragon(el);
 
         // Annona: only defer-marked placeholders
@@ -147,7 +151,8 @@
 
     // Observe targets inside each root
     roots.forEach(root => {
-      root.querySelectorAll(".openseadragon[data-tile-sources][id]").forEach(el => io.observe(el));
+      root.querySelectorAll('.openseadragon[data-iiif-defer="1"][data-tile-sources][id]')
+        .forEach(el => io.observe(el));
 
       // Only observe Annona placeholders that are explicitly deferred
       root.querySelectorAll('.annona-defer[data-annona-defer="1"][data-annona-attrs]')
