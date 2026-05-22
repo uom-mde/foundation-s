@@ -142,6 +142,15 @@ $stripOpenSeadragonInlineScript = function (string $html): string {
                     </div>
                 <?php endif; ?>
 
+                <?php
+                    $identifiers = $item->value('dcterms:identifier', ['all' => true]);
+                    if ($identifiers):
+                        foreach ($identifiers as $identifier): ?>
+                            <h2 class="h4 identifier"><small><?php echo $this->escapeHtml($identifier); ?></small></h2>
+                        <?php endforeach;
+                    endif;
+                ?>
+
                 <div class="learn-more flex-container align-center">
                     <?php echo $item->link($this->translate('Learn more'), null, ['class' => 'button medium warning hollow']); ?>
                 </div>
