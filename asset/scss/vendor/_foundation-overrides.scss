@@ -1,3 +1,17 @@
 .accordian-title {
   font-size: $global-font-size;
 }
+
+/*Foundation S Prototype*/ 
+/*Lead*/
+.lead {
+  line-height: 1.6;
+}
+
+.lead {
+  font-size: $lead-font-size;
+  @include breakpoint(small only) {
+    font-size: $global-font-size * 1.05; // Adjust font size directly in the class
+    line-height: $lead-lineheight;
+  }
+}

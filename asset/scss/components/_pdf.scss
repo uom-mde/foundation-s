@@ -31,3 +31,11 @@ height: 60vh!important;
   height: 80vh!important;
 }
 }
+
+/*PDF Embed iFrame*/
+.resp-container iframe {
+  width: 100%;
+  max-width: 100%;
+  height: clamp(400px, 75vh, 800px);
+  height: clamp(400px, 75svh, 800px);
+}

@@ -150,3 +150,30 @@ svg.home-icon:hover {
 .title-bar button {
   margin: rem-calc(0 0 0 5);
 }
+
+.top-bar-left {
+  min-width: rem-calc(175);
+  @include breakpoint(large) {
+    margin-right: 1.5rem;
+  }
+}
+
+.top-bar .top-bar-left {
+  flex-wrap: nowrap;
+  @include breakpoint(large) {
+    flex: 1 1 auto;
+    max-width: (rem-calc(400));
+  }
+}
+
+.top-bar .top-bar-left:has(button.search-icon[aria-expanded="true"]) {
+  flex-flow: row wrap;
+}
+
+nav.top-bar-left {
+  justify-content: space-between;
+  row-gap: $global-margin;
+  @include breakpoint(large) {
+    justify-content: unset;
+  }
+}

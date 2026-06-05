@@ -1,0 +1,102 @@
+/*Additional Search Bar*/
+.search-bar {
+  display: none;
+  @include breakpoint(large) {
+  display: flex;
+  }
+  & svg.active {
+    display: none;
+  }
+}
+
+.search-bar-mobile {
+  display: flex;
+  @include breakpoint(large) {
+  display: none;
+  }
+  & svg.active {
+    display: none;
+  }
+  & svg path {
+    fill: $white;
+  }
+}
+
+.search-bar svg,
+.search-bar-mobile svg {
+  width: 20px;
+  height: 20px;
+}
+
+.search-bar button.search-icon {
+  margin: 0;
+  border-radius: 50px;
+  background: $white;;
+  @include breakpoint(large) {
+    margin: 0 0.5rem;
+  }
+  @include breakpoint(1000px) {
+    margin: 0 1rem;
+  }
+  & svg path {
+    fill: $dark-gray;
+  }
+}
+
+.search-bar-mobile button.search-icon {
+  border-radius: 50px;
+  margin: 0 0.625rem 0 0;
+}
+
+.search-button {
+  display: none;
+  &.is-shown {
+    display: flex;
+  }
+}
+
+button.search-icon[aria-expanded="true"] {
+  background: $medium-gray;
+  opacity: 0.35;
+  margin: 0 (0.5 * $global-margin) 0 $global-margin;
+  & svg.inactive {
+    display: none;
+  }
+  & svg.active {
+    display: flex;
+  }
+  & svg path {
+    fill: $white;
+  }
+}
+
+.input-group-field {
+  height: 100%;
+}
+
+#show-search-menu-mobile .input-group-button button {
+  background: $secondary-color;
+  }
+
+.search-bar-mobile button.search-icon[aria-expanded=true] {
+  background: $primary-color;
+  margin: 0;
+    @include breakpoint(medium) {
+    margin: 0 $global-margin;
+    }
+  }
+  
+#show-search-menu input[type=text]:not(:only-child) {
+  border-radius: 1.25rem 0 0 1.25rem;
+  @include breakpoint(large) {
+  width: 124px;
+  }
+  @include breakpoint(1050px) {
+    width: auto;
+  }
+}
+
+#show-search-menu-mobile input[type=text]:not(:only-child) {
+  width: 100%;
+  border-radius: 1.5rem 0 0 1.5rem;
+}
