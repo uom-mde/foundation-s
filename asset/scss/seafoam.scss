@@ -731,25 +731,6 @@ dd.value a {
   }
 }
 
-/*Light Gallery*/ 
-/*Minimum height*/ 
-#itemfiles {
-  min-height: 40vh !important;
-  @include breakpoint(medium) {
-  min-height: 60vh !important;
-  }
-  @include breakpoint(large) {
-    min-height: 80vh !important;
-  }
-  @include breakpoint(xlarge) {
-    min-height: 90vh !important;
-  }
-}
-/*Disable Item Show Download Button*/ 
-#lg-download-1 {
-  display: none;
-}
-
 /*Increase YouTube embed size for Item Show*/ 
 .resource.show .media-render.youtube>* {
   max-width: unset;
