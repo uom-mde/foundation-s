@@ -11,6 +11,14 @@ $thumbnail-shadow: none;
 $thumbnail-shadow-hover: 0 0 6px 1px rgba($primary-color, 0.5);
 
 @import 'foundation-core';
+
+@import "base/index";
+@import "layout/index";
+@import "components/index";
+@import "blocks/index";
+@import "utilities/index";
+@import "vendor/index";
+
 @import 'omeka';
 
 /*Body*/ 
