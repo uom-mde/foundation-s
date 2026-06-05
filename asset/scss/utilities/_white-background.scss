@@ -1,0 +1,26 @@
+/*Add White Background rules*/ 
+.white-background .asset-hero h1,
+.white-background .image-banner .overlay-container > h1 {
+  padding: 0.5rem;
+  background: rgba($white, .8);
+  color: #000;
+  max-width: rem-calc(400);
+  @include breakpoint(600) {
+    font-size: 2 * $global-font-size;
+  }
+  @include breakpoint(medium) {
+    max-width: rem-calc(500);
+  }
+  @include breakpoint(large) {
+    padding: $global-padding;
+    font-size: 2.5 * $global-font-size;
+  }
+  @include breakpoint(xlarge) {
+    max-width: rem-calc(600);
+  }
+}
+
+.white-background .image-banner .overlay-container > p {
+  color: $white;
+  background-color: rgba($uom-footer, .95);
+}

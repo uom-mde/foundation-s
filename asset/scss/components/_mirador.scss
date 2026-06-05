@@ -1,0 +1,15 @@
+/*Mirador Viewer*/ 
+.mirador {
+  margin: 2 * $global-margin 0!important;
+}
+
+.MuiIconButton-root {
+  @include breakpoint (351 down) {
+      padding: rem-calc(6)!important;
+  }
+}
+
+.mirador-canvas-nav [type=button]:focus {
+  background-color: transparent!important;
+  color: inherit;
+  }

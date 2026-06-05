@@ -1,0 +1,7 @@
+/*Body*/ 
+@media print, screen and (max-width: 37.4988em) {
+  body:not(.browse) #content {
+      padding: 0;
+      margin: 0.5rem;
+  }
+}

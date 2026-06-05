@@ -1,0 +1,15 @@
+/*Remove Nav Breadcrumbs*/
+nav.breadcrumbs {
+  display: none;
+  } 
+
+/*Remove download option from LightGallery*/
+.lg-outer[data-lg-slide-type=iframe] .lg-download, 
+.lg-outer[data-lg-slide-type=video] .lg-download {
+  display: none;
+}
+
+.site-page-pagination {
+  margin-top: 2 * $global-margin;
+  margin-bottom: $global-margin;
+}

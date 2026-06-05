@@ -1,0 +1,35 @@
+/*Progress bar theming*/ 
+/*Progress Bar - Scroll*/
+[hidden] { display: none !important; }
+
+.poem {
+  max-width: 42rem;
+  margin: 0 auto;
+}
+
+.poem__body {
+  line-height: 1.8;
+  font-size: 1.0625rem;
+}
+
+.poem-progress {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  padding: .75rem 1rem;
+  margin: 0 auto 1rem auto;
+  max-width: 42rem;
+  background: rgba(255,255,255,0.92);
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+}
+
+.poem-progress__bar {
+  margin-bottom: 0;
+  height: 6px;
+}
+
+.poem-progress__meta {
+  margin-top: .5rem;
+  font-size: .875rem;
+  opacity: 0.9;
+}

@@ -1,0 +1,13 @@
+/*Universal Viewer*/ 
+.universal-viewer #content {
+  margin: 0!important;
+  padding: 0!important;
+  }
+  
+  .universal-viewer .openseadragon-container {
+  background-color: initial !important;
+  }
+  
+  body:not(.browse) .universal-viewer #content {
+  max-width: 100%!important;
+  }

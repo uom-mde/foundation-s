@@ -1,0 +1,69 @@
+.dark-background {
+  background-color: $uom-footer;
+  color: $white;
+  a {
+      color: $warning-color;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+  a.button {
+      color: $white;
+  }
+  a:focus {
+    color: inherit;
+  }
+  h2 {
+    color: $warning-color;
+  }
+  p.h2 {
+    color: $warning-color;
+  }
+  h2 small {
+      color: $white;
+  }
+  p.h3 {
+    color: $warning-color;
+  }
+  h3 {
+    color: $warning-color;
+  }
+  h3 small {
+      color: $white;
+  }
+  h4 {
+    color: $warning-color;
+  }
+  .h4 {
+    color: $warning-color;
+  }
+  p.h4 {
+    color: $warning-color;
+  }
+  h4 small,
+  .h4 small {
+      color: $white;
+  }
+  p.h4 small {
+    color: $white;
+  }
+  p.h5 {
+    color: $warning-color;
+  }
+  .learn-more .button a {
+    color: $black;
+  }
+  .learn-more h2.button a {
+    color: $black;
+  }
+  .learn-more h2.hollow.button a {
+    color: $warning-color;
+  }
+  .learn-more a.hollow.button.warning {
+    color: $warning-color;
+  }
+  .learn-more a.hollow.button.warning:hover {
+    color: $black;
+    text-decoration: none;
+  }
+}

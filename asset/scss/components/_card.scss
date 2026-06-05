@@ -1,0 +1,11 @@
+/*Card Styling*/
+.card-divider {
+  padding: 0.5rem 1rem;
+  @include breakpoint(large) {
+    padding: 1rem;
+  }
+}
+
+.card-divider a {
+  color: $white;
+}

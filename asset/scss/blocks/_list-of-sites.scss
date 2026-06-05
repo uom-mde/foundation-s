@@ -683,3 +683,15 @@ transform: scale(1.01);
     "home-card-image home-card-image home-card-image home-card-text";
 }
 
+/*Remove padding*/
+.card-section {
+  padding: 0.5 * $global-padding;
+}
+
+.home-card .card-section {
+  padding: 0;
+}
+
+.home-card-text .h4.link-title {
+  margin: rem-calc($global-margin) 0;
+}

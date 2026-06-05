@@ -1,0 +1,14 @@
+.button a:hover {
+  text-decoration: none;
+}
+
+/*Change text colour in buttons*/ 
+a.button.warning,
+a.button.hollow.warning {
+  color: #0a0a0a;
+}
+
+a.button.hollow:hover {
+  color: $white;
+  background-color: $primary-color;
+}

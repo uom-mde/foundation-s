@@ -1,0 +1,120 @@
+/*Annona*/ 
+
+.pageButton {
+  cursor: pointer;
+}
+
+.annonaview .content .attribution, .annonaview .content .authorship, .annonaview .content .tags {
+  font-style: unset;
+  }
+
+button#autorunButton,
+button#infoButton,
+button#tagsButton,
+button#homeButton,
+button#keyboardButton {
+display: none!important;
+}
+
+/*button#overlayButton*/ 
+/*Toggles annotations*/ 
+
+button#info_button.annocontrols_button,
+button#prev_button.annocontrols_button,
+button#next_button.annocontrols_button,
+button#close_button.annocontrols_button,
+button#settings_button.annocontrols_button,
+button#settingsButton.toolbarButton {    
+display: none!important;
+}
+
+#nextButton span.toolbartext {
+  display: none;
+}
+
+/*.annotation {
+overflow: unset!important;
+}*/ 
+
+.authorship {
+display: none;
+}
+
+.commenting {
+  color: #0a0a0a;
+}
+
+.rect:hover {
+  background: gray;
+  opacity: .4;
+}
+
+.overlay>svg>:hover {
+  fill: gray;
+  fill-opacity: .4!important;
+}
+
+polygon>.svgactive:hover {
+  fill: gray;
+  fill-opacity: .4!important;
+}
+
+.annotation {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.annotation>div {
+  padding: 1em;
+  /*font-size: $global-font-size;*/
+  @include breakpoint(800 down) {
+  font-size: unset!important; 
+  }
+  @include breakpoint(801 up) {
+      font-size: 1rem; 
+      }
+}
+
+/*Remove padding from Storyboard Viewer*/ 
+#storyboard_viewer {
+  padding-bottom: 0;
+}
+
+#storyboard_viewer .excerpt {
+  background-color: $white;
+}
+
+/*Removed Storyboard viewer CSS*/ 
+
+#storyboard_viewer button:hover,
+#multistoryboard button:hover {
+  cursor: pointer;
+}
+
+.active.rect {
+  outline: rem-calc(3px) solid #ff0!important;
+  @include breakpoint(medium) {
+  outline: rem-calc(4px) solid #ff0!important;
+  }
+}
+.rect {
+  border: rem-calc(1px) solid #add8e6;
+      @include breakpoint(medium) {
+      border: rem-calc(2px) solid #add8e6;
+  }
+}
+
+.overlay>svg>* {
+  stroke-width: rem-calc(4px);
+}
+
+.defaultview .annotation:not(.right):not(.left):not(.bottom):not(.top):not(.no_toolbar_annotation) {
+  @include breakpoint(600 down) {
+     top: calc(1.6rem + 7px)!important;
+  }
+}
+
+/*Fix issue with range/multi-storyboard*/ 
+.rangestoryboard.annonaview.rangestoryboardview span {
+  width: 100% !important;
+}
