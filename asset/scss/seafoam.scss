@@ -11,14 +11,6 @@ $thumbnail-shadow: none;
 $thumbnail-shadow-hover: 0 0 6px 1px rgba($primary-color, 0.5);
 
 @import 'foundation-core';
-
-@import "base/index";
-@import "layout/index";
-@import "components/index";
-@import "blocks/index";
-@import "utilities/index";
-@import "vendor/index";
-
 @import 'omeka';
 
 /*Body*/ 
@@ -1307,6 +1299,184 @@ font-size: rem-calc(16);
 .item.resource {
   width: 100%;
 }
+
+/*Browse Preview Gallery*/ 
+
+.og-grid > li {
+  @include breakpoint(xlarge) {
+    height: rem-calc(600px)!important;
+    }
+  @include breakpoint(large down) {
+    height: rem-calc(450px)!important;
+    }
+  @include breakpoint(medium down) {
+    height: rem-calc(350px)!important;
+      }
+  @include breakpoint(400 down) {
+    height: rem-calc(300px)!important;
+      }
+  @include breakpoint(390 down) {
+  height: rem-calc(200px)!important;
+  }
+  }
+  
+  #og-grid img.large-img {
+  height: rem-calc(200px);
+  @include breakpoint(400) {
+    height: rem-calc(300px);
+      }
+  @include breakpoint(medium) {
+  height: rem-calc(350px);
+    }
+  @include breakpoint(large) {
+    height: rem-calc(450px);
+    }
+  @include breakpoint(xlarge) {
+    height: rem-calc(600px);
+    }
+  }
+  
+  .og-expander {
+  z-index: 10000;
+  }
+
+.preview-grid .og-grid>li {
+  height: unset!important;
+}
+
+/*Browse Preview CSS Grid*/ 
+.og-grid-cover {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax((rem-calc(270px)), 1fr));
+  gap: rem-calc(12px);
+  line-height: 1.5;
+  }
+
+/*Browse Preview - Masonry*/ 
+.resource-grid-mosaic .resource__thumbnail img {
+  // border-radius: rem-calc(8) rem-calc(8) 0 0 !important;
+  max-height: 100%;
+  object-fit: cover;
+  width: 100%;
+}
+
+  .resource-grid-mosaic .grid-sizer, 
+   .resource-grid-mosaic .resource-masonry {
+    width: 48%;
+    @include breakpoint(776) {
+      width: 32%;
+    }
+  }
+
+.resource-grid-mosaic .resource__thumbnail {
+  line-height: 1;
+  width: 100%;
+}
+
+.resource-grid-mosaic .gutter-sizer {
+    width: rem-calc(8);
+    @include breakpoint(medium) {
+      width: rem-calc(15);
+      }
+}
+
+.resource-grid-mosaic .resource__content {
+  padding: rem-calc(5);
+  @include breakpoint(medium) {
+    padding: rem-calc(8);
+    }
+}
+
+.resource__content a {
+  overflow-wrap: break-word;
+}
+
+/*External Content*/ 
+
+.external-content .left.media.file,
+.external-content .right.media.file
+.external-content .center.media.file {
+  max-width: unset;
+}
+
+.embeds .sketchfab-embed-wrapper iframe {
+  @include breakpoint(xlarge) {
+      width: calc($grid-container * 0.9)!important;
+      height: calc((($grid-container * 0.9) / 16) * 9)!important;
+  }
+  @include breakpoint(large down) {
+      width: 90vw!important;
+      height: 67.5vh!important;
+      max-height: 80vh!important;
+  }
+  @include breakpoint(small down) {
+      width: 90vw!important;
+      height: 50.625vh!important;
+  }
+}
+
+/*Fix Sketchfab and <iframe> views in Item Show page*/
+.stack .media-render.oembed .sketchfab-embed-wrapper iframe {
+    width: 100%!important;
+    height: 50vh;
+  
+  @include breakpoint(medium) {
+    height: 60vh;
+}
+  @include breakpoint(large) {
+    height: 70vh;
+  }
+  @include breakpoint(xlarge) {
+    height: 80vh;
+}
+}
+
+/*Sketchfab Embeds HTML*/ 
+/*Rules for oEmbed Sketchfab Embed - Penicillin Syringe*/
+.media-render .sketchfab-embed-wrapper iframe {
+  height: 30vh!important;
+  width: 90vw!important;
+  }
+  
+  @media screen and (min-width: 600px) {
+  .media-render .sketchfab-embed-wrapper iframe {
+  height: 60vh!important;
+  width: 90vw!important;
+  }
+  }
+  
+  @media screen and (min-width: 900px) {
+  .media-render .sketchfab-embed-wrapper iframe {
+  height: 80vh!important;
+  width: 70vw!important;
+  }
+  }
+  
+  @media screen and (min-width: 1200px) {
+  .media-render .sketchfab-embed-wrapper iframe {
+  width: 80vw!important;
+  }
+  }
+  
+  .media-text .sketchfab-embed-wrapper iframe {
+  width: 50vw!important;
+  height: 500px!important;
+  margin: 0 auto;
+  }
+  
+  @media screen and (max-width: 899px) {
+  .media-text .sketchfab-embed-wrapper iframe {
+  width: 90vw!important;
+  }
+  }
+
+  /*Additional Sketchfab rules*/
+  /*HTML Responsive Embed Fix 24/02/24*/
+.media-render .sketchfab-embed-wrapper iframe {
+  width: 100%!important;
+}
+  
+  /*End rules for oEmbed Sketchfab Embed - HTML*/
 
 .link-text-white a {
   color: $white;
@@ -4021,6 +4191,85 @@ max-width: 28rem;
   padding: 0.5rem 1rem;
 }
 
+/*Asset Media Object*/ 
+.media-object-section {
+  display: flex;
+  flex-direction: column;
+  @include breakpoint(medium) {
+    flex-direction: row;
+  }
+}
+
+.asset.media-object .media-object-section {
+  @include breakpoint(medium) {
+  width: unset;
+  }
+}
+
+.asset.media-object img,
+.media-object-block .asset img {
+  width: 100%;
+  max-width: unset;
+  @include breakpoint(medium) {
+    width: 15rem;
+    max-height: 15rem;
+    object-fit: contain;
+  }
+    @include breakpoint(xlarge) {
+    width: 20rem;
+    max-height: 20rem;
+  }
+}
+
+.asset.media-object img {
+  @include breakpoint(medium) {
+    object-fit: cover;
+  }
+}
+
+.media-object-block .asset img {
+    @include breakpoint(medium) {
+    object-fit: contain;
+  }
+}
+
+.media-object-block .caption {
+  text-align: center;
+}
+
+.asset.media-object.has-image .caption {
+  max-width: unset;
+}
+
+/*Media Object Styling*/ 
+.media-object {
+  flex-direction: column;
+  align-items: center;
+  @include breakpoint(medium) {
+    flex-direction: row;
+  }
+  }
+    
+  .media-object-section:first-child {
+  /*margin-bottom: 2rem;*/ 
+  padding-right: 0;
+  @include breakpoint(medium) {
+    margin-bottom: 0;
+    padding-right: 2rem;
+  }
+  }
+  
+  .media-object img,
+  .media-object-block img {
+    max-width: none;
+    height: 100%;
+  }
+  
+  .media-object .thumbnail,
+  .media-object-block .thumbnail {
+  width: initial;
+  }
+
     /*4.1 styling*/ 
   /*Foundation S Prototype*/ 
 .lead {
@@ -4033,6 +4282,32 @@ max-width: 28rem;
     font-size: $global-font-size * 1.05; // Adjust font size directly in the class
     line-height: $lead-lineheight;
   }
+}
+
+/*Style scrollbar*/ 
+/* width */
+::-webkit-scrollbar {
+  width: rem-calc(11);
+}
+
+/*Apply smaller scrollbar to CORALA*/ 
+.toggle-caption-img ::-webkit-scrollbar {
+  width: rem-calc(6);
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
 
 /*Warning Bar*/
@@ -4822,6 +5097,88 @@ transform: scale(1.01);
   margin-top: .5rem;
   font-size: .875rem;
   opacity: 0.9;
+}
+
+/*Font Awesome Fix*/
+/* Solid icons (fas) */
+
+.fa-magic::before {
+  content: "\f0d0";
+}
+
+.fa-spinner::before {
+  content: "\f110";
+}
+
+.fa-redo::before {
+  content: "\f01e";
+}
+
+.fa-info-circle::before {
+  content: "\f05a";
+}
+
+.fa-toggle-off::before {
+  content: "\f204";
+}
+
+.fa-search-plus::before {
+  content: "\f00e";
+}
+
+.fa-search-minus::before {
+  content: "\f010";
+}
+
+.fa-home::before {
+  content: "\f015";
+}
+
+.fa-arrow-left::before {
+  content: "\f060";
+}
+
+.fa-arrow-right::before {
+  content: "\f061";
+}
+
+.fa-keyboard::before {
+  content: "\f11c";
+}
+
+.fa-cog::before {
+  content: "\f013";
+}
+
+.fa-expand::before {
+  content: "\f065";
+}
+
+.fa-compress::before {
+  content: "\f066";
+}
+
+.fa-times::before {
+  content: "\f00d";
+}
+
+.fa-caret-up::before {
+  content: "\f0d8";
+}
+
+.fa-exclamation-triangle::before {
+  content: "\f071";
+}
+
+.fa-toggle-on::before {
+  content: "\f205";
+}
+
+
+/* Regular icons (far) */
+
+.fa-eye-slash::before {
+  content: "\f070";
 }
 
 /*PDF Embed iFrame*/
