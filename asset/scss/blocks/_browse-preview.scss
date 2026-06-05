@@ -1,6 +1,13 @@
-/*Browse Preview Gallery*/ 
+/*Browse Preview CSS Grid*/ 
+.og-grid-cover {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax((rem-calc(270px)), 1fr));
+  gap: rem-calc(12px);
+  line-height: 1.5;
+  }
 
-.og-grid > li {
+/*Browse Preview Gallery*/ 
+  .og-grid > li {
   @include breakpoint(xlarge) {
     height: rem-calc(600px)!important;
     }
@@ -42,14 +49,6 @@
   height: unset!important;
 }
 
-/*Browse Preview CSS Grid*/ 
-.og-grid-cover {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax((rem-calc(270px)), 1fr));
-  gap: rem-calc(12px);
-  line-height: 1.5;
-  }
-
 /*Browse Preview - Masonry*/ 
 .resource-grid-mosaic .resource__thumbnail img {
   // border-radius: rem-calc(8) rem-calc(8) 0 0 !important;
@@ -58,13 +57,13 @@
   width: 100%;
 }
 
-  .resource-grid-mosaic .grid-sizer, 
-   .resource-grid-mosaic .resource-masonry {
-    width: 48%;
-    @include breakpoint(776) {
-      width: 32%;
-    }
-  }
+.resource-grid-mosaic .grid-sizer, 
+.resource-grid-mosaic .resource-masonry {
+width: 48%;
+@include breakpoint(776) {
+    width: 32%;
+}
+}
 
 .resource-grid-mosaic .resource__thumbnail {
   line-height: 1;
@@ -74,8 +73,8 @@
 .resource-grid-mosaic .gutter-sizer {
     width: rem-calc(8);
     @include breakpoint(medium) {
-      width: rem-calc(15);
-      }
+        width: rem-calc(15);
+    }
 }
 
 .resource-grid-mosaic .resource__content {
