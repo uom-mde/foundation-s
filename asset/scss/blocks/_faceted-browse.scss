@@ -1,0 +1,32 @@
+/*Faceted Browse*/
+#facets label {
+  color: #000;
+  align-items: baseline;
+}
+
+/*Remove padding from Faceted Browse titles*/
+#section-content span.resource-name {
+    padding: unset;
+}
+
+.select-list-item .value:first-child {
+    margin-top: 0;
+}
+  
+  @media print, screen and (min-width: 37.5em) {
+  .subsection-text .h3 {
+      font-size: 1.625rem;
+  }
+}
+
+.faceted-browse-page .resource-list .resource-link img {
+  float: unset;
+  display: block;
+  margin-left: 0;
+  @include breakpoint(450) {
+    float: right;
+    display: inline-block;
+    max-width: rem-calc(250);
+    margin-left: 1rem;
+  }
+}
