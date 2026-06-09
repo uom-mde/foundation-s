@@ -1,0 +1,31 @@
+/*Seadragonbox Styling*/ 
+.seadragonbox {
+  height: 35vh!important;
+}
+.medium .seadragonbox {
+  @include breakpoint(medium) {
+  height: 50vh!important;
+  }
+  @include breakpoint(large) {
+  height: 60vh!important;
+  }
+}
+
+.medium-large .seadragonbox {
+  @include breakpoint(medium) {
+  height: 60vh!important;
+  }
+  @include breakpoint(xlarge) {
+  height: 75vh!important;
+  }
+}
+
+.large .seadragonbox,
+.main-with-sidebar .seadragonbox {
+  @include breakpoint(medium) {
+  height: 75vh!important;
+  }
+  @include breakpoint(large) {
+  height: 90vh!important;
+  }
+}

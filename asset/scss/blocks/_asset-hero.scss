@@ -16,6 +16,15 @@
     height: rem-calc(450px);
     }
     }
+
+  .asset-hero-horizontal h1 {
+    @include breakpoint(medium) {
+      font-size: 2rem;
+  }
+    @include breakpoint(large) {
+    font-size: rem-calc(42);
+  }
+}
   
   .asset-hero-horizontal-img {
     @include breakpoint(medium) {

@@ -1,0 +1,64 @@
+  /*Openseadragon hero 24/02/24*/
+  .openseadragon-hero {
+    height: rem-calc(300);
+    margin-top: -0.5rem;
+    position: relative;
+    @include breakpoint (medium) {
+      height: rem-calc(350);
+      margin-top: -2rem!important;
+    }
+    @include breakpoint (large) {
+      height: rem-calc(400);
+      margin-top: -2rem!important;
+    }
+    @include breakpoint (xlarge) {
+      height: rem-calc(500);
+      margin-top: -2rem!important;
+    }
+    }
+    
+    .openseadragon-hero .hero-title-openseadragon {
+    position: absolute;
+    bottom: 10%;
+    max-width: 28rem;
+    @include breakpoint(medium) {
+      bottom: 20%;
+    }
+    @include breakpoint(large) {
+      bottom: 25%;
+    }
+    }
+    
+    .openseadragon-hero .hero-title-openseadragon  h1 {
+        /*display: inline; */ 
+        background: rgba(255, 255, 255, 0.7);
+        padding: 0.5rem;
+        color: #333333;
+        line-height: 2.75rem;
+        backdrop-filter: blur(5px);
+        @include breakpoint(medium) {
+          font-size: 180%;
+          line-height: 3rem;
+        }
+        @include breakpoint(large) {
+          font-size: 200%;
+          line-height: 3.25rem;
+        }
+        @include breakpoint(xlarge) {
+          font-size: 230%;
+          line-height: 3.5rem;
+        }
+    }
+    
+    .openseadragon-hero-large {
+    height: 70vh!important;
+    @include breakpoint(600) {
+      height: 80vh!important;
+    }
+    }
+
+    .openseadragon-hero picture img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      }

@@ -9,3 +9,211 @@
 .card-divider a {
   color: $white;
 }
+
+  /*Asset Cards*/ 
+  .card img {
+      width: 100%;
+      object-fit: cover;
+    }
+
+/*Card column options*/
+  .card-2-columns .assets.asset-column-2:has(.asset.card),
+  .assets.asset-column-2 {
+    grid-template-columns: repeat(2, 48%);
+    @include breakpoint(large) {
+      gap: 2rem;
+    }
+  }
+
+    .card-3-columns .assets.asset-column-3:has(.asset.card),
+    .assets.asset-column-3 {
+      @include breakpoint(large) {
+        grid-template-columns: repeat(3, 32%);
+        gap: 2rem;
+    }
+  }
+    .card-4-columns .assets.asset-column-4:has(.asset.card) {
+      @include breakpoint(large) {
+        grid-template-columns: repeat(4, 24%);
+        gap: 2rem;
+    }
+  }
+     .card-4-columns .assets:has(.asset.card) .card img,
+     .asset-column-4 .assets:has(.asset.card) .card img {
+      @include breakpoint(large) {
+        height: 13rem;
+    }
+  }
+
+  /*Card hover colour change*/ 
+  //.card a:hover img {
+  //  opacity: 0.5; /* Adjust opacity for blend effect */
+  //  background-color: #6b2c91;
+  //  transition: opacity 0.1s ease;
+  //  z-index: 1;
+//}
+
+//  .card a:hover {
+//  background-color: #6b2c91;
+//  }*/
+
+  .assets:has(.asset.card) .card img {
+    height: 12rem;
+    @include breakpoint(medium) {
+    height: 14rem;
+    }
+    @include breakpoint(xlarge) {
+      height: 16rem;
+      }
+  }
+.assets.asset-column-2:has(.asset.card) {
+  display: grid;
+  grid-auto-flow: row;
+  gap: 1rem;
+  grid-template-columns: repeat(2, 48%);
+  @include breakpoint(xlarge) {
+  gap: 2rem;
+}
+}
+
+.assets.asset-column-3:has(.asset.card) {
+  display: grid;
+  grid-auto-flow: row;
+  gap: 1rem;
+  grid-template-columns: repeat(2, 48%);
+  @include breakpoint(medium) {
+  grid-template-columns: repeat(3, 32%);
+  }
+  @include breakpoint(xlarge) {
+  gap: 2rem;
+  }
+}
+
+.assets.asset-column-4:has(.asset.card) {
+  display: grid;
+  grid-auto-flow: row;
+  gap: 0.5rem;
+  grid-template-columns: repeat(1, 100%);
+    @include breakpoint(420) {
+  gap: 1rem;
+  grid-template-columns: repeat(2, 48%);
+    }
+  @include breakpoint(medium) {
+  gap: 1rem;
+}
+  @include breakpoint(large) {
+  grid-template-columns: repeat(4, 24%);
+  }
+  @include breakpoint(xlarge) {
+  gap: 2rem;
+}
+}
+
+.asset.card,
+.site.card {
+  @include card-container($light-gray, $black, 0, 0, rem-calc(4), rgba(0, 0, 0, 0.35) 0px 5px 15px);
+  width: 100%;
+  & .card-divider {
+    background: $white;
+    margin-bottom: 0;
+  }
+  & .h3 {
+    color: $black;
+  }
+  background: $white;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.asset.card > a,
+.site.card > a {
+  display: block;
+  overflow: hidden;
+}
+
+.asset.card .link-title,
+.site.card .link-title {
+  transition: color 0.3s ease;
+}
+
+.asset.card:hover .link-title,
+.site.card:hover .link-title {
+  color: #333;
+}
+
+.asset.card:hover,
+.site.card:hover  {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+}
+
+.asset.card:hover img,
+.site.card:hover img {
+  transform: scale(1.04);
+  filter: brightness(0.92);
+}
+
+.asset.card img,
+.site.card img {
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: transform 0.6s cubic-bezier(.2,.6,.2,1),
+              filter 0.6s cubic-bezier(.2,.6,.2,1);
+}
+
+.home-card-image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.asset.card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0); /* No color initially */
+  transition: background-color 0.3s ease; /* Smooth transition */
+  pointer-events: none; /* Makes sure only the image is clickable */
+}
+
+/*Card horizontal*/ 
+/* Card horizontal */
+.asset.card.card-horizontal {
+  padding-bottom: 0;
+}
+
+.asset.card.card-horizontal a {
+  height: 100%;
+  @include breakpoint(large) {
+    display: grid;
+    grid-template-areas: "a b";
+    grid-template-columns: 1fr 1fr; // or whatever ratio you want
+    align-items: center;
+  }
+}
+
+  .assets:has(.asset.card.card-horizontal) .card a img {
+    grid-area: a;
+    max-height: rem-calc(130);
+    @include breakpoint(medium) {
+    max-height: rem-calc(170);
+    }
+    @include breakpoint(large) {
+    max-height: rem-calc(180);
+    }
+  }
+
+  .no-caption .assets:has(.asset.card.card-horizontal) .card a img {
+    @include breakpoint(large) {
+    max-height: rem-calc(180);
+    }
+  }
+
+  .asset.card.card-horizontal a .card-horizontal-text {
+    @include breakpoint(large) {
+      grid-area: b;
+  }
+}
