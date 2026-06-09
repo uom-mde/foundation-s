@@ -1,17 +1,17 @@
+/*Accordion*/
 .accordian-title {
   font-size: $global-font-size;
 }
-
-/*Foundation S Prototype*/ 
 /*Lead*/
 .lead {
-  line-height: 1.6;
-}
-
-.lead {
   font-size: $lead-font-size;
+  line-height: 1.6;
   @include breakpoint(small only) {
     font-size: $global-font-size * 1.05; // Adjust font size directly in the class
     line-height: $lead-lineheight;
   }
+}
+
+.callout.secondary {
+  background-color: #f9eeff;
 }

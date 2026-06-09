@@ -33,201 +33,14 @@ $thumbnail-shadow-hover: 0 0 6px 1px rgba($primary-color, 0.5);
 /*Original Omeka S Blocks*/
 //-----------------------------
 
-.file img {
-  max-width: 100%;
-  height: auto;
-  max-height: 60vh;
-  @include breakpoint(medium) {
-    max-height: 70vh;
-  }
-  @include breakpoint(large) {
-    max-height: 80vh;
-  }
-  @include breakpoint(xlarge) {
-    max-height: 90vh;
-  }
-}
-
 /*Coloured backgrounds*/
-.background-colour-primary {
-  background-color: $primary-color;
-  color: $white;
-  a {
-      color: $white;
-  }
-}
-
-.background-colour-secondary {
-  background-color: $secondary-color;
-  color: $white;
-  a {
-      color: $white;
-  }
-}
-
 .background-colour-light-gray {
   background-color: $light-gray;
 }
 
-.background-colour-dark-gray {
-  background-color: $dark-gray;
-  color: $white;
-  a {
-      color: $white;
-  }
-}
-
-/*Caption Toggle Block*/ 
-.toggle-caption-block {
-  max-width: rem-calc(800);
-  margin: 0 auto;
-}
-/*Styling for caption-toggle button*/
-
-/*Ensure caption does not overflow button*/
-.orbit-caption {
-  background-color: rgba(10,10,10, .9); 
-}
-
-.toggle-caption-block .media-render.file {
-  background: $uom-footer;
-}
-
-.toggle-caption {
-  position: relative;
-}
-
-/*Add overflow-y for larger captions*/
-.toggle-caption .orbit-caption {
-  bottom: rem-calc(56);
-  background-color: rgba(10, 10, 10, .9);
-  overflow-y: auto;
-  max-height: 60vh;
-  @include breakpoint(322) {
-    bottom: rem-calc(56);
-  }
-  @include breakpoint(xlarge) {
-    max-height: 90vh;
-  }
-}
-
-.caption-toggle .toggle-caption .button {
-  background-color: $dark-gray; 
-  h2 {
-    color:$white;
-  }
-}
-
-.toggle-caption figcaption {
-  font-size: 0.9rem;
-  font-style: initial;
-  font-weight: 400;
-}
-
-.left.media.toggle-caption-img {
-max-width: rem-calc(600);
-margin: 0 auto;
-}
-
-.toggle-caption-img {
-  width: 100%;
-  position: relative;
-  height: calc(42vh + 59.19px);
-  overflow-y: auto;
-  //@include breakpoint(large) {
-    //height: calc(70vh + 59.19px);
-  //}
-  @include breakpoint(medium) {
-    height: calc(52vh + 59.19px);
-  }
-  @include breakpoint(large) {
-    height: calc(62vh + 59.19px);
-  }
-}
-
-.toggle-caption-img img {
-  height: 40vh;
-  object-fit: cover;
-  object-position: center;
-  width: 100vw;
-  //@include breakpoint(large) {
-    //height: 70vh;
-  //}
-  @include breakpoint(medium) {
-    height: 50vh;
-  }
-  @include breakpoint(large) {
-    height: 60vh;
-  }
-}
-
-.toggle-caption-img .toggle-caption .orbit-caption {
-  max-height: 42vh;
-  @include breakpoint(medium) {
-  max-height: 52vh;
-  }
-  @include breakpoint(large) {
-    max-height: 62vh;
-  }
-}
-
-.toggle-caption-img .media-render {
-  padding: 0;
-}
-
-/*Styling for caption-toggle button*/
-.caption-toggle .toggle-caption .button {
-  background-color: $dark-gray; 
-  h2 {
-    color:$white;
-  }
-}
-
-/*Foundation S Prototype*/ 
-.lead {
-  line-height: 1.6;
-}
-
-.callout.secondary {
-  background-color: #f9eeff;
-}
-
-/*IIIF Presentation media type*/
-.media-render.iiif_presentation iframe {
-  padding: 0;
-  height: rem-calc(500)!important;
-  @include breakpoint(large) {
-    height: 70vh;
-  }
-  @include breakpoint(large) {
-  height: 80vh!important;
-  }
-  @include breakpoint(xlarge) {
-  height: 90vh!important;
-  }
-}
 
 /*BlockPlus Blocks*/
 //--------------------------------
-
-/*Mapping block*/ 
-/*Change mapping view*/
-.mapping-block {
-    padding: 0 1rem;
-}
-
-.mapping-block .mapping-map {
-    height: rem-calc(400)!important;
-    position: relative;
-    outline: none;
-    width: 100%;
-    max-width: rem-calc(1600px);
-    margin: 0 auto;
-    @include breakpoint (medium) {
-      height: 90vh !important
-    }
-}
-
 
 /*Flex-grow*/
 .flex-grow {
@@ -238,78 +51,6 @@ margin: 0 auto;
 .attachments {
   flex-grow: 1;
 }
-
-/*Sensitive content - container*/
-.sensitive-material .large-7 {
-order: 1;
-margin-top: 4 * $global-margin;
-  @include breakpoint(large) {
-  margin-top: initial;
-  order: 0;
-  }
-}
-
-/*Sensitive content - icon and message*/
-.sensitive-content {
-  position: absolute;
-  z-index: 99999;
-  background: #ffffff9c;
-  border-radius: 0.5rem;
-  max-width: 30rem;
-}
-
-i.far.fa-eye-slash.fa-lg {
-color: $dark-gray; 
-margin: 1rem auto 0rem; 
-font-size: 2rem;
-  @include breakpoint(large) {
-    font-size: 3rem;
-  }
-}
-
-#unblur-image {
-background-color: unset!important;
-}
-
-#unblur-image[aria-expanded="false"] .sensitive-content {
-display: none;
-}
-
-/*Sensitive Material Media Embed*/ 
-.sensitive-wrapper {
-  position: relative;
-}
-button.sensitive-overlay {
-  position: absolute;
-  background-color: rgba(255, 254, 255, .8) !important;
-  z-index: 9999;
-  margin-bottom: 0;
-  border-radius: 6px;
-}
-
-button[aria-expanded="true"].sensitive-overlay {
-  display: none;
-}
-
-.sensitive-media {
-  width: 100%;
-}
-
-.sensitive-media .media-render {
-  filter: blur(rem-calc(24));
-}
-
-.sensitive-media.sensitive-media-show .media-render {
-  filter: unset;
-}
-
-p.warning-text {
-font-weight: 400;
-color: $dark-gray;
-font-size: rem-calc(16);
-}
-
-/*End Sensitive Material*/
 
 .text {
   padding: $global-padding 0;
@@ -574,22 +315,6 @@ padding-bottom: 56.25%;
 padding-bottom: 75%;
 }
 
-/*Video*/ 
-/*Centre videos*/
-video {
-  width: 100%;
-  }
-
-.background-colour-1 {
-  background: $warning-color;
-  margin-top: $global-margin;
-  margin-bottom: $global-margin;
-  @include breakpoint(large) {
-      margin-top: 2 * $global-margin;
-      margin-bottom: 2 * $global-margin;
-   }
-}
-
 /*Metadata Browse*/ 
 a.metadata-browse-link {
   display: none;
@@ -627,12 +352,6 @@ a.metadata-browse-link {
 /*Bold fonts*/
 .font-bold {
   font-weight: 600;
-}
-
-.video-wrap {
-  width: 100%;
-  max-width: rem-calc(800)!important;
-  margin: 0 auto!important;
 }
 
 /*Large fonts*/ 
@@ -1021,5 +740,3 @@ max-width: 28rem;
   backdrop-filter: blur(5px);
   padding: 0.5rem 1rem;
 }
-
-    /*4.1 styling*/ 

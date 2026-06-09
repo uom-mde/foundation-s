@@ -1,0 +1,71 @@
+/*Sensitive content - container*/
+.sensitive-material .large-7 {
+order: 1;
+margin-top: 4 * $global-margin;
+  @include breakpoint(large) {
+  margin-top: initial;
+  order: 0;
+  }
+}
+
+/*Sensitive content - icon and message*/
+.sensitive-content {
+  position: absolute;
+  z-index: 99999;
+  background: #ffffff9c;
+  border-radius: 0.5rem;
+  max-width: 30rem;
+}
+
+i.far.fa-eye-slash.fa-lg {
+color: $dark-gray; 
+margin: 1rem auto 0rem; 
+font-size: 2rem;
+  @include breakpoint(large) {
+    font-size: 3rem;
+  }
+}
+
+#unblur-image {
+background-color: unset!important;
+}
+
+#unblur-image[aria-expanded="false"] .sensitive-content {
+display: none;
+}
+
+/*Sensitive Material Media Embed*/ 
+.sensitive-wrapper {
+  position: relative;
+}
+button.sensitive-overlay {
+  position: absolute;
+  background-color: rgba(255, 254, 255, .8) !important;
+  z-index: 9999;
+  margin-bottom: 0;
+  border-radius: 6px;
+}
+
+button[aria-expanded="true"].sensitive-overlay {
+  display: none;
+}
+
+.sensitive-media {
+  width: 100%;
+}
+
+.sensitive-media .media-render {
+  filter: blur(rem-calc(24));
+}
+
+.sensitive-media.sensitive-media-show .media-render {
+  filter: unset;
+}
+
+p.warning-text {
+font-weight: 400;
+color: $dark-gray;
+font-size: rem-calc(16);
+}
+
+/*End Sensitive Material*/
