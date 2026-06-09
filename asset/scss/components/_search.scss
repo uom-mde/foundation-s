@@ -1,0 +1,122 @@
+/*Search Results*/
+.site_pages.results ul li a {
+  color: $secondary-color;
+  text-decoration: underline;
+  }
+
+.resource.show .resource-link img, 
+#linked-resources img, 
+.results 
+.resource-link img {
+    width: 90vw!important;
+    height: 100%!important;
+    @include breakpoint(medium){
+      object-fit: cover;
+      width: rem-calc(300)!important;
+      height: rem-calc(300)!important;
+    }
+}
+
+span.resource-name {
+  margin-top: 0.5 * $global-margin;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0.5 * $global-padding;
+  font-size: 1.1rem;
+}
+
+.results ul {
+  display: grid;
+  gap: 1rem;
+  @include breakpoint(450) {
+    grid-template-columns: 1fr 1fr;
+  }
+  @include breakpoint(750) {
+    grid-template-columns: 1fr 1fr 1fr ;
+  }
+  @include breakpoint(xlarge) {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}
+
+.result-title a,
+.result-site a {
+  padding: 0;
+  font-size: 1rem;
+}
+
+.results .result-site, 
+.results ul ul {
+  padding-left: 0;
+  margin-left: 0;
+}
+
+.item.results ul ul {
+  padding: 0.5 * $global-padding;
+  li {
+    margin-bottom: 0.5 * $global-margin;
+    &:not(:last-child) {
+    border-bottom: solid 1px $light-gray;
+    }
+  }
+}
+
+.item.results .card img {
+  height: 200px;
+}
+
+.results>ul>li {
+  width: unset!important;
+  display: grid;
+  grid-template-rows: max-content;
+  align-items: start;
+  gap: 0.25rem;
+}
+
+.results .resource-link, 
+.resource.show .resource-link {
+  flex-direction: column;
+}
+
+/*Item and site results*/ 
+.results .result-title,
+.results .result-site {
+  padding: 0.5 * $global-padding;
+}
+
+.results>h2 {
+  font-weight: 400;
+}
+
+/*Site results*/ 
+.site.results>a {
+  display: block;
+  font-size: 1rem;
+  margin-top: 0.5rem;
+  padding-left: 0;
+  text-decoration: underline;
+}
+
+.site.results .result-title,
+.item.results .result-title {
+  background: $secondary-color;
+  color: #fff;
+  height: 100%;
+  & a {
+    color: #fff;
+  }
+}
+
+.site.results>ul>li {
+  border: solid 1px #efefef;
+}
+
+/*Item results*/ 
+.item.results>a,
+.item-set.results>a {
+  text-decoration: underline;
+}
+
+.item-set.results>ul {
+  margin-bottom: 1rem;
+}

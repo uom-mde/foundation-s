@@ -12,3 +12,11 @@
     max-height: 90vh;
   }
 }
+
+.media-render.file {
+  display: flex;
+  justify-content: center;
+  @include breakpoint(medium) {
+  padding: $global-padding $global-padding 0 $global-padding;
+  }
+}

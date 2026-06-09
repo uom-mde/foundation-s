@@ -15,3 +15,9 @@
 .callout.secondary {
   background-color: #f9eeff;
 }
+
+/*Stop figcaption overlapping image*/
+.orbit-caption.no-overlay,
+.no-overlay .orbit-caption {
+  position: unset;
+}

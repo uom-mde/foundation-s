@@ -87,3 +87,39 @@ width: 48%;
 .resource__content a {
   overflow-wrap: break-word;
 }  
+
+/*Resource Grid*/ 
+.resource-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  @include breakpoint(401) {
+    grid-template-columns: 1fr 1fr;
+    }
+
+  @include breakpoint(650) {
+  grid-template-columns: 1fr 1fr 1fr;
+  }
+  @include breakpoint(xlarge) {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+}
+
+.resource-grid .resource {
+  width: 100%!important;
+}
+  
+  .thumbnail, 
+  .resource.show .resource-link img, 
+  .media-list img, 
+  .resource .resource-link img {
+    width: 100%;
+    object-fit: cover;
+    height: rem-calc(200);
+    @include breakpoint(medium) {
+    height: rem-calc(250);
+    }
+  }
+
+  .resource-meta .description.full {
+    display: none;
+  }
