@@ -93,7 +93,7 @@ section.image-banner {
   opacity: 1;
 }
 
-/*Add an option to display image alongside text for Image Banner block by applying the .image-banner-horizontal class*/ 
+/*Add an option to display image alongside text for Image Banner block by applying the .full-width and .image-banner-horizontal classes*/ 
 .block-image-banner.image-banner-horizontal .image-banner {
     @include breakpoint (large) {
     display: grid;
