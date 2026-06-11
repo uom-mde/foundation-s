@@ -1,4 +1,9 @@
-/*Progress bar theming*/ 
+/*Underline correct items*/ 
+.block-html > p > a,
+.text-block a:not(.button) {
+  text-decoration: underline;
+} 
+
 /*Progress Bar - Scroll*/
 [hidden] { display: none !important; }
 

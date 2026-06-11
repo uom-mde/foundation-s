@@ -92,8 +92,14 @@ grid-template-areas:
 .no-location .location,
 .no-date .date,
 .no-identifier .identifier,
-.no-separator .separator-center {
+.no-separator .separator-center,
+.no-button .learn-more {
   display: none;
+}
+
+/*Remove max height for large img (multiples) */ 
+.no-max-height .media-embed-block .large:not(:only-child) img {
+    max-height: unset!important;
 }
 
 /*Add wide option*/ 
@@ -374,9 +380,9 @@ grid-template-areas:
   padding-bottom: 1rem;
   }
 
-  /*No Learn More button*/ 
-.no-button .learn-more {
-  display: none;
+/*Fill Button*/ 
+.fill-button .learn-more .hollow {
+  background: $warning-color;
 }
 
 /*Embed media alongside HTML*/ 
@@ -740,4 +746,105 @@ button a,
   @include breakpoint(xlarge) {
   height: 90vh!important;
   }
+}
+
+/*Media Text  Block Styling*/
+.media-text .right {
+  order: 1;
+}
+  
+  /*Full width 'left' and 'right' images for Resource with Text on mobiles*/
+  @media screen and (max-width: 899px) {
+  .media-text .left,
+  .media-text .right {
+  float: unset;
+  margin: 0;
+  width: 100%;
+  }
+ 
+  /*Revise order for 'right' items*/
+  .media-text .right {
+  order: 0;
+  }
+}
+
+/*Resource with Text block*/
+.attachments {
+  flex-grow: 1;
+}
+
+.text {
+  padding: $global-padding 0;
+  @include breakpoint(large) {
+    padding: 0.5 * $global-padding 0;
+  }
+  @include breakpoint(xlarge) {
+    padding: 0.5 * $global-padding $global-padding;
+  }
+}
+
+.resource-text {
+  max-width: rem-calc(850);
+  margin: 0 auto;
+}
+
+.metadata {
+  margin: 0 0 0.5rem 0; 
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  min-height: 0;
+}
+
+.metadata h1 a,
+.metadata h2 a,
+.metadata h2 a,
+.metadata h2.h1 a,
+.metadata h2.h2 a {
+  font-weight: 400;
+}
+
+.metadata-value {
+  display: block;
+}
+
+.link-text-white a {
+  color: $white;
+}
+
+.media-render.iiif {
+  width: 100%;
+}
+
+/*Generic Block Group Code*/ 
+/*For Inclusion*/
+.media-text { 
+  width: 100%;
+  padding: 0;
+ }
+ 
+  /*Remove padding for square thumbnail*/ 
+  .square .media-render {
+    padding: 0;
+  }
+
+  .media.file {
+    width: 100%;
+  }
+
+  /*Centre img for non-iiif material*/ 
+  .media-embed .resource {
+    text-align: center;
+    margin-top: 1rem;
+  }
+
+  /*Width 80vw*/
+.width-80 .attachments.resource-text-openseadragon {
+  min-width: 80vw;
+  max-width: rem-calc(1500);
+}
+
+/*No right click*/ 
+.no-right-click .media-embed {
+  pointer-events: none;
 }

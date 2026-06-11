@@ -1,0 +1,39 @@
+  .flex-1-1-0 {
+    flex: 1 1 0;
+  }
+
+  /*Flex-grow*/
+.flex-grow {
+  flex-grow: 1;
+  }
+
+  .small-only {
+    display: block;
+    @include breakpoint(medium) {
+      display: none;
+    }
+  }
+  .medium-up {
+    display: none;
+    @include breakpoint(medium) {
+      display: block;
+    }
+  }
+  .no-margin-top {
+    margin-top: 0;
+    @include breakpoint(medium) {
+      margin-top:-2 * $global-margin;
+    }
+  }
+
+.margin-0-5 {
+    margin: 0.5 * $global-margin;
+}
+
+.no-margin {
+  margin: unset;
+}
+
+.no-p-margin-bottom p {
+  margin-bottom: 0;
+}

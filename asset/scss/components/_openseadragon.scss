@@ -2,6 +2,16 @@
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
+/*Add dark background to Openseadragon container*/
+.openseadragon-container {
+  background-color: #1c1919!important;
+}
+
+/*Button align for Full Screen Openseadragon Resource Text Block*/ 
+.openseadragon-container img {
+  vertical-align: top!important;
+}
+
 /*Openseadragon macOS fix*/
 .openseadragon-canvas:focus {
   outline: none;

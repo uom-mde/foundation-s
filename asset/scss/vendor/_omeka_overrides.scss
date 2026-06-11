@@ -13,3 +13,35 @@ nav.breadcrumbs {
   margin-top: 2 * $global-margin;
   margin-bottom: $global-margin;
 }
+
+/*Version 4.1 additions*/
+.attachments {
+  width: 100%;
+}
+
+  /*Fix focus dark colour*/ 
+  a:focus {
+    color: $light-gray;
+  }
+
+  /*Breadcrumbs*/
+nav.breadcrumbs {
+  margin-top: -1rem;
+  padding: 1rem 2rem 0 2rem;
+  a {
+      color: #343536;
+      text-decoration: underline;
+  }
+  @include breakpoint(medium) {
+      margin-top: -2rem;
+  }
+}
+
+/*Metadata Browse*/ 
+a.metadata-browse-link {
+  display: none;
+}
+
+.result-site a {
+  position: unset;
+}

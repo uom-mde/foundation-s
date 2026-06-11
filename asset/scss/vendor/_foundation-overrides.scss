@@ -21,3 +21,15 @@
 .no-overlay .orbit-caption {
   position: unset;
 }
+
+a.warning-color,
+p.warning-color,
+h2.warning-color,
+h3.warning-color,
+h4.warning-color {
+  color: $warning-color;
+}
+
+.subheader {
+  color: #4f4f4f;
+}
