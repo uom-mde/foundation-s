@@ -1,32 +1,47 @@
-/*Faceted Browse*/
-#facets label {
-  color: #000;
-  align-items: baseline;
-}
+/* ==========================================================================
+   Faceted Browse
+   ========================================================================== */
 
-/*Remove padding from Faceted Browse titles*/
-#section-content span.resource-name {
-    padding: unset;
-}
-
-.select-list-item .value:first-child {
-    margin-top: 0;
-}
-  
-  @media print, screen and (min-width: 37.5em) {
-  .subsection-text .h3 {
-      font-size: 1.625rem;
+#facets {
+  label {
+    align-items: baseline;
+    color: #000;
   }
 }
 
-.faceted-browse-page .resource-list .resource-link img {
-  float: unset;
-  display: block;
-  margin-left: 0;
-  @include breakpoint(450) {
-    float: right;
-    display: inline-block;
-    max-width: rem-calc(250);
-    margin-left: 1rem;
+#section-content {
+  span.resource-name {
+    padding: unset;
+  }
+}
+
+.select-list-item {
+  .value:first-child {
+    margin-top: 0;
+  }
+}
+
+.subsection-text {
+  .h3 {
+    @include breakpoint(600) {
+      font-size: 1.625rem;
+    }
+  }
+}
+
+.faceted-browse-page {
+  .resource-list {
+    .resource-link img {
+      display: block;
+      float: unset;
+      margin-left: 0;
+
+      @include breakpoint(450) {
+        display: inline-block;
+        float: right;
+        max-width: rem-calc(250);
+        margin-left: 1rem;
+      }
+    }
   }
 }

@@ -1,30 +1,25 @@
-/*Style scrollbar*/ 
-/* width */
+/* ==========================================================================
+   Scrollbar
+   ========================================================================== */
+
 ::-webkit-scrollbar {
   width: rem-calc(11);
 }
 
-/*Apply smaller scrollbar to CORALA*/ 
-.toggle-caption-img ::-webkit-scrollbar {
-  width: rem-calc(6);
-}
-
-/* Track */
 ::-webkit-scrollbar-track {
   background: #f1f1f1;
 }
 
-/* Handle */
 ::-webkit-scrollbar-thumb {
   background: #888;
+
+  &:hover {
+    background: #555;
+  }
 }
 
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: #555;
-}
+/* Smaller scrollbar for CORALA */
 
-/*Remove Scroll Bar*/
-html, body {
-  overflow-x: clip;
+.toggle-caption-img ::-webkit-scrollbar {
+  width: rem-calc(6);
 }

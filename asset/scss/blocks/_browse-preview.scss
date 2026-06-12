@@ -1,125 +1,152 @@
-/*Browse Preview CSS Grid*/ 
+/* ==========================================================================
+   Browse preview
+   ========================================================================== */
+
+/* Browse preview: CSS grid */
+
 .og-grid-cover {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax((rem-calc(270px)), 1fr));
-  gap: rem-calc(12px);
+  grid-template-columns: repeat(auto-fit, minmax(rem-calc(270), 1fr));
+  gap: rem-calc(12);
   line-height: 1.5;
+}
+
+/* Browse preview: gallery */
+
+.og-grid > li {
+  @include breakpoint(xlarge) {
+    height: rem-calc(600) !important;
   }
 
-/*Browse Preview Gallery*/ 
-  .og-grid > li {
-  @include breakpoint(xlarge) {
-    height: rem-calc(600px)!important;
-    }
   @include breakpoint(large down) {
-    height: rem-calc(450px)!important;
-    }
+    height: rem-calc(450) !important;
+  }
+
   @include breakpoint(medium down) {
-    height: rem-calc(350px)!important;
-      }
+    height: rem-calc(350) !important;
+  }
+
   @include breakpoint(400 down) {
-    height: rem-calc(300px)!important;
-      }
+    height: rem-calc(300) !important;
+  }
+
   @include breakpoint(390 down) {
-  height: rem-calc(200px)!important;
+    height: rem-calc(200) !important;
   }
-  }
-  
-  #og-grid img.large-img {
-  height: rem-calc(200px);
+}
+
+#og-grid img.large-img {
+  height: rem-calc(200);
+
   @include breakpoint(400) {
-    height: rem-calc(300px);
-      }
+    height: rem-calc(300);
+  }
+
   @include breakpoint(medium) {
-  height: rem-calc(350px);
-    }
+    height: rem-calc(350);
+  }
+
   @include breakpoint(large) {
-    height: rem-calc(450px);
-    }
+    height: rem-calc(450);
+  }
+
   @include breakpoint(xlarge) {
-    height: rem-calc(600px);
-    }
+    height: rem-calc(600);
   }
-  
-  .og-expander {
+}
+
+.og-expander {
   z-index: 10000;
+}
+
+.preview-grid {
+  .og-grid > li {
+    height: unset !important;
+  }
+}
+
+/* Browse preview: masonry */
+
+.resource-grid-mosaic {
+  .resource__thumbnail {
+    width: 100%;
+    line-height: 1;
+
+    img {
+      width: 100%;
+      max-height: 100%;
+      object-fit: cover;
+    }
   }
 
-.preview-grid .og-grid>li {
-  height: unset!important;
-}
+  .grid-sizer,
+  .resource-masonry {
+    width: 48%;
 
-/*Browse Preview - Masonry*/ 
-.resource-grid-mosaic .resource__thumbnail img {
-  // border-radius: rem-calc(8) rem-calc(8) 0 0 !important;
-  max-height: 100%;
-  object-fit: cover;
-  width: 100%;
-}
+    @include breakpoint(776) {
+      width: 32%;
+    }
+  }
 
-.resource-grid-mosaic .grid-sizer, 
-.resource-grid-mosaic .resource-masonry {
-width: 48%;
-@include breakpoint(776) {
-    width: 32%;
-}
-}
-
-.resource-grid-mosaic .resource__thumbnail {
-  line-height: 1;
-  width: 100%;
-}
-
-.resource-grid-mosaic .gutter-sizer {
+  .gutter-sizer {
     width: rem-calc(8);
-    @include breakpoint(medium) {
-        width: rem-calc(15);
-    }
-}
 
-.resource-grid-mosaic .resource__content {
-  padding: rem-calc(5);
-  @include breakpoint(medium) {
-    padding: rem-calc(8);
+    @include breakpoint(medium) {
+      width: rem-calc(15);
     }
+  }
+
+  .resource__content {
+    padding: rem-calc(5);
+
+    @include breakpoint(medium) {
+      padding: rem-calc(8);
+    }
+  }
 }
 
 .resource__content a {
   overflow-wrap: break-word;
-}  
+}
 
-/*Resource Grid*/ 
+/* Resource grid */
+
 .resource-grid {
   display: grid;
   grid-template-columns: 1fr;
+
   @include breakpoint(401) {
-    grid-template-columns: 1fr 1fr;
-    }
+    grid-template-columns: repeat(2, 1fr);
+  }
 
   @include breakpoint(650) {
-  grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: repeat(3, 1fr);
   }
+
   @include breakpoint(xlarge) {
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    }
-}
-
-.resource-grid .resource {
-  width: 100%!important;
-}
-  
-  .thumbnail, 
-  .resource.show .resource-link img, 
-  .media-list img, 
-  .resource .resource-link img {
-    width: 100%;
-    object-fit: cover;
-    height: rem-calc(200);
-    @include breakpoint(medium) {
-    height: rem-calc(250);
-    }
+    grid-template-columns: repeat(4, 1fr);
   }
 
-  .resource-meta .description.full {
+  .resource {
+    width: 100% !important;
+  }
+}
+
+.thumbnail,
+.resource.show .resource-link img,
+.media-list img,
+.resource .resource-link img {
+  width: 100%;
+  height: rem-calc(200);
+  object-fit: cover;
+
+  @include breakpoint(medium) {
+    height: rem-calc(250);
+  }
+}
+
+.resource-meta {
+  .description.full {
     display: none;
   }
+}

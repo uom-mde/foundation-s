@@ -1,166 +1,175 @@
-/*Image Banner Block Code*/
-
-
-/*Add dark text option for Image Banner*/ 
-.image-banner-dark-text .image-banner .overlay-container > h1,
-.image-banner-dark-text .image-banner .overlay-container > p {
-  background: #ffffffba;
-  color: #000;
-  padding: 1rem;
-  width: fit-content;
-}
-
-.image-banner-dark-text .image-banner .overlay-container > p {
-  padding: 0.5rem;
-  margin-block: 0;
-  opacity: 0.9;
-}
+/* ==========================================================================
+   Image Banner block
+   ========================================================================== */
 
 section.image-banner {
   margin-top: -1 * $global-margin;
+
   @include breakpoint(medium) {
     margin-top: -2 * $global-margin;
   }
 }
 
-.image-banner .image-container img {
-  /*max-width: 1400px;*/
-  max-width: unset;
-}
+.image-banner {
+  .image-container {
+    img {
+      max-width: unset;
+    }
 
-.image-banner .image-container::after {
-  opacity: 0.2;
-}
+    &::after {
+      opacity: 0.2;
+    }
+  }
 
-.image-banner .overlay-container {
- min-height: unset!important;
- height: rem-calc(275px);
- @include breakpoint(medium) {
-  height: rem-calc(325px);
- }
-  @include breakpoint(large) {
-  height: rem-calc(350px);
- }
-  @include breakpoint(xlarge) {
-  height: rem-calc(400px);
- }
-}
+  .overlay-container {
+    height: rem-calc(275);
+    min-height: unset !important;
 
-.image-banner .overlay-container h1,
-.image-banner .overlay-container h2 {
-  background: $uom-footer;
-  width: fit-content;
-  padding: 1rem;
-  font-weight: 400!important;
-  margin-bottom: 0;
-  @include breakpoint(large) {
-    font-size: rem-calc(42);
+    @include breakpoint(medium) {
+      height: rem-calc(325);
+    }
+
+    @include breakpoint(large) {
+      height: rem-calc(350);
+    }
+
+    @include breakpoint(xlarge) {
+      height: rem-calc(400);
+    }
+
+    h1,
+    h2 {
+      width: fit-content;
+      margin-bottom: 0;
+      padding: 1rem;
+      font-weight: 400 !important;
+      background: $uom-footer;
+
+      @include breakpoint(large) {
+        font-size: rem-calc(42);
+      }
+    }
+
+    > p {
+      width: fit-content;
+      margin-block: 0 !important;
+      color: $black;
+      font-size: 1rem;
+
+      @include breakpoint(medium) {
+        font-size: 1.5rem;
+      }
+    }
+  }
+
+  &.tint-light {
+    .image-container::after {
+      background-color: transparent !important;
+    }
+
+    .overlay-container > h1,
+    .overlay-container > h2,
+    .overlay-container > p {
+      padding: 0.5rem;
+      background: rgba(255, 255, 255, 0.7) !important;
+      opacity: unset;
+      backdrop-filter: blur(rem-calc(3));
+    }
+  }
+
+  &.tint-dark {
+    .overlay-container > h1,
+    .overlay-container > h2,
+    .overlay-container > p {
+      color: $white;
+    }
+
+    .overlay-container > p {
+      padding: 0.5 * $global-padding $global-padding;
+      background: #1d1d1d;
+      opacity: 1;
+    }
   }
 }
 
-.image-banner .overlay-container > p {
-  margin-block: 0!important;
-  color: $black;
-  font-size: 1rem;
-  width: fit-content;
-  @include breakpoint(medium) {
-    font-size: 1.5rem;
+/* Dark text option */
+
+.image-banner-dark-text {
+  .image-banner {
+    .overlay-container {
+      > h1,
+      > p {
+        width: fit-content;
+        padding: 1rem;
+        color: #000;
+        background: #ffffffba;
+      }
+
+      > p {
+        margin-block: 0;
+        padding: 0.5rem;
+        opacity: 0.9;
+      }
+    }
   }
 }
 
-.image-banner.tint-light .overlay-container > h1,
-.image-banner.tint-light .overlay-container > h2,
-.image-banner.tint-light .overlay-container > p {
-  opacity: unset;
-  background: rgba(255, 255, 255, .7)!important;
-  padding: 0.5rem;
-  backdrop-filter: blur(rem-calc(3px));
-}
+/* ==========================================================================
+   Image Banner block: horizontal variant
+   ========================================================================== */
 
-.image-banner.tint-light .image-container::after {
-  background-color: transparent!important;
-}
+.block-image-banner.image-banner-horizontal {
+  .image-banner {
+    @include breakpoint(large) {
+      display: grid;
+      grid-template-columns: 7fr 4fr;
+      align-items: stretch;
+      height: 30rem;
+    }
+  }
 
-.image-banner.tint-dark .overlay-container > h1,
-.image-banner.tint-dark .overlay-container > h2,
-.image-banner.tint-dark .overlay-container > p {
-  color: $white;
-}
+  .image-container,
+  .overlay-container {
+    @include breakpoint(large) {
+      width: 100%;
+    }
+  }
 
-.image-banner.tint-dark .overlay-container > p {
-  background: #1d1d1d;
-  padding: 0.5 * $global-padding $global-padding;
-  opacity: 1;
-}
+  .image-container {
+    @include breakpoint(large) {
+      position: relative;
+      overflow: hidden;
+    }
 
-/*Add an option to display image alongside text for Image Banner block by applying the .image-banner-horizontal class*/ 
-.block-image-banner.image-banner-horizontal .image-banner {
-    @include breakpoint (large) {
-    display: grid;
-    align-items: stretch;
-    height: 30rem;
-    grid-template-columns: 7fr 4fr; 
-    height: 30rem;
+    img {
+      @include breakpoint(large) {
+        position: static;
+        display: block;
+        width: 100%;
+        max-width: none;
+        height: 100%;
+        margin-left: 0;
+        object-fit: cover;
+        object-position: center;
+        transform: none;
+      }
+    }
+
+    &::after {
+      @include breakpoint(large) {
+        width: 100%;
+        margin-left: 0;
+        transform: none;
+      }
+    }
+  }
+
+  .overlay-container {
+    @include breakpoint(large) {
+      display: grid;
+      height: unset;
+      align-content: center;
+      justify-content: center;
+    }
   }
 }
-
-/* Ensure children fill their grid areas */
-.block-image-banner.image-banner-horizontal .image-container,
-.block-image-banner.image-banner-horizontal .overlay-container {
-  @include breakpoint (large) {
-  width: 100%;
-  }
-}
-
-/* Optional: ensure image fills its column */
-.block-image-banner.image-banner-horizontal .image-container img {
-  @include breakpoint (large) {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  }
-}
-
-/*Revisions*/
-/* Horizontal variant: image should stay inside its grid column */
-.block-image-banner.image-banner-horizontal .image-container {
-  @include breakpoint (large) {
-  position: relative;   /* create containing block */
-  overflow: hidden;     /* hide any bleed */
-  }
-}
-
-.block-image-banner.image-banner-horizontal .image-container img {
-  @include breakpoint (large) {
-  position: static;     /* undo position:absolute */
-  width: 100%;          /* use the column width */
-  height: 100%;
-  max-width: none;      /* keep your existing intent */
-  margin-left: 0;       /* undo 50% */
-  transform: none;      /* undo translateX */
-  object-fit: cover;
-  object-position: center;
-  display: block;       /* avoid inline gap */
-  }
-}
-
-/* If you use the ::after overlay, keep it inside the column too */
-.block-image-banner.image-banner-horizontal .image-container::after {
-  @include breakpoint (large) {
-  width: 100%;
-  margin-left: 0;
-  transform: none;
-  }
-}
-
-.image-banner-horizontal .image-banner .overlay-container {
-  @include breakpoint (large) {
-display: unset;
-height: unset;
-display: grid;
-align-content: center;
-justify-content: center;
-/*justify-items: end;*/
-  }
-}
-/*End Image Banner horizontal code*/
