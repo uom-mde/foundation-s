@@ -1,17 +1,20 @@
-/*Mapping block*/ 
-/*Change mapping view*/
-.mapping-block {
-    padding: 0 1rem;
-}
+/* ==========================================================================
+   Mapping block
+   ========================================================================== */
 
-.mapping-block .mapping-map {
-    height: rem-calc(400)!important;
+.mapping-block {
+  padding: 0 1rem;
+
+  .mapping-map {
     position: relative;
-    outline: none;
     width: 100%;
-    max-width: rem-calc(1600px);
+    max-width: rem-calc(1600);
+    height: rem-calc(400) !important;
     margin: 0 auto;
-    @include breakpoint (medium) {
-      height: 90vh !important
+    outline: none;
+
+    @include breakpoint(medium) {
+      height: 90vh !important;
     }
+  }
 }
