@@ -1,21 +1,25 @@
-/*Responsive Embed*/ 
-.responsive-embed.aspect16_9, 
+/* ==========================================================================
+   Responsive Embed
+   ========================================================================== */
+
+.responsive-embed.aspect16_9,
 .flex-video.aspect16_9 {
-padding-bottom: 56.25%;
+  padding-bottom: 56.25%;
 }
 
-.responsive-embed.aspect4_3, 
+.responsive-embed.aspect4_3,
 .flex-video.aspect4_3 {
-padding-bottom: 75%;
+  padding-bottom: 75%;
 }
 
-/*Centre videos*/
+/* Video */
+
 video {
   width: 100%;
-  }
+}
 
 .video-wrap {
   width: 100%;
-  max-width: rem-calc(800)!important;
-  margin: 0 auto!important;
+  max-width: rem-calc(800) !important;
+  margin: 0 auto !important;
 }

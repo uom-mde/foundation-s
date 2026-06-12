@@ -1,41 +1,59 @@
-/*PDF Viewer*/ 
+/* ==========================================================================
+   PDF Viewer
+   ========================================================================== */
+
+/* PDF.js containers */
+
 #pdf-container,
 #pdfjs-container,
 .pdfjs-embed,
-.pdfjs-embed iframe  {
-height: 60vh!important;
-@include breakpoint(medium) {
-  height: 65vh!important;
-}
-@include breakpoint(large) {
-  height: 75vh!important;
-}
-@include breakpoint(xlarge) {
-  height: 80vh!important;
-}
+.pdfjs-embed iframe {
+  height: 60vh !important;
+
+  @include breakpoint(medium) {
+    height: 65vh !important;
+  }
+
+  @include breakpoint(large) {
+    height: 75vh !important;
+  }
+
+  @include breakpoint(xlarge) {
+    height: 80vh !important;
+  }
 }
 
-.medium-large #pdf-container,
-.medium-large #pdfjs-container {
-@include breakpoint(large) {
-  height: 70vh!important;
-}
+/* Size variants */
+
+.medium-large {
+  #pdf-container,
+  #pdfjs-container {
+    @include breakpoint(large) {
+      height: 70vh !important;
+    }
+  }
 }
 
-.large #pdf-container,
-.large #pdfjs-container {
-@include breakpoint(large) {
-  height: 75vh!important;
-}
-@include breakpoint(xlarge) {
-  height: 80vh!important;
-}
+.large {
+  #pdf-container,
+  #pdfjs-container {
+    @include breakpoint(large) {
+      height: 75vh !important;
+    }
+
+    @include breakpoint(xlarge) {
+      height: 80vh !important;
+    }
+  }
 }
 
-/*PDF Embed iFrame*/
-.resp-container iframe {
-  width: 100%;
-  max-width: 100%;
-  height: clamp(400px, 75vh, 800px);
-  height: clamp(400px, 75svh, 800px);
+/* PDF embed iframe */
+
+.resp-container {
+  iframe {
+    width: 100%;
+    max-width: 100%;
+    height: clamp(400px, 75vh, 800px);
+    height: clamp(400px, 75svh, 800px);
+  }
 }

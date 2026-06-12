@@ -8,7 +8,7 @@
 }
 
 .poem__body {
-  font-size: 1.0625rem;
+  font-size: rem-calc(17);
   line-height: 1.8;
 }
 
@@ -20,16 +20,16 @@
   margin: 0 auto 1rem;
   padding: 0.75rem 1rem;
   background: rgba(255, 255, 255, 0.92);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  border-bottom: rem-calc(1) solid rgba(0, 0, 0, 0.08);
 }
 
 .poem-progress__bar {
-  height: 6px;
+  height: rem-calc(6);
   margin-bottom: 0;
 }
 
 .poem-progress__meta {
   margin-top: 0.5rem;
-  font-size: 0.875rem;
+  font-size: rem-calc(14);
   opacity: 0.9;
 }

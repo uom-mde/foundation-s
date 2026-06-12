@@ -1,219 +1,214 @@
-/*Card Styling*/
+/* ==========================================================================
+   Cards
+   ========================================================================== */
+
 .card-divider {
   padding: 0.5rem 1rem;
+
   @include breakpoint(large) {
     padding: 1rem;
   }
-}
 
-.card-divider a {
-  color: $white;
-}
-
-  /*Asset Cards*/ 
-  .card img {
-      width: 100%;
-      object-fit: cover;
-    }
-
-/*Card column options*/
-  .card-2-columns .assets.asset-column-2:has(.asset.card),
-  .assets.asset-column-2 {
-    grid-template-columns: repeat(2, 48%);
-    @include breakpoint(large) {
-      gap: 2rem;
-    }
-  }
-
-    .card-3-columns .assets.asset-column-3:has(.asset.card),
-    .assets.asset-column-3 {
-      @include breakpoint(large) {
-        grid-template-columns: repeat(3, 32%);
-        gap: 2rem;
-    }
-  }
-    .card-4-columns .assets.asset-column-4:has(.asset.card) {
-      @include breakpoint(large) {
-        grid-template-columns: repeat(4, 24%);
-        gap: 2rem;
-    }
-  }
-     .card-4-columns .assets:has(.asset.card) .card img,
-     .asset-column-4 .assets:has(.asset.card) .card img {
-      @include breakpoint(large) {
-        height: 13rem;
-    }
-  }
-
-  /*Card hover colour change*/ 
-  //.card a:hover img {
-  //  opacity: 0.5; /* Adjust opacity for blend effect */
-  //  background-color: #6b2c91;
-  //  transition: opacity 0.1s ease;
-  //  z-index: 1;
-//}
-
-//  .card a:hover {
-//  background-color: #6b2c91;
-//  }*/
-
-  .assets:has(.asset.card) .card img {
-    height: 12rem;
-    @include breakpoint(medium) {
-    height: 14rem;
-    }
-    @include breakpoint(xlarge) {
-      height: 16rem;
-      }
-  }
-.assets.asset-column-2:has(.asset.card) {
-  display: grid;
-  grid-auto-flow: row;
-  gap: 1rem;
-  grid-template-columns: repeat(2, 48%);
-  @include breakpoint(xlarge) {
-  gap: 2rem;
-}
-}
-
-.assets.asset-column-3:has(.asset.card) {
-  display: grid;
-  grid-auto-flow: row;
-  gap: 1rem;
-  grid-template-columns: repeat(2, 48%);
-  @include breakpoint(medium) {
-  grid-template-columns: repeat(3, 32%);
-  }
-  @include breakpoint(xlarge) {
-  gap: 2rem;
+  a {
+    color: $white;
   }
 }
 
-.assets.asset-column-4:has(.asset.card) {
-  display: grid;
-  grid-auto-flow: row;
-  gap: 0.5rem;
-  grid-template-columns: repeat(1, 100%);
-    @include breakpoint(420) {
-  gap: 1rem;
-  grid-template-columns: repeat(2, 48%);
-    }
-  @include breakpoint(medium) {
-  gap: 1rem;
-}
-  @include breakpoint(large) {
-  grid-template-columns: repeat(4, 24%);
+.card {
+  img {
+    width: 100%;
+    object-fit: cover;
   }
-  @include breakpoint(xlarge) {
-  gap: 2rem;
 }
-}
+
+/* Asset and site cards */
 
 .asset.card,
 .site.card {
-  @include card-container($light-gray, $black, 0, 0, rem-calc(4), rgba(0, 0, 0, 0.35) 0px 5px 15px);
+  @include card-container(
+    $light-gray,
+    $black,
+    0,
+    0,
+    rem-calc(4),
+    rgba(0, 0, 0, 0.35) 0 5px 15px
+  );
+
   width: 100%;
-  & .card-divider {
-    background: $white;
-    margin-bottom: 0;
-  }
-  & .h3 {
-    color: $black;
-  }
   background: $white;
   transition: transform 0.35s ease, box-shadow 0.35s ease;
+
+  > a {
+    display: block;
+    overflow: hidden;
+  }
+
+  .card-divider {
+    margin-bottom: 0;
+    background: $white;
+  }
+
+  .h3 {
+    color: $black;
+  }
+
+  .link-title {
+    transition: color 0.3s ease;
+  }
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+    transition:
+      transform 0.6s cubic-bezier(0.2, 0.6, 0.2, 1),
+      filter 0.6s cubic-bezier(0.2, 0.6, 0.2, 1);
+  }
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+
+    .link-title {
+      color: #333;
+    }
+
+    img {
+      filter: brightness(0.92);
+      transform: scale(1.04);
+    }
+  }
 }
 
-.asset.card > a,
-.site.card > a {
-  display: block;
-  overflow: hidden;
+.asset.card {
+  &::before {
+    position: absolute;
+    inset: 0;
+    content: "";
+    pointer-events: none;
+    background-color: rgba(0, 0, 0, 0);
+    transition: background-color 0.3s ease;
+  }
 }
 
-.asset.card .link-title,
-.site.card .link-title {
-  transition: color 0.3s ease;
+/* Card column options */
+
+.assets:has(.asset.card) {
+  .card img {
+    height: 12rem;
+
+    @include breakpoint(medium) {
+      height: 14rem;
+    }
+
+    @include breakpoint(xlarge) {
+      height: 16rem;
+    }
+  }
 }
 
-.asset.card:hover .link-title,
-.site.card:hover .link-title {
-  color: #333;
+.assets.asset-column-2:has(.asset.card),
+.card-2-columns .assets.asset-column-2:has(.asset.card),
+.assets.asset-column-2 {
+  display: grid;
+  grid-auto-flow: row;
+  grid-template-columns: repeat(2, 48%);
+  gap: 1rem;
+
+  @include breakpoint(large) {
+    gap: 2rem;
+  }
 }
 
-.asset.card:hover,
-.site.card:hover  {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+.assets.asset-column-3:has(.asset.card),
+.card-3-columns .assets.asset-column-3:has(.asset.card),
+.assets.asset-column-3 {
+  display: grid;
+  grid-auto-flow: row;
+  grid-template-columns: repeat(2, 48%);
+  gap: 1rem;
+
+  @include breakpoint(medium) {
+    grid-template-columns: repeat(3, 32%);
+  }
+
+  @include breakpoint(xlarge) {
+    gap: 2rem;
+  }
 }
 
-.asset.card:hover img,
-.site.card:hover img {
-  transform: scale(1.04);
-  filter: brightness(0.92);
+.assets.asset-column-4:has(.asset.card),
+.card-4-columns .assets.asset-column-4:has(.asset.card) {
+  display: grid;
+  grid-auto-flow: row;
+  grid-template-columns: 1fr;
+  gap: 0.5rem;
+
+  @include breakpoint(420) {
+    grid-template-columns: repeat(2, 48%);
+    gap: 1rem;
+  }
+
+  @include breakpoint(large) {
+    grid-template-columns: repeat(4, 24%);
+  }
+
+  @include breakpoint(xlarge) {
+    gap: 2rem;
+  }
 }
 
-.asset.card img,
-.site.card img {
-  display: block;
-  width: 100%;
-  height: auto;
-  transition: transform 0.6s cubic-bezier(.2,.6,.2,1),
-              filter 0.6s cubic-bezier(.2,.6,.2,1);
+.card-4-columns .assets:has(.asset.card) .card img,
+.asset-column-4 .assets:has(.asset.card) .card img {
+  @include breakpoint(large) {
+    height: 13rem;
+  }
 }
 
-.home-card-image {
-  display: block;
-  width: 100%;
-  height: auto;
-}
+/* Horizontal cards */
 
-.asset.card::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0); /* No color initially */
-  transition: background-color 0.3s ease; /* Smooth transition */
-  pointer-events: none; /* Makes sure only the image is clickable */
-}
-
-/*Card horizontal*/ 
-/* Card horizontal */
 .asset.card.card-horizontal {
   padding-bottom: 0;
-}
 
-.asset.card.card-horizontal a {
-  height: 100%;
-  @include breakpoint(large) {
-    display: grid;
-    grid-template-areas: "a b";
-    grid-template-columns: 1fr 1fr; // or whatever ratio you want
-    align-items: center;
+  a {
+    height: 100%;
+
+    @include breakpoint(large) {
+      display: grid;
+      grid-template-areas: "a b";
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+    }
+
+    .card-horizontal-text {
+      @include breakpoint(large) {
+        grid-area: b;
+      }
+    }
   }
 }
 
-  .assets:has(.asset.card.card-horizontal) .card a img {
+.assets:has(.asset.card.card-horizontal) {
+  .card a img {
     grid-area: a;
     max-height: rem-calc(130);
+
     @include breakpoint(medium) {
-    max-height: rem-calc(170);
+      max-height: rem-calc(170);
     }
+
     @include breakpoint(large) {
-    max-height: rem-calc(180);
+      max-height: rem-calc(180);
     }
   }
+}
 
-  .no-caption .assets:has(.asset.card.card-horizontal) .card a img {
-    @include breakpoint(large) {
-    max-height: rem-calc(180);
+.no-caption {
+  .assets:has(.asset.card.card-horizontal) {
+    .card a img {
+      @include breakpoint(large) {
+        max-height: rem-calc(180);
+      }
     }
-  }
-
-  .asset.card.card-horizontal a .card-horizontal-text {
-    @include breakpoint(large) {
-      grid-area: b;
   }
 }

@@ -1,18 +1,58 @@
+/* ==========================================================================
+   OpenSeadragon
+   ========================================================================== */
+
+/* ==========================================================================
+   Viewer
+   ========================================================================== */
+
 .openseadragon {
-  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0 rem-calc(2) rem-calc(8) 0;
 }
 
-/*Add dark background to Openseadragon container*/
+/* ==========================================================================
+   Container
+   ========================================================================== */
+
 .openseadragon-container {
-  background-color: #1c1919!important;
+  background-color: #1c1919 !important;
+
+  img {
+    vertical-align: top !important;
+  }
 }
 
-/*Button align for Full Screen Openseadragon Resource Text Block*/ 
-.openseadragon-container img {
-  vertical-align: top!important;
-}
+/* ==========================================================================
+   Canvas
+   ========================================================================== */
 
-/*Openseadragon macOS fix*/
+/* macOS focus fix */
+
 .openseadragon-canvas:focus {
   outline: none;
 }
+
+/* ==========================================================================
+   Controls
+   ========================================================================== */
+
+/* Future OpenSeadragon control customisations */
+
+/*
+.openseadragon-container .navigator {
+}
+
+.openseadragon-container .openseadragon-button {
+}
+*/
+
+/* ==========================================================================
+   Full Screen
+   ========================================================================== */
+
+/* Future full-screen customisations */
+
+/*
+.openseadragon-fullpage {
+}
+*/

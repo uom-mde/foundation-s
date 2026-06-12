@@ -1,15 +1,54 @@
-/*Mirador Viewer*/ 
+/* ==========================================================================
+   Mirador
+   ========================================================================== */
+
+/* ==========================================================================
+   Container
+   ========================================================================== */
+
 .mirador {
-  margin: 2 * $global-margin 0!important;
+  margin: 2 * $global-margin 0 !important;
 }
+
+/* ==========================================================================
+   Mobile Controls
+   ========================================================================== */
 
 .MuiIconButton-root {
-  @include breakpoint (351 down) {
-      padding: rem-calc(6)!important;
+  @include breakpoint(351 down) {
+    padding: rem-calc(6) !important;
   }
 }
 
-.mirador-canvas-nav [type=button]:focus {
-  background-color: transparent!important;
-  color: inherit;
+/* ==========================================================================
+   Navigation
+   ========================================================================== */
+
+.mirador-canvas-nav {
+  [type="button"]:focus {
+    color: inherit;
+    background-color: transparent !important;
   }
+}
+
+/* ==========================================================================
+   Workspace
+   ========================================================================== */
+
+/* Future Mirador workspace customisations */
+
+/*
+.mirador-workspace {
+}
+*/
+
+/* ==========================================================================
+   Viewer
+   ========================================================================== */
+
+/* Future Mirador viewer customisations */
+
+/*
+.mirador-viewer {
+}
+*/

@@ -1,71 +1,99 @@
-/*Sensitive content - container*/
-.sensitive-material .large-7 {
-order: 1;
-margin-top: 4 * $global-margin;
-  @include breakpoint(large) {
-  margin-top: initial;
-  order: 0;
+/* ==========================================================================
+   Sensitive Content
+   ========================================================================== */
+
+/* ==========================================================================
+   Layout
+   ========================================================================== */
+
+.sensitive-material {
+  .large-7 {
+    order: 1;
+    margin-top: 4 * $global-margin;
+
+    @include breakpoint(large) {
+      order: 0;
+      margin-top: initial;
+    }
   }
 }
 
-/*Sensitive content - icon and message*/
+/* ==========================================================================
+   Warning Message
+   ========================================================================== */
+
 .sensitive-content {
   position: absolute;
   z-index: 99999;
+  max-width: rem-calc(480);
   background: #ffffff9c;
-  border-radius: 0.5rem;
-  max-width: 30rem;
+  border-radius: rem-calc(8);
 }
 
 i.far.fa-eye-slash.fa-lg {
-color: $dark-gray; 
-margin: 1rem auto 0rem; 
-font-size: 2rem;
+  margin: 1rem auto 0;
+  color: $dark-gray;
+  font-size: rem-calc(32);
+
   @include breakpoint(large) {
-    font-size: 3rem;
+    font-size: rem-calc(48);
   }
 }
 
+p.warning-text {
+  color: $dark-gray;
+  font-size: rem-calc(16);
+  font-weight: 400;
+}
+
+/* ==========================================================================
+   Toggle
+   ========================================================================== */
+
 #unblur-image {
-background-color: unset!important;
+  background-color: unset !important;
+
+  &[aria-expanded="false"] {
+    .sensitive-content {
+      display: none;
+    }
+  }
 }
 
-#unblur-image[aria-expanded="false"] .sensitive-content {
-display: none;
-}
+/* ==========================================================================
+   Media Overlay
+   ========================================================================== */
 
-/*Sensitive Material Media Embed*/ 
 .sensitive-wrapper {
   position: relative;
 }
+
 button.sensitive-overlay {
   position: absolute;
-  background-color: rgba(255, 254, 255, .8) !important;
   z-index: 9999;
   margin-bottom: 0;
-  border-radius: 6px;
+  background-color: rgba(255, 254, 255, 0.8) !important;
+  border-radius: rem-calc(6);
 }
 
-button[aria-expanded="true"].sensitive-overlay {
+button.sensitive-overlay[aria-expanded="true"] {
   display: none;
 }
 
+/* ==========================================================================
+   Media Blur
+   ========================================================================== */
+
 .sensitive-media {
   width: 100%;
-}
 
-.sensitive-media .media-render {
-  filter: blur(rem-calc(24));
-}
+  .media-render {
+    filter: blur(rem-calc(24));
+  }
 
-.sensitive-media.sensitive-media-show .media-render {
-  filter: unset;
+  &.sensitive-media-show {
+    .media-render {
+      filter: unset;
+    }
+  }
 }
-
-p.warning-text {
-font-weight: 400;
-color: $dark-gray;
-font-size: rem-calc(16);
-}
-
-/*End Sensitive Material*/

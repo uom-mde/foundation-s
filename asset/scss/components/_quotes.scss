@@ -1,95 +1,116 @@
-/*Quotations*/
+/* ==========================================================================
+   Quotations
+   ========================================================================== */
+
+/* Pull Quote */
 
 .pull-quote {
-margin: 0 auto;
-text-align: left;
-font-weight: 400;
-letter-spacing: 1.5px;
-font-style: normal;
-font-size: $pull-quote-fontsize-small;
-max-width: 80%;
-line-height: 1.25em;
-text-transform: uppercase;
-color: $pull-quote-color;
-@if $pull-quote-gradient == true {
-  background: linear-gradient($secondary-color, $pull-quote-color);
-} @else if $pull-quote-gradient == false {
-  background: $pull-quote-color; // sets text color
-}
--webkit-background-clip: text;
--webkit-text-fill-color: transparent;
+  max-width: 80%;
+  margin: 0 auto;
+  color: $pull-quote-color;
+  font-size: $pull-quote-fontsize-small;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.25;
+  letter-spacing: rem-calc(1.5);
+  text-align: left;
+  text-transform: uppercase;
 
-&:before {
-  content: '';
-}
+  @if $pull-quote-gradient == true {
+    background: linear-gradient($secondary-color, $pull-quote-color);
+  } @else {
+    background: $pull-quote-color;
+  }
 
-&:after {
-  content: '';
-}
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 
-@include breakpoint(medium) {
-  font-size: $pull-quote-fontsize-medium-up;
-  max-width: calc(#{$pull-quote-maxwidth} - 5%);
-  margin: unset;
-  margin: 10px 0 0 20px;
-}
+  &::before,
+  &::after {
+    content: "";
+  }
 
-@include breakpoint(large) {
-  max-width: calc(#{$pull-quote-maxwidth} + 5%);
-  margin-right: $pull-quote-offset-large;
-}
-}
+  @include breakpoint(medium) {
+    max-width: calc(#{$pull-quote-maxwidth} - 5%);
+    margin: rem-calc(10) 0 0 rem-calc(20);
+    font-size: $pull-quote-fontsize-medium-up;
+  }
 
-.fa-quote-left {
-  font-size: 2rem;
   @include breakpoint(large) {
-    font-size: 3rem;
+    max-width: calc(#{$pull-quote-maxwidth} + 5%);
+    margin-right: $pull-quote-offset-large;
   }
 }
 
+/* Quote Icon */
 
-/*Blockquote*/
+.fa-quote-left {
+  font-size: rem-calc(32);
+
+  @include breakpoint(large) {
+    font-size: rem-calc(48);
+  }
+}
+
+/* ==========================================================================
+   Blockquotes
+   ========================================================================== */
+
 .blockquote-wrapper {
-  max-width: rem-calc(800px);
+  max-width: rem-calc(800);
+
+  p {
+    font-size: 1.2rem;
+
+    @include breakpoint(large) {
+      font-size: 1.4rem;
+    }
+  }
 }
 
 blockquote {
-  color: #fff;
-  font-weight: 100;
-  font-size: 1.3rem;
-  line-height: 1.4;
   position: relative;
   margin: 2rem auto;
   padding: 0.5rem 0.5rem 0.5rem 1.5rem;
+  color: $white;
+  font-size: 1.3rem;
+  font-weight: 100;
+  line-height: 1.4;
+
   @include breakpoint(large) {
-    font-size: 1.8rem;
     padding: 0.5rem 0.5rem 0.5rem 2rem;
-  }
-}
-
-.dark-background blockquote p {
-  color: $warning-color;
-}
-
-.dark-background cite,
-.dark-background .fa-quote-left:before {
-  color: #f63;
-  }
-
-.no-border-left blockquote {
-  border-left: none;
-  border-right: .4rem solid $warning-color;
-}
-
-.blockquote-wrapper p {
-  font-size: 1.2rem;
-  @include breakpoint(large) {
-    font-size: 1.4rem;
+    font-size: 1.8rem;
   }
 }
 
 cite {
+  font-size: 1.2rem;
   line-height: 2;
   text-align: left;
-  font-size: 1.2rem;
+}
+
+/* ==========================================================================
+   Dark Background Variant
+   ========================================================================== */
+
+.dark-background {
+  blockquote p {
+    color: $warning-color;
+  }
+
+  cite,
+  .fa-quote-left::before {
+    color: #f63;
+  }
+}
+
+/* ==========================================================================
+   No Border Variant
+   ========================================================================== */
+
+.no-border-left {
+  blockquote {
+    border-left: none;
+    border-right: rem-calc(6.4) solid $warning-color;
+  }
 }

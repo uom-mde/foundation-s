@@ -27,6 +27,9 @@ $home-card-gap: rem-calc(20);
 .home-card-image {
   grid-area: home-card-image;
   grid-row: 1;
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 .asset-horizontal-1,
@@ -59,6 +62,12 @@ $home-card-gap: rem-calc(20);
 
     .home-card {
       grid-template-columns: 1fr;
+    }
+
+    /*Check this rule*/
+    .home-card-image img {
+      object-fit: cover;
+      height: rem-calc(175);
     }
   }
 

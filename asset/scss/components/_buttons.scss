@@ -1,18 +1,17 @@
-.button a:hover {
-  text-decoration: none;
-}
+/* ==========================================================================
+   Buttons
+   ========================================================================== */
 
-/*Change text colour in buttons*/ 
-a.button.warning,
-a.button.hollow.warning {
+.button.warning,
+.button.hollow.warning {
   color: #0a0a0a;
 }
 
-a.button.hollow:hover {
+.button.hollow:hover {
   color: $white;
   background-color: $primary-color;
 }
 
 .input-group-button button {
-  border-radius: 0 1.25rem 1.25rem 0;
+  border-radius: 0 rem-calc(20) rem-calc(20) 0;
 }
