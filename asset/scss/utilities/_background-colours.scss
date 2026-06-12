@@ -1,124 +1,120 @@
+/* ==========================================================================
+   Background colours
+   ========================================================================== */
+
+/* Dark background */
+
 .dark-background {
-  background-color: $uom-footer;
   color: $white;
+  background-color: $uom-footer;
+
   a {
-      color: $warning-color;
-  }
-  a:hover {
+    color: $warning-color;
     text-decoration: underline;
-  }
-  a.button {
+
+    &:hover {
+      text-decoration: underline;
+    }
+
+    &:focus {
+      color: inherit;
+    }
+
+    &.button {
       color: $white;
+      text-decoration: none;
+    }
+
+    &.button.warning {
+      text-decoration: none;
+    }
   }
-  a:focus {
-    color: inherit;
-  }
-  h2 {
-    color: $warning-color;
-  }
-  p.h2 {
-    color: $warning-color;
-  }
-  h2 small {
-      color: $white;
-  }
-  p.h3 {
-    color: $warning-color;
-  }
-  h3 {
-    color: $warning-color;
-  }
-  h3 small {
-      color: $white;
-  }
-  h4 {
-    color: $warning-color;
-  }
-  .h4 {
-    color: $warning-color;
-  }
-  p.h4 {
-    color: $warning-color;
-  }
-  h4 small,
-  .h4 small {
-      color: $white;
-  }
-  p.h4 small {
-    color: $white;
-  }
+
+  h2,
+  h3,
+  h4,
+  .h4,
+  p.h2,
+  p.h3,
+  p.h4,
   p.h5 {
     color: $warning-color;
   }
-  .learn-more .button a {
-    color: $black;
+
+  h2 small,
+  h3 small,
+  h4 small,
+  .h4 small,
+  p.h4 small {
+    color: $white;
   }
-  .learn-more h2.button a {
-    color: $black;
-  }
-  .learn-more h2.hollow.button a {
-    color: $warning-color;
-  }
-  .learn-more a.hollow.button.warning {
-    color: $warning-color;
-  }
-  .learn-more a.hollow.button.warning:hover {
-    color: $black;
+
+  button a:hover,
+  h2.button a,
+  h2.button a:hover {
     text-decoration: none;
   }
-}
 
-/*Underline Links*/ 
-.dark-background a:not(.learn-more a) {
-  text-decoration: underline;
-}
-
-.dark-background a.button.warning {
-  text-decoration: none;
-}
-
-.dark-background button a:hover,
-.dark-background h2.button a,
-.dark-background h2.button a:hover {
-  text-decoration: none;
-}
-
-  /*Tooltips*/ 
-  /*Code for tooltips*/
-  .dark-background .has-tip {
-    border-bottom: dotted 1px #ededed;
-    color: #fc3;
-    font-weight: unset;
+  .learn-more {
+    .button a,
+    h2.button a {
+      color: $black;
     }
 
-/*Add White Background rules*/ 
-.white-background .asset-hero h1,
-.white-background .image-banner .overlay-container > h1 {
-  padding: 0.5rem;
-  background: rgba($white, .8);
-  color: #000;
-  max-width: rem-calc(400);
-  @include breakpoint(600) {
-    font-size: 2 * $global-font-size;
+    h2.hollow.button a,
+    a.hollow.button.warning {
+      color: $warning-color;
+    }
+
+    a.hollow.button.warning:hover {
+      color: $black;
+      text-decoration: none;
+    }
   }
-  @include breakpoint(medium) {
-    max-width: rem-calc(500);
-  }
-  @include breakpoint(large) {
-    padding: $global-padding;
-    font-size: 2.5 * $global-font-size;
-  }
-  @include breakpoint(xlarge) {
-    max-width: rem-calc(600);
+
+  .has-tip {
+    color: #fc3;
+    font-weight: unset;
+    border-bottom: rem-calc(1) dotted #ededed;
   }
 }
 
-.white-background .image-banner .overlay-container > p {
-  color: $white;
-  background-color: rgba($uom-footer, .95);
+/* White background */
+
+.white-background {
+  .asset-hero h1,
+  .image-banner .overlay-container > h1 {
+    max-width: rem-calc(400);
+    padding: 0.5rem;
+    color: $black;
+    background: rgba($white, 0.8);
+
+    @include breakpoint(600) {
+      font-size: 2 * $global-font-size;
+    }
+
+    @include breakpoint(medium) {
+      max-width: rem-calc(500);
+    }
+
+    @include breakpoint(large) {
+      padding: $global-padding;
+      font-size: 2.5 * $global-font-size;
+    }
+
+    @include breakpoint(xlarge) {
+      max-width: rem-calc(600);
+    }
+  }
+
+  .image-banner .overlay-container > p {
+    color: $white;
+    background-color: rgba($uom-footer, 0.95);
+  }
 }
 
-/*Grey Background*/
+/* Grey background */
+
 .gray-background {
-background: $light-gray
+  background: $light-gray;
 }

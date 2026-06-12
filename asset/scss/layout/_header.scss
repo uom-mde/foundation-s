@@ -1,116 +1,162 @@
+/* ==========================================================================
+   Header
+   ========================================================================== */
+
+/* Site title */
+
 .site-title {
   max-width: calc(100vw - rem-calc(120));
+
   @include breakpoint(medium) {
     max-width: 70%;
   }
+
   @include breakpoint(large) {
     max-width: unset;
   }
-}
 
-/*Home Icon*/ 
-.fa-home:before {
-  font-size: rem-calc(22);
-}
-
-.site-title img {
-  margin: $global-margin 0;
+  img {
+    margin: $global-margin 0;
+  }
 }
 
 .h4.site-title-label {
   margin-bottom: 0;
+  color: $white;
   font-size: $global-font-size;
   font-weight: 400;
-  color: $white;
+
   @include breakpoint(xlarge) {
     font-size: 1.1 * $global-font-size;
   }
 }
 
-header .top-bar {
-  padding: 0.25 * $global-padding 0 0 $global-padding;
-  @include breakpoint(large) {
-    padding: 0.5 * $global-padding 0;    
+/* University logo */
+
+.university-logo {
+  display: flex;
+  flex-grow: 1;
+  margin: rem-calc(12);
+
+  @include breakpoint(355) {
+    margin: rem-calc(12) rem-calc(24);
+  }
+
+  @include breakpoint(medium) {
+    flex-grow: 0;
+    flex-shrink: 1;
+  }
+
+  img {
+    width: rem-calc(169);
+    height: rem-calc(70);
   }
 }
 
-/*Removed from _omeka.scss*/
-header .top-bar-right {
-  display: none;
-  @include breakpoint(large) {
-    display: flex;
-    align-items: center;
+/* Site heading */
+
+.site-heading {
+  display: flex;
+  flex-grow: 3;
+  order: 2;
+  width: rem-calc(250);
+  margin: 0 rem-calc(12);
+  color: $primary-color;
+  text-decoration: none;
+
+  @include breakpoint(355) {
+    margin: 0 rem-calc(12) rem-calc(12) rem-calc(24);
+  }
+
+  @include breakpoint(599 down) {
+    margin-right: 5rem;
+  }
+
+  @include breakpoint(400 down) {
+    margin-right: 0;
+  }
+
+  @include breakpoint(medium) {
+    order: 0;
+    margin: 0;
+  }
+
+  p {
+    margin-bottom: 0;
+    color: $primary-color;
+
+    @include breakpoint(700) {
+      margin: 0 $global-margin;
+      font-size: rem-calc(22);
+      font-weight: 400;
+    }
+  }
+}
+
+/* Top bar */
+
+header {
+  .top-bar {
+    padding: 0.25 * $global-padding 0 0 $global-padding;
+
+    @include breakpoint(large) {
+      padding: 0.5 * $global-padding 0;
+    }
+  }
+
+  .top-bar-right {
+    display: none;
+
+    @include breakpoint(large) {
+      display: flex;
+      align-items: center;
+    }
   }
 }
 
 .top-bar {
   border-bottom: none;
-}
 
-.top-bar a {
-  color: $white;
+  a {
+    color: $white;
   }
 
-.top-bar ul ul {
-  background: $secondary-color;
-}
+  ul ul {
+    background: $secondary-color;
+  }
 
-/*Set size of University logo*/
-.university-logo {
-  margin: rem-calc(12);
-  display: flex;
-  flex-grow: 1;
-  @include breakpoint(355) {
-      margin: rem-calc(12) rem-calc(24);
-  }
-  @include breakpoint(400) {
-    flex-grow: 1;
-  }
-  @include breakpoint(medium) {
-    flex-grow: 0;
-    flex-shrink: 1;
+  .top-bar-left {
+    flex-wrap: nowrap;
+
+    @include breakpoint(large) {
+      flex: 1 1 auto;
+      max-width: rem-calc(400);
+    }
+
+    &:has(button.search-icon[aria-expanded="true"]) {
+      flex-flow: row wrap;
+    }
   }
 }
 
-.university-logo img {
-      width: rem-calc(169);
-      height: rem-calc(70);
-}
+.top-bar-left {
+  min-width: rem-calc(175);
 
-/*Set 'Manchester Digital Exhibitions text*/
-.site-heading {
-  color: $primary-color;
-  text-decoration: none;
-  display: flex;
-  flex-grow: 3;
-  width: rem-calc(250);
-  margin: 0 rem-calc(12) 0 rem-calc(12);
-  order: 2;
-  @include breakpoint(355) {
-      margin: 0 rem-calc(12) rem-calc(12) rem-calc(24); /*with language selector*/
-      /*without additional languages, bottom margin must be removed*/ 
-  }
-  @include breakpoint(medium) {
-      order: 0;
-      margin: 0;
-  }
-  @include breakpoint(599 down) {
-    margin-right: 5rem;
-}
-  @include breakpoint(400 down) {
-    margin-right: 0;
+  @include breakpoint(large) {
+    margin-right: 1.5rem;
   }
 }
 
-.site-heading p {
-  color: $primary-color;
-  margin-bottom: 0;
-  @include breakpoint(700) {
-      font-size: rem-calc(22);
-      margin: 0 $global-margin;
-      font-weight: 400;
+nav.top-bar-left {
+  justify-content: space-between;
+  row-gap: $global-margin;
+
+  @include breakpoint(large) {
+    justify-content: unset;
   }
 }
+
+/* Title bar and mobile menu */
 
 .title {
   font-weight: 400 !important;
@@ -120,16 +166,24 @@ header .top-bar-right {
   @include breakpoint(large) {
     display: none;
   }
-}
 
-/*Mobile menu button*/ 
-/*Increase size of menu button*/ 
-.fa, [class*=o-icon-]:before, .fas {
-font-size: 1.5rem;
+  button {
+    margin: rem-calc(0 0 0 5);
+  }
 }
 
 .menu-toggle {
   font-size: 1.25 * $global-font-size;
+}
+
+.fa,
+.fas,
+[class*="o-icon-"]::before {
+  font-size: 1.5rem;
+}
+
+.fa-home::before {
+  font-size: rem-calc(22);
 }
 
 .hamburger-icon {
@@ -146,48 +200,19 @@ svg.home-icon:hover {
   fill: #6b2c91;
 }
 
-/*Remove margin for menu button on smaller screens*/ 
-.title-bar button {
-  margin: rem-calc(0 0 0 5);
-}
-
-.top-bar-left {
-  min-width: rem-calc(175);
-  @include breakpoint(large) {
-    margin-right: 1.5rem;
-  }
-}
-
-.top-bar .top-bar-left {
-  flex-wrap: nowrap;
-  @include breakpoint(large) {
-    flex: 1 1 auto;
-    max-width: (rem-calc(400));
-  }
-}
-
-.top-bar .top-bar-left:has(button.search-icon[aria-expanded="true"]) {
-  flex-flow: row wrap;
-}
-
-nav.top-bar-left {
-  justify-content: space-between;
-  row-gap: $global-margin;
-  @include breakpoint(large) {
-    justify-content: unset;
-  }
-}
+/* Banner */
 
 .banner {
   position: relative;
   display: flex;
   align-items: center;
   overflow: hidden;
-  &.contained {
-      @include xy-grid-container;
-  }
-}
 
-.banner img {
-  width: 100%;
+  &.contained {
+    @include xy-grid-container;
+  }
+
+  img {
+    width: 100%;
+  }
 }

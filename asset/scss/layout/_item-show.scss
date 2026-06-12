@@ -1,115 +1,138 @@
-/*Item Show updates*/
-.resource.show .grid-x {
-  padding: 0;
-}
+/* ==========================================================================
+   Item Show
+   ========================================================================== */
 
-dl dt {
-  font-weight: 600;
-  margin-bottom: 0.5 * $global-margin;
-  @include breakpoint (medium){
-  font-size: 1.1 * $global-font-size;
+.resource.show {
+  .grid-x {
+    padding: 0;
   }
-  @include breakpoint (xlarge){
-    font-size: 1.2 * $global-font-size;
-    }
+
+  .media-render.youtube > * {
+    max-width: unset;
+  }
 }
 
-dl dt:after {
-  content: ""; /* This is necessary for the pseudo element to work. */ 
-  display: block; /* This will put the pseudo element on its own line. */
-  width: 50%; /* Change this to whatever width you want. */
-  max-width: rem-calc(125);
-  border-bottom: 1px solid $warning-color /* This creates the border. Replace black with whatever color you want. */
+/* Metadata */
+
+dl {
+  dt {
+    margin-bottom: 0.5 * $global-margin;
+    font-weight: 600;
+
+    @include breakpoint(medium) {
+      font-size: 1.1 * $global-font-size;
+    }
+
+    @include breakpoint(xlarge) {
+      font-size: 1.2 * $global-font-size;
+    }
+
+    &::after {
+      display: block;
+      width: 50%;
+      max-width: rem-calc(125);
+      content: "";
+      border-bottom: rem-calc(1) solid $warning-color;
+    }
+  }
 }
 
 .property {
-  margin-bottom: 1 * $global-margin;
+  margin-bottom: $global-margin;
 }
 
 .value:first-child {
-margin-top: 2 * $global-margin;
+  margin-top: 2 * $global-margin;
 }
 
 .resource-title {
   flex-wrap: wrap-reverse;
   width: 100%;
-  margin-left: 1 * $global-margin;
   margin-bottom: $global-margin;
+  margin-left: $global-margin;
+
   @include breakpoint(large) {
     flex-wrap: nowrap;
     margin-left: 2 * $global-margin;
   }
 }
 
-/*Underline links on Item Show page*/
-.stack .main-with-sidebar .property a {
-  text-decoration: underline;
-  }
+/* Links */
 
-  a.uri-value-link {
+.stack {
+  .main-with-sidebar {
+    .property a {
+      text-decoration: underline;
+    }
+  }
+}
+
+a.uri-value-link {
+  color: $primary-color;
+  text-decoration: underline;
+}
+
+dd.value {
+  a {
+    color: $secondary-color;
     text-decoration: underline;
-    color: $primary-color;
-  }
 
-/*.right-sidebar .property dd.value a:hover {
-  text-decoration: underline;
-}*/
-
-  .right-sidebar.dark-background {
-    @include breakpoint (medium down) {
-  margin-left: 0!important;
-  margin-right: 0!important;
-  width: 100%;
-  } 
-  }
-
-/*Feature for links*/
-dd.value a {
-  /*padding: .5 * $global-padding;*/
-  /*background: $secondary-color;*/
-  color: $secondary-color;
-  /*line-height: 2;*/
-  text-decoration: underline;
-  &:hover {
-    color: darken($secondary-color, 50%);
-    cursor: pointer;
+    &:hover {
+      color: darken($secondary-color, 50%);
+      cursor: pointer;
+    }
   }
 }
 
-/*Increase YouTube embed size for Item Show*/ 
-.resource.show .media-render.youtube>* {
-  max-width: unset;
+/* Sidebar */
+
+.right-sidebar.dark-background {
+  @include breakpoint(medium down) {
+    width: 100%;
+    margin-right: 0 !important;
+    margin-left: 0 !important;
+  }
 }
 
-/*Openseadragon for Item Show*/ 
+/* OpenSeadragon */
+
 .main-with-sidebar .openseadragon,
 .stack .full-width-main .openseadragon,
 .stack .full-width-main .seadragonbox {
   height: 40vh !important;
+
   @include breakpoint(medium) {
     height: 60vh !important;
   }
+
   @include breakpoint(large) {
     height: 80vh !important;
   }
-} 
+}
 
-/*IIIF Presentation for Item Show*/ 
+/* IIIF Presentation */
+
 .full-width-main .iiif_presentation iframe,
 .main-with-sidebar .iiif_presentation iframe {
-    height: 60vh !important;
+  height: 60vh !important;
+
   @include breakpoint(medium) {
     height: 75vh !important;
   }
+
   @include breakpoint(large) {
     height: 85vh !important;
   }
+
   @include breakpoint(xlarge) {
     height: 90vh !important;
   }
-} 
+}
 
-/*Centre Items*/ 
-.main-with-sidebar .media-render {
-  text-align: center;
+/* Media */
+
+.main-with-sidebar {
+  .media-render {
+    text-align: center;
+  }
 }

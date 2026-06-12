@@ -18,6 +18,13 @@
   }
 }
 
+/* Remove horizontal scroll bar */
+
+html,
+body {
+  overflow-x: clip;
+}
+
 /* Smaller scrollbar for CORALA */
 
 .toggle-caption-img ::-webkit-scrollbar {

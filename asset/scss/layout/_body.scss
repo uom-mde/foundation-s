@@ -1,12 +1,14 @@
-/*Body*/ 
-/*Remove Horizontal Scroll Bar*/
-html, body {
-  overflow-x: clip;
-}
+/* ==========================================================================
+   Body
+   ========================================================================== */
+
+/* Mobile content spacing */
 
 @media print, screen and (max-width: 37.4988em) {
-  body:not(.browse) #content {
-      padding: 0;
+  body:not(.browse) {
+    #content {
       margin: 0.5rem;
+      padding: 0;
+    }
   }
 }

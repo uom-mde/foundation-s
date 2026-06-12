@@ -1,68 +1,113 @@
-ul.dropdown.menu li {
-  transition: background-color .25s ease-out,color .25s ease-out;
-  @include breakpoint(medium) {
-    font-size: rem-calc(15);
-  }
+/* ==========================================================================
+   Navigation
+   ========================================================================== */
+
+ul.dropdown.menu {
+  li {
+    transition:
+      background-color 0.25s ease-out,
+      color 0.25s ease-out;
+
+    @include breakpoint(medium) {
+      font-size: rem-calc(15);
+    }
+
     @include breakpoint(xlarge) {
-    font-size: $global-font-size;
+      font-size: $global-font-size;
+    }
+
+    &:hover {
+      background-color: $secondary-color;
+    }
   }
 }
 
-ul.dropdown.menu li:hover {
-  background-color: $secondary-color;
+.dropdown.menu {
+  > li {
+    > a {
+      padding: 0.7 * $global-padding;
+
+      @include breakpoint(xlarge) {
+        padding: 0.7 * $global-padding $global-padding;
+      }
+    }
+
+    &.is-active > a {
+      color: $white;
+    }
+
+    &.is-dropdown-submenu-parent {
+      > a::after {
+        border-color: $white transparent transparent;
+      }
+
+      &.active:hover > a {
+        color: $white;
+        background-color: $primary-color;
+      }
+    }
+
+    &.opens-left > .is-dropdown-submenu {
+      z-index: 999999;
+      width: rem-calc(250);
+      background: #2c0142;
+    }
+  }
+
+  .nested.is-dropdown-submenu {
+    z-index: 999999;
+    width: rem-calc(250);
+    background: #2c0142;
+  }
 }
 
-.dropdown.menu>li.is-dropdown-submenu-parent>a::after, 
-.toc-block>ul.dropdown>li.is-dropdown-submenu-parent>a::after, 
-.toc-block ul ul.dropdown>li.is-dropdown-submenu-parent>a::after {
-  border-color: $white transparent transparent;
+.dropdown {
+  .is-dropdown-submenu {
+    a {
+      padding: 0.7rem 1rem 0.7rem 1.3rem;
+    }
+  }
 }
 
-.dropdown.menu>li.is-active>a, .toc-block>ul.dropdown>li.is-active>a, .toc-block ul ul.dropdown>li.is-active>a {
-  color: $white;
+.is-dropdown-submenu {
+  min-width: rem-calc(255);
+
+  .is-dropdown-submenu-parent.opens-left > a::after {
+    left: rem-calc(8);
+  }
 }
 
-.nested a.nav-header {
-  line-height: inherit;
+.toc-block {
+  > ul.dropdown,
+  ul ul.dropdown {
+    > li {
+      &.is-active > a {
+        color: $white;
+      }
+
+      &.is-dropdown-submenu-parent > a::after {
+        border-color: $white transparent transparent;
+      }
+
+      &.opens-left > .is-dropdown-submenu {
+        z-index: 999999;
+        width: rem-calc(250);
+        background: #2c0142;
+      }
+    }
+  }
+}
+
+.nested {
+  a.nav-header {
+    line-height: inherit;
+  }
 }
 
 a.nav-header:visited {
   background: $secondary-color;
 }
 
-.dropdown.menu>li.opens-left>.is-dropdown-submenu, 
-.toc-block>ul.dropdown>li.opens-left>.is-dropdown-submenu, 
-.toc-block ul ul.dropdown>li.opens-left>.is-dropdown-submenu,
-.dropdown.menu .nested.is-dropdown-submenu {
-  z-index: 999999;
-  background: #2c0142;
-  width: rem-calc(250);
-}
-
-.dropdown.menu>li.is-dropdown-submenu-parent.active:hover>a {
-  background-color: $primary-color;
-  color: #fff;
-}
-
-.dropdown.menu>li>a {
-  padding: 0.7 * $global-padding;
-  @include breakpoint(xlarge) {
-    padding: 0.7 * $global-padding $global-padding;
-  }
-}
-
-.dropdown .is-dropdown-submenu a {
-  padding: .7rem 1rem .7rem 1.3rem;
-}
-
-.is-dropdown-submenu {
-  min-width: rem-calc(255);
-}
-
-.is-dropdown-submenu .is-dropdown-submenu-parent.opens-left>a::after {
-  left: rem-calc(8);
-}
-
-.submenu-toggle:after {
-  border-color: $primary-color rgba(0, 0, 0, 0) rgba(0, 0, 0, 0);
+.submenu-toggle::after {
+  border-color: $primary-color transparent transparent;
 }
