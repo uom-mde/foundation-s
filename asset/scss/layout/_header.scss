@@ -177,3 +177,17 @@ nav.top-bar-left {
     justify-content: unset;
   }
 }
+
+.banner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  &.contained {
+      @include xy-grid-container;
+  }
+}
+
+.banner img {
+  width: 100%;
+}
