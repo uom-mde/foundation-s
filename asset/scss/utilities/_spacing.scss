@@ -1,0 +1,25 @@
+/* ==========================================================================
+   Spacing
+   ========================================================================== */
+
+.no-margin {
+  margin: unset;
+}
+
+.no-margin-top {
+  margin-top: 0;
+
+  @include breakpoint(medium) {
+    margin-top: -2 * $global-margin;
+  }
+}
+
+.margin-0-5 {
+  margin: 0.5 * $global-margin;
+}
+
+.no-p-margin-bottom {
+  p {
+    margin-bottom: 0;
+  }
+}

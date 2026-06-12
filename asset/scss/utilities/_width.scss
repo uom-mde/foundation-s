@@ -1,0 +1,50 @@
+/* ==========================================================================
+Width
+========================================================================== */
+
+.width-100 {
+  width: 100%;
+}
+
+/* Full width */
+
+.full-width {
+  position: relative;
+  left: 50%;
+  max-width: 100vw;
+  margin-right: -50vw;
+  margin-left: -50vw;
+}
+
+.full-width-js {
+  width: calc(100vw - var(--scrollbar-width));
+  margin-left: calc(
+    ((100vw - var(--scrollbar-width)) * -0.5) + 50%
+  ) !important;
+}
+
+/* Full width hero */
+
+.full-width-hero {
+  width: calc(100% + (2 * $global-padding));
+  margin-right: -1 * $global-padding;
+  margin-left: -1 * $global-padding;
+
+  img {
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 1140px) {
+  .full-width-hero {
+    width: auto;
+
+    margin-left: calc(
+      (-100vw / 2) + (#{$global-width} / 2)
+    );
+
+    margin-right: calc(
+      (-100vw / 2) + (#{$global-width} / 2)
+    );
+  }
+}

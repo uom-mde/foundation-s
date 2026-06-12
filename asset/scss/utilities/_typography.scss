@@ -1,0 +1,28 @@
+/* ==========================================================================
+   Typography
+   ========================================================================== */
+
+.font-bold {
+  font-weight: 600;
+}
+
+.font-large {
+  font-size: 1.2 * $global-font-size;
+}
+
+.italic-font {
+  font-style: italic;
+}
+
+.white-text {
+  p,
+  h1,
+  h2,
+  h3 {
+    color: $white;
+  }
+}
+
+.warning-color {
+  color: $warning-color;
+}

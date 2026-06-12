@@ -1,25 +1,32 @@
-/*OneTrust Cookie Banner Content*/ 
+/* ==========================================================================
+   OneTrust Cookie Banner
+   ========================================================================== */
+
 iframe.optanon-category-C0004[data-src] {
-    display: none;
+  display: none;
 }
 
 .ot-warning {
-    padding: $global-padding 0;
-    background: #efefef;
-}
-.ot-warning svg {
-    fill: #cdcdcd;
+  padding: $global-padding 0;
+  background: #efefef;
+
+  svg {
     height: rem-calc(300);
+    fill: #cdcdcd;
+
     @include breakpoint(large) {
       height: rem-calc(400);
     }
-}
+  }
 
-.ot-warning a,
-.ot-warning a:hover {
+  a,
+  a:hover {
     color: $white;
+  }
 }
 
-.dark-background .ot-warning p {
-    color: #000;
+.dark-background {
+  .ot-warning p {
+    color: $black;
+  }
 }

@@ -1,156 +1,203 @@
-/*Annona*/ 
-/*Seadragonbox Styling*/ 
+/* ==========================================================================
+   Annona
+   ========================================================================== */
+
+/* ==========================================================================
+   Seadragonbox
+   ========================================================================== */
+
 .seadragonbox {
-  height: 35vh!important;
+  height: 35vh !important;
 }
-.medium .seadragonbox {
-  @include breakpoint(medium) {
-  height: 50vh!important;
-  }
-  @include breakpoint(large) {
-  height: 60vh!important;
+
+.medium {
+  .seadragonbox {
+    @include breakpoint(medium) {
+      height: 50vh !important;
+    }
+
+    @include breakpoint(large) {
+      height: 60vh !important;
+    }
   }
 }
 
-.medium-large .seadragonbox {
-  @include breakpoint(medium) {
-  height: 60vh!important;
-  }
-  @include breakpoint(xlarge) {
-  height: 75vh!important;
+.medium-large {
+  .seadragonbox {
+    @include breakpoint(medium) {
+      height: 60vh !important;
+    }
+
+    @include breakpoint(xlarge) {
+      height: 75vh !important;
+    }
   }
 }
 
-.large .seadragonbox,
-.main-with-sidebar .seadragonbox {
-  @include breakpoint(medium) {
-  height: 75vh!important;
-  }
-  @include breakpoint(large) {
-  height: 90vh!important;
+.large,
+.main-with-sidebar {
+  .seadragonbox {
+    @include breakpoint(medium) {
+      height: 75vh !important;
+    }
+
+    @include breakpoint(large) {
+      height: 90vh !important;
+    }
   }
 }
 
-/*Multiples styling*/ 
-.multiples .seadragonbox {
-  display: flex;
+.multiples {
+  .seadragonbox {
+    display: flex;
   }
-  
+}
+
+/* ==========================================================================
+   Controls
+   ========================================================================== */
+
 .pageButton {
   cursor: pointer;
 }
-
-.annonaview .content .attribution, .annonaview .content .authorship, .annonaview .content .tags {
-  font-style: unset;
-  }
 
 button#autorunButton,
 button#infoButton,
 button#tagsButton,
 button#homeButton,
-button#keyboardButton {
-display: none!important;
-}
-
-/*button#overlayButton*/ 
-/*Toggles annotations*/ 
-
+button#keyboardButton,
 button#info_button.annocontrols_button,
 button#prev_button.annocontrols_button,
 button#next_button.annocontrols_button,
 button#close_button.annocontrols_button,
 button#settings_button.annocontrols_button,
-button#settingsButton.toolbarButton {    
-display: none!important;
+button#settingsButton.toolbarButton {
+  display: none !important;
 }
 
-#nextButton span.toolbartext {
-  display: none;
+#nextButton {
+  span.toolbartext {
+    display: none;
+  }
 }
 
-/*.annotation {
-overflow: unset!important;
-}*/ 
+#storyboard_viewer,
+#multistoryboard {
+  button:hover {
+    cursor: pointer;
+  }
+}
+
+/* ==========================================================================
+   Attribution and Metadata
+   ========================================================================== */
+
+.annonaview {
+  .content {
+    .attribution,
+    .authorship,
+    .tags {
+      font-style: unset;
+    }
+  }
+}
 
 .authorship {
-display: none;
+  display: none;
 }
 
 .commenting {
   color: #0a0a0a;
 }
 
-.rect:hover {
-  background: gray;
-  opacity: .4;
-}
-
-.overlay>svg>:hover {
-  fill: gray;
-  fill-opacity: .4!important;
-}
-
-polygon>.svgactive:hover {
-  fill: gray;
-  fill-opacity: .4!important;
-}
+/* ==========================================================================
+   Annotation Panel
+   ========================================================================== */
 
 .annotation {
   overflow-x: hidden;
   overflow-y: auto;
-}
 
-.annotation>div {
-  padding: 1em;
-  /*font-size: $global-font-size;*/
-  @include breakpoint(800 down) {
-  font-size: unset!important; 
+  > div {
+    padding: 1em;
+
+    @include breakpoint(800 down) {
+      font-size: unset !important;
+    }
+
+    @include breakpoint(801 up) {
+      font-size: 1rem;
+    }
   }
-  @include breakpoint(801 up) {
-      font-size: 1rem; 
-      }
 }
 
-/*Remove padding from Storyboard Viewer*/ 
+.defaultview {
+  .annotation:not(.right):not(.left):not(.bottom):not(.top):not(.no_toolbar_annotation) {
+    @include breakpoint(600 down) {
+      top: calc(1.6rem + 7px) !important;
+    }
+  }
+}
+
+/* ==========================================================================
+   Annotation Overlays
+   ========================================================================== */
+
+.rect {
+  border: rem-calc(1) solid #add8e6;
+
+  @include breakpoint(medium) {
+    border-width: rem-calc(2);
+  }
+
+  &:hover {
+    background: gray;
+    opacity: 0.4;
+  }
+
+  &.active {
+    outline: rem-calc(3) solid #ff0 !important;
+
+    @include breakpoint(medium) {
+      outline-width: rem-calc(4) !important;
+    }
+  }
+}
+
+.overlay > svg {
+  > * {
+    stroke-width: rem-calc(4);
+  }
+
+  > :hover {
+    fill: gray;
+    fill-opacity: 0.4 !important;
+  }
+}
+
+polygon > .svgactive:hover {
+  fill: gray;
+  fill-opacity: 0.4 !important;
+}
+
+/* ==========================================================================
+   Storyboard Viewer
+   ========================================================================== */
+
 #storyboard_viewer {
   padding-bottom: 0;
-}
 
-#storyboard_viewer .excerpt {
-  background-color: $white;
-}
-
-/*Removed Storyboard viewer CSS*/ 
-
-#storyboard_viewer button:hover,
-#multistoryboard button:hover {
-  cursor: pointer;
-}
-
-.active.rect {
-  outline: rem-calc(3px) solid #ff0!important;
-  @include breakpoint(medium) {
-  outline: rem-calc(4px) solid #ff0!important;
-  }
-}
-.rect {
-  border: rem-calc(1px) solid #add8e6;
-      @include breakpoint(medium) {
-      border: rem-calc(2px) solid #add8e6;
+  .excerpt {
+    background-color: $white;
   }
 }
 
-.overlay>svg>* {
-  stroke-width: rem-calc(4px);
-}
+/* ==========================================================================
+   Range Storyboard
+   ========================================================================== */
 
-.defaultview .annotation:not(.right):not(.left):not(.bottom):not(.top):not(.no_toolbar_annotation) {
-  @include breakpoint(600 down) {
-     top: calc(1.6rem + 7px)!important;
+.rangestoryboard.annonaview.rangestoryboardview {
+  span {
+    width: 100% !important;
   }
-}
-
-/*Fix issue with range/multi-storyboard*/ 
-.rangestoryboard.annonaview.rangestoryboardview span {
-  width: 100% !important;
 }

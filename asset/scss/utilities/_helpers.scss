@@ -1,102 +1,15 @@
-  .flex-1-1-0 {
-    flex: 1 1 0;
-  }
+/* ==========================================================================
+   Helpers
+   ========================================================================== */
 
-  /*Flex-grow*/
+/* ==========================================================================
+   Flex
+   ========================================================================== */
+
+.flex-1-1-0 {
+  flex: 1 1 0;
+}
+
 .flex-grow {
   flex-grow: 1;
-  }
-
-  .small-only {
-    display: block;
-    @include breakpoint(medium) {
-      display: none;
-    }
-  }
-  .medium-up {
-    display: none;
-    @include breakpoint(medium) {
-      display: block;
-    }
-  }
-  .no-margin-top {
-    margin-top: 0;
-    @include breakpoint(medium) {
-      margin-top:-2 * $global-margin;
-    }
-  }
-
-.margin-0-5 {
-    margin: 0.5 * $global-margin;
-}
-
-.no-margin {
-  margin: unset;
-}
-
-.no-p-margin-bottom p {
-  margin-bottom: 0;
-}
-
-//Typography
-/*Bold fonts*/
-.font-bold {
-  font-weight: 600;
-}
-
-/*Large fonts*/ 
-.font-large {
-  font-size: $global-font-size * 1.2;
-}
-
-/*White Text*/ 
-.white-text p,
-.white-text h1,
-.white-text h2,
-.white-text h3 {
-  color: $white;
-}
-
-.italic-font {
-  font-style: italic;
-}
-
-//Width
-/*Full Width CSS Rules*/
-  .full-width {    
-  left: 50%;
-  position: relative;
-  margin-left: -50vw;
-  margin-right: -50vw;
-  max-width: 100vw;
-}
-
-.full-width-js {
-  width: calc(100vw - var(--scrollbar-width));
-  margin-left: calc(((100vw - var(--scrollbar-width)) * -0.5) + 50%)!important;
-  }
-
-/*Full Width CSS Alternative*/
-.full-width-hero {
-  width: calc(100% + (2 * $global-padding)); // 100% width and the total padding values
-  margin-left: -1 * $global-padding; // Negative margins to negate the padding values
-  margin-right: -1 * $global-padding;
-}
-
-.full-width-hero img {
-width: 100%; // Ensure your hero image takes up the full width.
-}
-
-// Use a breakpoint to style when the browser exceeds the `#wrap` container's maximum width.
-@media screen and (min-width: 1140px) { 
-.full-width-hero {
-  margin-left: calc((-100vw / 2) + ($global-width / 2)); // The calculation for full width incorporating the parent container's maximum width.
-  margin-right: calc((-100vw / 2) + ($global-width / 2));
-  width: auto;
-}
-}
-
-/*Width 100%*/ 
-.width-100 {
-  width: 100%;
 }

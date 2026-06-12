@@ -1,47 +1,65 @@
-/*Remove Nav Breadcrumbs*/
+/* ==========================================================================
+   Omeka Overrides
+   ========================================================================== */
+
+/* Breadcrumbs */
+
 nav.breadcrumbs {
   display: none;
-  } 
+}
 
-/*Remove download option from LightGallery*/
-.lg-outer[data-lg-slide-type=iframe] .lg-download, 
-.lg-outer[data-lg-slide-type=video] .lg-download {
+/*
+nav.breadcrumbs {
+  margin-top: -1rem;
+  padding: 1rem 2rem 0;
+
+  @include breakpoint(medium) {
+    margin-top: -2rem;
+  }
+
+  a {
+    color: #343536;
+    text-decoration: underline;
+  }
+}
+*/
+
+/* LightGallery */
+
+.lg-outer[data-lg-slide-type="iframe"] .lg-download,
+.lg-outer[data-lg-slide-type="video"] .lg-download {
   display: none;
 }
+
+/* Pagination */
 
 .site-page-pagination {
   margin-top: 2 * $global-margin;
   margin-bottom: $global-margin;
 }
 
-/*Version 4.1 additions*/
+/* Attachments */
+
 .attachments {
   width: 100%;
 }
 
-  /*Fix focus dark colour*/ 
-  a:focus {
-    color: $light-gray;
-  }
+/* Focus */
 
-  /*Breadcrumbs*/
-nav.breadcrumbs {
-  margin-top: -1rem;
-  padding: 1rem 2rem 0 2rem;
-  a {
-      color: #343536;
-      text-decoration: underline;
-  }
-  @include breakpoint(medium) {
-      margin-top: -2rem;
-  }
+a:focus {
+  color: $light-gray;
 }
 
-/*Metadata Browse*/ 
+/* Metadata Browse */
+
 a.metadata-browse-link {
   display: none;
 }
 
-.result-site a {
-  position: unset;
+/* Search results */
+
+.result-site {
+  a {
+    position: unset;
+  }
 }

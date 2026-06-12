@@ -1,34 +1,51 @@
-/*Accordion*/
-.accordian-title {
+/* ==========================================================================
+   Foundation Overrides
+   ========================================================================== */
+
+/* ==========================================================================
+   Accordion
+   ========================================================================== */
+
+.accordion-title {
   font-size: $global-font-size;
 }
-/*Lead*/
+
+/* ==========================================================================
+   Lead Text
+   ========================================================================== */
+
 .lead {
   font-size: $lead-font-size;
   line-height: 1.6;
+
   @include breakpoint(small only) {
-    font-size: $global-font-size * 1.05; // Adjust font size directly in the class
+    font-size: $global-font-size * 1.05;
     line-height: $lead-lineheight;
   }
 }
+
+/* ==========================================================================
+   Callouts
+   ========================================================================== */
 
 .callout.secondary {
   background-color: #f9eeff;
 }
 
-/*Stop figcaption overlapping image*/
+/* ==========================================================================
+   Orbit
+   ========================================================================== */
+
+/* Prevent captions overlapping images */
+
 .orbit-caption.no-overlay,
 .no-overlay .orbit-caption {
   position: unset;
 }
 
-a.warning-color,
-p.warning-color,
-h2.warning-color,
-h3.warning-color,
-h4.warning-color {
-  color: $warning-color;
-}
+/* ==========================================================================
+   Typography
+   ========================================================================== */
 
 .subheader {
   color: #4f4f4f;

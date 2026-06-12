@@ -1,3 +1,28 @@
+/* ==========================================================================
+   Visibility
+   ========================================================================== */
+
+/* Show only on small screens */
+
+.small-only {
+  display: block;
+
+  @include breakpoint(medium) {
+    display: none;
+  }
+}
+
+/* Show on medium and larger screens */
+
+.medium-up {
+  display: none;
+
+  @include breakpoint(medium) {
+    display: block;
+  }
+}
+
+/* Hidden attribute */
 
 [hidden] {
   display: none !important;

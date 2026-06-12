@@ -1,24 +1,14 @@
-/*Font Awesome Fix*/
-/* Solid icons (fas) */
-.fa-magic::before {
-  content: "\f0d0";
-}
+/* ==========================================================================
+   Font Awesome Compatibility Fixes
 
-.fa-spinner::before {
-  content: "\f110";
-}
+   Required for Annona and viewer controls on Safari/iOS where
+   certain Font Awesome glyphs fail to render correctly.
 
-.fa-redo::before {
-  content: "\f01e";
-}
+   ========================================================================== */
 
-.fa-info-circle::before {
-  content: "\f05a";
-}
-
-.fa-toggle-off::before {
-  content: "\f204";
-}
+/* ==========================================================================
+   Viewer Controls
+   ========================================================================== */
 
 .fa-search-plus::before {
   content: "\f00e";
@@ -26,6 +16,14 @@
 
 .fa-search-minus::before {
   content: "\f010";
+}
+
+.fa-expand::before {
+  content: "\f065";
+}
+
+.fa-compress::before {
+  content: "\f066";
 }
 
 .fa-home::before {
@@ -40,20 +38,20 @@
   content: "\f061";
 }
 
-.fa-keyboard::before {
-  content: "\f11c";
+.fa-redo::before {
+  content: "\f01e";
 }
+
+/* ==========================================================================
+   Interface Controls
+   ========================================================================== */
 
 .fa-cog::before {
   content: "\f013";
 }
 
-.fa-expand::before {
-  content: "\f065";
-}
-
-.fa-compress::before {
-  content: "\f066";
+.fa-keyboard::before {
+  content: "\f11c";
 }
 
 .fa-times::before {
@@ -64,15 +62,46 @@
   content: "\f0d8";
 }
 
+/* ==========================================================================
+   Status Icons
+   ========================================================================== */
+
+.fa-spinner::before {
+  content: "\f110";
+}
+
+.fa-info-circle::before {
+  content: "\f05a";
+}
+
 .fa-exclamation-triangle::before {
   content: "\f071";
+}
+
+/* ==========================================================================
+   Toggle Icons
+   ========================================================================== */
+
+.fa-toggle-off::before {
+  content: "\f204";
 }
 
 .fa-toggle-on::before {
   content: "\f205";
 }
 
-/* Regular icons (far) */
+/* ==========================================================================
+   Annotation Icons
+   ========================================================================== */
+
+.fa-magic::before {
+  content: "\f0d0";
+}
+
+/* ==========================================================================
+   Regular Icons
+   ========================================================================== */
+
 .fa-eye-slash::before {
   content: "\f070";
 }
