@@ -1,0 +1,203 @@
+/* ==========================================================================
+   Media Embed OpenSeadragon
+   ========================================================================== */
+
+/*Openseadragon*/ 
+.medium .openseadragon {
+  height: 35vh !important;
+  @include breakpoint(medium) {
+  height: 40vh !important;
+  }
+  @include breakpoint(large) {
+    height: 50vh !important;
+    }
+}
+
+.medium-large .openseadragon {
+  height: 35vh !important;
+  @include breakpoint(medium) {
+  height: 60vh !important;
+  }
+  @include breakpoint(xlarge) {
+  height: 75vh !important;
+  }
+}
+
+.layout-vertical .medium-large .openseadragon {
+  height: 40vh !important;
+  @include breakpoint(medium) {
+  height: 70vh !important;
+  }
+  @include breakpoint(large) {
+    height: 80vh !important;
+  }
+  @include breakpoint(xlarge) {
+  height: 75vh !important;
+  }
+}
+
+.layout-vertical .medium-large .openseadragon:not(:only-child) {
+  @include breakpoint(medium) {
+  height: 50vh !important;
+  }
+  @include breakpoint(large) {
+    height: 60vh !important;
+  }
+  @include breakpoint(xlarge) {
+  height: 70vh !important;
+  }
+}
+
+.large .openseadragon {
+  height: 40vh !important;
+  @include breakpoint(medium) {
+  height: 70vh !important;
+  }
+  @include breakpoint(large) {
+  height: 80vh !important;
+  }
+  @include breakpoint(xlarge) {
+  height: 90vh !important;
+  }
+}
+
+.layout-vertical .large .openseadragon:not(:only-child) {
+  @include breakpoint(medium) {
+  height: 50vh !important;
+  }
+  @include breakpoint(large) {
+    height: 65vh !important;
+  }
+  @include breakpoint(xlarge) {
+  height: 80vh !important;
+  }
+}
+
+/*Fix for iPhones and media displayed vertically
+@supports (-webkit-touch-callout: none) {
+  .layout-vertical .media-render.html {
+    padding: 1rem; /* Safari + iOS only
+  }
+}*/ 
+
+/*Ensure title is below media for vertical layouts*/
+.layout-vertical .media-render.html {
+  @include breakpoint(medium) {
+  padding: 1rem;
+  }
+}
+
+.media-render.html:has(#header_toolbar) {
+  margin-bottom: rem-calc(35);
+}
+
+.media-embed-block.layout-vertical.attachment-count-2 .openseadragon,
+.media-embed-block.layout-vertical.attachment-count-2 .file > a > img,
+.media-embed-block.layout-vertical.attachment-count-3 .openseadragon,
+.media-embed-block.layout-vertical.attachment-count-3 .file > a > img {
+  height: 40vh !important;
+  width: 100%;
+}
+
+.media-embed-block.layout-vertical.attachment-count-2 .resource-text-openseadragon,
+.media-embed-block.layout-vertical.attachment-count-3 .resource-text-openseadragon {
+  flex-direction: column;
+  @include breakpoint(medium) {
+    flex-direction: row;
+  }
+}
+
+.media-embed-block.layout-vertical.attachment-count-2 .resource-text-openseadragon .medium .openseadragon,
+.media-embed-block.layout-vertical.attachment-count-2 .resource-text-openseadragon .medium .file > a > img {
+  @include breakpoint(medium) {
+  height: calc(45vh - .75rem) !important;
+}
+}
+
+.media-embed-block.layout-vertical.attachment-count-2 .resource-text-openseadragon .medium-large .openseadragon,
+.media-embed-block.layout-vertical.attachment-count-2 .resource-text-openseadragon .medium-large .file > a > img {
+  @include breakpoint(medium) {
+  height: calc(45vh - .75rem) !important;
+}
+@include breakpoint(large) {
+  height: calc(50vh - .75rem) !important;
+}
+@include breakpoint(xlarge) {
+  height: calc(70vh - .75rem) !important;
+}
+}
+
+.media-embed-block.layout-vertical.attachment-count-2 .resource-text-openseadragon .large .openseadragon,
+.media-embed-block.layout-vertical.attachment-count-2 .resource-text-openseadragon .large .file > a > img {
+  @include breakpoint(medium) {
+  height: calc(50vh - .75rem) !important;
+}
+@include breakpoint(large) {
+  height: calc(60vh - .75rem) !important;
+}
+@include breakpoint(xlarge) {
+  height: calc(85vh - .75rem) !important;
+}
+}
+
+.media-embed-block.layout-vertical.attachment-count-3 .resource-text-openseadragon .medium .openseadragon,
+.media-embed-block.layout-vertical.attachment-count-3 .resource-text-openseadragon .medium .file > a > img {
+  @include breakpoint(medium) {
+  height: calc(45vh - .75rem) !important;
+}
+}
+
+.media-embed-block.layout-vertical.attachment-count-3 .resource-text-openseadragon .medium-large .openseadragon,
+.media-embed-block.layout-vertical.attachment-count-3 .resource-text-openseadragon .medium-large .file > a > img {
+  @include breakpoint(medium) {
+  height: calc(55vh - .75rem) !important;
+}
+}
+
+.media-embed-block.layout-vertical.attachment-count-3 .resource-text-openseadragon .large .openseadragon,
+.media-embed-block.layout-vertical.attachment-count-3 .resource-text-openseadragon .large .file > a > img {
+  @include breakpoint(large) {
+  height: calc(70vh - .75rem) !important;
+}
+}
+
+/*Three Child elements seadragonbox*/
+  .attachment-count-3 .medium .seadragonbox {
+      height: rem-calc(200) !important;
+      @include breakpoint(medium) {
+        height: rem-calc(300) !important;
+      }
+      @include breakpoint(large) {
+        height: rem-calc(350) !important;
+      }
+  }
+
+/*Add margin to multiple items*/ 
+.resource-text-openseadragon .item.resource:not(:only-child):not(:last-child) {
+  @include breakpoint(medium) {
+  margin-right: $global-margin;
+  }
+}
+
+
+.attachment-count-2 .metadata h2,
+.attachment-count-3 .metadata h2,
+.attachment-count-2 .metadata h2.h3,
+.attachment-count-3 .metadata h2.h3 {
+  font-weight: 400;
+  /*margin: $global-margin;*/
+  @include breakpoint(medium) {
+    font-size: 110%;
+  }
+  @include breakpoint(large) {
+    font-size: 110%;
+  }
+}
+
+.attachment-count-2 .metadata:only-child,
+.attachment-count-3 .metadata:only-child {
+  /*margin: $global-margin;*/
+  @include breakpoint(large) {
+    margin: $global-margin 0 2 * $global-margin 0;
+  }
+}

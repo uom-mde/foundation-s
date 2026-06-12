@@ -1,23 +1,28 @@
-/*Jumbotron Search*/ 
-.jumbotron-search form {
-  padding: 0!important;
-  max-width: rem-calc(850);
-}
+/* ==========================================================================
+   Page Blocks: Jumbotron
+   ========================================================================== */
 
-.jumbotron-search input[type="text"] {
-  width: 100%;
-  margin: 0;
-  padding: 0 rem-calc(16);
-  font-size: rem-calc(16)!important;
-  height: rem-calc(50)!important;
-}
+.jumbotron-search {
+  form {
+    max-width: rem-calc(850);
+    padding: 0 !important;
+  }
 
-.jumbotron-search button[type="submit"] {
-  padding: 0 rem-calc(16)!important;
-}
+  input[type="text"] {
+    width: 100%;
+    height: rem-calc(50) !important;
+    margin: 0;
+    padding: 0 rem-calc(16);
+    font-size: rem-calc(16) !important;
+  }
 
-.jumbotron-search button[type="submit"]:hover {
-  line-height: 2em;
-  color: #fff;
-  border-radius: 0 rem-calc(8) rem-calc(8) 0;
+  button[type="submit"] {
+    padding: 0 rem-calc(16) !important;
+
+    &:hover {
+      color: #fff;
+      line-height: 2em;
+      border-radius: 0 rem-calc(8) rem-calc(8) 0;
+    }
+  }
 }

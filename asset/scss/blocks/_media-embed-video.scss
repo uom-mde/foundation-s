@@ -1,0 +1,44 @@
+/* ==========================================================================
+   Media Embed Video / IIIF Presentation
+   ========================================================================== */
+
+/*YouTube and Video Styling*/ 
+.medium .youtube iframe,
+.medium video {
+  width: 100%;
+  max-width: rem-calc(600);
+  aspect-ratio: 4 / 3;
+  height: auto;
+}
+
+.medium-large .youtube iframe,
+.medium-large video {
+  width: 100%;
+  max-width: rem-calc(700);
+  aspect-ratio: 16 / 9;
+  height: auto;
+}
+
+.large .youtube iframe,
+.large video,
+.main-with-sidebar video {
+  width: 100%;
+  max-width: rem-calc(850);
+  aspect-ratio: 16 / 9;
+  height: auto;
+}
+
+/*IIIF Presentation media type*/
+.media-render.iiif_presentation iframe {
+  padding: 0;
+  height: rem-calc(500) !important;
+  @include breakpoint(large) {
+    height: 70vh;
+  }
+  @include breakpoint(large) {
+  height: 80vh !important;
+  }
+  @include breakpoint(xlarge) {
+  height: 90vh !important;
+  }
+}

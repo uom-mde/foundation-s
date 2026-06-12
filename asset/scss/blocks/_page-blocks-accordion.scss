@@ -1,11 +1,11 @@
-/*Accordion*/ 
+/* ==========================================================================
+   Page Blocks: Accordion
+   ========================================================================== */
+
 .accordion-trigger {
-  padding-block: 20px!important;
-  }
-  
-  button.accordion-trigger {
   cursor: pointer;
-  }
+  padding-block: rem-calc(20) !important;
+}
 
 .accordion-content.collapsed {
   padding: 0;

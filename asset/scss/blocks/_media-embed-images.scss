@@ -1,0 +1,173 @@
+/* ==========================================================================
+   Media Embed Images
+   ========================================================================== */
+
+/*JPEG Styling*/
+.media-embed-block img {
+  object-fit: contain;
+  height: 100%;
+  max-height: rem-calc(300) !important;
+  @include breakpoint(medium) {
+  max-height: rem-calc(350) !important;
+  }
+}
+.media-embed-block .medium img {
+  @include breakpoint(large) {
+    max-height: 60vh !important;
+  }
+} 
+
+.media-embed-block .medium-large img {
+  @include breakpoint(large) {
+    max-height: 60vh !important;
+  }
+} 
+
+.media-embed-block .large img {
+  @include breakpoint(large) {
+    max-height: 85vh !important;
+  }
+}
+
+.media-embed-block .medium-large:not(:only-child) img {
+  max-height: rem-calc(300) !important;
+    @include breakpoint(large) {
+    max-height: rem-calc(450) !important;
+  }
+    @include breakpoint(xlarge) {
+    max-height: rem-calc(500) !important;
+  }
+  }
+
+.media-embed-block .large:not(:only-child) img {
+  max-height: rem-calc(300) !important;
+    @include breakpoint(large) {
+    max-height: rem-calc(500) !important;
+  }
+    @include breakpoint(xlarge) {
+    max-height: rem-calc(600) !important;
+  }
+}
+
+/*Multiples Grid styling*/
+.grid-multiples {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: flex-start;
+  @include breakpoint(medium) {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.attachment-count-3 .grid-multiples {
+  @include breakpoint(800) {
+  grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+@for $i from 5 through 20 { // Adjust 20 to your max expected count
+  .attachment-count-#{$i} .grid-multiples {
+    @include breakpoint(800) {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+  }
+}
+
+// Add an override where two columns are preferred
+.grid-columns-2 .grid-multiples {
+  @include breakpoint(medium) {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+
+/* Text around image */
+
+  .block-media.text-around-image,  
+  .block-media .text-around-image,
+  .block-asset .text-around-image  {
+    display: block;
+    float: left;
+    width: 50%;
+    margin: 0 1rem 0.5rem 0;
+  @include breakpoint(600) {
+    width: 40%;
+    margin: 0 1rem 1rem 0;
+  }
+  @include breakpoint(900) {
+    width: 30%;
+    margin: 0 2rem 1rem 0;
+  }
+}
+
+.block-media.text-around-image.block-layout-alignment-block-right,
+.block-media .text-around-image.block-layout-alignment-block-right {
+  //display: block;
+  float: right;
+ // width: 50%;
+  margin: 0 0 0.5rem 1rem;
+    @include breakpoint(600) {
+    margin: 0 0 1rem 1rem;
+  }
+  @include breakpoint(700) {
+    width: rem-calc(400);
+    margin: 0 0 1rem 2rem;
+  }
+}
+
+/* Square thumbnails */
+
+/*Square Thumbnail Styling*/ 
+.media-embed-block .square img,
+.square .openseadragon {
+  height: rem-calc(280) !important;
+  width: 85vw !important;
+  @include breakpoint(400) {
+    width: 88vw !important;
+  }
+  @include breakpoint(500) {
+    width: rem-calc(360) !important;
+    height: rem-calc(360) !important;
+  }
+}
+
+/*Ensure above rule does not corrupt buttons in Openseadragon viewer*/ 
+.media-embed-block .square .openseadragon-container img {
+  height: 24px !important;
+  width: 24px !important;
+}
+
+/*Text around Image Openseadragon styling*/ 
+/*Square Thumbnail Styling*/ 
+.text-around-image .square .openseadragon {
+  height: rem-calc(250) !important;
+  width: 100% !important;
+  @include breakpoint(400) {
+    height: rem-calc(280) !important;
+    width: 100% !important;
+  }
+  @include breakpoint(500) {
+    width: 100% !important;
+    height: rem-calc(360) !important;
+  }
+}
+
+/* Media/image helpers */
+
+.square .media-render {
+  padding: 0;
+}
+
+.media.file {
+  width: 100%;
+}
+
+.media-embed .resource {
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.width-80 .attachments.resource-text-openseadragon {
+  min-width: 80vw;
+  max-width: rem-calc(1500);
+}

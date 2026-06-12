@@ -1,56 +1,68 @@
-/*MDE Stats*/ 
+/* ==========================================================================
+   MDE Stats
+   ========================================================================== */
+
 .mde-stats {
   display: grid;
   justify-items: center;
-  /*padding: 40px 0 50px;*/
+
+  // padding: rem-calc(40) 0 rem-calc(50);
+
+  dl {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-areas:
+      "label1 label2 label3 label4"
+      "value1 value2 value3 value4";
+    column-gap: rem-calc(40);
+    justify-items: center;
   }
-  
-  .mde-stats dl {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: auto;
-  grid-template-areas:
-  "label1 label2 label3 label4"
-  "value1 value2 value3 value4";
-  column-gap: 40px;
-  justify-items: center
-  }
-  
-  .mde-stats dl dt {
-  text-transform: uppercase;
-  color: #b3b2b2;
-  margin: 10px 0;
-  }
-  
-  .mde-stats dl dt:after {
+
+  dt {
+    margin: rem-calc(10) 0;
+    color: #b3b2b2;
+    text-transform: uppercase;
+
+    &::after {
       content: initial;
       display: initial;
       width: unset;
       max-width: unset;
       border-bottom: unset;
+    }
+
+    &:nth-of-type(1) {
+      grid-area: label1;
+    }
+
+    &:nth-of-type(2) {
+      grid-area: label2;
+    }
+
+    &:nth-of-type(3) {
+      grid-area: label3;
+    }
+
+    &:nth-of-type(4) {
+      grid-area: label4;
+    }
   }
-  
-  .mde-stats dl dt:nth-of-type(1) {
-  grid-area: label1;
+
+  dd {
+    &:nth-of-type(1) {
+      grid-area: value1;
+    }
+
+    &:nth-of-type(2) {
+      grid-area: value2;
+    }
+
+    &:nth-of-type(3) {
+      grid-area: value3;
+    }
+
+    &:nth-of-type(4) {
+      grid-area: value4;
+    }
   }
-  .mde-stats dl dt:nth-of-type(2) {
-  grid-area: label2;
-  }
-  .mde-stats dl dt:nth-of-type(3) {
-  grid-area: label3;
-  }
-  .mde-stats dl dt:nth-of-type(4) {
-  grid-area: label4;
-  }
-  .mde-stats dl dd:nth-of-type(1) {
-  grid-area: value1;
-  }
-  .mde-stats dl dd:nth-of-type(2) {
-  grid-area: value2;
-  }
-  .mde-stats dl dd:nth-of-type(3) {
-  grid-area: value3;
-  }
-  .mde-stats dl dd:nth-of-type(4) {
-  grid-area: value4;
-  }
+}

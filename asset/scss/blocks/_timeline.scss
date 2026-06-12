@@ -1,28 +1,35 @@
-/*Timeline Block*/ 
+/* ==========================================================================
+   Timeline
+   ========================================================================== */
 
-.tl-timeline h1, 
-.tl-timeline h2, 
-.tl-timeline h3, 
-.tl-timeline h4, 
-.tl-timeline h5, 
-.tl-timeline h6 {
-  font-family: $body-font-family!important;
+.tl-timeline {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: $body-font-family !important;
+  }
+
+  p {
+    font-family: 'Open Sans' !important;
+    font-size: rem-calc(16);
+    line-height: 1.3;
+  }
+
+  .tl-headline-date,
+  h3.tl-headline-date {
+    font-family: 'Open Sans' !important;
+  }
 }
 
-.tl-timeline p {
-    font-family: 'Open Sans'!important;
-    font-size: 16px;
-    line-height: 1.3em;
-}
+.timeline {
+  small {
+    color: $white;
+  }
 
-.tl-timeline .tl-headline-date, .tl-timeline h3.tl-headline-date {
-    font-family: 'Open Sans'!important;
-}
-
-.timeline small {
-color: #fff;
-}
-
-.timeline::after {
-display: none;
+  &::after {
+    display: none;
+  }
 }
