@@ -1,227 +1,220 @@
-@charset 'utf-8';
-// @import 'globals-default';
-// @import 'globals-inkwell';
-// @import 'settings';
-// Sea Foam Settings
-// @import 'foundation-core';
-@import 'seafoam';
-// @import 'omeka';
-$topbar-background: transparent;
-$thumbnail-shadow-hover: 0 0 6px 1px rgba($primary-color, 0.5);
-$button-color: $black;
+@charset "utf-8";
 
-header .menu a {
+@import "seafoam";
+
+/* ==========================================================================
+   Inkwell Theme Overrides
+   ========================================================================== */
+
+/* Header */
+
+header {
+  .menu a {
     color: $black;
-}
+    text-decoration: none;
+  }
 
-header .button {
-    border: 1px solid #000;
-    margin-left: -1px;
-}
+  .button {
+    border: unset;
+  }
 
-header .input-group-field {
-    border: 1px solid #000;
+  .input-group-field {
+    border: rem-calc(1) solid $black;
     box-shadow: none;
+  }
 }
+
+.site-title {
+  a:hover span {
+    color: #609;
+    background-color: unset;
+    text-decoration: underline;
+    transition: color 0.25s ease-out;
+  }
+}
+
+span.h4.site-title-label {
+  color: $black;
+}
+
+/* Links */
 
 a,
 .breadcrumbs a {
-    color: #000;
-    &:hover,
-    &:focus {
-        color: #000;
-    }
+  color: $black;
+
+  &:hover,
+  &:focus {
+    color: $black;
+  }
+}
+
+a:hover {
+  background-color: unset;
 }
 
 body.vertical-menu header a {
-    color: #000;
-    text-decoration: underline;
+  color: $black;
+  text-decoration: underline;
 }
+
+/* Labels */
 
 label,
 .label {
-    color: $white;
+  color: $white;
 }
 
-.site-title a:hover span {
-    color: $white;
-    }
+/* Media */
 
-span.h4.site-title-label {
-    color: $black;
-}
-
-.media-list .lg-thumb-item img,
-.media-list img.lg-image {
-    border: 0;
+.media-list {
+  .lg-thumb-item img,
+  img.lg-image {
     margin-right: 0;
+    border: 0;
+  }
 }
+
+/* Mobile menu */
 
 @include breakpoint(medium down) {
-    header .menu-toggle[type="button"] {
-        border: 0;
-    }
-    body.vertical-menu header .title-bar button.menu-toggle {
-        color: #000;
-    }
+  header .menu-toggle[type="button"] {
+    border: 0;
+  }
+
+  body.vertical-menu header .title-bar button.menu-toggle {
+    color: $black;
+  }
 }
 
-/*Remove margin from top menu buttons*/ 
-.title-bar button {
+.title-bar {
+  button {
     margin: 0;
+  }
 }
 
-/*Update menu bar*/ 
-.top-bar a {
-    color: $black;
-}
+/* Top bar */
 
-.top-bar, .top-bar ul {
+.top-bar {
+  border-bottom: rem-calc(1) solid #cfcccc;
+
+  &,
+  ul {
     background-color: transparent;
-}
+  }
 
-header .menu a {
-    text-decoration: none;
-}
-
-.menu .active>a {
-    background: transparent;
+  a {
     color: $black;
-}
+  }
 
-/*25 02 24 Additions*/ 
-/*Remove purple from mobile search*/
-.search-bar-mobile button {
-    background-color: transparent;
-    &:hover {
-        background-color: transparent;
-    }
-    }
-    
-.search-bar-mobile svg path {
-    fill: $black;
-}
-
-/*Remove a:hover background colour*/
-a:hover {
-    background-color: unset;
- }
- 
- /*Dark purple on active menu element*/
- .menu .active>a, .toc-block>ul .active>a, .toc-block ul ul .active>a {
-     color: $white;
-     background: $secondary-color;
-     font-weight: 600;
- }
- 
- /*Border under top navigation menu*/
- .top-bar {
-     border-bottom: solid 1px #cfcccc;
- }
-
- .top-bar .home-icon a:hover {
+  .home-icon a:hover {
     color: #609;
-    -webkit-transition: color .25s ease-out, color .25s ease-out;
-    transition: color .25s ease-out, color .25s ease-out;
     background-color: unset;
+    transition: color 0.25s ease-out;
+  }
 }
 
- .site-title a:hover span {
-    color: #609; 
-    /*color: initial;*/
-    background-color: unset;
-    text-decoration: underline;
-    -webkit-transition: color .25s ease-out, color .25s ease-out;
-    transition: color .25s ease-out, color .25s ease-out;
+/* Navigation */
+
+.menu .active > a,
+.toc-block > ul .active > a,
+.toc-block ul ul .active > a {
+  color: $white;
+  font-weight: 600;
+  background: $secondary-color;
 }
 
- /*Remove border from search icon*/
- header .button {
- border: unset;
- }
- 
- ul.dropdown.menu li:hover {
- background-color: $primary-color;
- }
- 
- ul.dropdown.menu li:hover a {
- color: $white;
- }
+ul.dropdown.menu {
+  li:hover {
+    background-color: $primary-color;
 
-/*Ensure sub-sub-menu pointer is white*/
-.is-dropdown-submenu .is-dropdown-submenu-parent.opens-left>a::after {
-    border-color: rgba(0, 0, 0, 0) $white rgba(0, 0, 0, 0) rgba(0, 0, 0, 0);
+    a {
+      color: $white;
+    }
+  }
+}
+
+.is-dropdown-submenu {
+  .is-dropdown-submenu-parent.opens-left > a::after {
+    border-color: transparent $white transparent transparent;
+  }
 }
 
 .is-submenu-item.is-dropdown-submenu-item a {
-    color: $white;
+  color: $white;
 }
 
- /*Add padding when search button is displayed*/ 
- .search-button.is-shown {
-    padding: 0.5 * $global-padding;
- }
-
- /*Change search button background*/ 
- .search-bar-mobile button.search-icon[aria-expanded=true] {
-    background: transparent;
- }
-
- button.search-icon[aria-expanded=true] {
-    background: transparent!important;
- }
-
- /*Add fill colour to close button*/
- button.search-icon[aria-expanded=true] svg path {
-    fill: $dark-gray;
+.dropdown.menu > li.is-dropdown-submenu-parent > a::after,
+.toc-block > ul.dropdown > li.is-dropdown-submenu-parent > a::after,
+.toc-block ul ul.dropdown > li.is-dropdown-submenu-parent > a::after {
+  border-color: $dark-gray transparent transparent;
 }
 
-/*Revise top margin for close icon on mobile search
-button.search-icon[aria-expanded=true] svg.active {
-margin-top: -1rem;
-}*/ 
-
-.toc-block ul ul.dropdown>li.is-dropdown-submenu-parent.active>a {
-    padding-right: 2rem;
-    color: $dark-gray;
+.dropdown.menu > li.is-dropdown-submenu-parent > a:hover::after,
+#responsive-menu > ul > li.dropdown.active.is-dropdown-submenu-parent.opens-left.is-active > a:hover::after {
+  border-color: $white transparent transparent;
 }
 
-.dropdown.menu>li.is-active>a, .toc-block>ul.dropdown>li.is-active>a, .toc-block ul ul.dropdown>li.is-active>a {
-    color: $dark-gray;
+.dropdown.menu > li.is-active > a,
+.toc-block > ul.dropdown > li.is-active > a,
+.toc-block ul ul.dropdown > li.is-active > a {
+  color: $dark-gray;
 }
 
+.toc-block > ul.dropdown > li.is-active > a {
+  color: $white;
+}
+
+.toc-block ul ul.dropdown > li.is-dropdown-submenu-parent.active > a {
+  padding-right: 2rem;
+  color: $dark-gray;
+}
+
+#responsive-menu > ul > li.dropdown.is-dropdown-submenu-parent.opens-left.is-active > ul > li > a,
 #responsive-menu > ul > li.dropdown.active.is-dropdown-submenu-parent.opens-left.is-active > ul > li > a {
-color: $white;
+  color: $white;
 }
 
-.dropdown.menu>li.is-dropdown-submenu-parent>a::after, .toc-block>ul.dropdown>li.is-dropdown-submenu-parent>a::after, .toc-block ul ul.dropdown>li.is-dropdown-submenu-parent>a::after {
-border-color: $dark-gray transparent transparent;
+#responsive-menu > ul > li.dropdown.active.is-dropdown-submenu-parent.opens-left.is-active > a::after {
+  border-color: $dark-gray transparent transparent;
 }
 
-.toc-block>ul.dropdown>li.is-active>a {
-    color: $white;
+/* Search */
+
+.search-bar-mobile {
+  button {
+    background-color: transparent;
+
+    &:hover {
+      background-color: transparent;
+    }
+  }
+
+  svg path {
+    fill: $black;
+  }
+
+  button.search-icon[aria-expanded="true"] {
+    background: transparent;
+  }
 }
 
-#responsive-menu > ul > li.dropdown.is-dropdown-submenu-parent.opens-left.is-active > ul > li > a {
-color: $white;
+.search-button.is-shown {
+  padding: 0.5 * $global-padding;
 }
 
-#responsive-menu > ul > li.dropdown.active.is-dropdown-submenu-parent.opens-left.is-active > a:after {
-border-color: $dark-gray transparent transparent;
+button.search-icon[aria-expanded="true"] {
+  background: transparent !important;
+
+  svg path {
+    fill: $dark-gray;
+  }
 }
 
-.dropdown.menu>li.is-dropdown-submenu-parent>a:hover:after {
-    border-color: $white transparent transparent;
-}
+/* Footer */
 
-#responsive-menu > ul > li.dropdown.active.is-dropdown-submenu-parent.opens-left.is-active > a:hover:after {
-    border-color: $white transparent transparent;
-}
-
-/*Footer*/ 
 .dark-background a:hover,
-.footerContainer a:hover  {
-color: $white;
-text-decoration: underline;
+.footerContainer a:hover {
+  color: $white;
+  text-decoration: underline;
 }
-
