@@ -106,7 +106,7 @@ $stripOpenSeadragonInlineScript = function (string $html): string {
                         <?php endif; ?>
 
                         <?php if ($location = $item->value('curation:location')): ?>
-                            <div class="metadata-value h4 location">
+                            <div class="metadata-value h4 location text-center">
                                 <small><?php echo $this->escapeHtml($location); ?></small>
                             </div>
                         <?php endif; ?>
@@ -130,7 +130,7 @@ $stripOpenSeadragonInlineScript = function (string $html): string {
                     <?php endif; ?>
 
                     <?php if ($location = $item->value('curation:location')): ?>
-                        <div class="metadata-value h4 location">
+                        <div class="metadata-value h4 location text-center">
                             <small><?php echo $this->escapeHtml($location); ?></small>
                         </div>
                     <?php endif; ?>
