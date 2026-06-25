@@ -119,7 +119,7 @@ $markDeferredOpenSeadragon = function (string $html): string {
             </div>
         <?php elseif ($showTitleOption === 'file_name'): ?>
             <div class="separator-center metadata margin-vertical-1">
-                <div class="metadata-value h4"><?php echo $media->displayTitle(); ?></h2>
+                <div class="metadata-value h4"><?php echo $media->displayTitle(); ?></div>
             </div>
             <?php if ($alternative = $item->value('dcterms:alternative')): ?>
                 <h2 class="metadata-value h4 italic-font alternative"><small><?php echo $this->escapeHtml($alternative); ?></small></h2>
