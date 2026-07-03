@@ -90,7 +90,7 @@ After all those imports come all style rules specific to the theme.
 
 ## Page and Block Templates
 
-The Omeka S 4.1 introduced the block templates feature, which allows theme developers to provide their users with alternative versions of page blocks. Foundation includes the following templates for each block:
+The following templates have been added to the base theme:
 
 * Asset
   * **Card**: Uses [Foundation Framework's card container](https://get.foundation/sites/docs/card.html) styles.
@@ -100,15 +100,48 @@ The Omeka S 4.1 introduced the block templates feature, which allows theme devel
   * **Grid**: Ignores theme setting for browse view layouts and displays all resources in a grid that maxes out at 4 columns.
   * **Toggle (default: list)**: Ignores theme setting for browse view layouts and lets the user choose their browse style, defaulting to a single column list of resources.
   * **Toggle (default: grid)**: Ignores theme setting for browse view layouts and lets the user choose their browse style, defaulting to a grid of resources maxing out at 4 columns.
+* HTML
+  * **Blockquote**: Place your quotation within blockquote tags using the option in the HTML text editor, and use cite in HTML to add a citation.
+  * **Content Warning**: A styled block in which to present a content warning. 
+  * **Progress Bar**: Used to display a progress bar above the HTML block, informing visitors of its extent.  
+  * **SVG Pan and Zoom**: A styled block in which to present a content warning.  
+  * **Dark Text**: A styled block in which to present a content warning.  
+  * **Dark Text - Large**: A styled block in which to present a content warning.  
+  * **Text**: A styled block in which to present a content warning.  
+  * **Text - Large**: A styled block in which to present a content warning.   
 * Item with metadata
   * **Large media left**: A 2-column layout with the item media rendered to the left of the metadata.
   * **Large media right**: A 2-column layout with the item media rendered to the right of the metadata.
 * List of pages
   * **With container**: Provides a gray box container.
 * List of sites
-  * **Card**: Uses [Foundation Framework's card container](https://get.foundation/sites/docs/card.html) styles for each site.
+  * **Browse**: A block to present all public sites in Omeka S. Thumbnail and title share the top row, with the site description underneath. 
+  * **Card**: A card block displaying all public Omeka S sites. 
+  * **Card Featured**: A card block to display featured sites.
+  * **Card Featured Mosaic**: A card block adding styling to featured sites.
+  * **Card Library**: A card block displaying sites marked as 'Library' in the site settings.
+  * **Card Library Browse**: A compact card block displaying sites marked as 'Library'. This block only presents the site title and thumbnail, not the additional information.
+  * **Card Library Mosaic**: A card block displaying sites marked as 'Library' in the site settings, uses a CSS grid display.
+  * **Card Research**: A card block displaying sites marked as 'Research' in the site settings.
+  * **Card Research Browse**: A compact card block displaying sites marked as 'Research'. This block only presents the site title and thumbnail, not the additional information.
+  * **Card Research Mosaic**: A card block displaying sites marked as 'Mosaic' in the site settings, uses a CSS grid display.
+* Media Embed 
+  * **Large media left**: A 2-column layout with the item media rendered to the left of the metadata.
+  * **Large media right**: A 2-column layout with the item media rendered to the right of the metadata.
+  * **Large media left**: A 2-column layout with the item media rendered to the left of the metadata.
+  * **Large media right**: A 2-column layout with the item media rendered to the right of the metadata.
+  * **Large media left**: A 2-column layout with the item media rendered to the left of the metadata.
+  * **Large media right**: A 2-column layout with the item media rendered to the right of the metadata.
+  * **Large media left**: A 2-column layout with the item media rendered to the left of the metadata.
+  * **Large media right**: A 2-column layout with the item media rendered to the right of the metadata.
+  * **Large media left**: A 2-column layout with the item media rendered to the left of the metadata.
+  * **Large media right**: A 2-column layout with the item media rendered to the right of the metadata.
+  * **Large media left**: A 2-column layout with the item media rendered to the left of the metadata.
+  * **Large media right**: A 2-column layout with the item media rendered to the right of the metadata.
 * Page title
   * **Accent**: Renders the page title with the theme's primary color as a background color.
+
+---
 
 ## Resource Page Configuration
 
@@ -169,6 +202,16 @@ This fork of the Foundation S theme uses the following third‑party libraries:
 - **Source**: https://js.cytoscape.org  
 - **Copyright**: © 2016 The Cytoscape Consortium  
 - **License text**: See [`licenses/license-cytoscapejs.txt`](licenses/license-cytoscapejs.txt)
+
+---
+
+### imagesLoaded
+- **Library**: imagesloaded.pkgd.min.js minified
+- **Authors**: David DeSandro 
+- **License**: MIT  
+- **Source**: https://imagesloaded.desandro.com/
+- **Copyright**: © 2026 David DeSandro
+- **License text**: See [`licenses/license-imagesLoaded.txt`](licenses/license-imagesLoaded.txt)
 
 ---
 
