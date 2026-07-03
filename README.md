@@ -172,6 +172,16 @@ This fork of the Foundation S theme uses the following third‑party libraries:
 
 ---
 
+### jquery.peekABar
+- **Library**: @kunalnagarco/jquery-peek-a-bar  
+- **Authors**: Kunal Nagar  
+- **License**: MIT  
+- **Source**: https://github.com/kunalnagarco/jquery.peekABar 
+- **Copyright**: © 2024 Kunal Nagar  
+- **License text**: See [`licenses/license-jquerypeekABar.txt`](licenses/license-jquerypeekABar.txt)
+
+---
+
 ### Masonry
 - **Library**: Masonry PACKAGED v4.2.2  
 - **Authors**: David DeSandro  
@@ -179,3 +189,13 @@ This fork of the Foundation S theme uses the following third‑party libraries:
 - **Source**: https://masonry.desandro.com  
 - **Copyright**: © David DeSandro  
 - **License text**: See [`licenses/license-masonry.txt`](licenses/license-masonry.txt)
+
+---
+
+### svg-pan-zoom library
+- **Library**: [Masonry PACKAGED v4.2.2](https://github.com/bumbu/svg-pan-zoom/releases/tag/3.6.1)  
+- **Authors**: David DeSandro  
+- **License**: BSD-2-Clause license  
+- **Source**: https://github.com/ariutta/svg-pan-zoom 
+- **Copyright**: © 2009-2010 Andrea Leofreddi <a.leofreddi@vleo.net>  
+- **License text**: See [`licenses/license-svg-pan-zoom.txt`](licenses/license-svg-pan-zoom.txt)
