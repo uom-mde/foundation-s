@@ -212,6 +212,7 @@ header .top-bar-left {
 }
 
 header .top-bar {
+  position: relative;
   @include breakpoint(small down) {
     padding: 0;    
   }
