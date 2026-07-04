@@ -206,6 +206,7 @@
                 top: 100%;
                 left: 50%;
                 transform: translateX(-50%);
+                z-index: 99999999999999999;
 
                 > li { //mega menu columns
                     max-width: 260px;
