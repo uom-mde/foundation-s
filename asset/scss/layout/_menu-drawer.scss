@@ -11,6 +11,7 @@ $header-min-height: 133px;
     overflow-x: hidden;
     transition: all 0.3s ease-out;
     visibility: hidden;
+    background: $secondary-color;
 
     @media screen and (min-width: 1200px) {
         transform: translateX( -100% ) !important;
