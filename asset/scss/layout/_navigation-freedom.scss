@@ -142,10 +142,10 @@
                     padding: 3px;
 
                     &::after {
-                        content: "\f107" !important;
+                        font-family: "Font Awesome 5 Free";
+                        font-weight: 900;
+                        content: "\f107";
                         display: inline-block;
-                        font-weight: 600;
-                        font-size: .75rem;
                         color: $secondary-color;
                     }
                 }
