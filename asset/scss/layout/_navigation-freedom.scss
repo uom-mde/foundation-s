@@ -184,6 +184,15 @@
 
 }
 
+//Stop the mobile menu loading in the area reserved for the expanded menu
+.main-navigation {
+
+    &__toggle {
+        display: none;
+    }
+}
+
+//Load the mobile menu only in the .header-uom area
 .header-uom .main-navigation {
 
     &__toggle {
