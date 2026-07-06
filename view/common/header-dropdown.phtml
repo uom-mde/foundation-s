@@ -22,28 +22,28 @@
             <?php echo $this->partial('common/search-form'); ?>
         </div>
     </div>
-    <nav class="title-bar" data-responsive-toggle="responsive-menu" data-hide-for="large">
-        <button class="menu-toggle" type="button" data-toggle="offCanvas"
-            label="Open search" aria-label="<?php echo $this->translate('Menu'); ?>">
-                <svg
-                class="hamburger-icon"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                aria-hidden="true"
-                focusable="false"
-                xmlns="http://www.w3.org/2000/svg"
-                >
-                <path
-                    d="M4 7h16M4 12h16M4 17h16"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                />
-                </svg>
-        </button>
-    </nav>
+    <div class="main-header__main-bar container">
+        <nav class="main-navigation">
+            <div class="main-navigation__container">
+                <?php
+                echo $site->publicNav()->menu()->renderMenu(null, [
+                    'addClassToListItem' => true,
+                    'maxDepth' => 2
+                ]);
+                ?>
+            </div>
+            <button
+                    class="main-navigation__toggle"
+                    aria-expanded="false"
+                    aria-controls="menu-drawer">
+                <span class="sr-only">Open menu</span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </button>
+        </nav>
+        <?php echo $this->partial('common/menu-drawer'); ?>
+    </div>
 </div>
 <div class="top-bar">
     <div class="top-bar-left flex-container align-middle medium-margin-left-1 large-margin-left-2">
