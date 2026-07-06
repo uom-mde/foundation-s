@@ -11,7 +11,8 @@ document.addEventListener("DOMContentLoaded", function() {
 	let collection, container, menu, links, i, len;
 
 	// collect the menus for mobile
-	collection = document.querySelectorAll( '.main-navigation' );
+	// JMc revised to link only to .header-uom. Targeting .main-navigation only duplicated the menus
+	collection = document.querySelectorAll( '.header-uom .main-navigation' );
 
 	// get the toggle menu item (li)
 	mmToggli = document.querySelector( '.main-navigation__toggle' );
