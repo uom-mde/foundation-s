@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 	// collect the menus for mobile
 	// JMc revised to link only to .header-uom. Targeting .main-navigation only duplicated the menus
-	collection = document.querySelectorAll( '.main-navigation' );
+	collection = document.querySelectorAll('.main-navigation--drawer-source');
 
 	// get the toggle menu item (li)
 	mmToggli = document.querySelector( '.main-navigation__toggle' );
@@ -80,70 +80,83 @@ document.addEventListener("DOMContentLoaded", function() {
 		}
 	} );
 
-	document.querySelectorAll( '.main-navigation .nav-menu > li.menu-item-has-children/*, .menu-drawer .navigation > li.menu-item-has-children*/' ).forEach( item => {
-		const activatingA = item.querySelector('a');
-		const btn = '<button class="submenu-btn"><span><span class="screen-reader-text">show submenu for “' + activatingA.text + '”</span></span></button>';
-		activatingA.insertAdjacentHTML('afterend', btn);
-
-		const itemLink = item.querySelector('a');
-		const itemButton = item.querySelector('button');
-		const itemSubmenu = item.querySelector('ul');
-
-		itemLink.setAttribute('aria-expanded', 'false');
-		itemButton.setAttribute('aria-expanded', 'false');
-
-		if (item.closest('.main-navigation')) { // Desktop only.
-			item.addEventListener('mouseover', () => {
-				item.classList.add('open');
-				itemLink.setAttribute('aria-expanded', 'true');
-				itemButton.setAttribute('aria-expanded', 'true');
-
-				requestAnimationFrame(() => {
-					itemSubmenu.style.opacity = '1';
-				});
-			});
-
-			item.addEventListener('mouseout', () => {
-				item.classList.remove('open');
-				itemLink.setAttribute('aria-expanded', 'false');
-				itemButton.setAttribute('aria-expanded', 'false');
-				itemSubmenu.style.opacity = '0';
-			});
-
-			item.addEventListener('focusout', (e) => {
-				// Wait a tick to let focus settle
-				requestAnimationFrame(() => {
-					if (!item.contains(document.activeElement)) {
-						item.classList.remove('open');
-						itemLink.setAttribute('aria-expanded', 'false');
-						itemButton.setAttribute('aria-expanded', 'false');
-					}
-				});
-			});
-
-			item.addEventListener('keydown', function (e) {
-				if (e.key === 'Escape' || e.key === 'Esc') {
-					item.classList.remove('open');
-					itemLink.setAttribute('aria-expanded', 'false');
-					itemButton.setAttribute('aria-expanded', 'false');
-					itemButton.focus(); // Return focus to button
-				}
-			});
-
-			itemButton.addEventListener('click', function (event) {
-				const isOpen = this.parentNode.classList.toggle('open');
-
-				this.parentNode.querySelector('a').setAttribute('aria-expanded', isOpen.toString());
-				this.parentNode.querySelector('button').setAttribute('aria-expanded', isOpen.toString());
-
-				requestAnimationFrame(() => {
-					itemSubmenu.style.opacity = '1';
-				});
-
-				event.preventDefault();
-			});
+	document.querySelectorAll('.main-navigation .navigation li').forEach(item => {
+		if (item.querySelector(':scope > ul')) {
+			item.classList.add('menu-item-has-children');
 		}
 	});
+
+	document
+    .querySelectorAll('.main-navigation .navigation > li.menu-item-has-children')
+    .forEach(item => {
+        const activatingA = item.querySelector(':scope > a');
+        const itemSubmenu = item.querySelector(':scope > ul');
+
+        if (!activatingA || !itemSubmenu) return;
+
+        const btn = `
+            <button class="submenu-btn" type="button" aria-expanded="false">
+                <span>
+                    <span class="screen-reader-text">show submenu for “${activatingA.textContent.trim()}”</span>
+                </span>
+            </button>
+        `;
+
+        activatingA.insertAdjacentHTML('afterend', btn);
+
+        const itemButton = activatingA.nextElementSibling;
+
+        activatingA.setAttribute('aria-expanded', 'false');
+
+        item.addEventListener('mouseover', () => {
+            item.classList.add('open');
+            activatingA.setAttribute('aria-expanded', 'true');
+            itemButton.setAttribute('aria-expanded', 'true');
+
+            requestAnimationFrame(() => {
+                itemSubmenu.style.opacity = '1';
+            });
+        });
+
+        item.addEventListener('mouseout', () => {
+            item.classList.remove('open');
+            activatingA.setAttribute('aria-expanded', 'false');
+            itemButton.setAttribute('aria-expanded', 'false');
+            itemSubmenu.style.opacity = '0';
+        });
+
+        item.addEventListener('focusout', () => {
+            requestAnimationFrame(() => {
+                if (!item.contains(document.activeElement)) {
+                    item.classList.remove('open');
+                    activatingA.setAttribute('aria-expanded', 'false');
+                    itemButton.setAttribute('aria-expanded', 'false');
+                }
+            });
+        });
+
+        item.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape' || e.key === 'Esc') {
+                item.classList.remove('open');
+                activatingA.setAttribute('aria-expanded', 'false');
+                itemButton.setAttribute('aria-expanded', 'false');
+                itemButton.focus();
+            }
+        });
+
+        itemButton.addEventListener('click', function (event) {
+            const isOpen = item.classList.toggle('open');
+
+            activatingA.setAttribute('aria-expanded', isOpen.toString());
+            itemButton.setAttribute('aria-expanded', isOpen.toString());
+
+            requestAnimationFrame(() => {
+                itemSubmenu.style.opacity = isOpen ? '1' : '0';
+            });
+
+            event.preventDefault();
+        });
+    });
 
 	mmClones.querySelectorAll( '*' ).forEach( item => {
 		if( item.id ) {
