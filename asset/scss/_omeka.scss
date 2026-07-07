@@ -196,10 +196,13 @@ h1.site-title {
   margin: $global-margin;
 }
 
-header .top-bar-right,
 header .top-bar-left {
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  @include breakpoint(large) {
+    justify-content: flex-start;
+  }
 }
 
 .menu a.dropdown-toggle {
@@ -692,7 +695,7 @@ body.vertical-menu footer {
 }
 
 .resource.show .grid-x {
-  padding: (2 * $global-padding) 0;
+  padding: 0;
 }
 
 .full-width-main {
