@@ -115,6 +115,10 @@ body.vertical-menu #user-bar ~ #content {
 // #. Header
 // ------------------
 
+.title-bar {
+  display: none!important;
+}
+
 #skipnav {
   position: fixed;
   top: $global-margin;
@@ -212,9 +216,8 @@ header .top-bar-left {
 }
 
 header .top-bar {
-  @include breakpoint(small down) {
-    padding: 0;    
-  }
+  position: relative;
+  padding: 0;    
 }
 
 .title-bar {
@@ -274,15 +277,7 @@ body.vertical-menu header {
   a {
     color: $white;
   }
-  
-  .title-bar {
-    display: flex;
-  }
-  
-  .title-bar button {
-    color: $white;
-  }
-  
+    
   h1.site-title {
     font-size: 1.125 * $global-font-size;
     font-weight: bold;  

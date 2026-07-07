@@ -1,0 +1,29 @@
+<div class="main-header__main-bar container">
+	<h1 class="main-header__site-title site-title">
+		<a href="<?php echo $site->url(); ?>">
+			<?php echo $this->escapeHtml( $site->title() ); ?>
+		</a>
+	</h1>
+
+	<nav class="main-navigation">
+		<div class="main-navigation__container">
+			<?php
+			echo $site->publicNav()->menu()->renderMenu(null, [
+				'addClassToListItem' => true,
+				'maxDepth' => 2
+			]);
+			?>
+		</div>
+		<button
+				class="main-navigation__toggle"
+				aria-expanded="false"
+				aria-controls="menu-drawer">
+			<span class="sr-only">Open menu</span>
+			<span aria-hidden="true"></span>
+			<span aria-hidden="true"></span>
+			<span aria-hidden="true"></span>
+		</button>
+	</nav>
+
+	<?php echo $this->partial('common/menu-drawer'); ?>
+</div>
