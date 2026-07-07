@@ -100,7 +100,7 @@ header {
     padding: 0.25 * $global-padding 0 0 $global-padding;
 
     @include breakpoint(large) {
-      padding: 0.5 * $global-padding 0;
+      padding: 0.5 * $global-padding 0 0 0;
     }
   }
 
@@ -141,7 +141,6 @@ header {
 
 .top-bar-left {
   min-width: rem-calc(175);
-
   @include breakpoint(large) {
     margin-right: 1.5rem;
   }

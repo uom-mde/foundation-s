@@ -200,6 +200,9 @@ header .top-bar-left {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  @include breakpoint(large) {
+    justify-content: flex-start;
+  }
 }
 
 .menu a.dropdown-toggle {
