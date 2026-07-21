@@ -57,7 +57,7 @@
             if ($defaultSiteId):
                 try {
                     // Force uncached read in case the default site was just changed
-                    $response = $this->api()->read('sites', (int)$defaultSiteId, [], true);
+                    $response = $this->api()->read('sites', (int) $defaultSiteId, [], [true]);
                     $defaultSite = $response->getContent();
 
                     if ($defaultSite):
