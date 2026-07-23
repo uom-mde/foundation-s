@@ -246,16 +246,6 @@ This fork of the Foundation S theme uses the following third‑party libraries:
 
 ---
 
-### Cytoscape.js
-- **Library**: Cytoscape.js  
-- **Authors**: The Cytoscape Consortium  
-- **License**: MIT  
-- **Source**: https://js.cytoscape.org  
-- **Copyright**: © 2016 The Cytoscape Consortium  
-- **License text**: See [`licenses/license-cytoscapejs.txt`](licenses/license-cytoscapejs.txt)
-
----
-
 ### imagesLoaded
 - **Library**: imagesloaded.pkgd.min.js minified
 - **Authors**: David DeSandro 
