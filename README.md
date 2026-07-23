@@ -1,6 +1,6 @@
 # Foundation S
 
-University of Manchester branded Omeka S theme based on ZURB Foundation Sites, designed for use with Agile Humanities's/Dartmouth College's Agile Theme Tools: https://github.com/agile-humanities/agile-theme-tools-omeka. The Annona IIIF storyboard feature is enabled https://github.com/NCSU-Libraries/annona, and the theme includes a language selector, optimised for two languages. Elements of code for the language slector have been taken from from Ivy Rose's Multilingual theme: https://github.com/ivyrze/omeka-s-theme-multilingual". It currently comes with a default stylesheet for prototyping as well as 3 other style options. 
+University of Manchester branded Omeka S theme based on ZURB Foundation Sites. The [Annona IIIF storyboard feature is enabled](https://github.com/NCSU-Libraries/annona), and the theme includes a language selector, optimised for two languages. Elements of code for the language slector have been taken from from AREPR's [Multilingual theme](https://github.com/arepr/omeka-s-theme-multilingual). It currently comes with a default stylesheet for prototyping as well as 3 other style options. 
 
 ## Installation
 
@@ -178,7 +178,7 @@ In an item's metadata, adding content warning text to the dcterms:audience field
 
 --
 
-##Page and block templates
+## Page and block templates
 The following templates have been added to the base theme:
 
 * Asset
