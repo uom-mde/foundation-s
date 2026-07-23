@@ -1,6 +1,6 @@
 # Foundation S
 
-University of Manchester branded Omeka S theme based on ZURB Foundation Sites. The [Annona IIIF storyboard feature is enabled](https://github.com/NCSU-Libraries/annona), and the theme includes a language selector, optimised for two languages. The menu has been taken from the [Omeka team's Freedom theme](https://omeka.org/s/themes/freedom/)Elements of code for the language slector have been taken from from AREPR's [Multilingual theme](https://github.com/arepr/omeka-s-theme-multilingual). It currently comes with a default stylesheet for prototyping as well as 3 other style options. 
+University of Manchester branded Omeka S theme based on ZURB Foundation Sites. The [Annona IIIF storyboard feature is enabled](https://github.com/NCSU-Libraries/annona), and the theme includes a language selector, optimised for two languages. The menu has been taken from the Omeka team's [Freedom](https://omeka.org/s/themes/freedom/) theme. Elements of code for the language selector have been taken from from AREPR's [Multilingual](https://github.com/arepr/omeka-s-theme-multilingual) theme. It currently comes with a default stylesheet for prototyping as well as 3 other style options. 
 
 ## Installation
 
@@ -148,6 +148,8 @@ All rights not expressly granted are reserved.
 
 # Manchester Digital Exhibitions
 This theme has been created for [Manchester Digital Exhibitions (MDE)](https://www.digitalexhibitions.manchester.ac.uk/). To load the correct stylesheet, select either the 'Seafoam' (UoM purple menu) or 'Inkwell' (white menu) from the site's theme's settings. MDE exhibitions typically use the 'Inkwell' stylesheet.
+
+The theme is configured to use Google Analytics and the [OneTrust](https://www.onetrust.com/) cookie manager.
 
 --
 
