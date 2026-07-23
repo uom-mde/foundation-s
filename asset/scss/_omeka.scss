@@ -11,6 +11,10 @@
 // #. Global Styles
 // ------------------
 
+.print-only {
+  display: none;
+}
+
 input::placeholder {
   color: $dark-gray;
   font-style: italic;
@@ -107,6 +111,57 @@ body.vertical-menu #content {
   }
 }
 
+body.vertical-menu #search-container {
+  border-bottom: 1px solid $light-gray;
+  position: relative;
+
+  form {
+    width: 100%;
+  }
+
+  @include breakpoint(large up) {
+    break-before: always;
+    min-height: 0;
+    flex: 1;
+    width: auto;
+    background-color: $white;
+    max-width: none;
+    margin: 0;
+    padding: 0;
+    border-bottom: 0;
+
+  &.closed {
+    display: block;
+  }
+
+    form {
+      margin: 0;
+    }
+
+    .button,
+    #search-submit {
+      background-color: $button-background-hover;
+    }      
+  }
+
+
+  #advanced-form {
+    padding-bottom: 0;
+
+    &.open {
+      display: flex;
+    }
+
+    #query-types {
+      flex-wrap: wrap;
+    }
+
+    input {
+      margin-bottom: 0;
+    }
+  }
+} 
+
 body.vertical-menu #user-bar {
   width: 100%;
 }
@@ -137,8 +192,8 @@ body.vertical-menu #user-bar ~ #content {
   }
 }
 
-#offCanvas {
-  padding: $global-padding;
+header {
+  position: relative;
 }
 
 .top-bar form {
@@ -164,9 +219,11 @@ body.vertical-menu #user-bar ~ #content {
   margin-bottom: 0;
 }
 
-.site-title img {
-  max-height: 2rem;
-  width: auto;
+@include breakpoint(medium down) {
+  .site-title {
+    font-weight: bold;  
+    padding: (.25 * $global-padding) 0;
+  }
 }
 
 h1.site-title {
@@ -182,12 +239,18 @@ h1.site-title {
 }
 
 .site-title img {
+  max-height: 2rem;
+  width: auto;
   margin: 0;
   vertical-align: top;
 }
 
 .site-title a {
   display: block;
+}
+
+.title-bar .menu-toggle {
+  margin: 0 (.5 * $global-margin) 0 0;
 }
 
 .is-dropdown-submenu {
@@ -251,26 +314,24 @@ header .top-bar-left {
   margin: 0;
 }
 
-.vertical.menu button.submenu-toggle {
-  height: 24px;
-  width: 24px;
-  top: .5 * $global-margin;
-
-  &:after {
-    border-color: $menu-item-color-active transparent transparent;
-  }
-
-  &:focus {
-    outline: auto;
-  }
-}
-
 header .top-bar {
   padding: (.25 * $global-padding) (.5 * $global-padding);
 
   @include breakpoint(small down) {
-    padding: 0 (3 * $global-padding) 0 0;    
+    background-color: $primary-color;
+    padding: 0;
     position: relative;
+  }
+}
+
+@include breakpoint(medium down) {
+  header .top-bar .top-bar-left {
+    display: inline-flex;
+    max-width: calc(100% - #{3 * $global-padding});
+  }
+
+  header .top-bar a {
+    color: #fff;
   }
 }
 
@@ -282,17 +343,10 @@ header .flex-fix {
 .title-bar {
   display: inline-block;
   background-color: transparent;
-  
-  button {
-    margin: 0 $global-margin 0 0;
-    background-color: transparent;
-    color: $dark-gray;
-  }
-}
+  padding: 0; 
 
-@include breakpoint(large up) {
-  .title-bar {
-    padding: 0;
+  button {
+    margin: 0;
   }
 }
 
@@ -330,7 +384,6 @@ body.dropdown-menu .banner.contained {
 
 #offCanvas .vertical.menu,
 body.vertical-menu header .vertical.menu {
-  margin: $global-margin 0;
 
   a {
     color: $white;
@@ -349,11 +402,6 @@ body.vertical-menu header .vertical.menu {
   ul {
     margin-left: $global-margin;
   }
-  
-  li a {
-    padding-left: 0;
-    padding-right: 0;
-  }
 }
 
 body.vertical-menu header {
@@ -371,6 +419,7 @@ body.vertical-menu header {
   
   .title-bar {
     display: flex;
+    position: relative;
   }
   
   .title-bar button {
@@ -386,6 +435,20 @@ body.vertical-menu header {
     max-height: none;
     max-width: 100%;
   }
+
+  .vertical.menu {
+    margin: $global-margin 0;
+  }
+
+  .vertical.menu li a {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+#offCanvas .vertical.menu .submenu-toggle:after,
+.off-canvas-content .vertical.menu .submenu-toggle:after {
+  border-color: $menu-item-color-active transparent transparent;
 }
 
 body.vertical-menu .vertical.menu.nested .active > a {
@@ -409,7 +472,7 @@ body.vertical-menu header .desktop {
 }
 
 .title-bar > .search-toggle {
-  margin-left: auto;
+  margin: 0 0 0 auto;
   background-color: transparent;
 }
 
@@ -420,18 +483,7 @@ body.vertical-menu header .desktop {
 }
 
 .search-toggle {
-  margin: (-.25 * $global-margin) (-.5 * $global-margin);
-  margin-left: (2 * $global-margin);
-  padding: $global-padding;
-
-  @include breakpoint(small down) {
-    margin: 0;
-    padding: 0 $global-padding;
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-  }
+  margin: (-.25 * $global-margin) 0;
 }
 
 #search-container {
@@ -1061,10 +1113,6 @@ justify-content: space-between;
     margin-bottom: $global-margin;
 }
 
-.value-content:not(:only-child) {
-    margin-right: .25 * $global-margin;
-}
-
 #itemfiles {
   margin: 0 0 $global-margin;
   list-style: none;
@@ -1131,7 +1179,7 @@ justify-content: space-between;
 .advanced-search-content {
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(2, minmax(min-content, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   grid-column-gap: $global-margin;
   grid-row-gap: $global-margin;
   margin-bottom: $global-margin;
@@ -1166,14 +1214,6 @@ justify-content: space-between;
 #advanced-search .inputs button {
   list-style: none;
   line-height: 1.5;
-}
-
-#advanced-search .inputs select {
-
-  @include breakpoint(small down) {
-    width: 100%;
-    margin-bottom: 0;
-  }
 }
 
 #advanced-search .chosen-choices {
@@ -1217,6 +1257,10 @@ justify-content: space-between;
   padding-right: $global-padding;
 }
 
+#advanced-search .multi-value.field .field-meta {
+  padding-right: 3 * $global-padding;
+}
+
 #advanced-search .multi-value .value:only-child .remove-value {
   display: none;
 }
@@ -1231,10 +1275,11 @@ justify-content: space-between;
 
 #advanced-search .field {
   margin: 0;
+  min-width: 0;
 }
 
 #advanced-search .field-meta {
-  padding-right: 3 * $global-padding;
+  margin-bottom: .25 * $global-margin;
   position: relative;
   display: flex;
   flex-wrap: wrap;
@@ -1250,20 +1295,16 @@ justify-content: space-between;
 }
 
 #advanced-search .add-value {
-  position: absolute;
-  top: 0;
-  right: 0;
   padding: $label-padding;
 }
 
 #advanced-search button.remove-value {
   padding: 3px;
-  overflow: hidden;
   min-width: 36px;
+  margin-bottom: 0;
 }
 
 #advanced-search .value > *:not(:last-child) {
-  margin-right: 5px;
   margin-left: 0;
 }
 
@@ -1822,11 +1863,15 @@ body.full-width .top-bar.sub-menu {
   width: auto;
 }
 
+#advanced-search [id^="numeric-"] .inputs {
+  gap: .25 * $global-padding;
+}
+
 #advanced-search [id^="numeric-"] .inputs input,
 #advanced-search [id*="numeric-"] .inputs input,
 #advanced-search [id*="numeric-"] .inputs select {
-  margin: 0 .25rem 0 0;
-
+  margin: 0;
+  height: auto;
 }
 
 [id*="numeric-"] .inputs input[type="number"],
@@ -1933,4 +1978,10 @@ body.full-width .top-bar.sub-menu {
       display: flex;
       flex-wrap: wrap;
       align-items: stretch;
+    }
+
+    // -- Collectiong
+
+    .block-collecting [type="submit"] {
+      @include button();
     }
