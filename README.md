@@ -237,6 +237,8 @@ This fork of the Foundation S theme uses the following third‑party libraries:
 ## Third‑Party Software Acknowledgments
 
 ### Annona
+The Annona JavaScript library allows us to display W3 Web Annotations in a visual format, particularly using IIIF images. 
+
 - **Library**: Annona (NCSU Libraries)  
 - **Authors**: North Carolina State University  
 - **License**: MIT  
@@ -247,6 +249,8 @@ This fork of the Foundation S theme uses the following third‑party libraries:
 ---
 
 ### imagesLoaded
+This library is loaded in conjunction with the Masonry library.
+
 - **Library**: imagesloaded.pkgd.min.js minified
 - **Authors**: David DeSandro 
 - **License**: MIT  
@@ -257,6 +261,8 @@ This fork of the Foundation S theme uses the following third‑party libraries:
 ---
 
 ### jquery.peekABar
+This library allows us to run our content warning banners.
+
 - **Library**: @kunalnagarco/jquery-peek-a-bar  
 - **Authors**: Kunal Nagar  
 - **License**: MIT  
@@ -267,6 +273,8 @@ This fork of the Foundation S theme uses the following third‑party libraries:
 ---
 
 ### Masonry
+This library is used in the display of the Masonry template for Browse Preview blocks.
+
 - **Library**: Masonry PACKAGED v4.2.2  
 - **Authors**: David DeSandro  
 - **License**: MIT  
@@ -277,6 +285,8 @@ This fork of the Foundation S theme uses the following third‑party libraries:
 ---
 
 ### svg-pan-zoom library
+This library is used when presenting large SVG layers, for example in family tree diagrams.
+
 - **Library**: [Masonry PACKAGED v4.2.2](https://github.com/bumbu/svg-pan-zoom/releases/tag/3.6.1)  
 - **Authors**: David DeSandro  
 - **License**: BSD-2-Clause license  
