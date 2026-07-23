@@ -276,7 +276,7 @@ grid-template-areas:
   }
 }
 
-/*Move location of Learn More button*/ 
+/*Move location of More item information button*/ 
 .resourceTextGrid.file-caption-block .block-html p {
   margin-block-end: 7rem;
   }
@@ -313,7 +313,7 @@ grid-template-areas:
   background: $warning-color;
 }
 
-/* Learn More button */
+/* More item information button */
 
 .learn-more h2.button {
   margin: 0 !important;
@@ -330,7 +330,7 @@ button a,
   text-decoration: none;
 }
 
-/* Ensure Learn More button is below text for vertical Media blocks */
+/* Ensure More item information button is below text for vertical Media blocks */
 
 .resourceTextGrid {
   row-gap: 0;

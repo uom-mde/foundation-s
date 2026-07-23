@@ -1,6 +1,6 @@
 # Foundation S
 
-University of Manchester branded Omeka S theme based on ZURB Foundation Sites, designed for use with Agile Humanities's/Dartmouth College's Agile Theme Tools: https://github.com/agile-humanities/agile-theme-tools-omeka. The Annona IIIF storyboard feature is enabled https://github.com/NCSU-Libraries/annona, and the theme includes a language selector, optimised for two languages. Elements of code for the language slector have been taken from from Ivy Rose's Multilingual theme: https://github.com/ivyrze/omeka-s-theme-multilingual". It currently comes with a default stylesheet for prototyping as well as 3 other style options. 
+University of Manchester branded Omeka S theme based on ZURB Foundation Sites. The [Annona IIIF storyboard feature is enabled](https://github.com/NCSU-Libraries/annona), and the theme includes a language selector, optimised for two languages. The menu has been taken from the Omeka team's [Freedom](https://omeka.org/s/themes/freedom/) theme. Elements of code for the language selector have been taken from from AREPR's [Multilingual](https://github.com/arepr/omeka-s-theme-multilingual) theme. It currently comes with a default stylesheet for prototyping as well as 3 other style options. 
 
 ## Installation
 
@@ -90,7 +90,7 @@ After all those imports come all style rules specific to the theme.
 
 ## Page and Block Templates
 
-The following templates have been added to the base theme:
+The Omeka S 4.1 introduced the block templates feature, which allows theme developers to provide their users with alternative versions of page blocks. Foundation includes the following templates for each block:
 
 * Asset
   * **Card**: Uses [Foundation Framework's card container](https://get.foundation/sites/docs/card.html) styles.
@@ -100,44 +100,13 @@ The following templates have been added to the base theme:
   * **Grid**: Ignores theme setting for browse view layouts and displays all resources in a grid that maxes out at 4 columns.
   * **Toggle (default: list)**: Ignores theme setting for browse view layouts and lets the user choose their browse style, defaulting to a single column list of resources.
   * **Toggle (default: grid)**: Ignores theme setting for browse view layouts and lets the user choose their browse style, defaulting to a grid of resources maxing out at 4 columns.
-* HTML
-  * **Blockquote**: Place your quotation within blockquote tags using the option in the HTML text editor, and use cite in HTML to add a citation.
-  * **Content Warning**: A styled block in which to present a content warning. 
-  * **Progress Bar**: Used to display a progress bar above the HTML block, informing visitors of its extent.  
-  * **SVG Pan and Zoom**: A styled block in which to present a content warning.  
-  * **Dark Text**: A styled block in which to present a content warning.  
-  * **Dark Text - Large**: A styled block in which to present a content warning.  
-  * **Text**: A styled block in which to present a content warning.  
-  * **Text - Large**: A styled block in which to present a content warning.   
 * Item with metadata
   * **Large media left**: A 2-column layout with the item media rendered to the left of the metadata.
   * **Large media right**: A 2-column layout with the item media rendered to the right of the metadata.
 * List of pages
   * **With container**: Provides a gray box container.
 * List of sites
-  * **Browse**: A block to present all public sites in Omeka S. Thumbnail and title share the top row, with the site description underneath. 
-  * **Card**: A card block displaying all public Omeka S sites. 
-  * **Card Featured**: A card block to display featured sites.
-  * **Card Featured Mosaic**: A card block adding styling to featured sites.
-  * **Card Library**: A card block displaying sites marked as 'Library' in the site settings.
-  * **Card Library Browse**: A compact card block displaying sites marked as 'Library'. This block only presents the site title and thumbnail, not the additional information.
-  * **Card Library Mosaic**: A card block displaying sites marked as 'Library' in the site settings, uses a CSS grid display.
-  * **Card Research**: A card block displaying sites marked as 'Research' in the site settings.
-  * **Card Research Browse**: A compact card block displaying sites marked as 'Research'. This block only presents the site title and thumbnail, not the additional information.
-  * **Card Research Mosaic**: A card block displaying sites marked as 'Mosaic' in the site settings, uses a CSS grid display.
-* Media Embed 
-  * **Large media left**: A 2-column layout with the item media rendered to the left of the metadata.
-  * **Large media right**: A 2-column layout with the item media rendered to the right of the metadata.
-  * **Large media left**: A 2-column layout with the item media rendered to the left of the metadata.
-  * **Large media right**: A 2-column layout with the item media rendered to the right of the metadata.
-  * **Large media left**: A 2-column layout with the item media rendered to the left of the metadata.
-  * **Large media right**: A 2-column layout with the item media rendered to the right of the metadata.
-  * **Large media left**: A 2-column layout with the item media rendered to the left of the metadata.
-  * **Large media right**: A 2-column layout with the item media rendered to the right of the metadata.
-  * **Large media left**: A 2-column layout with the item media rendered to the left of the metadata.
-  * **Large media right**: A 2-column layout with the item media rendered to the right of the metadata.
-  * **Large media left**: A 2-column layout with the item media rendered to the left of the metadata.
-  * **Large media right**: A 2-column layout with the item media rendered to the right of the metadata.
+  * **Card**: Uses [Foundation Framework's card container](https://get.foundation/sites/docs/card.html) styles for each site.
 * Page title
   * **Accent**: Renders the page title with the theme's primary color as a background color.
 
@@ -178,6 +147,90 @@ All rights not expressly granted are reserved.
 
 
 # Manchester Digital Exhibitions
+This theme has been created for [Manchester Digital Exhibitions (MDE)](https://www.digitalexhibitions.manchester.ac.uk/). To load the correct stylesheet, select either the 'Seafoam' (UoM purple menu) or 'Inkwell' (white menu) from the site's theme's settings. MDE exhibitions typically use the 'Inkwell' stylesheet.
+
+The theme is configured to use Google Analytics and the [OneTrust](https://www.onetrust.com/) cookie manager.
+
+--
+
+## Home Page
+The Home Page in this theme requires the fork of the [ExtendedSiteDescription](https://github.com/johndmccrory/ExtendedSiteDescription/tree/uomRevisions) module to work as intended. The 'uomRevisions' branch of the fork includes the necessary revisions. This module allows us to categorise sites and to mark them as featured in each site's settings.
+
+--
+
+## Item Show Page
+The Item Show page has been revised to display only the first media for each item.
+
+--
+
+## Presenting Sensitive Material
+This theme has three features which support the display of sensitive material:
+- Content warning banners for sites which present sensitive material.
+- A media embed block which blurs images displayed on pages.
+- An option to blur selected media in the Item Show page. 
+
+### Content Warning Banner
+This theme incorporates a content warning banner. The banner displays on the first two occasions visitors view sites determined in the theme. The site slugs to target and the message presented is edited in the /view/templates/content-warning-banner.phtml file.
+
+### Media Embed Block - Sensitive Material
+This block allows you to blur selected media by default, with visitors toggling its visibility.
+
+### Item Show Page - Blur Media
+In an item's metadata, adding content warning text to the dcterms:audience field blurs its display in the Item Show page. 
+
+--
+
+## Page and block templates
+The following templates have been added to the base theme:
+
+* Asset
+  * **Card**: Uses [Foundation Framework's card container](https://get.foundation/sites/docs/card.html) styles.
+  * **Card horizontal**: Uses [Foundation Framework's card container](https://get.foundation/sites/docs/card.html) styles. 
+  * **Card horizontal - external link**: Uses [Foundation Framework's card container](https://get.foundation/sites/docs/card.html) styles. Presents the asset image alongside the title and text, and allows links to be added to external pages. URLs are added to the asset's 'Alternative link title' field. Note, when changes are made to the page subsequently and saved, these links need to be added again. 
+  * **Asset with caption**: Presents a large image of the asset above a caption.
+  * **Media object**: Uses [Foundation Framework's media object container](https://get.foundation/sites/docs/media-object.html) styles.
+  * **Multiple assets**: Used to display multiple assets alongside each other.
+  * **Hero for portrait images and blurred background**: Hero banner block used for portrait images.
+  * **Hero with title and caption**: Hero banner block which presents a page title and a caption below the image. The title is added in the 'Alternative link title' field, the caption in the 'Caption' field. Note, when changes are made to the page subsequently and saved, these links need to be added again. 
+  * **Hero with title and caption alongside**: Hero banner block which presents an image alongside the page title and a caption. The title is added in the 'Alternative link title' field, the caption in the 'Caption' field. Note, when changes are made to the page subsequently and saved, these links need to be added again. 
+  * **Text around image**: Used in conjunction with an HTML block directly beneath. Wraps the text around the image.
+* Browse preview
+  * **Masonry**: Presents your browse perview results using the [Masonry](https://masonry.desandro.com) cascading grid layout library.
+* HTML
+  * **Blockquote**: Place your quotation within blockquote tags using the option in the HTML text editor, and use cite in HTML to add a citation.
+  * **Content Warning**: A styled block in which to present a content warning. 
+  * **Progress Bar**: Used to display a progress bar above the HTML block, informing visitors of its extent.  
+  * **SVG Pan and Zoom**: A styled block in which to present a content warning.  
+  * **Dark Text**: A styled block in which to present a content warning.  
+  * **Dark Text - Large**: A styled block in which to present a content warning.  
+  * **Text**: A styled block in which to present a content warning.  
+  * **Text - Large**: A styled block in which to present a content warning.   
+* List of sites
+  * **Browse**: A block to present all public sites in Omeka S. Thumbnail and title share the top row, with the site description underneath. 
+  * **Card**: A card block displaying all public Omeka S sites. 
+  * **Card Featured**: A card block to display featured sites.
+  * **Card Featured Mosaic**: A card block adding styling to featured sites.
+  * **Card Library**: A card block displaying sites marked as 'Library' in the site settings.
+  * **Card Library Browse**: A compact card block displaying sites marked as 'Library'. This block only presents the site title and thumbnail, not the additional information.
+  * **Card Library Mosaic**: A card block displaying sites marked as 'Library' in the site settings, uses a CSS grid display.
+  * **Card Research**: A card block displaying sites marked as 'Research' in the site settings.
+  * **Card Research Browse**: A compact card block displaying sites marked as 'Research'. This block only presents the site title and thumbnail, not the additional information.
+  * **Card Research Mosaic**: A card block displaying sites marked as 'Mosaic' in the site settings, uses a CSS grid display.
+* Media Embed 
+  * **Caption alongside media**: The standard block used in MDE exhibitions. Presents the media item alongside the item's title and supporting text. The supporting text is added as the media caption.
+  * **Caption alongside media with additional metadata**: In addition to the standard block, this displays additional metadata from the item record- if present. This includes the 'Alternative title', 'Date', 'Location', and 'Reference Number'.
+  * **Caption alongside media in a container**: This displays the same information as the 'Caption alongside media with additional metadata' block, in a container. Used for narrow portrait media items.
+  * **Caption alongside media - YouTube**: This block is to be used to present YouTube videos. Visitors are given the option to accept cookies if they declined them initially; otherwise, the OneTrust Cookie banner will prevent them from loading.
+  * **Caption alongside media- IIIF lazy load**: This block staggers the loading of IIIF images.
+  * **Caption alongside media- Annona lazy load**: This block staggers the loading of Annona media.
+  * **Text block only**: This block displays only the title and caption of the media.
+  * **Media block only**: This block displays only the media, not the caption or the item's title.
+  * **Text around media**: When this block is placed above an HTML block, the text wraps around the image.
+  * **Toggle caption**: A dedicated block for the CORALA exhibition, which toggles the caption under the media.
+  * **Multiple media in a row**: Used to present multiple media items alongside each other.
+  * **Toggle blur for sensitive material**: This block blurs the image unless the visitor agrees to display it in full.
+
+--
 
 This fork of the Foundation S theme uses the following third‑party libraries:
 
@@ -186,6 +239,8 @@ This fork of the Foundation S theme uses the following third‑party libraries:
 ## Third‑Party Software Acknowledgments
 
 ### Annona
+The Annona JavaScript library allows us to display W3 Web Annotations in a visual format, particularly using IIIF images. 
+
 - **Library**: Annona (NCSU Libraries)  
 - **Authors**: North Carolina State University  
 - **License**: MIT  
@@ -195,17 +250,9 @@ This fork of the Foundation S theme uses the following third‑party libraries:
 
 ---
 
-### Cytoscape.js
-- **Library**: Cytoscape.js  
-- **Authors**: The Cytoscape Consortium  
-- **License**: MIT  
-- **Source**: https://js.cytoscape.org  
-- **Copyright**: © 2016 The Cytoscape Consortium  
-- **License text**: See [`licenses/license-cytoscapejs.txt`](licenses/license-cytoscapejs.txt)
-
----
-
 ### imagesLoaded
+This library is loaded in conjunction with the Masonry library.
+
 - **Library**: imagesloaded.pkgd.min.js minified
 - **Authors**: David DeSandro 
 - **License**: MIT  
@@ -216,6 +263,8 @@ This fork of the Foundation S theme uses the following third‑party libraries:
 ---
 
 ### jquery.peekABar
+This library allows us to run our content warning banners.
+
 - **Library**: @kunalnagarco/jquery-peek-a-bar  
 - **Authors**: Kunal Nagar  
 - **License**: MIT  
@@ -226,6 +275,8 @@ This fork of the Foundation S theme uses the following third‑party libraries:
 ---
 
 ### Masonry
+This library is used in the display of the Masonry template for Browse Preview blocks.
+
 - **Library**: Masonry PACKAGED v4.2.2  
 - **Authors**: David DeSandro  
 - **License**: MIT  
@@ -236,6 +287,8 @@ This fork of the Foundation S theme uses the following third‑party libraries:
 ---
 
 ### svg-pan-zoom library
+This library is used when presenting large SVG layers, for example in family tree diagrams.
+
 - **Library**: [Masonry PACKAGED v4.2.2](https://github.com/bumbu/svg-pan-zoom/releases/tag/3.6.1)  
 - **Authors**: David DeSandro  
 - **License**: BSD-2-Clause license  
