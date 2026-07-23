@@ -147,12 +147,12 @@ All rights not expressly granted are reserved.
 
 
 # Manchester Digital Exhibitions
-This theme has been created for Manchester Digital Exhibitions (MDE). To load the correct stylesheet, select either the 'Seafoam' (UoM purple menu) or 'Inkwell' (white menu) from the site's theme's settings. MDE exhibitions typically use the 'Inkwell' stylesheet.
+This theme has been created for [Manchester Digital Exhibitions (MDE)](https://www.digitalexhibitions.manchester.ac.uk/). To load the correct stylesheet, select either the 'Seafoam' (UoM purple menu) or 'Inkwell' (white menu) from the site's theme's settings. MDE exhibitions typically use the 'Inkwell' stylesheet.
 
 --
 
 ## Home Page
-The Home Page in this theme requires the fork of the ['ExtendedSiteDescription'](https://github.com/johndmccrory/ExtendedSiteDescription/tree/uomRevisions) module to work as intended. The 'uomRevisions' branch of the fork includes the necessary revisions. This module allows us to categorise sites and to mark them as featured in each site's settings.
+The Home Page in this theme requires the fork of the [ExtendedSiteDescription](https://github.com/johndmccrory/ExtendedSiteDescription/tree/uomRevisions) module to work as intended. The 'uomRevisions' branch of the fork includes the necessary revisions. This module allows us to categorise sites and to mark them as featured in each site's settings.
 
 --
 
