@@ -1,6 +1,6 @@
 # Foundation S
 
-University of Manchester branded Omeka S theme based on ZURB Foundation Sites. The [Annona IIIF storyboard feature is enabled](https://github.com/NCSU-Libraries/annona), and the theme includes a language selector, optimised for two languages. Elements of code for the language slector have been taken from from AREPR's [Multilingual theme](https://github.com/arepr/omeka-s-theme-multilingual). It currently comes with a default stylesheet for prototyping as well as 3 other style options. 
+University of Manchester branded Omeka S theme based on ZURB Foundation Sites. The [Annona IIIF storyboard feature is enabled](https://github.com/NCSU-Libraries/annona), and the theme includes a language selector, optimised for two languages. The menu has been taken from the [Omeka team's Freedom theme](https://omeka.org/s/themes/freedom/)Elements of code for the language slector have been taken from from AREPR's [Multilingual theme](https://github.com/arepr/omeka-s-theme-multilingual). It currently comes with a default stylesheet for prototyping as well as 3 other style options. 
 
 ## Installation
 
@@ -152,7 +152,7 @@ This theme has been created for Manchester Digital Exhibitions (MDE). To load th
 --
 
 ## Home Page
-The Home Page in this theme requires the fork of the ['ExtendedSiteDescription'] (https://github.com/johndmccrory/ExtendedSiteDescription/tree/uomRevisions) module to work as intended. The 'uomRevisions' branch of the fork includes the necessary revisions. This module allows us to categorise sites and to mark them as featured in each site's settings.
+The Home Page in this theme requires the fork of the ['ExtendedSiteDescription'](https://github.com/johndmccrory/ExtendedSiteDescription/tree/uomRevisions) module to work as intended. The 'uomRevisions' branch of the fork includes the necessary revisions. This module allows us to categorise sites and to mark them as featured in each site's settings.
 
 --
 
