@@ -94,7 +94,15 @@ The following templates have been added to the base theme:
 
 * Asset
   * **Card**: Uses [Foundation Framework's card container](https://get.foundation/sites/docs/card.html) styles.
+  * **Card horizontal**: Uses [Foundation Framework's card container](https://get.foundation/sites/docs/card.html) styles. 
+  * **Card horizontal - external link**: Uses [Foundation Framework's card container](https://get.foundation/sites/docs/card.html) styles. Presents the asset image alongside the title and text, and allows links to be added to external pages. URLs are added to the asset's 'Alternative link title' field. Note, when changes are made to the page subsequently and saved, these links need to be added again. 
+  * **Asset with caption**: Presents a large image of the asset above a caption.
   * **Media object**: Uses [Foundation Framework's media object container](https://get.foundation/sites/docs/media-object.html) styles.
+  * **Multiple assets**: Used to display multiple assets alongside each other.
+  * **Hero for portrait images and blurred background**: Hero banner block used for portrait images.
+  * **Hero with title and caption**: Hero banner block which presents a page title and a caption below the image. The title is added in the 'Alternative link title' field, the caption in the 'Caption' field. Note, when changes are made to the page subsequently and saved, these links need to be added again. 
+  * **Hero with title and caption alongside**: Hero banner block which presents an image alongside the page title and a caption. The title is added in the 'Alternative link title' field, the caption in the 'Caption' field. Note, when changes are made to the page subsequently and saved, these links need to be added again. 
+  * **Text around image**: Used in conjunction with an HTML block directly beneath. Wraps the text around the image.
 * Browse preview
   * **List**: Ignores theme setting for browse view layouts and displays all resources as a single column list.
   * **Grid**: Ignores theme setting for browse view layouts and displays all resources in a grid that maxes out at 4 columns.
@@ -178,6 +186,24 @@ All rights not expressly granted are reserved.
 
 
 # Manchester Digital Exhibitions
+This theme has been created for Manchester Digital Exhibitions (MDE). To load the correct stylesheet, select either the 'Seafoam' (UoM purple menu) or 'Inkwell' (white menu) from the site's theme's settings. MDE exhibitions typically use the 'Inkwell' stylesheet.
+
+--
+
+## Home Page
+The Home Page in this theme requires the fork of the ['ExtendedSiteDescription'] (https://github.com/johndmccrory/ExtendedSiteDescription/tree/uomRevisions) module to work as intended. The 'uomRevisions' branch of the fork includes the necessary revisions. This module allows us to categorise sites and to mark them as featured in each site's settings.
+
+--
+
+## Item Show Page
+The Item Show page has been revised to display only the first media for each item.
+
+--
+
+## Content Warnings
+ This theme incorporates a content warning banner. The banner displays on the first two occasions visitors view sites determined in the theme. The site slugs to target and the message presented is edited in the /view/templates/content-warning-banner.phtml file.
+
+ --
 
 This fork of the Foundation S theme uses the following third‑party libraries:
 
