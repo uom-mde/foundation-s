@@ -232,6 +232,39 @@ The following templates have been added to the base theme:
 
 --
 
+## CSS Classes
+There are multiple CSS classes that can be applied to the media-embed blocks as required.
+
+| CSS Class | Purpose |
+|-----------|---------|
+| `dark-background` | Adds a dark background to your block. |
+| `fill-button` | Fills the ‘Learn More’ button; by default, it is merely outlined. |
+| `grid-container` | Limits the width of your blocks to 1140px. |
+| `media-right` | Switches your text and media blocks, ensuring the media block is positioned to the right. |
+| `full-width` | Ensures your blocks fill the screen width. |
+| `grid-columns-2` | For use with the ‘Multiple Media in a Row’ template. Overrides the default rules and uses two columns only. |
+| `no-button` | Removes the ‘Learn More’ button. |
+| `no-margin-top` | Removes the default margin above your block. This is useful when stacking `dark-background` blocks. |
+| `no-max-height` | Removes the maximum image height when using more than one large image file in the same block. |
+| `no-right-click` | Removes the option to right-click and save images. Be careful as it removes other functionality too, such as IIIF deep zoom with the OpenSeadragon viewer. |
+| `no-separator` | Removes the separator between the title and caption. |
+| `portrait` | Reduces the width of your media block, drawing the text closer. Suitable for portrait images. |
+| `white-background` | Ensures your block background is white. |
+| `white-text` | Overrides the default style and colours your text white. |
+| `wide` | Increases the maximum width of your image, suitable for very wide images. |
+| `width-80` | Fixes your block width at 80% of the screen. |
+
+## Metadata Classes
+
+| CSS Class | Purpose |
+|-----------|---------|
+| `no-location` | Hides the item's location. |
+| `no-date` | Hides the item's date. |
+| `no-alternative` | Hides the item's alternative title. |
+| `no-identifier` | Does not display the item's reference number. |
+
+--
+
 This fork of the Foundation S theme uses the following third‑party libraries:
 
 ---
