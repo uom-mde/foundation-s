@@ -70,15 +70,13 @@ This theme is intended for use with Omeka S 4.x.
 
 The homepage functionality developed for Manchester Digital Exhibitions requires the customised fork of the ExtendedSiteDescription module:
 
-- Repository: [ExtendedSiteDescription (uomRevisionsedSiteDescription/tree/uomRevisions
+- Repository: [ExtendedSiteDescription](https://github.com/johndmccrory/ExtendedSiteDescription/tree/uomRevisions)
 
 This fork allows sites to be categorised and marked as featured through site settings.
 
 ### CSS Editor
 
-The CSS Editor module can be used to apply site-specific styling without modifying the theme directly.
-
-- [ttps://omeka.org/s/modules/CSSEditor/
+The [CSS Editor module](https://omeka.org/s/modules/CSSEditor/) can be used to apply site-specific styling without modifying the theme directly.
 
 ---
 
@@ -108,21 +106,21 @@ The theme provides four stylesheet options:
 
 ### Default
 
-Foundation's default styling, suitable for prototyping.
+- Foundation's default styling, suitable for prototyping. Customisations have not been made to this stylesheet.
 
 ### Revolution
 
-A textured-paper design inspired by historic documents with red accent colours.
+- A textured-paper design inspired by historic documents with red accent colours. Customisations have not been made to this stylesheet.
 
 ### Sea Foam
 
-A clean, modern design featuring a teal colour palette.
+- Standard University of Manchester styling has been applied to this stylesheet. The background colour of the menu is UoM purple.
 
 ### Inkwell
 
-A high-contrast style using serif typography and warm accent colours.
+- Standard University of Manchester styling has been applied to this stylesheet. The background colour of the menu is white.
 
-This is the stylesheet most frequently used on Manchester Digital Exhibitions.
+- This is the stylesheet most frequently used on Manchester Digital Exhibitions.
 
 ---
 
