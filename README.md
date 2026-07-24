@@ -106,15 +106,15 @@ The theme provides four stylesheet options:
 
 ### Default
 
-- Foundation's default styling, suitable for prototyping. Customisations have not been made to this stylesheet.
+Foundation's default styling, suitable for prototyping. Customisations have not been made to this stylesheet.
 
 ### Revolution
 
-- A textured-paper design inspired by historic documents with red accent colours. Customisations have not been made to this stylesheet.
+A textured-paper design inspired by historic documents with red accent colours. Customisations have not been made to this stylesheet.
 
 ### Sea Foam
 
-- Standard University of Manchester styling has been applied to this stylesheet. The background colour of the menu is UoM purple.
+Standard University of Manchester styling has been applied to this stylesheet. The background colour of the menu is UoM purple.
 
 ### Inkwell
 
