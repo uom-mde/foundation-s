@@ -132,6 +132,8 @@ Available navigation layouts include:
 - Horizontal navigation with dropdowns
 - Vertical navigation
 
+Only the 'Horizontal navigation with dropdowns' option is supported in this fork.
+
 Additional options:
 
 - Show child pages
@@ -163,6 +165,10 @@ Browse views can be displayed as:
 ---
 
 ## Resource Display
+
+### Item Show Pages
+
+The Item Show page has been customised to display only the first media item associated with a resource.
 
 ### Metadata Layouts
 
@@ -196,10 +202,6 @@ Sites may be categorised and marked as:
 - Library
 
 These categories are used throughout the custom site browsing templates.
-
-## Item Show Pages
-
-The Item Show page has been customised to display only the first media item associated with a resource.
 
 ## Analytics and Cookies
 
