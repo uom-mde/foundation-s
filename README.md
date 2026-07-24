@@ -118,9 +118,9 @@ Standard University of Manchester styling has been applied to this stylesheet. T
 
 ### Inkwell
 
-- Standard University of Manchester styling has been applied to this stylesheet. The background colour of the menu is white.
+Standard University of Manchester styling has been applied to this stylesheet. The background colour of the menu is white.
 
-- This is the stylesheet most frequently used on Manchester Digital Exhibitions.
+This is the stylesheet most frequently used on Manchester Digital Exhibitions.
 
 ---
 
