@@ -173,3 +173,55 @@ section.image-banner {
     }
   }
 }
+
+
+/* ==========================================================================
+   Image Banner written in HTML
+   ========================================================================== */
+   
+.img-hero {
+  height: 18.75rem;
+  position: relative;
+  margin-top: -0.5rem;
+  height: rem-calc(350px);
+  background: $uom-footer;
+  @include breakpoint(medium) {
+    margin-top: rem-calc(-32px) !important;
+    height: rem-calc(400px);
+  }
+  @include breakpoint(xlarge) {
+    height: rem-calc(500px);
+  }
+}
+
+.img-hero img {
+width: 100%; 
+height: 100%; 
+object-fit: cover;
+display: block;
+margin: 0 auto;
+max-width: rem-calc(2000px);
+}
+
+#content .img-hero {
+  padding-block: 0;
+}
+
+.img-hero .hero-title-img {
+position: absolute;
+z-index: 9999;
+bottom: 30%;
+max-width: 28rem;
+@include breakpoint(large) {
+  bottom: 25%;
+}
+} 
+
+.hero-title-img h1 {
+  color: #333;
+  font-weight: 300;
+  background: rgba(255, 255, 255, .7);
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+  padding: 0.5rem 1rem;
+}

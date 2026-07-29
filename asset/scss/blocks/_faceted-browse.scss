@@ -31,6 +31,9 @@
 
 .faceted-browse-page {
   .resource-list {
+    display: flex;
+    flex-direction: column;
+
     .resource-link img {
       display: block;
       float: unset;
