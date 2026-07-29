@@ -115,6 +115,10 @@ body.vertical-menu #user-bar ~ #content {
 // #. Header
 // ------------------
 
+.title-bar {
+  display: none!important;
+}
+
 #skipnav {
   position: fixed;
   top: $global-margin;
@@ -166,24 +170,6 @@ h1.site-title {
   display: block;
 }
 
-.is-dropdown-submenu {
-  z-index: 2;
-}
-
-.dropdown.menu > li.is-dropdown-submenu-parent.active > a:after {
-  border-color: #fff transparent transparent;
-  margin-right: .5 * $global-margin;
-}
-
-.dropdown.menu > li.is-dropdown-submenu-parent.active > a {
-  padding-right: 2 * $global-padding;
-}
-
-.dropdown.menu > li.is-dropdown-submenu-parent.active:hover > a {
-  background-color: $primary-color;
-  color: #fff;
-}
-
 .top-bar-right .search {
   margin-left: $global-margin;
 }
@@ -192,10 +178,13 @@ h1.site-title {
   margin: $global-margin;
 }
 
-header .top-bar-right,
 header .top-bar-left {
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  @include breakpoint(large) {
+    justify-content: flex-start;
+  }
 }
 
 .menu a.dropdown-toggle {
@@ -212,9 +201,8 @@ header .top-bar-left {
 }
 
 header .top-bar {
-  @include breakpoint(small down) {
-    padding: 0;    
-  }
+  position: relative;
+  padding: 0;    
 }
 
 .title-bar {
@@ -274,15 +262,7 @@ body.vertical-menu header {
   a {
     color: $white;
   }
-  
-  .title-bar {
-    display: flex;
-  }
-  
-  .title-bar button {
-    color: $white;
-  }
-  
+    
   h1.site-title {
     font-size: 1.125 * $global-font-size;
     font-weight: bold;  
@@ -697,7 +677,7 @@ body.vertical-menu footer {
 }
 
 .resource.show .grid-x {
-  padding: (2 * $global-padding) 0;
+  padding: 0;
 }
 
 .full-width-main {

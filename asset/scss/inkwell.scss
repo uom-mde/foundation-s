@@ -124,61 +124,6 @@ label,
   background: $secondary-color;
 }
 
-ul.dropdown.menu {
-  li:hover {
-    background-color: $primary-color;
-
-    a {
-      color: $white;
-    }
-  }
-}
-
-.is-dropdown-submenu {
-  .is-dropdown-submenu-parent.opens-left > a::after {
-    border-color: transparent $white transparent transparent;
-  }
-}
-
-.is-submenu-item.is-dropdown-submenu-item a {
-  color: $white;
-}
-
-.dropdown.menu > li.is-dropdown-submenu-parent > a::after,
-.toc-block > ul.dropdown > li.is-dropdown-submenu-parent > a::after,
-.toc-block ul ul.dropdown > li.is-dropdown-submenu-parent > a::after {
-  border-color: $dark-gray transparent transparent;
-}
-
-.dropdown.menu > li.is-dropdown-submenu-parent > a:hover::after,
-#responsive-menu > ul > li.dropdown.active.is-dropdown-submenu-parent.opens-left.is-active > a:hover::after {
-  border-color: $white transparent transparent;
-}
-
-.dropdown.menu > li.is-active > a,
-.toc-block > ul.dropdown > li.is-active > a,
-.toc-block ul ul.dropdown > li.is-active > a {
-  color: $dark-gray;
-}
-
-.toc-block > ul.dropdown > li.is-active > a {
-  color: $white;
-}
-
-.toc-block ul ul.dropdown > li.is-dropdown-submenu-parent.active > a {
-  padding-right: 2rem;
-  color: $dark-gray;
-}
-
-#responsive-menu > ul > li.dropdown.is-dropdown-submenu-parent.opens-left.is-active > ul > li > a,
-#responsive-menu > ul > li.dropdown.active.is-dropdown-submenu-parent.opens-left.is-active > ul > li > a {
-  color: $white;
-}
-
-#responsive-menu > ul > li.dropdown.active.is-dropdown-submenu-parent.opens-left.is-active > a::after {
-  border-color: $dark-gray transparent transparent;
-}
-
 /* Search */
 
 .search-bar-mobile {

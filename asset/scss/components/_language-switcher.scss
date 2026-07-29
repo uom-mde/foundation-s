@@ -20,7 +20,11 @@
   justify-content: center;
   background: #393a3c;
   border-radius: rem-calc(20);
-
+  margin-right: 0.5rem;
+  @include breakpoint(400) {
+  margin-right: 1rem;
+  }
+  
   button {
     padding: 1em;
   }

@@ -1,0 +1,91 @@
+<?php
+$this->headScript()->appendFile($this->assetUrl('js/iiif-stagger.js'));
+$hyperlink = $this->plugin('hyperlink');
+$thumbnailType = $block->dataValue('thumbnail_type');
+
+/**
+ * Convert immediate-loading embeds to deferred-loading embeds
+ */
+$deferEmbedSrc = function (string $html): string {
+    $html = preg_replace(
+        '/<img\b([^>]*?)\bsrc=("|\')(.*?)\2([^>]*?)>/i',
+        '<img$1 data-src=$2$3$2$4 loading="lazy" decoding="async" data-iiif-defer="1">',
+        $html
+    );
+
+    $html = preg_replace(
+        '/<iframe\b([^>]*?)\bsrc=("|\')(.*?)\2([^>]*?)>/i',
+        '<iframe$1 data-src=$2$3$2$4 loading="lazy" data-iiif-defer="1">',
+        $html
+    );
+
+    return $html;
+};
+
+$stripOpenSeadragonInlineScript = function (string $html): string {
+    return preg_replace('/<script\b[^>]*>.*?<\/script>/is', '', $html);
+};
+?>
+
+<div class="reveal-on-scroll lazy-fade-in">
+    <div class="media-only-annona file xlarge-padding-horizontal-1 <?php echo $this->escapeHtml(implode(' ', $classes)); ?>"
+            data-iiif-stagger>
+        <?php foreach ($attachments as $attachment): ?>
+            <?php
+            $item = $attachment->item();
+            $media = $attachment->media() ?: $item->primaryMedia();
+            if (!$media) continue;
+
+            $rendererName = $media->renderer();
+            $isIiif = (is_string($rendererName) && stripos($rendererName, 'iiif') !== false);
+            ?>
+
+            <div class="item resource <?php echo $this->escapeHtml($thumbnailType); ?>">
+
+                <!-- MEDIA -->
+                <?php
+                if ($mediaDisplay === 'thumbnail') {
+                    switch ($link) {
+                        case 'original':
+                            $url = $media->originalUrl();
+                            break;
+                        case 'item':
+                            $url = $item->url();
+                            break;
+                        case 'media':
+                            $url = $media->url();
+                            break;
+                        default:
+                            throw new \InvalidArgumentException(sprintf('Invalid link type "%s"', $link));
+                    }
+
+                    $thumbHtml = $this->thumbnail($media, $thumbnailType);
+
+                    if ($isIiif && is_string($thumbHtml)) {
+                        $thumbHtml = $deferEmbedSrc($thumbHtml);
+                    }
+
+                    echo $hyperlink->raw($thumbHtml, $url);
+
+                } else {
+                    $renderHtml = $media->render([
+                        'thumbnailType' => $thumbnailType,
+                        'link' => $link,
+                    ]);
+
+                    if ($isIiif && is_string($renderHtml)) {
+                        $renderHtml = $stripOpenSeadragonInlineScript($renderHtml);
+                    }
+
+                    echo $renderHtml;
+                }
+                ?>
+                <?php if ($caption = $attachment->caption()): ?>
+                    <div class="caption">
+                        <?php echo $caption; ?>
+                    </div>
+                <?php endif; ?>
+            </div> <!-- /.item -->
+            <?php endforeach; ?>
+        </div> <!-- /.media-only-annona -->
+</div> <!-- /.reveal -->
