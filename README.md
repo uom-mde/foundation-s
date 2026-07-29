@@ -300,6 +300,7 @@ causes media on the Item Show page to be blurred automatically.
 | Caption Alongside Media – Annona Lazy Load | Delays loading of Annona viewers until required. | Pages containing multiple annotated images. | Improves page performance. |
 | Text Block Only | Displays only the title and supporting text. | Narrative sections without media. | Useful for alternating layouts. |
 | Media Block Only | Displays media without title or caption. | Decorative media and visual transitions. | – |
+| Annona Media Block Only | Displays Annona IIIF media without title but with a caption. | Allows users to place multiple Annona media alongside each other | – |
 | Text Around Media | Wraps subsequent text around media. | Editorial-style layouts. | Must be placed immediately before an HTML block. |
 | Toggle Caption | Allows visitors to show or hide captions beneath media. | Long captions or optional supporting information. | Developed originally for the CORALA exhibition. |
 | Multiple Media in a Row | Displays multiple media items side-by-side. | Image comparisons and gallery displays. | Combine with `grid-columns-2` to force two columns. |
