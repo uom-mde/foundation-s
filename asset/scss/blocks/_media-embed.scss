@@ -29,6 +29,15 @@
   }
 }
 
+/*Rules for the Annona media block only block*/
+.media-only-annona {
+  display: grid;
+  grid-template-columns: auto;
+  @include breakpoint(medium) {
+    grid-auto-flow: column;
+  }
+}
+
 /*Centre media embed items when option chosen*/
 .center.file, .center.assets {
   display: flex;
