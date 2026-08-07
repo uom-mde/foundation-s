@@ -37,3 +37,12 @@
     display: none;
   }
 }
+
+/*Ensure timeline is responsive for smaller screens*/
+.tl-skinny .tl-text h2.tl-headline-title, 
+.tl-skinny .tl-text h2.tl-headline {
+  @include breakpoint(small only) {
+    font-size: $global-font-size;
+    line-height: rem-calc(20);
+  }
+}
