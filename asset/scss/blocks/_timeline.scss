@@ -18,6 +18,10 @@
     line-height: 1.3;
   }
 
+  a {
+      color: $secondary-color;
+  }
+
   .tl-headline-date,
   h3.tl-headline-date {
     font-family: 'Open Sans' !important;
