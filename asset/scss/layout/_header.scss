@@ -51,9 +51,9 @@
     height: rem-calc(70);
   }
 
-  @include breakpoint(400) {
+  /*@include breakpoint(400) {
     flex-grow: 1
-  }
+  }*/
 }
 
 /* Site heading */
@@ -79,7 +79,7 @@
     margin-right: 0;
   }
 
-  @include breakpoint(610) {
+  @include breakpoint(599) {
     order: 0;
     margin: 0;
   }
