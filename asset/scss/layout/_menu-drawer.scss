@@ -5,13 +5,22 @@ $header-min-height: 133px;
     height: calc( 100% - #{$header-min-height} );
     width: 100%;
     transform: translateX( -100% );
-    z-index: 23;
-    top: 200px;
+    z-index: 99999;
+    top: rem-calc(175);
     left: 0;
     overflow-x: hidden;
     transition: all 0.3s ease-out;
     visibility: hidden;
     background: $secondary-color;
+
+    @include breakpoint(630) {
+        top: rem-calc(150);
+        height: calc(100% - 125px);
+    }
+
+    @include breakpoint(900) {
+        top: rem-calc(130);
+    }
 
     @media screen and (min-width: 1200px) {
         transform: translateX( -100% ) !important;
