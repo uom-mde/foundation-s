@@ -1,0 +1,20 @@
+<?php
+$image = $this->api()->read('assets', $image)->getContent();
+?>
+
+<section class="image-banner image-banner-horizontal">
+    
+    <!-- CUSTOM IMAGE BANNER HORIZONTAL TEMPLATE -->
+
+    <h2>TEST HORIZONTAL BANNER</h2>
+
+    <img
+        src="<?= $this->escapeHtmlAttr($image->assetUrl()) ?>"
+        alt="<?= $this->escapeHtmlAttr($image->altText()) ?>"
+    >
+
+    <?php if ($header): ?>
+        <h1><?= $this->escapeHtml($header) ?></h1>
+    <?php endif; ?>
+
+</section>
