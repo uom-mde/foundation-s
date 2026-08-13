@@ -3,89 +3,195 @@
 $hyperlink = $this->plugin('hyperlink');
 $thumbnailType = $block->dataValue('thumbnail_type');
 ?>
-<div class="reveal-on-scroll lazy-fade-in">  <!-- Lazy load block -->
+
+<div class="reveal-on-scroll lazy-fade-in">
     <div class="full-width file-caption-block media-caption-text resourceTextGrid padding-1 large-padding-2">
-        <div class="file file-caption-text media-embed xlarge-padding-horizontal-1 flex-container align-center align-middle <?php echo $this->escapeHtml(implode(' ', $classes)); ?>">
-            <?php foreach($attachments as $attachment): ?>
-            <?php $item = $attachment->item(); ?>
-            <div class="item resource <?php echo $thumbnailType; ?>">
-                <?php
-                $media = $attachment->media() ?: $item->primaryMedia();
-                $mediaRenderer = $media->renderer();
-                if ($media):
-                    if ($mediaDisplay === 'thumbnail') {
-                        switch ($link) {
-                            case 'original':
-                                $url = $media->originalUrl();
-                                break;
-                            case 'item':
-                                $url = $item->url();
-                                break;
-                            case 'media':
-                                $url = $media->url();
-                                break;
-                            default:
-                                throw new \InvalidArgumentException(sprintf('Invalid link type "%s"', $link));
-                        }
-                        echo $hyperlink->raw($this->thumbnail($media, $thumbnailType), $url);
-                    } else {
-                        echo $media->render([
-                            'thumbnailType' => $thumbnailType,
-                            'link' => $link,
-                        ]);
-                    }
-                endif;
-                ?>
+
+        <?php foreach ($attachments as $attachment): ?>
+            <?php
+            $item = $attachment->item();
+
+            // Use the selected media, falling back to the item's primary media.
+            // This may still return null when the item has no media.
+            $media = $attachment->media() ?: $item->primaryMedia();
+            ?>
+
+            <div class="file file-caption-text media-embed xlarge-padding-horizontal-1 flex-container align-center align-middle <?php echo $this->escapeHtml(implode(' ', $classes)); ?>">
+
+                <div class="item resource <?php echo $this->escapeHtml($thumbnailType); ?>">
+
+                    <?php if ($media): ?>
+
+                        <?php if ($mediaDisplay === 'thumbnail'): ?>
+
+                            <?php
+                            switch ($link) {
+                                case 'original':
+                                    $url = $media->originalUrl();
+                                    break;
+
+                                case 'item':
+                                    $url = $item->url();
+                                    break;
+
+                                case 'media':
+                                    $url = $media->url();
+                                    break;
+
+                                default:
+                                    throw new \InvalidArgumentException(
+                                        sprintf('Invalid link type "%s"', $link)
+                                    );
+                            }
+
+                            echo $hyperlink->raw(
+                                $this->thumbnail($media, $thumbnailType),
+                                $url
+                            );
+                            ?>
+
+                        <?php else: ?>
+
+                            <?php
+                            echo $media->render([
+                                'thumbnailType' => $thumbnailType,
+                                'link' => $link,
+                            ]);
+                            ?>
+
+                        <?php endif; ?>
+
+                    <?php else: ?>
+
+                        <div class="media-embed-empty callout warning">
+                            <p>
+                                <?php echo $this->translate(
+                                    'This item does not currently have any media.'
+                                ); ?>
+                            </p>
+                        </div>
+
+                    <?php endif; ?>
+
                 </div>
-            </div>
+            
+            </div><!-- /.file -->
+
             <div class="block-html medium-padding-horizontal-1 xlarge-padding-horizontal-3">
+
                 <?php if ($showTitleOption === 'item_title'): ?>
+
                     <div class="separator-center metadata margin-vertical-1">
-                        <div class="metadata-value h4"><?php echo $item->displayTitle(); ?></div>
+
+                        <div class="metadata-value h4">
+                            <?php echo $this->escapeHtml($item->displayTitle()); ?>
+                        </div>
+
                         <?php if ($alternative = $item->value('dcterms:alternative')): ?>
-                            <h2 class="metadata-value h4 italic-font alternative"><small><?php echo $this->escapeHtml($alternative); ?></small></h2>
+                            <h2 class="metadata-value h4 italic-font alternative">
+                                <small>
+                                    <?php echo $this->escapeHtml($alternative); ?>
+                                </small>
+                            </h2>
                         <?php endif; ?>
-                        <?php $date = $item->value("dcterms:date"); ?>
-                        <?php if ($date): ?>
-                            <div class="metadata-value h4 date"><small><?php echo $this->escapeHtml($date); ?></small></div>
+
+                        <?php if ($date = $item->value('dcterms:date')): ?>
+                            <div class="metadata-value h4 date">
+                                <small>
+                                    <?php echo $this->escapeHtml($date); ?>
+                                </small>
+                            </div>
                         <?php endif; ?>
+
                         <?php if ($location = $item->value('curation:location')): ?>
-                            <div class="metadata-value h4 location text-center"><small><?php echo $this->escapeHtml($location); ?></small></div>
+                            <div class="metadata-value h4 location text-center">
+                                <small>
+                                    <?php echo $this->escapeHtml($location); ?>
+                                </small>
+                            </div>
                         <?php endif; ?>
+
                     </div>
+
                 <?php elseif ($showTitleOption === 'file_name'): ?>
+
                     <div class="separator-center metadata margin-vertical-1">
-                        <div class="metadata-value h4"><?php echo $media->displayTitle(); ?></div>
-                    </div>
-                    <?php if ($alternative = $item->value('dcterms:alternative')): ?>
-                        <h2 class="metadata-value h4 italic-font alternative"><small><?php echo $this->escapeHtml($alternative); ?></small></h2>
-                    <?php endif; ?>
-                    <?php $date = $item->value("dcterms:date"); ?>
-                        <?php if ($date): ?>
-                            <div class="metadata-value h4 date"><small><?php echo $this->escapeHtml($date); ?></small></div>
+
+                        <div class="metadata-value h4">
+                            <?php if ($media): ?>
+                                <?php echo $this->escapeHtml($media->displayTitle()); ?>
+                            <?php else: ?>
+                                <?php echo $this->escapeHtml($item->displayTitle()); ?>
+                            <?php endif; ?>
+                        </div>
+
+                        <?php if ($alternative = $item->value('dcterms:alternative')): ?>
+                            <h2 class="metadata-value h4 italic-font alternative">
+                                <small>
+                                    <?php echo $this->escapeHtml($alternative); ?>
+                                </small>
+                            </h2>
                         <?php endif; ?>
-                    <?php if ($location = $item->value('curation:location')): ?>
-                        <div class="metadata-value h4 location text-center"><small><?php echo $this->escapeHtml($location); ?></small></div>
-                    <?php endif; ?>
+
+                        <?php if ($date = $item->value('dcterms:date')): ?>
+                            <div class="metadata-value h4 date">
+                                <small>
+                                    <?php echo $this->escapeHtml($date); ?>
+                                </small>
+                            </div>
+                        <?php endif; ?>
+
+                        <?php if ($location = $item->value('curation:location')): ?>
+                            <div class="metadata-value h4 location text-center">
+                                <small>
+                                    <?php echo $this->escapeHtml($location); ?>
+                                </small>
+                            </div>
+                        <?php endif; ?>
+
+                    </div>
+
                 <?php endif; ?>
-                <?php $caption = $attachment->caption(); ?>
-                <?php if ($caption): ?>
-                    <div class="caption margin-top-1 large-margin-top-2"><?php echo $caption; ?></div>
+
+                <?php if ($caption = $attachment->caption()): ?>
+                    <div class="caption margin-top-1 large-margin-top-2">
+                        <?php echo $caption; ?>
+                    </div>
                 <?php endif; ?>
+
                 <?php
-                $identifiers = $item->value('dcterms:identifier', ['all' => true]);
-                if ($identifiers):
-                    foreach ($identifiers as $identifier): ?>
-                        <h2 class="h4 identifier"><small><?php echo $this->escapeHtml($identifier); ?></small></h2>
-                    <?php endforeach;
-                endif;
+                $identifiers = $item->value(
+                    'dcterms:identifier',
+                    ['all' => true]
+                );
                 ?>
+
+                <?php if ($identifiers): ?>
+                    <?php foreach ($identifiers as $identifier): ?>
+                        <h2 class="h4 identifier">
+                            <small>
+                                <?php echo $this->escapeHtml($identifier); ?>
+                            </small>
+                        </h2>
+                    <?php endforeach; ?>
+                <?php endif; ?>
+
                 <div class="learn-more flex-container align-center">
-                    <?php echo $item->link($this->translate('More item information'), null, ['class' => 'button medium warning hollow']); ?>
+                    <?php
+                    echo $item->link(
+                        $this->translate('More item information'),
+                        null,
+                        [
+                            'class' =>
+                                'button medium warning hollow',
+                        ]
+                    );
+                    ?>
                 </div>
-            </div>
-            <?php endforeach; ?>
-        </div>
-        </div>
-    <div>
-</div>
+
+            </div><!-- /.block-html -->
+
+        <?php endforeach; ?>
+
+    </div><!-- /.file-caption-block -->
+</div><!-- /.reveal-on-scroll -->

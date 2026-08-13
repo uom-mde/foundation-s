@@ -3,53 +3,106 @@
 $hyperlink = $this->plugin('hyperlink');
 $thumbnailType = $block->dataValue('thumbnail_type');
 ?>
-<div class="reveal-on-scroll lazy-fade-in">  <!-- Lazy load block -->
+
+<div class="reveal-on-scroll lazy-fade-in">
     <div class="full-width file-caption-block media-caption-text resourceTextGrid padding-1 large-padding-2">
-        <div class="file file-caption-text media-embed xlarge-padding-horizontal-1 flex-container align-center align-middle <?php echo $this->escapeHtml(implode(' ', $classes)); ?>">
-            <?php foreach($attachments as $attachment): ?>
-            <?php $item = $attachment->item(); ?>
-            <div class="item resource <?php echo $thumbnailType; ?>">
-                <?php
-                $media = $attachment->media() ?: $item->primaryMedia();
-                $mediaRenderer = $media->renderer();
-                if ($media):
-                    if ($mediaDisplay === 'thumbnail') {
-                        switch ($link) {
-                            case 'original':
-                                $url = $media->originalUrl();
-                                break;
-                            case 'item':
-                                $url = $item->url();
-                                break;
-                            case 'media':
-                                $url = $media->url();
-                                break;
-                            default:
-                            throw new \InvalidArgumentException(sprintf('Invalid link type "%s"', $link));
-                        }
-                        echo $hyperlink->raw($this->thumbnail($media, $thumbnailType), $url);
-                    } else {
-                        echo $media->render([
-                            'thumbnailType' => $thumbnailType,
-                            'link' => $link,
-                        ]);
-                    }
-                endif;
-                ?>
+
+        <?php foreach ($attachments as $attachment): ?>
+            <?php
+            $item = $attachment->item();
+
+            // Use the explicitly selected media, or fall back to the
+            // item's primary media. This may still be null.
+            $media = $attachment->media() ?: $item->primaryMedia();
+            ?>
+
+            
+            <div class="file file-caption-text media-embed xlarge-padding-horizontal-1 flex-container align-center align-middle <?php echo $this->escapeHtml(implode(' ', $classes)); ?>">
+
+                <div class="item resource <?php echo $this->escapeHtml($thumbnailType); ?>">
+
+                    <?php if ($media): ?>
+
+                        <?php if ($mediaDisplay === 'thumbnail'): ?>
+
+                            <?php
+                            switch ($link) {
+                                case 'original':
+                                    $url = $media->originalUrl();
+                                    break;
+
+                                case 'item':
+                                    $url = $item->url();
+                                    break;
+
+                                case 'media':
+                                    $url = $media->url();
+                                    break;
+
+                                default:
+                                    throw new \InvalidArgumentException(
+                                        sprintf('Invalid link type "%s"', $link)
+                                    );
+                            }
+
+                            echo $hyperlink->raw(
+                                $this->thumbnail($media, $thumbnailType),
+                                $url
+                            );
+                            ?>
+
+                        <?php else: ?>
+
+                            <?php
+                            echo $media->render([
+                                'thumbnailType' => $thumbnailType,
+                                'link' => $link,
+                            ]);
+                            ?>
+
+                        <?php endif; ?>
+
+                    <?php else: ?>
+
+                        <div class="media-embed-empty callout warning">
+                            <p>
+                                <?php echo $this->translate(
+                                    'This item does not currently have any media.'
+                                ); ?>
+                            </p>
+                        </div>
+
+                    <?php endif; ?>
+
                 </div>
-            </div>
-            <!-- METADATA / TEXT -->
+
+            </div><!-- /.file -->
+
+            <!-- Metadata / text -->
             <div class="block-html medium-padding-horizontal-1 xlarge-padding-horizontal-3">
 
                 <?php if ($showTitleOption === 'item_title'): ?>
-                    <div class="separator-center metadata margin-vertical-1">
-                        <div class="metadata-value h4"><?php echo $item->displayTitle(); ?></div>
 
+                    <div class="separator-center metadata margin-vertical-1">
+                        <div class="metadata-value h4">
+                            <?php echo $this->escapeHtml($item->displayTitle()); ?>
+                        </div>
+                    </div>
+
+                <?php elseif ($showTitleOption === 'file_name' && $media): ?>
+
+                    <div class="separator-center metadata margin-vertical-1">
+                        <div class="metadata-value h4">
+                            <?php echo $this->escapeHtml($media->displayTitle()); ?>
+                        </div>
                     </div>
 
                 <?php elseif ($showTitleOption === 'file_name'): ?>
+
                     <div class="separator-center metadata margin-vertical-1">
-                        <div class="metadata-value h4"><?php echo $media->displayTitle(); ?></div>
+                        <div class="metadata-value h4">
+                            <?php echo $this->escapeHtml($item->displayTitle()); ?>
+                        </div>
                     </div>
 
                 <?php endif; ?>
@@ -61,12 +114,18 @@ $thumbnailType = $block->dataValue('thumbnail_type');
                 <?php endif; ?>
 
                 <div class="learn-more flex-container align-center">
-                    <?php echo $item->link($this->translate('More item information'), null, ['class' => 'button medium warning hollow']); ?>
+                    <?php
+                    echo $item->link(
+                        $this->translate('More item information'),
+                        null,
+                        ['class' => 'button medium warning hollow']
+                    );
+                    ?>
                 </div>
 
-            </div> <!-- /.block-html -->
-            </div>
-            <?php endforeach; ?>
-        </div>
-    <div>
+            </div><!-- /.block-html -->
+
+        <?php endforeach; ?>
+
+    </div>
 </div>

@@ -209,7 +209,7 @@ max-width: rem-calc(2000px);
 
 .img-hero .hero-title-img {
 position: absolute;
-z-index: 9999;
+z-index: 4;
 bottom: 30%;
 max-width: 28rem;
 @include breakpoint(large) {
