@@ -89,25 +89,25 @@ $thumbnailType = $block->dataValue('thumbnail_type');
 
                         <?php if ($alternative = $item->value('dcterms:alternative')): ?>
                             <h2 class="metadata-value h4 italic-font alternative">
-                                <small>
+                                
                                     <?php echo $this->escapeHtml($alternative); ?>
-                                </small>
+                                
                             </h2>
                         <?php endif; ?>
 
                         <?php if ($date = $item->value('dcterms:date')): ?>
                             <div class="metadata-value h4 date">
-                                <small>
+                                
                                     <?php echo $this->escapeHtml($date); ?>
-                                </small>
+                                
                             </div>
                         <?php endif; ?>
 
                         <?php if ($location = $item->value('curation:location')): ?>
                             <div class="metadata-value h4 location text-center">
-                                <small>
+                                
                                     <?php echo $this->escapeHtml($location); ?>
-                                </small>
+                                
                             </div>
                         <?php endif; ?>
 
@@ -127,25 +127,25 @@ $thumbnailType = $block->dataValue('thumbnail_type');
 
                         <?php if ($alternative = $item->value('dcterms:alternative')): ?>
                             <h2 class="metadata-value h4 italic-font alternative">
-                                <small>
+                                
                                     <?php echo $this->escapeHtml($alternative); ?>
-                                </small>
+                                
                             </h2>
                         <?php endif; ?>
 
                         <?php if ($date = $item->value('dcterms:date')): ?>
                             <div class="metadata-value h4 date">
-                                <small>
+                                
                                     <?php echo $this->escapeHtml($date); ?>
-                                </small>
+                                
                             </div>
                         <?php endif; ?>
 
                         <?php if ($location = $item->value('curation:location')): ?>
                             <div class="metadata-value h4 location text-center">
-                                <small>
+                                
                                     <?php echo $this->escapeHtml($location); ?>
-                                </small>
+                                
                             </div>
                         <?php endif; ?>
 
@@ -169,9 +169,9 @@ $thumbnailType = $block->dataValue('thumbnail_type');
                 <?php if ($identifiers): ?>
                     <?php foreach ($identifiers as $identifier): ?>
                         <h2 class="h4 identifier">
-                            <small>
+                            
                                 <?php echo $this->escapeHtml($identifier); ?>
-                            </small>
+                            
                         </h2>
                     <?php endforeach; ?>
                 <?php endif; ?>
