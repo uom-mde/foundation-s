@@ -73,7 +73,7 @@ $thumbnailType = $block->dataValue('thumbnail_type');
                     <div class="metadata margin-vertical-1">
                         <div class="h4 separator-center"><?php echo $item->displayTitle(); ?></div>
                         <?php if ($alt = $item->value('dcterms:alternative')): ?>
-                            <h2 class="h4 italic-font"><small><?php echo $this->escapeHtml($alt); ?></small></h2>
+                            <h2 class="h4 italic-font"><?php echo $this->escapeHtml($alt); ?></h2>
                         <?php endif; ?>
                     </div>
 

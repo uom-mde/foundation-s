@@ -95,19 +95,19 @@ $stripOpenSeadragonInlineScript = function (string $html): string {
 
                         <?php if ($alternative = $item->value('dcterms:alternative')): ?>
                             <h2 class="metadata-value h4 italic-font alternative">
-                                <small><?php echo $this->escapeHtml($alternative); ?></small>
+                                <?php echo $this->escapeHtml($alternative); ?>
                             </h2>
                         <?php endif; ?>
 
                         <?php if ($date = $item->value("dcterms:date")): ?>
                             <div class="metadata-value h4 date">
-                                <small><?php echo $this->escapeHtml($date); ?></small>
+                                <?php echo $this->escapeHtml($date); ?>
                             </div>
                         <?php endif; ?>
 
                         <?php if ($location = $item->value('curation:location')): ?>
                             <div class="metadata-value h4 location text-center">
-                                <small><?php echo $this->escapeHtml($location); ?></small>
+                                <?php echo $this->escapeHtml($location); ?>
                             </div>
                         <?php endif; ?>
                     </div>
@@ -117,19 +117,19 @@ $stripOpenSeadragonInlineScript = function (string $html): string {
                         <div class="metadata-value h4"><?php echo $media->displayTitle(); ?></div>
                         <?php if ($alternative = $item->value('dcterms:alternative')): ?>
                             <h2 class="metadata-value h4 italic-font alternative">
-                                <small><?php echo $this->escapeHtml($alternative); ?></small>
+                                <?php echo $this->escapeHtml($alternative); ?>
                             </h2>
                         <?php endif; ?>
 
                         <?php if ($date = $item->value("dcterms:date")): ?>
                             <div class="metadata-value h4 date">
-                                <small><?php echo $this->escapeHtml($date); ?></small>
+                                <?php echo $this->escapeHtml($date); ?>
                             </div>
                         <?php endif; ?>
 
                         <?php if ($location = $item->value('curation:location')): ?>
                             <div class="metadata-value h4 location text-center">
-                                <small><?php echo $this->escapeHtml($location); ?></small>
+                                <?php echo $this->escapeHtml($location); ?>
                             </div>
                         <?php endif; ?>
                     </div>
@@ -145,7 +145,7 @@ $stripOpenSeadragonInlineScript = function (string $html): string {
                     $identifiers = $item->value('dcterms:identifier', ['all' => true]);
                     if ($identifiers):
                         foreach ($identifiers as $identifier): ?>
-                            <h2 class="h4 identifier"><small><?php echo $this->escapeHtml($identifier); ?></small></h2>
+                            <h2 class="h4 identifier"><?php echo $this->escapeHtml($identifier); ?></h2>
                         <?php endforeach;
                     endif;
                 ?>
