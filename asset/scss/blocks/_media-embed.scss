@@ -426,7 +426,19 @@ button a,
 
 .metadata-value {
   display: block;
+  font-size: $global-font-size;
+  color: #636363;
+  line-height: 1.4;
 }
+
+.metadata-value {
+  &.alternative,
+  &.location,
+  &.identifier {
+    margin-bottom: rem-calc(8);
+  }
+}
+
 
 .link-text-white a {
   color: $white;
