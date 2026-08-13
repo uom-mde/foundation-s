@@ -66,21 +66,75 @@ $thumbnailType = $block->dataValue('thumbnail_type');
 
             </div>
 
-            <!-- TITLE, CAPTION, More item information -->
+            <!-- Metadata / text -->
             <div class="block-html medium-padding-horizontal-1 xlarge-padding-horizontal-3">
 
                 <?php if ($showTitleOption === 'item_title'): ?>
-                    <div class="metadata margin-vertical-1">
-                        <div class="h4 separator-center"><?php echo $item->displayTitle(); ?></div>
-                        <?php if ($alt = $item->value('dcterms:alternative')): ?>
-                            <h2 class="h4 italic-font"><?php echo $this->escapeHtml($alt); ?></h2>
+
+                    <div class="separator-center metadata margin-vertical-1">
+
+                        <h2 class="item-title">
+                            <?php echo $this->escapeHtml($item->displayTitle()); ?>
+                        </h2>
+
+                        <?php if ($alternative = $item->value('dcterms:alternative')): ?>
+                            <div class="metadata-value italic-font alternative">          
+                                <?php echo $this->escapeHtml($alternative); ?>        
+                            </div>
                         <?php endif; ?>
+
+                        <?php if ($date = $item->value('dcterms:date')): ?>
+                            <div class="metadata-value date">  
+                                <?php echo $this->escapeHtml($date); ?>            
+                            </div>
+                        <?php endif; ?>
+
+                        <?php if ($location = $item->value('curation:location')): ?>
+                            <div class="metadata-value location text-center">
+                                
+                                    <?php echo $this->escapeHtml($location); ?>
+                                
+                            </div>
+                        <?php endif; ?>
+
                     </div>
 
                 <?php elseif ($showTitleOption === 'file_name'): ?>
-                    <div class="metadata margin-vertical-1">
-                        <div class="h4 separator-center"><?php echo $media->displayTitle(); ?></div>
+
+                    <div class="separator-center metadata margin-vertical-1">
+
+                        <h2 class="item-title">
+                            <?php if ($media): ?>
+                                <?php echo $this->escapeHtml($media->displayTitle()); ?>
+                            <?php else: ?>
+                                <?php echo $this->escapeHtml($item->displayTitle()); ?>
+                            <?php endif; ?>
+                        </h2>
+
+                        <?php if ($alternative = $item->value('dcterms:alternative')): ?>
+                            <div class="metadata-value italic-font alternative">
+                                
+                                    <?php echo $this->escapeHtml($alternative); ?>
+                                
+                            </div>
+                        <?php endif; ?>
+
+                        <?php if ($date = $item->value('dcterms:date')): ?>
+                            <div class="metadata-value date">
+                                
+                                    <?php echo $this->escapeHtml($date); ?>
+                                
+                            </div>
+                        <?php endif; ?>
+
+                        <?php if ($location = $item->value('curation:location')): ?>
+                            <div class="metadata-value location text-center">   
+                                <?php echo $this->escapeHtml($location); ?>   
+                            </div>
+                        <?php endif; ?>
+
                     </div>
+
                 <?php endif; ?>
 
                 <?php if ($caption = $attachment->caption()): ?>
@@ -89,11 +143,35 @@ $thumbnailType = $block->dataValue('thumbnail_type');
                     </div>
                 <?php endif; ?>
 
-                <div class="learn-more flex-container align-center">
-                    <?php echo $item->link($this->translate('More item information test'), null, ['class' => 'button medium warning hollow']); ?>
+                <?php
+                $identifiers = $item->value(
+                    'dcterms:identifier',
+                    ['all' => true]
+                );
+                ?>
+
+                <?php if ($identifiers): ?>
+                    <?php foreach ($identifiers as $identifier): ?>
+                        <div class="identifier metadata-value">                      
+                            <?php echo $this->escapeHtml($identifier); ?>                     
+                        </div>
+                    <?php endforeach; ?>
+                <?php endif; ?>
+
+                <div class="learn-more flex-container align-center margin-top-1">
+                    <?php
+                    echo $item->link(
+                        $this->translate('More item information'),
+                        null,
+                        [
+                            'class' =>
+                                'button medium warning hollow',
+                        ]
+                    );
+                    ?>
                 </div>
 
-            </div>
+            </div><!-- /.block-html -->
 
         <?php endforeach; ?>
     </div>

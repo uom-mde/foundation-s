@@ -77,6 +77,7 @@ $thumbnailType = $block->dataValue('thumbnail_type');
             
             </div><!-- /.file -->
 
+            <!-- Metadata / text -->
             <div class="block-html medium-padding-horizontal-1 xlarge-padding-horizontal-3">
 
                 <?php if ($showTitleOption === 'item_title'): ?>
@@ -113,7 +114,7 @@ $thumbnailType = $block->dataValue('thumbnail_type');
 
                     <div class="separator-center metadata margin-vertical-1">
 
-                        <<h2 class="item-title">
+                        <h2 class="item-title">
                             <?php if ($media): ?>
                                 <?php echo $this->escapeHtml($media->displayTitle()); ?>
                             <?php else: ?>

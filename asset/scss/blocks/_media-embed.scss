@@ -427,8 +427,11 @@ button a,
 .metadata-value {
   display: block;
   font-size: $global-font-size;
-  color: #636363;
+  color: #797979;
   line-height: 1.4;
+  @include breakpoint(large) {
+    font-size: rem-calc(18);
+  }
 }
 
 .metadata-value {
@@ -437,6 +440,7 @@ button a,
   &.identifier {
     margin-bottom: rem-calc(8);
   }
+
 }
 
 

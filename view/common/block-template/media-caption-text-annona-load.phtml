@@ -86,53 +86,75 @@ $stripOpenSeadragonInlineScript = function (string $html): string {
                 </div> <!-- /.item -->
             </div> <!-- /.file -->
 
-            <!-- METADATA / TEXT -->
+            <!-- Metadata / text -->
             <div class="block-html medium-padding-horizontal-1 xlarge-padding-horizontal-3">
 
                 <?php if ($showTitleOption === 'item_title'): ?>
+
                     <div class="separator-center metadata margin-vertical-1">
-                        <div class="metadata-value h4"><?php echo $item->displayTitle(); ?></div>
+
+                        <h2 class="item-title">
+                            <?php echo $this->escapeHtml($item->displayTitle()); ?>
+                        </h2>
 
                         <?php if ($alternative = $item->value('dcterms:alternative')): ?>
-                            <h2 class="metadata-value h4 italic-font alternative">
-                                <?php echo $this->escapeHtml($alternative); ?>
-                            </h2>
+                            <div class="metadata-value italic-font alternative">          
+                                <?php echo $this->escapeHtml($alternative); ?>        
+                            </div>
                         <?php endif; ?>
 
-                        <?php if ($date = $item->value("dcterms:date")): ?>
-                            <div class="metadata-value h4 date">
-                                <?php echo $this->escapeHtml($date); ?>
+                        <?php if ($date = $item->value('dcterms:date')): ?>
+                            <div class="metadata-value date">  
+                                <?php echo $this->escapeHtml($date); ?>            
                             </div>
                         <?php endif; ?>
 
                         <?php if ($location = $item->value('curation:location')): ?>
-                            <div class="metadata-value h4 location text-center">
-                                <?php echo $this->escapeHtml($location); ?>
+                            <div class="metadata-value location text-center">
+                                
+                                    <?php echo $this->escapeHtml($location); ?>
+                                
                             </div>
                         <?php endif; ?>
+
                     </div>
 
                 <?php elseif ($showTitleOption === 'file_name'): ?>
+
                     <div class="separator-center metadata margin-vertical-1">
-                        <div class="metadata-value h4"><?php echo $media->displayTitle(); ?></div>
+
+                        <h2 class="item-title">
+                            <?php if ($media): ?>
+                                <?php echo $this->escapeHtml($media->displayTitle()); ?>
+                            <?php else: ?>
+                                <?php echo $this->escapeHtml($item->displayTitle()); ?>
+                            <?php endif; ?>
+                        </h2>
+
                         <?php if ($alternative = $item->value('dcterms:alternative')): ?>
-                            <h2 class="metadata-value h4 italic-font alternative">
-                                <?php echo $this->escapeHtml($alternative); ?>
-                            </h2>
+                            <div class="metadata-value italic-font alternative">
+                                
+                                    <?php echo $this->escapeHtml($alternative); ?>
+                                
+                            </div>
                         <?php endif; ?>
 
-                        <?php if ($date = $item->value("dcterms:date")): ?>
-                            <div class="metadata-value h4 date">
-                                <?php echo $this->escapeHtml($date); ?>
+                        <?php if ($date = $item->value('dcterms:date')): ?>
+                            <div class="metadata-value date">
+                                
+                                    <?php echo $this->escapeHtml($date); ?>
+                                
                             </div>
                         <?php endif; ?>
 
                         <?php if ($location = $item->value('curation:location')): ?>
-                            <div class="metadata-value h4 location text-center">
-                                <?php echo $this->escapeHtml($location); ?>
+                            <div class="metadata-value location text-center">   
+                                <?php echo $this->escapeHtml($location); ?>   
                             </div>
                         <?php endif; ?>
+
                     </div>
+
                 <?php endif; ?>
 
                 <?php if ($caption = $attachment->caption()): ?>
@@ -142,19 +164,34 @@ $stripOpenSeadragonInlineScript = function (string $html): string {
                 <?php endif; ?>
 
                 <?php
-                    $identifiers = $item->value('dcterms:identifier', ['all' => true]);
-                    if ($identifiers):
-                        foreach ($identifiers as $identifier): ?>
-                            <h2 class="h4 identifier"><?php echo $this->escapeHtml($identifier); ?></h2>
-                        <?php endforeach;
-                    endif;
+                $identifiers = $item->value(
+                    'dcterms:identifier',
+                    ['all' => true]
+                );
                 ?>
 
-                <div class="learn-more flex-container align-center">
-                    <?php echo $item->link($this->translate('More item information'), null, ['class' => 'button medium warning hollow']); ?>
+                <?php if ($identifiers): ?>
+                    <?php foreach ($identifiers as $identifier): ?>
+                        <div class="identifier metadata-value">                      
+                            <?php echo $this->escapeHtml($identifier); ?>                     
+                        </div>
+                    <?php endforeach; ?>
+                <?php endif; ?>
+
+                <div class="learn-more flex-container align-center margin-top-1">
+                    <?php
+                    echo $item->link(
+                        $this->translate('More item information'),
+                        null,
+                        [
+                            'class' =>
+                                'button medium warning hollow',
+                        ]
+                    );
+                    ?>
                 </div>
 
-            </div> <!-- /.block-html -->
+            </div><!-- /.block-html -->
 
         </div> <!-- /.media-embed block -->
 
