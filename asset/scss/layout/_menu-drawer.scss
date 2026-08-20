@@ -13,13 +13,13 @@ $header-min-height: 133px;
     visibility: hidden;
     background: $secondary-color;
 
-    @include breakpoint(630) {
-        top: rem-calc(140);
-        height: calc(100% - 125px);
+    @include breakpoint(354) {
+        top: rem-calc(150);
     }
 
-    @include breakpoint(900) {
+    @include breakpoint(630) {
         top: rem-calc(130);
+        height: calc(100% - 125px);
     }
 
     @media screen and (min-width: 1200px) {
