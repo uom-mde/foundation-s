@@ -427,7 +427,8 @@ button a,
 .metadata-value {
   display: block;
   font-size: $global-font-size;
-  color: #797979;
+  font-weight: 300;
+  color: $dark-gray;
   line-height: 1.4;
   @include breakpoint(large) {
     font-size: rem-calc(18);
