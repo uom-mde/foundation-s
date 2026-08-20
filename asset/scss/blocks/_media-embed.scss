@@ -424,6 +424,12 @@ button a,
   font-weight: 400;
 }
 
+.metadata h2 {
+  @include breakpoint(large) {
+    font-size: 1.6rem;
+  }
+}
+
 .metadata-value {
   display: block;
   font-size: $global-font-size;
@@ -441,7 +447,6 @@ button a,
   &.identifier {
     margin-bottom: rem-calc(8);
   }
-
 }
 
 
