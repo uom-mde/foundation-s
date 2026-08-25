@@ -46,3 +46,157 @@
     line-height: rem-calc(20);
   }
 }
+
+/* ==========================================================
+   MAPPING / TIMELINE
+   ========================================================== */
+
+
+/* ----------------------------------------------------------
+   General block spacing
+   ---------------------------------------------------------- */
+
+.block-mappingMap {
+    margin-bottom: 50px;
+}
+
+
+/* ----------------------------------------------------------
+   Mapping / timeline layout
+   ---------------------------------------------------------- */
+
+.mapping-block.timeline {
+
+    .tl-timeline {
+        position: static !important;
+    }
+
+    .tl-menubar {
+        position: absolute !important;
+
+        /* Position at bottom-right of story area */
+        top: auto !important;
+        right: 1rem;
+        bottom: calc(100px + 1rem) !important;
+        left: auto !important;
+
+        /* Cancel TimelineJS positioning transforms */
+        transform: none !important;
+
+        /* Horizontal control layout */
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: nowrap;
+        align-items: center;
+
+        width: auto;
+        overflow: visible;
+
+        z-index: 50;
+
+        /* Prevent TimelineJS buttons from floating/stacking */
+        .tl-menubar-button {
+            float: none !important;
+            display: block;
+        }
+    }
+}
+
+
+/* ----------------------------------------------------------
+   Full-width timenav variants
+   ---------------------------------------------------------- */
+
+.timenav-full-width-above.timeline {
+
+    .tl-timeline {
+        position: static !important;
+    }
+}
+
+.timenav-full-width-below.timeline {
+
+    .tl-timenav {
+        position: absolute;
+        bottom: -46px;
+        width: calc(100% - 2rem);
+    }
+}
+
+
+/* ----------------------------------------------------------
+   Timeline text
+   ---------------------------------------------------------- */
+
+.tl-text-content-container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+
+/* ----------------------------------------------------------
+   Previous / next navigation
+   ---------------------------------------------------------- */
+
+button {
+
+    &.tl-slidenav-previous,
+    &.tl-slidenav-next {
+        top: 350px !important;
+    }
+}
+
+
+/* ==========================================================
+   TABLET / DESKTOP
+   ========================================================== */
+
+@media screen and (min-width: 641px) {
+
+    .timenav-full-width-below.timeline {
+
+        .tl-timenav {
+            bottom: -56px;
+        }
+
+        .mapping-map,
+        .tl-timeline,
+        .tl-storyslider {
+            min-height: 70vh !important;
+            height: 70vh !important;
+        }
+    }
+}
+
+
+/* ==========================================================
+   MOBILE
+   ========================================================== */
+
+@media screen and (max-width: 640px) {
+
+    .mapping-block.timeline {
+        flex-direction: column;
+
+        .tl-timeline,
+        .mapping-map {
+            width: 100% !important;
+        }
+
+        .mapping-map {
+            height: 300px !important;
+        }
+    }
+
+    .tl-timeline {
+
+        &.tl-skinny.tl-mobile.tl-layout-portrait {
+            height: 550px !important;
+            margin-bottom: 12px;
+        }
+    }
+
+    .tl-storyslider {
+        height: 100% !important;
+    }
+}
