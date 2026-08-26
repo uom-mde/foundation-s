@@ -118,7 +118,6 @@
 
     .tl-timenav {
         position: absolute;
-        bottom: rem-calc(-46px)!important;
         width: calc(100% - 2rem);
     }
 }
@@ -147,33 +146,12 @@ button {
 }
 
 
-/* ==========================================================
-   TABLET / DESKTOP
-   ========================================================== */
-
-@media screen and (min-width: 641px) {
-
-    .timenav-full-width-below.timeline {
-
-        .tl-timenav {
-            bottom: rem-calc(-56px)!important;
-        }
-
-        .mapping-map,
-        .tl-timeline,
-        .tl-storyslider {
-            min-height: 70vh !important;
-            height: 70vh !important;
-        }
-    }
-}
-
 
 /* ==========================================================
    MOBILE
    ========================================================== */
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 639px) {
 
     .mapping-block.timeline {
         flex-direction: column;
@@ -198,5 +176,23 @@ button {
 
     .tl-storyslider {
         height: 100% !important;
+    }
+}
+
+/* ==========================================================
+   TABLET / DESKTOP
+   ========================================================== */
+
+@media screen and (min-width: 640px) {
+
+    .timenav-full-width-below.timeline {
+        padding-bottom: rem-calc(220px);
+
+        .mapping-map,
+        .tl-timeline,
+        .tl-storyslider {
+            min-height: 70vh !important;
+            height: 70vh !important;
+        }
     }
 }
