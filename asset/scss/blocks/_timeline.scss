@@ -118,7 +118,7 @@
 
     .tl-timenav {
         position: absolute;
-        bottom: -46px;
+        bottom: rem-calc(-46px)!important;
         width: calc(100% - 2rem);
     }
 }
@@ -156,7 +156,7 @@ button {
     .timenav-full-width-below.timeline {
 
         .tl-timenav {
-            bottom: -56px;
+            bottom: rem-calc(-56px)!important;
         }
 
         .mapping-map,
