@@ -119,6 +119,7 @@
     .tl-timenav {
         position: absolute;
         width: calc(100% - 2rem);
+        bottom: rem-calc(-46px)!important;
     }
 }
 
@@ -186,7 +187,7 @@ button {
 @media screen and (min-width: 640px) {
 
     .timenav-full-width-below.timeline {
-        padding-bottom: rem-calc(220px);
+        padding-bottom: rem-calc(220px)!important;
 
         .mapping-map,
         .tl-timeline,
