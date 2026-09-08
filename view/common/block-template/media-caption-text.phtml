@@ -84,25 +84,25 @@ $thumbnailType = $block->dataValue('thumbnail_type');
                 <?php if ($showTitleOption === 'item_title'): ?>
 
                     <div class="separator-center metadata margin-vertical-1">
-                        <div class="metadata-value h4">
+                        <h2 class="item-title">
                             <?php echo $this->escapeHtml($item->displayTitle()); ?>
-                        </div>
+                        </h2>
                     </div>
 
                 <?php elseif ($showTitleOption === 'file_name' && $media): ?>
 
                     <div class="separator-center metadata margin-vertical-1">
-                        <div class="metadata-value h4">
+                        <h2 class="item-title">
                             <?php echo $this->escapeHtml($media->displayTitle()); ?>
-                        </div>
+                        </h2>
                     </div>
 
                 <?php elseif ($showTitleOption === 'file_name'): ?>
 
                     <div class="separator-center metadata margin-vertical-1">
-                        <div class="metadata-value h4">
+                        <h2 class="metadata-value">
                             <?php echo $this->escapeHtml($item->displayTitle()); ?>
-                        </div>
+                        </h2>
                     </div>
 
                 <?php endif; ?>
@@ -113,7 +113,7 @@ $thumbnailType = $block->dataValue('thumbnail_type');
                     </div>
                 <?php endif; ?>
 
-                <div class="learn-more flex-container align-center">
+                <div class="learn-more flex-container align-center margin-top-1">
                     <?php
                     echo $item->link(
                         $this->translate('More item information'),

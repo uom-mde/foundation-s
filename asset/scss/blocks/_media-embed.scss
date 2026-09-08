@@ -424,9 +424,31 @@ button a,
   font-weight: 400;
 }
 
+.metadata h2 {
+  @include breakpoint(large) {
+    font-size: 1.6rem;
+  }
+}
+
 .metadata-value {
   display: block;
+  font-size: $global-font-size;
+  font-weight: 300;
+  color: $dark-gray;
+  line-height: 1.4;
+  @include breakpoint(large) {
+    font-size: rem-calc(18);
+  }
 }
+
+.metadata-value {
+  &.alternative,
+  &.location,
+  &.identifier {
+    margin-bottom: rem-calc(8);
+  }
+}
+
 
 .link-text-white a {
   color: $white;
