@@ -13,11 +13,11 @@
 .medium {
   .seadragonbox {
     @include breakpoint(medium) {
-      height: 50vh !important;
+      height: 40vh !important;
     }
 
     @include breakpoint(large) {
-      height: 60vh !important;
+      height: 50vh !important;
     }
   }
 }
@@ -25,11 +25,13 @@
 .medium-large {
   .seadragonbox {
     @include breakpoint(medium) {
+      height: 40vh !important;
+    }
+    @include breakpoint(large) {
       height: 60vh !important;
     }
-
     @include breakpoint(xlarge) {
-      height: 75vh !important;
+      height: 70vh !important;
     }
   }
 }
@@ -38,7 +40,7 @@
 .main-with-sidebar {
   .seadragonbox {
     @include breakpoint(medium) {
-      height: 75vh !important;
+      height: 60vh !important;
     }
 
     @include breakpoint(large) {
