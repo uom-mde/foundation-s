@@ -49,9 +49,9 @@
 }
 
 .large .openseadragon {
-  height: 40vh !important;
+  height: 30vh !important;
   @include breakpoint(medium) {
-  height: 70vh !important;
+  height: 50vh !important;
   }
   @include breakpoint(large) {
   height: 80vh !important;
