@@ -129,7 +129,8 @@ header {
   }
 
   .top-bar-left {
-    flex-wrap: nowrap;
+   flex-wrap: nowrap;
+   width: 100%;
 
     @include breakpoint(large) {
       flex: 1 1 auto;
