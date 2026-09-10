@@ -3,7 +3,7 @@
    ========================================================================== */
 
 section.image-banner {
-  margin-top: -1 * $global-margin;
+  margin-top: -0.5 * $global-margin;
 
   @include breakpoint(medium) {
     margin-top: -2 * $global-margin;

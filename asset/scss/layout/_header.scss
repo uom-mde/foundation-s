@@ -35,16 +35,16 @@
 
 .university-logo {
   display: flex;
-  flex-grow: 0;
+  flex-grow: 1;
   margin: rem-calc(12);
 
   @include breakpoint(355) {
     margin: rem-calc(12) rem-calc(24);
   }
 
-  @include breakpoint(medium) {
-    flex-shrink: 1;
-  }
+  /*@include breakpoint(medium) {
+    flex-shrink: 0;
+  }*/
 
   img {
     width: rem-calc(169);
