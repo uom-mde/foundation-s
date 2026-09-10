@@ -425,6 +425,9 @@ button a,
 }
 
 .metadata h2 {
+    @include breakpoint(medium) {
+    font-size: 1.4rem;
+  }
   @include breakpoint(large) {
     font-size: 1.6rem;
   }
