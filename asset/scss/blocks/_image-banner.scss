@@ -180,27 +180,26 @@ section.image-banner {
    ========================================================================== */
    
 .img-hero {
-  height: 18.75rem;
   position: relative;
   margin-top: -0.5rem;
-  height: rem-calc(350px);
   background: $uom-footer;
   @include breakpoint(medium) {
     margin-top: rem-calc(-32px) !important;
+  }
+}
+
+.img-hero img {
+  width: 100%;
+  height: rem-calc(350px);
+  object-fit: cover;
+  display: block;
+  margin: 0 auto;
+  @include breakpoint(medium) {
     height: rem-calc(400px);
   }
   @include breakpoint(xlarge) {
     height: rem-calc(500px);
   }
-}
-
-.img-hero img {
-width: 100%; 
-height: 100%; 
-object-fit: cover;
-display: block;
-margin: 0 auto;
-max-width: rem-calc(2000px);
 }
 
 #content .img-hero {
