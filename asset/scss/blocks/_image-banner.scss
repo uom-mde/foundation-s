@@ -187,9 +187,9 @@ section.image-banner {
   @include breakpoint(medium) {
     margin-top: rem-calc(-32px) !important;
     height: rem-calc(400px);
+  }
   @include breakpoint(xlarge) {
     height: rem-calc(500px);
-  }
   }
 }
 
