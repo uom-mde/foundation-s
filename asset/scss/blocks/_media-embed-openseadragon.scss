@@ -3,7 +3,8 @@
    ========================================================================== */
 
 /*Openseadragon*/ 
-.medium .openseadragon {
+.medium .openseadragon,
+.medium .seadragonbox {
   height: 35vh !important;
   @include breakpoint(medium) {
   height: 40vh !important;
@@ -13,7 +14,8 @@
     }
 }
 
-.medium-large .openseadragon {
+.medium-large .openseadragon,
+.medium-large .seadragonbox {
   height: 35vh !important;
   @include breakpoint(medium) {
   height: 60vh !important;
@@ -23,7 +25,8 @@
   }
 }
 
-.layout-vertical .medium-large .openseadragon {
+.layout-vertical .medium-large .openseadragon,
+.layout-vertical .medium-large .seadragonbox {
   height: 40vh !important;
   @include breakpoint(medium) {
   height: 70vh !important;
@@ -36,7 +39,8 @@
   }
 }
 
-.layout-vertical .medium-large .openseadragon:not(:only-child) {
+.layout-vertical .medium-large .openseadragon:not(:only-child),
+.layout-vertical .medium-large .seadragonbox:not(:only-child) {
   @include breakpoint(medium) {
   height: 50vh !important;
   }
@@ -48,7 +52,8 @@
   }
 }
 
-.large .openseadragon {
+.large .openseadragon,
+.large .seadragonbox {
   height: 30vh !important;
   @include breakpoint(medium) {
   height: 50vh !important;
@@ -61,7 +66,8 @@
   }
 }
 
-.layout-vertical .large .openseadragon:not(:only-child) {
+.layout-vertical .large .openseadragon:not(:only-child),
+.layout-vertical .large .seadragonbox:not(:only-child) {
   @include breakpoint(medium) {
   height: 50vh !important;
   }
