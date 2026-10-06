@@ -181,12 +181,12 @@ section.image-banner {
    
 .img-hero {
   position: relative;
-  height: rem-calc(300px);
+  height: rem-calc(400);
   margin-top: -0.5rem;
   background: $uom-footer;
   @include breakpoint(medium) {
     margin-top: rem-calc(-32px) !important;
-    height: rem-calc(400px);
+    height: rem-calc(450px);
   }
   @include breakpoint(xlarge) {
     height: rem-calc(500px);
@@ -229,11 +229,11 @@ max-width: 28rem;
    ========================================================================== */
 
 openseadragon-block-text-image img {
-  height: rem-calc(300);
+  height: rem-calc(400);
   object-fit: cover;
   width: 100%;
   @include breakpoint (medium) {
-    height: rem-calc(350);
+    height: rem-calc(450);
   }
   @include breakpoint (large) {
     height: rem-calc(650);
