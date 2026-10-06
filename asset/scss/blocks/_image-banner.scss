@@ -181,7 +181,7 @@ section.image-banner {
    
 .img-hero {
   position: relative;
-  height: rem-calc(350px);
+  height: rem-calc(300px);
   margin-top: -0.5rem;
   background: $uom-footer;
   @include breakpoint(medium) {
@@ -222,4 +222,23 @@ max-width: 28rem;
   -webkit-backdrop-filter: blur(5px);
   backdrop-filter: blur(5px);
   padding: 0.5rem 1rem;
+}
+
+/* ==========================================================================
+   Image Banner written in HTML - Image alongside text
+   ========================================================================== */
+
+openseadragon-block-text-image img {
+  height: rem-calc(300);
+  object-fit: cover;
+  width: 100%;
+  @include breakpoint (medium) {
+    height: rem-calc(350);
+  }
+  @include breakpoint (large) {
+    height: rem-calc(650);
+  }
+  @include breakpoint (xlarge) {
+    height: rem-calc(750);
+  }
 }
