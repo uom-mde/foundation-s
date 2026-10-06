@@ -2,12 +2,12 @@ $header-min-height: 133px;
 .menu-drawer {
     display: block !important;
     position: fixed;
-    height: calc( 100% - #{$header-min-height} );
+    height: 100%;
     width: 100%;
     transform: translateX( -100% );
     z-index: 99999;
     /*Display menu at the top of the screen*/
-    /*top: rem-calc(175);*/
+    top: 0;
     left: 0;
     overflow-x: hidden;
     transition: all 0.3s ease-out;
@@ -20,10 +20,10 @@ $header-min-height: 133px;
     }*/
 
     /*Display menu at the top of the screen*/
-    /*@include breakpoint(630) {
-        top: rem-calc(130);
-        height: calc(100% - 125px);
-    }*/
+    @include breakpoint(medium) {
+        /*top: rem-calc(130);*/
+        height: calc( 100% - #{$header-min-height} );
+    }
 
     @media screen and (min-width: 1200px) {
         transform: translateX( -100% ) !important;
