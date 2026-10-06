@@ -228,7 +228,7 @@ max-width: 28rem;
    Image Banner written in HTML - Image alongside text
    ========================================================================== */
 
-openseadragon-block-text-image img {
+.openseadragon-block-text-image img {
   height: rem-calc(400);
   object-fit: cover;
   width: 100%;
