@@ -203,9 +203,13 @@ header .top-bar-left {
 header .top-bar {
   position: relative;
   padding: 0;
+  flex-direction: column;
   @include breakpoint(small only) {
     padding: .25rem 0 0.5rem 1rem;
   }    
+  @include breakpoint (1601) {
+    flex-direction: row;
+  }
 }
 
 .title-bar {
