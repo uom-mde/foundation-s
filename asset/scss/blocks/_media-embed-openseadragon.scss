@@ -90,9 +90,12 @@
   }
 }
 
+/*Remove #Header toolbar code*/
+/*
 .media-render.html:has(#header_toolbar) {
   margin-bottom: rem-calc(35);
 }
+*/
 
 .media-embed-block.layout-vertical.attachment-count-2 .openseadragon,
 .media-embed-block.layout-vertical.attachment-count-2 .file > a > img,
