@@ -131,28 +131,21 @@ header {
   .top-bar-left {
    flex-wrap: nowrap;
    width: 100%;
-
+   min-width: rem-calc(155);
+    @include breakpoint(900) {
+      padding-bottom: 1rem; 
+    }
     @include breakpoint(large) {
       flex: 1 1 auto;
       max-width: rem-calc(400);
+      margin-right: 1.5rem;
     }
-
+    @include breakpoint(xlarge) {
+      padding-bottom: 0; 
+    }
     &:has(button.search-icon[aria-expanded="true"]) {
       flex-flow: row wrap;
     }
-  }
-}
-
-.top-bar-left {
-  min-width: rem-calc(175);
-  @include breakpoint(900) {
-    padding-bottom: 1rem; 
-  }
-  @include breakpoint(large) {
-    margin-right: 1.5rem;
-  }
-  @include breakpoint(xlarge) {
-    padding-bottom: 0; 
   }
 }
 
