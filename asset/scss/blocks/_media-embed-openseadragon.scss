@@ -5,10 +5,7 @@
 /*Openseadragon*/ 
 .medium .openseadragon,
 .medium .seadragonbox {
-  height: 35vh !important;
-  @include breakpoint(medium) {
   height: 40vh !important;
-  }
   @include breakpoint(large) {
     height: 50vh !important;
     }
@@ -16,7 +13,7 @@
 
 .medium-large .openseadragon,
 .medium-large .seadragonbox {
-  height: 35vh !important;
+  height: 40vh !important;
   @include breakpoint(medium) {
   height: 60vh !important;
   }
