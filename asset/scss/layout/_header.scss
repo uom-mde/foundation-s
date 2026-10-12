@@ -114,6 +114,12 @@ header {
       display: flex;
       align-items: center;
     }
+    @include breakpoint(xlarge) {
+      margin-left: unset;
+    }
+    @include breakpoint(xxlarge) {
+      margin-left: auto;
+    }
   }
 }
 
@@ -141,6 +147,12 @@ header {
     }
     @include breakpoint(xlarge) {
       padding-bottom: 0; 
+      max-width: unset;
+    }
+    @include breakpoint(xxlarge) {
+      padding-bottom: 0; 
+    }
+    @include breakpoint(1601) {
       max-width: rem-calc(400);
     }
     &:has(button.search-icon[aria-expanded="true"]) {
