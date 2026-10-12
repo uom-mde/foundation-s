@@ -62,7 +62,7 @@
   display: flex;
   flex-grow: 3;
   order: 2;
-  width: rem-calc(250);
+  width: rem-calc(244);
   margin: 0 rem-calc(12);
   color: $primary-color;
   text-decoration: none;
@@ -137,7 +137,7 @@ header {
     }
     @include breakpoint(large) {
       flex: 1 1 auto;
-      max-width: rem-calc(400);
+      /*max-width: rem-calc(400);*/
       margin-right: 1.5rem;
     }
     @include breakpoint(xlarge) {
