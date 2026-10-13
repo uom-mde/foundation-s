@@ -198,5 +198,8 @@ button {
             min-height: 70vh !important;
             height: 70vh !important;
         }
+        .tl-menubar {
+        bottom: rem-calc(202.5px)!important;
+        }
     }
 }
