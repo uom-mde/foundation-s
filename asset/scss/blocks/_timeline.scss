@@ -120,6 +120,9 @@
         position: absolute;
         width: calc(100% - 2rem);
         bottom: rem-calc(-46px)!important;
+        @include breakpoint(medium) {
+            bottom: 0!important;
+        }
     }
 }
 
