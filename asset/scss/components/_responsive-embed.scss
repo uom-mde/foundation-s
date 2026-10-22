@@ -23,3 +23,9 @@ video {
   max-width: rem-calc(800) !important;
   margin: 0 auto !important;
 }
+
+/*Transcript Module*/
+/*Maximise video*/
+.large .player-video video {
+max-width: unset;
+}
