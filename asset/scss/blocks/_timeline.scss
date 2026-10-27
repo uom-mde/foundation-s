@@ -58,6 +58,7 @@
 
 .block-mappingMap {
     margin-bottom: 50px;
+    padding: 0 1 * $global-padding;
 }
 
 
@@ -69,6 +70,10 @@
 
     .tl-timeline {
         position: static !important;
+
+        .tl-menubar-button {
+            margin-bottom: 0;
+        }    
     }
 
     .tl-menubar {
