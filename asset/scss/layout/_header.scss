@@ -143,11 +143,13 @@ header {
     }
     @include breakpoint(large) {
       flex: 1 1 auto;
+      padding-left: 2 * $global-padding;
     }
     @include breakpoint(xlarge) {
       padding-bottom: 0; 
       max-width: unset;
       margin-right: 1.5rem;
+      padding-left: 0;
     }
     @include breakpoint(xxlarge) {
       padding-bottom: 0; 
