@@ -100,6 +100,9 @@
             display: block;
         }
     }
+    button.tl-menubar-button {
+    margin: 0;
+    }
 }
 
 
@@ -199,7 +202,7 @@ button {
             height: 70vh !important;
         }
         .tl-menubar {
-        bottom: rem-calc(202.5px)!important;
+            bottom: rem-calc(202.5px)!important;
         }
     }
 }
