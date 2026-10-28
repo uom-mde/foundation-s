@@ -433,6 +433,14 @@ button a,
   }
 }
 
+/*Add exception for text-around-media*/
+.text-around-image .metadata h2 {
+    @include breakpoint(medium) {
+    font-size: 1.1rem;
+  }
+}
+
+
 .metadata-value {
   display: block;
   font-size: $global-font-size;
