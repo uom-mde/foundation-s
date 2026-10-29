@@ -112,7 +112,7 @@ div.language-switcher {
   > ul {
     position: absolute;
     right: 0;
-    z-index: 99;
+    z-index: 9999999;
     margin: rem-calc(6) 0 0;
     padding: rem-calc(12) rem-calc(18);
     list-style: none;
