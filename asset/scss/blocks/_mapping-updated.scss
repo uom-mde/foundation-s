@@ -1,0 +1,15 @@
+/* Set Map Block Height excluding Timeline */
+.mapping-block:not(.timeline) {
+    max-width: rem-calc(1500px);
+    margin: 0 auto;
+    height: 80vh !important;
+    
+    .mapping-map {
+        height: 80vh !important;
+    }
+}
+
+/*Make mapping layers text legible*/
+  .leaflet-control-layers label {
+    color: #0a0a0a;
+  }
