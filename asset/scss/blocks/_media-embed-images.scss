@@ -3,7 +3,7 @@
    ========================================================================== */
 
 /*JPEG Styling*/
-.media-embed-block img {
+.media-embed-block > a > img {
   object-fit: contain;
   height: 100%;
   max-height: rem-calc(300) !important;
@@ -11,13 +11,13 @@
   max-height: rem-calc(350) !important;
   }
 }
-.media-embed-block .medium img {
+.media-embed-block .medium  > a > img {
   @include breakpoint(large) {
     max-height: 60vh !important;
   }
 } 
 
-.media-embed-block .medium-large img {
+.media-embed-block .medium-large  > a > img {
   @include breakpoint(large) {
     max-height: 70vh !important;
   }
@@ -26,7 +26,7 @@
   }
 } 
 
-.media-embed-block .large img {
+.media-embed-block .large  > a > img {
   @include breakpoint(medium) {
     max-height: 50vh !important;
   }
