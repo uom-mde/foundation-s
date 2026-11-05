@@ -205,3 +205,8 @@
     margin: $global-margin 0 2 * $global-margin 0;
   }
 }
+
+/*Fix for Openseadragon buttons*/
+.openseadragon-container img {
+    max-height: none !important;
+}
