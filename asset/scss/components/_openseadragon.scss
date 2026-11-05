@@ -19,6 +19,7 @@
 
   img {
     vertical-align: top !important;
+    max-height: none !important; /*Fix for Openseadragon buttons*/
   }
 }
 
