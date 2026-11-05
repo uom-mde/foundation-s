@@ -364,6 +364,13 @@ button a,
   }
 }
 
+/*Dark background behind media*/
+.media-render.file,
+.media-embed-block img {
+  background: $black;
+}
+
+
 /* Legacy Resource with Text / retained Media Embed selectors */
 
 .media-text {
