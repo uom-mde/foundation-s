@@ -11,16 +11,10 @@
 
     @include breakpoint(600) {
       height: 60vh !important;
-      width: 90vw !important;
     }
 
     @include breakpoint(900) {
       height: 80vh !important;
-      width: 70vw !important;
-    }
-
-    @include breakpoint(1200) {
-      width: 80vw !important;
     }
   }
 }
