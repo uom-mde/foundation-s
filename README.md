@@ -17,7 +17,11 @@ Foundation S provides:
 - Block template support
 - Sass-based styling architecture
 
-This fork extends Foundation S with functionality developed specifically for Manchester Digital Exhibitions.
+This fork extends the Foundation S theme with functionality developed specifically for Manchester Digital Exhibitions.
+
+## AI Assistance
+
+This theme was developed with assistance from generative AI tools, including ChatGPT and Microsoft Copilot. AI was used to support code development, debugging, and documentation. All AI-generated or AI-assisted content was reviewed and, where appropriate, modified and tested before inclusion.
 
 ## Key Features
 
