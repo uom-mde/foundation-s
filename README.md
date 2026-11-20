@@ -6,7 +6,7 @@ The theme is based on the Corporation for Digital Scholarship's Foundation S the
 
 ## Relationship to Foundation S
 
-This theme is a fork of the Foundation S theme developed by the Corporation for Digital Scholarship.
+This theme is a fork of the [Foundation S theme](https://github.com/omeka-s-themes/foundation) developed by the Corporation for Digital Scholarship.
 
 Foundation S provides:
 
