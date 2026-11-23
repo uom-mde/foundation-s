@@ -1,0 +1,93 @@
+
+/* ==========================================================================
+   Exhibition Page Pagination
+   ========================================================================== */
+
+.exhibition-pagination {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  gap: 1rem;
+  margin: 3rem 0 2rem;
+  width: 100%;
+  @include breakpoint(small only) {
+    flex-direction: column-reverse;
+  }
+
+  &__link {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 240px;
+    gap: 0.5rem;
+    padding: 0.5 * $global-padding $global-padding;
+    background: $secondary-color;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    color: $white;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+    @include breakpoint (medium) {
+    max-width: rem-calc(300);
+    }
+
+    &:hover,
+    &:focus-visible {
+      background: darken($secondary-color, 5%);
+      text-decoration: none;
+    }
+
+    &:focus-visible {
+      outline: 2px solid currentColor;
+      outline-offset: 3px;
+    }
+  }
+
+  &__direction {
+    font-size: $global-font-size;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+    &__title {
+    font-size: $global-font-size;
+    font-weight: 500;
+    line-height: 1.4;
+    color: $white;
+  }
+
+  &__next {
+    text-align: right;
+    margin-left: auto;
+    color: $warning-color;
+    border-radius: 0.5rem;
+      &:focus {
+      color: $warning-color;
+    }
+      &:hover {
+      color: darken($warning-color, 15%);
+    }
+  }
+
+  &__prev {
+    text-align: left;
+    margin-right: auto;    
+    color: $warning-color;
+    border-radius: 0.5rem;
+      &:focus {
+      color: $warning-color;
+    }
+      &:hover {
+      color: darken($warning-color, 15%);
+    }
+  }
+
+  @media (max-width: 599px) {
+    
+
+    &__link {
+      flex: 0 1 auto;
+      width: 100%;
+    }
+  }
+}

@@ -1,11 +1,46 @@
+
 <?php
 $translate = $this->plugin('translate');
-$prevText = $translate('Previous');
-$nextText = $translate('Next');
 ?>
+
 <?php if ($prevPage || $nextPage): ?>
-<div class="grid-container site-page-pagination">
-    <?php echo $prevPage ? $this->hyperlink($prevText, $prevPage->siteUrl()) : ''; ?>
-    <?php echo $nextPage ? $this->hyperlink($nextText, $nextPage->siteUrl()) : ''; ?>
-</div>
+
+
+    <nav class="exhibition-pagination"
+        aria-label="<?= $this->escapeHtmlAttr(
+            $translate('Page navigation')
+        ) ?>">
+
+        <?php if ($prevPage): ?>
+            <a class="exhibition-pagination__link exhibition-pagination__prev"
+            href="<?= $this->escapeHtmlAttr($prevPage->siteUrl()) ?>">
+
+                <span class="exhibition-pagination__direction">
+                    &larr; <?= $this->escapeHtml($translate('Previous')) ?>
+                </span>
+
+                <span class="exhibition-pagination__title">
+                    <?= $this->escapeHtml($prevPage->title()) ?>
+                </span>
+
+            </a>
+        <?php endif; ?>
+
+        <?php if ($nextPage): ?>
+            <a class="exhibition-pagination__link exhibition-pagination__next"
+            href="<?= $this->escapeHtmlAttr($nextPage->siteUrl()) ?>">
+
+                <span class="exhibition-pagination__direction">
+                    <?= $this->escapeHtml($translate('Next')) ?> &rarr;
+                </span>
+
+                <span class="exhibition-pagination__title">
+                    <?= $this->escapeHtml($nextPage->title()) ?>
+                </span>
+
+            </a>
+        <?php endif; ?>
+
+    </nav>
+
 <?php endif; ?>
