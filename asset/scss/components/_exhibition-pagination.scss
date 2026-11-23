@@ -27,7 +27,7 @@
     text-decoration: none;
     transition: background-color 0.2s ease;
     @include breakpoint (medium) {
-    max-width: rem-calc(350);
+    max-width: rem-calc(300);
     }
 
     &:hover,
@@ -54,24 +54,32 @@
     font-weight: 500;
     line-height: 1.4;
     color: $white;
-
-    &:hover {
-        color: $warning-color;
-    }
   }
 
   &__next {
     text-align: right;
     margin-left: auto;
     color: $warning-color;
-    border-radius: 0 0.5rem 0.5rem 0;
+    border-radius: 0.5rem;
+      &:focus {
+      color: $warning-color;
+    }
+      &:hover {
+      color: darken($warning-color, 15%);
+    }
   }
 
   &__prev {
     text-align: left;
     margin-right: auto;    
     color: $warning-color;
-    border-radius: 0.5rem 0 0 0.5rem;
+    border-radius: 0.5rem;
+      &:focus {
+      color: $warning-color;
+    }
+      &:hover {
+      color: darken($warning-color, 15%);
+    }
   }
 
   @media (max-width: 599px) {
