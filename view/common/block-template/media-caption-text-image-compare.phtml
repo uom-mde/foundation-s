@@ -1,0 +1,217 @@
+<?php
+$this->headScript()->appendFile($this->assetUrl('js/image-compare-mode-selector.js'),'module');
+$this->headScript()->appendFile($this->assetUrl('js/image-compare-view.js'),'module');
+$this->headScript()->appendFile($this->assetUrl('js/image-compare-view-options.js'),'module');
+$this->headScript()->appendFile($this->assetUrl('js/shared-each-DPi8tjq8.js'),'module');
+$this->headScript()->appendFile($this->assetUrl('js/shared-index-3Nm0QgDz.js'),'module');
+$hyperlink = $this->plugin('hyperlink');
+$thumbnailType = $block->dataValue('thumbnail_type');
+?>
+
+<div class="reveal-on-scroll lazy-fade-in">
+    <div class="full-width file-caption-block media-caption-text resourceTextGrid padding-1 large-padding-2">
+
+        <?php foreach ($attachments as $attachmentIndex => $attachment): ?>
+            <?php
+            $item = $attachment->item();
+
+            // Use the selected media, falling back to the item's primary media.
+            // This may still return null when the item has no media.
+            $media = $attachment->media() ?: $item->primaryMedia();
+            ?>
+
+            <div class="media-embed-block file file-caption-text media-embed xlarge-padding-horizontal-1 flex-container align-center align-middle <?php echo $this->escapeHtml(implode(' ', $classes)); ?>">
+
+                <div class="item resource <?php echo $this->escapeHtml($thumbnailType); ?>">
+
+                    <?php
+                        $item = $attachment->item();
+
+                        // Use the media selected in the block, falling back to primary media.
+                        $media = $attachment->media() ?: $item->primaryMedia();
+
+                        // Retrieve all JSON configuration locations from foaf:img.
+                        $configValues = $item->value('foaf:img', ['all' => true]);
+                        ?>
+
+                        <?php if ($configValues): ?>
+
+                            <?php foreach ($configValues as $configIndex => $configValue): ?>
+                                <?php
+                                // Prefer the actual URI when foaf:img was entered as a URI value.
+                                $configUrl = method_exists($configValue, 'uri')
+                                    ? $configValue->uri()
+                                    : null;
+
+                                // Fall back to the textual value if necessary.
+                                if (!$configUrl) {
+                                    $configUrl = trim((string) $configValue);
+                                }
+
+                                // Make the ID unique across attachments and configuration values.
+                                $viewerId = sprintf(
+                                    'image-compare-%d-%d',
+                                    $attachmentIndex,
+                                    $configIndex
+                                );
+                                ?>
+
+                                <?php if ($configUrl): ?>
+                                    <section class="image-compare-wrapper flex-container align-center align-middle">
+                                        <image-compare-view
+                                            id="<?= $this->escapeHtmlAttr($viewerId) ?>"
+                                            configurl="<?= $this->escapeHtmlAttr($configUrl) ?>"
+                                            mode="slide">
+                                        </image-compare-view>
+                                    </section>
+                                <?php endif; ?>
+
+                            <?php endforeach; ?>
+
+                        <?php elseif ($media): ?>
+
+                            <?php if ($mediaDisplay === 'thumbnail'): ?>
+
+                                <?php
+                                echo $media->linkPretty(
+                                    'large',
+                                    null,
+                                    [
+                                        'class' => 'media-thumbnail',
+                                    ]
+                                );
+                                ?>
+
+                            <?php else: ?>
+
+                                <?= $media->render() ?>
+
+                            <?php endif; ?>
+
+                        <?php else: ?>
+
+                            <div class="media-embed-empty callout warning">
+                                <p>
+                                    <?= $this->translate(
+                                        'This item does not currently have any media or image comparison configuration.'
+                                    ) ?>
+                                </p>
+                            </div>
+
+                        <?php endif; ?>
+
+                </div>
+            
+            </div><!-- /.file -->
+
+            <!-- Metadata / text -->
+            <div class="block-html medium-padding-horizontal-1 xlarge-padding-horizontal-3">
+
+                <?php if ($showTitleOption === 'item_title'): ?>
+
+                    <div class="separator-center metadata margin-vertical-1">
+
+                        <h2 class="item-title">
+                            <?php echo $this->escapeHtml($item->displayTitle()); ?>
+                        </h2>
+
+                        <?php if ($alternative = $item->value('dcterms:alternative')): ?>
+                            <div class="metadata-value italic-font alternative">          
+                                <?php echo $this->escapeHtml($alternative); ?>        
+                            </div>
+                        <?php endif; ?>
+
+                        <?php if ($date = $item->value('dcterms:date')): ?>
+                            <div class="metadata-value date">  
+                                <?php echo $this->escapeHtml($date); ?>            
+                            </div>
+                        <?php endif; ?>
+
+                        <?php if ($location = $item->value('curation:location')): ?>
+                            <div class="metadata-value location text-center">
+                                
+                                    <?php echo $this->escapeHtml($location); ?>
+                                
+                            </div>
+                        <?php endif; ?>
+
+                    </div>
+
+                <?php elseif ($showTitleOption === 'file_name'): ?>
+
+                    <div class="separator-center metadata margin-vertical-1">
+
+                        <h2 class="item-title">
+                            <?php if ($media): ?>
+                                <?php echo $this->escapeHtml($media->displayTitle()); ?>
+                            <?php else: ?>
+                                <?php echo $this->escapeHtml($item->displayTitle()); ?>
+                            <?php endif; ?>
+                        </h2>
+
+                        <?php if ($alternative = $item->value('dcterms:alternative')): ?>
+                            <div class="metadata-value italic-font alternative">
+                                
+                                    <?php echo $this->escapeHtml($alternative); ?>
+                                
+                            </div>
+                        <?php endif; ?>
+
+                        <?php if ($date = $item->value('dcterms:date')): ?>
+                            <div class="metadata-value date">
+                                
+                                    <?php echo $this->escapeHtml($date); ?>
+                                
+                            </div>
+                        <?php endif; ?>
+
+                        <?php if ($location = $item->value('curation:location')): ?>
+                            <div class="metadata-value location text-center">   
+                                <?php echo $this->escapeHtml($location); ?>   
+                            </div>
+                        <?php endif; ?>
+
+                    </div>
+
+                <?php endif; ?>
+
+                <?php if ($caption = $attachment->caption()): ?>
+                    <div class="caption margin-top-1 large-margin-top-2">
+                        <?php echo $caption; ?>
+                    </div>
+                <?php endif; ?>
+
+                <?php
+                $identifiers = $item->value(
+                    'dcterms:identifier',
+                    ['all' => true]
+                );
+                ?>
+
+                <?php if ($identifiers): ?>
+                    <?php foreach ($identifiers as $identifier): ?>
+                        <div class="identifier metadata-value">                      
+                            <?php echo $this->escapeHtml($identifier); ?>                     
+                        </div>
+                    <?php endforeach; ?>
+                <?php endif; ?>
+
+                <div class="learn-more flex-container align-center margin-top-1">
+                    <?php
+                    echo $item->link(
+                        $this->translate('More item information'),
+                        null,
+                        [
+                            'class' =>
+                                'button medium warning hollow',
+                        ]
+                    );
+                    ?>
+                </div>
+
+            </div><!-- /.block-html -->
+
+        <?php endforeach; ?>
+
+    </div><!-- /.file-caption-block -->
+</div><!-- /.reveal-on-scroll -->
