@@ -101,14 +101,14 @@ $thumbnailType = $block->dataValue('thumbnail_type');
                         <!-- Optional site-specific metadata -->
                         <?php
                         echo $this->partial(
-                            'common/partial/media-metadata-publisher',
+                            'common/partial/media-metadata-alternative',
                             ['item' => $item]
                         );
                         ?>
 
                         <?php
                         echo $this->partial(
-                            'common/partial/media-metadata-alternative',
+                            'common/partial/media-metadata-publisher',
                             ['item' => $item]
                         );
                         ?>
@@ -121,13 +121,12 @@ $thumbnailType = $block->dataValue('thumbnail_type');
 
                         <?php endif; ?>
 
-                        <?php if ($location = $item->value('curation:location')): ?>
-
-                            <div class="metadata-value location text-center">
-                                <?php echo $this->escapeHtml($location); ?>
-                            </div>
-
-                        <?php endif; ?>
+                                                <?php
+                        echo $this->partial(
+                            'common/partial/media-metadata-location',
+                            ['item' => $item]
+                        );
+                        ?>
 
                     </div>
 

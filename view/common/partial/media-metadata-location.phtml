@@ -1,0 +1,26 @@
+<?php
+$site = $this->currentSite();
+
+$allowedSites = [
+    'home-page',
+    'designing-dante',
+    'japanese-maps',
+];
+
+if (!$site || !in_array($site->slug(), $allowedSites, true)) {
+    return;
+}
+
+$locations = $item->value(
+    'curation:location',
+    ['all' => true]
+);
+?>
+
+<?php foreach ($locations as $location): ?>
+
+    <div class="metadata-value location text-center">
+        <?php echo $this->escapeHtml($location); ?>
+    </div>
+
+<?php endforeach; ?>
