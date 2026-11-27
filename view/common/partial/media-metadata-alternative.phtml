@@ -2,9 +2,12 @@
 $site = $this->currentSite();
 
 $allowedSites = [
-    'home-page',
     'designing-dante',
+    'extra-illustrated-books',
     'japanese-maps',
+    'jewish-manuscripts',
+    'qing',
+    'qing-cn',
 ];
 
 if (!$site || !in_array($site->slug(), $allowedSites, true)) {

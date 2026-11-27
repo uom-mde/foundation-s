@@ -2,9 +2,20 @@
 $site = $this->currentSite();
 
 $allowedSites = [
-    'home-page',
-    'designing-dante',
-    'japanese-maps',
+    'carla-en',
+    'carla-es',
+    'carla-pt',
+    'corala',
+    'corala-es',
+    'indigenous-youth-subcultures',
+    'extra-illustrated-books',
+    'founders-and-funders',
+    'islamic-science',
+    'sikh-heritage',
+    'territorios-digitales',
+    'jewish-manuscripts',
+    'women-who-shaped-manchester',
+    'x-stands-for-nothing',
 ];
 
 if (!$site || !in_array($site->slug(), $allowedSites, true)) {
