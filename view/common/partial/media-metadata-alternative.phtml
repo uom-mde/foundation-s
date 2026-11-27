@@ -1,0 +1,26 @@
+<?php
+$site = $this->currentSite();
+
+$allowedSites = [
+    'home-page',
+    'designing-dante',
+    'japanese-maps',
+];
+
+if (!$site || !in_array($site->slug(), $allowedSites, true)) {
+    return;
+}
+
+$alternatives = $item->value(
+    'dcterms:alternative',
+    ['all' => true]
+);
+?>
+
+<?php foreach ($alternatives as $alternative): ?>
+
+    <div class="metadata-value italic-font alternative">
+        <?php echo $this->escapeHtml($alternative); ?>
+    </div>
+
+<?php endforeach; ?>

@@ -80,68 +80,53 @@ $thumbnailType = $block->dataValue('thumbnail_type');
             <!-- Metadata / text -->
             <div class="block-html medium-padding-horizontal-1 xlarge-padding-horizontal-3">
 
-                <?php if ($showTitleOption === 'item_title'): ?>
+                <?php if (
+                    in_array($showTitleOption, ['item_title', 'file_name'], true)
+                ): ?>
 
                     <div class="separator-center metadata margin-vertical-1">
 
                         <h2 class="item-title">
-                            <?php echo $this->escapeHtml($item->displayTitle()); ?>
+
+                            <?php
+                            if ($showTitleOption === 'file_name' && $media) {
+                                echo $this->escapeHtml($media->displayTitle());
+                            } else {
+                                echo $this->escapeHtml($item->displayTitle());
+                            }
+                            ?>
+
                         </h2>
 
-                        <?php if ($alternative = $item->value('dcterms:alternative')): ?>
-                            <div class="metadata-value italic-font alternative">          
-                                <?php echo $this->escapeHtml($alternative); ?>        
-                            </div>
-                        <?php endif; ?>
+                        <!-- Optional site-specific metadata -->
+                        <?php
+                        echo $this->partial(
+                            'common/partial/media-metadata-publisher',
+                            ['item' => $item]
+                        );
+                        ?>
+
+                        <?php
+                        echo $this->partial(
+                            'common/partial/media-metadata-alternative',
+                            ['item' => $item]
+                        );
+                        ?>
 
                         <?php if ($date = $item->value('dcterms:date')): ?>
-                            <div class="metadata-value date">  
-                                <?php echo $this->escapeHtml($date); ?>            
-                            </div>
-                        <?php endif; ?>
 
-                        <?php if ($location = $item->value('curation:location')): ?>
-                            <div class="metadata-value location text-center">
-                                
-                                    <?php echo $this->escapeHtml($location); ?>
-                                
-                            </div>
-                        <?php endif; ?>
-
-                    </div>
-
-                <?php elseif ($showTitleOption === 'file_name'): ?>
-
-                    <div class="separator-center metadata margin-vertical-1">
-
-                        <h2 class="item-title">
-                            <?php if ($media): ?>
-                                <?php echo $this->escapeHtml($media->displayTitle()); ?>
-                            <?php else: ?>
-                                <?php echo $this->escapeHtml($item->displayTitle()); ?>
-                            <?php endif; ?>
-                        </h2>
-
-                        <?php if ($alternative = $item->value('dcterms:alternative')): ?>
-                            <div class="metadata-value italic-font alternative">
-                                
-                                    <?php echo $this->escapeHtml($alternative); ?>
-                                
-                            </div>
-                        <?php endif; ?>
-
-                        <?php if ($date = $item->value('dcterms:date')): ?>
                             <div class="metadata-value date">
-                                
-                                    <?php echo $this->escapeHtml($date); ?>
-                                
+                                <?php echo $this->escapeHtml($date); ?>
                             </div>
+
                         <?php endif; ?>
 
                         <?php if ($location = $item->value('curation:location')): ?>
-                            <div class="metadata-value location text-center">   
-                                <?php echo $this->escapeHtml($location); ?>   
+
+                            <div class="metadata-value location text-center">
+                                <?php echo $this->escapeHtml($location); ?>
                             </div>
+
                         <?php endif; ?>
 
                     </div>

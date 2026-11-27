@@ -1,0 +1,26 @@
+<?php
+$site = $this->currentSite();
+
+$allowedSites = [
+    'home-page',
+    'designing-dante',
+    'japanese-maps',
+];
+
+if (!$site || !in_array($site->slug(), $allowedSites, true)) {
+    return;
+}
+
+$publishers = $item->value(
+    'dcterms:publisher',
+    ['all' => true]
+);
+?>
+
+<?php foreach ($publishers as $publisher): ?>
+
+    <div class="metadata-value publisher">
+        <?php echo $this->escapeHtml($publisher); ?>
+    </div>
+
+<?php endforeach; ?>
